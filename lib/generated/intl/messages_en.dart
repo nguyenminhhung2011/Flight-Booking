@@ -21,5 +21,29 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "activities": MessageLookupByLibrary.simpleMessage("Activities"),
+        "addNewWidgets":
+            MessageLookupByLibrary.simpleMessage("Add new widgets"),
+        "addPlan": MessageLookupByLibrary.simpleMessage("Add Plan"),
+        "allBooking": MessageLookupByLibrary.simpleMessage("All Booking"),
+        "bookingType": MessageLookupByLibrary.simpleMessage("Booking type"),
+        "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
+        "dateRange": MessageLookupByLibrary.simpleMessage("Date range"),
+        "departureDate": MessageLookupByLibrary.simpleMessage("Departure Date"),
+        "destination": MessageLookupByLibrary.simpleMessage("Destination"),
+        "duration": MessageLookupByLibrary.simpleMessage("Duration"),
+        "export": MessageLookupByLibrary.simpleMessage("Export"),
+        "month": MessageLookupByLibrary.simpleMessage("Month"),
+        "people": MessageLookupByLibrary.simpleMessage("People"),
+        "sale": MessageLookupByLibrary.simpleMessage("Sale"),
+        "salePerformance":
+            MessageLookupByLibrary.simpleMessage("Sale Performance"),
+        "searchAnything":
+            MessageLookupByLibrary.simpleMessage("Search Anything..."),
+        "view": MessageLookupByLibrary.simpleMessage("View"),
+        "visited10Of100Countries":
+            MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries")
+      };
 }

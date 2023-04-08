@@ -1,1 +1,22 @@
-{}
+{
+    "@@locale": "en",
+    "dashboard": "Dashboard",
+    "searchAnything": "Search Anything...",
+    "addNewWidgets": "Add new widgets",
+    "allBooking": "All Booking",
+    "month": "Month",
+    "departureDate": "Departure Date",
+    "bookingType": "Booking type",
+    "dateRange": "Date range",
+    "destination": "Destination",
+    "date": "Date",
+    "people": "People",
+    "duration": "Duration",
+    "salePerformance": "Sale Performance",
+    "visited10Of100Countries": "Visited 10 of 100 countries",
+    "export": "Export",
+    "view": "View",
+    "sale": "Sale",
+    "activities": "Activities",
+    "addPlan": "Add Plan"
+}
