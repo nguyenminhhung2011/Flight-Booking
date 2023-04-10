@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.2 <3.0.0'
+  sdk: ">=2.17.6 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -68,7 +68,9 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   fl_chart: ^0.61.0
-
+  adaptive_theme: ^3.2.0
+  injectable: ^2.1.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -82,7 +84,11 @@ dev_dependencies:
   build_runner: ^2.3.3
   freezed: ^2.3.2
   json_serializable: ^6.6.1
+  dart_code_metrics: ^5.7.0
   hive_generator: ^2.0.0
+  injectable_generator: ^2.1.5
+  retrofit_generator: ^6.0.0+1
+  isar_generator: ^3.0.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -91,9 +97,10 @@ dev_dependencies:
 
 flutter_intl:
     enabled: true
+    use_deferred_loading: true
 
 flutter:
-  generate: true 
+  # generate: true 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

@@ -108,7 +108,8 @@ class _CalenderScreenState extends State<CalenderScreen> {
                                   .textTheme
                                   .titleSmall!
                                   .copyWith(
-                                      decoration: TextDecoration.underline),
+                                    decoration: TextDecoration.underline,
+                                  ),
                             ),
                           ),
                         ],

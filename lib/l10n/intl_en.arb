@@ -18,5 +18,7 @@
     "view": "View",
     "sale": "Sale",
     "activities": "Activities",
-    "addPlan": "Add Plan"
+    "addPlan": "Add Plan",
+    "darkMode": "Dark Mode",
+    "lightMode": "LightMode"
 }

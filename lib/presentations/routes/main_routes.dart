@@ -5,20 +5,13 @@ import 'package:flutter/material.dart';
 class MainRoutes {
   static Map<String, WidgetBuilder> getRoutesWithSettings() {
     final routes = {
-      Routes.home: (context) => const Scaffold(),
-      Routes.dashboard: (context) {
-        return const DashboardScreen();
-      },
+      Routes.dashboard: (context) => const DashboardScreen(),
     };
     return routes;
   }
 
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.home:
-        return MaterialPageRoute(
-          builder: (_) => const Scaffold(),
-        );
       case Routes.dashboard:
         return MaterialPageRoute(
           builder: (_) {

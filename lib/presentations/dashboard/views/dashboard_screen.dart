@@ -1,8 +1,26 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/enum/view_enum.dart';
+import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
+import 'package:flight_booking/presentations/dashboard/bloc/dashboard_model_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../generated/l10n.dart';
 import '../../calendar/views/calender_screen.dart';
 import '../../overview/views/overview_screen.dart';
+
+List<Map<String, Widget>> _pages = const [
+  {
+    'body': OverviewScreen(),
+    'secondBody': CalenderScreen(),
+  },
+  {
+    'body': SizedBox(),
+    'secondBody': SizedBox(),
+  }
+];
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -56,84 +74,123 @@ class _DashboardScreenState extends State<DashboardScreen> {
     super.didChangeDependencies();
   }
 
+  void _onChangeTheme(bool value) {
+    if (value) {
+      AdaptiveTheme.of(context).setDark();
+    } else {
+      AdaptiveTheme.of(context).setLight();
+    }
+    context.read<DashboardBloc>().add(DashboardEvent.changeTheme(value));
+  }
+
+  void _onChangeView(int view) {
+    context.read<DashboardBloc>().add(DashboardEvent.changeView(view));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        return true;
-      },
-      child: Stack(
-        children: [
-          Container(
-            color: Theme.of(context).scaffoldBackgroundColor,
-          ),
-          Scaffold(
-            backgroundColor: Theme.of(context).cardColor,
-            body: AdaptiveLayout(
-              bodyRatio: 0.7,
-              primaryNavigation: SlotLayout(
-                config: <Breakpoint, SlotLayoutConfig>{
-                  Breakpoints.medium: SlotLayout.from(
-                    inAnimation: AdaptiveScaffold.leftOutIn,
-                    key: const Key('Primary Navigation Medium'),
-                    builder: (_) => AdaptiveScaffold.standardNavigationRail(
-                      selectedIndex: selectedNavigation,
-                      onDestinationSelected: (int newIndex) {},
-                      leading: const Icon(Icons.menu),
-                      destinations: destinitons,
-                      backgroundColor:
-                          Theme.of(context).scaffoldBackgroundColor,
-                    ),
-                  ),
-                  Breakpoints.large: SlotLayout.from(
-                    key: const Key('Primary Navigation Large'),
-                    inAnimation: AdaptiveScaffold.leftOutIn,
-                    builder: (_) => AdaptiveScaffold.standardNavigationRail(
-                      selectedIndex: selectedNavigation,
-                      onDestinationSelected: (int newIndex) {},
-                      extended: true,
-                      leading: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: const <Widget>[
-                          Text(
-                            'REPLY',
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 255, 201, 197)),
-                          ),
-                          Icon(Icons.menu_open)
-                        ],
+    return WillPopScope(onWillPop: () async {
+      if (context.read<DashboardBloc>().state.data.viewEnum != 0) {
+        context.startSelectedBottomBarItem(0);
+      }
+      return true;
+    }, child: BlocBuilder<DashboardBloc, DashboardState>(
+      builder: (context, sate) {
+        DashboardModelState data = context.read<DashboardBloc>().data;
+
+        return Stack(
+          children: [
+            Container(
+              color: Theme.of(context).scaffoldBackgroundColor,
+            ),
+            Scaffold(
+              backgroundColor: Theme.of(context).cardColor,
+              body: AdaptiveLayout(
+                bodyRatio: 0.7,
+                primaryNavigation: SlotLayout(
+                  config: <Breakpoint, SlotLayoutConfig>{
+                    Breakpoints.medium: SlotLayout.from(
+                      inAnimation: AdaptiveScaffold.leftOutIn,
+                      key: const Key('Primary Navigation Medium'),
+                      builder: (_) => AdaptiveScaffold.standardNavigationRail(
+                        selectedIndex: selectedNavigation,
+                        onDestinationSelected: (int newIndex) {},
+                        leading: const Icon(Icons.menu),
+                        destinations: destinitons,
+                        backgroundColor:
+                            Theme.of(context).scaffoldBackgroundColor,
                       ),
-                      destinations: destinitons,
-                      // trailing: trailingNavRail,
-                      backgroundColor:
-                          Theme.of(context).scaffoldBackgroundColor,
                     ),
-                  ),
-                },
-              ),
-              body: SlotLayout(
-                config: <Breakpoint, SlotLayoutConfig?>{
-                  Breakpoints.smallAndUp: SlotLayout.from(
-                    key: const Key('Body'),
-                    inAnimation: AdaptiveScaffold.stayOnScreen,
-                    builder: (contextBody) => const OverviewScreen(),
-                  ),
-                },
-              ),
-              secondaryBody: SlotLayout(
-                config: <Breakpoint, SlotLayoutConfig?>{
-                  Breakpoints.large: SlotLayout.from(
-                    key: const Key('Secondary Body'),
-                    inAnimation: AdaptiveScaffold.stayOnScreen,
-                    builder: (_) => const CalenderScreen(),
-                  ),
-                },
+                    Breakpoints.large: SlotLayout.from(
+                      key: const Key('Primary Navigation Large'),
+                      inAnimation: AdaptiveScaffold.leftOutIn,
+                      builder: (_) => AdaptiveScaffold.standardNavigationRail(
+                        selectedIndex: data.viewEnum,
+                        onDestinationSelected: _onChangeView,
+                        extended: true,
+                        leading: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: const <Widget>[
+                            Text(
+                              'REPLY',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 255, 201, 197)),
+                            ),
+                            Icon(Icons.menu_open)
+                          ],
+                        ),
+                        destinations: destinitons,
+                        // trailing: trailingNavRail,
+                        backgroundColor:
+                            Theme.of(context).scaffoldBackgroundColor,
+                        trailing: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                          child: Row(
+                            children: [
+                              Icon(
+                                data.isDarkTheme
+                                    ? Icons.dark_mode
+                                    : Icons.light_mode,
+                              ),
+                              Text(
+                                ' ${data.isDarkTheme ? S.of(context).darkMode : S.of(context).lightMode}',
+                              ),
+                              Switch(
+                                // This bool value toggles the switch.
+                                value: data.isDarkTheme,
+                                onChanged: _onChangeTheme,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  },
+                ),
+                body: SlotLayout(
+                  config: <Breakpoint, SlotLayoutConfig?>{
+                    Breakpoints.smallAndUp: SlotLayout.from(
+                      key: const Key('Body'),
+                      inAnimation: AdaptiveScaffold.stayOnScreen,
+                      builder: (contextBody) => _pages[data.viewEnum]['body']!,
+                    ),
+                  },
+                ),
+                secondaryBody: SlotLayout(
+                  config: <Breakpoint, SlotLayoutConfig?>{
+                    Breakpoints.large: SlotLayout.from(
+                      key: const Key('Secondary Body'),
+                      inAnimation: AdaptiveScaffold.stayOnScreen,
+                      builder: (_) => _pages[data.viewEnum]['secondBody']!,
+                    ),
+                  },
+                ),
               ),
             ),
-          ),
-        ],
-      ),
-    );
+          ],
+        );
+      },
+    ));
   }
 }
 
