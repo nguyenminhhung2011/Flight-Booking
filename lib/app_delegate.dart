@@ -22,7 +22,7 @@ class AppDelegate {
       providers: [
         BlocProvider<DashboardBloc>(create: (_) => injector.get()),
       ],
-      initialRoute: Routes.dashboard,
+      initialRoute: Routes.splash,
       savedThemeMode: savedThemeMode,
     );
   }
