@@ -196,20 +196,21 @@ class LoginScreen extends StatelessWidget {
                     ),
                     child: ValueListenableBuilder(
                       valueListenable: isLoading,
-                      builder: (context, value, child) => value
-                          ? const Text(
-                              "Log In",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            )
-                          : const Center(
-                              child: CircularProgressIndicator(
-                                color: Colors.white,
-                              ),
-                            ),
+                      builder: (context, isLoadingValue, child) =>
+                          (isLoadingValue as bool)
+                              ? const Text(
+                                  "Log In",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                )
+                              : const Center(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                  ),
+                                ),
                     ),
                   ),
                 ),
