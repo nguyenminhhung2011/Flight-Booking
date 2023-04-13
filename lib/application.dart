@@ -43,7 +43,6 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
       supportedLocales: S.delegate.supportedLocales,
       theme: light,
       darkTheme: dark,
-      home: const SizedBox(),
       locale: locale,
     );
   }

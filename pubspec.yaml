@@ -70,6 +70,7 @@ dependencies:
   fl_chart: ^0.61.0
   adaptive_theme: ^3.2.0
   injectable: ^2.1.0
+  dotted_decoration: ^2.0.0
   
 dev_dependencies:
   flutter_test:

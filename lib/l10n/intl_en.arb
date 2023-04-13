@@ -20,5 +20,13 @@
     "activities": "Activities",
     "addPlan": "Add Plan",
     "darkMode": "Dark Mode",
-    "lightMode": "LightMode"
+    "lightMode": "LightMode",
+    "listTicket": "List tickets",
+    "times": "Times",
+    "price": "Price",
+    "more": "More",
+    "startFrom": "Start From",
+    "viewDetail": "View Detail",
+    "direct": "Direct"
+
 }
