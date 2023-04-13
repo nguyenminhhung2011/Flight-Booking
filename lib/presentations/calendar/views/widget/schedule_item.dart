@@ -89,10 +89,10 @@ class ScheduleItem extends StatelessWidget {
           : Row(
               children: [
                 const SizedBox(width: 5),
-                SizedBox(
-                  width: 150,
+                Expanded(
                   child: Text(
                     schedule[i]['title'],
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context)
                         .textTheme
