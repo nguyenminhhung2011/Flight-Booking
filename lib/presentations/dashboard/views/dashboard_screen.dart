@@ -1,6 +1,5 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flight_booking/app_coordinator.dart';
-import 'package:flight_booking/core/components/enum/view_enum.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_model_state.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../generated/l10n.dart';
 import '../../calendar/views/calender_screen.dart';
+import '../../list_ticket/views/list_ticket_screen.dart';
 import '../../overview/views/overview_screen.dart';
 
 List<Map<String, Widget>> _pages = const [
@@ -17,7 +17,7 @@ List<Map<String, Widget>> _pages = const [
     'secondBody': CalenderScreen(),
   },
   {
-    'body': SizedBox(),
+    'body': ListTicketScreen(),
     'secondBody': SizedBox(),
   }
 ];
@@ -106,6 +106,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Scaffold(
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               body: AdaptiveLayout(
+                internalAnimations: false,
                 bodyRatio: 0.7,
                 primaryNavigation: SlotLayout(
                   config: <Breakpoint, SlotLayoutConfig>{
@@ -156,7 +157,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 ' ${data.isDarkTheme ? S.of(context).darkMode : S.of(context).lightMode}',
                               ),
                               Switch(
-                                // This bool value toggles the switch.
                                 value: data.isDarkTheme,
                                 onChanged: _onChangeTheme,
                               )

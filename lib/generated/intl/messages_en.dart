@@ -34,17 +34,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateRange": MessageLookupByLibrary.simpleMessage("Date range"),
         "departureDate": MessageLookupByLibrary.simpleMessage("Departure Date"),
         "destination": MessageLookupByLibrary.simpleMessage("Destination"),
+        "direct": MessageLookupByLibrary.simpleMessage("Direct"),
         "duration": MessageLookupByLibrary.simpleMessage("Duration"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
+        "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
         "month": MessageLookupByLibrary.simpleMessage("Month"),
+        "more": MessageLookupByLibrary.simpleMessage("More"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
+        "price": MessageLookupByLibrary.simpleMessage("Price"),
         "sale": MessageLookupByLibrary.simpleMessage("Sale"),
         "salePerformance":
             MessageLookupByLibrary.simpleMessage("Sale Performance"),
         "searchAnything":
             MessageLookupByLibrary.simpleMessage("Search Anything..."),
+        "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
+        "times": MessageLookupByLibrary.simpleMessage("Times"),
         "view": MessageLookupByLibrary.simpleMessage("View"),
+        "viewDetail": MessageLookupByLibrary.simpleMessage("View Detail"),
         "visited10Of100Countries":
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries")
       };
