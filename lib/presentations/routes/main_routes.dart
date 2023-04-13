@@ -1,4 +1,5 @@
 import 'package:flight_booking/presentations/dashboard/views/dashboard_screen.dart';
+import 'package:flight_booking/presentations/login/views/login_screen.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,12 @@ class MainRoutes {
         return MaterialPageRoute(
           builder: (_) {
             return const DashboardScreen();
+          },
+        );
+      case Routes.login:
+        return MaterialPageRoute(
+          builder: (_) {
+            return LoginScreen();
           },
         );
 
