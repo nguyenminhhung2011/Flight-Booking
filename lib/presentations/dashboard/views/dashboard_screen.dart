@@ -31,7 +31,7 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   int selectedNavigation = 0;
-  final destinitons = const [
+  final destinations = const [
     NavigationRailDestination(
       icon: Icon(Icons.inbox_outlined),
       selectedIcon: Icon(Icons.inbox),
@@ -104,7 +104,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               color: Theme.of(context).scaffoldBackgroundColor,
             ),
             Scaffold(
-              backgroundColor: Theme.of(context).cardColor,
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               body: AdaptiveLayout(
                 bodyRatio: 0.7,
                 primaryNavigation: SlotLayout(
@@ -116,7 +116,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         selectedIndex: selectedNavigation,
                         onDestinationSelected: (int newIndex) {},
                         leading: const Icon(Icons.menu),
-                        destinations: destinitons,
+                        destinations: destinations,
                         backgroundColor:
                             Theme.of(context).scaffoldBackgroundColor,
                       ),
@@ -139,7 +139,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             Icon(Icons.menu_open)
                           ],
                         ),
-                        destinations: destinitons,
+                        destinations: destinations,
                         // trailing: trailingNavRail,
                         backgroundColor:
                             Theme.of(context).scaffoldBackgroundColor,

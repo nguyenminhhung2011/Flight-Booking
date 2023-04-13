@@ -70,7 +70,8 @@ dependencies:
   fl_chart: ^0.61.0
   adaptive_theme: ^3.2.0
   injectable: ^2.1.0
-  
+  badges: ^3.0.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -109,6 +110,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/icons/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
