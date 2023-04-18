@@ -185,6 +185,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   },
                 ),
+                bottomNavigation: SlotLayout(
+                  config: <Breakpoint, SlotLayoutConfig>{
+                    Breakpoints.small: SlotLayout.from(
+                      key: const Key('Bottom Navigation Small'),
+                      inAnimation: AdaptiveScaffold.bottomToTop,
+                      outAnimation: AdaptiveScaffold.topToBottom,
+                      builder: (_) =>
+                          AdaptiveScaffold.standardBottomNavigationBar(
+                        destinations: const [
+                          NavigationDestination(
+                            icon: Icon(Icons.home),
+                            label: 'Home',
+                          ),
+                          NavigationDestination(
+                            icon: Icon(Icons.person),
+                            label: 'Person',
+                          ),
+                          NavigationDestination(
+                            icon: Icon(Icons.home),
+                            label: 'Home',
+                          ),
+                          NavigationDestination(
+                            icon: Icon(Icons.home),
+                            label: 'Home',
+                          ),
+                          NavigationDestination(
+                            icon: Icon(Icons.home),
+                            label: 'Home',
+                          ),
+                        ],
+                        currentIndex: selectedNavigation,
+                        onDestinationSelected: _onChangeView,
+                      ),
+                    )
+                  },
+                ),
               ),
             ),
           ],

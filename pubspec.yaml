@@ -42,9 +42,7 @@ dependencies:
   jumping_dot: ^0.0.4
   get_it: ^7.2.0
   collection: 1.17.0
-  speech_to_text: ^6.1.1
   supabase_flutter: ^1.5.0
-  flutter_tts: ^3.6.3
   extended_image: ^7.0.2
   image_gallery_saver: ^1.7.1
   async_button_builder: ^3.0.0+1
