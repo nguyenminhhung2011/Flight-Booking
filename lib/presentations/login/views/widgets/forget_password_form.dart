@@ -2,6 +2,8 @@ import 'package:flight_booking/core/config/color_config.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../generated/l10n.dart';
+
 class ForgetPasswordForm extends StatefulWidget {
   const ForgetPasswordForm({
     super.key,
@@ -109,9 +111,9 @@ class EnterEmailPage extends StatelessWidget {
                           color: Colors.black,
                         ),
                       ),
-                      const Text(
-                        'Forget Password',
-                        style: TextStyle(
+                      Text(
+                        S.of(context).forgotPassword,
+                        style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -119,9 +121,9 @@ class EnterEmailPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Text(
-                    "Please Enter your email to find your account.",
-                    style: TextStyle(
+                  Text(
+                    S.of(context).pleaseEnterEmailToFindAccount,
+                    style: const TextStyle(
                       color: Colors.black87,
                       fontSize: 17,
                     ),
@@ -134,14 +136,14 @@ class EnterEmailPage extends StatelessWidget {
                       controller: textController,
                       decoration: InputDecoration(
                         suffixIcon: const Icon(Icons.email_outlined),
-                        hintText: "Enter your Email",
+                        hintText: S.of(context).enterYourEmail,
                         hintStyle: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: Colors.grey),
                         contentPadding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 10),
-                        labelText: 'Email',
+                        labelText: S.of(context).email,
                         labelStyle: const TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.w500,
@@ -174,9 +176,9 @@ class EnterEmailPage extends StatelessWidget {
                           borderRadius: CommonAppUIConfig.primaryRadiusBorder,
                         ),
                       ),
-                      child: const Text(
-                        "Sent Verification Email",
-                        style: TextStyle(
+                      child: Text(
+                        S.of(context).sentVerificationEmail,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
@@ -227,7 +229,7 @@ class VerifiedAnnouncementScreen extends StatelessWidget {
             ),
           ),
           Text(
-            'We have sent a verification email to: $email',
+            S.of(context).weHaveSentAVerification(email),
             style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
@@ -272,9 +274,9 @@ class EnterPasswordWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Create Your New Password',
-                    style: TextStyle(
+                  Text(
+                    S.of(context).createYourNewPassword,
+                    style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -287,12 +289,12 @@ class EnterPasswordWidget extends StatelessWidget {
                       suffixIcon: const Icon(Icons.lock_outline),
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: 15, vertical: 10),
-                      hintText: 'Enter your New Password',
+                      hintText: S.of(context).enterYourNewPassword,
                       hintStyle: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.grey),
-                      labelText: 'Password',
+                      labelText: S.of(context).password,
                       labelStyle: const TextStyle(
                         color: Colors.grey,
                         fontWeight: FontWeight.w500,
@@ -314,12 +316,12 @@ class EnterPasswordWidget extends StatelessWidget {
                       suffixIcon: const Icon(Icons.lock_outline),
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: 15, vertical: 10),
-                      hintText: 'Reenter your Password',
+                      hintText: S.of(context).reenterYourPassword,
                       hintStyle: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.grey),
-                      labelText: 'Reenter Password',
+                      labelText: S.of(context).reenterPassword,
                       labelStyle: const TextStyle(
                         color: Colors.grey,
                         fontWeight: FontWeight.w500,
@@ -346,9 +348,9 @@ class EnterPasswordWidget extends StatelessWidget {
                           borderRadius: CommonAppUIConfig.primaryRadiusBorder,
                         ),
                       ),
-                      child: const Text(
-                        "Apply New Password",
-                        style: TextStyle(
+                      child: Text(
+                        S.of(context).applyNewPassword,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
@@ -376,9 +378,9 @@ class CongratulationScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
-              'Create Your New Password',
-              style: TextStyle(
+            Text(
+              S.of(context).createYourNewPassword,
+              style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 25),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../core/components/widgets/custom_dialog_error/error_dialog.dart';
 import '../../../core/config/color_config.dart';
 import '../../../core/config/common_ui_config.dart';
+import '../../../generated/l10n.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -81,17 +82,17 @@ class LoginForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            'Login',
-            style: TextStyle(
+          Text(
+            S.of(context).logIn,
+            style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),
           ),
-          const Text(
-            'Please login to use our service',
-            style: TextStyle(
+          Text(
+            S.of(context).pleaseLogin,
+            style: const TextStyle(
               color: Colors.black87,
               fontSize: 17,
             ),
@@ -112,26 +113,26 @@ class LoginForm extends StatelessWidget {
               onPressed: () {
                 showDialog(
                   context: context,
-                  builder: (context) => const ErrorDialog(
-                    question: "Warning",
-                    title1: 'The Service have not finished yet !!!',
+                  builder: (context) => ErrorDialog(
+                    question: S.of(context).warning,
+                    title1: S.of(context).theServiceHaveNotFinished,
                   ),
                 );
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Image(
+                children: [
+                  const Image(
                     image: AssetImage('assets/icons/google.jpg'),
                     fit: BoxFit.cover,
                     filterQuality: FilterQuality.high,
                     height: 30,
                     width: 30,
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Text(
-                    'Login with Google',
-                    style: TextStyle(
+                    S.of(context).loginWithGoogle,
+                    style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -146,9 +147,9 @@ class LoginForm extends StatelessWidget {
                 child: Divider(
                     color: Colors.grey[350], thickness: 1.5, endIndent: 5),
               ),
-              const Text(
-                'OR',
-                style: TextStyle(color: Colors.grey),
+              Text(
+                S.of(context).or,
+                style: const TextStyle(color: Colors.grey),
               ),
               Expanded(
                 child: Divider(
@@ -163,14 +164,14 @@ class LoginForm extends StatelessWidget {
             maxLines: 1,
             decoration: InputDecoration(
               suffixIcon: const Icon(Icons.email_outlined),
-              hintText: "Enter your Email",
+              hintText: S.of(context).enterYourEmail,
               hintStyle: const TextStyle(
                   fontSize: 12.5,
                   fontWeight: FontWeight.w500,
                   color: Colors.grey),
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              labelText: 'Email',
+              labelText: S.of(context).email,
               labelStyle: const TextStyle(
                 color: Colors.grey,
                 fontSize: 12.5,
@@ -202,12 +203,12 @@ class LoginForm extends StatelessWidget {
                 ),
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                hintText: 'Enter your Password',
+                hintText: S.of(context).enterYourEmail,
                 hintStyle: const TextStyle(
                     fontSize: 12.5,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey),
-                labelText: 'Password',
+                labelText: S.of(context).password,
                 labelStyle: const TextStyle(
                   color: Colors.grey,
                   fontSize: 12.5,
@@ -241,18 +242,18 @@ class LoginForm extends StatelessWidget {
                   },
                 ),
               ),
-              const Text(
-                'Remember Information',
-                style: TextStyle(
+              Text(
+                S.of(context).rememberInformation,
+                style: const TextStyle(
                   color: Colors.grey,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               TextButton(
                 onPressed: navigateToForgetPassword,
-                child: const Text(
-                  "Forgot Password",
-                  style: TextStyle(
+                child: Text(
+                  S.of(context).forgotPassword,
+                  style: const TextStyle(
                     color: CommonColor.primaryColor,
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
@@ -279,9 +280,9 @@ class LoginForm extends StatelessWidget {
                 valueListenable: isLoading,
                 builder: (context, isLoadingValue, child) =>
                     !(isLoadingValue as bool)
-                        ? const Text(
-                            "Log In",
-                            style: TextStyle(
+                        ? Text(
+                            S.of(context).logIn,
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -296,18 +297,18 @@ class LoginForm extends StatelessWidget {
             ),
           ),
           Row(
-            children: const [
+            children: [
               Text(
-                'Don\'t have an account ? ',
-                style: TextStyle(
+                S.of(context).donHaveAnAccount,
+                style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
                     color: Colors.black),
               ),
               Expanded(
                 child: Text(
-                  'Please ! Contact Administrator to be provided Account!',
-                  style: TextStyle(
+                  S.of(context).pleaseContact,
+                  style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                       color: Colors.black),

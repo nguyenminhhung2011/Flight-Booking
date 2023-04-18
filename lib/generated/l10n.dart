@@ -329,6 +329,236 @@ class S {
       args: [],
     );
   }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please login to use our service`
+  String get pleaseLogin {
+    return Intl.message(
+      'Please login to use our service',
+      name: 'pleaseLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Warning`
+  String get warning {
+    return Intl.message(
+      'Warning',
+      name: 'warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The Service have not finished yet !!!`
+  String get theServiceHaveNotFinished {
+    return Intl.message(
+      'The Service have not finished yet !!!',
+      name: 'theServiceHaveNotFinished',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login with Google`
+  String get loginWithGoogle {
+    return Intl.message(
+      'Login with Google',
+      name: 'loginWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or`
+  String get or {
+    return Intl.message(
+      'Or',
+      name: 'or',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email`
+  String get enterYourEmail {
+    return Intl.message(
+      'Enter your email',
+      name: 'enterYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your Password`
+  String get enterYourPassword {
+    return Intl.message(
+      'Enter your Password',
+      name: 'enterYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember Information`
+  String get rememberInformation {
+    return Intl.message(
+      'Remember Information',
+      name: 'rememberInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log In`
+  String get logIn {
+    return Intl.message(
+      'Log In',
+      name: 'logIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account ?`
+  String get donHaveAnAccount {
+    return Intl.message(
+      'Don\'t have an account ?',
+      name: 'donHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please ! Contact Administrator to be provided Account!`
+  String get pleaseContact {
+    return Intl.message(
+      'Please ! Contact Administrator to be provided Account!',
+      name: 'pleaseContact',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Your New Password`
+  String get enterYourNewPassword {
+    return Intl.message(
+      'Enter Your New Password',
+      name: 'enterYourNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Your New Password`
+  String get createYourNewPassword {
+    return Intl.message(
+      'Create Your New Password',
+      name: 'createYourNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reenter Your Password`
+  String get reenterYourPassword {
+    return Intl.message(
+      'Reenter Your Password',
+      name: 'reenterYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reenter Password`
+  String get reenterPassword {
+    return Intl.message(
+      'Reenter Password',
+      name: 'reenterPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apply New Password`
+  String get applyNewPassword {
+    return Intl.message(
+      'Apply New Password',
+      name: 'applyNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please Enter your email to find your account`
+  String get pleaseEnterEmailToFindAccount {
+    return Intl.message(
+      'Please Enter your email to find your account',
+      name: 'pleaseEnterEmailToFindAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sent Verification Email`
+  String get sentVerificationEmail {
+    return Intl.message(
+      'Sent Verification Email',
+      name: 'sentVerificationEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We have sent a verification email to: {email}`
+  String weHaveSentAVerification(Object email) {
+    return Intl.message(
+      'We have sent a verification email to: $email',
+      name: 'weHaveSentAVerification',
+      desc: '',
+      args: [email],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
