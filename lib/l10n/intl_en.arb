@@ -50,5 +50,17 @@
     "applyNewPassword": "Apply New Password",
     "pleaseEnterEmailToFindAccount": "Please Enter your email to find your account",
     "sentVerificationEmail": "Sent Verification Email",
-    "weHaveSentAVerification": "We have sent a verification email to: {email}"
+    "weHaveSentAVerification": "We have sent a verification email to: {email}",
+    "flightTickets": "Flight tickets",
+    "passengers": "Passengers",
+    "flight": "Flight",
+    "business": "Business",
+    "class1": "Class",
+    "gate": "Gate",
+    "seat": "Seat",
+    "businessClass": "Business Class",
+    "flightInformation": "Flight Information",
+    "driver": "Driver",
+    "noCustomer": "No Customer",
+    "numberCustomer": "{no} Customer"
 }

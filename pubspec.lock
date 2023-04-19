@@ -1138,6 +1138,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+  ticket_widget:
+    dependency: "direct main"
+    description:
+      name: ticket_widget
+      sha256: "010751fceae320a1334e1b9bb0a9c0189d2e08c2f2918cfbe64258dd84272377"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   time:
     dependency: transitive
     description:

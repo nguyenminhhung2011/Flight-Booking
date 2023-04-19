@@ -559,6 +559,126 @@ class S {
       args: [email],
     );
   }
+
+  /// `Flight tickets`
+  String get flightTickets {
+    return Intl.message(
+      'Flight tickets',
+      name: 'flightTickets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passengers`
+  String get passengers {
+    return Intl.message(
+      'Passengers',
+      name: 'passengers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flight`
+  String get flight {
+    return Intl.message(
+      'Flight',
+      name: 'flight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Business`
+  String get business {
+    return Intl.message(
+      'Business',
+      name: 'business',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Class`
+  String get class1 {
+    return Intl.message(
+      'Class',
+      name: 'class1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gate`
+  String get gate {
+    return Intl.message(
+      'Gate',
+      name: 'gate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Seat`
+  String get seat {
+    return Intl.message(
+      'Seat',
+      name: 'seat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Business Class`
+  String get businessClass {
+    return Intl.message(
+      'Business Class',
+      name: 'businessClass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flight Information`
+  String get flightInformation {
+    return Intl.message(
+      'Flight Information',
+      name: 'flightInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Driver`
+  String get driver {
+    return Intl.message(
+      'Driver',
+      name: 'driver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Customer`
+  String get noCustomer {
+    return Intl.message(
+      'No Customer',
+      name: 'noCustomer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{no} Customer`
+  String numberCustomer(Object no) {
+    return Intl.message(
+      '$no Customer',
+      name: 'numberCustomer',
+      desc: '',
+      args: [no],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

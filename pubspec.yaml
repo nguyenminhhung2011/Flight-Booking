@@ -71,6 +71,7 @@ dependencies:
   badges: ^3.0.3
 
   dotted_decoration: ^2.0.0
+  ticket_widget: ^0.0.1
   
 dev_dependencies:
   flutter_test:

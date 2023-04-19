@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../generated/l10n.dart';
 import '../../calendar/views/calender_screen.dart';
 import '../../list_ticket/views/list_ticket_screen.dart';
+import '../../list_ticket/views/ticket_fast_view.dart';
 import '../../overview/views/overview_screen.dart';
 
 List<Map<String, Widget>> _pages = const [
@@ -18,7 +19,7 @@ List<Map<String, Widget>> _pages = const [
   },
   {
     'body': ListTicketScreen(),
-    'secondBody': SizedBox(),
+    'secondBody': TicketFastView(),
   }
 ];
 
@@ -245,5 +246,3 @@ class AdaptiveLayouRowCol extends StatelessWidget {
           );
   }
 }
-
-//Dumb code
