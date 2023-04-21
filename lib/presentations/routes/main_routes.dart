@@ -2,6 +2,7 @@ import 'package:flight_booking/presentations/dashboard/views/dashboard_screen.da
 import 'package:flight_booking/presentations/login/views/login_screen.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flight_booking/presentations/splash/splash_screen.dart';
+import 'package:flight_booking/presentations/ticket_detail/views/ticket_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainRoutes {
@@ -36,6 +37,13 @@ class MainRoutes {
           },
         );
 
+      case Routes.ticketDetail:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) {
+            return const TicketDetailScreen();
+          },
+        );
       default:
         return unDefinedRoute();
     }

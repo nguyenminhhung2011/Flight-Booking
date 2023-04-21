@@ -115,11 +115,13 @@ class TicketFastView extends StatelessWidget {
           textAlign: TextAlign.start,
           style: titleStyle,
         ),
-        Text(
-          desc,
-          maxLines: 1,
-          textAlign: TextAlign.end,
-          style: descStyle,
+        Expanded(
+          child: Text(
+            desc,
+            maxLines: 1,
+            textAlign: TextAlign.end,
+            style: descStyle,
+          ),
         ),
       ],
     );

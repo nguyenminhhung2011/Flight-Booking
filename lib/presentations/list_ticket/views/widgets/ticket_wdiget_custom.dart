@@ -8,8 +8,10 @@ import '../../../dashboard/views/dashboard_screen.dart';
 import 'dot_custom.dart';
 
 class TicketWdigetCustom extends StatelessWidget {
+  final Function() viewDetail;
   const TicketWdigetCustom({
     super.key,
+    required this.viewDetail,
   });
 
   @override
@@ -105,7 +107,7 @@ class TicketWdigetCustom extends StatelessWidget {
                   ),
                   const SizedBox(height: 20.0),
                   InkWell(
-                    onTap: () {},
+                    onTap: viewDetail,
                     borderRadius: BorderRadius.circular(5.0),
                     child: Container(
                       width: double.infinity,
