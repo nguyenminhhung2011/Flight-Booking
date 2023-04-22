@@ -1,7 +1,7 @@
 import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../domain/entities/Flight/Flight.dart';
+import '../../../../domain/entities/flight/flight.dart';
 
 @injectable
 class RestApi {

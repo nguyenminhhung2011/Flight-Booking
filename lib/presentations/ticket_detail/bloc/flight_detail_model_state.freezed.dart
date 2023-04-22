@@ -30,6 +30,8 @@ abstract class $FlightDetailModelStateCopyWith<$Res> {
       _$FlightDetailModelStateCopyWithImpl<$Res, FlightDetailModelState>;
   @useResult
   $Res call({Flight flight});
+
+  $FlightCopyWith<$Res> get flight;
 }
 
 /// @nodoc
@@ -46,14 +48,22 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flight = freezed,
+    Object? flight = null,
   }) {
     return _then(_value.copyWith(
-      flight: freezed == flight
+      flight: null == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
               as Flight,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FlightCopyWith<$Res> get flight {
+    return $FlightCopyWith<$Res>(_value.flight, (value) {
+      return _then(_value.copyWith(flight: value) as $Val);
+    });
   }
 }
 
@@ -66,6 +76,9 @@ abstract class _$$_FlightDetailModelStateCopyWith<$Res>
   @override
   @useResult
   $Res call({Flight flight});
+
+  @override
+  $FlightCopyWith<$Res> get flight;
 }
 
 /// @nodoc
@@ -80,10 +93,10 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flight = freezed,
+    Object? flight = null,
   }) {
     return _then(_$_FlightDetailModelState(
-      flight: freezed == flight
+      flight: null == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
               as Flight,
@@ -109,12 +122,11 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FlightDetailModelState &&
-            const DeepCollectionEquality().equals(other.flight, flight));
+            (identical(other.flight, flight) || other.flight == flight));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(flight));
+  int get hashCode => Object.hash(runtimeType, flight);
 
   @JsonKey(ignore: true)
   @override
