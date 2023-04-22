@@ -76,7 +76,7 @@ class FlightData extends StatelessWidget {
             children: [
               FlightDetailsWidget(
                   firstTitle: S.of(context).passengers,
-                  firstDesc: 'Hafiz M Mujahid',
+                  firstDesc: 'Hoang Truong',
                   secondTitle: S.of(context).date,
                   secondDesc: '28-08-2022'),
               FlightDetailsWidget(

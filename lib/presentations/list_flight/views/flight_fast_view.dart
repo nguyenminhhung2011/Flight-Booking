@@ -5,9 +5,7 @@ import '../../../generated/l10n.dart';
 import 'package:ticket_widget/ticket_widget.dart';
 
 class FlightFastView extends StatelessWidget {
-  const FlightFastView({
-    super.key,
-  });
+  const FlightFastView({super.key});
 
   @override
   Widget build(BuildContext context) {
