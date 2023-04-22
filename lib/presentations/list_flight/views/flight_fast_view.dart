@@ -1,12 +1,11 @@
 import 'package:dotted_decoration/dotted_decoration.dart';
-import 'package:flight_booking/presentations/list_ticket/views/widgets/ticket_data.dart';
+import 'package:flight_booking/presentations/list_flight/views/widgets/flight_data.dart';
 import 'package:flutter/material.dart';
+import '../../../generated/l10n.dart';
 import 'package:ticket_widget/ticket_widget.dart';
 
-import '../../../generated/l10n.dart';
-
-class TicketFastView extends StatelessWidget {
-  const TicketFastView({
+class FlightFastView extends StatelessWidget {
+  const FlightFastView({
     super.key,
   });
 
@@ -48,7 +47,7 @@ class TicketFastView extends StatelessWidget {
                   blurRadius: 5.0,
                 )
               ],
-              child: const TicketData(),
+              child: const FlightData(),
             ),
             Container(
               width: double.infinity,
@@ -115,11 +114,13 @@ class TicketFastView extends StatelessWidget {
           textAlign: TextAlign.start,
           style: titleStyle,
         ),
-        Text(
-          desc,
-          maxLines: 1,
-          textAlign: TextAlign.end,
-          style: descStyle,
+        Expanded(
+          child: Text(
+            desc,
+            maxLines: 1,
+            textAlign: TextAlign.end,
+            style: descStyle,
+          ),
         ),
       ],
     );

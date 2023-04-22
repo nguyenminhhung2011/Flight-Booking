@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TicketDetailsWidget extends StatelessWidget {
+class FlightDetailsWidget extends StatelessWidget {
   final String firstTitle;
   final String firstDesc;
   final String secondTitle;
   final String secondDesc;
-  const TicketDetailsWidget({
+  const FlightDetailsWidget({
     super.key,
     required this.firstTitle,
     required this.firstDesc,
