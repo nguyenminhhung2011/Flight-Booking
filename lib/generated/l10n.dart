@@ -679,6 +679,86 @@ class S {
       args: [no],
     );
   }
+
+  /// `Economy Class`
+  String get economyClass {
+    return Intl.message(
+      'Economy Class',
+      name: 'economyClass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Premium Economy Class`
+  String get premiumEconomyClass {
+    return Intl.message(
+      'Premium Economy Class',
+      name: 'premiumEconomyClass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `First Class`
+  String get firstClass {
+    return Intl.message(
+      'First Class',
+      name: 'firstClass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gender`
+  String get gender {
+    return Intl.message(
+      'Gender',
+      name: 'gender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Boy`
+  String get boy {
+    return Intl.message(
+      'Boy',
+      name: 'boy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `luggage`
+  String get luggage {
+    return Intl.message(
+      'luggage',
+      name: 'luggage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
