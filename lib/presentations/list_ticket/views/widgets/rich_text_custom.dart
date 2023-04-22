@@ -24,9 +24,7 @@ class RichTextCustom extends StatelessWidget {
           TextSpan(text: firstText),
           TextSpan(
             text: secondText,
-            style: const TextStyle(
-              color: Colors.grey,
-            ),
+            style: const TextStyle(color: Colors.grey),
           )
         ],
       ),
