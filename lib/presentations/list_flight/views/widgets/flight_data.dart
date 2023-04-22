@@ -1,10 +1,10 @@
-import 'package:flight_booking/presentations/list_ticket/views/widgets/ticket_details_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../generated/l10n.dart';
+import 'flight_details_widget.dart';
 
-class TicketData extends StatelessWidget {
-  const TicketData({
+class FlightData extends StatelessWidget {
+  const FlightData({
     Key? key,
   }) : super(key: key);
 
@@ -74,17 +74,17 @@ class TicketData extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TicketDetailsWidget(
+              FlightDetailsWidget(
                   firstTitle: S.of(context).passengers,
                   firstDesc: 'Hafiz M Mujahid',
                   secondTitle: S.of(context).date,
                   secondDesc: '28-08-2022'),
-              TicketDetailsWidget(
+              FlightDetailsWidget(
                   firstTitle: S.of(context).flight,
                   firstDesc: '76836A45',
                   secondTitle: S.of(context).gate,
                   secondDesc: '66B'),
-              TicketDetailsWidget(
+              FlightDetailsWidget(
                 firstTitle: S.of(context).class1,
                 firstDesc: 'Business',
                 secondTitle: S.of(context).seat,

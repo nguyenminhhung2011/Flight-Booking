@@ -4,11 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 
 import '../../../core/config/color_config.dart';
-import '../../list_ticket/views/widgets/ticket_wdiget_custom.dart';
+import '../../list_flight/views/widgets/flight_wdiget_custom.dart';
 
-class TicketDetailScreen extends StatelessWidget {
-  const TicketDetailScreen({super.key});
+class FlightDetailScreen extends StatefulWidget {
+  const FlightDetailScreen({super.key});
 
+  @override
+  State<FlightDetailScreen> createState() => _FlightDetailScreenState();
+}
+
+class _FlightDetailScreenState extends State<FlightDetailScreen> {
+  ValueNotifier<double> dumbData = ValueNotifier<double>(1000.0);
   @override
   Widget build(BuildContext context) {
     final List<String> chairCharacyer = ['A', 'B', 'C', 'D'];
@@ -29,7 +35,7 @@ class TicketDetailScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10.0),
       margin: const EdgeInsets.only(top: 10.0, right: 10.0, bottom: 10.0),
-      width: 450,
+      width: 400,
       height: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
@@ -42,9 +48,29 @@ class TicketDetailScreen extends StatelessWidget {
       ),
       child: ListView(
         children: [
-          SizedBox(
-            width: double.infinity,
-            child: Row(
+          _shadowBox(
+            context,
+            Column(
+              children: const [],
+            ),
+          ),
+          ValueListenableBuilder(
+            valueListenable: dumbData,
+            builder: (context, dumb, widget) => AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              height: dumbData.value,
+            ),
+          ),
+          const Align(
+            alignment: Alignment.center,
+            child: Icon(
+              Icons.airplanemode_on,
+              color: CommonColor.primaryColor,
+            ),
+          ),
+          _shadowBox(
+            context,
+            Row(
               children: [
                 for (int i = 0; i < 4; i++)
                   Column(
@@ -83,8 +109,26 @@ class TicketDetailScreen extends StatelessWidget {
                   .toList(),
             ),
           ),
+        ].expand((element) => [element, const SizedBox(height: 10.0)]).toList(),
+      ),
+    );
+  }
+
+  Container _shadowBox(BuildContext context, Widget widget) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Theme.of(context).cardColor,
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).shadowColor.withOpacity(0.1),
+            blurRadius: 10.0,
+          ),
         ],
       ),
+      child: widget,
     );
   }
 
@@ -113,8 +157,10 @@ class TicketDetailScreen extends StatelessWidget {
             ListView(
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height / 4.5),
-                TicketWdigetCustom(
-                  viewDetail: () {},
+                FlightWdigetCustom(
+                  viewDetail: () {
+                    dumbData.value = 1000.0 - dumbData.value;
+                  },
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20.0),

@@ -2,8 +2,9 @@ import 'package:flight_booking/presentations/dashboard/views/dashboard_screen.da
 import 'package:flight_booking/presentations/login/views/login_screen.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flight_booking/presentations/splash/splash_screen.dart';
-import 'package:flight_booking/presentations/ticket_detail/views/ticket_detail_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../ticket_detail/views/flight_detail_screen.dart';
 
 class MainRoutes {
   static Map<String, WidgetBuilder> getRoutesWithSettings() {
@@ -37,11 +38,11 @@ class MainRoutes {
           },
         );
 
-      case Routes.ticketDetail:
+      case Routes.flightDetail:
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const TicketDetailScreen();
+            return const FlightDetailScreen();
           },
         );
       default:

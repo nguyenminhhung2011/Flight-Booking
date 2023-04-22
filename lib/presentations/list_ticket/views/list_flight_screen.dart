@@ -1,42 +1,42 @@
 import 'package:flight_booking/app_coordinator.dart';
-import 'package:flight_booking/presentations/list_ticket/views/widgets/ticket_wdiget_custom.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/widgets/drop_down_button.dart';
 import '../../../generated/l10n.dart';
-import '../bloc/list_tic_bloc.dart';
+import '../../list_flight/bloc/list_flight_bloc.dart';
+import '../../list_flight/views/widgets/flight_wdiget_custom.dart';
 
-class ListTicketScreen extends StatefulWidget {
-  const ListTicketScreen({super.key});
+class ListFlightScreen extends StatefulWidget {
+  const ListFlightScreen({super.key});
 
   @override
-  State<ListTicketScreen> createState() => _ListTicketScreenState();
+  State<ListFlightScreen> createState() => _ListFlightScreenState();
 }
 
-class _ListTicketScreenState extends State<ListTicketScreen> {
-  ListTicBloc get _bloc => BlocProvider.of<ListTicBloc>(context);
-  GlobalKey _key = GlobalKey();
+class _ListFlightScreenState extends State<ListFlightScreen> {
+  ListFlightBloc get _bloc => BlocProvider.of<ListFlightBloc>(context);
 
   late final _textController;
 
   @override
   void initState() {
-    _textController = TextEditingController();
-    _bloc.add(const ListTicEvent.started());
     super.initState();
+    _textController = TextEditingController();
+    _bloc.add(const ListFlightEvent.started());
+    _bloc.add(const ListFlightEvent.getFlights());
   }
 
   void viewDetail(String ticId) {
     // _bloc.add(ListTicEvent.selectTic(ticId));
-    context.startTicketDetail(ticId);
+    context.startFlightDetail(ticId);
   }
 
-  void _listenStateChanged(_, ListTicState state) {
+  void _listenStateChanged(_, state) {
     state.whenOrNull(
       selectListTicSuccess: (data, ticID) {
-        context.startTicketDetail(ticID);
+        context.startFlightDetail(ticID);
       },
     );
   }
@@ -45,7 +45,7 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
   Widget build(BuildContext context) {
     final widthField = MediaQuery.of(context).size.width;
     final heightField = MediaQuery.of(context).size.height;
-    List<Map<String, dynamic>> listSearchTicketOptions = [
+    List<Map<String, dynamic>> listSearchFlightOptions = [
       {
         'title': S.of(context).times,
         'icon': Icons.timelapse_outlined,
@@ -62,11 +62,10 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
         'color': Colors.purple,
       },
     ];
-    return BlocConsumer<ListTicBloc, ListTicState>(
+    return BlocConsumer<ListFlightBloc, ListFlightState>(
       listener: _listenStateChanged,
       builder: (context, state) {
         return Scaffold(
-          key: _key,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Column(
             children: [
@@ -131,7 +130,7 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
                               child: ListView(
                                 scrollDirection: Axis.horizontal,
                                 children: [
-                                  ...listSearchTicketOptions.map(
+                                  ...listSearchFlightOptions.map(
                                     (e) => DropdownButotn(
                                       backgroundColor:
                                           Theme.of(context).cardColor,
@@ -175,7 +174,7 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
                             ),
                           ),
                           for (int i = 0; i < 10; i++)
-                            TicketWdigetCustom(
+                            FlightWdigetCustom(
                               viewDetail: () => viewDetail(i.toString()),
                             ),
                         ]
