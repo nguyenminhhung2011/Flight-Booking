@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class FluxTableRow<T> extends StatelessWidget {
   const FluxTableRow({
@@ -19,7 +18,7 @@ class FluxTableRow<T> extends StatelessWidget {
     return Container(
       padding: padding ?? const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         border: Border.all(color: Colors.grey, width: 0.2),
         borderRadius: BorderRadius.circular(5),
       ).copyWith(

@@ -1,5 +1,5 @@
 import 'package:dotted_decoration/dotted_decoration.dart';
-import 'package:flight_booking/presentations/list_ticket/views/widgets/rich_text_custom.dart';
+import 'package:flight_booking/presentations/list_flight/views/widgets/rich_text_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 
@@ -7,9 +7,11 @@ import '../../../../generated/l10n.dart';
 import '../../../dashboard/views/dashboard_screen.dart';
 import 'dot_custom.dart';
 
-class TicketWidgetCustom extends StatelessWidget {
-  const TicketWidgetCustom({
+class FlightWdigetCustom extends StatelessWidget {
+  final Function() viewDetail;
+  const FlightWdigetCustom({
     super.key,
+    required this.viewDetail,
   });
 
   @override
@@ -105,7 +107,7 @@ class TicketWidgetCustom extends StatelessWidget {
                   ),
                   const SizedBox(height: 20.0),
                   InkWell(
-                    onTap: () {},
+                    onTap: viewDetail,
                     borderRadius: BorderRadius.circular(5.0),
                     child: Container(
                       width: double.infinity,
@@ -212,7 +214,7 @@ class TicketWidgetCustom extends StatelessWidget {
                                 ),
                               ),
                               child: const Icon(
-                                Icons.airplane_ticket_rounded,
+                                Icons.airplanemode_active_sharp,
                                 color: Colors.blue,
                                 size: 16.0,
                               ),

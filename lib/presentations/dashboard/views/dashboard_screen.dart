@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/dependency_injection/di.dart';
 import 'package:flight_booking/presentations/customer/views/customer_screen.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_model_state.dart';
@@ -9,24 +10,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../generated/l10n.dart';
 import '../../calendar/views/calender_screen.dart';
-import '../../list_ticket/views/list_ticket_screen.dart';
-import '../../list_ticket/views/ticket_fast_view.dart';
+import '../../list_flight/bloc/list_flight_bloc.dart';
+import '../../list_flight/views/flight_fast_view.dart';
+import '../../list_flight/views/list_flight_screen.dart';
 import '../../overview/views/overview_screen.dart';
-
-List<Map<String, Widget>> _pages = const [
-  {
-    'body': OverviewScreen(),
-    'secondBody': CalenderScreen(),
-  },
-  {
-    'body': ListTicketScreen(),
-    'secondBody': TicketFastView(),
-  },
-  {
-    'body': CustomerScreen(),
-    'secondBody': TicketFastView(),
-  }
-];
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -36,7 +23,6 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  int selectedNavigation = 0;
   final destinations = const [
     NavigationRailDestination(
       icon: Icon(Icons.inbox_outlined),
@@ -64,6 +50,26 @@ class _DashboardScreenState extends State<DashboardScreen> {
       label: Text('dddd3'),
     ),
   ];
+  final List<Map<String, Widget>> _pages = [
+    {
+      'body': const OverviewScreen(),
+      'secondBody': const CalenderScreen(),
+    },
+    {
+      'body': BlocProvider<ListFlightBloc>(
+        create: (context) => injector(),
+        child: const ListFlightScreen(),
+      ),
+      'secondBody': BlocProvider<ListFlightBloc>(
+        create: (context) => injector(),
+        child: const FlightFastView(),
+      ),
+    },
+    {
+      'body': const CustomerScreen(),
+      'secondBody': const FlightFastView(),
+    }
+  ];
 
   @override
   void initState() {
@@ -81,12 +87,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   void _onChangeTheme(bool value) {
+    context.read<DashboardBloc>().add(DashboardEvent.changeTheme(value));
     if (value) {
       AdaptiveTheme.of(context).setDark();
     } else {
       AdaptiveTheme.of(context).setLight();
     }
-    context.read<DashboardBloc>().add(DashboardEvent.changeTheme(value));
   }
 
   void _onChangeView(int view) {
@@ -120,7 +126,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       inAnimation: AdaptiveScaffold.leftOutIn,
                       key: const Key('Primary Navigation Medium'),
                       builder: (_) => AdaptiveScaffold.standardNavigationRail(
-                        selectedIndex: selectedNavigation,
+                        selectedIndex: data.viewEnum,
                         onDestinationSelected: (int newIndex) {},
                         leading: const Icon(Icons.menu),
                         destinations: destinations,
@@ -221,7 +227,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             label: 'Home',
                           ),
                         ],
-                        currentIndex: selectedNavigation,
+                        currentIndex: data.viewEnum,
                         onDestinationSelected: _onChangeView,
                       ),
                     )

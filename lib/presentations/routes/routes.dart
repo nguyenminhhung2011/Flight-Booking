@@ -3,4 +3,6 @@ class Routes {
   static const String dashboard = '/dashboard';
   static const String login = "/login";
   static const String splash = "/splash";
+  static const String ticketDetail = "/ticketDetail";
+  static const String flightDetail = "/flightDetail";
 }
