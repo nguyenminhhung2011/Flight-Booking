@@ -9,9 +9,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../generated/l10n.dart';
 import '../../calendar/views/calender_screen.dart';
-import '../../list_ticket/bloc/list_tic_bloc.dart';
-import '../../list_ticket/views/list_ticket_screen.dart';
-import '../../list_ticket/views/ticket_fast_view.dart';
+import '../../list_flight/bloc/list_flight_bloc.dart';
+import '../../list_ticket/views/list_flight_screen.dart';
+import '../../list_ticket/views/flight_fast_view.dart';
 import '../../overview/views/overview_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -55,13 +55,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
       'secondBody': const CalenderScreen(),
     },
     {
-      'body': BlocProvider<ListTicBloc>(
+      'body': BlocProvider<ListFlightBloc>(
         create: (context) => injector(),
-        child: const ListTicketScreen(),
+        child: const ListFlightScreen(),
       ),
-      'secondBody': BlocProvider<ListTicBloc>(
+      'secondBody': BlocProvider<ListFlightBloc>(
         create: (context) => injector(),
-        child: const TicketFastView(),
+        child: const FlightFastView(),
       ),
     }
   ];

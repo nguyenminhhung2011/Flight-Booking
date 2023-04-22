@@ -11,7 +11,7 @@ extension AppCoordinator<T> on BuildContext {
     read<DashboardBloc>().add(DashboardEvent.changeView(view));
   }
 
-  Future<T?> startTicketDetail(String ticId) {
-    return Navigator.of(this).pushNamed(Routes.ticketDetail, arguments: ticId);
+  Future<T?> startFlightDetail(String ticId) {
+    return Navigator.of(this).pushNamed(Routes.flightDetail, arguments: ticId);
   }
 }
