@@ -1,7 +1,7 @@
 import 'package:flight_booking/data/datasource/remote/rest_api/rest_api.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/entities/Flight/Flight.dart';
+import '../../domain/entities/flight/flight.dart';
 import '../../domain/repositories/list_flight_repository.dart';
 
 @Injectable(as: ListFlightRepository)
