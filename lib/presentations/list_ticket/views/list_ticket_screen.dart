@@ -147,7 +147,7 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
                           ),
                         ),
                       ),
-                      for (int i = 0; i < 10; i++) const TicketWdigetCustom(),
+                      for (int i = 0; i < 10; i++) const TicketWidgetCustom(),
                     ]
                         .expand((element) =>
                             [element, const SizedBox(height: 10.0)])

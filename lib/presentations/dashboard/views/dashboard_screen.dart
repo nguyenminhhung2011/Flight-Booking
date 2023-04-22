@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/presentations/customer/views/customer_screen.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_model_state.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,10 @@ List<Map<String, Widget>> _pages = const [
   },
   {
     'body': ListTicketScreen(),
+    'secondBody': TicketFastView(),
+  },
+  {
+    'body': CustomerScreen(),
     'secondBody': TicketFastView(),
   }
 ];

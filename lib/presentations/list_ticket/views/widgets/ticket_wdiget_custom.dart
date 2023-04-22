@@ -7,8 +7,8 @@ import '../../../../generated/l10n.dart';
 import '../../../dashboard/views/dashboard_screen.dart';
 import 'dot_custom.dart';
 
-class TicketWdigetCustom extends StatelessWidget {
-  const TicketWdigetCustom({
+class TicketWidgetCustom extends StatelessWidget {
+  const TicketWidgetCustom({
     super.key,
   });
 
