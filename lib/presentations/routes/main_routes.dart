@@ -4,7 +4,7 @@ import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flight_booking/presentations/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../ticket_detail/views/flight_detail_screen.dart';
+import '../flight_detail/views/flight_detail_screen.dart';
 
 class MainRoutes {
   static Map<String, WidgetBuilder> getRoutesWithSettings() {

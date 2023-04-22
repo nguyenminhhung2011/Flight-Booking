@@ -11,8 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../generated/l10n.dart';
 import '../../calendar/views/calender_screen.dart';
 import '../../list_flight/bloc/list_flight_bloc.dart';
-import '../../list_ticket/views/list_flight_screen.dart';
-import '../../list_ticket/views/flight_fast_view.dart';
+import '../../list_flight/views/flight_fast_view.dart';
+import '../../list_flight/views/list_flight_screen.dart';
 import '../../overview/views/overview_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
