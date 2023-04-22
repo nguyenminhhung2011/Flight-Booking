@@ -62,5 +62,13 @@
     "flightInformation": "Flight Information",
     "driver": "Driver",
     "noCustomer": "No Customer",
-    "numberCustomer": "{no} Customer"
+    "numberCustomer": "{no} Customer",
+    "economyClass": "Economy Class",
+    "premiumEconomyClass": "Premium Economy Class",
+    "firstClass": "First Class",
+    "name": "Name",
+    "gender": "Gender",
+    "boy": "Boy",
+    "phoneNumber": "Phone Number",
+    "luggage": "luggage"
 }

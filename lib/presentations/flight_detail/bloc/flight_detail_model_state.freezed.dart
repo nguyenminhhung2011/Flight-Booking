@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FlightDetailModelState {
-  Flight get flight => throw _privateConstructorUsedError;
+  double get animation => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FlightDetailModelStateCopyWith<FlightDetailModelState> get copyWith =>
@@ -29,9 +29,7 @@ abstract class $FlightDetailModelStateCopyWith<$Res> {
           $Res Function(FlightDetailModelState) then) =
       _$FlightDetailModelStateCopyWithImpl<$Res, FlightDetailModelState>;
   @useResult
-  $Res call({Flight flight});
-
-  $FlightCopyWith<$Res> get flight;
+  $Res call({double animation});
 }
 
 /// @nodoc
@@ -48,22 +46,14 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flight = null,
+    Object? animation = null,
   }) {
     return _then(_value.copyWith(
-      flight: null == flight
-          ? _value.flight
-          : flight // ignore: cast_nullable_to_non_nullable
-              as Flight,
+      animation: null == animation
+          ? _value.animation
+          : animation // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $FlightCopyWith<$Res> get flight {
-    return $FlightCopyWith<$Res>(_value.flight, (value) {
-      return _then(_value.copyWith(flight: value) as $Val);
-    });
   }
 }
 
@@ -75,10 +65,7 @@ abstract class _$$_FlightDetailModelStateCopyWith<$Res>
       __$$_FlightDetailModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Flight flight});
-
-  @override
-  $FlightCopyWith<$Res> get flight;
+  $Res call({double animation});
 }
 
 /// @nodoc
@@ -93,13 +80,13 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flight = null,
+    Object? animation = null,
   }) {
     return _then(_$_FlightDetailModelState(
-      flight: null == flight
-          ? _value.flight
-          : flight // ignore: cast_nullable_to_non_nullable
-              as Flight,
+      animation: null == animation
+          ? _value.animation
+          : animation // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -107,14 +94,14 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FlightDetailModelState implements _FlightDetailModelState {
-  const _$_FlightDetailModelState({required this.flight});
+  const _$_FlightDetailModelState({required this.animation});
 
   @override
-  final Flight flight;
+  final double animation;
 
   @override
   String toString() {
-    return 'FlightDetailModelState(flight: $flight)';
+    return 'FlightDetailModelState(animation: $animation)';
   }
 
   @override
@@ -122,11 +109,12 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FlightDetailModelState &&
-            (identical(other.flight, flight) || other.flight == flight));
+            (identical(other.animation, animation) ||
+                other.animation == animation));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, flight);
+  int get hashCode => Object.hash(runtimeType, animation);
 
   @JsonKey(ignore: true)
   @override
@@ -137,11 +125,11 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
 }
 
 abstract class _FlightDetailModelState implements FlightDetailModelState {
-  const factory _FlightDetailModelState({required final Flight flight}) =
+  const factory _FlightDetailModelState({required final double animation}) =
       _$_FlightDetailModelState;
 
   @override
-  Flight get flight;
+  double get animation;
   @override
   @JsonKey(ignore: true)
   _$$_FlightDetailModelStateCopyWith<_$_FlightDetailModelState> get copyWith =>

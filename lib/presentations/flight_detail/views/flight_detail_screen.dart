@@ -1,9 +1,18 @@
 import 'package:collection/collection.dart';
 import 'package:dotted_decoration/dotted_decoration.dart';
+import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
+import 'package:flight_booking/presentations/flight_detail/bloc/flight_detail_bloc.dart';
+import 'package:flight_booking/presentations/flight_detail/views/widgets/chair_button.dart';
+import 'package:flight_booking/presentations/flight_detail/views/widgets/fast_view_tic.dart';
+import 'package:flight_booking/presentations/flight_detail/views/widgets/icon_button.dart';
+import 'package:flight_booking/presentations/flight_detail/views/widgets/tic_column.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/config/color_config.dart';
+import '../../../generated/l10n.dart';
+import '../../list_flight/bloc/list_flight_bloc.dart';
 import '../../list_flight/views/widgets/flight_wdiget_custom.dart';
 
 class FlightDetailScreen extends StatefulWidget {
@@ -14,24 +23,47 @@ class FlightDetailScreen extends StatefulWidget {
 }
 
 class _FlightDetailScreenState extends State<FlightDetailScreen> {
-  ValueNotifier<double> dumbData = ValueNotifier<double>(1000.0);
+  FlightDetailBloc get _bloc => BlocProvider.of<FlightDetailBloc>(context);
+  @override
+  void initState() {
+    super.initState();
+    _bloc.add(const FlightDetailEvent.started());
+  }
+
+  void _listenStateChanged(_, state) {
+    state.whenOrNull();
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<String> chairCharacyer = ['A', 'B', 'C', 'D'];
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: Row(
-        children: [
-          _main(context),
-          Breakpoints.large.isActive(context)
-              ? _sup(context, chairCharacyer)
+    return BlocConsumer<FlightDetailBloc, FlightDetailState>(
+      listener: _listenStateChanged,
+      builder: (context, state) {
+        return Scaffold(
+          floatingActionButton: Breakpoints.small.isActive(context)
+              ? IconButton(
+                  color: CommonColor.primaryColor,
+                  onPressed: () {},
+                  icon: const Icon(Icons.airplanemode_active),
+                )
               : const SizedBox(),
-        ],
-      ),
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          body: Row(
+            children: [
+              _main(context),
+              Breakpoints.large.isActive(context)
+                  ? _sup(context, chairCharacyer, state.data.animation)
+                  : const SizedBox(),
+            ],
+          ),
+        );
+      },
     );
   }
 
-  Container _sup(BuildContext context, List<String> chairCharacyer) {
+  Container _sup(
+      BuildContext context, List<String> chairCharacyer, double animation) {
     return Container(
       padding: const EdgeInsets.all(10.0),
       margin: const EdgeInsets.only(top: 10.0, right: 10.0, bottom: 10.0),
@@ -39,7 +71,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
       height: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        color: Theme.of(context).cardColor,
+        color: Theme.of(context).primaryColor.withOpacity(0.2),
         boxShadow: [
           BoxShadow(
             color: Theme.of(context).shadowColor.withOpacity(0.1),
@@ -48,18 +80,12 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
       ),
       child: ListView(
         children: [
-          _shadowBox(
-            context,
-            Column(
-              children: const [],
-            ),
+          const FastViewTic(
+            ticType: TicTypeEnum.businessClass,
           ),
-          ValueListenableBuilder(
-            valueListenable: dumbData,
-            builder: (context, dumb, widget) => AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
-              height: dumbData.value,
-            ),
+          AnimatedContainer(
+            duration: const Duration(seconds: 1),
+            height: animation,
           ),
           const Align(
             alignment: Alignment.center,
@@ -79,7 +105,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                         ChairButton(
                           chairCharacyer: chairCharacyer,
                           text: '${chairCharacyer[i]} $t',
-                          check: (i + t) % 2 == 0,
+                          check: (i + t) % 3 == 0,
                         ),
                     ],
                   ),
@@ -158,16 +184,53 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height / 4.5),
                 FlightWdigetCustom(
-                  viewDetail: () {
-                    dumbData.value = 1000.0 - dumbData.value;
-                  },
+                  viewDetail: () {},
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                  padding: const EdgeInsets.all(15.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Theme.of(context).cardColor,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButtonCustom(
+                      iconData: Icons.list,
+                      onPress: () {},
+                      isSec: true,
+                    ),
+                    IconButtonCustom(
+                      iconData: Icons.grid_view_sharp,
+                      onPress: () {},
+                      isSec: false,
+                    ),
+                    const SizedBox(width: 20.0),
+                  ],
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 20.0),
+                      TicColumn(
+                        color: Colors.blue,
+                        header: S.of(context).economyClass,
+                        count: 10,
+                      ),
+                      TicColumn(
+                        color: Colors.red,
+                        header: S.of(context).premiumEconomyClass,
+                        count: 10,
+                      ),
+                      TicColumn(
+                        color: Colors.yellow,
+                        header: S.of(context).businessClass,
+                        count: 10,
+                      ),
+                      TicColumn(
+                        color: Colors.green,
+                        header: S.of(context).premiumEconomyClass,
+                        count: 10,
+                      ),
+                    ]
+                        .expand(
+                            (element) => [element, const SizedBox(width: 10.0)])
+                        .toList(),
                   ),
                 ),
               ]
@@ -175,41 +238,6 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                   .toList(),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class ChairButton extends StatelessWidget {
-  const ChairButton({
-    super.key,
-    required this.chairCharacyer,
-    required this.text,
-    required this.check,
-  });
-
-  final List<String> chairCharacyer;
-  final String text;
-  final bool check;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        margin: const EdgeInsets.all(10.0),
-        padding: const EdgeInsets.all(15.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          color:
-              check ? Theme.of(context).hoverColor : CommonColor.primaryColor,
-        ),
-        child: Text(
-          text,
-          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
         ),
       ),
     );

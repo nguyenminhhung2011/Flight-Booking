@@ -7,6 +7,6 @@ part 'flight_detail_model_state.freezed.dart';
 @freezed
 class FlightDetailModelState with _$FlightDetailModelState {
   const factory FlightDetailModelState({
-    required Flight flight,
+    required double animation,
   }) = _FlightDetailModelState;
 }

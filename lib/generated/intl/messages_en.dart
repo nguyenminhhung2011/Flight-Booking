@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "applyNewPassword":
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
         "bookingType": MessageLookupByLibrary.simpleMessage("Booking type"),
+        "boy": MessageLookupByLibrary.simpleMessage("Boy"),
         "business": MessageLookupByLibrary.simpleMessage("Business"),
         "businessClass": MessageLookupByLibrary.simpleMessage("Business Class"),
         "class1": MessageLookupByLibrary.simpleMessage("Class"),
@@ -50,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t have an account ?"),
         "driver": MessageLookupByLibrary.simpleMessage("Driver"),
         "duration": MessageLookupByLibrary.simpleMessage("Duration"),
+        "economyClass": MessageLookupByLibrary.simpleMessage("Economy Class"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterYourEmail":
             MessageLookupByLibrary.simpleMessage("Enter your email"),
@@ -58,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterYourPassword":
             MessageLookupByLibrary.simpleMessage("Enter your Password"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
+        "firstClass": MessageLookupByLibrary.simpleMessage("First Class"),
         "flight": MessageLookupByLibrary.simpleMessage("Flight"),
         "flightInformation":
             MessageLookupByLibrary.simpleMessage("Flight Information"),
@@ -65,26 +68,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "gate": MessageLookupByLibrary.simpleMessage("Gate"),
+        "gender": MessageLookupByLibrary.simpleMessage("Gender"),
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
         "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "loginWithGoogle":
             MessageLookupByLibrary.simpleMessage("Login with Google"),
+        "luggage": MessageLookupByLibrary.simpleMessage("luggage"),
         "month": MessageLookupByLibrary.simpleMessage("Month"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
         "noCustomer": MessageLookupByLibrary.simpleMessage("No Customer"),
         "numberCustomer": m0,
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "passengers": MessageLookupByLibrary.simpleMessage("Passengers"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "pleaseContact": MessageLookupByLibrary.simpleMessage(
             "Please ! Contact Administrator to be provided Account!"),
         "pleaseEnterEmailToFindAccount": MessageLookupByLibrary.simpleMessage(
             "Please Enter your email to find your account"),
         "pleaseLogin": MessageLookupByLibrary.simpleMessage(
             "Please login to use our service"),
+        "premiumEconomyClass":
+            MessageLookupByLibrary.simpleMessage("Premium Economy Class"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "reenterPassword":
             MessageLookupByLibrary.simpleMessage("Reenter Password"),
