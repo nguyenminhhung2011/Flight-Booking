@@ -18,6 +18,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
             data: DashboardModelState(
               viewEnum: 0,
               isDarkTheme: false,
+              secondBodyDis: true,
             ),
           ),
         ) {
@@ -41,7 +42,10 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     Emitter<DashboardState> emit,
   ) {
     emit(state.copyWith(
-      data: state.data.copyWith(viewEnum: event.view),
+      data: state.data.copyWith(
+        viewEnum: event.view,
+        secondBodyDis: event.secondBodyDis,
+      ),
     ));
   }
 }
