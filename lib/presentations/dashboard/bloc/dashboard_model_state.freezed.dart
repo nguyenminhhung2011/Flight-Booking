@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DashboardModelState {
   int get viewEnum => throw _privateConstructorUsedError;
   bool get isDarkTheme => throw _privateConstructorUsedError;
+  bool get secondBodyDis => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DashboardModelStateCopyWith<DashboardModelState> get copyWith =>
@@ -30,7 +31,7 @@ abstract class $DashboardModelStateCopyWith<$Res> {
           DashboardModelState value, $Res Function(DashboardModelState) then) =
       _$DashboardModelStateCopyWithImpl<$Res, DashboardModelState>;
   @useResult
-  $Res call({int viewEnum, bool isDarkTheme});
+  $Res call({int viewEnum, bool isDarkTheme, bool secondBodyDis});
 }
 
 /// @nodoc
@@ -48,6 +49,7 @@ class _$DashboardModelStateCopyWithImpl<$Res, $Val extends DashboardModelState>
   $Res call({
     Object? viewEnum = null,
     Object? isDarkTheme = null,
+    Object? secondBodyDis = null,
   }) {
     return _then(_value.copyWith(
       viewEnum: null == viewEnum
@@ -57,6 +59,10 @@ class _$DashboardModelStateCopyWithImpl<$Res, $Val extends DashboardModelState>
       isDarkTheme: null == isDarkTheme
           ? _value.isDarkTheme
           : isDarkTheme // ignore: cast_nullable_to_non_nullable
+              as bool,
+      secondBodyDis: null == secondBodyDis
+          ? _value.secondBodyDis
+          : secondBodyDis // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -70,7 +76,7 @@ abstract class _$$_DashboardModelStateCopyWith<$Res>
       __$$_DashboardModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int viewEnum, bool isDarkTheme});
+  $Res call({int viewEnum, bool isDarkTheme, bool secondBodyDis});
 }
 
 /// @nodoc
@@ -86,6 +92,7 @@ class __$$_DashboardModelStateCopyWithImpl<$Res>
   $Res call({
     Object? viewEnum = null,
     Object? isDarkTheme = null,
+    Object? secondBodyDis = null,
   }) {
     return _then(_$_DashboardModelState(
       viewEnum: null == viewEnum
@@ -96,6 +103,10 @@ class __$$_DashboardModelStateCopyWithImpl<$Res>
           ? _value.isDarkTheme
           : isDarkTheme // ignore: cast_nullable_to_non_nullable
               as bool,
+      secondBodyDis: null == secondBodyDis
+          ? _value.secondBodyDis
+          : secondBodyDis // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -104,16 +115,20 @@ class __$$_DashboardModelStateCopyWithImpl<$Res>
 
 class _$_DashboardModelState implements _DashboardModelState {
   const _$_DashboardModelState(
-      {required this.viewEnum, required this.isDarkTheme});
+      {required this.viewEnum,
+      required this.isDarkTheme,
+      required this.secondBodyDis});
 
   @override
   final int viewEnum;
   @override
   final bool isDarkTheme;
+  @override
+  final bool secondBodyDis;
 
   @override
   String toString() {
-    return 'DashboardModelState(viewEnum: $viewEnum, isDarkTheme: $isDarkTheme)';
+    return 'DashboardModelState(viewEnum: $viewEnum, isDarkTheme: $isDarkTheme, secondBodyDis: $secondBodyDis)';
   }
 
   @override
@@ -124,11 +139,14 @@ class _$_DashboardModelState implements _DashboardModelState {
             (identical(other.viewEnum, viewEnum) ||
                 other.viewEnum == viewEnum) &&
             (identical(other.isDarkTheme, isDarkTheme) ||
-                other.isDarkTheme == isDarkTheme));
+                other.isDarkTheme == isDarkTheme) &&
+            (identical(other.secondBodyDis, secondBodyDis) ||
+                other.secondBodyDis == secondBodyDis));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, viewEnum, isDarkTheme);
+  int get hashCode =>
+      Object.hash(runtimeType, viewEnum, isDarkTheme, secondBodyDis);
 
   @JsonKey(ignore: true)
   @override
@@ -141,12 +159,15 @@ class _$_DashboardModelState implements _DashboardModelState {
 abstract class _DashboardModelState implements DashboardModelState {
   const factory _DashboardModelState(
       {required final int viewEnum,
-      required final bool isDarkTheme}) = _$_DashboardModelState;
+      required final bool isDarkTheme,
+      required final bool secondBodyDis}) = _$_DashboardModelState;
 
   @override
   int get viewEnum;
   @override
   bool get isDarkTheme;
+  @override
+  bool get secondBodyDis;
   @override
   @JsonKey(ignore: true)
   _$$_DashboardModelStateCopyWith<_$_DashboardModelState> get copyWith =>

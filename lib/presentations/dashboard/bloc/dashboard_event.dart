@@ -4,5 +4,6 @@ part of 'dashboard_bloc.dart';
 class DashboardEvent with _$DashboardEvent {
   const factory DashboardEvent.started() = _Started;
   const factory DashboardEvent.changeTheme(bool theme) = _ChangeTheme;
-  const factory DashboardEvent.changeView(int view) = _ChangeView;
+  const factory DashboardEvent.changeView(int view, bool secondBodyDis) =
+      _ChangeView;
 }

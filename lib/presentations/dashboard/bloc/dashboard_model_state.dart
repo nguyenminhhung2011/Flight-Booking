@@ -7,5 +7,6 @@ class DashboardModelState with _$DashboardModelState {
   const factory DashboardModelState({
     required int viewEnum,
     required bool isDarkTheme,
+    required bool secondBodyDis,
   }) = _DashboardModelState;
 }
