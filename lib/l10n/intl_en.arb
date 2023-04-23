@@ -22,6 +22,7 @@
     "darkMode": "Dark Mode",
     "lightMode": "LightMode",
     "listTicket": "List tickets",
+    "listFlights": "List Flights",
     "times": "Times",
     "price": "Price",
     "more": "More",
@@ -88,6 +89,11 @@
     "cabinCrew": "Cabin crew",
     "pilot": "Pilot",
     "firstOfficer": "First Officer",
-    "exp": "Exp"
+    "exp": "Exp",
+    "filter": "Filter",
+    "showMoreInformation": "Show more Information",
+    "hideInformation": "Hide Information",
+    "airport": "Airport"
+
 
 }

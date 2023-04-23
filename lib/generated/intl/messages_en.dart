@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "addressData": m0,
         "age": MessageLookupByLibrary.simpleMessage("Age"),
+        "airport": MessageLookupByLibrary.simpleMessage("Airport"),
         "allBooking": MessageLookupByLibrary.simpleMessage("All Booking"),
         "applyNewPassword":
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
@@ -77,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter your Password"),
         "exp": MessageLookupByLibrary.simpleMessage("Exp"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
+        "filter": MessageLookupByLibrary.simpleMessage("Filter"),
         "firstClass": MessageLookupByLibrary.simpleMessage("First Class"),
         "firstOfficer": MessageLookupByLibrary.simpleMessage("First Officer"),
         "flight": MessageLookupByLibrary.simpleMessage("Flight"),
@@ -90,9 +92,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "gate": MessageLookupByLibrary.simpleMessage("Gate"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+        "hideInformation":
+            MessageLookupByLibrary.simpleMessage("Hide Information"),
         "id": MessageLookupByLibrary.simpleMessage("ID"),
         "idData": m1,
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
+        "listFlights": MessageLookupByLibrary.simpleMessage("List Flights"),
         "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -135,6 +140,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "seat": MessageLookupByLibrary.simpleMessage("Seat"),
         "sentVerificationEmail":
             MessageLookupByLibrary.simpleMessage("Sent Verification Email"),
+        "showMoreInformation":
+            MessageLookupByLibrary.simpleMessage("Show more Information"),
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),

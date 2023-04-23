@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 enum TicTypeEnum {
   economyClass,
   premiumEconomyClass,
@@ -14,6 +16,19 @@ enum TicTypeEnum {
         return "Business Class";
       case TicTypeEnum.firstClass:
         return "First Class";
+    }
+  }
+
+  Color get colorType {
+    switch (this) {
+      case TicTypeEnum.economyClass:
+        return Colors.blue;
+      case TicTypeEnum.premiumEconomyClass:
+        return Colors.green;
+      case TicTypeEnum.businessClass:
+        return Colors.red;
+      case TicTypeEnum.firstClass:
+        return Colors.yellow;
     }
   }
 }
