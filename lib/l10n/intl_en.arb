@@ -70,5 +70,24 @@
     "gender": "Gender",
     "boy": "Boy",
     "phoneNumber": "Phone Number",
-    "luggage": "luggage"
+    "luggage": "luggage",
+    "chair": "Chair",
+    "directFlight": "Direct Flight ",
+    "flightDetail": "Flight Detail",
+    "id": "ID",
+    "address": "Address",
+    "age": "Age",
+    "idData": "id {id}",
+    "nameData": "name {name}",
+    "addressData": "address {address}",
+    "customer": "Customer",
+    "employee": "Employee",
+    "numberEmployee": "{no} Employee",
+
+    "flightAttendant": "Flight attendant",
+    "cabinCrew": "Cabin crew",
+    "pilot": "Pilot",
+    "firstOfficer": "First Officer",
+    "exp": "Exp"
+
 }

@@ -19,32 +19,44 @@ mixin _$FlightDetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(ItemViewEnum view) changeTypeView,
+    required TResult Function() showMoreInformation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(ItemViewEnum view)? changeTypeView,
+    TResult? Function()? showMoreInformation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(ItemViewEnum view)? changeTypeView,
+    TResult Function()? showMoreInformation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_ChangeTypeView value) changeTypeView,
+    required TResult Function(_showMoreInformation value) showMoreInformation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeTypeView value)? changeTypeView,
+    TResult? Function(_showMoreInformation value)? showMoreInformation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ChangeTypeView value)? changeTypeView,
+    TResult Function(_showMoreInformation value)? showMoreInformation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +118,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(ItemViewEnum view) changeTypeView,
+    required TResult Function() showMoreInformation,
   }) {
     return started();
   }
@@ -114,6 +128,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(ItemViewEnum view)? changeTypeView,
+    TResult? Function()? showMoreInformation,
   }) {
     return started?.call();
   }
@@ -122,6 +138,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(ItemViewEnum view)? changeTypeView,
+    TResult Function()? showMoreInformation,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -134,6 +152,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_ChangeTypeView value) changeTypeView,
+    required TResult Function(_showMoreInformation value) showMoreInformation,
   }) {
     return started(this);
   }
@@ -142,6 +162,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeTypeView value)? changeTypeView,
+    TResult? Function(_showMoreInformation value)? showMoreInformation,
   }) {
     return started?.call(this);
   }
@@ -150,6 +172,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ChangeTypeView value)? changeTypeView,
+    TResult Function(_showMoreInformation value)? showMoreInformation,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -161,6 +185,253 @@ class _$_Started implements _Started {
 
 abstract class _Started implements FlightDetailEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$$_ChangeTypeViewCopyWith<$Res> {
+  factory _$$_ChangeTypeViewCopyWith(
+          _$_ChangeTypeView value, $Res Function(_$_ChangeTypeView) then) =
+      __$$_ChangeTypeViewCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ItemViewEnum view});
+}
+
+/// @nodoc
+class __$$_ChangeTypeViewCopyWithImpl<$Res>
+    extends _$FlightDetailEventCopyWithImpl<$Res, _$_ChangeTypeView>
+    implements _$$_ChangeTypeViewCopyWith<$Res> {
+  __$$_ChangeTypeViewCopyWithImpl(
+      _$_ChangeTypeView _value, $Res Function(_$_ChangeTypeView) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? view = null,
+  }) {
+    return _then(_$_ChangeTypeView(
+      null == view
+          ? _value.view
+          : view // ignore: cast_nullable_to_non_nullable
+              as ItemViewEnum,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeTypeView implements _ChangeTypeView {
+  const _$_ChangeTypeView(this.view);
+
+  @override
+  final ItemViewEnum view;
+
+  @override
+  String toString() {
+    return 'FlightDetailEvent.changeTypeView(view: $view)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeTypeView &&
+            (identical(other.view, view) || other.view == view));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, view);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeTypeViewCopyWith<_$_ChangeTypeView> get copyWith =>
+      __$$_ChangeTypeViewCopyWithImpl<_$_ChangeTypeView>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(ItemViewEnum view) changeTypeView,
+    required TResult Function() showMoreInformation,
+  }) {
+    return changeTypeView(view);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(ItemViewEnum view)? changeTypeView,
+    TResult? Function()? showMoreInformation,
+  }) {
+    return changeTypeView?.call(view);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(ItemViewEnum view)? changeTypeView,
+    TResult Function()? showMoreInformation,
+    required TResult orElse(),
+  }) {
+    if (changeTypeView != null) {
+      return changeTypeView(view);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangeTypeView value) changeTypeView,
+    required TResult Function(_showMoreInformation value) showMoreInformation,
+  }) {
+    return changeTypeView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeTypeView value)? changeTypeView,
+    TResult? Function(_showMoreInformation value)? showMoreInformation,
+  }) {
+    return changeTypeView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangeTypeView value)? changeTypeView,
+    TResult Function(_showMoreInformation value)? showMoreInformation,
+    required TResult orElse(),
+  }) {
+    if (changeTypeView != null) {
+      return changeTypeView(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeTypeView implements FlightDetailEvent {
+  const factory _ChangeTypeView(final ItemViewEnum view) = _$_ChangeTypeView;
+
+  ItemViewEnum get view;
+  @JsonKey(ignore: true)
+  _$$_ChangeTypeViewCopyWith<_$_ChangeTypeView> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_showMoreInformationCopyWith<$Res> {
+  factory _$$_showMoreInformationCopyWith(_$_showMoreInformation value,
+          $Res Function(_$_showMoreInformation) then) =
+      __$$_showMoreInformationCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_showMoreInformationCopyWithImpl<$Res>
+    extends _$FlightDetailEventCopyWithImpl<$Res, _$_showMoreInformation>
+    implements _$$_showMoreInformationCopyWith<$Res> {
+  __$$_showMoreInformationCopyWithImpl(_$_showMoreInformation _value,
+      $Res Function(_$_showMoreInformation) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_showMoreInformation implements _showMoreInformation {
+  const _$_showMoreInformation();
+
+  @override
+  String toString() {
+    return 'FlightDetailEvent.showMoreInformation()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_showMoreInformation);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(ItemViewEnum view) changeTypeView,
+    required TResult Function() showMoreInformation,
+  }) {
+    return showMoreInformation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(ItemViewEnum view)? changeTypeView,
+    TResult? Function()? showMoreInformation,
+  }) {
+    return showMoreInformation?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(ItemViewEnum view)? changeTypeView,
+    TResult Function()? showMoreInformation,
+    required TResult orElse(),
+  }) {
+    if (showMoreInformation != null) {
+      return showMoreInformation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangeTypeView value) changeTypeView,
+    required TResult Function(_showMoreInformation value) showMoreInformation,
+  }) {
+    return showMoreInformation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeTypeView value)? changeTypeView,
+    TResult? Function(_showMoreInformation value)? showMoreInformation,
+  }) {
+    return showMoreInformation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangeTypeView value)? changeTypeView,
+    TResult Function(_showMoreInformation value)? showMoreInformation,
+    required TResult orElse(),
+  }) {
+    if (showMoreInformation != null) {
+      return showMoreInformation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _showMoreInformation implements FlightDetailEvent {
+  const factory _showMoreInformation() = _$_showMoreInformation;
 }
 
 /// @nodoc
