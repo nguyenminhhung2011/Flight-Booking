@@ -20,9 +20,17 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(no) => "${no} Customer";
+  static String m0(address) => "address ${address}";
 
-  static String m1(email) => "We have sent a verification email to: ${email}";
+  static String m1(id) => "id ${id}";
+
+  static String m2(name) => "name ${name}";
+
+  static String m3(no) => "${no} Customer";
+
+  static String m4(no) => "${no} Employee";
+
+  static String m5(email) => "We have sent a verification email to: ${email}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -30,6 +38,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "addNewWidgets":
             MessageLookupByLibrary.simpleMessage("Add new widgets"),
         "addPlan": MessageLookupByLibrary.simpleMessage("Add Plan"),
+        "address": MessageLookupByLibrary.simpleMessage("Address"),
+        "addressData": m0,
+        "age": MessageLookupByLibrary.simpleMessage("Age"),
         "allBooking": MessageLookupByLibrary.simpleMessage("All Booking"),
         "applyNewPassword":
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
@@ -37,9 +48,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "boy": MessageLookupByLibrary.simpleMessage("Boy"),
         "business": MessageLookupByLibrary.simpleMessage("Business"),
         "businessClass": MessageLookupByLibrary.simpleMessage("Business Class"),
+        "cabinCrew": MessageLookupByLibrary.simpleMessage("Cabin crew"),
+        "chair": MessageLookupByLibrary.simpleMessage("Chair"),
         "class1": MessageLookupByLibrary.simpleMessage("Class"),
         "createYourNewPassword":
             MessageLookupByLibrary.simpleMessage("Create Your New Password"),
+        "customer": MessageLookupByLibrary.simpleMessage("Customer"),
         "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
@@ -47,21 +61,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "departureDate": MessageLookupByLibrary.simpleMessage("Departure Date"),
         "destination": MessageLookupByLibrary.simpleMessage("Destination"),
         "direct": MessageLookupByLibrary.simpleMessage("Direct"),
+        "directFlight": MessageLookupByLibrary.simpleMessage("Direct Flight "),
         "donHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account ?"),
         "driver": MessageLookupByLibrary.simpleMessage("Driver"),
         "duration": MessageLookupByLibrary.simpleMessage("Duration"),
         "economyClass": MessageLookupByLibrary.simpleMessage("Economy Class"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "employee": MessageLookupByLibrary.simpleMessage("Employee"),
         "enterYourEmail":
             MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enterYourNewPassword":
             MessageLookupByLibrary.simpleMessage("Enter Your New Password"),
         "enterYourPassword":
             MessageLookupByLibrary.simpleMessage("Enter your Password"),
+        "exp": MessageLookupByLibrary.simpleMessage("Exp"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
         "firstClass": MessageLookupByLibrary.simpleMessage("First Class"),
+        "firstOfficer": MessageLookupByLibrary.simpleMessage("First Officer"),
         "flight": MessageLookupByLibrary.simpleMessage("Flight"),
+        "flightAttendant":
+            MessageLookupByLibrary.simpleMessage("Flight attendant"),
+        "flightDetail": MessageLookupByLibrary.simpleMessage("Flight Detail"),
         "flightInformation":
             MessageLookupByLibrary.simpleMessage("Flight Information"),
         "flightTickets": MessageLookupByLibrary.simpleMessage("Flight tickets"),
@@ -69,6 +90,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "gate": MessageLookupByLibrary.simpleMessage("Gate"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+        "id": MessageLookupByLibrary.simpleMessage("ID"),
+        "idData": m1,
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
         "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
@@ -79,13 +102,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "month": MessageLookupByLibrary.simpleMessage("Month"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "nameData": m2,
         "noCustomer": MessageLookupByLibrary.simpleMessage("No Customer"),
-        "numberCustomer": m0,
+        "numberCustomer": m3,
+        "numberEmployee": m4,
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "passengers": MessageLookupByLibrary.simpleMessage("Passengers"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "pilot": MessageLookupByLibrary.simpleMessage("Pilot"),
         "pleaseContact": MessageLookupByLibrary.simpleMessage(
             "Please ! Contact Administrator to be provided Account!"),
         "pleaseEnterEmailToFindAccount": MessageLookupByLibrary.simpleMessage(
@@ -118,6 +144,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "visited10Of100Countries":
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
-        "weHaveSentAVerification": m1
+        "weHaveSentAVerification": m5
       };
 }
