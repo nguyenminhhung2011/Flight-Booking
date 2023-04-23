@@ -20,21 +20,21 @@ mixin _$DashboardEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
-    required TResult Function(int view) changeView,
+    required TResult Function(int view, bool secondBodyDis) changeView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
-    TResult? Function(int view)? changeView,
+    TResult? Function(int view, bool secondBodyDis)? changeView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
-    TResult Function(int view)? changeView,
+    TResult Function(int view, bool secondBodyDis)? changeView,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,7 +119,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
-    required TResult Function(int view) changeView,
+    required TResult Function(int view, bool secondBodyDis) changeView,
   }) {
     return started();
   }
@@ -129,7 +129,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
-    TResult? Function(int view)? changeView,
+    TResult? Function(int view, bool secondBodyDis)? changeView,
   }) {
     return started?.call();
   }
@@ -139,7 +139,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
-    TResult Function(int view)? changeView,
+    TResult Function(int view, bool secondBodyDis)? changeView,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -253,7 +253,7 @@ class _$_ChangeTheme implements _ChangeTheme {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
-    required TResult Function(int view) changeView,
+    required TResult Function(int view, bool secondBodyDis) changeView,
   }) {
     return changeTheme(theme);
   }
@@ -263,7 +263,7 @@ class _$_ChangeTheme implements _ChangeTheme {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
-    TResult? Function(int view)? changeView,
+    TResult? Function(int view, bool secondBodyDis)? changeView,
   }) {
     return changeTheme?.call(theme);
   }
@@ -273,7 +273,7 @@ class _$_ChangeTheme implements _ChangeTheme {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
-    TResult Function(int view)? changeView,
+    TResult Function(int view, bool secondBodyDis)? changeView,
     required TResult orElse(),
   }) {
     if (changeTheme != null) {
@@ -332,7 +332,7 @@ abstract class _$$_ChangeViewCopyWith<$Res> {
           _$_ChangeView value, $Res Function(_$_ChangeView) then) =
       __$$_ChangeViewCopyWithImpl<$Res>;
   @useResult
-  $Res call({int view});
+  $Res call({int view, bool secondBodyDis});
 }
 
 /// @nodoc
@@ -347,12 +347,17 @@ class __$$_ChangeViewCopyWithImpl<$Res>
   @override
   $Res call({
     Object? view = null,
+    Object? secondBodyDis = null,
   }) {
     return _then(_$_ChangeView(
       null == view
           ? _value.view
           : view // ignore: cast_nullable_to_non_nullable
               as int,
+      null == secondBodyDis
+          ? _value.secondBodyDis
+          : secondBodyDis // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -360,14 +365,16 @@ class __$$_ChangeViewCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChangeView implements _ChangeView {
-  const _$_ChangeView(this.view);
+  const _$_ChangeView(this.view, this.secondBodyDis);
 
   @override
   final int view;
+  @override
+  final bool secondBodyDis;
 
   @override
   String toString() {
-    return 'DashboardEvent.changeView(view: $view)';
+    return 'DashboardEvent.changeView(view: $view, secondBodyDis: $secondBodyDis)';
   }
 
   @override
@@ -375,11 +382,13 @@ class _$_ChangeView implements _ChangeView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChangeView &&
-            (identical(other.view, view) || other.view == view));
+            (identical(other.view, view) || other.view == view) &&
+            (identical(other.secondBodyDis, secondBodyDis) ||
+                other.secondBodyDis == secondBodyDis));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, view);
+  int get hashCode => Object.hash(runtimeType, view, secondBodyDis);
 
   @JsonKey(ignore: true)
   @override
@@ -392,9 +401,9 @@ class _$_ChangeView implements _ChangeView {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
-    required TResult Function(int view) changeView,
+    required TResult Function(int view, bool secondBodyDis) changeView,
   }) {
-    return changeView(view);
+    return changeView(view, secondBodyDis);
   }
 
   @override
@@ -402,9 +411,9 @@ class _$_ChangeView implements _ChangeView {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
-    TResult? Function(int view)? changeView,
+    TResult? Function(int view, bool secondBodyDis)? changeView,
   }) {
-    return changeView?.call(view);
+    return changeView?.call(view, secondBodyDis);
   }
 
   @override
@@ -412,11 +421,11 @@ class _$_ChangeView implements _ChangeView {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
-    TResult Function(int view)? changeView,
+    TResult Function(int view, bool secondBodyDis)? changeView,
     required TResult orElse(),
   }) {
     if (changeView != null) {
-      return changeView(view);
+      return changeView(view, secondBodyDis);
     }
     return orElse();
   }
@@ -457,9 +466,11 @@ class _$_ChangeView implements _ChangeView {
 }
 
 abstract class _ChangeView implements DashboardEvent {
-  const factory _ChangeView(final int view) = _$_ChangeView;
+  const factory _ChangeView(final int view, final bool secondBodyDis) =
+      _$_ChangeView;
 
   int get view;
+  bool get secondBodyDis;
   @JsonKey(ignore: true)
   _$$_ChangeViewCopyWith<_$_ChangeView> get copyWith =>
       throw _privateConstructorUsedError;

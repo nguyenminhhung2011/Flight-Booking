@@ -13,6 +13,7 @@ import '../../calendar/views/calender_screen.dart';
 import '../../list_flight/bloc/list_flight_bloc.dart';
 import '../../list_flight/views/flight_fast_view.dart';
 import '../../list_flight/views/list_flight_screen.dart';
+import '../../list_ticket/views/list_ticket_screen.dart';
 import '../../overview/views/overview_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -50,7 +51,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       label: Text('dddd3'),
     ),
   ];
-  final List<Map<String, Widget>> _pages = [
+  final List<Map<String, dynamic>> _pages = [
     {
       'body': const OverviewScreen(),
       'secondBody': const CalenderScreen(),
@@ -68,7 +69,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
     {
       'body': const CustomerScreen(),
       'secondBody': const FlightFastView(),
-    }
+    },
+    {
+      'body': const ListTicketScreen(),
+      'secondBody': null,
+    },
   ];
 
   @override
@@ -96,7 +101,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   void _onChangeView(int view) {
-    context.read<DashboardBloc>().add(DashboardEvent.changeView(view));
+    context.read<DashboardBloc>().add(
+          DashboardEvent.changeView(
+            view,
+            _pages[view]['secondBody'] != null,
+          ),
+        );
   }
 
   @override
@@ -188,15 +198,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   },
                 ),
-                secondaryBody: SlotLayout(
-                  config: <Breakpoint, SlotLayoutConfig?>{
-                    Breakpoints.large: SlotLayout.from(
-                      key: const Key('Secondary Body'),
-                      inAnimation: AdaptiveScaffold.stayOnScreen,
-                      builder: (_) => _pages[data.viewEnum]['secondBody']!,
-                    ),
-                  },
-                ),
+                secondaryBody: data.secondBodyDis
+                    ? SlotLayout(
+                        config: <Breakpoint, SlotLayoutConfig?>{
+                          Breakpoints.large: SlotLayout.from(
+                            key: const Key('Secondary Body'),
+                            inAnimation: AdaptiveScaffold.stayOnScreen,
+                            builder: (_) =>
+                                _pages[data.viewEnum]['secondBody']!,
+                          ),
+                        },
+                      )
+                    : null,
                 bottomNavigation: SlotLayout(
                   config: <Breakpoint, SlotLayoutConfig>{
                     Breakpoints.small: SlotLayout.from(

@@ -270,6 +270,16 @@ class S {
     );
   }
 
+  /// `List Flights`
+  String get listFlights {
+    return Intl.message(
+      'List Flights',
+      name: 'listFlights',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Times`
   String get times {
     return Intl.message(
@@ -925,6 +935,46 @@ class S {
     return Intl.message(
       'Exp',
       name: 'exp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filter`
+  String get filter {
+    return Intl.message(
+      'Filter',
+      name: 'filter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show more Information`
+  String get showMoreInformation {
+    return Intl.message(
+      'Show more Information',
+      name: 'showMoreInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hide Information`
+  String get hideInformation {
+    return Intl.message(
+      'Hide Information',
+      name: 'hideInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Airport`
+  String get airport {
+    return Intl.message(
+      'Airport',
+      name: 'airport',
       desc: '',
       args: [],
     );
