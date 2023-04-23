@@ -300,84 +300,90 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
           )
         ],
       ),
-      child: InkWell(
-        onTap: _showMoreInformation,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.airplanemode_active_sharp,
+                color: Theme.of(context).primaryColor,
+              ),
+              Text(
+                ' VietAir',
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+              )
+            ],
+          ),
+          const SizedBox(height: 10.0),
+          SizedBox(
+            width: double.infinity,
+            height: 80,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
               children: [
-                Icon(
-                  Icons.airplanemode_active_sharp,
-                  color: Theme.of(context).primaryColor,
-                ),
-                Text(
-                  ' VietAir',
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        fontWeight: FontWeight.bold,
+                _timePlace(context, '23:20', 'SGB'),
+                SizedBox(
+                  width: 300,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '6h 20m',
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleSmall!
+                            .copyWith(fontWeight: FontWeight.w400),
                       ),
-                )
-              ],
-            ),
-            const SizedBox(height: 10.0),
-            SizedBox(
-              width: double.infinity,
-              height: 80,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  _timePlace(context, '23:20', 'SGB'),
-                  SizedBox(
-                    width: 300,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          '6h 20m',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall!
-                              .copyWith(fontWeight: FontWeight.w400),
-                        ),
-                        Row(
-                          children: [
-                            const DotCustom(color: Colors.blue, full: false),
-                            Expanded(
-                              child: Container(
-                                height: 1,
-                                decoration: DottedDecoration(
-                                  color: Theme.of(context).dividerColor,
-                                  shape: Shape.line,
-                                  linePosition: LinePosition.bottom,
-                                ),
+                      Row(
+                        children: [
+                          const DotCustom(color: Colors.blue, full: false),
+                          Expanded(
+                            child: Container(
+                              height: 1,
+                              decoration: DottedDecoration(
+                                color: Theme.of(context).dividerColor,
+                                shape: Shape.line,
+                                linePosition: LinePosition.bottom,
                               ),
                             ),
-                            const DotCustom(color: Colors.blue, full: true),
-                          ],
-                        ),
-                        Text(
-                          S.of(context).directFlight,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall!
-                              .copyWith(fontWeight: FontWeight.w400),
-                        ),
-                      ],
-                    ),
+                          ),
+                          const DotCustom(color: Colors.blue, full: true),
+                        ],
+                      ),
+                      Text(
+                        S.of(context).directFlight,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleSmall!
+                            .copyWith(fontWeight: FontWeight.w400),
+                      ),
+                    ],
                   ),
-                  _timePlace(context, '6:40', 'HNO'),
-                ]
-                    .expand((element) => [element, const SizedBox(width: 10.0)])
-                    .toList()
-                  ..removeLast(),
-              ),
+                ),
+                _timePlace(context, '6:40', 'HNO'),
+              ]
+                  .expand((element) => [element, const SizedBox(width: 10.0)])
+                  .toList()
+                ..removeLast(),
             ),
-            const SizedBox(height: 10.0),
-            show ? _moreInformationField(context) : const SizedBox(),
-          ],
-        ),
+          ),
+          const SizedBox(height: 10.0),
+          ElevatedButton(
+            onPressed: _showMoreInformation,
+            child: Text(
+              show
+                  ? S.of(context).hideInformation
+                  : S.of(context).showMoreInformation,
+            ),
+          ),
+          const SizedBox(height: 10.0),
+          show ? _moreInformationField(context) : const SizedBox(),
+        ],
       ),
     );
   }
