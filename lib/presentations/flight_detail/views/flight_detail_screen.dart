@@ -216,7 +216,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                 const SizedBox(width: 20.0),
               ],
             ),
-            (data.itemView == ItemViewEnum.gridView)
+            (data.itemView.isGridView)
                 ? _gridCustomerView(context)
                 : _listCustomerView(context),
           ]
@@ -229,25 +229,21 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
 
   Column _listCustomerView(BuildContext context) {
     return Column(
-      children: [
+      children: const [
         TicColumnListView(
-          tit: S.of(context).economyClass,
-          color: Colors.blue,
+          ticType: TicTypeEnum.businessClass,
           count: 10,
         ),
         TicColumnListView(
-          color: Colors.red,
-          tit: S.of(context).premiumEconomyClass,
+          ticType: TicTypeEnum.businessClass,
           count: 10,
         ),
         TicColumnListView(
-          color: Colors.yellow,
-          tit: S.of(context).businessClass,
+          ticType: TicTypeEnum.premiumEconomyClass,
           count: 10,
         ),
         TicColumnListView(
-          color: Colors.green,
-          tit: S.of(context).premiumEconomyClass,
+          ticType: TicTypeEnum.firstClass,
           count: 10,
         ),
       ],
