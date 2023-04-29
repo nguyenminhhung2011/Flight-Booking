@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/widgets/drop_down_button.dart';
+import '../../../domain/entities/flight/flight.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/list_flight_bloc.dart';
 
@@ -38,7 +39,8 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
         context.startFlightDetai(ticID);
       },
       openAddEditFlightFormSuccess: (data, id) {
-        context.openDialogAdDEditFlight(id);
+        final result = context.openDialogAdDEditFlight(id);
+        if (result is Flight) {}
       },
     );
   }
@@ -66,6 +68,11 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
         'title': S.of(context).more,
         'icon': Icons.filter,
         'color': Colors.purple,
+      },
+      {
+        'title': S.of(context).addNewFlight,
+        'icon': Icons.add,
+        'color': Colors.red,
       },
     ];
     return BlocConsumer<ListFlightBloc, ListFlightState>(

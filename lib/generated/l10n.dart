@@ -999,6 +999,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Airport Start`
+  String get airportStart {
+    return Intl.message(
+      'Airport Start',
+      name: 'airportStart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Airport Finish`
+  String get airportFinish {
+    return Intl.message(
+      'Airport Finish',
+      name: 'airportFinish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date Start`
+  String get dateStart {
+    return Intl.message(
+      'Date Start',
+      name: 'dateStart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date Finish`
+  String get dateFinish {
+    return Intl.message(
+      'Date Finish',
+      name: 'dateFinish',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

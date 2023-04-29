@@ -6,8 +6,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/dependency_injection/di.dart';
 
+final _timeNow = DateTime.now();
+
 extension AppCoordinator<T> on BuildContext {
   void pop() => Navigator.of(this).pop();
+  void popArgs(T? args) => Navigator.of(this).pop(args);
 
   void startSelectedBottomBarItem(int view) {}
 
@@ -19,14 +22,41 @@ extension AppCoordinator<T> on BuildContext {
     return showDialog(
       context: this,
       builder: (_) => BlocProvider<AddEditFlightBloc>(
-        create: (context) => injector(),
-        child: Dialog(
+        create: (context) => injector(param1: fId),
+        child: const Dialog(
           backgroundColor: Colors.transparent,
-          child: AddEditFlightForm(id: fId),
+          child: AddEditFlightForm(),
         ),
       ),
     );
   }
+
+  Future<DateTime?> pickDateTime() async {
+    DateTime? date = (await pickDate()) as DateTime?;
+    if (date == null) {
+      return null;
+    }
+    TimeOfDay? time = (await pickTime()) as TimeOfDay?;
+    if (time == null) {
+      return null;
+    }
+    return date.copyWith(hour: time.hour, minute: time.minute);
+  }
+
+  Future<T?> pickTime() => showTimePicker(
+        context: this,
+        initialTime: TimeOfDay(
+          hour: _timeNow.hour,
+          minute: _timeNow.minute,
+        ),
+      ) as Future<T?>;
+
+  Future<T?> pickDate() => showDatePicker(
+        context: this,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(1900),
+        lastDate: DateTime(2100),
+      ) as Future<T?>;
 }
 
 // abstract class AppCoordinatorShared<T> {
