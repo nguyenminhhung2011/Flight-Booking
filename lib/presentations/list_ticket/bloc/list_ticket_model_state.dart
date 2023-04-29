@@ -1,5 +1,4 @@
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
-import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/entities/ticket/ticket.dart';

@@ -1,5 +1,4 @@
 import 'package:flight_booking/app_coordinator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/components/enum/tic_type_enum.dart';
