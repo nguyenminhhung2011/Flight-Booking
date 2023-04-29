@@ -1,4 +1,4 @@
-import 'package:flight_booking/presentations/routes/routes.dart';
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
     initData().then((value) {
-      Navigator.of(context).pushNamed(Routes.login);
+      context.openLoginPage();
     });
     return Scaffold(
       backgroundColor: Colors.pink,
