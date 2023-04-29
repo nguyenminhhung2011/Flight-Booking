@@ -1,3 +1,4 @@
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/presentations/login/views/widgets/forget_password_form.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -266,7 +267,7 @@ class LoginForm extends StatelessWidget {
             alignment: Alignment.center,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed(Routes.dashboard);
+                context.openDashboardPage();
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(loginFormWidth * 0.7, 50),

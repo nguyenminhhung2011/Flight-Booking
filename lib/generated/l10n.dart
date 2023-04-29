@@ -1039,6 +1039,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Identity Number`
+  String get identityNum {
+    return Intl.message(
+      'Identity Number',
+      name: 'identityNum',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Birthday`
+  String get birthday {
+    return Intl.message(
+      'Birthday',
+      name: 'birthday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Country`
+  String get country {
+    return Intl.message(
+      'Country',
+      name: 'country',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "allBooking": MessageLookupByLibrary.simpleMessage("All Booking"),
         "applyNewPassword":
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
+        "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
         "bookingType": MessageLookupByLibrary.simpleMessage("Booking type"),
         "boy": MessageLookupByLibrary.simpleMessage("Boy"),
         "business": MessageLookupByLibrary.simpleMessage("Business"),
@@ -55,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cabinCrew": MessageLookupByLibrary.simpleMessage("Cabin crew"),
         "chair": MessageLookupByLibrary.simpleMessage("Chair"),
         "class1": MessageLookupByLibrary.simpleMessage("Class"),
+        "country": MessageLookupByLibrary.simpleMessage("Country"),
         "createYourNewPassword":
             MessageLookupByLibrary.simpleMessage("Create Your New Password"),
         "customer": MessageLookupByLibrary.simpleMessage("Customer"),
@@ -102,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hide Information"),
         "id": MessageLookupByLibrary.simpleMessage("ID"),
         "idData": m1,
+        "identityNum": MessageLookupByLibrary.simpleMessage("Identity Number"),
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
         "listFlights": MessageLookupByLibrary.simpleMessage("List Flights"),
         "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
