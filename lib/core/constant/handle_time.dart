@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 String convertTime(int value) {
   return '${value >= 12 ? value - 12 : value}:00 ${value >= 12 ? 'PM' : 'AM'}';
 }
@@ -15,4 +17,12 @@ int checkDateBetween(DateTime start, DateTime end) {
     return 2;
   }
   return 1;
+}
+
+String getYmdFormat(DateTime dateTime) {
+  return DateFormat().add_yMd().format(dateTime);
+}
+
+String getYmdHmFormat(DateTime dateTime) {
+  return DateFormat().add_yMd().add_Hm().format(dateTime);
 }
