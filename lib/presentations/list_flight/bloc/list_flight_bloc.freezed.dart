@@ -21,6 +21,7 @@ mixin _$ListFlightEvent {
     required TResult Function() started,
     required TResult Function(String flightID) selectFlight,
     required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$ListFlightEvent {
     TResult? Function()? started,
     TResult? Function(String flightID)? selectFlight,
     TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$ListFlightEvent {
     TResult Function()? started,
     TResult Function(String flightID)? selectFlight,
     TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,8 @@ mixin _$ListFlightEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_SelectFlight value) selectFlight,
     required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$ListFlightEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_SelectFlight value)? selectFlight,
     TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,7 @@ mixin _$ListFlightEvent {
     TResult Function(_Started value)? started,
     TResult Function(_SelectFlight value)? selectFlight,
     TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +127,7 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(String flightID) selectFlight,
     required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
   }) {
     return started();
   }
@@ -130,6 +138,7 @@ class _$_Started implements _Started {
     TResult? Function()? started,
     TResult? Function(String flightID)? selectFlight,
     TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
   }) {
     return started?.call();
   }
@@ -140,6 +149,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(String flightID)? selectFlight,
     TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -154,6 +164,8 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_SelectFlight value) selectFlight,
     required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
   }) {
     return started(this);
   }
@@ -164,6 +176,7 @@ class _$_Started implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_SelectFlight value)? selectFlight,
     TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
   }) {
     return started?.call(this);
   }
@@ -174,6 +187,7 @@ class _$_Started implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_SelectFlight value)? selectFlight,
     TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -255,6 +269,7 @@ class _$_SelectFlight implements _SelectFlight {
     required TResult Function() started,
     required TResult Function(String flightID) selectFlight,
     required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
   }) {
     return selectFlight(flightID);
   }
@@ -265,6 +280,7 @@ class _$_SelectFlight implements _SelectFlight {
     TResult? Function()? started,
     TResult? Function(String flightID)? selectFlight,
     TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
   }) {
     return selectFlight?.call(flightID);
   }
@@ -275,6 +291,7 @@ class _$_SelectFlight implements _SelectFlight {
     TResult Function()? started,
     TResult Function(String flightID)? selectFlight,
     TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
     required TResult orElse(),
   }) {
     if (selectFlight != null) {
@@ -289,6 +306,8 @@ class _$_SelectFlight implements _SelectFlight {
     required TResult Function(_Started value) started,
     required TResult Function(_SelectFlight value) selectFlight,
     required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
   }) {
     return selectFlight(this);
   }
@@ -299,6 +318,7 @@ class _$_SelectFlight implements _SelectFlight {
     TResult? Function(_Started value)? started,
     TResult? Function(_SelectFlight value)? selectFlight,
     TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
   }) {
     return selectFlight?.call(this);
   }
@@ -309,6 +329,7 @@ class _$_SelectFlight implements _SelectFlight {
     TResult Function(_Started value)? started,
     TResult Function(_SelectFlight value)? selectFlight,
     TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     required TResult orElse(),
   }) {
     if (selectFlight != null) {
@@ -368,6 +389,7 @@ class _$_GetFlights implements _GetFlights {
     required TResult Function() started,
     required TResult Function(String flightID) selectFlight,
     required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
   }) {
     return getFlights();
   }
@@ -378,6 +400,7 @@ class _$_GetFlights implements _GetFlights {
     TResult? Function()? started,
     TResult? Function(String flightID)? selectFlight,
     TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
   }) {
     return getFlights?.call();
   }
@@ -388,6 +411,7 @@ class _$_GetFlights implements _GetFlights {
     TResult Function()? started,
     TResult Function(String flightID)? selectFlight,
     TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
     required TResult orElse(),
   }) {
     if (getFlights != null) {
@@ -402,6 +426,8 @@ class _$_GetFlights implements _GetFlights {
     required TResult Function(_Started value) started,
     required TResult Function(_SelectFlight value) selectFlight,
     required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
   }) {
     return getFlights(this);
   }
@@ -412,6 +438,7 @@ class _$_GetFlights implements _GetFlights {
     TResult? Function(_Started value)? started,
     TResult? Function(_SelectFlight value)? selectFlight,
     TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
   }) {
     return getFlights?.call(this);
   }
@@ -422,6 +449,7 @@ class _$_GetFlights implements _GetFlights {
     TResult Function(_Started value)? started,
     TResult Function(_SelectFlight value)? selectFlight,
     TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     required TResult orElse(),
   }) {
     if (getFlights != null) {
@@ -433,6 +461,154 @@ class _$_GetFlights implements _GetFlights {
 
 abstract class _GetFlights implements ListFlightEvent {
   const factory _GetFlights() = _$_GetFlights;
+}
+
+/// @nodoc
+abstract class _$$_OpenAddEditFlightFormCopyWith<$Res> {
+  factory _$$_OpenAddEditFlightFormCopyWith(_$_OpenAddEditFlightForm value,
+          $Res Function(_$_OpenAddEditFlightForm) then) =
+      __$$_OpenAddEditFlightFormCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$_OpenAddEditFlightFormCopyWithImpl<$Res>
+    extends _$ListFlightEventCopyWithImpl<$Res, _$_OpenAddEditFlightForm>
+    implements _$$_OpenAddEditFlightFormCopyWith<$Res> {
+  __$$_OpenAddEditFlightFormCopyWithImpl(_$_OpenAddEditFlightForm _value,
+      $Res Function(_$_OpenAddEditFlightForm) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_OpenAddEditFlightForm(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
+  const _$_OpenAddEditFlightForm(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ListFlightEvent.openAddEditFlightForm(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OpenAddEditFlightForm &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_OpenAddEditFlightFormCopyWith<_$_OpenAddEditFlightForm> get copyWith =>
+      __$$_OpenAddEditFlightFormCopyWithImpl<_$_OpenAddEditFlightForm>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String flightID) selectFlight,
+    required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
+  }) {
+    return openAddEditFlightForm(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String flightID)? selectFlight,
+    TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
+  }) {
+    return openAddEditFlightForm?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String flightID)? selectFlight,
+    TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
+    required TResult orElse(),
+  }) {
+    if (openAddEditFlightForm != null) {
+      return openAddEditFlightForm(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectFlight value) selectFlight,
+    required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
+  }) {
+    return openAddEditFlightForm(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectFlight value)? selectFlight,
+    TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+  }) {
+    return openAddEditFlightForm?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectFlight value)? selectFlight,
+    TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    required TResult orElse(),
+  }) {
+    if (openAddEditFlightForm != null) {
+      return openAddEditFlightForm(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenAddEditFlightForm implements ListFlightEvent {
+  const factory _OpenAddEditFlightForm(final String id) =
+      _$_OpenAddEditFlightForm;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$_OpenAddEditFlightFormCopyWith<_$_OpenAddEditFlightForm> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -449,6 +625,8 @@ mixin _$ListFlightState {
     required TResult Function(ListFlightModelState data) getFlightsSuccess,
     required TResult Function(ListFlightModelState data, String message)
         getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -462,6 +640,8 @@ mixin _$ListFlightState {
     TResult? Function(ListFlightModelState data)? getFlightsSuccess,
     TResult? Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -475,6 +655,8 @@ mixin _$ListFlightState {
     TResult Function(ListFlightModelState data)? getFlightsSuccess,
     TResult Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -488,6 +670,8 @@ mixin _$ListFlightState {
         selectListFlightFailed,
     required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
     required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -498,6 +682,8 @@ mixin _$ListFlightState {
     TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -508,6 +694,8 @@ mixin _$ListFlightState {
     TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -637,6 +825,8 @@ class _$_Initial extends _Initial {
     required TResult Function(ListFlightModelState data) getFlightsSuccess,
     required TResult Function(ListFlightModelState data, String message)
         getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
   }) {
     return initial(data);
   }
@@ -653,6 +843,8 @@ class _$_Initial extends _Initial {
     TResult? Function(ListFlightModelState data)? getFlightsSuccess,
     TResult? Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
   }) {
     return initial?.call(data);
   }
@@ -669,6 +861,8 @@ class _$_Initial extends _Initial {
     TResult Function(ListFlightModelState data)? getFlightsSuccess,
     TResult Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -688,6 +882,8 @@ class _$_Initial extends _Initial {
         selectListFlightFailed,
     required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
     required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
   }) {
     return initial(this);
   }
@@ -701,6 +897,8 @@ class _$_Initial extends _Initial {
     TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
   }) {
     return initial?.call(this);
   }
@@ -714,6 +912,8 @@ class _$_Initial extends _Initial {
     TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -813,6 +1013,8 @@ class _$_Loading extends _Loading {
     required TResult Function(ListFlightModelState data) getFlightsSuccess,
     required TResult Function(ListFlightModelState data, String message)
         getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
   }) {
     return loading(data);
   }
@@ -829,6 +1031,8 @@ class _$_Loading extends _Loading {
     TResult? Function(ListFlightModelState data)? getFlightsSuccess,
     TResult? Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
   }) {
     return loading?.call(data);
   }
@@ -845,6 +1049,8 @@ class _$_Loading extends _Loading {
     TResult Function(ListFlightModelState data)? getFlightsSuccess,
     TResult Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -864,6 +1070,8 @@ class _$_Loading extends _Loading {
         selectListFlightFailed,
     required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
     required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
   }) {
     return loading(this);
   }
@@ -877,6 +1085,8 @@ class _$_Loading extends _Loading {
     TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
   }) {
     return loading?.call(this);
   }
@@ -890,6 +1100,8 @@ class _$_Loading extends _Loading {
     TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1002,6 +1214,8 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
     required TResult Function(ListFlightModelState data) getFlightsSuccess,
     required TResult Function(ListFlightModelState data, String message)
         getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
   }) {
     return selectListFlightSuccess(data, flightId);
   }
@@ -1018,6 +1232,8 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
     TResult? Function(ListFlightModelState data)? getFlightsSuccess,
     TResult? Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
   }) {
     return selectListFlightSuccess?.call(data, flightId);
   }
@@ -1034,6 +1250,8 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
     TResult Function(ListFlightModelState data)? getFlightsSuccess,
     TResult Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (selectListFlightSuccess != null) {
@@ -1053,6 +1271,8 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
         selectListFlightFailed,
     required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
     required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
   }) {
     return selectListFlightSuccess(this);
   }
@@ -1066,6 +1286,8 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
     TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
   }) {
     return selectListFlightSuccess?.call(this);
   }
@@ -1079,6 +1301,8 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
     TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (selectListFlightSuccess != null) {
@@ -1191,6 +1415,8 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
     required TResult Function(ListFlightModelState data) getFlightsSuccess,
     required TResult Function(ListFlightModelState data, String message)
         getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
   }) {
     return selectListFlightFailed(data, message);
   }
@@ -1207,6 +1433,8 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
     TResult? Function(ListFlightModelState data)? getFlightsSuccess,
     TResult? Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
   }) {
     return selectListFlightFailed?.call(data, message);
   }
@@ -1223,6 +1451,8 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
     TResult Function(ListFlightModelState data)? getFlightsSuccess,
     TResult Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (selectListFlightFailed != null) {
@@ -1242,6 +1472,8 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
         selectListFlightFailed,
     required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
     required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
   }) {
     return selectListFlightFailed(this);
   }
@@ -1255,6 +1487,8 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
     TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
   }) {
     return selectListFlightFailed?.call(this);
   }
@@ -1268,6 +1502,8 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
     TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (selectListFlightFailed != null) {
@@ -1371,6 +1607,8 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
     required TResult Function(ListFlightModelState data) getFlightsSuccess,
     required TResult Function(ListFlightModelState data, String message)
         getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
   }) {
     return getFlightsSuccess(data);
   }
@@ -1387,6 +1625,8 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
     TResult? Function(ListFlightModelState data)? getFlightsSuccess,
     TResult? Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
   }) {
     return getFlightsSuccess?.call(data);
   }
@@ -1403,6 +1643,8 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
     TResult Function(ListFlightModelState data)? getFlightsSuccess,
     TResult Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (getFlightsSuccess != null) {
@@ -1422,6 +1664,8 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
         selectListFlightFailed,
     required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
     required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
   }) {
     return getFlightsSuccess(this);
   }
@@ -1435,6 +1679,8 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
     TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
   }) {
     return getFlightsSuccess?.call(this);
   }
@@ -1448,6 +1694,8 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
     TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (getFlightsSuccess != null) {
@@ -1557,6 +1805,8 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
     required TResult Function(ListFlightModelState data) getFlightsSuccess,
     required TResult Function(ListFlightModelState data, String message)
         getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
   }) {
     return getFlightsFailed(data, message);
   }
@@ -1573,6 +1823,8 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
     TResult? Function(ListFlightModelState data)? getFlightsSuccess,
     TResult? Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
   }) {
     return getFlightsFailed?.call(data, message);
   }
@@ -1589,6 +1841,8 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
     TResult Function(ListFlightModelState data)? getFlightsSuccess,
     TResult Function(ListFlightModelState data, String message)?
         getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (getFlightsFailed != null) {
@@ -1608,6 +1862,8 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
         selectListFlightFailed,
     required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
     required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
   }) {
     return getFlightsFailed(this);
   }
@@ -1621,6 +1877,8 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
     TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
   }) {
     return getFlightsFailed?.call(this);
   }
@@ -1634,6 +1892,8 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
     TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
     TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
     TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
     required TResult orElse(),
   }) {
     if (getFlightsFailed != null) {
@@ -1656,4 +1916,209 @@ abstract class _GetFlightsFailed extends ListFlightState {
   @JsonKey(ignore: true)
   _$$_GetFlightsFailedCopyWith<_$_GetFlightsFailed> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_OpenAddEditFlightFormSuccessCopyWith<$Res>
+    implements $ListFlightStateCopyWith<$Res> {
+  factory _$$_OpenAddEditFlightFormSuccessCopyWith(
+          _$_OpenAddEditFlightFormSuccess value,
+          $Res Function(_$_OpenAddEditFlightFormSuccess) then) =
+      __$$_OpenAddEditFlightFormSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ListFlightModelState data, String flightId});
+
+  @override
+  $ListFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_OpenAddEditFlightFormSuccessCopyWithImpl<$Res>
+    extends _$ListFlightStateCopyWithImpl<$Res, _$_OpenAddEditFlightFormSuccess>
+    implements _$$_OpenAddEditFlightFormSuccessCopyWith<$Res> {
+  __$$_OpenAddEditFlightFormSuccessCopyWithImpl(
+      _$_OpenAddEditFlightFormSuccess _value,
+      $Res Function(_$_OpenAddEditFlightFormSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? flightId = null,
+  }) {
+    return _then(_$_OpenAddEditFlightFormSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ListFlightModelState,
+      flightId: null == flightId
+          ? _value.flightId
+          : flightId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_OpenAddEditFlightFormSuccess extends _OpenAddEditFlightFormSuccess {
+  const _$_OpenAddEditFlightFormSuccess(
+      {required this.data, required this.flightId})
+      : super._();
+
+  @override
+  final ListFlightModelState data;
+  @override
+  final String flightId;
+
+  @override
+  String toString() {
+    return 'ListFlightState.openAddEditFlightFormSuccess(data: $data, flightId: $flightId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OpenAddEditFlightFormSuccess &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.flightId, flightId) ||
+                other.flightId == flightId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, flightId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_OpenAddEditFlightFormSuccessCopyWith<_$_OpenAddEditFlightFormSuccess>
+      get copyWith => __$$_OpenAddEditFlightFormSuccessCopyWithImpl<
+          _$_OpenAddEditFlightFormSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ListFlightModelState data) initial,
+    required TResult Function(ListFlightModelState data) loading,
+    required TResult Function(ListFlightModelState data, String flightId)
+        selectListFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        selectListFlightFailed,
+    required TResult Function(ListFlightModelState data) getFlightsSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
+  }) {
+    return openAddEditFlightFormSuccess(data, flightId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ListFlightModelState data)? initial,
+    TResult? Function(ListFlightModelState data)? loading,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult? Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+  }) {
+    return openAddEditFlightFormSuccess?.call(data, flightId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ListFlightModelState data)? initial,
+    TResult Function(ListFlightModelState data)? loading,
+    TResult Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    required TResult orElse(),
+  }) {
+    if (openAddEditFlightFormSuccess != null) {
+      return openAddEditFlightFormSuccess(data, flightId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectListFlightSuccess value)
+        selectListFlightSuccess,
+    required TResult Function(_SelectListFlightFailed value)
+        selectListFlightFailed,
+    required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
+    required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
+  }) {
+    return openAddEditFlightFormSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+  }) {
+    return openAddEditFlightFormSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    required TResult orElse(),
+  }) {
+    if (openAddEditFlightFormSuccess != null) {
+      return openAddEditFlightFormSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenAddEditFlightFormSuccess extends ListFlightState {
+  const factory _OpenAddEditFlightFormSuccess(
+      {required final ListFlightModelState data,
+      required final String flightId}) = _$_OpenAddEditFlightFormSuccess;
+  const _OpenAddEditFlightFormSuccess._() : super._();
+
+  @override
+  ListFlightModelState get data;
+  String get flightId;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OpenAddEditFlightFormSuccessCopyWith<_$_OpenAddEditFlightFormSuccess>
+      get copyWith => throw _privateConstructorUsedError;
 }

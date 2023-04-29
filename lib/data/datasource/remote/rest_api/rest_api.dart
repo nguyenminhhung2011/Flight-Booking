@@ -20,4 +20,8 @@ class RestApi {
   Future<bool> deleteTicket(String ticketId) async {
     return false;
   }
+
+  Future<bool> editTicket(Ticket newTic) async {
+    return false;
+  }
 }

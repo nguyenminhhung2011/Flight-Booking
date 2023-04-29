@@ -28,6 +28,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     on<_SelectFlight>(_onSelectFlight);
     on<_Started>(_onStarted);
     on<_GetFlights>(_onGetFlights);
+    on<_OpenAddEditFlightForm>(_onOpenAddEditFlightForm);
   }
 
   //get Flights
@@ -35,6 +36,17 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _Started event,
     Emitter<ListFlightState> emit,
   ) {}
+
+  FutureOr<void> _onOpenAddEditFlightForm(
+    _OpenAddEditFlightForm event,
+    Emitter<ListFlightState> emit,
+  ) async {
+    emit(ListFlightState.loading(data: state.data));
+    emit(
+      ListFlightState.openAddEditFlightFormSuccess(
+          data: state.data, flightId: event.id),
+    );
+  }
 
   FutureOr<void> _onGetFlights(
     _GetFlights event,
@@ -58,6 +70,8 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _SelectFlight event,
     Emitter<ListFlightState> emit,
   ) {
+    emit(ListFlightState.loading(data: state.data));
+
     try {
       emit(
         ListFlightState.selectListFlightSuccess(

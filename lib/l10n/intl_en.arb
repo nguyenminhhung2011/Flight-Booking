@@ -93,7 +93,7 @@
     "filter": "Filter",
     "showMoreInformation": "Show more Information",
     "hideInformation": "Hide Information",
-    "airport": "Airport"
-
-
+    "airport": "Airport",
+    "addNewFlight": "Add New Flight",
+    "editFlight": "Edit Flight"
 }

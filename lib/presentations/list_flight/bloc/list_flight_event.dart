@@ -7,4 +7,7 @@ class ListFlightEvent with _$ListFlightEvent {
   const factory ListFlightEvent.selectFlight(String flightID) = _SelectFlight;
 
   const factory ListFlightEvent.getFlights() = _GetFlights;
+
+  const factory ListFlightEvent.openAddEditFlightForm(String id) =
+      _OpenAddEditFlightForm;
 }

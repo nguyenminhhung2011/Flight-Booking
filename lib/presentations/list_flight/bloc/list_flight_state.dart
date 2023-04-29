@@ -26,4 +26,9 @@ class ListFlightState with _$ListFlightState {
     required ListFlightModelState data,
     required String message,
   }) = _GetFlightsFailed;
+
+  const factory ListFlightState.openAddEditFlightFormSuccess({
+    required ListFlightModelState data,
+    required String flightId,
+  }) = _OpenAddEditFlightFormSuccess;
 }
