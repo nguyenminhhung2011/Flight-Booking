@@ -1,10 +1,8 @@
 import 'package:flight_booking/data/datasource/remote/rest_api/rest_api.dart';
-import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/flight/flight.dart';
 import '../../domain/repositories/flight_repository.dart';
-import '../models/flight_model.dart';
 
 @Injectable(as: FlightRepository)
 class FlightRepositoryImpl extends FlightRepository {
