@@ -1,10 +1,12 @@
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/generated/l10n.dart';
+import 'package:flight_booking/presentations/settings/bloc/setting_bloc.dart';
 import 'package:flight_booking/presentations/settings/widgets/account_setting_tab.dart';
 import 'package:flight_booking/presentations/settings/widgets/general_setting_tab.dart';
 import 'package:flight_booking/presentations/settings/widgets/principle_setting_tab.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/widgets/label_textfield.dart';
 
@@ -16,6 +18,8 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+  SettingBloc get _settingBloc => BlocProvider.of<SettingBloc>(context);
+
   late final List<Map<String, dynamic>> navigatorBarData = [
     {
       "label": S.of(context).generalSetting,
@@ -31,7 +35,32 @@ class _SettingScreenState extends State<SettingScreen> {
     },
   ];
 
-  late final List<Widget> pages = [];
+  late final List<Widget> pages = [
+    const AccountSettingTab(),
+    const GeneralSettingsTab(),
+    const PrincipleSettingTab(),
+  ];
+
+  final PageController pageController = PageController(initialPage: 0);
+
+  @override
+  void initState() {
+    _settingBloc.add(const SettingEvent.started());
+    super.initState();
+  }
+
+  void _stateChangeListener(BuildContext context, SettingState state) {
+    state.whenOrNull(
+      initial: (data) {},
+      switchTab: (data) {
+        pageController.animateToPage(
+          data.currentPage,
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.bounceIn,
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,19 +83,23 @@ class _SettingScreenState extends State<SettingScreen> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              NavigationBar(
-                height: 50,
-                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                destinations: navigatorBarData
-                    .map(
-                      (destination) => NavigationDestination(
-                        icon: Icon(destination["icon"]),
-                        label: destination['label'],
-                      ),
-                    )
-                    .toList(),
-                selectedIndex: 0,
-                onDestinationSelected: (value) {},
+              BlocConsumer<SettingBloc, SettingState>(
+                listener: _stateChangeListener,
+                builder: (context, state) => NavigationBar(
+                  height: 50,
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                  destinations: navigatorBarData
+                      .map(
+                        (destination) => NavigationDestination(
+                          icon: Icon(destination["icon"]),
+                          label: destination['label'],
+                        ),
+                      )
+                      .toList(),
+                  selectedIndex: state.data.currentPage,
+                  onDestinationSelected: (value) =>
+                      _settingBloc.add(SettingEvent.changePage(value)),
+                ),
               ),
               const SizedBox(height: 15),
               Expanded(
@@ -77,11 +110,8 @@ class _SettingScreenState extends State<SettingScreen> {
                     borderRadius: CommonAppUIConfig.primaryRadiusBorder,
                   ),
                   child: PageView(
-                    children: [
-                      PrincipleSettingTab(),
-                      AccountSettingTab(),
-                      GeneralSettingsTab(),
-                    ],
+                    controller: pageController,
+                    children: pages,
                   ),
                 ),
               ),
