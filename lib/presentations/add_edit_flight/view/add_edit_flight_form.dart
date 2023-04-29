@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 
 import '../../../generated/l10n.dart';
+import '../../list_ticket/views/list_ticket_screen.dart';
 
 class AddEditFlightForm extends StatelessWidget {
   final String id;
@@ -30,7 +31,18 @@ class AddEditFlightForm extends StatelessWidget {
                 ),
           ),
           Row(
-            children: [],
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              SizedBox(
+                height: 30.0,
+                child: FilterCategory(
+                  hint: '',
+                  iconData: Icons.abc,
+                  title: '',
+                ),
+              ),
+            ],
           ),
         ].expand((element) => [element, const SizedBox(height: 10.0)]).toList()
           ..removeLast(),
