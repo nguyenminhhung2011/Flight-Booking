@@ -87,18 +87,19 @@ class CustomerScreen extends StatelessWidget {
                   return Text(data.toString());
                 },
                 rowData: [
-                  FlexRowTableData<String>(flex: 1, data: "ID"),
-                  FlexRowTableData<String>(flex: 1, data: "Name"),
-                  FlexRowTableData<String>(flex: 1, data: "Address"),
-                  FlexRowTableData<String>(flex: 1, data: "Age"),
+                  FlexRowTableData<String>(flex: 1, data: S.of(context).id),
+                  FlexRowTableData<String>(flex: 1, data: S.of(context).name),
+                  FlexRowTableData<String>(
+                      flex: 1, data: S.of(context).address),
+                  FlexRowTableData<String>(flex: 1, data: S.of(context).age),
                 ],
               ),
               data: [
                 for (int i = 0; i < 50; i++)
                   Customer(
-                    id: "id$i",
-                    name: "name$i",
-                    address: "address$i",
+                    id: S.of(context).idData(i),
+                    name: S.of(context).nameData(i),
+                    address: S.of(context).addressData(i),
                     age: i,
                   )
               ],

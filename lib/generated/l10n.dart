@@ -270,6 +270,16 @@ class S {
     );
   }
 
+  /// `List Flights`
+  String get listFlights {
+    return Intl.message(
+      'List Flights',
+      name: 'listFlights',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Times`
   String get times {
     return Intl.message(
@@ -677,6 +687,296 @@ class S {
       name: 'numberCustomer',
       desc: '',
       args: [no],
+    );
+  }
+
+  /// `Economy Class`
+  String get economyClass {
+    return Intl.message(
+      'Economy Class',
+      name: 'economyClass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Premium Economy Class`
+  String get premiumEconomyClass {
+    return Intl.message(
+      'Premium Economy Class',
+      name: 'premiumEconomyClass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `First Class`
+  String get firstClass {
+    return Intl.message(
+      'First Class',
+      name: 'firstClass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gender`
+  String get gender {
+    return Intl.message(
+      'Gender',
+      name: 'gender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Boy`
+  String get boy {
+    return Intl.message(
+      'Boy',
+      name: 'boy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `luggage`
+  String get luggage {
+    return Intl.message(
+      'luggage',
+      name: 'luggage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chair`
+  String get chair {
+    return Intl.message(
+      'Chair',
+      name: 'chair',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Direct Flight `
+  String get directFlight {
+    return Intl.message(
+      'Direct Flight ',
+      name: 'directFlight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flight Detail`
+  String get flightDetail {
+    return Intl.message(
+      'Flight Detail',
+      name: 'flightDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ID`
+  String get id {
+    return Intl.message(
+      'ID',
+      name: 'id',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message(
+      'Address',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Age`
+  String get age {
+    return Intl.message(
+      'Age',
+      name: 'age',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `id {id}`
+  String idData(Object id) {
+    return Intl.message(
+      'id $id',
+      name: 'idData',
+      desc: '',
+      args: [id],
+    );
+  }
+
+  /// `name {name}`
+  String nameData(Object name) {
+    return Intl.message(
+      'name $name',
+      name: 'nameData',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `address {address}`
+  String addressData(Object address) {
+    return Intl.message(
+      'address $address',
+      name: 'addressData',
+      desc: '',
+      args: [address],
+    );
+  }
+
+  /// `Customer`
+  String get customer {
+    return Intl.message(
+      'Customer',
+      name: 'customer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Employee`
+  String get employee {
+    return Intl.message(
+      'Employee',
+      name: 'employee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{no} Employee`
+  String numberEmployee(Object no) {
+    return Intl.message(
+      '$no Employee',
+      name: 'numberEmployee',
+      desc: '',
+      args: [no],
+    );
+  }
+
+  /// `Flight attendant`
+  String get flightAttendant {
+    return Intl.message(
+      'Flight attendant',
+      name: 'flightAttendant',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cabin crew`
+  String get cabinCrew {
+    return Intl.message(
+      'Cabin crew',
+      name: 'cabinCrew',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pilot`
+  String get pilot {
+    return Intl.message(
+      'Pilot',
+      name: 'pilot',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `First Officer`
+  String get firstOfficer {
+    return Intl.message(
+      'First Officer',
+      name: 'firstOfficer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exp`
+  String get exp {
+    return Intl.message(
+      'Exp',
+      name: 'exp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filter`
+  String get filter {
+    return Intl.message(
+      'Filter',
+      name: 'filter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show more Information`
+  String get showMoreInformation {
+    return Intl.message(
+      'Show more Information',
+      name: 'showMoreInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hide Information`
+  String get hideInformation {
+    return Intl.message(
+      'Hide Information',
+      name: 'hideInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Airport`
+  String get airport {
+    return Intl.message(
+      'Airport',
+      name: 'airport',
+      desc: '',
+      args: [],
     );
   }
 }
