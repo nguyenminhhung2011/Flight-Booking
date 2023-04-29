@@ -11,4 +11,5 @@ class TicketModel {
     required this.timeBought,
     required this.price,
   });
+  
 }

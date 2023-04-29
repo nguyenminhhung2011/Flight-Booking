@@ -29,16 +29,22 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
   }
 
   void viewDetail(String ticId) {
-    // _bloc.add(ListTicEvent.selectTic(ticId));
-    context.startFlightDetail(ticId);
+    _bloc.add(ListFlightEvent.selectFlight(ticId));
   }
 
-  void _listenStateChanged(_, state) {
+  void _listenStateChanged(_, ListFlightState state) {
     state.whenOrNull(
-      selectListTicSuccess: (data, ticID) {
-        context.startFlightDetail(ticID);
+      selectListFlightSuccess: (data, ticID) {
+        context.startFlightDetai(ticID);
+      },
+      openAddEditFlightFormSuccess: (data, id) {
+        context.openDialogAdDEditFlight(id);
       },
     );
+  }
+
+  void _openAddFlightDialog(String title) {
+    _bloc.add(const ListFlightEvent.openAddEditFlightForm(''));
   }
 
   @override
@@ -134,7 +140,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                                     (e) => DropdownButotn(
                                       backgroundColor:
                                           Theme.of(context).cardColor,
-                                      onPress: () {},
+                                      onPress: () => _openAddFlightDialog(''),
                                       child: Row(
                                         children: [
                                           Container(
