@@ -12,4 +12,12 @@ class RestApi {
   Future<List<Flight>> getListFlight() async {
     return [];
   }
+
+  Future<bool> addNewTicket(Ticket tic) async {
+    return false;
+  }
+
+  Future<bool> deleteTicket(String ticketId) async {
+    return false;
+  }
 }

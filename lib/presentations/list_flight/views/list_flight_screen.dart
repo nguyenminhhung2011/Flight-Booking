@@ -72,7 +72,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
               const SizedBox(height: 10.0),
               ListTile(
                 title: Text(
-                  S.of(context).listTicket,
+                  S.of(context).listFlights,
                   style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),

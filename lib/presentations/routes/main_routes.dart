@@ -3,7 +3,10 @@ import 'package:flight_booking/presentations/login/views/login_screen.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flight_booking/presentations/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../core/dependency_injection/di.dart';
+import '../flight_detail/bloc/flight_detail_bloc.dart';
 import '../flight_detail/views/flight_detail_screen.dart';
 
 class MainRoutes {
@@ -42,7 +45,10 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const FlightDetailScreen();
+            return BlocProvider<FlightDetailBloc>(
+              create: (context) => injector(),
+              child: const FlightDetailScreen(),
+            );
           },
         );
       default:

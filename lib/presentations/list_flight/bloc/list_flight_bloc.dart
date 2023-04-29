@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flight_booking/domain/usecase/list_flight_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -14,9 +15,9 @@ part 'list_flight_bloc.freezed.dart';
 
 @injectable
 class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
-  final ListFlightRepository _listFlightRepository;
+  final ListFlightsUsecase _listFlightsUsecase;
   ListFlightBloc(
-    this._listFlightRepository,
+    this._listFlightsUsecase,
   ) : super(
           const ListFlightState.initial(
             data: ListFlightModelState(
@@ -41,7 +42,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
   ) async {
     try {
       emit(ListFlightState.loading(data: state.data));
-      final flights = await _listFlightRepository.getListFlight();
+      final flights = await _listFlightsUsecase.fetchAllFlights();
       emit(ListFlightState.getFlightsSuccess(
         data: state.data.copyWith(flights: flights),
       ));
