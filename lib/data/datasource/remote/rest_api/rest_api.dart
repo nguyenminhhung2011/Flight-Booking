@@ -1,3 +1,4 @@
+import 'package:flight_booking/data/models/flight_model.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:injectable/injectable.dart';
 
@@ -9,8 +10,20 @@ class RestApi {
     return [];
   }
 
-  Future<List<Flight>> getListFlight() async {
+  Future<List<FlightModel>> getListFlight() async {
     return [];
+  }
+
+  Future<bool> addNewFlight(Flight flight) async {
+    return false;
+  }
+
+  Future<bool> deleteFlight(String id) async {
+    return false;
+  }
+
+  Future<bool> editlight(Flight newFlight) async {
+    return false;
   }
 
   Future<bool> addNewTicket(Ticket tic) async {

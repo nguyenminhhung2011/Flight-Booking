@@ -1,3 +1,5 @@
+import 'dart:math';
+
 List<String> weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 DateTime now = DateTime.now();
 List<Map<String, dynamic>> schedule = [
@@ -34,3 +36,13 @@ List<Map<String, dynamic>> schedule = [
     'title': 'An Khe - Sai Gon',
   },
 ];
+String randomString() {
+  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  var rnd = Random(DateTime.now().microsecondsSinceEpoch);
+  var result = '';
+  for (var i = 0; i < 10; i++) {
+    result += chars[rnd.nextInt(chars.length)];
+  }
+
+  return result;
+}

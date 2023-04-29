@@ -9,4 +9,22 @@ class AddEditFlightState with _$AddEditFlightState {
 
   const factory AddEditFlightState.loading(
       {required AddEditFlightModelState data}) = _Loading;
+
+  const factory AddEditFlightState.addNewFlightSuccess({
+    required AddEditFlightModelState data,
+    required String idReturn,
+  }) = _AddNewFlightSuccess;
+
+  const factory AddEditFlightState.addNewFlightFailed({
+    required AddEditFlightModelState data,
+    required String message,
+  }) = _AddNewFlightFailed;
+
+  const factory AddEditFlightState.editFlightSuccess(
+      {required AddEditFlightModelState data}) = _EditFlightSuccess;
+
+  const factory AddEditFlightState.editFlightFailed({
+    required AddEditFlightModelState data,
+    required String message,
+  }) = _EditFlightFailed;
 }
