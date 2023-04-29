@@ -71,14 +71,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
     {
       'body': const CustomerScreen(),
       'secondBody': const CustomerDetailCard(),
-    }    {
+    },
+    {
       'body': BlocProvider<ListTicketBloc>(
         create: (context) => injector(),
         child: const ListTicketScreen(),
       ),
       'secondBody': null,
     },
- ];
+  ];
 
   @override
   void initState() {
