@@ -9,4 +9,12 @@ extension AppCoordinator<T> on BuildContext {
   Future<T?> startFlightDetail(String ticId) {
     return Navigator.of(this).pushNamed(Routes.flightDetail, arguments: ticId);
   }
+
+  Future<T?> openLoginPage() {
+    return Navigator.of(this).pushNamed(Routes.login);
+  }
+
+  Future<T?> openDashboardPage() {
+    return Navigator.of(this).pushNamed(Routes.dashboard);
+  }
 }
