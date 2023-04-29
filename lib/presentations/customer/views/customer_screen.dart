@@ -35,8 +35,6 @@ class _CustomerScreenState extends State<CustomerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final deviceWidth = MediaQuery.of(context).size.width;
-    final deviceHeight = MediaQuery.of(context).size.height;
     return BlocListener<CustomerBloc, CustomerState>(
       listener: _stateChangeListener,
       child: Scaffold(
@@ -57,44 +55,25 @@ class _CustomerScreenState extends State<CustomerScreen> {
               children: [
                 Expanded(
                   child: FilterCategory(
-                    title: S.of(context).customer,
-                    hint: 'Customer name, Customer id, etc',
+                    title: S.of(context).id,
+                    hint: '',
                     iconData: Icons.search_outlined,
                   ),
                 ),
                 const SizedBox(width: 20),
-                const Expanded(
+                Expanded(
                   child: FilterCategory(
-                    title: 'Country',
-                    hint: 'All Country',
-                    iconData: Icons.category_outlined,
+                    title: S.of(context).phoneNumber,
+                    hint: '0112345648',
+                    iconData: Icons.phone,
                   ),
                 ),
                 const SizedBox(width: 20),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () async {
-                      await showDateRangePicker(
-                        context: context,
-                        firstDate:
-                            DateTime.now().subtract(const Duration(days: 10)),
-                        lastDate: DateTime.now(),
-                        initialEntryMode: DatePickerEntryMode.calendarOnly,
-                        builder: (_, child) {
-                          return SizedBox(
-                            height: deviceHeight * 0.5,
-                            width: deviceWidth * 0.35,
-                            child: child,
-                          );
-                        },
-                      );
-                    },
-                    child: FilterCategory(
-                      title: 'Date of Joining',
-                      enable: false,
-                      hint: getYmdFormat(DateTime.now()),
-                      iconData: Icons.calendar_month_outlined,
-                    ),
+                  child: FilterCategory(
+                    title: S.of(context).identityNum,
+                    hint: "",
+                    iconData: Icons.numbers,
                   ),
                 ),
               ],
