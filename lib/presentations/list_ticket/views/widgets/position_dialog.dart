@@ -1,3 +1,4 @@
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +58,7 @@ class PositionDialog extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.topRight,
                       child: IconButton(
-                        onPressed: () => Navigator.of(context).pop(),
+                        onPressed: () => context.pop(),
                         icon: const Icon(Icons.close),
                       ),
                     ),

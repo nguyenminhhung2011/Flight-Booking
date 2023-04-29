@@ -84,7 +84,6 @@
     "customer": "Customer",
     "employee": "Employee",
     "numberEmployee": "{no} Employee",
-
     "flightAttendant": "Flight attendant",
     "cabinCrew": "Cabin crew",
     "pilot": "Pilot",
@@ -99,5 +98,8 @@
     "airportStart": "Airport Start",
     "airportFinish": "Airport Finish",
     "dateStart": "Date Start",
-    "dateFinish": "Date Finish"
+    "dateFinish": "Date Finish",
+    "identityNum": "Identity Number",
+    "birthday": "Birthday",
+    "country": "Country"
 }

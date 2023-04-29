@@ -57,6 +57,13 @@ extension AppCoordinator<T> on BuildContext {
         firstDate: DateTime(1900),
         lastDate: DateTime(2100),
       ) as Future<T?>;
+  Future<T?> openLoginPage() {
+    return Navigator.of(this).pushNamed(Routes.login);
+  }
+
+  Future<T?> openDashboardPage() {
+    return Navigator.of(this).pushNamed(Routes.dashboard);
+  }
 }
 
 // abstract class AppCoordinatorShared<T> {
