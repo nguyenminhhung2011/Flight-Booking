@@ -11,6 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../generated/l10n.dart';
 import '../../calendar/views/calender_screen.dart';
+import '../../customer/views/widgets/customer_detail_card.dart';
 import '../../list_flight/bloc/list_flight_bloc.dart';
 import '../../list_flight/views/flight_fast_view.dart';
 import '../../list_flight/views/list_flight_screen.dart';
@@ -69,7 +70,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     },
     {
       'body': const CustomerScreen(),
-      'secondBody': const FlightFastView(),
+      'secondBody': const CustomerDetailCard(),
     },
     {
       'body': BlocProvider<ListTicketBloc>(
