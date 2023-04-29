@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "activities": MessageLookupByLibrary.simpleMessage("Activities"),
+        "addNewFlight": MessageLookupByLibrary.simpleMessage("Add New Flight"),
         "addNewWidgets":
             MessageLookupByLibrary.simpleMessage("Add new widgets"),
         "addPlan": MessageLookupByLibrary.simpleMessage("Add Plan"),
@@ -42,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "addressData": m0,
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "airport": MessageLookupByLibrary.simpleMessage("Airport"),
+        "airportFinish": MessageLookupByLibrary.simpleMessage("Airport Finish"),
+        "airportStart": MessageLookupByLibrary.simpleMessage("Airport Start"),
         "allBooking": MessageLookupByLibrary.simpleMessage("All Booking"),
         "applyNewPassword":
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
@@ -60,7 +63,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
+        "dateFinish": MessageLookupByLibrary.simpleMessage("Date Finish"),
         "dateRange": MessageLookupByLibrary.simpleMessage("Date range"),
+        "dateStart": MessageLookupByLibrary.simpleMessage("Date Start"),
         "departureDate": MessageLookupByLibrary.simpleMessage("Departure Date"),
         "destination": MessageLookupByLibrary.simpleMessage("Destination"),
         "direct": MessageLookupByLibrary.simpleMessage("Direct"),
@@ -70,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "driver": MessageLookupByLibrary.simpleMessage("Driver"),
         "duration": MessageLookupByLibrary.simpleMessage("Duration"),
         "economyClass": MessageLookupByLibrary.simpleMessage("Economy Class"),
+        "editFlight": MessageLookupByLibrary.simpleMessage("Edit Flight"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "employee": MessageLookupByLibrary.simpleMessage("Employee"),
         "enterYourEmail":

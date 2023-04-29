@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:flight_booking/domain/usecase/list_flight_usecase.dart';
+import 'package:flight_booking/domain/usecase/flight_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -14,9 +14,9 @@ part 'list_flight_bloc.freezed.dart';
 
 @injectable
 class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
-  final ListFlightsUsecase _listFlightsUsecase;
+  final FlightsUsecase _flightsUsecase;
   ListFlightBloc(
-    this._listFlightsUsecase,
+    this._flightsUsecase,
   ) : super(
           const ListFlightState.initial(
             data: ListFlightModelState(
@@ -27,6 +27,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     on<_SelectFlight>(_onSelectFlight);
     on<_Started>(_onStarted);
     on<_GetFlights>(_onGetFlights);
+    on<_OpenAddEditFlightForm>(_onOpenAddEditFlightForm);
   }
 
   //get Flights
@@ -35,13 +36,24 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     Emitter<ListFlightState> emit,
   ) {}
 
+  FutureOr<void> _onOpenAddEditFlightForm(
+    _OpenAddEditFlightForm event,
+    Emitter<ListFlightState> emit,
+  ) async {
+    emit(ListFlightState.loading(data: state.data));
+    emit(
+      ListFlightState.openAddEditFlightFormSuccess(
+          data: state.data, flightId: event.id),
+    );
+  }
+
   FutureOr<void> _onGetFlights(
     _GetFlights event,
     Emitter<ListFlightState> emit,
   ) async {
     try {
       emit(ListFlightState.loading(data: state.data));
-      final flights = await _listFlightsUsecase.fetchAllFlights();
+      final flights = await _flightsUsecase.fetchAllFlights();
       emit(ListFlightState.getFlightsSuccess(
         data: state.data.copyWith(flights: flights),
       ));
@@ -57,6 +69,8 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _SelectFlight event,
     Emitter<ListFlightState> emit,
   ) {
+    emit(ListFlightState.loading(data: state.data));
+
     try {
       emit(
         ListFlightState.selectListFlightSuccess(

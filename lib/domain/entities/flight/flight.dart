@@ -8,6 +8,7 @@ class Flight with _$Flight {
     required String idStartAirport,
     required String idComeAirport,
     required DateTime timeStart,
-    required int timeFflight,
+    required DateTime timeEnd,
+    required int noCustomer,
   }) = _Flight;
 }

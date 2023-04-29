@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/widgets/drop_down_button.dart';
+import '../../../domain/entities/flight/flight.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/list_flight_bloc.dart';
 
@@ -29,16 +30,23 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
   }
 
   void viewDetail(String ticId) {
-    // _bloc.add(ListTicEvent.selectTic(ticId));
-    context.startFlightDetail(ticId);
+    _bloc.add(ListFlightEvent.selectFlight(ticId));
   }
 
-  void _listenStateChanged(_, state) {
+  void _listenStateChanged(_, ListFlightState state) {
     state.whenOrNull(
-      selectListTicSuccess: (data, ticID) {
-        context.startFlightDetail(ticID);
+      selectListFlightSuccess: (data, ticID) {
+        context.startFlightDetai(ticID);
+      },
+      openAddEditFlightFormSuccess: (data, id) {
+        final result = context.openDialogAdDEditFlight(id);
+        if (result is Flight) {}
       },
     );
+  }
+
+  void _openAddFlightDialog(String title) {
+    _bloc.add(const ListFlightEvent.openAddEditFlightForm(''));
   }
 
   @override
@@ -60,6 +68,11 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
         'title': S.of(context).more,
         'icon': Icons.filter,
         'color': Colors.purple,
+      },
+      {
+        'title': S.of(context).addNewFlight,
+        'icon': Icons.add,
+        'color': Colors.red,
       },
     ];
     return BlocConsumer<ListFlightBloc, ListFlightState>(
@@ -134,7 +147,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                                     (e) => DropdownButotn(
                                       backgroundColor:
                                           Theme.of(context).cardColor,
-                                      onPress: () {},
+                                      onPress: () => _openAddFlightDialog(''),
                                       child: Row(
                                         children: [
                                           Container(
