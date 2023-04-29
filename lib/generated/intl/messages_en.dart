@@ -34,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accountSetting":
+            MessageLookupByLibrary.simpleMessage("Account Settings"),
         "activities": MessageLookupByLibrary.simpleMessage("Activities"),
         "addNewWidgets":
             MessageLookupByLibrary.simpleMessage("Add new widgets"),
@@ -71,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "duration": MessageLookupByLibrary.simpleMessage("Duration"),
         "economyClass": MessageLookupByLibrary.simpleMessage("Economy Class"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailPhoneDetail":
+            MessageLookupByLibrary.simpleMessage("Email and Phone Details"),
         "employee": MessageLookupByLibrary.simpleMessage("Employee"),
         "enterYourEmail":
             MessageLookupByLibrary.simpleMessage("Enter your email"),
@@ -94,6 +98,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "gate": MessageLookupByLibrary.simpleMessage("Gate"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+        "generalSetting":
+            MessageLookupByLibrary.simpleMessage("General Settings"),
         "hideInformation":
             MessageLookupByLibrary.simpleMessage("Hide Information"),
         "id": MessageLookupByLibrary.simpleMessage("ID"),
@@ -135,20 +141,27 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Reenter Your Password"),
         "rememberInformation":
             MessageLookupByLibrary.simpleMessage("Remember Information"),
+        "ruleSettings": MessageLookupByLibrary.simpleMessage("Rule Settings"),
         "sale": MessageLookupByLibrary.simpleMessage("Sale"),
         "salePerformance":
             MessageLookupByLibrary.simpleMessage("Sale Performance"),
+        "saveChange": MessageLookupByLibrary.simpleMessage("Save Change"),
         "searchAnything":
             MessageLookupByLibrary.simpleMessage("Search Anything..."),
         "seat": MessageLookupByLibrary.simpleMessage("Seat"),
         "sentVerificationEmail":
             MessageLookupByLibrary.simpleMessage("Sent Verification Email"),
+        "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "showMoreInformation":
             MessageLookupByLibrary.simpleMessage("Show more Information"),
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),
         "times": MessageLookupByLibrary.simpleMessage("Times"),
+        "update": MessageLookupByLibrary.simpleMessage("Update"),
+        "uploadProfileImage":
+            MessageLookupByLibrary.simpleMessage("Upload Profile Image"),
+        "username": MessageLookupByLibrary.simpleMessage("Username"),
         "view": MessageLookupByLibrary.simpleMessage("View"),
         "viewDetail": MessageLookupByLibrary.simpleMessage("View Detail"),
         "visited10Of100Countries":

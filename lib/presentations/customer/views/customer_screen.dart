@@ -1,7 +1,7 @@
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/presentations/customer/bloc/customer_bloc.dart';
-import 'package:flight_booking/presentations/customer/views/widgets/customer_textfield.dart';
+import 'package:flight_booking/core/components/widgets/label_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -54,7 +54,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Expanded(
-                  child: FilterCategory(
+                  child: LabelTextField(
                     title: S.of(context).id,
                     hint: '',
                     iconData: Icons.search_outlined,
@@ -62,7 +62,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                 ),
                 const SizedBox(width: 20),
                 Expanded(
-                  child: FilterCategory(
+                  child: LabelTextField(
                     title: S.of(context).phoneNumber,
                     hint: '0112345648',
                     iconData: Icons.phone,
@@ -70,7 +70,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                 ),
                 const SizedBox(width: 20),
                 Expanded(
-                  child: FilterCategory(
+                  child: LabelTextField(
                     title: S.of(context).identityNum,
                     hint: "",
                     iconData: Icons.numbers,

@@ -6,6 +6,7 @@ import 'package:flight_booking/presentations/customer/views/customer_screen.dart
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_model_state.dart';
 import 'package:flight_booking/presentations/list_ticket/bloc/list_ticket_bloc.dart';
+import 'package:flight_booking/presentations/settings/views/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -81,6 +82,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
         create: (context) => injector(),
         child: const ListTicketScreen(),
       ),
+      'secondBody': null,
+    },
+    {
+      'body': SettingScreen(),
       'secondBody': null,
     },
   ];

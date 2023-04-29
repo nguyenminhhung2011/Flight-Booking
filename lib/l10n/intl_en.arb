@@ -95,5 +95,14 @@
     "airport": "Airport",
     "identityNum": "Identity Number",
     "birthday": "Birthday",
-    "country": "Country"
+    "country": "Country",
+    "setting": "Setting",
+    "generalSetting": "General Settings",
+    "accountSetting": "Account Settings",
+    "ruleSettings": "Rule Settings",
+    "uploadProfileImage": "Upload Profile Image",
+    "username": "Username",
+    "saveChange": "Save Change",
+    "emailPhoneDetail":"Email and Phone Details",
+    "update":"Update"
 }

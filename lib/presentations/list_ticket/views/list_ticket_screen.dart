@@ -148,7 +148,7 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
                         child: Row(
                           children: const [
                             Expanded(
-                              child: FilterCategory(
+                              child: LabelTextField(
                                 title: 'Flights',
                                 hint: 'Select Flights',
                                 iconData: Icons.airplane_ticket,
@@ -221,8 +221,8 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
   }
 }
 
-class FilterCategory extends StatelessWidget {
-  const FilterCategory({
+class LabelTextField extends StatelessWidget {
+  const LabelTextField({
     super.key,
     required this.title,
     required this.hint,

@@ -23,7 +23,6 @@ class CommonAppUIConfig {
   );
 
   static final primaryDecorationContainer = BoxDecoration(
-    color: Colors.white,
     border: Border.all(
       color: Colors.grey,
       width: 0.2,
