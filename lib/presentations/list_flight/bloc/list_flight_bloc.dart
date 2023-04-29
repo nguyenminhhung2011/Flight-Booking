@@ -5,7 +5,6 @@ import 'package:flight_booking/domain/usecase/list_flight_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/repositories/list_flight_repository.dart';
 import 'list_flight_model_state.dart';
 
 part 'list_flight_event.dart';

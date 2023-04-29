@@ -84,7 +84,6 @@
     "customer": "Customer",
     "employee": "Employee",
     "numberEmployee": "{no} Employee",
-
     "flightAttendant": "Flight attendant",
     "cabinCrew": "Cabin crew",
     "pilot": "Pilot",
@@ -93,7 +92,8 @@
     "filter": "Filter",
     "showMoreInformation": "Show more Information",
     "hideInformation": "Hide Information",
-    "airport": "Airport"
-
-
+    "airport": "Airport",
+    "identityNum": "Identity Number",
+    "birthday": "Birthday",
+    "country": "Country"
 }
