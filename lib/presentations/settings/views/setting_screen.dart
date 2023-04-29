@@ -36,8 +36,8 @@ class _SettingScreenState extends State<SettingScreen> {
   ];
 
   late final List<Widget> pages = [
-    const AccountSettingTab(),
     const GeneralSettingsTab(),
+    const AccountSettingTab(),
     const PrincipleSettingTab(),
   ];
 
