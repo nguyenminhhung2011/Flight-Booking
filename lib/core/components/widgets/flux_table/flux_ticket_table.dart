@@ -1,7 +1,5 @@
 import "package:flutter/material.dart";
 
-import "flux_table_row.dart";
-
 class FluxTicketTable<T> extends StatelessWidget {
   const FluxTicketTable({
     super.key,
