@@ -1069,6 +1069,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Setting`
+  String get setting {
+    return Intl.message(
+      'Setting',
+      name: 'setting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General Settings`
+  String get generalSetting {
+    return Intl.message(
+      'General Settings',
+      name: 'generalSetting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Settings`
+  String get accountSetting {
+    return Intl.message(
+      'Account Settings',
+      name: 'accountSetting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rule Settings`
+  String get ruleSettings {
+    return Intl.message(
+      'Rule Settings',
+      name: 'ruleSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upload Profile Image`
+  String get uploadProfileImage {
+    return Intl.message(
+      'Upload Profile Image',
+      name: 'uploadProfileImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username`
+  String get username {
+    return Intl.message(
+      'Username',
+      name: 'username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Change`
+  String get saveChange {
+    return Intl.message(
+      'Save Change',
+      name: 'saveChange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email and Phone Details`
+  String get emailPhoneDetail {
+    return Intl.message(
+      'Email and Phone Details',
+      name: 'emailPhoneDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update`
+  String get update {
+    return Intl.message(
+      'Update',
+      name: 'update',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
