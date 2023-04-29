@@ -1,6 +1,8 @@
+import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart';
 import 'package:flight_booking/presentations/add_edit_flight/view/add_edit_flight_form.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/dependency_injection/di.dart';
 
@@ -16,9 +18,12 @@ extension AppCoordinator<T> on BuildContext {
   Future<T?> openDialogAdDEditFlight(String fId) {
     return showDialog(
       context: this,
-      builder: (_) => Dialog(
-        backgroundColor: Colors.transparent,
-        child: AddEditFlightForm(id: fId),
+      builder: (_) => BlocProvider<AddEditFlightBloc>(
+        create: (context) => injector(),
+        child: Dialog(
+          backgroundColor: Colors.transparent,
+          child: AddEditFlightForm(id: fId),
+        ),
       ),
     );
   }
