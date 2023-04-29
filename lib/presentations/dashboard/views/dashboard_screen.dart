@@ -1,5 +1,4 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/dependency_injection/di.dart';
 import 'package:flight_booking/presentations/customer/bloc/customer_bloc.dart';
 import 'package:flight_booking/presentations/customer/views/customer_screen.dart';

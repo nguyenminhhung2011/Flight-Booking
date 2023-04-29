@@ -1,4 +1,3 @@
-import 'package:flight_booking/presentations/customer/views/widgets/consistence_booking.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ticket_widget/ticket_widget.dart';

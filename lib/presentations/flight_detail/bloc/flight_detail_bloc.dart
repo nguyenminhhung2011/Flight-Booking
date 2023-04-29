@@ -5,7 +5,6 @@ import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../list_flight/bloc/list_flight_bloc.dart';
 import 'flight_detail_model_state.dart';
 
 part 'flight_detail_event.dart';
