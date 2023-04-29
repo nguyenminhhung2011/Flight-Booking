@@ -93,6 +93,12 @@
     "showMoreInformation": "Show more Information",
     "hideInformation": "Hide Information",
     "airport": "Airport",
+    "addNewFlight": "Add New Flight",
+    "editFlight": "Edit Flight",
+    "airportStart": "Airport Start",
+    "airportFinish": "Airport Finish",
+    "dateStart": "Date Start",
+    "dateFinish": "Date Finish",
     "identityNum": "Identity Number",
     "birthday": "Birthday",
     "country": "Country"
