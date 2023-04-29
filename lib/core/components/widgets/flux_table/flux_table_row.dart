@@ -7,7 +7,9 @@ class FluxTableRow<T> extends StatelessWidget {
     required this.rowData,
     this.rowDecoration,
     this.padding,
+    this.onTap,
   });
+  final Function()? onTap;
   final List<FlexRowTableData> rowData;
   final Widget Function(dynamic data, int columnIndex) itemBuilder;
   final BoxDecoration? rowDecoration;
@@ -15,34 +17,37 @@ class FluxTableRow<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: padding ?? const EdgeInsets.symmetric(vertical: 10),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        border: Border.all(color: Colors.grey, width: 0.2),
-        borderRadius: BorderRadius.circular(5),
-      ).copyWith(
-        color: rowDecoration?.color,
-        backgroundBlendMode: rowDecoration?.backgroundBlendMode,
-        border: rowDecoration?.border,
-        borderRadius: rowDecoration?.borderRadius,
-        boxShadow: rowDecoration?.boxShadow,
-        gradient: rowDecoration?.gradient,
-        image: rowDecoration?.image,
-        shape: rowDecoration?.shape,
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          for (int i = 0; i < rowData.length; i++)
-            Expanded(
-              flex: rowData.elementAt(i).flex,
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: itemBuilder(rowData.elementAt(i).data, i),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: padding ?? const EdgeInsets.symmetric(vertical: 10),
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          border: Border.all(color: Colors.grey, width: 0.2),
+          borderRadius: BorderRadius.circular(5),
+        ).copyWith(
+          color: rowDecoration?.color,
+          backgroundBlendMode: rowDecoration?.backgroundBlendMode,
+          border: rowDecoration?.border,
+          borderRadius: rowDecoration?.borderRadius,
+          boxShadow: rowDecoration?.boxShadow,
+          gradient: rowDecoration?.gradient,
+          image: rowDecoration?.image,
+          shape: rowDecoration?.shape,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            for (int i = 0; i < rowData.length; i++)
+              Expanded(
+                flex: rowData.elementAt(i).flex,
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: itemBuilder(rowData.elementAt(i).data, i),
+                ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }

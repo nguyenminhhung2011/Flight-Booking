@@ -19,8 +19,8 @@ class FluxTicketTable<T> extends StatelessWidget {
   final Color? tableBackgroundColor;
   final Color? rowBackgroundColor;
   final List<T> data;
-  final FluxTableRow<T> Function(T data) rowBuilder;
-  final FluxTableRow<T> titleRow;
+  final Widget Function(T data) rowBuilder;
+  final Widget titleRow;
   final EdgeInsetsGeometry? padding;
   final Widget Function(BuildContext, int)? rowSeparatorBuilder;
   final double? distanceRow;
@@ -34,7 +34,7 @@ class FluxTicketTable<T> extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: Colors.blueGrey, width: 0.1),
         borderRadius: BorderRadius.circular(10),
-        color: tableBackgroundColor ?? const Color.fromARGB(255, 200, 196, 196),
+        color: tableBackgroundColor,
       ),
       child: Column(
         children: [
