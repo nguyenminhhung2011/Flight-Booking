@@ -92,10 +92,13 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
         noCustomer: data.noCustomer,
       );
       final edit = await _flightsUsecase.editlight(newFlight);
-      if (edit) {
-        emit(AddEditFlightState.editFlightSuccess(data: data));
+      if (!edit) {
+        emit(
+          AddEditFlightState.editFlightFailed(data: state.data, message: ''),
+        );
+        return;
       }
-      emit(AddEditFlightState.editFlightFailed(data: state.data, message: ''));
+      emit(AddEditFlightState.editFlightSuccess(data: data));
     } catch (e) {
       emit(AddEditFlightState.editFlightFailed(
         data: state.data,
@@ -119,11 +122,12 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
         noCustomer: data.noCustomer,
       );
       final add = await _flightsUsecase.addNewFlight(newFlight);
-      if (add != _idNull) {
-        emit(AddEditFlightState.addNewFlightSuccess(data: data, idReturn: add));
+      if (add == _idNull) {
+        emit(AddEditFlightState.addNewFlightFailed(
+            data: state.data, message: ''));
+        return;
       }
-      emit(
-          AddEditFlightState.addNewFlightFailed(data: state.data, message: ''));
+      emit(AddEditFlightState.addNewFlightSuccess(data: data, idReturn: add));
     } catch (e) {
       emit(AddEditFlightState.addNewFlightFailed(
         data: state.data,
