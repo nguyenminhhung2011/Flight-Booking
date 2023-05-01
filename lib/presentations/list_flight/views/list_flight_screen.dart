@@ -9,6 +9,8 @@ import '../../../domain/entities/flight/flight.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/list_flight_bloc.dart';
 
+const _idNull = '';
+
 class ListFlightScreen extends StatefulWidget {
   const ListFlightScreen({super.key});
 
@@ -40,13 +42,27 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
       },
       openAddEditFlightFormSuccess: (data, id) {
         final result = context.openDialogAdDEditFlight(id);
-        if (result is Flight) {}
+        if (result is Flight) {
+          if (id == _idNull) {
+            _bloc.add(ListFlightEvent.updateFlightsAfterAdd(result as Flight));
+          } else {
+            _bloc.add(
+              ListFlightEvent.updateFlightssAfterEdit(result as Flight),
+            );
+          }
+        }
       },
     );
   }
 
   void _openAddFlightDialog(String title) {
     _bloc.add(const ListFlightEvent.openAddEditFlightForm(''));
+  }
+
+  @override
+  void dispose() {
+    _textController.dispose();
+    super.dispose();
   }
 
   @override

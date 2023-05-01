@@ -5,6 +5,7 @@ import 'package:flight_booking/domain/usecase/flight_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../domain/entities/flight/flight.dart';
 import 'list_flight_model_state.dart';
 
 part 'list_flight_event.dart';
@@ -15,6 +16,9 @@ part 'list_flight_bloc.freezed.dart';
 @injectable
 class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
   final FlightsUsecase _flightsUsecase;
+
+  ListFlightModelState get data => state.data;
+
   ListFlightBloc(
     this._flightsUsecase,
   ) : super(
@@ -28,6 +32,8 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     on<_Started>(_onStarted);
     on<_GetFlights>(_onGetFlights);
     on<_OpenAddEditFlightForm>(_onOpenAddEditFlightForm);
+    on<_UpdateFlighstAfterEdit>(_onUpdateFlightAfterEdit);
+    on<_UpdateFlightsAfterAdd>(_onUpdateFlightAfterAdd);
   }
 
   //get Flights
@@ -51,8 +57,8 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _GetFlights event,
     Emitter<ListFlightState> emit,
   ) async {
+    emit(ListFlightState.loading(data: state.data));
     try {
-      emit(ListFlightState.loading(data: state.data));
       final flights = await _flightsUsecase.fetchAllFlights();
       emit(ListFlightState.getFlightsSuccess(
         data: state.data.copyWith(flights: flights),
@@ -84,5 +90,31 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
         message: e.toString(),
       ));
     }
+  }
+
+  FutureOr<void> _onUpdateFlightAfterAdd(
+    _UpdateFlightsAfterAdd event,
+    Emitter<ListFlightState> emit,
+  ) {
+    emit(state.copyWith(
+      data: data.copyWith(flights: [event.flight, ...data.flights]),
+    ));
+  }
+
+  FutureOr<void> _onUpdateFlightAfterEdit(
+    _UpdateFlighstAfterEdit event,
+    Emitter<ListFlightState> emit,
+  ) {
+    emit(state.copyWith(
+      data: data.copyWith(
+          flights: data.flights.map(
+        (e) {
+          if (e.id == event.flight.id) {
+            return event.flight;
+          }
+          return e;
+        },
+      ).toList()),
+    ));
   }
 }
