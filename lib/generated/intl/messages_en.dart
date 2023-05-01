@@ -127,6 +127,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "numberCustomer": m3,
         "numberEmployee": m4,
         "or": MessageLookupByLibrary.simpleMessage("Or"),
+        "overview": MessageLookupByLibrary.simpleMessage("Overview"),
         "passengers": MessageLookupByLibrary.simpleMessage("Passengers"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "people": MessageLookupByLibrary.simpleMessage("People"),

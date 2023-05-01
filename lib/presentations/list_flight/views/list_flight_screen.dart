@@ -55,8 +55,8 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
     );
   }
 
-  void _openAddFlightDialog(String title) {
-    _bloc.add(const ListFlightEvent.openAddEditFlightForm(''));
+  void openAddEditFlightDialog(String title) {
+    _bloc.add(ListFlightEvent.openAddEditFlightForm(title));
   }
 
   @override
@@ -85,17 +85,24 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
         'icon': Icons.filter,
         'color': Colors.purple,
       },
-      {
-        'title': S.of(context).addNewFlight,
-        'icon': Icons.add,
-        'color': Colors.red,
-      },
     ];
     return BlocConsumer<ListFlightBloc, ListFlightState>(
       listener: _listenStateChanged,
       builder: (context, state) {
         return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          floatingActionButton: ElevatedButton(
+            onPressed: () => openAddEditFlightDialog(''),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.add_circle_rounded, size: 14.0),
+                Text(
+                  ' ${S.of(context).addNewFlight}',
+                ),
+              ],
+            ),
+          ),
           body: Column(
             children: [
               const SizedBox(height: 10.0),
@@ -163,7 +170,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                                     (e) => DropdownButotn(
                                       backgroundColor:
                                           Theme.of(context).cardColor,
-                                      onPress: () => _openAddFlightDialog(''),
+                                      onPress: () {},
                                       child: Row(
                                         children: [
                                           Container(
@@ -205,6 +212,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                           for (int i = 0; i < 10; i++)
                             FlightWdigetCustom(
                               viewDetail: () => viewDetail(i.toString()),
+                              edit: () => openAddEditFlightDialog(i.toString()),
                             ),
                         ]
                             .expand((element) =>

@@ -9,9 +9,11 @@ import 'dot_custom.dart';
 
 class FlightWdigetCustom extends StatelessWidget {
   final Function() viewDetail;
+  final Function() edit;
   const FlightWdigetCustom({
     super.key,
     required this.viewDetail,
+    required this.edit,
   });
 
   @override
@@ -89,7 +91,9 @@ class FlightWdigetCustom extends StatelessWidget {
               width: 1,
               height: 100.0,
               decoration: DottedDecoration(
-                  shape: Shape.line, linePosition: LinePosition.right),
+                shape: Shape.line,
+                linePosition: LinePosition.right,
+              ),
             ),
             SizedBox(
               width: 165,
@@ -106,27 +110,34 @@ class FlightWdigetCustom extends StatelessWidget {
                     secondText: ' /pax',
                   ),
                   const SizedBox(height: 20.0),
-                  InkWell(
-                    onTap: viewDetail,
-                    borderRadius: BorderRadius.circular(5.0),
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(10.0),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      child: Text(
-                        S.of(context).viewDetail,
-                        maxLines: 1,
-                        textAlign: TextAlign.center,
-                        style:
-                            Theme.of(context).textTheme.titleMedium!.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                      ),
+                  SizedBox(
+                    height: 35.0,
+                    width: double.infinity,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: SizedBox(
+                            height: 35.0,
+                            child: ElevatedButton(
+                              onPressed: viewDetail,
+                              child: Text(S.of(context).viewDetail),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 5.0),
+                        Expanded(
+                          flex: 1,
+                          child: ElevatedButton(
+                            onPressed: edit,
+                            child: const Center(
+                              child: Icon(Icons.edit, size: 12),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
+                  )
                 ],
               ),
             ),

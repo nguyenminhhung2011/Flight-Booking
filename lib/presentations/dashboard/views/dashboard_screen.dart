@@ -30,29 +30,34 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   final destinations = const [
     NavigationRailDestination(
-      icon: Icon(Icons.inbox_outlined),
-      selectedIcon: Icon(Icons.inbox),
+      icon: Icon(Icons.home),
+      selectedIcon: Icon(Icons.home),
       label: Text('Home'),
     ),
     NavigationRailDestination(
-      icon: Icon(Icons.article_outlined),
-      selectedIcon: Icon(Icons.article),
-      label: Text('dddd'),
+      icon: Icon(Icons.airplanemode_active),
+      selectedIcon: Icon(Icons.airplanemode_active),
+      label: Text('Flights'),
     ),
     NavigationRailDestination(
-      icon: Icon(Icons.chat_outlined),
-      selectedIcon: Icon(Icons.chat),
-      label: Text('dddd1'),
+      icon: Icon(Icons.people),
+      selectedIcon: Icon(Icons.people),
+      label: Text('Customer'),
     ),
     NavigationRailDestination(
-      icon: Icon(Icons.video_call_outlined),
-      selectedIcon: Icon(Icons.video_call),
-      label: Text('dddd2'),
+      icon: Icon(Icons.airplane_ticket),
+      selectedIcon: Icon(Icons.airplane_ticket),
+      label: Text('Ticket'),
     ),
     NavigationRailDestination(
-      icon: Icon(Icons.home_outlined),
-      selectedIcon: Icon(Icons.home),
-      label: Text('dddd3'),
+      icon: Icon(Icons.personal_injury_rounded),
+      selectedIcon: Icon(Icons.personal_injury_rounded),
+      label: Text('Employee'),
+    ),
+    NavigationRailDestination(
+      icon: Icon(Icons.settings),
+      selectedIcon: Icon(Icons.settings),
+      label: Text('Settings'),
     ),
   ];
   final List<Map<String, dynamic>> _pages = [
@@ -76,6 +81,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: const CustomerScreen(),
       ),
       'secondBody': const CustomerDetailCard(),
+    },
+    {
+      'body': BlocProvider<ListTicketBloc>(
+        create: (context) => injector(),
+        child: const ListTicketScreen(),
+      ),
+      'secondBody': null,
     },
     {
       'body': BlocProvider<ListTicketBloc>(
@@ -238,23 +250,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         destinations: const [
                           NavigationDestination(
                             icon: Icon(Icons.home),
+                            selectedIcon: Icon(Icons.home),
                             label: 'Home',
                           ),
                           NavigationDestination(
-                            icon: Icon(Icons.person),
-                            label: 'Person',
+                            icon: Icon(Icons.airplanemode_active),
+                            selectedIcon: Icon(Icons.airplanemode_active),
+                            label: 'Flights',
                           ),
                           NavigationDestination(
-                            icon: Icon(Icons.home),
-                            label: 'Home',
+                            icon: Icon(Icons.people),
+                            selectedIcon: Icon(Icons.people),
+                            label: 'Customer',
                           ),
                           NavigationDestination(
-                            icon: Icon(Icons.home),
-                            label: 'Home',
+                            icon: Icon(Icons.airplane_ticket),
+                            selectedIcon: Icon(Icons.airplane_ticket),
+                            label: 'Ticket',
                           ),
                           NavigationDestination(
-                            icon: Icon(Icons.home),
-                            label: 'Home',
+                            icon: Icon(Icons.personal_injury_rounded),
+                            selectedIcon: Icon(Icons.personal_injury_rounded),
+                            label: 'Employee',
+                          ),
+                          NavigationDestination(
+                            icon: Icon(Icons.settings),
+                            selectedIcon: Icon(Icons.settings),
+                            label: 'Settings',
                           ),
                         ],
                         currentIndex: data.viewEnum,
