@@ -109,6 +109,7 @@
     "uploadProfileImage": "Upload Profile Image",
     "username": "Username",
     "saveChange": "Save Change",
-    "emailPhoneDetail":"Email and Phone Details",
-    "update":"Update"
+    "emailPhoneDetail": "Email and Phone Details",
+    "update": "Update",
+    "overview": "Overview"
 }
