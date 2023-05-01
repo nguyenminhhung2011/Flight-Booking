@@ -35,6 +35,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       label: Text('Home'),
     ),
     NavigationRailDestination(
+      icon: Icon(Icons.bar_chart_sharp),
+      selectedIcon: Icon(Icons.bar_chart_sharp),
+      label: Text('Dashboard'),
+    ),
+    NavigationRailDestination(
       icon: Icon(Icons.airplanemode_active),
       selectedIcon: Icon(Icons.airplanemode_active),
       label: Text('Flights'),
@@ -64,6 +69,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
     {
       'body': const OverviewScreen(),
       'secondBody': const CalenderScreen(),
+    },
+    {
+      'body': BlocProvider<ListFlightBloc>(
+        create: (context) => injector(),
+        child: const ListFlightScreen(),
+      ),
+      'secondBody': BlocProvider<ListFlightBloc>(
+        create: (context) => injector(),
+        child: const FlightFastView(),
+      ),
     },
     {
       'body': BlocProvider<ListFlightBloc>(
@@ -252,6 +267,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             icon: Icon(Icons.home),
                             selectedIcon: Icon(Icons.home),
                             label: 'Home',
+                          ),
+                          NavigationDestination(
+                            icon: Icon(Icons.bar_chart_outlined),
+                            selectedIcon: Icon(Icons.bar_chart_outlined),
+                            label: 'Dashboard',
                           ),
                           NavigationDestination(
                             icon: Icon(Icons.airplanemode_active),
