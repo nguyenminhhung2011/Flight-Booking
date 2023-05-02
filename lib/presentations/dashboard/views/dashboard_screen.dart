@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flight_booking/core/dependency_injection/di.dart';
+import 'package:flight_booking/presentations/airport/views/airport_screen.dart';
 import 'package:flight_booking/presentations/customer/bloc/customer_bloc.dart';
 import 'package:flight_booking/presentations/customer/views/customer_screen.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
@@ -45,6 +46,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       label: Text('Customer'),
     ),
     NavigationRailDestination(
+      icon: Icon(Icons.connecting_airports_rounded),
+      selectedIcon: Icon(Icons.connecting_airports_rounded),
+      label: Text('Airport'),
+    ),
+    NavigationRailDestination(
       icon: Icon(Icons.airplane_ticket),
       selectedIcon: Icon(Icons.airplane_ticket),
       label: Text('Ticket'),
@@ -81,6 +87,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: const CustomerScreen(),
       ),
       'secondBody': const CustomerDetailCard(),
+    },
+    {
+      'body': BlocProvider<CustomerBloc>(
+        create: (context) => injector(),
+        child: const AirportScreen(),
+      ),
+      'secondBody': null,
     },
     {
       'body': BlocProvider<ListTicketBloc>(
@@ -262,6 +275,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             icon: Icon(Icons.people),
                             selectedIcon: Icon(Icons.people),
                             label: 'Customer',
+                          ),
+                          NavigationDestination(
+                            icon: Icon(Icons.connecting_airports_outlined),
+                            selectedIcon:
+                                Icon(Icons.connecting_airports_outlined),
+                            label: 'Airport',
                           ),
                           NavigationDestination(
                             icon: Icon(Icons.airplane_ticket),

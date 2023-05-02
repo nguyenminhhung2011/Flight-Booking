@@ -87,7 +87,7 @@ class TicketRepositoryImpl extends TicketRepository {
   }
 
   @override
-  Future<bool> editlight(Ticket newTicket) async {
+  Future<bool> editTicket(Ticket newTicket) async {
     try {
       final ticketModel = TicketModel()
         ..id = newTicket.id
@@ -96,7 +96,7 @@ class TicketRepositoryImpl extends TicketRepository {
         ..price = newTicket.price
         ..timeBought = newTicket.timeBought.millisecondsSinceEpoch;
       final response = await _restApi.put(
-        TicketEndPoint.addTicketUrl,
+        TicketEndPoint.editTicketUrl,
         jsonEncode(ticketModel.toJson()),
         <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
