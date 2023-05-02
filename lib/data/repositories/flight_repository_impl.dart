@@ -100,7 +100,7 @@ class FlightRepositoryImpl extends FlightRepository {
         newFlight.noCustomer,
       );
       final response = await _restApi.post(
-        FlightEndPoint.addFlightUrl,
+        FlightEndPoint.editFlightUrl,
         jsonEncode(flightModel.toJson()),
         <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
