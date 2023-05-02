@@ -120,15 +120,15 @@ class PositionDialog extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 50.0,
-                    width: double.infinity,
-                    child: Image.asset(
-                      'assets/images/bardcode.png',
-                      fit: BoxFit.fill,
-                      color: Theme.of(context).disabledColor,
-                    ),
-                  ),
+                  // SizedBox(
+                  //   height: 50.0,
+                  //   width: double.infinity,
+                  //   child: Image.asset(
+                  //     'assets/images/bardcode.png',
+                  //     fit: BoxFit.fill,
+                  //     color: Theme.of(context).disabledColor,
+                  //   ),
+                  // ),
                 ],
               ),
             ),

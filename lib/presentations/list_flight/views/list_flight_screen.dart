@@ -31,6 +31,11 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
     _bloc.add(const ListFlightEvent.getFlights());
   }
 
+  Future<void> initData() async {
+    //Do something
+    await Future.delayed(const Duration(seconds: 5));
+  }
+
   void viewDetail(String ticId) {
     _bloc.add(ListFlightEvent.selectFlight(ticId));
   }

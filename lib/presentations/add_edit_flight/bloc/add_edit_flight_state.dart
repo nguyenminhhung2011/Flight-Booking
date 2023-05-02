@@ -12,7 +12,7 @@ class AddEditFlightState with _$AddEditFlightState {
 
   const factory AddEditFlightState.addNewFlightSuccess({
     required AddEditFlightModelState data,
-    required String idReturn,
+    required Flight flight,
   }) = _AddNewFlightSuccess;
 
   const factory AddEditFlightState.addNewFlightFailed({

@@ -12,21 +12,22 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+import '../../data/datasource/remote/http/rest_api_impl.dart' as _i7;
 import '../../data/datasource/remote/rest_api/rest_api.dart' as _i6;
-import '../../data/repositories/flight_repository_impl.dart' as _i9;
-import '../../data/repositories/list_ticket_repository_impl.dart' as _i13;
-import '../../domain/repositories/flight_repository.dart' as _i8;
-import '../../domain/repositories/list_ticket_repository.dart' as _i12;
-import '../../domain/usecase/flight_usecase.dart' as _i10;
-import '../../domain/usecase/list_ticket_usecase.dart' as _i14;
+import '../../data/repositories/flight_repository_impl.dart' as _i10;
+import '../../data/repositories/list_ticket_repository_impl.dart' as _i14;
+import '../../domain/repositories/flight_repository.dart' as _i9;
+import '../../domain/repositories/list_ticket_repository.dart' as _i13;
+import '../../domain/usecase/flight_usecase.dart' as _i11;
+import '../../domain/usecase/list_ticket_usecase.dart' as _i15;
 import '../../presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart'
-    as _i15;
+    as _i16;
 import '../../presentations/customer/bloc/customer_bloc.dart' as _i3;
 import '../../presentations/dashboard/bloc/dashboard_bloc.dart' as _i4;
 import '../../presentations/flight_detail/bloc/flight_detail_bloc.dart' as _i5;
-import '../../presentations/list_flight/bloc/list_flight_bloc.dart' as _i11;
-import '../../presentations/list_ticket/bloc/list_ticket_bloc.dart' as _i16;
-import '../../presentations/settings/bloc/setting_bloc.dart' as _i7;
+import '../../presentations/list_flight/bloc/list_flight_bloc.dart' as _i12;
+import '../../presentations/list_ticket/bloc/list_ticket_bloc.dart' as _i17;
+import '../../presentations/settings/bloc/setting_bloc.dart' as _i8;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
@@ -44,27 +45,27 @@ _i1.GetIt init(
   gh.factory<_i3.CustomerBloc>(() => _i3.CustomerBloc());
   gh.factory<_i4.DashboardBloc>(() => _i4.DashboardBloc());
   gh.factory<_i5.FlightDetailBloc>(() => _i5.FlightDetailBloc());
-  gh.factory<_i6.RestApi>(() => _i6.RestApi());
-  gh.factory<_i7.SettingBloc>(() => _i7.SettingBloc());
-  gh.factory<_i8.FlightRepository>(
-      () => _i9.FlightRepositoryImpl(gh<_i6.RestApi>()));
-  gh.factory<_i10.FlightsUsecase>(
-      () => _i10.FlightsUsecase(gh<_i8.FlightRepository>()));
-  gh.factory<_i11.ListFlightBloc>(
-      () => _i11.ListFlightBloc(gh<_i10.FlightsUsecase>()));
-  gh.factory<_i12.ListTicketRepository>(
-      () => _i13.ListTicketRepositoryImpl(gh<_i6.RestApi>()));
-  gh.factory<_i14.ListTicketUsecase>(
-      () => _i14.ListTicketUsecase(gh<_i12.ListTicketRepository>()));
-  gh.factoryParam<_i15.AddEditFlightBloc, String, dynamic>((
+  gh.factory<_i6.RestApi>(() => _i7.RestApiImpl());
+  gh.factory<_i8.SettingBloc>(() => _i8.SettingBloc());
+  gh.factory<_i9.FlightRepository>(
+      () => _i10.FlightRepositoryImpl(gh<_i6.RestApi>()));
+  gh.factory<_i11.FlightsUsecase>(
+      () => _i11.FlightsUsecase(gh<_i9.FlightRepository>()));
+  gh.factory<_i12.ListFlightBloc>(
+      () => _i12.ListFlightBloc(gh<_i11.FlightsUsecase>()));
+  gh.factory<_i13.ListTicketRepository>(
+      () => _i14.ListTicketRepositoryImpl(gh<_i6.RestApi>()));
+  gh.factory<_i15.ListTicketUsecase>(
+      () => _i15.ListTicketUsecase(gh<_i13.ListTicketRepository>()));
+  gh.factoryParam<_i16.AddEditFlightBloc, String, dynamic>((
     flightId,
     _,
   ) =>
-      _i15.AddEditFlightBloc(
+      _i16.AddEditFlightBloc(
         flightId,
-        gh<_i10.FlightsUsecase>(),
+        gh<_i11.FlightsUsecase>(),
       ));
-  gh.factory<_i16.ListTicketBloc>(
-      () => _i16.ListTicketBloc(gh<_i14.ListTicketUsecase>()));
+  gh.factory<_i17.ListTicketBloc>(
+      () => _i17.ListTicketBloc(gh<_i15.ListTicketUsecase>()));
   return getIt;
 }

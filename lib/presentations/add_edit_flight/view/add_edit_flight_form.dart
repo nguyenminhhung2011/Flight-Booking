@@ -27,16 +27,8 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
   }
 
   void _listenStateChange(_, AddEditFlightState state) {
-    state.whenOrNull(addNewFlightSuccess: (data, idReturn) {
-      final addF = Flight(
-        id: idReturn,
-        idStartAirport: data.airPortStart.text,
-        idComeAirport: data.airPortFinish.text,
-        timeStart: data.timeStart,
-        timeEnd: data.timeEnd,
-        noCustomer: data.noCustomer,
-      );
-      context.popArgs(addF);
+    state.whenOrNull(addNewFlightSuccess: (data, flight) {
+      context.popArgs(flight);
     });
   }
 

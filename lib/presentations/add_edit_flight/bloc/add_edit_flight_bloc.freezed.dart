@@ -633,7 +633,7 @@ mixin _$AddEditFlightState {
   TResult when<TResult extends Object?>({
     required TResult Function(AddEditFlightModelState data) initial,
     required TResult Function(AddEditFlightModelState data) loading,
-    required TResult Function(AddEditFlightModelState data, String idReturn)
+    required TResult Function(AddEditFlightModelState data, Flight flight)
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
@@ -646,7 +646,7 @@ mixin _$AddEditFlightState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddEditFlightModelState data)? initial,
     TResult? Function(AddEditFlightModelState data)? loading,
-    TResult? Function(AddEditFlightModelState data, String idReturn)?
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -659,7 +659,7 @@ mixin _$AddEditFlightState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddEditFlightModelState data)? initial,
     TResult Function(AddEditFlightModelState data)? loading,
-    TResult Function(AddEditFlightModelState data, String idReturn)?
+    TResult Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -819,7 +819,7 @@ class _$_Initial extends _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function(AddEditFlightModelState data) initial,
     required TResult Function(AddEditFlightModelState data) loading,
-    required TResult Function(AddEditFlightModelState data, String idReturn)
+    required TResult Function(AddEditFlightModelState data, Flight flight)
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
@@ -835,7 +835,7 @@ class _$_Initial extends _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddEditFlightModelState data)? initial,
     TResult? Function(AddEditFlightModelState data)? loading,
-    TResult? Function(AddEditFlightModelState data, String idReturn)?
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -851,7 +851,7 @@ class _$_Initial extends _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddEditFlightModelState data)? initial,
     TResult Function(AddEditFlightModelState data)? loading,
-    TResult Function(AddEditFlightModelState data, String idReturn)?
+    TResult Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -993,7 +993,7 @@ class _$_Loading extends _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function(AddEditFlightModelState data) initial,
     required TResult Function(AddEditFlightModelState data) loading,
-    required TResult Function(AddEditFlightModelState data, String idReturn)
+    required TResult Function(AddEditFlightModelState data, Flight flight)
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
@@ -1009,7 +1009,7 @@ class _$_Loading extends _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddEditFlightModelState data)? initial,
     TResult? Function(AddEditFlightModelState data)? loading,
-    TResult? Function(AddEditFlightModelState data, String idReturn)?
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -1025,7 +1025,7 @@ class _$_Loading extends _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddEditFlightModelState data)? initial,
     TResult Function(AddEditFlightModelState data)? loading,
-    TResult Function(AddEditFlightModelState data, String idReturn)?
+    TResult Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -1105,10 +1105,11 @@ abstract class _$$_AddNewFlightSuccessCopyWith<$Res>
       __$$_AddNewFlightSuccessCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AddEditFlightModelState data, String idReturn});
+  $Res call({AddEditFlightModelState data, Flight flight});
 
   @override
   $AddEditFlightModelStateCopyWith<$Res> get data;
+  $FlightCopyWith<$Res> get flight;
 }
 
 /// @nodoc
@@ -1123,35 +1124,43 @@ class __$$_AddNewFlightSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
-    Object? idReturn = null,
+    Object? flight = null,
   }) {
     return _then(_$_AddNewFlightSuccess(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as AddEditFlightModelState,
-      idReturn: null == idReturn
-          ? _value.idReturn
-          : idReturn // ignore: cast_nullable_to_non_nullable
-              as String,
+      flight: null == flight
+          ? _value.flight
+          : flight // ignore: cast_nullable_to_non_nullable
+              as Flight,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FlightCopyWith<$Res> get flight {
+    return $FlightCopyWith<$Res>(_value.flight, (value) {
+      return _then(_value.copyWith(flight: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
-  const _$_AddNewFlightSuccess({required this.data, required this.idReturn})
+  const _$_AddNewFlightSuccess({required this.data, required this.flight})
       : super._();
 
   @override
   final AddEditFlightModelState data;
   @override
-  final String idReturn;
+  final Flight flight;
 
   @override
   String toString() {
-    return 'AddEditFlightState.addNewFlightSuccess(data: $data, idReturn: $idReturn)';
+    return 'AddEditFlightState.addNewFlightSuccess(data: $data, flight: $flight)';
   }
 
   @override
@@ -1160,12 +1169,11 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
         (other.runtimeType == runtimeType &&
             other is _$_AddNewFlightSuccess &&
             (identical(other.data, data) || other.data == data) &&
-            (identical(other.idReturn, idReturn) ||
-                other.idReturn == idReturn));
+            (identical(other.flight, flight) || other.flight == flight));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data, idReturn);
+  int get hashCode => Object.hash(runtimeType, data, flight);
 
   @JsonKey(ignore: true)
   @override
@@ -1179,7 +1187,7 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(AddEditFlightModelState data) initial,
     required TResult Function(AddEditFlightModelState data) loading,
-    required TResult Function(AddEditFlightModelState data, String idReturn)
+    required TResult Function(AddEditFlightModelState data, Flight flight)
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
@@ -1187,7 +1195,7 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
     required TResult Function(AddEditFlightModelState data, String message)
         editFlightFailed,
   }) {
-    return addNewFlightSuccess(data, idReturn);
+    return addNewFlightSuccess(data, flight);
   }
 
   @override
@@ -1195,7 +1203,7 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddEditFlightModelState data)? initial,
     TResult? Function(AddEditFlightModelState data)? loading,
-    TResult? Function(AddEditFlightModelState data, String idReturn)?
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -1203,7 +1211,7 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
     TResult? Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
   }) {
-    return addNewFlightSuccess?.call(data, idReturn);
+    return addNewFlightSuccess?.call(data, flight);
   }
 
   @override
@@ -1211,7 +1219,7 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddEditFlightModelState data)? initial,
     TResult Function(AddEditFlightModelState data)? loading,
-    TResult Function(AddEditFlightModelState data, String idReturn)?
+    TResult Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -1221,7 +1229,7 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
     required TResult orElse(),
   }) {
     if (addNewFlightSuccess != null) {
-      return addNewFlightSuccess(data, idReturn);
+      return addNewFlightSuccess(data, flight);
     }
     return orElse();
   }
@@ -1273,12 +1281,12 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
 abstract class _AddNewFlightSuccess extends AddEditFlightState {
   const factory _AddNewFlightSuccess(
       {required final AddEditFlightModelState data,
-      required final String idReturn}) = _$_AddNewFlightSuccess;
+      required final Flight flight}) = _$_AddNewFlightSuccess;
   const _AddNewFlightSuccess._() : super._();
 
   @override
   AddEditFlightModelState get data;
-  String get idReturn;
+  Flight get flight;
   @override
   @JsonKey(ignore: true)
   _$$_AddNewFlightSuccessCopyWith<_$_AddNewFlightSuccess> get copyWith =>
@@ -1366,7 +1374,7 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
   TResult when<TResult extends Object?>({
     required TResult Function(AddEditFlightModelState data) initial,
     required TResult Function(AddEditFlightModelState data) loading,
-    required TResult Function(AddEditFlightModelState data, String idReturn)
+    required TResult Function(AddEditFlightModelState data, Flight flight)
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
@@ -1382,7 +1390,7 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddEditFlightModelState data)? initial,
     TResult? Function(AddEditFlightModelState data)? loading,
-    TResult? Function(AddEditFlightModelState data, String idReturn)?
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -1398,7 +1406,7 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddEditFlightModelState data)? initial,
     TResult Function(AddEditFlightModelState data)? loading,
-    TResult Function(AddEditFlightModelState data, String idReturn)?
+    TResult Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -1544,7 +1552,7 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(AddEditFlightModelState data) initial,
     required TResult Function(AddEditFlightModelState data) loading,
-    required TResult Function(AddEditFlightModelState data, String idReturn)
+    required TResult Function(AddEditFlightModelState data, Flight flight)
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
@@ -1560,7 +1568,7 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddEditFlightModelState data)? initial,
     TResult? Function(AddEditFlightModelState data)? loading,
-    TResult? Function(AddEditFlightModelState data, String idReturn)?
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -1576,7 +1584,7 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddEditFlightModelState data)? initial,
     TResult Function(AddEditFlightModelState data)? loading,
-    TResult Function(AddEditFlightModelState data, String idReturn)?
+    TResult Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -1728,7 +1736,7 @@ class _$_EditFlightFailed extends _EditFlightFailed {
   TResult when<TResult extends Object?>({
     required TResult Function(AddEditFlightModelState data) initial,
     required TResult Function(AddEditFlightModelState data) loading,
-    required TResult Function(AddEditFlightModelState data, String idReturn)
+    required TResult Function(AddEditFlightModelState data, Flight flight)
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
@@ -1744,7 +1752,7 @@ class _$_EditFlightFailed extends _EditFlightFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddEditFlightModelState data)? initial,
     TResult? Function(AddEditFlightModelState data)? loading,
-    TResult? Function(AddEditFlightModelState data, String idReturn)?
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
@@ -1760,7 +1768,7 @@ class _$_EditFlightFailed extends _EditFlightFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddEditFlightModelState data)? initial,
     TResult Function(AddEditFlightModelState data)? loading,
-    TResult Function(AddEditFlightModelState data, String idReturn)?
+    TResult Function(AddEditFlightModelState data, Flight flight)?
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,

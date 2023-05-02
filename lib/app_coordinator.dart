@@ -1,5 +1,6 @@
 import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart';
 import 'package:flight_booking/presentations/add_edit_flight/view/add_edit_flight_form.dart';
+import 'package:flight_booking/presentations/list_ticket/views/widgets/position_dialog.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,6 +64,24 @@ extension AppCoordinator<T> on BuildContext {
 
   Future<T?> openDashboardPage() {
     return Navigator.of(this).pushNamed(Routes.dashboard);
+  }
+
+  Future<T?> showPositionDialog(positonClic, position, type, String ticId) {
+    final positonClicX = positonClic.globalPosition.dx -
+        36 -
+        (positonClic.globalPosition.dx - 36 - (position.dx - 36)) -
+        4;
+    final positonClicY = positonClic.globalPosition.dy -
+        24 -
+        (positonClic.globalPosition.dy - 24 - (position.dy - 24));
+    return showDialog(
+      context: this,
+      builder: (context) => PositionDialog(
+        positonClicY: positonClicY,
+        positonClicX: positonClicX,
+        type: type,
+      ),
+    );
   }
 }
 
