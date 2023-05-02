@@ -106,10 +106,8 @@ class FlightRepositoryImpl extends FlightRepository {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      if (response == null) {
-        return false;
-      }
-      return true;
+
+      return response != null;
     } catch (e) {
       log('Error');
     }
