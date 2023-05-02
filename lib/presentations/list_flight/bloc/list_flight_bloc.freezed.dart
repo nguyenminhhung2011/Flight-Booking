@@ -688,6 +688,8 @@ abstract class _$$_UpdateFlighstAfterEditCopyWith<$Res> {
       __$$_UpdateFlighstAfterEditCopyWithImpl<$Res>;
   @useResult
   $Res call({Flight flight});
+
+  $FlightCopyWith<$Res> get flight;
 }
 
 /// @nodoc
@@ -701,14 +703,22 @@ class __$$_UpdateFlighstAfterEditCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flight = freezed,
+    Object? flight = null,
   }) {
     return _then(_$_UpdateFlighstAfterEdit(
-      freezed == flight
+      null == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
               as Flight,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FlightCopyWith<$Res> get flight {
+    return $FlightCopyWith<$Res>(_value.flight, (value) {
+      return _then(_value.copyWith(flight: value));
+    });
   }
 }
 
@@ -730,12 +740,11 @@ class _$_UpdateFlighstAfterEdit implements _UpdateFlighstAfterEdit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateFlighstAfterEdit &&
-            const DeepCollectionEquality().equals(other.flight, flight));
+            (identical(other.flight, flight) || other.flight == flight));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(flight));
+  int get hashCode => Object.hash(runtimeType, flight);
 
   @JsonKey(ignore: true)
   @override
@@ -851,6 +860,8 @@ abstract class _$$_UpdateFlightsAfterAddCopyWith<$Res> {
       __$$_UpdateFlightsAfterAddCopyWithImpl<$Res>;
   @useResult
   $Res call({Flight flight});
+
+  $FlightCopyWith<$Res> get flight;
 }
 
 /// @nodoc
@@ -864,14 +875,22 @@ class __$$_UpdateFlightsAfterAddCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flight = freezed,
+    Object? flight = null,
   }) {
     return _then(_$_UpdateFlightsAfterAdd(
-      freezed == flight
+      null == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
               as Flight,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FlightCopyWith<$Res> get flight {
+    return $FlightCopyWith<$Res>(_value.flight, (value) {
+      return _then(_value.copyWith(flight: value));
+    });
   }
 }
 
@@ -893,12 +912,11 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateFlightsAfterAdd &&
-            const DeepCollectionEquality().equals(other.flight, flight));
+            (identical(other.flight, flight) || other.flight == flight));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(flight));
+  int get hashCode => Object.hash(runtimeType, flight);
 
   @JsonKey(ignore: true)
   @override

@@ -10,15 +10,15 @@ class FlightsUsecase {
   FlightsUsecase(this._flightRepository);
 
   Future<List<Flight>> fetchAllFlights() async {
-    return await _flightRepository.getListFlight();
+    return await _flightRepository.getListFlight() ?? [];
   }
 
-  Future<String> addNewFlight(Flight newFlight) async {
+  Future<Flight?> addNewFlight(Flight newFlight) async {
     var add = await _flightRepository.addNewFlight(newFlight);
-    if (add) {
-      return newFlight.id;
+    if (add != null) {
+      return newFlight;
     }
-    return _idNull;
+    return null;
   }
 
   Future<bool> deleteFlight(String id) async {

@@ -30,11 +30,6 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   final destinations = const [
     NavigationRailDestination(
-      icon: Icon(Icons.home),
-      selectedIcon: Icon(Icons.home),
-      label: Text('Home'),
-    ),
-    NavigationRailDestination(
       icon: Icon(Icons.bar_chart_sharp),
       selectedIcon: Icon(Icons.bar_chart_sharp),
       label: Text('Dashboard'),
@@ -69,16 +64,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
     {
       'body': const OverviewScreen(),
       'secondBody': const CalenderScreen(),
-    },
-    {
-      'body': BlocProvider<ListFlightBloc>(
-        create: (context) => injector(),
-        child: const ListFlightScreen(),
-      ),
-      'secondBody': BlocProvider<ListFlightBloc>(
-        create: (context) => injector(),
-        child: const FlightFastView(),
-      ),
     },
     {
       'body': BlocProvider<ListFlightBloc>(
@@ -263,11 +248,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       builder: (_) =>
                           AdaptiveScaffold.standardBottomNavigationBar(
                         destinations: const [
-                          NavigationDestination(
-                            icon: Icon(Icons.home),
-                            selectedIcon: Icon(Icons.home),
-                            label: 'Home',
-                          ),
                           NavigationDestination(
                             icon: Icon(Icons.bar_chart_outlined),
                             selectedIcon: Icon(Icons.bar_chart_outlined),

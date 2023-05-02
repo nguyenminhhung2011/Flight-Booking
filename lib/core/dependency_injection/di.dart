@@ -9,9 +9,7 @@ GetIt injector = GetIt.instance;
   initializerName: 'init', // default
   preferRelativeImports: true, // default
   asExtension: false, // default
-  externalPackageModulesBefore: [
-    // ExternalModule(DesktopServicesPackageModule),
-  ],
+  externalPackageModulesBefore: [],
 )
 GetIt configureDependencies({
   String? environment,

@@ -122,12 +122,12 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
         noCustomer: data.noCustomer,
       );
       final add = await _flightsUsecase.addNewFlight(newFlight);
-      if (add == _idNull) {
+      if (add == null) {
         emit(AddEditFlightState.addNewFlightFailed(
             data: state.data, message: ''));
         return;
       }
-      emit(AddEditFlightState.addNewFlightSuccess(data: data, idReturn: add));
+      emit(AddEditFlightState.addNewFlightSuccess(data: data, flight: add));
     } catch (e) {
       emit(AddEditFlightState.addNewFlightFailed(
         data: state.data,

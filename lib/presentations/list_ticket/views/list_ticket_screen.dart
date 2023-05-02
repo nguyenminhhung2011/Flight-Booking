@@ -1,3 +1,4 @@
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/presentations/list_ticket/bloc/list_ticket_bloc.dart';
 import 'package:flight_booking/presentations/list_ticket/views/widgets/column_tic_view.dart';
@@ -32,23 +33,8 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
     _bloc.add(const ListTicketEvent.started());
   }
 
-  void _showPositonDia(positonClic, position, type) {
-    final positonClicX = positonClic.globalPosition.dx -
-        36 -
-        (positonClic.globalPosition.dx - 36 - (position.dx - 36)) -
-        4;
-    final positonClicY = positonClic.globalPosition.dy -
-        24 -
-        (positonClic.globalPosition.dy - 24 - (position.dy - 24));
-
-    showDialog(
-      context: context,
-      builder: (context) => PositionDialog(
-        positonClicY: positonClicY,
-        positonClicX: positonClicX,
-        type: type,
-      ),
-    );
+  void _showPositonDia(positonClic, position, type, ticId) {
+    context.showPositionDialog(positonClic, position, type, ticId);
   }
 
   void _listenStateChange(_, state) {
@@ -163,25 +149,25 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
                                 ColumnTicView(
                                   onPress: (positonClic, position) =>
                                       _showPositonDia(positonClic, position,
-                                          TicTypeEnum.economyClass),
+                                          TicTypeEnum.economyClass, ''),
                                   type: TicTypeEnum.economyClass,
                                 ),
                                 ColumnTicView(
                                   onPress: (positonClic, position) =>
                                       _showPositonDia(positonClic, position,
-                                          TicTypeEnum.businessClass),
+                                          TicTypeEnum.businessClass, ''),
                                   type: TicTypeEnum.businessClass,
                                 ),
                                 ColumnTicView(
                                   onPress: (positonClic, position) =>
                                       _showPositonDia(positonClic, position,
-                                          TicTypeEnum.premiumEconomyClass),
+                                          TicTypeEnum.premiumEconomyClass, ''),
                                   type: TicTypeEnum.premiumEconomyClass,
                                 ),
                                 ColumnTicView(
                                   onPress: (positonClic, position) =>
                                       _showPositonDia(positonClic, position,
-                                          TicTypeEnum.firstClass),
+                                          TicTypeEnum.firstClass, ''),
                                   type: TicTypeEnum.firstClass,
                                 ),
                               ],

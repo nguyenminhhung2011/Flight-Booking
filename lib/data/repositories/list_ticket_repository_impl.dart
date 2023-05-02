@@ -11,6 +11,7 @@ class ListTicketRepositoryImpl extends ListTicketRepository {
 
   @override
   Future<List<Ticket>> getListTicket() async {
-    return _restApi.getListTicket();
+    // return _restApi.getListTicket();
+    return [];
   }
 }
