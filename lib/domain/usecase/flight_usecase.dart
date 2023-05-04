@@ -2,8 +2,6 @@ import 'package:flight_booking/domain/entities/flight/flight.dart';
 import 'package:flight_booking/domain/repositories/flight_repository.dart';
 import 'package:injectable/injectable.dart';
 
-const _idNull = '';
-
 @injectable
 class FlightsUsecase {
   final FlightRepository _flightRepository;

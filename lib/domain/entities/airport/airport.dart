@@ -7,5 +7,6 @@ class Airport with _$Airport {
     required String id,
     required String name,
     required String image,
+    required String location,
   }) = _Airport;
 }

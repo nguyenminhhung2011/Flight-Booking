@@ -46,8 +46,12 @@ class AirportRepositoryImpl extends AirportRepository {
   @override
   Future<Airport?> addNewAirport(Airport airport) async {
     try {
-      final airportModel =
-          AirportModel(airport.id, airport.name, airport.image);
+      final airportModel = AirportModel(
+        airport.id,
+        airport.name,
+        airport.image,
+        airport.location,
+      );
       final response = await _restApi.post(
         AirportEndPoint.addAirportUrl,
         jsonEncode(airportModel.toJson()),
@@ -85,8 +89,12 @@ class AirportRepositoryImpl extends AirportRepository {
   @override
   Future<bool> editAirport(Airport newAirport) async {
     try {
-      final airportModel =
-          AirportModel(newAirport.id, newAirport.name, newAirport.image);
+      final airportModel = AirportModel(
+        newAirport.id,
+        newAirport.name,
+        newAirport.image,
+        newAirport.location,
+      );
       final response = await _restApi.put(
         AirportEndPoint.editAirportUrl,
         jsonEncode(airportModel.toJson()),

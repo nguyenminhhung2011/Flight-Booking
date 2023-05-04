@@ -13,6 +13,7 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../generated/l10n.dart';
+import '../../airport/bloc/airport_bloc.dart';
 import '../../calendar/views/calender_screen.dart';
 import '../../customer/views/widgets/customer_detail_card.dart';
 import '../../list_flight/bloc/list_flight_bloc.dart';
@@ -70,6 +71,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     {
       'body': const OverviewScreen(),
       'secondBody': const CalenderScreen(),
+      'body_ratio': 0.7,
     },
     {
       'body': BlocProvider<ListFlightBloc>(
@@ -80,6 +82,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         create: (context) => injector(),
         child: const FlightFastView(),
       ),
+      'body_ratio': 0.7,
     },
     {
       'body': BlocProvider<CustomerBloc>(
@@ -87,13 +90,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: const CustomerScreen(),
       ),
       'secondBody': const CustomerDetailCard(),
+      'body_ratio': 0.7,
     },
     {
-      'body': BlocProvider<CustomerBloc>(
+      'body': BlocProvider<AirportBloc>(
         create: (context) => injector(),
         child: const AirportScreen(),
       ),
       'secondBody': null,
+      'body_ratio': 0.5,
     },
     {
       'body': BlocProvider<ListTicketBloc>(
@@ -101,6 +106,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: const ListTicketScreen(),
       ),
       'secondBody': null,
+      'body_ratio': 0.7,
     },
     {
       'body': BlocProvider<ListTicketBloc>(
@@ -108,6 +114,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: const ListTicketScreen(),
       ),
       'secondBody': null,
+      'body_ratio': 0.7,
     },
     {
       'body': BlocProvider<SettingBloc>(
@@ -115,6 +122,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: const SettingScreen(),
       ),
       'secondBody': null,
+      'body_ratio': 0.7,
     },
   ];
 
@@ -193,16 +201,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         selectedIndex: data.viewEnum,
                         onDestinationSelected: _onChangeView,
                         extended: true,
-                        leading: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: const <Widget>[
-                            Text(
-                              'REPLY',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 255, 201, 197)),
-                            ),
-                            Icon(Icons.menu_open)
-                          ],
+                        leading: Text(
+                          S.of(context).flight,
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 255, 201, 197),
+                          ),
                         ),
                         destinations: destinations,
                         // trailing: trailingNavRail,

@@ -111,5 +111,8 @@
     "saveChange": "Save Change",
     "emailPhoneDetail": "Email and Phone Details",
     "update": "Update",
-    "overview": "Overview"
+    "overview": "Overview",
+    "airportOverview": "Airport Overview",
+    "commingFlights": "Comming Flights"
+
 }
