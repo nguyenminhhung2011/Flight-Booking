@@ -121,20 +121,21 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                             width: constraints.maxWidth * 0.45,
                             child: RichText(
                               text: TextSpan(
-                                  text: "Your Photo\n",
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                  children: [
-                                    TextSpan(
-                                      text:
-                                          '\nThis will be display on your profile',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(
-                                            color: Colors.blueGrey,
-                                          ),
-                                    ),
-                                  ]),
+                                text: "Your Photo\n",
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                children: [
+                                  TextSpan(
+                                    text:
+                                        '\nThis will be display on your profile',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .copyWith(
+                                          color: Colors.blueGrey,
+                                        ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           _image == null
@@ -171,7 +172,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   InkWell(
-                                    onTap: () => selectedImage(),
+                                    onTap: selectedImage,
                                     child: CircleAvatar(
                                       backgroundColor: Colors.blueGrey[50]!,
                                       child: Center(
@@ -244,10 +245,10 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                 ]
                                     .asMap()
                                     .entries
-                                    .map((e) => DropdownMenuItem<int>(
-                                          value: e.key,
+                                    .map((gender) => DropdownMenuItem<int>(
+                                          value: gender.key,
                                           child: Text(
-                                            e.value,
+                                            gender.value,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodyMedium,
