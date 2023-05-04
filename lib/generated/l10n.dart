@@ -1169,6 +1169,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Airport Overview`
+  String get airportOverview {
+    return Intl.message(
+      'Airport Overview',
+      name: 'airportOverview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comming Flights`
+  String get commingFlights {
+    return Intl.message(
+      'Comming Flights',
+      name: 'commingFlights',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -6,7 +6,6 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-import '../../../domain/entities/flight/flight.dart';
 import '../../../generated/l10n.dart';
 import '../../customer/views/widgets/customer_textfield.dart';
 

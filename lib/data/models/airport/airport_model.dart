@@ -11,15 +11,19 @@ class AirportModel {
   final String name;
   @JsonKey(name: 'Image')
   final String image;
-  AirportModel(
-    this.id,
-    this.name,
-    this.image,
-  );
+  @JsonKey(name: 'Location')
+  final String location;
+
+  AirportModel(this.id, this.name, this.image, this.location);
 
   Map<String, dynamic> toJson() => _$AirportModelToJson(this);
   factory AirportModel.fromJson(Map<String, dynamic> json) =>
       _$AirportModelFromJson(json);
 
-  Airport toEntity() => Airport(id: id, name: name, image: image);
+  Airport toEntity() => Airport(
+        id: id,
+        name: name,
+        image: image,
+        location: location,
+      );
 }

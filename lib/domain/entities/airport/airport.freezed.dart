@@ -19,6 +19,7 @@ mixin _$Airport {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
+  String get location => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AirportCopyWith<Airport> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +30,7 @@ abstract class $AirportCopyWith<$Res> {
   factory $AirportCopyWith(Airport value, $Res Function(Airport) then) =
       _$AirportCopyWithImpl<$Res, Airport>;
   @useResult
-  $Res call({String id, String name, String image});
+  $Res call({String id, String name, String image, String location});
 }
 
 /// @nodoc
@@ -48,6 +49,7 @@ class _$AirportCopyWithImpl<$Res, $Val extends Airport>
     Object? id = null,
     Object? name = null,
     Object? image = null,
+    Object? location = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -62,6 +64,10 @@ class _$AirportCopyWithImpl<$Res, $Val extends Airport>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -73,7 +79,7 @@ abstract class _$$_AirportCopyWith<$Res> implements $AirportCopyWith<$Res> {
       __$$_AirportCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String image});
+  $Res call({String id, String name, String image, String location});
 }
 
 /// @nodoc
@@ -89,6 +95,7 @@ class __$$_AirportCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? image = null,
+    Object? location = null,
   }) {
     return _then(_$_Airport(
       id: null == id
@@ -103,6 +110,10 @@ class __$$_AirportCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -110,7 +121,11 @@ class __$$_AirportCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Airport implements _Airport {
-  const _$_Airport({required this.id, required this.name, required this.image});
+  const _$_Airport(
+      {required this.id,
+      required this.name,
+      required this.image,
+      required this.location});
 
   @override
   final String id;
@@ -118,10 +133,12 @@ class _$_Airport implements _Airport {
   final String name;
   @override
   final String image;
+  @override
+  final String location;
 
   @override
   String toString() {
-    return 'Airport(id: $id, name: $name, image: $image)';
+    return 'Airport(id: $id, name: $name, image: $image, location: $location)';
   }
 
   @override
@@ -131,11 +148,13 @@ class _$_Airport implements _Airport {
             other is _$_Airport &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, image);
+  int get hashCode => Object.hash(runtimeType, id, name, image, location);
 
   @JsonKey(ignore: true)
   @override
@@ -148,7 +167,8 @@ abstract class _Airport implements Airport {
   const factory _Airport(
       {required final String id,
       required final String name,
-      required final String image}) = _$_Airport;
+      required final String image,
+      required final String location}) = _$_Airport;
 
   @override
   String get id;
@@ -156,6 +176,8 @@ abstract class _Airport implements Airport {
   String get name;
   @override
   String get image;
+  @override
+  String get location;
   @override
   @JsonKey(ignore: true)
   _$$_AirportCopyWith<_$_Airport> get copyWith =>

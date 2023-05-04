@@ -46,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "airport": MessageLookupByLibrary.simpleMessage("Airport"),
         "airportFinish": MessageLookupByLibrary.simpleMessage("Airport Finish"),
+        "airportOverview":
+            MessageLookupByLibrary.simpleMessage("Airport Overview"),
         "airportStart": MessageLookupByLibrary.simpleMessage("Airport Start"),
         "allBooking": MessageLookupByLibrary.simpleMessage("All Booking"),
         "applyNewPassword":
@@ -58,6 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cabinCrew": MessageLookupByLibrary.simpleMessage("Cabin crew"),
         "chair": MessageLookupByLibrary.simpleMessage("Chair"),
         "class1": MessageLookupByLibrary.simpleMessage("Class"),
+        "commingFlights":
+            MessageLookupByLibrary.simpleMessage("Comming Flights"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
         "createYourNewPassword":
             MessageLookupByLibrary.simpleMessage("Create Your New Password"),
