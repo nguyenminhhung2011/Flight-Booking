@@ -6,5 +6,5 @@ abstract class TicketRepository {
 
   Future<bool> deleteTicket(String id);
 
-  Future<bool> editTicket(Ticket newTicket);
+  Future<Ticket?> editTicket(Ticket newTicket);
 }

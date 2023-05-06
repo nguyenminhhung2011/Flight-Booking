@@ -1,112 +1,63 @@
-import 'dart:convert';
-import 'dart:developer';
-
+import 'package:flight_booking/data/datasource/remote/airport/airport_api.dart';
 import 'package:flight_booking/data/models/airport/airport_model.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/domain/repositories/airport_repository.dart';
 import 'package:injectable/injectable.dart';
 
-import '../datasource/remote/rest_api/rest_api.dart';
-
-class AirportEndPoint {
-  static const fetchAirportUrl = "url/airport/fetch";
-  static const editAirportUrl = "url/airport/edit";
-  static const deleteAirportUrl = "url/airport/delete";
-  static const addAirportUrl = "url/airport/add";
-}
-
 @Injectable(as: AirportRepository)
 class AirportRepositoryImpl extends AirportRepository {
-  final RestApi _restApi;
-  AirportRepositoryImpl(this._restApi);
+  final AirportApi _airportApi;
+  AirportRepositoryImpl(this._airportApi);
 
   @override
   Future<List<Airport>?> getListAirport() async {
-    var result = <Airport>[];
-    try {
-      final response = await _restApi.get(
-        AirportEndPoint.fetchAirportUrl,
-        <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-      );
-      if (response == null) {
-        return null;
-      }
-      for (var item in response) {
-        Map<String, dynamic> json = jsonDecode(item);
-        result.add(AirportModel.fromJson(json).toEntity());
-      }
-    } catch (e) {
-      log('Error');
+    final response = await _airportApi.fetchAirports();
+    final result = response.data?.map((e) => e.toEntity()).toList();
+    return result ?? [];
+  }
+
+  @override
+  Future<Airport?> addNewAirport(Airport airport) async {
+    final airportModel = AirportModel(
+      airport.id,
+      airport.name,
+      airport.image,
+      airport.location,
+    );
+    final body = airportModel.toJson();
+
+    final response = await _airportApi.addNewAirPorts(body: body);
+
+    final result = response.data?.toEntity();
+    if (result == null) {
+      return null;
     }
     return result;
   }
 
   @override
-  Future<Airport?> addNewAirport(Airport airport) async {
-    try {
-      final airportModel = AirportModel(
-        airport.id,
-        airport.name,
-        airport.image,
-        airport.location,
-      );
-      final response = await _restApi.post(
-        AirportEndPoint.addAirportUrl,
-        jsonEncode(airportModel.toJson()),
-        <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-      );
-      if (response == null) {
-        return null;
-      }
-      return airportModel.toEntity();
-    } catch (e) {
-      log('Error');
-    }
-    return null;
-  }
-
-  @override
   Future<bool> deleteAirport(String id) async {
-    try {
-      final response = await _restApi.delete(
-        '${AirportEndPoint.deleteAirportUrl}/$id',
-        {},
-        <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-      );
-      return response != null;
-    } catch (e) {
-      log('Error');
-    }
-    return false;
+    final response = await _airportApi.deleteAirport(id);
+
+    return response.data;
   }
 
   @override
-  Future<bool> editAirport(Airport newAirport) async {
-    try {
-      final airportModel = AirportModel(
-        newAirport.id,
-        newAirport.name,
-        newAirport.image,
-        newAirport.location,
-      );
-      final response = await _restApi.put(
-        AirportEndPoint.editAirportUrl,
-        jsonEncode(airportModel.toJson()),
-        <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-      );
+  Future<Airport?> editAirport(Airport newAirport) async {
+    final airportModel = AirportModel(
+      newAirport.id,
+      newAirport.name,
+      newAirport.image,
+      newAirport.location,
+    );
+    final body = airportModel.toJson();
 
-      return response != null;
-    } catch (e) {
-      log('Error');
+    final response = await _airportApi.editAirport(body: body);
+
+    final result = response.data?.toEntity();
+    if (result == null) {
+      return null;
     }
-    return false;
+    return result;
   }
 }

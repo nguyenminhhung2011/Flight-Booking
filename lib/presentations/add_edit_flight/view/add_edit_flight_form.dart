@@ -6,6 +6,7 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
+import '../../../core/constant/handle_time.dart';
 import '../../../generated/l10n.dart';
 import '../../customer/views/widgets/customer_textfield.dart';
 
@@ -27,6 +28,8 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
 
   void _listenStateChange(_, AddEditFlightState state) {
     state.whenOrNull(addNewFlightSuccess: (data, flight) {
+      context.popArgs(flight);
+    }, editFlightSuccess: (data, flight) {
       context.popArgs(flight);
     });
   }
@@ -117,7 +120,7 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
                     child: FilterCategory(
                       controller: TextEditingController(
                         text:
-                            '${DateFormat().add_yMMMMEEEEd().format(data.timeStart)} / ${DateFormat().add_jm().format(data.timeStart)}',
+                            '${DateFormat().add_yMMMMEEEEd().format(data.timeStart)} / ${getjmFormat(data.timeStart)}',
                       ),
                       title: S.of(context).dateStart,
                       hint: S.of(context).dateStart,
@@ -132,7 +135,7 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
                     child: FilterCategory(
                       controller: TextEditingController(
                         text:
-                            '${DateFormat().add_yMMMMEEEEd().format(data.timeStart)} / ${DateFormat().add_jm().format(data.timeEnd)}',
+                            '${DateFormat().add_yMMMMEEEEd().format(data.timeEnd)} / ${getjmFormat(data.timeEnd)}',
                       ),
                       title: S.of(context).dateFinish,
                       hint: S.of(context).dateFinish,

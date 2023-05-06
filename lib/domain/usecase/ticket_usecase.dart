@@ -3,9 +3,9 @@ import 'package:flight_booking/domain/repositories/ticket_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class ListTicketUsecase {
+class TicketUsecase {
   final TicketRepository _listTicketRepository;
-  ListTicketUsecase(this._listTicketRepository);
+  TicketUsecase(this._listTicketRepository);
   Future<List<Ticket>> fetchAllTickets() async {
     return await _listTicketRepository.getListTicket() ?? [];
   }

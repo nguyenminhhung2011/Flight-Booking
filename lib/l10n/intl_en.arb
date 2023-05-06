@@ -113,6 +113,13 @@
     "update": "Update",
     "overview": "Overview",
     "airportOverview": "Airport Overview",
-    "commingFlights": "Comming Flights"
-
+    "commingFlights": "Comming Flights",
+    "to": "To",
+    "image": "Image",
+    "location": "Location",
+    "actions": "Actions",
+    "delete": "Delete",
+    "edit": "Edit",
+    "addNewAirport": "Add New Airport",
+    "editAirport": "Edit Airport"
 }

@@ -20,8 +20,10 @@ class AddEditFlightState with _$AddEditFlightState {
     required String message,
   }) = _AddNewFlightFailed;
 
-  const factory AddEditFlightState.editFlightSuccess(
-      {required AddEditFlightModelState data}) = _EditFlightSuccess;
+  const factory AddEditFlightState.editFlightSuccess({
+    required AddEditFlightModelState data,
+    required Flight flight,
+  }) = _EditFlightSuccess;
 
   const factory AddEditFlightState.editFlightFailed({
     required AddEditFlightModelState data,
