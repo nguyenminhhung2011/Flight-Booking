@@ -38,7 +38,7 @@ class _SettingScreenState extends State<SettingScreen> {
   final List<Widget> pages = [
     const GeneralSettingsTab(),
     const AccountSettingTab(),
-    const PrincipleSettingTab(),
+    PrincipleSettingTab(),
   ];
 
   @override
@@ -51,11 +51,10 @@ class _SettingScreenState extends State<SettingScreen> {
     state.whenOrNull(
       initial: (data) {},
       switchTab: (data) {
-        pageController.animateToPage(
-          data.currentPage,
-          duration: const Duration(milliseconds: 200),
-          curve: Curves.bounceIn,
-        );
+        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+          Future.delayed(const Duration(milliseconds: 80),
+              () => pageController.jumpToPage(data.currentPage));
+        });
       },
     );
   }
@@ -80,7 +79,7 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 80),
             child: Column(
               children: [
                 BlocBuilder<SettingBloc, SettingState>(
