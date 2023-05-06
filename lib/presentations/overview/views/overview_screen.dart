@@ -9,7 +9,7 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../core/components/widgets/button_border.dart';
-import '../../../core/components/widgets/drop_down_button.dart';
+import '../../../core/components/widgets/drop_down_button.dart' as customize;
 import '../../../core/components/widgets/line_chart_custom.dart';
 import '../../../generated/l10n.dart';
 import '../../dashboard/views/dashboard_screen.dart';
@@ -152,7 +152,7 @@ class _OverviewScreenState extends State<OverviewScreen> {
               shrinkWrap: false,
               children: [
                 ...product.map(
-                  (e) => DropdownButotn(
+                  (e) => customize.DropdownButton(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [

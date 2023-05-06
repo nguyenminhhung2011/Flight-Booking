@@ -38,9 +38,21 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Personal Info',
-                        style: Theme.of(context).textTheme.bodyMedium,
+                      ListTile(
+                        leading: Image.asset(
+                          'images/resume.png',
+                          height: 50,
+                          width: 50,
+                          filterQuality: FilterQuality.high,
+                          fit: BoxFit.contain,
+                        ),
+                        title: Text(
+                          'Personal Info',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                        ),
                       ),
                       const SizedBox(height: 5),
                       const Text(
@@ -52,10 +64,10 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      const Divider(
-                        thickness: 0.2,
+                      Divider(
+                        thickness: 0.5,
                         height: 30,
-                        color: Colors.grey,
+                        color: Theme.of(context).dividerColor,
                       ),
                       //////////////////////////////////////////////////////////////////
                       Row(
@@ -65,25 +77,30 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                             width: constraints.maxWidth * 0.45,
                             child: Text(
                               "Name",
-                              style: Theme.of(context).textTheme.bodyMedium,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.bold),
                             ),
                           ),
-                          const Expanded(
+                          Expanded(
                             child: CustomerTextField(
+                              isDense: true,
                               title: '',
-                              hintStyle: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w500),
-                              hint: 'First Name',
+                              prefixWidget: const Icon(Icons.person),
+                              hintStyle: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.w300),
+                              hint: 'Your Name',
                             ),
                           ),
                         ],
                       ),
-                      const Divider(
-                        thickness: 0.2,
+                      Divider(
+                        thickness: 0.5,
                         height: 30,
-                        color: Colors.grey,
+                        color: Theme.of(context).dividerColor,
                       ),
                       //////////////////////////////////////////////////////////////////
                       Row(
@@ -93,25 +110,29 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                             width: constraints.maxWidth * 0.45,
                             child: Text(
                               "Email Address",
-                              style: Theme.of(context).textTheme.bodyMedium,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.bold),
                             ),
                           ),
                           Expanded(
                             child: CustomerTextField(
-                              prefixWidget: const Icon(
-                                Icons.email_outlined,
-                                color: Colors.grey,
-                              ),
-                              hintStyle: Theme.of(context).textTheme.bodyMedium,
+                              isDense: true,
+                              prefixWidget: const Icon(Icons.email_outlined),
+                              hintStyle: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.w100),
                               hint: 'Email',
                             ),
                           ),
                         ],
                       ),
-                      const Divider(
-                        thickness: 0.2,
+                      Divider(
+                        thickness: 0.5,
                         height: 30,
-                        color: Colors.grey,
+                        color: Theme.of(context).dividerColor,
                       ),
                       //////////////////////////////////////////////////////////////////
                       Row(
@@ -121,20 +142,20 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                             width: constraints.maxWidth * 0.45,
                             child: RichText(
                               text: TextSpan(
-                                  text: "Your Photo\n",
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                  children: [
-                                    TextSpan(
-                                      text:
-                                          '\nThis will be display on your profile',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(
-                                            color: Colors.blueGrey,
-                                          ),
-                                    ),
-                                  ]),
+                                text: "Your Photo\n",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(fontWeight: FontWeight.bold),
+                                children: [
+                                  TextSpan(
+                                    text:
+                                        '\nThis will be display on your profile',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           _image == null
@@ -142,7 +163,15 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                   height: 100,
                                   width: 100,
                                   decoration: const BoxDecoration(
-                                      shape: BoxShape.circle),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: CircleAvatar(
+                                    backgroundColor: Theme.of(context)
+                                        .dividerColor
+                                        .withOpacity(0.05),
+                                    child: Icon(Icons.person,
+                                        color: Theme.of(context).primaryColor),
+                                  ),
                                 )
                               : Container(
                                   height: 100.0,
@@ -158,7 +187,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                           Expanded(
                             child: Container(
                               padding: const EdgeInsets.symmetric(
-                                vertical: 25,
+                                vertical: 10,
                                 horizontal: 20,
                               ),
                               decoration: BoxDecoration(
@@ -171,13 +200,17 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   InkWell(
-                                    onTap: () => selectedImage(),
+                                    onTap: selectedImage,
+                                    borderRadius: BorderRadius.circular(50),
                                     child: CircleAvatar(
-                                      backgroundColor: Colors.blueGrey[50]!,
+                                      radius: 30,
+                                      backgroundColor: Theme.of(context)
+                                          .dividerColor
+                                          .withOpacity(0.05),
                                       child: Center(
                                         child: Icon(
                                           Icons.cloud_upload_outlined,
-                                          color: Colors.blueGrey[400],
+                                          color: Theme.of(context).primaryColor,
                                         ),
                                       ),
                                     ),
@@ -208,10 +241,10 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                           ),
                         ],
                       ),
-                      const Divider(
-                        thickness: 0.2,
+                      Divider(
+                        thickness: 0.5,
                         height: 30,
-                        color: Colors.grey,
+                        color: Theme.of(context).dividerColor,
                       ),
                       //////////////////////////////////////////////////////////////////
                       Row(
@@ -221,134 +254,51 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                             width: constraints.maxWidth * 0.45,
                             child: Text(
                               "Gender",
-                              style: Theme.of(context).textTheme.bodyMedium,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.bold),
                             ),
                           ),
                           Expanded(
                             child: Container(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                                  const EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
                                 color: Theme.of(context).canvasColor,
                                 border: CommonAppUIConfig.primaryBorder,
                                 borderRadius:
                                     CommonAppUIConfig.primaryRadiusBorder,
                               ),
-                              child: DropdownButton<int>(
-                                borderRadius:
-                                    CommonAppUIConfig.primaryRadiusBorder,
-                                underline: const SizedBox(),
-                                items: [
-                                  'Male',
-                                  'FeMale',
-                                ]
-                                    .asMap()
-                                    .entries
-                                    .map((e) => DropdownMenuItem<int>(
-                                          value: e.key,
-                                          child: Text(
-                                            e.value,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium,
-                                          ),
-                                        ))
-                                    .toList(),
-                                value: 0,
-                                onChanged: (value) {},
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Divider(
-                        thickness: 0.2,
-                        height: 30,
-                        color: Colors.grey,
-                      ),
-
-                      //////////////////////////////////////////////////////////////////
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: constraints.maxWidth * 0.45,
-                            child: Text(
-                              "Bio",
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ),
-                          Expanded(
-                            child: CustomerTextField(
-                              hint: 'Enter your Bio',
-                              maxLine: 5,
-                              borderSide: BorderSide(
-                                color: Colors.blue[100]!,
-                                width: 0.2,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Divider(
-                        thickness: 0.2,
-                        height: 30,
-                        color: Colors.grey,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: constraints.maxWidth * 0.45,
-                            child: Text(
-                              "Date Born",
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              padding: const EdgeInsets.all(15.0),
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(width: 0.5, color: Colors.grey),
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
                               child: Row(
                                 children: [
-                                  Expanded(
-                                    child: Text(
-                                      DateFormat()
-                                          .add_yMMMEd()
-                                          .format(DateTime.now()),
-                                      style: const TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16.0,
-                                      ),
-                                    ),
-                                  ),
-                                  InkWell(
-                                    onTap: () async {
-                                      final choice = await showDatePicker(
-                                        context: context,
-                                        firstDate: DateTime(2010),
-                                        lastDate: DateTime(2030),
-                                        initialDate: DateTime.now(),
-                                        builder: (context, child) {
-                                          return Center(
-                                              child: SizedBox(
-                                            width: 1000.0,
-                                            height: 1100.0,
-                                            child: child,
-                                          ));
-                                        },
-                                      );
-                                      if (choice != null) {}
-                                    },
-                                    child: const Icon(
-                                      Icons.calendar_month,
-                                      color: Colors.grey,
-                                    ),
+                                  Icon(Icons.info,
+                                      color: Theme.of(context)
+                                          .dividerColor
+                                          .withOpacity(0.4)),
+                                  const SizedBox(width: 5),
+                                  DropdownButton<int>(
+                                    borderRadius:
+                                        CommonAppUIConfig.primaryRadiusBorder,
+                                    underline: const SizedBox(),
+                                    items: [
+                                      'Male',
+                                      'FeMale',
+                                    ]
+                                        .asMap()
+                                        .entries
+                                        .map((gender) => DropdownMenuItem<int>(
+                                              value: gender.key,
+                                              child: Text(
+                                                gender.value,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium,
+                                              ),
+                                            ))
+                                        .toList(),
+                                    value: 0,
+                                    onChanged: (value) {},
                                   ),
                                 ],
                               ),
@@ -356,10 +306,112 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                           ),
                         ],
                       ),
-                      const Divider(
-                        thickness: 0.2,
+                      Divider(
+                        thickness: 0.5,
                         height: 30,
-                        color: Colors.grey,
+                        color: Theme.of(context).dividerColor,
+                      ),
+
+                      //////////////////////////////////////////////////////////////////
+
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: constraints.maxWidth * 0.45,
+                            child: Text(
+                              "Date Born",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Expanded(
+                            child: InkWell(
+                              onTap: () {
+                                // WidgetsBinding.instance
+                                //     .addPostFrameCallback((timeStamp)  {
+
+                                // });
+                                Future.delayed(
+                                  const Duration(milliseconds: 200),
+                                  () => showDatePicker(
+                                    context: context,
+                                    firstDate: DateTime(2010),
+                                    lastDate: DateTime(2030),
+                                    initialDate: DateTime.now(),
+                                    builder: (context, child) {
+                                      return Center(
+                                          child: SizedBox(
+                                        width: 1000.0,
+                                        height: 1100.0,
+                                        child: child,
+                                      ));
+                                    },
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 15.0, horizontal: 10),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      width: 0.5,
+                                      color: Theme.of(context).dividerColor),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: Row(
+                                  children: [
+                                    InkWell(
+                                      onTap: () async {
+                                        final choice = await showDatePicker(
+                                          context: context,
+                                          firstDate: DateTime(2010),
+                                          lastDate: DateTime(2030),
+                                          initialDate: DateTime.now(),
+                                          builder: (context, child) {
+                                            return Center(
+                                                child: SizedBox(
+                                              width: 1000.0,
+                                              height: 1100.0,
+                                              child: child,
+                                            ));
+                                          },
+                                        );
+                                        if (choice != null) {}
+                                      },
+                                      child: Icon(
+                                        Icons.calendar_month,
+                                        color: Theme.of(context)
+                                            .dividerColor
+                                            .withOpacity(0.4),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 5),
+                                    Expanded(
+                                      child: Text(
+                                        DateFormat()
+                                            .add_yMMMEd()
+                                            .format(DateTime.now()),
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 16.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        thickness: 0.5,
+                        height: 30,
+                        color: Theme.of(context).dividerColor,
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -367,26 +419,36 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                           SizedBox(
                             width: constraints.maxWidth * 0.45,
                             child: Text(
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.bold),
                               "Phone Number",
-                              style: Theme.of(context).textTheme.bodyMedium,
                             ),
                           ),
-                          const Expanded(
+                          Expanded(
                             child: CustomerTextField(
+                              isDense: true,
+                              prefixWidget: Icon(
+                                Icons.phone,
+                                color: Theme.of(context)
+                                    .dividerColor
+                                    .withOpacity(0.4),
+                              ),
                               title: '',
-                              hintStyle: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w500),
+                              hintStyle: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.w300),
                               hint: 'Phone Number',
                             ),
                           ),
                         ],
                       ),
-                      const Divider(
-                        thickness: 0.2,
+                      Divider(
+                        thickness: 0.5,
                         height: 30,
-                        color: Colors.grey,
+                        color: Theme.of(context).dividerColor,
                       ),
                       Center(
                         child: ElevatedButton(
@@ -400,7 +462,13 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                               backgroundColor: Theme.of(context).primaryColor),
                           child: Text(
                             "Update Profile",
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimary),
                           ),
                         ),
                       ),

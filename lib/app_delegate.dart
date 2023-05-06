@@ -34,7 +34,3 @@ class AppDelegate {
     });
   }
 }
-/*
-
-Object(asdfasdf)
-*/

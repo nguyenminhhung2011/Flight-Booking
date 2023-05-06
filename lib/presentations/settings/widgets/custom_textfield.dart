@@ -19,6 +19,7 @@ class CustomerTextField extends StatefulWidget {
     this.onTap,
     this.readOnly,
     this.checkFormat = true,
+    this.isDense = false,
   });
   final String? title;
   final double? width;
@@ -34,6 +35,7 @@ class CustomerTextField extends StatefulWidget {
   final String? Function(String?)? validator;
   final bool? readOnly;
   final bool checkFormat;
+  final bool isDense;
   @override
   State<CustomerTextField> createState() => _CustomerTextFieldState();
 }
@@ -58,6 +60,7 @@ class _CustomerTextFieldState extends State<CustomerTextField> {
               ]
             : [],
         decoration: InputDecoration(
+          isDense: widget.isDense,
           contentPadding:
               const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -74,20 +77,24 @@ class _CustomerTextFieldState extends State<CustomerTextField> {
             borderSide: widget.borderSide ??
                 BorderSide(color: Colors.grey[350]!, width: 0.4),
           ),
-          suffixIcon: SizedBox(
-            height: 50,
-            width: 50,
-            child: InkWell(
-              onTap: () {
-                if (widget.isPasswordField ?? false) {
-                  setState(() {
-                    isObscure = !isObscure;
-                  });
-                }
-              },
-              child: widget.trailingIcon,
-            ),
-          ),
+          suffixIcon: widget.trailingIcon != null
+              ? (widget.isPasswordField ?? false)
+                  ? SizedBox(
+                      height: 50,
+                      width: 50,
+                      child: InkWell(
+                        onTap: () {
+                          if (widget.isPasswordField ?? false) {
+                            setState(() {
+                              isObscure = !isObscure;
+                            });
+                          }
+                        },
+                        child: widget.trailingIcon,
+                      ),
+                    )
+                  : widget.trailingIcon
+              : null,
           prefixIcon: widget.prefixWidget,
         ),
       ),

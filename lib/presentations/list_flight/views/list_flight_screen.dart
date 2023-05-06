@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/components/widgets/drop_down_button.dart';
+import '../../../core/components/widgets/drop_down_button.dart' as customize;
 import '../../../domain/entities/flight/flight.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/list_flight_bloc.dart';
@@ -172,7 +172,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                                 scrollDirection: Axis.horizontal,
                                 children: [
                                   ...listSearchFlightOptions.map(
-                                    (e) => DropdownButotn(
+                                    (e) => customize.DropdownButton(
                                       backgroundColor:
                                           Theme.of(context).cardColor,
                                       onPress: () {},
