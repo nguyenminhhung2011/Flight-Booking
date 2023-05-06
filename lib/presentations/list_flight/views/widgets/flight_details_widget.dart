@@ -20,43 +20,49 @@ class FlightDetailsWidget extends StatelessWidget {
 
     final TextStyle? descStyle = Theme.of(context).textTheme.titleMedium;
 
-    return ListTile(
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            firstTitle,
-            maxLines: 1,
-            style: titleStyle,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                firstTitle,
+                maxLines: 1,
+                style: titleStyle,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 4.0),
+                child: Text(
+                  firstDesc,
+                  maxLines: 1,
+                  style: descStyle,
+                ),
+              )
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 4.0),
-            child: Text(
-              firstDesc,
-              maxLines: 1,
-              style: descStyle,
-            ),
-          )
-        ],
-      ),
-      trailing: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            secondTitle,
-            maxLines: 1,
-            style: titleStyle,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                secondTitle,
+                maxLines: 1,
+                style: titleStyle,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 4.0),
+                child: Text(
+                  secondDesc,
+                  maxLines: 1,
+                  style: descStyle,
+                ),
+              )
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 4.0),
-            child: Text(
-              secondDesc,
-              maxLines: 1,
-              style: descStyle,
-            ),
-          )
         ],
       ),
     );

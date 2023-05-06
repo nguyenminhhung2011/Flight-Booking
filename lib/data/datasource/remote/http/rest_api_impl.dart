@@ -6,7 +6,7 @@ import 'package:flight_booking/data/datasource/remote/rest_api/rest_api.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../app_exception.dart';
+import '../../../../core/components/network/app_exception.dart';
 
 @Injectable(as: RestApi)
 class RestApiImpl implements RestApi {
@@ -26,7 +26,7 @@ class RestApiImpl implements RestApi {
         },
       );
     } on SocketException {
-      throw FetchDataException('');
+      // throw FetchDataException('');
     }
     return responseBody;
   }
@@ -46,7 +46,7 @@ class RestApiImpl implements RestApi {
         },
       );
     } on SocketException {
-      throw FetchDataException('');
+      // throw FetchDataException('');
     }
     return responseBody;
   }
@@ -67,7 +67,7 @@ class RestApiImpl implements RestApi {
         },
       );
     } on SocketException {
-      throw FetchDataException('');
+      // throw FetchDataException('');
     }
     return responseBody;
   }
@@ -88,7 +88,7 @@ class RestApiImpl implements RestApi {
         },
       );
     } on SocketException {
-      throw FetchDataException('');
+      // throw FetchDataException('');
     }
     return responseBody;
   }

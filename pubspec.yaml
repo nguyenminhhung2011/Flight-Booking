@@ -38,6 +38,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   
+  equatable: ^2.0.3
   provider: ^6.0.5
   jumping_dot: ^0.0.4
   get_it: ^7.2.0
@@ -74,6 +75,12 @@ dependencies:
   ticket_widget: ^0.0.1
   auto_size_text: ^3.0.0
   date_time_picker: ^2.1.0
+  retrofit: ^4.0.1
+  dio: ^5.1.1
+  bot_interceptor: ^0.0.1
+  file_picker: ^5.2.10
+  cloudinary_public: ^0.21.0
+  image_picker: ^0.8.7+4
   
 dev_dependencies:
   flutter_test:
