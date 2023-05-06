@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class DropdownButotn extends StatelessWidget {
+class DropdownButton extends StatelessWidget {
   final Widget child;
   final Function() onPress;
   final Color? backgroundColor;
-  const DropdownButotn({
+  const DropdownButton({
     super.key,
     required this.child,
     required this.onPress,

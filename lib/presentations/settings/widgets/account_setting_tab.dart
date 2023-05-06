@@ -24,15 +24,31 @@ class AccountSettingTab extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Password Settings',
-                          style: Theme.of(context).textTheme.bodyMedium),
+                      ListTile(
+                        leading: Image.asset(
+                          'images/password-manager.png',
+                          filterQuality: FilterQuality.high,
+                          height: 50,
+                          width: 50,
+                          fit: BoxFit.contain,
+                        ),
+                        title: Text('Password Settings',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.copyWith(fontWeight: FontWeight.bold)),
+                      ),
                       const SizedBox(height: 30),
                       Text(
                         'Current Password',
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 5),
                       CustomerTextField(
+                        isDense: true,
                         isPasswordField: true,
                         hint: 'Enter your Current password',
                         trailingIcon: Icon(
@@ -43,10 +59,14 @@ class AccountSettingTab extends StatelessWidget {
                       const SizedBox(height: 30),
                       Text(
                         'New Password',
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 5),
                       CustomerTextField(
+                        isDense: true,
                         isPasswordField: true,
                         hint: 'Enter your New password',
                         trailingIcon: Icon(
@@ -57,10 +77,14 @@ class AccountSettingTab extends StatelessWidget {
                       const SizedBox(height: 30),
                       Text(
                         'Retype Password',
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 5),
                       CustomerTextField(
+                        isDense: true,
                         isPasswordField: true,
                         hint: 'Retype Password',
                         trailingIcon: Icon(
@@ -70,29 +94,24 @@ class AccountSettingTab extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       Center(
-                        child: SizedBox(
-                          height: 40,
-                          width: constraints.maxWidth * 0.3,
-                          child: TextButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Theme.of(context).primaryColor,
-                              elevation: 5,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    CommonAppUIConfig.primaryRadiusBorder,
-                              ),
-                            ),
-                            child: Text(
-                              'Change password',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium
-                                  ?.copyWith(
-                                    color:
-                                        Theme.of(context).colorScheme.onPrimary,
-                                  ),
-                            ),
-                            onPressed: () async {},
+                                  borderRadius:
+                                      CommonAppUIConfig.primaryRadiusBorder),
+                              minimumSize: Size(
+                                  MediaQuery.of(context).size.width * 0.5, 50),
+                              backgroundColor: Theme.of(context).primaryColor),
+                          child: Text(
+                            "Change Password",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimary),
                           ),
                         ),
                       ),
