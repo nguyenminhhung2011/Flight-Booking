@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flight_booking/core/dependency_injection/di.dart';
+import 'package:flight_booking/presentations/airport/views/airport_screen.dart';
 import 'package:flight_booking/presentations/customer/bloc/customer_bloc.dart';
 import 'package:flight_booking/presentations/customer/views/customer_screen.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
@@ -12,6 +13,7 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../generated/l10n.dart';
+import '../../airport/bloc/airport_bloc.dart';
 import '../../calendar/views/calender_screen.dart';
 import '../../customer/views/widgets/customer_detail_card.dart';
 import '../../list_flight/bloc/list_flight_bloc.dart';
@@ -45,6 +47,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       label: Text('Customer'),
     ),
     NavigationRailDestination(
+      icon: Icon(Icons.connecting_airports_rounded),
+      selectedIcon: Icon(Icons.connecting_airports_rounded),
+      label: Text('Airport'),
+    ),
+    NavigationRailDestination(
       icon: Icon(Icons.airplane_ticket),
       selectedIcon: Icon(Icons.airplane_ticket),
       label: Text('Ticket'),
@@ -64,6 +71,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     {
       'body': const OverviewScreen(),
       'secondBody': const CalenderScreen(),
+      'body_ratio': 0.7,
     },
     {
       'body': BlocProvider<ListFlightBloc>(
@@ -74,6 +82,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         create: (context) => injector(),
         child: const FlightFastView(),
       ),
+      'body_ratio': 0.7,
     },
     {
       'body': BlocProvider<CustomerBloc>(
@@ -81,6 +90,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: const CustomerScreen(),
       ),
       'secondBody': const CustomerDetailCard(),
+      'body_ratio': 0.7,
+    },
+    {
+      'body': BlocProvider<AirportBloc>(
+        create: (context) => injector(),
+        child: const AirportScreen(),
+      ),
+      'secondBody': null,
+      'body_ratio': 0.5,
     },
     {
       'body': BlocProvider<ListTicketBloc>(
@@ -88,6 +106,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: const ListTicketScreen(),
       ),
       'secondBody': null,
+      'body_ratio': 0.7,
     },
     {
       'body': BlocProvider<ListTicketBloc>(
@@ -95,6 +114,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: const ListTicketScreen(),
       ),
       'secondBody': null,
+      'body_ratio': 0.7,
     },
     {
       'body': BlocProvider<SettingBloc>(
@@ -102,6 +122,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: const SettingScreen(),
       ),
       'secondBody': null,
+      'body_ratio': 0.7,
     },
   ];
 
@@ -180,16 +201,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         selectedIndex: data.viewEnum,
                         onDestinationSelected: _onChangeView,
                         extended: true,
-                        leading: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: const <Widget>[
-                            Text(
-                              'REPLY',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 255, 201, 197)),
-                            ),
-                            Icon(Icons.menu_open)
-                          ],
+                        leading: Text(
+                          S.of(context).flight,
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 255, 201, 197),
+                          ),
                         ),
                         destinations: destinations,
                         // trailing: trailingNavRail,
@@ -262,6 +278,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             icon: Icon(Icons.people),
                             selectedIcon: Icon(Icons.people),
                             label: 'Customer',
+                          ),
+                          NavigationDestination(
+                            icon: Icon(Icons.connecting_airports_outlined),
+                            selectedIcon:
+                                Icon(Icons.connecting_airports_outlined),
+                            label: 'Airport',
                           ),
                           NavigationDestination(
                             icon: Icon(Icons.airplane_ticket),

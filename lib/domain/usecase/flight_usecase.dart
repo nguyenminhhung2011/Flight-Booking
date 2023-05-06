@@ -25,7 +25,7 @@ class FlightsUsecase {
     return _flightRepository.deleteFlight(id);
   }
 
-  Future<bool> editlight(Flight newFlight) async {
+  Future<Flight?> editFlight(Flight newFlight) async {
     return _flightRepository.editlight(newFlight);
   }
 }

@@ -111,5 +111,15 @@
     "saveChange": "Save Change",
     "emailPhoneDetail": "Email and Phone Details",
     "update": "Update",
-    "overview": "Overview"
+    "overview": "Overview",
+    "airportOverview": "Airport Overview",
+    "commingFlights": "Comming Flights",
+    "to": "To",
+    "image": "Image",
+    "location": "Location",
+    "actions": "Actions",
+    "delete": "Delete",
+    "edit": "Edit",
+    "addNewAirport": "Add New Airport",
+    "editAirport": "Edit Airport"
 }

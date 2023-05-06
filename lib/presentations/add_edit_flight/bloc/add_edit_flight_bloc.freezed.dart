@@ -19,6 +19,7 @@ mixin _$AddEditFlightEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
+    required TResult Function() dispose,
     required TResult Function(String id) editFlight,
     required TResult Function() addNewFlight,
     required TResult Function(DateTime dateTime, DateTimeEnum enumTime)
@@ -28,6 +29,7 @@ mixin _$AddEditFlightEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
+    TResult? Function()? dispose,
     TResult? Function(String id)? editFlight,
     TResult? Function()? addNewFlight,
     TResult? Function(DateTime dateTime, DateTimeEnum enumTime)?
@@ -37,6 +39,7 @@ mixin _$AddEditFlightEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
+    TResult Function()? dispose,
     TResult Function(String id)? editFlight,
     TResult Function()? addNewFlight,
     TResult Function(DateTime dateTime, DateTimeEnum enumTime)? updateDateField,
@@ -46,6 +49,7 @@ mixin _$AddEditFlightEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
     required TResult Function(_EditFlight value) editFlight,
     required TResult Function(_AddNewFlight value) addNewFlight,
     required TResult Function(_UpdateDateField value) updateDateField,
@@ -54,6 +58,7 @@ mixin _$AddEditFlightEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
     TResult? Function(_EditFlight value)? editFlight,
     TResult? Function(_AddNewFlight value)? addNewFlight,
     TResult? Function(_UpdateDateField value)? updateDateField,
@@ -62,6 +67,7 @@ mixin _$AddEditFlightEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
     TResult Function(_EditFlight value)? editFlight,
     TResult Function(_AddNewFlight value)? addNewFlight,
     TResult Function(_UpdateDateField value)? updateDateField,
@@ -126,6 +132,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
+    required TResult Function() dispose,
     required TResult Function(String id) editFlight,
     required TResult Function() addNewFlight,
     required TResult Function(DateTime dateTime, DateTimeEnum enumTime)
@@ -138,6 +145,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
+    TResult? Function()? dispose,
     TResult? Function(String id)? editFlight,
     TResult? Function()? addNewFlight,
     TResult? Function(DateTime dateTime, DateTimeEnum enumTime)?
@@ -150,6 +158,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
+    TResult Function()? dispose,
     TResult Function(String id)? editFlight,
     TResult Function()? addNewFlight,
     TResult Function(DateTime dateTime, DateTimeEnum enumTime)? updateDateField,
@@ -165,6 +174,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
     required TResult Function(_EditFlight value) editFlight,
     required TResult Function(_AddNewFlight value) addNewFlight,
     required TResult Function(_UpdateDateField value) updateDateField,
@@ -176,6 +186,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
     TResult? Function(_EditFlight value)? editFlight,
     TResult? Function(_AddNewFlight value)? addNewFlight,
     TResult? Function(_UpdateDateField value)? updateDateField,
@@ -187,6 +198,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
     TResult Function(_EditFlight value)? editFlight,
     TResult Function(_AddNewFlight value)? addNewFlight,
     TResult Function(_UpdateDateField value)? updateDateField,
@@ -201,6 +213,127 @@ class _$_Started implements _Started {
 
 abstract class _Started implements AddEditFlightEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$$_DisposeCopyWith<$Res> {
+  factory _$$_DisposeCopyWith(
+          _$_Dispose value, $Res Function(_$_Dispose) then) =
+      __$$_DisposeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_DisposeCopyWithImpl<$Res>
+    extends _$AddEditFlightEventCopyWithImpl<$Res, _$_Dispose>
+    implements _$$_DisposeCopyWith<$Res> {
+  __$$_DisposeCopyWithImpl(_$_Dispose _value, $Res Function(_$_Dispose) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Dispose implements _Dispose {
+  const _$_Dispose();
+
+  @override
+  String toString() {
+    return 'AddEditFlightEvent.dispose()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Dispose);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() dispose,
+    required TResult Function(String id) editFlight,
+    required TResult Function() addNewFlight,
+    required TResult Function(DateTime dateTime, DateTimeEnum enumTime)
+        updateDateField,
+  }) {
+    return dispose();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? dispose,
+    TResult? Function(String id)? editFlight,
+    TResult? Function()? addNewFlight,
+    TResult? Function(DateTime dateTime, DateTimeEnum enumTime)?
+        updateDateField,
+  }) {
+    return dispose?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? dispose,
+    TResult Function(String id)? editFlight,
+    TResult Function()? addNewFlight,
+    TResult Function(DateTime dateTime, DateTimeEnum enumTime)? updateDateField,
+    required TResult orElse(),
+  }) {
+    if (dispose != null) {
+      return dispose();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
+    required TResult Function(_EditFlight value) editFlight,
+    required TResult Function(_AddNewFlight value) addNewFlight,
+    required TResult Function(_UpdateDateField value) updateDateField,
+  }) {
+    return dispose(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
+    TResult? Function(_EditFlight value)? editFlight,
+    TResult? Function(_AddNewFlight value)? addNewFlight,
+    TResult? Function(_UpdateDateField value)? updateDateField,
+  }) {
+    return dispose?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
+    TResult Function(_EditFlight value)? editFlight,
+    TResult Function(_AddNewFlight value)? addNewFlight,
+    TResult Function(_UpdateDateField value)? updateDateField,
+    required TResult orElse(),
+  }) {
+    if (dispose != null) {
+      return dispose(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Dispose implements AddEditFlightEvent {
+  const factory _Dispose() = _$_Dispose;
 }
 
 /// @nodoc
@@ -268,6 +401,7 @@ class _$_EditFlight implements _EditFlight {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
+    required TResult Function() dispose,
     required TResult Function(String id) editFlight,
     required TResult Function() addNewFlight,
     required TResult Function(DateTime dateTime, DateTimeEnum enumTime)
@@ -280,6 +414,7 @@ class _$_EditFlight implements _EditFlight {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
+    TResult? Function()? dispose,
     TResult? Function(String id)? editFlight,
     TResult? Function()? addNewFlight,
     TResult? Function(DateTime dateTime, DateTimeEnum enumTime)?
@@ -292,6 +427,7 @@ class _$_EditFlight implements _EditFlight {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
+    TResult Function()? dispose,
     TResult Function(String id)? editFlight,
     TResult Function()? addNewFlight,
     TResult Function(DateTime dateTime, DateTimeEnum enumTime)? updateDateField,
@@ -307,6 +443,7 @@ class _$_EditFlight implements _EditFlight {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
     required TResult Function(_EditFlight value) editFlight,
     required TResult Function(_AddNewFlight value) addNewFlight,
     required TResult Function(_UpdateDateField value) updateDateField,
@@ -318,6 +455,7 @@ class _$_EditFlight implements _EditFlight {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
     TResult? Function(_EditFlight value)? editFlight,
     TResult? Function(_AddNewFlight value)? addNewFlight,
     TResult? Function(_UpdateDateField value)? updateDateField,
@@ -329,6 +467,7 @@ class _$_EditFlight implements _EditFlight {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
     TResult Function(_EditFlight value)? editFlight,
     TResult Function(_AddNewFlight value)? addNewFlight,
     TResult Function(_UpdateDateField value)? updateDateField,
@@ -389,6 +528,7 @@ class _$_AddNewFlight implements _AddNewFlight {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
+    required TResult Function() dispose,
     required TResult Function(String id) editFlight,
     required TResult Function() addNewFlight,
     required TResult Function(DateTime dateTime, DateTimeEnum enumTime)
@@ -401,6 +541,7 @@ class _$_AddNewFlight implements _AddNewFlight {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
+    TResult? Function()? dispose,
     TResult? Function(String id)? editFlight,
     TResult? Function()? addNewFlight,
     TResult? Function(DateTime dateTime, DateTimeEnum enumTime)?
@@ -413,6 +554,7 @@ class _$_AddNewFlight implements _AddNewFlight {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
+    TResult Function()? dispose,
     TResult Function(String id)? editFlight,
     TResult Function()? addNewFlight,
     TResult Function(DateTime dateTime, DateTimeEnum enumTime)? updateDateField,
@@ -428,6 +570,7 @@ class _$_AddNewFlight implements _AddNewFlight {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
     required TResult Function(_EditFlight value) editFlight,
     required TResult Function(_AddNewFlight value) addNewFlight,
     required TResult Function(_UpdateDateField value) updateDateField,
@@ -439,6 +582,7 @@ class _$_AddNewFlight implements _AddNewFlight {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
     TResult? Function(_EditFlight value)? editFlight,
     TResult? Function(_AddNewFlight value)? addNewFlight,
     TResult? Function(_UpdateDateField value)? updateDateField,
@@ -450,6 +594,7 @@ class _$_AddNewFlight implements _AddNewFlight {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
     TResult Function(_EditFlight value)? editFlight,
     TResult Function(_AddNewFlight value)? addNewFlight,
     TResult Function(_UpdateDateField value)? updateDateField,
@@ -541,6 +686,7 @@ class _$_UpdateDateField implements _UpdateDateField {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
+    required TResult Function() dispose,
     required TResult Function(String id) editFlight,
     required TResult Function() addNewFlight,
     required TResult Function(DateTime dateTime, DateTimeEnum enumTime)
@@ -553,6 +699,7 @@ class _$_UpdateDateField implements _UpdateDateField {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
+    TResult? Function()? dispose,
     TResult? Function(String id)? editFlight,
     TResult? Function()? addNewFlight,
     TResult? Function(DateTime dateTime, DateTimeEnum enumTime)?
@@ -565,6 +712,7 @@ class _$_UpdateDateField implements _UpdateDateField {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
+    TResult Function()? dispose,
     TResult Function(String id)? editFlight,
     TResult Function()? addNewFlight,
     TResult Function(DateTime dateTime, DateTimeEnum enumTime)? updateDateField,
@@ -580,6 +728,7 @@ class _$_UpdateDateField implements _UpdateDateField {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
     required TResult Function(_EditFlight value) editFlight,
     required TResult Function(_AddNewFlight value) addNewFlight,
     required TResult Function(_UpdateDateField value) updateDateField,
@@ -591,6 +740,7 @@ class _$_UpdateDateField implements _UpdateDateField {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
     TResult? Function(_EditFlight value)? editFlight,
     TResult? Function(_AddNewFlight value)? addNewFlight,
     TResult? Function(_UpdateDateField value)? updateDateField,
@@ -602,6 +752,7 @@ class _$_UpdateDateField implements _UpdateDateField {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
     TResult Function(_EditFlight value)? editFlight,
     TResult Function(_AddNewFlight value)? addNewFlight,
     TResult Function(_UpdateDateField value)? updateDateField,
@@ -637,7 +788,8 @@ mixin _$AddEditFlightState {
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
-    required TResult Function(AddEditFlightModelState data) editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         editFlightFailed,
   }) =>
@@ -650,7 +802,8 @@ mixin _$AddEditFlightState {
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult? Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
   }) =>
@@ -663,7 +816,8 @@ mixin _$AddEditFlightState {
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
     required TResult orElse(),
@@ -823,7 +977,8 @@ class _$_Initial extends _Initial {
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
-    required TResult Function(AddEditFlightModelState data) editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         editFlightFailed,
   }) {
@@ -839,7 +994,8 @@ class _$_Initial extends _Initial {
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult? Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
   }) {
@@ -855,7 +1011,8 @@ class _$_Initial extends _Initial {
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
     required TResult orElse(),
@@ -997,7 +1154,8 @@ class _$_Loading extends _Loading {
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
-    required TResult Function(AddEditFlightModelState data) editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         editFlightFailed,
   }) {
@@ -1013,7 +1171,8 @@ class _$_Loading extends _Loading {
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult? Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
   }) {
@@ -1029,7 +1188,8 @@ class _$_Loading extends _Loading {
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
     required TResult orElse(),
@@ -1191,7 +1351,8 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
-    required TResult Function(AddEditFlightModelState data) editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         editFlightFailed,
   }) {
@@ -1207,7 +1368,8 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult? Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
   }) {
@@ -1223,7 +1385,8 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
     required TResult orElse(),
@@ -1378,7 +1541,8 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
-    required TResult Function(AddEditFlightModelState data) editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         editFlightFailed,
   }) {
@@ -1394,7 +1558,8 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult? Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
   }) {
@@ -1410,7 +1575,8 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
     required TResult orElse(),
@@ -1488,10 +1654,11 @@ abstract class _$$_EditFlightSuccessCopyWith<$Res>
       __$$_EditFlightSuccessCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AddEditFlightModelState data});
+  $Res call({AddEditFlightModelState data, Flight flight});
 
   @override
   $AddEditFlightModelStateCopyWith<$Res> get data;
+  $FlightCopyWith<$Res> get flight;
 }
 
 /// @nodoc
@@ -1506,27 +1673,43 @@ class __$$_EditFlightSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? flight = null,
   }) {
     return _then(_$_EditFlightSuccess(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as AddEditFlightModelState,
+      flight: null == flight
+          ? _value.flight
+          : flight // ignore: cast_nullable_to_non_nullable
+              as Flight,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FlightCopyWith<$Res> get flight {
+    return $FlightCopyWith<$Res>(_value.flight, (value) {
+      return _then(_value.copyWith(flight: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_EditFlightSuccess extends _EditFlightSuccess {
-  const _$_EditFlightSuccess({required this.data}) : super._();
+  const _$_EditFlightSuccess({required this.data, required this.flight})
+      : super._();
 
   @override
   final AddEditFlightModelState data;
+  @override
+  final Flight flight;
 
   @override
   String toString() {
-    return 'AddEditFlightState.editFlightSuccess(data: $data)';
+    return 'AddEditFlightState.editFlightSuccess(data: $data, flight: $flight)';
   }
 
   @override
@@ -1534,11 +1717,12 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EditFlightSuccess &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.flight, flight) || other.flight == flight));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, flight);
 
   @JsonKey(ignore: true)
   @override
@@ -1556,11 +1740,12 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
-    required TResult Function(AddEditFlightModelState data) editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         editFlightFailed,
   }) {
-    return editFlightSuccess(data);
+    return editFlightSuccess(data, flight);
   }
 
   @override
@@ -1572,11 +1757,12 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult? Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
   }) {
-    return editFlightSuccess?.call(data);
+    return editFlightSuccess?.call(data, flight);
   }
 
   @override
@@ -1588,13 +1774,14 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
     required TResult orElse(),
   }) {
     if (editFlightSuccess != null) {
-      return editFlightSuccess(data);
+      return editFlightSuccess(data, flight);
     }
     return orElse();
   }
@@ -1645,11 +1832,13 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
 
 abstract class _EditFlightSuccess extends AddEditFlightState {
   const factory _EditFlightSuccess(
-      {required final AddEditFlightModelState data}) = _$_EditFlightSuccess;
+      {required final AddEditFlightModelState data,
+      required final Flight flight}) = _$_EditFlightSuccess;
   const _EditFlightSuccess._() : super._();
 
   @override
   AddEditFlightModelState get data;
+  Flight get flight;
   @override
   @JsonKey(ignore: true)
   _$$_EditFlightSuccessCopyWith<_$_EditFlightSuccess> get copyWith =>
@@ -1740,7 +1929,8 @@ class _$_EditFlightFailed extends _EditFlightFailed {
         addNewFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addNewFlightFailed,
-    required TResult Function(AddEditFlightModelState data) editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         editFlightFailed,
   }) {
@@ -1756,7 +1946,8 @@ class _$_EditFlightFailed extends _EditFlightFailed {
         addNewFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult? Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
   }) {
@@ -1772,7 +1963,8 @@ class _$_EditFlightFailed extends _EditFlightFailed {
         addNewFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addNewFlightFailed,
-    TResult Function(AddEditFlightModelState data)? editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         editFlightFailed,
     required TResult orElse(),

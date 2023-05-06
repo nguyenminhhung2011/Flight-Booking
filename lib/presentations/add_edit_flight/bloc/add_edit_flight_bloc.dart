@@ -46,6 +46,7 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
     on<_EditFlight>(_onEditFlight);
     on<_AddNewFlight>(_onAddNewFlight);
     on<_UpdateDateField>(_onUpdateDateField);
+    on<_Dispose>(_onDispose);
   }
 
   FutureOr<void> _onStarted(
@@ -77,6 +78,11 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
     );
   }
 
+  FutureOr<void> _onDispose(
+    _Dispose event,
+    Emitter<AddEditFlightState> emit,
+  ) {}
+
   FutureOr<void> _onEditFlight(
     _EditFlight event,
     Emitter<AddEditFlightState> emit,
@@ -91,14 +97,14 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
         timeEnd: data.timeEnd,
         noCustomer: data.noCustomer,
       );
-      final edit = await _flightsUsecase.editlight(newFlight);
-      if (!edit) {
+      final edit = await _flightsUsecase.editFlight(newFlight);
+      if (edit == null) {
         emit(
           AddEditFlightState.editFlightFailed(data: state.data, message: ''),
         );
         return;
       }
-      emit(AddEditFlightState.editFlightSuccess(data: data));
+      emit(AddEditFlightState.editFlightSuccess(data: data, flight: edit));
     } catch (e) {
       emit(AddEditFlightState.editFlightFailed(
         data: state.data,

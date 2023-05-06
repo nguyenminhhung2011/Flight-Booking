@@ -1169,6 +1169,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Airport Overview`
+  String get airportOverview {
+    return Intl.message(
+      'Airport Overview',
+      name: 'airportOverview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comming Flights`
+  String get commingFlights {
+    return Intl.message(
+      'Comming Flights',
+      name: 'commingFlights',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To`
+  String get to {
+    return Intl.message(
+      'To',
+      name: 'to',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Image`
+  String get image {
+    return Intl.message(
+      'Image',
+      name: 'image',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location`
+  String get location {
+    return Intl.message(
+      'Location',
+      name: 'location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Actions`
+  String get actions {
+    return Intl.message(
+      'Actions',
+      name: 'actions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message(
+      'Edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Airport`
+  String get addNewAirport {
+    return Intl.message(
+      'Add New Airport',
+      name: 'addNewAirport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Airport`
+  String get editAirport {
+    return Intl.message(
+      'Edit Airport',
+      name: 'editAirport',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

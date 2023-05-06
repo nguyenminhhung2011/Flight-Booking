@@ -1,4 +1,5 @@
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
+import 'package:flight_booking/core/config/color_config.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/presentations/customer/bloc/customer_bloc.dart';
 import 'package:flight_booking/core/components/widgets/label_textfield.dart';
@@ -84,11 +85,17 @@ class _CustomerScreenState extends State<CustomerScreen> {
               child: FluxTicketTable<Customer>(
                 padding: const EdgeInsets.all(10),
                 titleRow: FluxTableRow(
+                  margin: const EdgeInsets.symmetric(vertical: 5.0),
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  rowDecoration: BoxDecoration(color: Colors.grey[100]),
+                  rowDecoration:
+                      const BoxDecoration(color: CommonColor.primaryColor),
                   itemBuilder: (data, index) {
-                    return Text(data.toString());
+                    return Text(
+                      data.toString(),
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          fontWeight: FontWeight.bold, color: Colors.white),
+                    );
                   },
                   rowData: [
                     FlexRowTableData<String>(flex: 1, data: S.of(context).id),
@@ -135,7 +142,11 @@ class _CustomerScreenState extends State<CustomerScreen> {
                               child: const Icon(Icons.person),
                             ),
                             const SizedBox(width: 5),
-                            Text(data as String),
+                            Expanded(
+                                child: Text(
+                              data as String,
+                              maxLines: 1,
+                            )),
                           ],
                         );
                       }

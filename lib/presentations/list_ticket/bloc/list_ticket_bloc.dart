@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
-import 'package:flight_booking/domain/usecase/list_ticket_usecase.dart';
+import 'package:flight_booking/domain/usecase/ticket_usecase.dart';
 import 'package:flight_booking/presentations/list_ticket/bloc/list_ticket_model_state.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -14,7 +14,7 @@ part 'list_ticket_bloc.freezed.dart';
 
 @injectable
 class ListTicketBloc extends Bloc<ListTicketEvent, ListTicketState> {
-  final ListTicketUsecase _listTicketUsecase;
+  final TicketUsecase _listTicketUsecase;
   ListTicketBloc(this._listTicketUsecase)
       : super(
           const ListTicketState.initial(
