@@ -36,7 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountSetting":
             MessageLookupByLibrary.simpleMessage("Account Settings"),
+        "actions": MessageLookupByLibrary.simpleMessage("Actions"),
         "activities": MessageLookupByLibrary.simpleMessage("Activities"),
+        "addNewAirport":
+            MessageLookupByLibrary.simpleMessage("Add New Airport"),
         "addNewFlight": MessageLookupByLibrary.simpleMessage("Add New Flight"),
         "addNewWidgets":
             MessageLookupByLibrary.simpleMessage("Add new widgets"),
@@ -72,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateFinish": MessageLookupByLibrary.simpleMessage("Date Finish"),
         "dateRange": MessageLookupByLibrary.simpleMessage("Date range"),
         "dateStart": MessageLookupByLibrary.simpleMessage("Date Start"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "departureDate": MessageLookupByLibrary.simpleMessage("Departure Date"),
         "destination": MessageLookupByLibrary.simpleMessage("Destination"),
         "direct": MessageLookupByLibrary.simpleMessage("Direct"),
@@ -81,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "driver": MessageLookupByLibrary.simpleMessage("Driver"),
         "duration": MessageLookupByLibrary.simpleMessage("Duration"),
         "economyClass": MessageLookupByLibrary.simpleMessage("Economy Class"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "editAirport": MessageLookupByLibrary.simpleMessage("Edit Airport"),
         "editFlight": MessageLookupByLibrary.simpleMessage("Edit Flight"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailPhoneDetail":
@@ -115,9 +121,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "id": MessageLookupByLibrary.simpleMessage("ID"),
         "idData": m1,
         "identityNum": MessageLookupByLibrary.simpleMessage("Identity Number"),
+        "image": MessageLookupByLibrary.simpleMessage("Image"),
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
         "listFlights": MessageLookupByLibrary.simpleMessage("List Flights"),
         "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
+        "location": MessageLookupByLibrary.simpleMessage("Location"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "loginWithGoogle":
@@ -169,6 +177,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),
         "times": MessageLookupByLibrary.simpleMessage("Times"),
+        "to": MessageLookupByLibrary.simpleMessage("To"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "uploadProfileImage":
             MessageLookupByLibrary.simpleMessage("Upload Profile Image"),

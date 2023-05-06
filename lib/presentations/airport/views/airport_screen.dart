@@ -1,8 +1,14 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/components/widgets/flux_table/flux_table_row.dart';
+import '../../../core/components/widgets/flux_table/flux_ticket_table.dart';
+import '../../../core/config/color_config.dart';
+import '../../../core/constant/handle_time.dart';
+import '../../../domain/entities/customer/customer.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/airport_bloc.dart';
 import 'airport_fast_view.dart';
@@ -39,22 +45,7 @@ class _AirportScreenState extends State<AirportScreen> {
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Row(
             children: [
-              Expanded(
-                child: ListView(
-                  children: [
-                    const SizedBox(height: 10.0),
-                    Text(
-                      S.of(context).airport,
-                      style:
-                          Theme.of(context).textTheme.headlineSmall!.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
-                      maxLines: 1,
-                    ),
-                    const SizedBox(height: 10.0),
-                  ],
-                ),
-              ),
+              const AirportMainScreen(),
               Breakpoints.large.isActive(context)
                   ? AirportFastView(
                       state: state,
@@ -64,6 +55,172 @@ class _AirportScreenState extends State<AirportScreen> {
           ),
         );
       },
+    );
+  }
+}
+
+class AirportMainScreen extends StatefulWidget {
+  const AirportMainScreen({
+    super.key,
+  });
+
+  @override
+  State<AirportMainScreen> createState() => _AirportMainScreenState();
+}
+
+class _AirportMainScreenState extends State<AirportMainScreen> {
+  void openAddEditFlightDialog(String title) {
+    // context.read<AirportBloc>().add(Airp.openAddEditFlightForm(title));
+    final result = context.openDialogAdDEditAirport(title);
+    if (result is Airport) {
+      // if (id == _idNull) {
+      //   _bloc.add(ListFlightEvent.updateFlightsAfterAdd(result as Flight));
+      // } else {
+      //   _bloc.add(
+      //     ListFlightEvent.updateFlightssAfterEdit(result as Flight),
+      //   );
+      // }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 15.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  S.of(context).airport,
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                  maxLines: 1,
+                ),
+                ElevatedButton(
+                  onPressed: () => openAddEditFlightDialog(''),
+                  child: Text(S.of(context).addNewAirport),
+                )
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Expanded(
+            flex: 1,
+            child: FluxTicketTable<Airport>(
+              padding: const EdgeInsets.all(10),
+              titleRow: FluxTableRow(
+                margin: const EdgeInsets.symmetric(vertical: 5.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                rowDecoration:
+                    const BoxDecoration(color: CommonColor.primaryColor),
+                itemBuilder: (data, index) {
+                  return Text(
+                    data.toString(),
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  );
+                },
+                rowData: [
+                  FlexRowTableData<String>(flex: 1, data: S.of(context).id),
+                  FlexRowTableData<String>(flex: 1, data: S.of(context).name),
+                  FlexRowTableData<String>(flex: 1, data: S.of(context).image),
+                  FlexRowTableData<String>(
+                      flex: 1, data: S.of(context).location),
+                  FlexRowTableData<String>(
+                      flex: 1, data: S.of(context).actions),
+                ],
+              ),
+              data: [
+                for (int i = 0; i < 50; i++)
+                  const Airport(
+                    id: 'D1-2134',
+                    name: 'Ben Xe Mien Dong',
+                    image:
+                        'https://media.cnn.com/api/v1/images/stellar/prod/230314215301-03-world-best-airports-2023.jpg?c=original&q=w_1280,c_fill',
+                    location: 'Duong Pham Van Dong, quan Binh Thanh ',
+                  )
+              ],
+              rowBuilder: (data) {
+                return FluxTableRow(
+                  onTap: () {},
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  itemBuilder: (data, index) {
+                    if (index == 3) {
+                      return Row(
+                        children: [
+                          const Icon(Icons.location_on),
+                          const SizedBox(width: 5),
+                          Expanded(
+                              child: Text(
+                            data as String,
+                            maxLines: 1,
+                          )),
+                        ],
+                      );
+                    } else if (index == 2) {
+                      return Container(
+                        width: 80.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(data),
+                          ),
+                        ),
+                      );
+                    } else if (index == 4) {
+                      return Row(
+                        children: [
+                          ElevatedButton(
+                            onPressed: () => openAddEditFlightDialog('id'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  CommonColor.primaryColor, // Background color
+                            ),
+                            child: Text(
+                              S.of(context).edit,
+                              maxLines: 1,
+                            ),
+                          ),
+                          const SizedBox(width: 5.0),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red, // Background color
+                            ),
+                            child: Text(
+                              S.of(context).delete,
+                              maxLines: 1,
+                            ),
+                          )
+                        ],
+                      );
+                    }
+                    return Text(data.toString());
+                  },
+                  rowData: [
+                    FlexRowTableData<String>(flex: 1, data: data.id),
+                    FlexRowTableData<String>(flex: 1, data: data.name),
+                    FlexRowTableData<String>(flex: 1, data: data.image),
+                    FlexRowTableData<String>(flex: 1, data: data.location),
+                    FlexRowTableData<String>(flex: 1, data: ''),
+                  ],
+                );
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }

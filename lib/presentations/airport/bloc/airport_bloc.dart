@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/usecase/dashboard_use_case.dart';
+import '../../../domain/usecase/airport_usecase.dart';
 import 'airport_model_state.dart';
 
 part 'airport_event.dart';
@@ -40,7 +40,7 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
   ) async {
     emit(AirportState.loading(data: state.data));
     try {
-      final airports = await _airportUsecase.fetchAllFlights();
+      final airports = await _airportUsecase.fetchAllAirports();
       emit(AirportState.fetchAirportsSuccess(
         data: state.data.copyWith(airports: airports),
       ));

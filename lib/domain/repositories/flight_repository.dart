@@ -6,5 +6,5 @@ abstract class FlightRepository {
 
   Future<bool> deleteFlight(String id);
 
-  Future<bool> editlight(Flight newFlight);
+  Future<Flight?> editlight(Flight newFlight);
 }

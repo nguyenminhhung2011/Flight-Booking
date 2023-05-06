@@ -1,3 +1,5 @@
+import 'package:flight_booking/presentations/add_edit_airport/bloc/add_edit_airport_bloc.dart';
+import 'package:flight_booking/presentations/add_edit_airport/views/add_edit_airport_form.dart';
 import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart';
 import 'package:flight_booking/presentations/add_edit_flight/view/add_edit_flight_form.dart';
 import 'package:flight_booking/presentations/list_ticket/views/widgets/position_dialog.dart';
@@ -27,6 +29,19 @@ extension AppCoordinator<T> on BuildContext {
         child: const Dialog(
           backgroundColor: Colors.transparent,
           child: AddEditFlightForm(),
+        ),
+      ),
+    );
+  }
+
+  Future<T?> openDialogAdDEditAirport(String fId) {
+    return showDialog(
+      context: this,
+      builder: (_) => BlocProvider<AddEditAirportBloc>(
+        create: (context) => injector(param1: fId),
+        child: const Dialog(
+          backgroundColor: Colors.transparent,
+          child: AddEditAirportForm(),
         ),
       ),
     );

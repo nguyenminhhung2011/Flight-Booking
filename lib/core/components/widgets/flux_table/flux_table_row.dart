@@ -8,12 +8,14 @@ class FluxTableRow<T> extends StatelessWidget {
     this.rowDecoration,
     this.padding,
     this.onTap,
+    this.margin,
   });
   final Function()? onTap;
   final List<FlexRowTableData> rowData;
   final Widget Function(dynamic data, int columnIndex) itemBuilder;
   final BoxDecoration? rowDecoration;
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class FluxTableRow<T> extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: padding ?? const EdgeInsets.symmetric(vertical: 10),
+        margin: margin,
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
           border: Border.all(color: Colors.grey, width: 0.2),

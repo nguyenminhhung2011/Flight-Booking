@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/constant/handle_time.dart';
+
 class ScheduleItem extends StatelessWidget {
   const ScheduleItem({
     Key? key,
@@ -73,7 +75,7 @@ class ScheduleItem extends StatelessWidget {
                     ),
                     Expanded(
                       child: Text(
-                        ' ${DateFormat().add_jm().format(schedule[i]['begin'])} - ${DateFormat().add_jm().format(schedule[i]['end'])}',
+                        ' ${getjmFormat(schedule[i]['begin'])} - ${getjmFormat(schedule[i]['end'])}',
                         maxLines: 1,
                         style:
                             Theme.of(context).textTheme.titleMedium!.copyWith(
