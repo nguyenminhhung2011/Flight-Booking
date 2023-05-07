@@ -141,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "idData": m1,
         "identityNum": MessageLookupByLibrary.simpleMessage("Identity Number"),
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
+        "listCustomer": MessageLookupByLibrary.simpleMessage("List Customer"),
         "listFlights": MessageLookupByLibrary.simpleMessage("List Flights"),
         "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),

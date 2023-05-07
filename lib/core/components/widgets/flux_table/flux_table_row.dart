@@ -23,7 +23,8 @@ class FluxTableRow<T> extends StatelessWidget {
         padding: padding ?? const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
-          border: Border.all(color: Colors.grey, width: 0.2),
+          border: Border.all(
+              color: const Color.fromARGB(255, 16, 15, 15), width: 0.2),
           borderRadius: BorderRadius.circular(5),
         ).copyWith(
           color: rowDecoration?.color,
@@ -39,13 +40,18 @@ class FluxTableRow<T> extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             for (int i = 0; i < rowData.length; i++)
-              Expanded(
-                flex: rowData.elementAt(i).flex,
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: itemBuilder(rowData.elementAt(i).data, i),
-                ),
-              ),
+              rowData.elementAt(i).haveColumn
+                  ? Expanded(
+                      flex: rowData.elementAt(i).flex,
+                      child: Align(
+                        alignment: rowData.elementAt(i).alignment,
+                        child: itemBuilder(rowData.elementAt(i).data, i),
+                      ),
+                    )
+                  : Align(
+                      alignment: rowData.elementAt(i).alignment,
+                      child: itemBuilder(rowData.elementAt(i).data, i),
+                    ),
           ],
         ),
       ),
@@ -55,11 +61,13 @@ class FluxTableRow<T> extends StatelessWidget {
 
 class FlexRowTableData<T> {
   final int flex;
-  final T data;
+  final T? data;
   final Alignment alignment;
+  final bool haveColumn;
   FlexRowTableData({
-    required this.flex,
-    required this.data,
-    this.alignment = Alignment.center,
+    this.haveColumn = true,
+    this.flex = 1,
+    this.data,
+    this.alignment = Alignment.centerLeft,
   });
 }
