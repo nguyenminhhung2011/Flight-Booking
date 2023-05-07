@@ -1169,6 +1169,396 @@ class S {
       args: [],
     );
   }
+
+  /// `Personal Info`
+  String get personalInfo {
+    return Intl.message(
+      'Personal Info',
+      name: 'personalInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update your avatar and personal information here`
+  String get updateYourAvatar {
+    return Intl.message(
+      'Update your avatar and personal information here',
+      name: 'updateYourAvatar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Name`
+  String get yourName {
+    return Intl.message(
+      'Your Name',
+      name: 'yourName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Address`
+  String get emailAddress {
+    return Intl.message(
+      'Email Address',
+      name: 'emailAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Photo`
+  String get yourPhoto {
+    return Intl.message(
+      'Your Photo',
+      name: 'yourPhoto',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This will be display on your profile`
+  String get thisWillDisplay {
+    return Intl.message(
+      'This will be display on your profile',
+      name: 'thisWillDisplay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Click to upload`
+  String get clickToUpload {
+    return Intl.message(
+      'Click to upload',
+      name: 'clickToUpload',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` or drag and drop SVG, PNG, JPG or GIF (max 800x400px)`
+  String get orDrag {
+    return Intl.message(
+      ' or drag and drop SVG, PNG, JPG or GIF (max 800x400px)',
+      name: 'orDrag',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Male`
+  String get male {
+    return Intl.message(
+      'Male',
+      name: 'male',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Female`
+  String get female {
+    return Intl.message(
+      'Female',
+      name: 'female',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date Born`
+  String get dateBorn {
+    return Intl.message(
+      'Date Born',
+      name: 'dateBorn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update Profile`
+  String get updateProfile {
+    return Intl.message(
+      'Update Profile',
+      name: 'updateProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password Settings`
+  String get passwordSettings {
+    return Intl.message(
+      'Password Settings',
+      name: 'passwordSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Password`
+  String get currentPassword {
+    return Intl.message(
+      'Current Password',
+      name: 'currentPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your current Password`
+  String get enterCurrentPassword {
+    return Intl.message(
+      'Enter your current Password',
+      name: 'enterCurrentPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Password`
+  String get newPassword {
+    return Intl.message(
+      'New Password',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your new Password`
+  String get enterNewPassword {
+    return Intl.message(
+      'Enter your new Password',
+      name: 'enterNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your retype password`
+  String get retypePassword {
+    return Intl.message(
+      'Enter your retype password',
+      name: 'retypePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get changePassword {
+    return Intl.message(
+      'Change Password',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amount`
+  String get amount {
+    return Intl.message(
+      'Amount',
+      name: 'amount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Principle Setting`
+  String get principleSetting {
+    return Intl.message(
+      'Principle Setting',
+      name: 'principleSetting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Number Of Airports`
+  String get numberOfAirport {
+    return Intl.message(
+      'Number Of Airports',
+      name: 'numberOfAirport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maximum Number of Layovers`
+  String get maximumNumberOfLayovers {
+    return Intl.message(
+      'Maximum Number of Layovers',
+      name: 'maximumNumberOfLayovers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flight Time`
+  String get flightTime {
+    return Intl.message(
+      'Flight Time',
+      name: 'flightTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maximum Flight Time`
+  String get maximumFlightTime {
+    return Intl.message(
+      'Maximum Flight Time',
+      name: 'maximumFlightTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hours`
+  String get hours {
+    return Intl.message(
+      'Hours',
+      name: 'hours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Minutes`
+  String get Minutes {
+    return Intl.message(
+      'Minutes',
+      name: 'Minutes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Minimum Flight Time`
+  String get minimumFlightTime {
+    return Intl.message(
+      'Minimum Flight Time',
+      name: 'minimumFlightTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Block Time`
+  String get blockTime {
+    return Intl.message(
+      'Block Time',
+      name: 'blockTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maximum Block Time`
+  String get maximumBlockTime {
+    return Intl.message(
+      'Maximum Block Time',
+      name: 'maximumBlockTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Minimum Block Time`
+  String get minimumBlockTime {
+    return Intl.message(
+      'Minimum Block Time',
+      name: 'minimumBlockTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Booking Time`
+  String get bookingTime {
+    return Intl.message(
+      'Booking Time',
+      name: 'bookingTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deadline For Ticket Purchase`
+  String get deadlineForTicketPurchase {
+    return Intl.message(
+      'Deadline For Ticket Purchase',
+      name: 'deadlineForTicketPurchase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deadline For Ticket Cancellation`
+  String get deadlineForTicketCancellation {
+    return Intl.message(
+      'Deadline For Ticket Cancellation',
+      name: 'deadlineForTicketCancellation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plane Ticket`
+  String get planeTicket {
+    return Intl.message(
+      'Plane Ticket',
+      name: 'planeTicket',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `First Class Ticket`
+  String get firstClassTicket {
+    return Intl.message(
+      'First Class Ticket',
+      name: 'firstClassTicket',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Business Class Ticket`
+  String get businessClassTicket {
+    return Intl.message(
+      'Business Class Ticket',
+      name: 'businessClassTicket',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Premium Economy Class Ticket`
+  String get premiumEconomyClassTicket {
+    return Intl.message(
+      'Premium Economy Class Ticket',
+      name: 'premiumEconomyClassTicket',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Economy Class Ticket`
+  String get economyClassTicket {
+    return Intl.message(
+      'Economy Class Ticket',
+      name: 'economyClassTicket',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
