@@ -19,6 +19,7 @@ mixin _$AddEditAirportModelState {
   TextEditingController get name => throw _privateConstructorUsedError;
   TextEditingController get location => throw _privateConstructorUsedError;
   String get headerText => throw _privateConstructorUsedError;
+  List<Uint8List> get images => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddEditAirportModelStateCopyWith<AddEditAirportModelState> get copyWith =>
@@ -34,7 +35,8 @@ abstract class $AddEditAirportModelStateCopyWith<$Res> {
   $Res call(
       {TextEditingController name,
       TextEditingController location,
-      String headerText});
+      String headerText,
+      List<Uint8List> images});
 }
 
 /// @nodoc
@@ -54,6 +56,7 @@ class _$AddEditAirportModelStateCopyWithImpl<$Res,
     Object? name = null,
     Object? location = null,
     Object? headerText = null,
+    Object? images = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -68,6 +71,10 @@ class _$AddEditAirportModelStateCopyWithImpl<$Res,
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
               as String,
+      images: null == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<Uint8List>,
     ) as $Val);
   }
 }
@@ -84,7 +91,8 @@ abstract class _$$_AddEditAirportModelStateCopyWith<$Res>
   $Res call(
       {TextEditingController name,
       TextEditingController location,
-      String headerText});
+      String headerText,
+      List<Uint8List> images});
 }
 
 /// @nodoc
@@ -102,6 +110,7 @@ class __$$_AddEditAirportModelStateCopyWithImpl<$Res>
     Object? name = null,
     Object? location = null,
     Object? headerText = null,
+    Object? images = null,
   }) {
     return _then(_$_AddEditAirportModelState(
       name: null == name
@@ -116,6 +125,10 @@ class __$$_AddEditAirportModelStateCopyWithImpl<$Res>
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
               as String,
+      images: null == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<Uint8List>,
     ));
   }
 }
@@ -124,7 +137,11 @@ class __$$_AddEditAirportModelStateCopyWithImpl<$Res>
 
 class _$_AddEditAirportModelState implements _AddEditAirportModelState {
   const _$_AddEditAirportModelState(
-      {required this.name, required this.location, required this.headerText});
+      {required this.name,
+      required this.location,
+      required this.headerText,
+      required final List<Uint8List> images})
+      : _images = images;
 
   @override
   final TextEditingController name;
@@ -132,10 +149,17 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
   final TextEditingController location;
   @override
   final String headerText;
+  final List<Uint8List> _images;
+  @override
+  List<Uint8List> get images {
+    if (_images is EqualUnmodifiableListView) return _images;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_images);
+  }
 
   @override
   String toString() {
-    return 'AddEditAirportModelState(name: $name, location: $location, headerText: $headerText)';
+    return 'AddEditAirportModelState(name: $name, location: $location, headerText: $headerText, images: $images)';
   }
 
   @override
@@ -147,11 +171,13 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.headerText, headerText) ||
-                other.headerText == headerText));
+                other.headerText == headerText) &&
+            const DeepCollectionEquality().equals(other._images, _images));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, location, headerText);
+  int get hashCode => Object.hash(runtimeType, name, location, headerText,
+      const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
   @override
@@ -165,7 +191,8 @@ abstract class _AddEditAirportModelState implements AddEditAirportModelState {
   const factory _AddEditAirportModelState(
       {required final TextEditingController name,
       required final TextEditingController location,
-      required final String headerText}) = _$_AddEditAirportModelState;
+      required final String headerText,
+      required final List<Uint8List> images}) = _$_AddEditAirportModelState;
 
   @override
   TextEditingController get name;
@@ -173,6 +200,8 @@ abstract class _AddEditAirportModelState implements AddEditAirportModelState {
   TextEditingController get location;
   @override
   String get headerText;
+  @override
+  List<Uint8List> get images;
   @override
   @JsonKey(ignore: true)
   _$$_AddEditAirportModelStateCopyWith<_$_AddEditAirportModelState>

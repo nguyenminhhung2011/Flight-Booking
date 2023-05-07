@@ -144,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "pickImage": MessageLookupByLibrary.simpleMessage("Pick Image"),
         "pilot": MessageLookupByLibrary.simpleMessage("Pilot"),
         "pleaseContact": MessageLookupByLibrary.simpleMessage(
             "Please ! Contact Administrator to be provided Account!"),

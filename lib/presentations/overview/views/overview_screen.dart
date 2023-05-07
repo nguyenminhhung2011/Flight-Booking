@@ -111,6 +111,7 @@ class _OverviewScreenState extends State<OverviewScreen> {
                   child: _overview(widthField),
                 ),
           const SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Row(
@@ -216,7 +217,6 @@ class _OverviewScreenState extends State<OverviewScreen> {
                 )
                 .toList(),
           ),
-          const SizedBox(height: 40.0),
         ],
       ),
     );

@@ -7,4 +7,6 @@ class AddEditAirportEvent with _$AddEditAirportEvent {
   const factory AddEditAirportEvent.editAirport({required String id}) =
       _EditAirport;
   const factory AddEditAirportEvent.addNewAirport() = _AddNewAirport;
+  const factory AddEditAirportEvent.pickImage() = _PickImage;
+  const factory AddEditAirportEvent.removeImage(int index) = _RemoveImage;
 }
