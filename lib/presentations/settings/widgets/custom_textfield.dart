@@ -44,7 +44,8 @@ class _CustomerTextFieldState extends State<CustomerTextField> {
   bool isObscure = false;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      constraints: BoxConstraints(maxHeight: 60, minHeight: 20),
       width: widget.width ?? double.infinity,
       child: TextFormField(
         readOnly: widget.readOnly ?? false,
@@ -60,6 +61,7 @@ class _CustomerTextFieldState extends State<CustomerTextField> {
               ]
             : [],
         decoration: InputDecoration(
+          suffixIconConstraints: BoxConstraints(minHeight: 48, minWidth: 20),
           isDense: widget.isDense,
           contentPadding:
               const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
@@ -75,7 +77,7 @@ class _CustomerTextFieldState extends State<CustomerTextField> {
           border: OutlineInputBorder(
             borderRadius: CommonAppUIConfig.primaryRadiusBorder,
             borderSide: widget.borderSide ??
-                BorderSide(color: Colors.grey[350]!, width: 0.4),
+                BorderSide(color: Theme.of(context).primaryColor, width: 0.4),
           ),
           suffixIcon: widget.trailingIcon != null
               ? (widget.isPasswordField ?? false)
