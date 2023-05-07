@@ -43,7 +43,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              S.of(context).listTicket,
+              S.of(context).listCustomer,
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -88,21 +88,25 @@ class _CustomerScreenState extends State<CustomerScreen> {
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   rowDecoration: BoxDecoration(color: Colors.grey[100]),
                   itemBuilder: (data, index) {
+                    if (data == null) return const SizedBox();
                     return Text(data.toString());
                   },
                   rowData: [
-                    FlexRowTableData<String>(flex: 1, data: S.of(context).id),
-                    FlexRowTableData<String>(flex: 1, data: S.of(context).name),
+                    FlexRowTableData<String>(flex: 2, data: S.of(context).id),
+                    FlexRowTableData<String>(flex: 2, data: S.of(context).name),
                     FlexRowTableData<String>(
-                        flex: 1, data: S.of(context).gender),
+                        flex: 2, data: S.of(context).gender),
                     FlexRowTableData<String>(
-                        flex: 1, data: S.of(context).email),
+                        flex: 3,
+                        data: S.of(context).email,
+                        alignment: Alignment.center),
                     FlexRowTableData<String>(
-                        flex: 1, data: S.of(context).identityNum),
+                        flex: 3, data: S.of(context).identityNum),
                     FlexRowTableData<String>(
-                        flex: 1, data: S.of(context).phoneNumber),
+                        flex: 3, data: S.of(context).phoneNumber),
                     FlexRowTableData<String>(
-                        flex: 1, data: S.of(context).birthday),
+                        flex: 2, data: S.of(context).birthday),
+                    FlexRowTableData(flex: 1),
                   ],
                 ),
                 data: [
@@ -135,26 +139,54 @@ class _CustomerScreenState extends State<CustomerScreen> {
                               child: const Icon(Icons.person),
                             ),
                             const SizedBox(width: 5),
-                            Text(data as String),
+                            if (data != null) Text(data as String),
                           ],
+                        );
+                      }
+                      if (index == 7) {
+                        return PopupMenuButton(
+                          itemBuilder: (context) {
+                            return [
+                              PopupMenuItem(
+                                  child: Text(
+                                "Edit",
+                                style: Theme.of(context).textTheme.bodySmall,
+                              )),
+                              PopupMenuItem(
+                                  child: Text(
+                                "Delete",
+                                style: Theme.of(context).textTheme.bodySmall,
+                              )),
+                              PopupMenuItem(
+                                  child: Text(
+                                "Detail",
+                                style: Theme.of(context).textTheme.bodySmall,
+                              )),
+                            ];
+                          },
                         );
                       }
                       return Text(data.toString());
                     },
                     rowData: [
-                      FlexRowTableData<String>(flex: 1, data: data.id),
-                      FlexRowTableData<String>(flex: 1, data: data.name),
-                      FlexRowTableData<String>(flex: 1, data: data.gender),
-                      FlexRowTableData<String>(flex: 1, data: data.email),
-                      FlexRowTableData<String>(flex: 1, data: data.identityNum),
-                      FlexRowTableData<String>(flex: 1, data: data.phoneNumber),
+                      FlexRowTableData<String>(flex: 2, data: data.id),
+                      FlexRowTableData<String>(flex: 2, data: data.name),
+                      FlexRowTableData<String>(flex: 2, data: data.gender),
                       FlexRowTableData<String>(
-                          flex: 1, data: getYmdFormat(data.birthday)),
+                        flex: 3,
+                        data: data.email,
+                        alignment: Alignment.center,
+                      ),
+                      FlexRowTableData<String>(flex: 3, data: data.identityNum),
+                      FlexRowTableData<String>(flex: 3, data: data.phoneNumber),
+                      FlexRowTableData<String>(
+                          flex: 2, data: getYmdFormat(data.birthday)),
+                      FlexRowTableData(flex: 1),
                     ],
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
       ),

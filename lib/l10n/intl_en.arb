@@ -150,5 +150,6 @@
     "firstClassTicket": "First Class Ticket",
     "businessClassTicket": "Business Class Ticket",
     "premiumEconomyClassTicket": "Premium Economy Class Ticket",
-    "economyClassTicket": "Economy Class Ticket"
+    "economyClassTicket": "Economy Class Ticket",
+    "listCustomer":"List Customer"
 }
