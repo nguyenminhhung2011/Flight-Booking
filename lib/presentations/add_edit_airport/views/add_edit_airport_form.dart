@@ -1,4 +1,5 @@
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/presentations/add_edit_airport/views/widgets/item_add_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../generated/l10n.dart';
 import '../../customer/views/widgets/customer_textfield.dart';
 import '../bloc/add_edit_airport_bloc.dart';
+import 'widgets/item_image.dart';
 
 class AddEditAirportForm extends StatefulWidget {
   const AddEditAirportForm({super.key});
@@ -23,6 +25,14 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
     _bloc.add(const AddEditAirportEvent.onStarted());
   }
 
+  void pickImage() {
+    _bloc.add(const AddEditAirportEvent.pickImage());
+  }
+
+  void removeImage(int index) {
+    _bloc.add(AddEditAirportEvent.removeImage(index));
+  }
+
   void _listenStateChange(_, AddEditAirportState state) {
     state.whenOrNull(addNewAirportSuccess: (data, flight) {
       context.popArgs(flight);
@@ -38,6 +48,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
       listener: _listenStateChange,
       builder: (context, state) {
         final data = state.data;
+        final images = data.images;
         return Container(
           width: Breakpoints.small.isActive(context)
               ? double.infinity
@@ -86,6 +97,37 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                   iconData: Icons.location_on,
                 ),
               ),
+              Text(
+                S.of(context).pickImage,
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 6,
+                  crossAxisSpacing: 8,
+                  mainAxisSpacing: 8,
+                  childAspectRatio: 1,
+                ),
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(bottom: 16),
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: images.isEmpty ? 1 : images.length + 1,
+                itemBuilder: (context, index) {
+                  if (index == images.length) {
+                    return ItemAddImage(
+                      index: index,
+                      onPress: pickImage,
+                    );
+                  }
+
+                  return ItemImage(
+                    callback: () => removeImage(index),
+                    image: data.images[index],
+                  );
+                },
+              ),
               SizedBox(
                 width: double.infinity,
                 height: 45.0,
@@ -94,7 +136,6 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                   child: Text(data.headerText),
                 ),
               ),
-              const Text('/////////// image update afeter')
             ]
                 .expand((element) => [element, const SizedBox(height: 10.0)])
                 .toList()

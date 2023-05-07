@@ -81,6 +81,7 @@ dependencies:
   file_picker: ^5.2.10
   cloudinary_public: ^0.21.0
   image_picker: ^0.8.7+4
+  dotted_border: ^2.0.0+3
   
 dev_dependencies:
   flutter_test:

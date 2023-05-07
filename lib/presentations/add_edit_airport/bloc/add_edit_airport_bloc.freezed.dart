@@ -29,6 +29,7 @@ mixin _$AddEditAirportState {
         editAirportSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         editAirportFailed,
+    required TResult Function(AddEditAirportModelState data) pickImageSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,6 +44,7 @@ mixin _$AddEditAirportState {
         editAirportSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult? Function(AddEditAirportModelState data)? pickImageSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +59,7 @@ mixin _$AddEditAirportState {
         editAirportSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult Function(AddEditAirportModelState data)? pickImageSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +71,7 @@ mixin _$AddEditAirportState {
     required TResult Function(_AddNewAirportFailed value) addNewAirportFailed,
     required TResult Function(_EditAirportSuccess value) editAirportSuccess,
     required TResult Function(_EditAirportFailed value) editAirportFailed,
+    required TResult Function(_PickImageSuccess value) pickImageSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +82,7 @@ mixin _$AddEditAirportState {
     TResult? Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult? Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult? Function(_EditAirportFailed value)? editAirportFailed,
+    TResult? Function(_PickImageSuccess value)? pickImageSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +93,7 @@ mixin _$AddEditAirportState {
     TResult Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult Function(_EditAirportFailed value)? editAirportFailed,
+    TResult Function(_PickImageSuccess value)? pickImageSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -218,6 +224,7 @@ class _$_Initial extends _Initial {
         editAirportSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         editAirportFailed,
+    required TResult Function(AddEditAirportModelState data) pickImageSuccess,
   }) {
     return initial(data);
   }
@@ -235,6 +242,7 @@ class _$_Initial extends _Initial {
         editAirportSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult? Function(AddEditAirportModelState data)? pickImageSuccess,
   }) {
     return initial?.call(data);
   }
@@ -252,6 +260,7 @@ class _$_Initial extends _Initial {
         editAirportSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult Function(AddEditAirportModelState data)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -269,6 +278,7 @@ class _$_Initial extends _Initial {
     required TResult Function(_AddNewAirportFailed value) addNewAirportFailed,
     required TResult Function(_EditAirportSuccess value) editAirportSuccess,
     required TResult Function(_EditAirportFailed value) editAirportFailed,
+    required TResult Function(_PickImageSuccess value) pickImageSuccess,
   }) {
     return initial(this);
   }
@@ -282,6 +292,7 @@ class _$_Initial extends _Initial {
     TResult? Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult? Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult? Function(_EditAirportFailed value)? editAirportFailed,
+    TResult? Function(_PickImageSuccess value)? pickImageSuccess,
   }) {
     return initial?.call(this);
   }
@@ -295,6 +306,7 @@ class _$_Initial extends _Initial {
     TResult Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult Function(_EditAirportFailed value)? editAirportFailed,
+    TResult Function(_PickImageSuccess value)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -395,6 +407,7 @@ class _$_Loading extends _Loading {
         editAirportSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         editAirportFailed,
+    required TResult Function(AddEditAirportModelState data) pickImageSuccess,
   }) {
     return loading(data);
   }
@@ -412,6 +425,7 @@ class _$_Loading extends _Loading {
         editAirportSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult? Function(AddEditAirportModelState data)? pickImageSuccess,
   }) {
     return loading?.call(data);
   }
@@ -429,6 +443,7 @@ class _$_Loading extends _Loading {
         editAirportSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult Function(AddEditAirportModelState data)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -446,6 +461,7 @@ class _$_Loading extends _Loading {
     required TResult Function(_AddNewAirportFailed value) addNewAirportFailed,
     required TResult Function(_EditAirportSuccess value) editAirportSuccess,
     required TResult Function(_EditAirportFailed value) editAirportFailed,
+    required TResult Function(_PickImageSuccess value) pickImageSuccess,
   }) {
     return loading(this);
   }
@@ -459,6 +475,7 @@ class _$_Loading extends _Loading {
     TResult? Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult? Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult? Function(_EditAirportFailed value)? editAirportFailed,
+    TResult? Function(_PickImageSuccess value)? pickImageSuccess,
   }) {
     return loading?.call(this);
   }
@@ -472,6 +489,7 @@ class _$_Loading extends _Loading {
     TResult Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult Function(_EditAirportFailed value)? editAirportFailed,
+    TResult Function(_PickImageSuccess value)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -592,6 +610,7 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
         editAirportSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         editAirportFailed,
+    required TResult Function(AddEditAirportModelState data) pickImageSuccess,
   }) {
     return addNewAirportSuccess(data, airport);
   }
@@ -609,6 +628,7 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
         editAirportSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult? Function(AddEditAirportModelState data)? pickImageSuccess,
   }) {
     return addNewAirportSuccess?.call(data, airport);
   }
@@ -626,6 +646,7 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
         editAirportSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult Function(AddEditAirportModelState data)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (addNewAirportSuccess != null) {
@@ -643,6 +664,7 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
     required TResult Function(_AddNewAirportFailed value) addNewAirportFailed,
     required TResult Function(_EditAirportSuccess value) editAirportSuccess,
     required TResult Function(_EditAirportFailed value) editAirportFailed,
+    required TResult Function(_PickImageSuccess value) pickImageSuccess,
   }) {
     return addNewAirportSuccess(this);
   }
@@ -656,6 +678,7 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
     TResult? Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult? Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult? Function(_EditAirportFailed value)? editAirportFailed,
+    TResult? Function(_PickImageSuccess value)? pickImageSuccess,
   }) {
     return addNewAirportSuccess?.call(this);
   }
@@ -669,6 +692,7 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
     TResult Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult Function(_EditAirportFailed value)? editAirportFailed,
+    TResult Function(_PickImageSuccess value)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (addNewAirportSuccess != null) {
@@ -782,6 +806,7 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
         editAirportSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         editAirportFailed,
+    required TResult Function(AddEditAirportModelState data) pickImageSuccess,
   }) {
     return addNewAirportFailed(data, message);
   }
@@ -799,6 +824,7 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
         editAirportSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult? Function(AddEditAirportModelState data)? pickImageSuccess,
   }) {
     return addNewAirportFailed?.call(data, message);
   }
@@ -816,6 +842,7 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
         editAirportSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult Function(AddEditAirportModelState data)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (addNewAirportFailed != null) {
@@ -833,6 +860,7 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
     required TResult Function(_AddNewAirportFailed value) addNewAirportFailed,
     required TResult Function(_EditAirportSuccess value) editAirportSuccess,
     required TResult Function(_EditAirportFailed value) editAirportFailed,
+    required TResult Function(_PickImageSuccess value) pickImageSuccess,
   }) {
     return addNewAirportFailed(this);
   }
@@ -846,6 +874,7 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
     TResult? Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult? Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult? Function(_EditAirportFailed value)? editAirportFailed,
+    TResult? Function(_PickImageSuccess value)? pickImageSuccess,
   }) {
     return addNewAirportFailed?.call(this);
   }
@@ -859,6 +888,7 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
     TResult Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult Function(_EditAirportFailed value)? editAirportFailed,
+    TResult Function(_PickImageSuccess value)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (addNewAirportFailed != null) {
@@ -981,6 +1011,7 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
         editAirportSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         editAirportFailed,
+    required TResult Function(AddEditAirportModelState data) pickImageSuccess,
   }) {
     return editAirportSuccess(data, airport);
   }
@@ -998,6 +1029,7 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
         editAirportSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult? Function(AddEditAirportModelState data)? pickImageSuccess,
   }) {
     return editAirportSuccess?.call(data, airport);
   }
@@ -1015,6 +1047,7 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
         editAirportSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult Function(AddEditAirportModelState data)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (editAirportSuccess != null) {
@@ -1032,6 +1065,7 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
     required TResult Function(_AddNewAirportFailed value) addNewAirportFailed,
     required TResult Function(_EditAirportSuccess value) editAirportSuccess,
     required TResult Function(_EditAirportFailed value) editAirportFailed,
+    required TResult Function(_PickImageSuccess value) pickImageSuccess,
   }) {
     return editAirportSuccess(this);
   }
@@ -1045,6 +1079,7 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
     TResult? Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult? Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult? Function(_EditAirportFailed value)? editAirportFailed,
+    TResult? Function(_PickImageSuccess value)? pickImageSuccess,
   }) {
     return editAirportSuccess?.call(this);
   }
@@ -1058,6 +1093,7 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
     TResult Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult Function(_EditAirportFailed value)? editAirportFailed,
+    TResult Function(_PickImageSuccess value)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (editAirportSuccess != null) {
@@ -1171,6 +1207,7 @@ class _$_EditAirportFailed extends _EditAirportFailed {
         editAirportSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         editAirportFailed,
+    required TResult Function(AddEditAirportModelState data) pickImageSuccess,
   }) {
     return editAirportFailed(data, message);
   }
@@ -1188,6 +1225,7 @@ class _$_EditAirportFailed extends _EditAirportFailed {
         editAirportSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult? Function(AddEditAirportModelState data)? pickImageSuccess,
   }) {
     return editAirportFailed?.call(data, message);
   }
@@ -1205,6 +1243,7 @@ class _$_EditAirportFailed extends _EditAirportFailed {
         editAirportSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         editAirportFailed,
+    TResult Function(AddEditAirportModelState data)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (editAirportFailed != null) {
@@ -1222,6 +1261,7 @@ class _$_EditAirportFailed extends _EditAirportFailed {
     required TResult Function(_AddNewAirportFailed value) addNewAirportFailed,
     required TResult Function(_EditAirportSuccess value) editAirportSuccess,
     required TResult Function(_EditAirportFailed value) editAirportFailed,
+    required TResult Function(_PickImageSuccess value) pickImageSuccess,
   }) {
     return editAirportFailed(this);
   }
@@ -1235,6 +1275,7 @@ class _$_EditAirportFailed extends _EditAirportFailed {
     TResult? Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult? Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult? Function(_EditAirportFailed value)? editAirportFailed,
+    TResult? Function(_PickImageSuccess value)? pickImageSuccess,
   }) {
     return editAirportFailed?.call(this);
   }
@@ -1248,6 +1289,7 @@ class _$_EditAirportFailed extends _EditAirportFailed {
     TResult Function(_AddNewAirportFailed value)? addNewAirportFailed,
     TResult Function(_EditAirportSuccess value)? editAirportSuccess,
     TResult Function(_EditAirportFailed value)? editAirportFailed,
+    TResult Function(_PickImageSuccess value)? pickImageSuccess,
     required TResult orElse(),
   }) {
     if (editAirportFailed != null) {
@@ -1273,6 +1315,190 @@ abstract class _EditAirportFailed extends AddEditAirportState {
 }
 
 /// @nodoc
+abstract class _$$_PickImageSuccessCopyWith<$Res>
+    implements $AddEditAirportStateCopyWith<$Res> {
+  factory _$$_PickImageSuccessCopyWith(
+          _$_PickImageSuccess value, $Res Function(_$_PickImageSuccess) then) =
+      __$$_PickImageSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AddEditAirportModelState data});
+
+  @override
+  $AddEditAirportModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_PickImageSuccessCopyWithImpl<$Res>
+    extends _$AddEditAirportStateCopyWithImpl<$Res, _$_PickImageSuccess>
+    implements _$$_PickImageSuccessCopyWith<$Res> {
+  __$$_PickImageSuccessCopyWithImpl(
+      _$_PickImageSuccess _value, $Res Function(_$_PickImageSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_PickImageSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AddEditAirportModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PickImageSuccess extends _PickImageSuccess {
+  const _$_PickImageSuccess({required this.data}) : super._();
+
+  @override
+  final AddEditAirportModelState data;
+
+  @override
+  String toString() {
+    return 'AddEditAirportState.pickImageSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PickImageSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PickImageSuccessCopyWith<_$_PickImageSuccess> get copyWith =>
+      __$$_PickImageSuccessCopyWithImpl<_$_PickImageSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AddEditAirportModelState data) initial,
+    required TResult Function(AddEditAirportModelState data) loading,
+    required TResult Function(AddEditAirportModelState data, Airport airport)
+        addNewAirportSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        addNewAirportFailed,
+    required TResult Function(AddEditAirportModelState data, Airport airport)
+        editAirportSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        editAirportFailed,
+    required TResult Function(AddEditAirportModelState data) pickImageSuccess,
+  }) {
+    return pickImageSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AddEditAirportModelState data)? initial,
+    TResult? Function(AddEditAirportModelState data)? loading,
+    TResult? Function(AddEditAirportModelState data, Airport airport)?
+        addNewAirportSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        addNewAirportFailed,
+    TResult? Function(AddEditAirportModelState data, Airport airport)?
+        editAirportSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        editAirportFailed,
+    TResult? Function(AddEditAirportModelState data)? pickImageSuccess,
+  }) {
+    return pickImageSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AddEditAirportModelState data)? initial,
+    TResult Function(AddEditAirportModelState data)? loading,
+    TResult Function(AddEditAirportModelState data, Airport airport)?
+        addNewAirportSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        addNewAirportFailed,
+    TResult Function(AddEditAirportModelState data, Airport airport)?
+        editAirportSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        editAirportFailed,
+    TResult Function(AddEditAirportModelState data)? pickImageSuccess,
+    required TResult orElse(),
+  }) {
+    if (pickImageSuccess != null) {
+      return pickImageSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddNewAirportSuccess value) addNewAirportSuccess,
+    required TResult Function(_AddNewAirportFailed value) addNewAirportFailed,
+    required TResult Function(_EditAirportSuccess value) editAirportSuccess,
+    required TResult Function(_EditAirportFailed value) editAirportFailed,
+    required TResult Function(_PickImageSuccess value) pickImageSuccess,
+  }) {
+    return pickImageSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddNewAirportSuccess value)? addNewAirportSuccess,
+    TResult? Function(_AddNewAirportFailed value)? addNewAirportFailed,
+    TResult? Function(_EditAirportSuccess value)? editAirportSuccess,
+    TResult? Function(_EditAirportFailed value)? editAirportFailed,
+    TResult? Function(_PickImageSuccess value)? pickImageSuccess,
+  }) {
+    return pickImageSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddNewAirportSuccess value)? addNewAirportSuccess,
+    TResult Function(_AddNewAirportFailed value)? addNewAirportFailed,
+    TResult Function(_EditAirportSuccess value)? editAirportSuccess,
+    TResult Function(_EditAirportFailed value)? editAirportFailed,
+    TResult Function(_PickImageSuccess value)? pickImageSuccess,
+    required TResult orElse(),
+  }) {
+    if (pickImageSuccess != null) {
+      return pickImageSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickImageSuccess extends AddEditAirportState {
+  const factory _PickImageSuccess(
+      {required final AddEditAirportModelState data}) = _$_PickImageSuccess;
+  const _PickImageSuccess._() : super._();
+
+  @override
+  AddEditAirportModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PickImageSuccessCopyWith<_$_PickImageSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AddEditAirportEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -1280,6 +1506,8 @@ mixin _$AddEditAirportEvent {
     required TResult Function() dispose,
     required TResult Function(String id) editAirport,
     required TResult Function() addNewAirport,
+    required TResult Function() pickImage,
+    required TResult Function(int index) removeImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1288,6 +1516,8 @@ mixin _$AddEditAirportEvent {
     TResult? Function()? dispose,
     TResult? Function(String id)? editAirport,
     TResult? Function()? addNewAirport,
+    TResult? Function()? pickImage,
+    TResult? Function(int index)? removeImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1296,6 +1526,8 @@ mixin _$AddEditAirportEvent {
     TResult Function()? dispose,
     TResult Function(String id)? editAirport,
     TResult Function()? addNewAirport,
+    TResult Function()? pickImage,
+    TResult Function(int index)? removeImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1305,6 +1537,8 @@ mixin _$AddEditAirportEvent {
     required TResult Function(_Dispose value) dispose,
     required TResult Function(_EditAirport value) editAirport,
     required TResult Function(_AddNewAirport value) addNewAirport,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_RemoveImage value) removeImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1313,6 +1547,8 @@ mixin _$AddEditAirportEvent {
     TResult? Function(_Dispose value)? dispose,
     TResult? Function(_EditAirport value)? editAirport,
     TResult? Function(_AddNewAirport value)? addNewAirport,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_RemoveImage value)? removeImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1321,6 +1557,8 @@ mixin _$AddEditAirportEvent {
     TResult Function(_Dispose value)? dispose,
     TResult Function(_EditAirport value)? editAirport,
     TResult Function(_AddNewAirport value)? addNewAirport,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_RemoveImage value)? removeImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1385,6 +1623,8 @@ class _$_Started implements _Started {
     required TResult Function() dispose,
     required TResult Function(String id) editAirport,
     required TResult Function() addNewAirport,
+    required TResult Function() pickImage,
+    required TResult Function(int index) removeImage,
   }) {
     return onStarted();
   }
@@ -1396,6 +1636,8 @@ class _$_Started implements _Started {
     TResult? Function()? dispose,
     TResult? Function(String id)? editAirport,
     TResult? Function()? addNewAirport,
+    TResult? Function()? pickImage,
+    TResult? Function(int index)? removeImage,
   }) {
     return onStarted?.call();
   }
@@ -1407,6 +1649,8 @@ class _$_Started implements _Started {
     TResult Function()? dispose,
     TResult Function(String id)? editAirport,
     TResult Function()? addNewAirport,
+    TResult Function()? pickImage,
+    TResult Function(int index)? removeImage,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -1422,6 +1666,8 @@ class _$_Started implements _Started {
     required TResult Function(_Dispose value) dispose,
     required TResult Function(_EditAirport value) editAirport,
     required TResult Function(_AddNewAirport value) addNewAirport,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_RemoveImage value) removeImage,
   }) {
     return onStarted(this);
   }
@@ -1433,6 +1679,8 @@ class _$_Started implements _Started {
     TResult? Function(_Dispose value)? dispose,
     TResult? Function(_EditAirport value)? editAirport,
     TResult? Function(_AddNewAirport value)? addNewAirport,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_RemoveImage value)? removeImage,
   }) {
     return onStarted?.call(this);
   }
@@ -1444,6 +1692,8 @@ class _$_Started implements _Started {
     TResult Function(_Dispose value)? dispose,
     TResult Function(_EditAirport value)? editAirport,
     TResult Function(_AddNewAirport value)? addNewAirport,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_RemoveImage value)? removeImage,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -1498,6 +1748,8 @@ class _$_Dispose implements _Dispose {
     required TResult Function() dispose,
     required TResult Function(String id) editAirport,
     required TResult Function() addNewAirport,
+    required TResult Function() pickImage,
+    required TResult Function(int index) removeImage,
   }) {
     return dispose();
   }
@@ -1509,6 +1761,8 @@ class _$_Dispose implements _Dispose {
     TResult? Function()? dispose,
     TResult? Function(String id)? editAirport,
     TResult? Function()? addNewAirport,
+    TResult? Function()? pickImage,
+    TResult? Function(int index)? removeImage,
   }) {
     return dispose?.call();
   }
@@ -1520,6 +1774,8 @@ class _$_Dispose implements _Dispose {
     TResult Function()? dispose,
     TResult Function(String id)? editAirport,
     TResult Function()? addNewAirport,
+    TResult Function()? pickImage,
+    TResult Function(int index)? removeImage,
     required TResult orElse(),
   }) {
     if (dispose != null) {
@@ -1535,6 +1791,8 @@ class _$_Dispose implements _Dispose {
     required TResult Function(_Dispose value) dispose,
     required TResult Function(_EditAirport value) editAirport,
     required TResult Function(_AddNewAirport value) addNewAirport,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_RemoveImage value) removeImage,
   }) {
     return dispose(this);
   }
@@ -1546,6 +1804,8 @@ class _$_Dispose implements _Dispose {
     TResult? Function(_Dispose value)? dispose,
     TResult? Function(_EditAirport value)? editAirport,
     TResult? Function(_AddNewAirport value)? addNewAirport,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_RemoveImage value)? removeImage,
   }) {
     return dispose?.call(this);
   }
@@ -1557,6 +1817,8 @@ class _$_Dispose implements _Dispose {
     TResult Function(_Dispose value)? dispose,
     TResult Function(_EditAirport value)? editAirport,
     TResult Function(_AddNewAirport value)? addNewAirport,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_RemoveImage value)? removeImage,
     required TResult orElse(),
   }) {
     if (dispose != null) {
@@ -1638,6 +1900,8 @@ class _$_EditAirport implements _EditAirport {
     required TResult Function() dispose,
     required TResult Function(String id) editAirport,
     required TResult Function() addNewAirport,
+    required TResult Function() pickImage,
+    required TResult Function(int index) removeImage,
   }) {
     return editAirport(id);
   }
@@ -1649,6 +1913,8 @@ class _$_EditAirport implements _EditAirport {
     TResult? Function()? dispose,
     TResult? Function(String id)? editAirport,
     TResult? Function()? addNewAirport,
+    TResult? Function()? pickImage,
+    TResult? Function(int index)? removeImage,
   }) {
     return editAirport?.call(id);
   }
@@ -1660,6 +1926,8 @@ class _$_EditAirport implements _EditAirport {
     TResult Function()? dispose,
     TResult Function(String id)? editAirport,
     TResult Function()? addNewAirport,
+    TResult Function()? pickImage,
+    TResult Function(int index)? removeImage,
     required TResult orElse(),
   }) {
     if (editAirport != null) {
@@ -1675,6 +1943,8 @@ class _$_EditAirport implements _EditAirport {
     required TResult Function(_Dispose value) dispose,
     required TResult Function(_EditAirport value) editAirport,
     required TResult Function(_AddNewAirport value) addNewAirport,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_RemoveImage value) removeImage,
   }) {
     return editAirport(this);
   }
@@ -1686,6 +1956,8 @@ class _$_EditAirport implements _EditAirport {
     TResult? Function(_Dispose value)? dispose,
     TResult? Function(_EditAirport value)? editAirport,
     TResult? Function(_AddNewAirport value)? addNewAirport,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_RemoveImage value)? removeImage,
   }) {
     return editAirport?.call(this);
   }
@@ -1697,6 +1969,8 @@ class _$_EditAirport implements _EditAirport {
     TResult Function(_Dispose value)? dispose,
     TResult Function(_EditAirport value)? editAirport,
     TResult Function(_AddNewAirport value)? addNewAirport,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_RemoveImage value)? removeImage,
     required TResult orElse(),
   }) {
     if (editAirport != null) {
@@ -1757,6 +2031,8 @@ class _$_AddNewAirport implements _AddNewAirport {
     required TResult Function() dispose,
     required TResult Function(String id) editAirport,
     required TResult Function() addNewAirport,
+    required TResult Function() pickImage,
+    required TResult Function(int index) removeImage,
   }) {
     return addNewAirport();
   }
@@ -1768,6 +2044,8 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult? Function()? dispose,
     TResult? Function(String id)? editAirport,
     TResult? Function()? addNewAirport,
+    TResult? Function()? pickImage,
+    TResult? Function(int index)? removeImage,
   }) {
     return addNewAirport?.call();
   }
@@ -1779,6 +2057,8 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult Function()? dispose,
     TResult Function(String id)? editAirport,
     TResult Function()? addNewAirport,
+    TResult Function()? pickImage,
+    TResult Function(int index)? removeImage,
     required TResult orElse(),
   }) {
     if (addNewAirport != null) {
@@ -1794,6 +2074,8 @@ class _$_AddNewAirport implements _AddNewAirport {
     required TResult Function(_Dispose value) dispose,
     required TResult Function(_EditAirport value) editAirport,
     required TResult Function(_AddNewAirport value) addNewAirport,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_RemoveImage value) removeImage,
   }) {
     return addNewAirport(this);
   }
@@ -1805,6 +2087,8 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult? Function(_Dispose value)? dispose,
     TResult? Function(_EditAirport value)? editAirport,
     TResult? Function(_AddNewAirport value)? addNewAirport,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_RemoveImage value)? removeImage,
   }) {
     return addNewAirport?.call(this);
   }
@@ -1816,6 +2100,8 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult Function(_Dispose value)? dispose,
     TResult Function(_EditAirport value)? editAirport,
     TResult Function(_AddNewAirport value)? addNewAirport,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_RemoveImage value)? removeImage,
     required TResult orElse(),
   }) {
     if (addNewAirport != null) {
@@ -1827,4 +2113,287 @@ class _$_AddNewAirport implements _AddNewAirport {
 
 abstract class _AddNewAirport implements AddEditAirportEvent {
   const factory _AddNewAirport() = _$_AddNewAirport;
+}
+
+/// @nodoc
+abstract class _$$_PickImageCopyWith<$Res> {
+  factory _$$_PickImageCopyWith(
+          _$_PickImage value, $Res Function(_$_PickImage) then) =
+      __$$_PickImageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PickImageCopyWithImpl<$Res>
+    extends _$AddEditAirportEventCopyWithImpl<$Res, _$_PickImage>
+    implements _$$_PickImageCopyWith<$Res> {
+  __$$_PickImageCopyWithImpl(
+      _$_PickImage _value, $Res Function(_$_PickImage) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PickImage implements _PickImage {
+  const _$_PickImage();
+
+  @override
+  String toString() {
+    return 'AddEditAirportEvent.pickImage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PickImage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() dispose,
+    required TResult Function(String id) editAirport,
+    required TResult Function() addNewAirport,
+    required TResult Function() pickImage,
+    required TResult Function(int index) removeImage,
+  }) {
+    return pickImage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? dispose,
+    TResult? Function(String id)? editAirport,
+    TResult? Function()? addNewAirport,
+    TResult? Function()? pickImage,
+    TResult? Function(int index)? removeImage,
+  }) {
+    return pickImage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? dispose,
+    TResult Function(String id)? editAirport,
+    TResult Function()? addNewAirport,
+    TResult Function()? pickImage,
+    TResult Function(int index)? removeImage,
+    required TResult orElse(),
+  }) {
+    if (pickImage != null) {
+      return pickImage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
+    required TResult Function(_EditAirport value) editAirport,
+    required TResult Function(_AddNewAirport value) addNewAirport,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_RemoveImage value) removeImage,
+  }) {
+    return pickImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
+    TResult? Function(_EditAirport value)? editAirport,
+    TResult? Function(_AddNewAirport value)? addNewAirport,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_RemoveImage value)? removeImage,
+  }) {
+    return pickImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
+    TResult Function(_EditAirport value)? editAirport,
+    TResult Function(_AddNewAirport value)? addNewAirport,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_RemoveImage value)? removeImage,
+    required TResult orElse(),
+  }) {
+    if (pickImage != null) {
+      return pickImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickImage implements AddEditAirportEvent {
+  const factory _PickImage() = _$_PickImage;
+}
+
+/// @nodoc
+abstract class _$$_RemoveImageCopyWith<$Res> {
+  factory _$$_RemoveImageCopyWith(
+          _$_RemoveImage value, $Res Function(_$_RemoveImage) then) =
+      __$$_RemoveImageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$_RemoveImageCopyWithImpl<$Res>
+    extends _$AddEditAirportEventCopyWithImpl<$Res, _$_RemoveImage>
+    implements _$$_RemoveImageCopyWith<$Res> {
+  __$$_RemoveImageCopyWithImpl(
+      _$_RemoveImage _value, $Res Function(_$_RemoveImage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$_RemoveImage(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RemoveImage implements _RemoveImage {
+  const _$_RemoveImage(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'AddEditAirportEvent.removeImage(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RemoveImage &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RemoveImageCopyWith<_$_RemoveImage> get copyWith =>
+      __$$_RemoveImageCopyWithImpl<_$_RemoveImage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() dispose,
+    required TResult Function(String id) editAirport,
+    required TResult Function() addNewAirport,
+    required TResult Function() pickImage,
+    required TResult Function(int index) removeImage,
+  }) {
+    return removeImage(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? dispose,
+    TResult? Function(String id)? editAirport,
+    TResult? Function()? addNewAirport,
+    TResult? Function()? pickImage,
+    TResult? Function(int index)? removeImage,
+  }) {
+    return removeImage?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? dispose,
+    TResult Function(String id)? editAirport,
+    TResult Function()? addNewAirport,
+    TResult Function()? pickImage,
+    TResult Function(int index)? removeImage,
+    required TResult orElse(),
+  }) {
+    if (removeImage != null) {
+      return removeImage(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
+    required TResult Function(_EditAirport value) editAirport,
+    required TResult Function(_AddNewAirport value) addNewAirport,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_RemoveImage value) removeImage,
+  }) {
+    return removeImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
+    TResult? Function(_EditAirport value)? editAirport,
+    TResult? Function(_AddNewAirport value)? addNewAirport,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_RemoveImage value)? removeImage,
+  }) {
+    return removeImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
+    TResult Function(_EditAirport value)? editAirport,
+    TResult Function(_AddNewAirport value)? addNewAirport,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_RemoveImage value)? removeImage,
+    required TResult orElse(),
+  }) {
+    if (removeImage != null) {
+      return removeImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveImage implements AddEditAirportEvent {
+  const factory _RemoveImage(final int index) = _$_RemoveImage;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_RemoveImageCopyWith<_$_RemoveImage> get copyWith =>
+      throw _privateConstructorUsedError;
 }

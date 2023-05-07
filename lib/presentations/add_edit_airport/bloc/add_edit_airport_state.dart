@@ -29,4 +29,6 @@ class AddEditAirportState with _$AddEditAirportState {
     required AddEditAirportModelState data,
     required String message,
   }) = _EditAirportFailed;
+  const factory AddEditAirportState.pickImageSuccess(
+      {required AddEditAirportModelState data}) = _PickImageSuccess;
 }

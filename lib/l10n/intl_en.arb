@@ -121,5 +121,6 @@
     "delete": "Delete",
     "edit": "Edit",
     "addNewAirport": "Add New Airport",
-    "editAirport": "Edit Airport"
+    "editAirport": "Edit Airport",
+    "pickImage": "Pick Image"
 }

@@ -1,30 +1,6 @@
-import 'dart:io';
-
 import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/foundation.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
-
-Future pickFile() async {
-  try {
-    var result = await FilePicker.platform.pickFiles(
-      type: FileType.image,
-      allowMultiple: false,
-    );
-    return File(result!.files.single.path!);
-  } catch (e) {
-    debugPrint("Pick image error:${e.toString()}");
-  }
-}
-
-Future pickImage(ImageSource source) async {
-  final ImagePicker imagePicker = ImagePicker();
-  XFile? file = await imagePicker.pickImage(source: source);
-  if (file != null) {
-    return await file.readAsBytes();
-  }
-}
 
 @injectable
 class CloundinaryService {
