@@ -2,6 +2,8 @@ import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/presentations/settings/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
+import '../../../generated/l10n.dart';
+
 // ignore: must_be_immutable
 class AccountSettingTab extends StatelessWidget {
   const AccountSettingTab({super.key});
@@ -32,7 +34,7 @@ class AccountSettingTab extends StatelessWidget {
                           width: 50,
                           fit: BoxFit.contain,
                         ),
-                        title: Text('Password Settings',
+                        title: Text(S.of(context).passwordSettings,
                             style: Theme.of(context)
                                 .textTheme
                                 .titleLarge
@@ -40,7 +42,7 @@ class AccountSettingTab extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       Text(
-                        'Current Password',
+                        S.of(context).currentPassword,
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
@@ -50,7 +52,7 @@ class AccountSettingTab extends StatelessWidget {
                       CustomerTextField(
                         isDense: true,
                         isPasswordField: true,
-                        hint: 'Enter your Current password',
+                        hint: S.of(context).enterCurrentPassword,
                         trailingIcon: Icon(
                           Icons.remove_red_eye_outlined,
                           color: Theme.of(context).primaryColor,
@@ -58,7 +60,7 @@ class AccountSettingTab extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       Text(
-                        'New Password',
+                        S.of(context).newPassword,
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
@@ -68,7 +70,7 @@ class AccountSettingTab extends StatelessWidget {
                       CustomerTextField(
                         isDense: true,
                         isPasswordField: true,
-                        hint: 'Enter your New password',
+                        hint: S.of(context).enterNewPassword,
                         trailingIcon: Icon(
                           Icons.remove_red_eye_outlined,
                           color: Theme.of(context).primaryColor,
@@ -76,7 +78,7 @@ class AccountSettingTab extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       Text(
-                        'Retype Password',
+                        S.of(context).retypePassword,
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
@@ -86,7 +88,7 @@ class AccountSettingTab extends StatelessWidget {
                       CustomerTextField(
                         isDense: true,
                         isPasswordField: true,
-                        hint: 'Retype Password',
+                        hint: S.of(context).retypePassword,
                         trailingIcon: Icon(
                           Icons.remove_red_eye_outlined,
                           color: Theme.of(context).primaryColor,
@@ -104,7 +106,7 @@ class AccountSettingTab extends StatelessWidget {
                                   MediaQuery.of(context).size.width * 0.5, 50),
                               backgroundColor: Theme.of(context).primaryColor),
                           child: Text(
-                            "Change Password",
+                            S.of(context).changePassword,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium

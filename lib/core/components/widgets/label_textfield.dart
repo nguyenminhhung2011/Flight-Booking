@@ -24,6 +24,7 @@ class LabelTextField extends StatelessWidget {
     controller: controller,
     enabled: enable,
     decoration: InputDecoration(
+      isDense: true,
       contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
       hintText: hint,
       border: OutlineInputBorder(

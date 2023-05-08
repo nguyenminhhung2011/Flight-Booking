@@ -61,6 +61,9 @@ class _SettingScreenState extends State<SettingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final widthDevice = MediaQuery.of(context).size.width;
+    final heightDevice = MediaQuery.of(context).size.height;
+
     return BlocListener<SettingBloc, SettingState>(
       listener: _stateChangeListener,
       child: Scaffold(
@@ -79,7 +82,10 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 80),
+            padding: EdgeInsets.symmetric(
+              vertical: 20,
+              horizontal: widthDevice * 0.1,
+            ),
             child: Column(
               children: [
                 BlocBuilder<SettingBloc, SettingState>(

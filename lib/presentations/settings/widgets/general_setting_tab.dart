@@ -6,6 +6,8 @@ import 'package:flight_booking/presentations/settings/widgets/custom_textfield.d
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../../generated/l10n.dart';
+
 class GeneralSettingsTab extends StatefulWidget {
   const GeneralSettingsTab({super.key});
 
@@ -47,7 +49,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                           fit: BoxFit.contain,
                         ),
                         title: Text(
-                          'Personal Info',
+                          S.of(context).personalInfo,
                           style: Theme.of(context)
                               .textTheme
                               .titleLarge
@@ -55,9 +57,9 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                         ),
                       ),
                       const SizedBox(height: 5),
-                      const Text(
-                        'Update your avatar and personal information here',
-                        style: TextStyle(
+                      Text(
+                        S.of(context).updateYourAvatar,
+                        style: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 15,
                           color: Colors.blueGrey,
@@ -76,7 +78,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                           SizedBox(
                             width: constraints.maxWidth * 0.45,
                             child: Text(
-                              "Name",
+                              S.of(context).name,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium
@@ -92,7 +94,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                   .textTheme
                                   .bodyMedium
                                   ?.copyWith(fontWeight: FontWeight.w300),
-                              hint: 'Your Name',
+                              hint: S.of(context).yourName,
                             ),
                           ),
                         ],
@@ -109,7 +111,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                           SizedBox(
                             width: constraints.maxWidth * 0.45,
                             child: Text(
-                              "Email Address",
+                              S.of(context).emailAddress,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium
@@ -124,7 +126,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                   .textTheme
                                   .bodyMedium
                                   ?.copyWith(fontWeight: FontWeight.w100),
-                              hint: 'Email',
+                              hint: S.of(context).email,
                             ),
                           ),
                         ],
@@ -142,15 +144,14 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                             width: constraints.maxWidth * 0.45,
                             child: RichText(
                               text: TextSpan(
-                                text: "Your Photo\n",
+                                text: "${S.of(context).yourPhoto}\n",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium
                                     ?.copyWith(fontWeight: FontWeight.bold),
                                 children: [
                                   TextSpan(
-                                    text:
-                                        '\nThis will be display on your profile',
+                                    text: '\n${S.of(context).thisWillDisplay}',
                                     style:
                                         Theme.of(context).textTheme.bodyMedium,
                                   ),
@@ -218,7 +219,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                   const SizedBox(height: 10),
                                   RichText(
                                     text: TextSpan(
-                                      text: 'Click to upload',
+                                      text: S.of(context).clickToUpload,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium
@@ -226,8 +227,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                               fontWeight: FontWeight.bold),
                                       children: [
                                         TextSpan(
-                                          text:
-                                              ' or drag and drop SVG, PNG, JPG or GIF (max 800x400px)',
+                                          text: S.of(context).orDrag,
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyMedium,
@@ -253,7 +253,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                           SizedBox(
                             width: constraints.maxWidth * 0.45,
                             child: Text(
-                              "Gender",
+                              S.of(context).gender,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium
@@ -282,8 +282,8 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                         CommonAppUIConfig.primaryRadiusBorder,
                                     underline: const SizedBox(),
                                     items: [
-                                      'Male',
-                                      'FeMale',
+                                      S.of(context).male,
+                                      S.of(context).female,
                                     ]
                                         .asMap()
                                         .entries
@@ -311,7 +311,6 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                         height: 30,
                         color: Theme.of(context).dividerColor,
                       ),
-
                       //////////////////////////////////////////////////////////////////
 
                       Row(
@@ -320,7 +319,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                           SizedBox(
                             width: constraints.maxWidth * 0.45,
                             child: Text(
-                              "Date Born",
+                              S.of(context).dateBorn,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium
@@ -423,7 +422,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                   .textTheme
                                   .bodyMedium
                                   ?.copyWith(fontWeight: FontWeight.bold),
-                              "Phone Number",
+                              S.of(context).phoneNumber,
                             ),
                           ),
                           Expanded(
@@ -440,7 +439,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                   .textTheme
                                   .bodyMedium
                                   ?.copyWith(fontWeight: FontWeight.w300),
-                              hint: 'Phone Number',
+                              hint: S.of(context).phoneNumber,
                             ),
                           ),
                         ],
@@ -461,14 +460,14 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                   MediaQuery.of(context).size.width * 0.5, 50),
                               backgroundColor: Theme.of(context).primaryColor),
                           child: Text(
-                            "Update Profile",
+                            S.of(context).updateProfile,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium
                                 ?.copyWith(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onPrimary),
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                ),
                           ),
                         ),
                       ),
