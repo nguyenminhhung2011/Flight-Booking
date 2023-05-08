@@ -37,6 +37,7 @@ class FluxTicketTable<T> extends StatelessWidget {
       child: Column(
         children: [
           titleRow,
+          const SizedBox(height: 10),
           Flexible(
             fit: FlexFit.tight,
             child: ListView.separated(
