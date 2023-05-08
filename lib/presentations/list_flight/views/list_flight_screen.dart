@@ -40,6 +40,10 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
     _bloc.add(ListFlightEvent.selectFlight(ticId));
   }
 
+  void deleteFlight(String id) {
+    _bloc.add(ListFlightEvent.deleteFlight(id));
+  }
+
   void _listenStateChanged(_, ListFlightState state) {
     state.whenOrNull(
       selectListFlightSuccess: (data, ticID) {

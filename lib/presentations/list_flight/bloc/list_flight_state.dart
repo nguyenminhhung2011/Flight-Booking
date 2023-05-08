@@ -31,4 +31,12 @@ class ListFlightState with _$ListFlightState {
     required ListFlightModelState data,
     required String flightId,
   }) = _OpenAddEditFlightFormSuccess;
+
+  const factory ListFlightState.deleteFlightSuccess({
+    required ListFlightModelState data,
+  }) = _DeleteFlightSuccess;
+  const factory ListFlightState.deleteFlightFailed({
+    required ListFlightModelState data,
+    required String message,
+  }) = _DeleteFlightFailed;
 }
