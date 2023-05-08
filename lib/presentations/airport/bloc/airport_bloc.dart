@@ -27,6 +27,7 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     on<_Started>(_onStarted);
     on<_FetchAirports>(_onFetchAirports);
     on<_ChangePageView>(_onChangePageView);
+    on<_OpenAddEditAirportForm>(_onOpenAddEditAirport);
   }
 
   FutureOr<void> _onStarted(
@@ -59,5 +60,13 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     emit(state.copyWith(
       data: state.data.copyWith(pageView: 1 - data.pageView),
     ));
+  }
+
+  FutureOr<void> _onOpenAddEditAirport(
+    _OpenAddEditAirportForm event,
+    Emitter<AirportState> emit,
+  ) {
+    emit(AirportState.loading(data: data));
+    emit(AirportState.openAddEditAirportSucceess(data: data, id: event.id));
   }
 }
