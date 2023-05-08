@@ -25,4 +25,13 @@ class AirportState with _$AirportState {
     required AirportModelState data,
     required String id,
   }) = _OpenAddEditAirportSuccess;
+
+  const factory AirportState.deleteAirportSuccess({
+    required AirportModelState data,
+  }) = _DeleteAirportSuccess;
+
+  const factory AirportState.deleteAirportFailed({
+    required AirportModelState data,
+    required String message,
+  }) = _DeleteAirportFailed;
 }

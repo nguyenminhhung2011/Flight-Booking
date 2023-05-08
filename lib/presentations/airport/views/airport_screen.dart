@@ -7,8 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/components/widgets/flux_table/flux_table_row.dart';
 import '../../../core/components/widgets/flux_table/flux_ticket_table.dart';
 import '../../../core/config/color_config.dart';
-import '../../../core/constant/handle_time.dart';
-import '../../../domain/entities/customer/customer.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/airport_bloc.dart';
 import 'airport_fast_view.dart';
@@ -33,7 +31,12 @@ class _AirportScreenState extends State<AirportScreen> {
   }
 
   void _listenStateChange(BuildContext context, AirportState state) {
-    state.whenOrNull();
+    state.whenOrNull(
+      openAddEditAirportSucceess: (state, id) {
+        final result = context.openDialogAdDEditAirport(id);
+        if (result is Airport) {}
+      },
+    );
   }
 
   @override
@@ -45,7 +48,7 @@ class _AirportScreenState extends State<AirportScreen> {
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Row(
             children: [
-              const AirportMainScreen(),
+              AirportMainScreen(state: state),
               Breakpoints.large.isActive(context)
                   ? AirportFastView(
                       state: state,
@@ -60,8 +63,10 @@ class _AirportScreenState extends State<AirportScreen> {
 }
 
 class AirportMainScreen extends StatefulWidget {
+  final AirportState state;
   const AirportMainScreen({
     super.key,
+    required this.state,
   });
 
   @override
@@ -69,18 +74,12 @@ class AirportMainScreen extends StatefulWidget {
 }
 
 class _AirportMainScreenState extends State<AirportMainScreen> {
-  void openAddEditFlightDialog(String title) {
-    // context.read<AirportBloc>().add(Airp.openAddEditFlightForm(title));
-    final result = context.openDialogAdDEditAirport(title);
-    if (result is Airport) {
-      // if (id == _idNull) {
-      //   _bloc.add(ListFlightEvent.updateFlightsAfterAdd(result as Flight));
-      // } else {
-      //   _bloc.add(
-      //     ListFlightEvent.updateFlightssAfterEdit(result as Flight),
-      //   );
-      // }
-    }
+  void openAddEditFlightDialog(String id) {
+    context.read<AirportBloc>().add(AirportEvent.openAddEditAirportForm(id));
+  }
+
+  void deleteAirport(String id) {
+    context.read<AirportBloc>().add(AirportEvent.deleteAirport(id));
   }
 
   @override
@@ -194,7 +193,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                           ),
                           const SizedBox(width: 5.0),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () => deleteAirport('null'),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.red, // Background color
                             ),
