@@ -17,4 +17,6 @@ class ListFlightEvent with _$ListFlightEvent {
   const factory ListFlightEvent.updateFlightsAfterAdd(
     Flight flight,
   ) = _UpdateFlightsAfterAdd;
+
+  const factory ListFlightEvent.deleteFlight(String id) = _DeleteFlight;
 }

@@ -34,6 +34,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     on<_OpenAddEditFlightForm>(_onOpenAddEditFlightForm);
     on<_UpdateFlighstAfterEdit>(_onUpdateFlightAfterEdit);
     on<_UpdateFlightsAfterAdd>(_onUpdateFlightAfterAdd);
+    on<_DeleteFlight>(_onDeleteFlight);
   }
 
   //get Flights
@@ -116,5 +117,33 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
         },
       ).toList()),
     ));
+  }
+
+  FutureOr<void> _onDeleteFlight(
+    _DeleteFlight event,
+    Emitter<ListFlightState> emit,
+  ) async {
+    emit(ListFlightState.loading(data: data));
+    try {
+      final delete = await _flightsUsecase.deleteFlight(event.id);
+      if (!delete) {
+        emit(ListFlightState.deleteFlightFailed(
+          data: data,
+          message: 'Delete Flight Failed',
+        ));
+        return;
+      }
+      emit(
+        ListFlightState.deleteFlightSuccess(
+            data: data.copyWith(
+          flights:
+              data.flights.where((element) => element.id != event.id).toList(),
+        )),
+      );
+    } catch (e) {
+      emit(
+        ListFlightState.deleteFlightFailed(data: data, message: e.toString()),
+      );
+    }
   }
 }
