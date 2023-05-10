@@ -164,7 +164,6 @@
     "economyClassTicket": "Economy Class Ticket",
     "listCustomer": "List Customer",
     "flightChartView": "Flight Chart view",
-    "customerChartView": "Customer Chart view"
-
-
+    "customerChartView": "Customer Chart view",
+    "ticketNumber": "Number of Ticket"
 }

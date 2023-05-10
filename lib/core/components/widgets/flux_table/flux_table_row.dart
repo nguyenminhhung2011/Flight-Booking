@@ -26,8 +26,7 @@ class FluxTableRow<T> extends StatelessWidget {
         margin: margin,
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
-          border: Border.all(
-              color: const Color.fromARGB(255, 16, 15, 15), width: 0.2),
+          border: Border.all(color: Theme.of(context).canvasColor, width: 0.2),
           borderRadius: BorderRadius.circular(5),
         ).copyWith(
           color: rowDecoration?.color,
