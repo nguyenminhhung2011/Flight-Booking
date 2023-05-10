@@ -81,6 +81,10 @@ extension AppCoordinator<T> on BuildContext {
     return Navigator.of(this).pushNamed(Routes.dashboard);
   }
 
+  Future<T?> openCustomerDetailPage() {
+    return Navigator.of(this).pushNamed(Routes.customerDetail);
+  }
+
   Future<T?> showPositionDialog(positonClic, position, type, String ticId) {
     final positonClicX = positonClic.globalPosition.dx -
         36 -

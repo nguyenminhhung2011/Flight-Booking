@@ -1,3 +1,4 @@
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
 import 'package:flight_booking/core/config/color_config.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
@@ -122,11 +123,13 @@ class _CustomerScreenState extends State<CustomerScreen> {
                       phoneNumber: S.of(context).phoneNumber,
                       gender: S.of(context).gender,
                       birthday: DateTime.now(),
-                    )
+                    ),
                 ],
                 rowBuilder: (data) {
                   return FluxTableRow(
-                    onTap: () {},
+                    onTap: () {
+                      context.openCustomerDetailPage();
+                    },
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     itemBuilder: (data, index) {
