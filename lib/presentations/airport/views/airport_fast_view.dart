@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/airport_bloc.dart';
+import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
 enum AirportViewEnum {
   airportStart,
@@ -26,9 +27,11 @@ class _AirportFastViewState extends State<AirportFastView> {
   PageController pageController =
       PageController(initialPage: 0, keepPage: true);
   void onButtonTape(int index) {
-    pageController.animateToPage(index,
-        duration: const Duration(milliseconds: 600),
-        curve: Curves.fastOutSlowIn);
+    pageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 600),
+      curve: Curves.fastOutSlowIn,
+    );
   }
 
   void pageViewChange() {
@@ -45,7 +48,7 @@ class _AirportFastViewState extends State<AirportFastView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 450,
+      width: 500,
       margin: const EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.0),
@@ -82,6 +85,24 @@ class _AirportFastViewState extends State<AirportFastView> {
               ][index],
             ),
           ),
+
+          // SizedBox(
+          //   width: double.infinity,
+          //   height: 300,
+          //   child: Swiper(
+          //     itemBuilder: (BuildContext context, int index) {
+          //       return Image.network(
+          //         "https://www.travelandleisure.com/thmb/qUyMl5D6VbtM9hxxtBlFMAY5cCU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/portland-international-airport-00-USAIRPORTSWB21-35b7a73d8c0c4a86a9f9e5b27a7c3bbe.jpg",
+          //         fit: BoxFit.fill,
+          //       );
+          //     },
+          //     itemCount: 10,
+          //     viewportFraction: 0.8,
+          //     scale: 0.9,
+          //   ),
+          // ),
+
+          //https://www.travelandleisure.com/thmb/qUyMl5D6VbtM9hxxtBlFMAY5cCU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/portland-international-airport-00-USAIRPORTSWB21-35b7a73d8c0c4a86a9f9e5b27a7c3bbe.jpg
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Row(
