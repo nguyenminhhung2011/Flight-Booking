@@ -235,6 +235,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "The Service have not finished yet !!!"),
         "thisWillDisplay": MessageLookupByLibrary.simpleMessage(
             "This will be display on your profile"),
+        "ticketNumber":
+            MessageLookupByLibrary.simpleMessage("Number of Ticket"),
         "times": MessageLookupByLibrary.simpleMessage("Times"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),

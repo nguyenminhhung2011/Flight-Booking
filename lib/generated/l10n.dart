@@ -1679,6 +1679,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Number of Ticket`
+  String get ticketNumber {
+    return Intl.message(
+      'Number of Ticket',
+      name: 'ticketNumber',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

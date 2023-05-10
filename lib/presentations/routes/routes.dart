@@ -5,4 +5,5 @@ class Routes {
   static const String splash = "/splash";
   static const String ticketDetail = "/ticketDetail";
   static const String flightDetail = "/flightDetail";
+  static const String customerDetail = "/customerDetail";
 }
