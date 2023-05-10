@@ -101,7 +101,7 @@ class _AirportFastViewState extends State<AirportFastView> {
           ),
           SizedBox(
             width: double.infinity,
-            height: 420,
+            height: 380,
             child: PageView.builder(
               controller: pageController,
               itemCount: 2,

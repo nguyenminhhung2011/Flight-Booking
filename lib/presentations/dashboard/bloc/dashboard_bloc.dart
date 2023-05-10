@@ -18,7 +18,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
             data: DashboardModelState(
               viewEnum: 0,
               isDarkTheme: false,
-              secondBodyDis: true,
+              secondBodyDis: false,
             ),
           ),
         ) {

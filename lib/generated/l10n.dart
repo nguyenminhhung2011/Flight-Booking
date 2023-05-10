@@ -1679,6 +1679,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Flight Chart view`
+  String get flightChartView {
+    return Intl.message(
+      'Flight Chart view',
+      name: 'flightChartView',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customer Chart view`
+  String get customerChartView {
+    return Intl.message(
+      'Customer Chart view',
+      name: 'customerChartView',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

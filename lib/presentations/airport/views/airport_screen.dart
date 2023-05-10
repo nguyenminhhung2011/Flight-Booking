@@ -26,8 +26,8 @@ class _AirportScreenState extends State<AirportScreen> {
   @override
   void initState() {
     super.initState();
-    _textController = TextEditingController();
     _bloc.add(const AirportEvent.onStarted());
+    _textController = TextEditingController();
   }
 
   void _listenStateChange(BuildContext context, AirportState state) {
@@ -44,6 +44,11 @@ class _AirportScreenState extends State<AirportScreen> {
     return BlocConsumer<AirportBloc, AirportState>(
       listener: _listenStateChange,
       builder: (context, state) {
+        // if (state.isWaitCircularLoading) {
+        //   return const Center(
+        //     child: CircularProgressIndicator(color: CommonColor.primaryColor),
+        //   );
+        // }
         return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Row(
@@ -170,7 +175,6 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                         width: 80.0,
                         height: 50.0,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(data),
@@ -178,31 +182,31 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                         ),
                       );
                     } else if (index == 4) {
-                      return Row(
-                        children: [
-                          ElevatedButton(
-                            onPressed: () => openAddEditFlightDialog('id'),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  CommonColor.primaryColor, // Background color
+                      return SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () => openAddEditFlightDialog('id'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: CommonColor
+                                    .primaryColor, // Background color
+                              ),
+                              child: Text(
+                                S.of(context).edit,
+                                maxLines: 1,
+                              ),
                             ),
-                            child: Text(
-                              S.of(context).edit,
-                              maxLines: 1,
-                            ),
-                          ),
-                          const SizedBox(width: 5.0),
-                          ElevatedButton(
-                            onPressed: () => deleteAirport('null'),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red, // Background color
-                            ),
-                            child: Text(
-                              S.of(context).delete,
-                              maxLines: 1,
-                            ),
-                          )
-                        ],
+                            const SizedBox(width: 5.0),
+                            ElevatedButton(
+                              onPressed: () => deleteAirport('null'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.red, // Background color
+                              ),
+                              child: Text(S.of(context).delete, maxLines: 1),
+                            )
+                          ],
+                        ),
                       );
                     }
                     return Text(data.toString());

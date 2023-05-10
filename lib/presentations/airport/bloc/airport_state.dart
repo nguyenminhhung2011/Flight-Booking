@@ -34,4 +34,10 @@ class AirportState with _$AirportState {
     required AirportModelState data,
     required String message,
   }) = _DeleteAirportFailed;
+  const factory AirportState.waitCircularLoading({
+    required AirportModelState data,
+  }) = _WaitCircularLoading;
+
+  bool get isLoading => this is _Loading;
+  bool get isWaitCircularLoading => this is _WaitCircularLoading;
 }

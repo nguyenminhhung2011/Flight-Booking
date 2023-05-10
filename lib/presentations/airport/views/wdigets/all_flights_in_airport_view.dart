@@ -36,7 +36,7 @@ class _AllFlightsInAirportViewState extends State<AllFlightsInAirportView> {
               double minWidth = constraints.minWidth - 20;
               return Container(
                 width: double.infinity,
-                height: 400,
+                height: 360,
                 padding: const EdgeInsets.all(10.0),
                 margin: const EdgeInsets.only(left: 10.0),
                 decoration: BoxDecoration(
