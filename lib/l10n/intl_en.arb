@@ -162,5 +162,9 @@
     "businessClassTicket": "Business Class Ticket",
     "premiumEconomyClassTicket": "Premium Economy Class Ticket",
     "economyClassTicket": "Economy Class Ticket",
-    "listCustomer": "List Customer"
+    "listCustomer": "List Customer",
+    "flightChartView": "Flight Chart view",
+    "customerChartView": "Customer Chart view"
+
+
 }

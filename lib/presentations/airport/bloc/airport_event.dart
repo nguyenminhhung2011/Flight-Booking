@@ -13,4 +13,5 @@ class AirportEvent with _$AirportEvent {
       _UpdateAirportsAfterEdit;
 
   const factory AirportEvent.deleteAirport(String id) = _DeleteAirport;
+  const factory AirportEvent.loadingComplete() = _LoadingComplete;
 }

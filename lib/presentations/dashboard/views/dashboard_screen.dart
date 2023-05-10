@@ -6,6 +6,7 @@ import 'package:flight_booking/presentations/customer/views/customer_screen.dart
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_model_state.dart';
 import 'package:flight_booking/presentations/list_ticket/bloc/list_ticket_bloc.dart';
+import 'package:flight_booking/presentations/overview/views/overview_new_screen.dart';
 import 'package:flight_booking/presentations/settings/bloc/setting_bloc.dart';
 import 'package:flight_booking/presentations/settings/views/setting_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +15,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../generated/l10n.dart';
 import '../../airport/bloc/airport_bloc.dart';
-import '../../calendar/views/calender_screen.dart';
 import '../../customer/views/widgets/customer_detail_card.dart';
 import '../../list_flight/bloc/list_flight_bloc.dart';
 import '../../list_flight/views/flight_fast_view.dart';
 import '../../list_flight/views/list_flight_screen.dart';
 import '../../list_ticket/views/list_ticket_screen.dart';
-import '../../overview/views/overview_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -69,8 +68,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
   ];
   final List<Map<String, dynamic>> _pages = [
     {
-      'body': const OverviewScreen(),
-      'secondBody': const CalenderScreen(),
+      'body': const OverviewNewScreen(),
+      'secondBody': null,
       'body_ratio': 0.7,
     },
     {

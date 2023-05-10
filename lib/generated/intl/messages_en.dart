@@ -81,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("Current Password"),
         "customer": MessageLookupByLibrary.simpleMessage("Customer"),
+        "customerChartView":
+            MessageLookupByLibrary.simpleMessage("Customer Chart view"),
         "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
@@ -133,6 +135,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "flight": MessageLookupByLibrary.simpleMessage("Flight"),
         "flightAttendant":
             MessageLookupByLibrary.simpleMessage("Flight attendant"),
+        "flightChartView":
+            MessageLookupByLibrary.simpleMessage("Flight Chart view"),
         "flightDetail": MessageLookupByLibrary.simpleMessage("Flight Detail"),
         "flightInformation":
             MessageLookupByLibrary.simpleMessage("Flight Information"),

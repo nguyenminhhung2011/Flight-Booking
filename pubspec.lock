@@ -249,6 +249,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
+  countries_world_map:
+    dependency: "direct main"
+    description:
+      name: countries_world_map
+      sha256: "140db0a16950d2eefea003ad0c96b2888007907d9aa3759804203165b5e69520"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   cross_file:
     dependency: transitive
     description:

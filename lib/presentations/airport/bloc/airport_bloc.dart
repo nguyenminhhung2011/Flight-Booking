@@ -35,12 +35,25 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     on<_UpdateAirportsAfterAdd>(_onUpdateAirportsAfterAdd);
     on<_UpdateAirportsAfterEdit>(_onUpdateAirportsAfterEdit);
     on<_DeleteAirport>(_onDeleteAirport);
+    on<_LoadingComplete>(_onLoadingComplete);
   }
 
   FutureOr<void> _onStarted(
     _Started event,
     Emitter<AirportState> emit,
-  ) {}
+  ) {
+    // emit(AirportState.waitCircularLoading(data: data));
+    // Future.delayed(const Duration(seconds: 10)).whenComplete(() {
+    add(const _LoadingComplete());
+    // });
+  }
+
+  FutureOr<void> _onLoadingComplete(
+    _LoadingComplete event,
+    Emitter<AirportState> emit,
+  ) {
+    emit(AirportState.loading(data: data));
+  }
 
   FutureOr<void> _onFetchAirports(
     _FetchAirports event,

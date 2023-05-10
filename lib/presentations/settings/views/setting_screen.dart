@@ -38,7 +38,7 @@ class _SettingScreenState extends State<SettingScreen> {
   final List<Widget> pages = [
     const GeneralSettingsTab(),
     const AccountSettingTab(),
-    PrincipleSettingTab(),
+    const PrincipleSettingTab(),
   ];
 
   @override
@@ -62,7 +62,6 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     final widthDevice = MediaQuery.of(context).size.width;
-    final heightDevice = MediaQuery.of(context).size.height;
 
     return BlocListener<SettingBloc, SettingState>(
       listener: _stateChangeListener,
