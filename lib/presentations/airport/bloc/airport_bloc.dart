@@ -22,7 +22,10 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
   AirportBloc(this._airportUsecase)
       : super(
           const AirportState.initial(
-            data: AirportModelState(airports: [], pageView: 0),
+            data: AirportModelState(
+              airports: [],
+              pageView: 0,
+            ),
           ),
         ) {
     on<_Started>(_onStarted);
