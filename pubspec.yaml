@@ -66,7 +66,7 @@ dependencies:
   flutter_adaptive_scaffold: ^0.1.2
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  fl_chart: ^0.61.0
+  fl_chart: ^0.62.0
   adaptive_theme: ^3.2.0
   injectable: ^2.1.0
   badges: ^3.0.3
@@ -84,6 +84,7 @@ dependencies:
   dotted_border: ^2.0.0+3
   flutter_swiper_null_safety: ^1.0.2
   countries_world_map: ^1.0.3
+  flutter_timeline: ^0.3.0
   
 dev_dependencies:
   flutter_test:
