@@ -1,3 +1,4 @@
+import 'package:flight_booking/core/components/widgets/swiper_custom.dart';
 import 'package:flight_booking/core/config/color_config.dart';
 import 'package:flight_booking/domain/entities/flight/flight.dart';
 import 'package:flight_booking/presentations/airport/views/wdigets/all_flights_in_airport_view.dart';
@@ -73,6 +74,31 @@ class _AirportFastViewState extends State<AirportFastView> {
                   ),
             ),
           ),
+          SwiperCustom(
+            height: 300,
+            itemCount: 10,
+            autoPlay: true,
+            spacingItem: 10.0,
+            itemBuilder: (index) => Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Theme.of(context).shadowColor.withOpacity(0.1),
+                  ),
+                ],
+                image: const DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                    'https://www.travelandleisure.com/thmb/qUyMl5D6VbtM9hxxtBlFMAY5cCU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/portland-international-airport-00-USAIRPORTSWB21-35b7a73d8c0c4a86a9f9e5b27a7c3bbe.jpg',
+                  ),
+                ),
+              ),
+            ),
+            swiperLayout: SwiperLayout.DEFAULT,
+          ),
           SizedBox(
             width: double.infinity,
             height: 420,
@@ -85,24 +111,6 @@ class _AirportFastViewState extends State<AirportFastView> {
               ][index],
             ),
           ),
-
-          // SizedBox(
-          //   width: double.infinity,
-          //   height: 300,
-          //   child: Swiper(
-          //     itemBuilder: (BuildContext context, int index) {
-          //       return Image.network(
-          //         "https://www.travelandleisure.com/thmb/qUyMl5D6VbtM9hxxtBlFMAY5cCU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/portland-international-airport-00-USAIRPORTSWB21-35b7a73d8c0c4a86a9f9e5b27a7c3bbe.jpg",
-          //         fit: BoxFit.fill,
-          //       );
-          //     },
-          //     itemCount: 10,
-          //     viewportFraction: 0.8,
-          //     scale: 0.9,
-          //   ),
-          // ),
-
-          //https://www.travelandleisure.com/thmb/qUyMl5D6VbtM9hxxtBlFMAY5cCU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/portland-international-airport-00-USAIRPORTSWB21-35b7a73d8c0c4a86a9f9e5b27a7c3bbe.jpg
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Row(
