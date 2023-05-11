@@ -165,5 +165,14 @@
     "listCustomer": "List Customer",
     "flightChartView": "Flight Chart view",
     "customerChartView": "Customer Chart view",
-    "ticketNumber": "Number of Ticket"
+    "ticketNumber": "Number of Ticket",
+    "totalCustomer": "Total Customer",
+    "totalAirport": "Total Airport",
+    "totalFlight": "Total Flight",
+    "totalPayment": "Total Payment",
+    "payment": "Payment",
+    "flightAdmin": "Flight Admin",
+    "welcomeoFlightAdmin": "Welcome to Flight Admin"
+
+
 }

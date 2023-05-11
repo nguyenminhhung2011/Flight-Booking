@@ -1,3 +1,4 @@
+import 'package:flight_booking/core/components/widgets/card_custom.dart';
 import 'package:flight_booking/core/components/widgets/swiper_custom.dart';
 import 'package:flight_booking/core/config/color_config.dart';
 import 'package:flight_booking/domain/entities/flight/flight.dart';
@@ -79,23 +80,14 @@ class _AirportFastViewState extends State<AirportFastView> {
             itemCount: 10,
             autoPlay: true,
             spacingItem: 10.0,
-            itemBuilder: (index) => Container(
-              width: double.infinity,
-              height: double.infinity,
+            itemBuilder: (index) => const CardCustom(
+              margin: EdgeInsets.all(0.0),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                boxShadow: [
-                  BoxShadow(
-                    color: Theme.of(context).shadowColor.withOpacity(0.1),
-                  ),
-                ],
-                image: const DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    'https://www.travelandleisure.com/thmb/qUyMl5D6VbtM9hxxtBlFMAY5cCU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/portland-international-airport-00-USAIRPORTSWB21-35b7a73d8c0c4a86a9f9e5b27a7c3bbe.jpg',
-                  ),
-                ),
-              ),
+                  image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                    'https://www.travelandleisure.com/thmb/qUyMl5D6VbtM9hxxtBlFMAY5cCU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/portland-international-airport-00-USAIRPORTSWB21-35b7a73d8c0c4a86a9f9e5b27a7c3bbe.jpg'),
+              )),
             ),
             swiperLayout: SwiperLayout.DEFAULT,
           ),

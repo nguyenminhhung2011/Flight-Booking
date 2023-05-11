@@ -133,6 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("First Class Ticket"),
         "firstOfficer": MessageLookupByLibrary.simpleMessage("First Officer"),
         "flight": MessageLookupByLibrary.simpleMessage("Flight"),
+        "flightAdmin": MessageLookupByLibrary.simpleMessage("Flight Admin"),
         "flightAttendant":
             MessageLookupByLibrary.simpleMessage("Flight attendant"),
         "flightChartView":
@@ -194,6 +195,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordSettings":
             MessageLookupByLibrary.simpleMessage("Password Settings"),
+        "payment": MessageLookupByLibrary.simpleMessage("Payment"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
         "personalInfo": MessageLookupByLibrary.simpleMessage("Personal Info"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
@@ -243,6 +245,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Number of Ticket"),
         "times": MessageLookupByLibrary.simpleMessage("Times"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
+        "totalAirport": MessageLookupByLibrary.simpleMessage("Total Airport"),
+        "totalCustomer": MessageLookupByLibrary.simpleMessage("Total Customer"),
+        "totalFlight": MessageLookupByLibrary.simpleMessage("Total Flight"),
+        "totalPayment": MessageLookupByLibrary.simpleMessage("Total Payment"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "updateProfile": MessageLookupByLibrary.simpleMessage("Update Profile"),
         "updateYourAvatar": MessageLookupByLibrary.simpleMessage(
@@ -256,6 +262,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "weHaveSentAVerification": m5,
+        "welcomeoFlightAdmin":
+            MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
         "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
         "yourPhoto": MessageLookupByLibrary.simpleMessage("Your Photo")
       };
