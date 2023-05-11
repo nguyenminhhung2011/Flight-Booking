@@ -29,7 +29,7 @@ class SwiperCustom extends StatefulWidget {
     this.autoPlay,
     required this.swiperLayout,
     this.margin,
-    this.isShowSlideDot = false,
+    this.isShowSlideDot = true,
     this.isCenterSlideDot = true,
     this.spacingItem,
   });
