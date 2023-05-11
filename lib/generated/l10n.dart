@@ -1709,6 +1709,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Total Customer`
+  String get totalCustomer {
+    return Intl.message(
+      'Total Customer',
+      name: 'totalCustomer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Airport`
+  String get totalAirport {
+    return Intl.message(
+      'Total Airport',
+      name: 'totalAirport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Flight`
+  String get totalFlight {
+    return Intl.message(
+      'Total Flight',
+      name: 'totalFlight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Payment`
+  String get totalPayment {
+    return Intl.message(
+      'Total Payment',
+      name: 'totalPayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment`
+  String get payment {
+    return Intl.message(
+      'Payment',
+      name: 'payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flight Admin`
+  String get flightAdmin {
+    return Intl.message(
+      'Flight Admin',
+      name: 'flightAdmin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to Flight Admin`
+  String get welcomeoFlightAdmin {
+    return Intl.message(
+      'Welcome to Flight Admin',
+      name: 'welcomeoFlightAdmin',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -85,6 +85,7 @@ dependencies:
   flutter_swiper_null_safety: ^1.0.2
   countries_world_map: ^1.0.3
   flutter_timeline: ^0.3.0
+  syncfusion_flutter_datepicker: ^21.2.3
   
 dev_dependencies:
   flutter_test:

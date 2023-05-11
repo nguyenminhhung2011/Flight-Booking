@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import '../../generated/l10n.dart';
+
 List<String> weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 DateTime now = DateTime.now();
 List<Map<String, dynamic>> schedule = [
@@ -36,6 +38,27 @@ List<Map<String, dynamic>> schedule = [
     'title': 'An Khe - Sai Gon',
   },
 ];
+
+List<Map<String, dynamic>> mockDataOverview = [
+  {'header': S.current.totalAirport, 'data': 100, 'oData': 110},
+  {'header': S.current.totalCustomer, 'data': 2521, 'oData': 2000},
+  {'header': S.current.totalFlight, 'data': 500, 'oData': 324},
+  {'header': S.current.totalPayment, 'data': 1003104, 'oData': 420523},
+];
+
+List<String> mockDataImag = [
+  'https://www.travelandleisure.com/thmb/qUyMl5D6VbtM9hxxtBlFMAY5cCU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/portland-international-airport-00-USAIRPORTSWB21-35b7a73d8c0c4a86a9f9e5b27a7c3bbe.jpg',
+  'https://www.szairport.com/szairporten/xhtml/images/index-pic-01.jpg',
+  'https://media.cnn.com/api/v1/images/stellar/prod/230314215301-03-world-best-airports-2023.jpg?c=original&q=w_1280,c_fill',
+];
+List<String> sogun = [
+  'Manage Customer',
+  'Manage Airport',
+  'Manage Flight',
+  'Manage Payment',
+  'Update Account',
+];
+
 String randomString() {
   const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
   var rnd = Random(DateTime.now().microsecondsSinceEpoch);

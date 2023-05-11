@@ -7,6 +7,7 @@ import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'core/components/widgets/range_date_picker_custom.dart';
 import 'core/dependency_injection/di.dart';
 
 final _timeNow = DateTime.now();
@@ -73,6 +74,26 @@ extension AppCoordinator<T> on BuildContext {
         firstDate: DateTime(1900),
         lastDate: DateTime(2100),
       ) as Future<T?>;
+
+  Future<List<DateTime>?> pickRangeDate(
+    RangeDateController rangeDateController,
+  ) async {
+    final dates = await showDialog(
+      context: this,
+      builder: (_) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: RangeDatePicDialog(
+          height: 450,
+          rangeDateController: rangeDateController,
+        ),
+      ),
+    );
+    if (dates is List<DateTime>) {
+      return dates;
+    }
+    return null;
+  }
+
   Future<T?> openLoginPage() {
     return Navigator.of(this).pushNamed(Routes.login);
   }

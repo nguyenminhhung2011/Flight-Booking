@@ -30,3 +30,6 @@ String getYmdHmFormat(DateTime dateTime) {
 String getjmFormat(DateTime dateTime) {
   return DateFormat().add_jm().format(dateTime);
 }
+
+String getRangeDateFormat(DateTime startDate, DateTime endDate) =>
+    '${DateFormat().add_yMEd().format(startDate)} - ${DateFormat().add_yMEd().format(endDate)}';

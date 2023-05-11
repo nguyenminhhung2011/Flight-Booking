@@ -1,13 +1,11 @@
-import 'dart:math';
+import 'package:flight_booking/core/components/widgets/card_custom.dart';
 import 'package:flight_booking/presentations/customer/views/widgets/passenger_info_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:intl/intl.dart';
-import 'package:ticket_widget/ticket_widget.dart';
 
 import '../../../../core/components/widgets/swiper_custom.dart';
 import '../../../../generated/l10n.dart';
-import '../../../list_flight/views/widgets/flight_data.dart';
 import '../../../list_flight/views/widgets/flight_details_widget.dart';
 
 class CustomerDetailCard extends StatefulWidget {
@@ -96,11 +94,7 @@ class CustomerInformationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-        side: const BorderSide(color: Colors.blueGrey, width: 0.2),
-      ),
+    return CardCustom(
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(

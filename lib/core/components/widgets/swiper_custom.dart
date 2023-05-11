@@ -90,20 +90,21 @@ class _SwiperCustomState extends State<SwiperCustom> {
               itemBuilder: (_, index) => widget.itemBuilder(index),
             ),
           ),
-          ValueListenableBuilder<int>(
-            valueListenable: index,
-            builder: (context, currentIndex, child) => Row(
-                mainAxisAlignment: widget.isCenterSlideDot!
-                    ? MainAxisAlignment.center
-                    : MainAxisAlignment.start,
-                children: [
-                  for (int i = 0; i < widget.itemCount; i++)
-                    BuildIndicator(
-                      isActive: currentIndex == i,
-                      onPress: () => changeView(i),
-                    )
-                ]),
-          )
+          if (widget.isShowSlideDot!)
+            ValueListenableBuilder<int>(
+              valueListenable: index,
+              builder: (context, currentIndex, child) => Row(
+                  mainAxisAlignment: widget.isCenterSlideDot!
+                      ? MainAxisAlignment.center
+                      : MainAxisAlignment.start,
+                  children: [
+                    for (int i = 0; i < widget.itemCount; i++)
+                      BuildIndicator(
+                        isActive: currentIndex == i,
+                        onPress: () => changeView(i),
+                      )
+                  ]),
+            )
         ]
             .expand((element) => [
                   element,
