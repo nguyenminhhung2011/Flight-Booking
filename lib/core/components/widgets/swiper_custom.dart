@@ -100,7 +100,7 @@ class _SwiperCustomState extends State<SwiperCustom> {
                   children: [
                     for (int i = 0; i < widget.itemCount; i++)
                       BuildIndicator(
-                        isActive: currentIndex == i,
+                        isActive: i == currentIndex,
                         onPress: () => changeView(i),
                       )
                   ]),
