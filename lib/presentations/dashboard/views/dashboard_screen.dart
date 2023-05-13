@@ -84,10 +84,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       'body_ratio': 0.7,
     },
     {
-      'body': BlocProvider<CustomerBloc>(
-        create: (context) => injector(),
-        child: const CustomerScreen(),
-      ),
+      'body': const CustomerScreen(),
       'secondBody': const CustomerDetailCard(),
       'body_ratio': 0.7,
     },
@@ -168,147 +165,147 @@ class _DashboardScreenState extends State<DashboardScreen> {
     }, child: BlocBuilder<DashboardBloc, DashboardState>(
       builder: (context, sate) {
         DashboardModelState data = context.read<DashboardBloc>().data;
-
-        return Stack(
-          children: [
-            Container(
-              color: Theme.of(context).scaffoldBackgroundColor,
-            ),
-            Scaffold(
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              body: AdaptiveLayout(
-                internalAnimations: false,
-                bodyRatio: 0.7,
-                primaryNavigation: SlotLayout(
-                  config: <Breakpoint, SlotLayoutConfig>{
-                    Breakpoints.medium: SlotLayout.from(
-                      inAnimation: AdaptiveScaffold.leftOutIn,
-                      key: const Key('Primary Navigation Medium'),
-                      builder: (_) => AdaptiveScaffold.standardNavigationRail(
-                        selectedIndex: data.viewEnum,
-                        onDestinationSelected: (int newIndex) {},
-                        leading: const Icon(Icons.menu),
-                        destinations: destinations,
-                        backgroundColor:
-                            Theme.of(context).scaffoldBackgroundColor,
+        return Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          body: AdaptiveLayout(
+            internalAnimations: false,
+            bodyRatio: 0.7,
+            primaryNavigation: SlotLayout(
+              config: <Breakpoint, SlotLayoutConfig>{
+                Breakpoints.medium: SlotLayout.from(
+                  inAnimation: AdaptiveScaffold.leftOutIn,
+                  key: const Key('Primary Navigation Medium'),
+                  builder: (_) => AdaptiveScaffold.standardNavigationRail(
+                    selectedIndex: data.viewEnum,
+                    onDestinationSelected: (int newIndex) {},
+                    leading: const Icon(Icons.menu),
+                    destinations: destinations,
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                  ),
+                ),
+                Breakpoints.large: SlotLayout.from(
+                  key: const Key('Primary Navigation Large'),
+                  inAnimation: AdaptiveScaffold.leftOutIn,
+                  builder: (_) => AdaptiveScaffold.standardNavigationRail(
+                    selectedIndex: data.viewEnum,
+                    onDestinationSelected: _onChangeView,
+                    extended: true,
+                    leading: Text(
+                      S.of(context).flight,
+                      style: const TextStyle(
+                        color: Color.fromARGB(255, 255, 201, 197),
                       ),
                     ),
-                    Breakpoints.large: SlotLayout.from(
-                      key: const Key('Primary Navigation Large'),
-                      inAnimation: AdaptiveScaffold.leftOutIn,
-                      builder: (_) => AdaptiveScaffold.standardNavigationRail(
-                        selectedIndex: data.viewEnum,
-                        onDestinationSelected: _onChangeView,
-                        extended: true,
-                        leading: Text(
-                          S.of(context).flight,
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 255, 201, 197),
+                    destinations: destinations,
+                    // trailing: trailingNavRail,
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                    trailing: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                      child: Row(
+                        children: [
+                          Icon(
+                            data.isDarkTheme
+                                ? Icons.dark_mode
+                                : Icons.light_mode,
                           ),
-                        ),
-                        destinations: destinations,
-                        // trailing: trailingNavRail,
-                        backgroundColor:
-                            Theme.of(context).scaffoldBackgroundColor,
-                        trailing: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                          child: Row(
-                            children: [
-                              Icon(
-                                data.isDarkTheme
-                                    ? Icons.dark_mode
-                                    : Icons.light_mode,
-                              ),
-                              Text(
-                                ' ${data.isDarkTheme ? S.of(context).darkMode : S.of(context).lightMode}',
-                              ),
-                              Switch(
-                                value: data.isDarkTheme,
-                                onChanged: _onChangeTheme,
-                              )
-                            ],
+                          Text(
+                            ' ${data.isDarkTheme ? S.of(context).darkMode : S.of(context).lightMode}',
                           ),
-                        ),
-                      ),
-                    ),
-                  },
-                ),
-                body: SlotLayout(
-                  config: <Breakpoint, SlotLayoutConfig?>{
-                    Breakpoints.smallAndUp: SlotLayout.from(
-                      key: const Key('Body'),
-                      inAnimation: AdaptiveScaffold.stayOnScreen,
-                      builder: (contextBody) => _pages[data.viewEnum]['body']!,
-                    ),
-                  },
-                ),
-                secondaryBody: data.secondBodyDis
-                    ? SlotLayout(
-                        config: <Breakpoint, SlotLayoutConfig?>{
-                          Breakpoints.large: SlotLayout.from(
-                            key: const Key('Secondary Body'),
-                            inAnimation: AdaptiveScaffold.stayOnScreen,
-                            builder: (_) =>
-                                _pages[data.viewEnum]['secondBody']!,
-                          ),
-                        },
-                      )
-                    : null,
-                bottomNavigation: SlotLayout(
-                  config: <Breakpoint, SlotLayoutConfig>{
-                    Breakpoints.small: SlotLayout.from(
-                      key: const Key('Bottom Navigation Small'),
-                      inAnimation: AdaptiveScaffold.bottomToTop,
-                      outAnimation: AdaptiveScaffold.topToBottom,
-                      builder: (_) =>
-                          AdaptiveScaffold.standardBottomNavigationBar(
-                        destinations: const [
-                          NavigationDestination(
-                            icon: Icon(Icons.bar_chart_outlined),
-                            selectedIcon: Icon(Icons.bar_chart_outlined),
-                            label: 'Dashboard',
-                          ),
-                          NavigationDestination(
-                            icon: Icon(Icons.airplanemode_active),
-                            selectedIcon: Icon(Icons.airplanemode_active),
-                            label: 'Flights',
-                          ),
-                          NavigationDestination(
-                            icon: Icon(Icons.people),
-                            selectedIcon: Icon(Icons.people),
-                            label: 'Customer',
-                          ),
-                          NavigationDestination(
-                            icon: Icon(Icons.connecting_airports_outlined),
-                            selectedIcon:
-                                Icon(Icons.connecting_airports_outlined),
-                            label: 'Airport',
-                          ),
-                          NavigationDestination(
-                            icon: Icon(Icons.airplane_ticket),
-                            selectedIcon: Icon(Icons.airplane_ticket),
-                            label: 'Ticket',
-                          ),
-                          NavigationDestination(
-                            icon: Icon(Icons.personal_injury_rounded),
-                            selectedIcon: Icon(Icons.personal_injury_rounded),
-                            label: 'Employee',
-                          ),
-                          NavigationDestination(
-                            icon: Icon(Icons.settings),
-                            selectedIcon: Icon(Icons.settings),
-                            label: 'Settings',
-                          ),
+                          Switch(
+                            value: data.isDarkTheme,
+                            onChanged: _onChangeTheme,
+                          )
                         ],
-                        currentIndex: data.viewEnum,
-                        onDestinationSelected: _onChangeView,
                       ),
-                    )
-                  },
+                    ),
+                  ),
                 ),
-              ),
+              },
             ),
-          ],
+            body: SlotLayout(
+              config: <Breakpoint, SlotLayoutConfig?>{
+                Breakpoints.smallAndUp: SlotLayout.from(
+                  key: const Key('Body'),
+                  inAnimation: AdaptiveScaffold.stayOnScreen,
+                  // builder: (contextBody) => _pages[data.viewEnum]['body']!,
+                  builder: (contextBody) => IndexedStack(
+                    index: data.viewEnum,
+                    sizing: StackFit.expand,
+                    children: _pages.map((e) => e['body'] as Widget).toList(),
+                  ),
+                ),
+              },
+            ),
+            secondaryBody: data.secondBodyDis
+                ? SlotLayout(
+                    config: <Breakpoint, SlotLayoutConfig?>{
+                      Breakpoints.large: SlotLayout.from(
+                        key: const Key('Secondary Body'),
+                        inAnimation: AdaptiveScaffold.stayOnScreen,
+                        builder: (_) => IndexedStack(
+                          index: data.viewEnum,
+                          sizing: StackFit.expand,
+                          children: _pages
+                              .map((e) =>
+                                  (e['secondBody'] as Widget?) ??
+                                  const SizedBox())
+                              .toList(),
+                        ),
+                      ),
+                    },
+                  )
+                : null,
+            bottomNavigation: SlotLayout(
+              config: <Breakpoint, SlotLayoutConfig>{
+                Breakpoints.small: SlotLayout.from(
+                  key: const Key('Bottom Navigation Small'),
+                  inAnimation: AdaptiveScaffold.bottomToTop,
+                  outAnimation: AdaptiveScaffold.topToBottom,
+                  builder: (_) => AdaptiveScaffold.standardBottomNavigationBar(
+                    destinations: const [
+                      NavigationDestination(
+                        icon: Icon(Icons.bar_chart_outlined),
+                        selectedIcon: Icon(Icons.bar_chart_outlined),
+                        label: 'Dashboard',
+                      ),
+                      NavigationDestination(
+                        icon: Icon(Icons.airplanemode_active),
+                        selectedIcon: Icon(Icons.airplanemode_active),
+                        label: 'Flights',
+                      ),
+                      NavigationDestination(
+                        icon: Icon(Icons.people),
+                        selectedIcon: Icon(Icons.people),
+                        label: 'Customer',
+                      ),
+                      NavigationDestination(
+                        icon: Icon(Icons.connecting_airports_outlined),
+                        selectedIcon: Icon(Icons.connecting_airports_outlined),
+                        label: 'Airport',
+                      ),
+                      NavigationDestination(
+                        icon: Icon(Icons.airplane_ticket),
+                        selectedIcon: Icon(Icons.airplane_ticket),
+                        label: 'Ticket',
+                      ),
+                      NavigationDestination(
+                        icon: Icon(Icons.personal_injury_rounded),
+                        selectedIcon: Icon(Icons.personal_injury_rounded),
+                        label: 'Employee',
+                      ),
+                      NavigationDestination(
+                        icon: Icon(Icons.settings),
+                        selectedIcon: Icon(Icons.settings),
+                        label: 'Settings',
+                      ),
+                    ],
+                    currentIndex: data.viewEnum,
+                    onDestinationSelected: _onChangeView,
+                  ),
+                )
+              },
+            ),
+          ),
         );
       },
     ));

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flight_booking/application.dart';
 import 'package:flight_booking/core/components/configurations/configurations.dart';
+import 'package:flight_booking/presentations/customer/bloc/customer_bloc.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flutter/foundation.dart';
@@ -25,6 +26,7 @@ class AppDelegate {
       navigationKey: GlobalKey<NavigatorState>(),
       providers: [
         BlocProvider<DashboardBloc>(create: (_) => injector.get()),
+        BlocProvider<CustomerBloc>(create: (_) => injector.get()),
       ],
       initialRoute: Routes.dashboard,
       savedThemeMode: savedThemeMode,

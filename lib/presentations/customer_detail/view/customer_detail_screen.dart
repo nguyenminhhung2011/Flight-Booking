@@ -49,7 +49,6 @@ class CustomerDetailScreen extends StatelessWidget {
       ],
       rowBuilder: (data) {
         return FluxTableRow(
-          onTap: () {},
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           itemBuilder: (data, index) {
             if (index == 0) {

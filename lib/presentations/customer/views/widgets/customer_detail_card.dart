@@ -1,12 +1,16 @@
 import 'package:flight_booking/core/components/widgets/card_custom.dart';
+import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/presentations/customer/views/widgets/passenger_info_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/components/widgets/swiper_custom.dart';
+import '../../../../domain/entities/customer/customer.dart';
 import '../../../../generated/l10n.dart';
 import '../../../list_flight/views/widgets/flight_details_widget.dart';
+import '../../bloc/customer_bloc.dart';
 
 class CustomerDetailCard extends StatefulWidget {
   const CustomerDetailCard({super.key});
@@ -16,23 +20,28 @@ class CustomerDetailCard extends StatefulWidget {
 }
 
 class _CustomerDetailCardState extends State<CustomerDetailCard> {
-  final PageController pageController = PageController(initialPage: 1);
+  CustomerBloc get _customerBloc => BlocProvider.of<CustomerBloc>(context);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Expanded(
-            flex: 1,
-            child: CustomerInformationCard(),
-          ),
-          Expanded(
-            flex: 2,
-            child: CustomerTicketInformationCard(),
-          )
-        ],
+      body: BlocBuilder<CustomerBloc, CustomerState>(
+        builder: (context, customerState) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 1,
+                child:
+                    CustomerInformationCard(customer: customerState.customer),
+              ),
+              const Expanded(
+                flex: 2,
+                child: CustomerTicketInformationCard(),
+              )
+            ],
+          );
+        },
       ),
     );
   }
@@ -90,7 +99,10 @@ class CustomerTicketInformationCard extends StatelessWidget {
 class CustomerInformationCard extends StatelessWidget {
   const CustomerInformationCard({
     super.key,
+    required this.customer,
   });
+
+  final Customer customer;
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +115,7 @@ class CustomerInformationCard extends StatelessWidget {
           children: [
             Center(
               child: Text(
-                "Customer Information",
+                S.of(context).customerInformation,
                 style: Theme.of(context)
                     .textTheme
                     .titleLarge
@@ -112,27 +124,31 @@ class CustomerInformationCard extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                LabelText(label: "Name", title: "Hoang Truong"),
-                LabelText(label: "Gender", title: "Male"),
+              children: [
+                LabelText(label: S.of(context).name, title: customer.name),
+                LabelText(label: S.of(context).gender, title: customer.gender),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 LabelText(
-                  label: "Birthday",
-                  title: DateFormat().add_yMd().format(DateTime.now()),
+                  label: S.of(context).birthday,
+                  title: getYmdFormat(customer.birthday),
                 ),
                 LabelText(
-                  label: "Age",
-                  title: 15.toString(),
+                  label: S.of(context).age,
+                  title:
+                      ((DateTime.now().difference(customer.birthday).inDays) /
+                              365)
+                          .toString(),
                 ),
-                const LabelText(label: "Country", title: "VietNam"),
+                LabelText(label: S.of(context).country, title: "VietNam"),
               ],
             ),
-            const LabelText(label: "Phone", title: "01232352345234"),
-            const LabelText(label: "Address", title: "hoangankin123@gmail.com"),
+            LabelText(
+                label: S.of(context).phoneNumber, title: customer.phoneNumber),
+            LabelText(label: S.of(context).email, title: customer.email),
           ],
         ),
       ),

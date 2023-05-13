@@ -50,7 +50,6 @@ class CustomerDetailScreen extends StatelessWidget {
       ],
       rowBuilder: (data) {
         return FluxTableRow(
-          onTap: () {},
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           itemBuilder: (data, index) {
             if (index == 0) {
@@ -140,15 +139,16 @@ class CustomerDetailScreen extends StatelessWidget {
                       flex: 1,
                       child: Row(
                         children: [
-                          const Expanded(
-                            child: CustomerInformationCard(),
+                          Expanded(
+                            child: CustomerInformationCard(
+                                customer: Customer.empty),
                           ),
                           const SizedBox(width: 5),
-                          Expanded(
+                          const Expanded(
                             child: CustomerStatisticCard(),
                           ),
                           const SizedBox(width: 5),
-                          Expanded(
+                          const Expanded(
                             child: CardCustom(child: CustomerAirlinePieChart()),
                           ),
                         ],

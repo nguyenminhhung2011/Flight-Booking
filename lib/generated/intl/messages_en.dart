@@ -83,6 +83,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "customer": MessageLookupByLibrary.simpleMessage("Customer"),
         "customerChartView":
             MessageLookupByLibrary.simpleMessage("Customer Chart view"),
+        "customerInformation":
+            MessageLookupByLibrary.simpleMessage("Customer Information"),
         "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
