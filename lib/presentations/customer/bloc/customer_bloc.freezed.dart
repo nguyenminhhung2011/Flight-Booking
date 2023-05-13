@@ -18,51 +18,72 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CustomerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() customerDetail,
-    required TResult Function() searchCustomer,
-    required TResult Function() getCustomers,
+    required TResult Function() onStarted,
+    required TResult Function(String customerId) openCustomerDetail,
+    required TResult Function(String id, int index) selectCustomer,
+    required TResult Function(String? id, String? name, String? identify)
+        searchCustomer,
+    required TResult Function() fetchCustomerData,
+    required TResult Function(String id) deleteCustomer,
+    required TResult Function(String id) editCustomer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? customerDetail,
-    TResult? Function()? searchCustomer,
-    TResult? Function()? getCustomers,
+    TResult? Function()? onStarted,
+    TResult? Function(String customerId)? openCustomerDetail,
+    TResult? Function(String id, int index)? selectCustomer,
+    TResult? Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult? Function()? fetchCustomerData,
+    TResult? Function(String id)? deleteCustomer,
+    TResult? Function(String id)? editCustomer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? customerDetail,
-    TResult Function()? searchCustomer,
-    TResult Function()? getCustomers,
+    TResult Function()? onStarted,
+    TResult Function(String customerId)? openCustomerDetail,
+    TResult Function(String id, int index)? selectCustomer,
+    TResult Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult Function()? fetchCustomerData,
+    TResult Function(String id)? deleteCustomer,
+    TResult Function(String id)? editCustomer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_CustomerDetail value) customerDetail,
+    required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_OpenCustomerDetail value) openCustomerDetail,
+    required TResult Function(_SelectCustomer value) selectCustomer,
     required TResult Function(_SearchCustomer value) searchCustomer,
-    required TResult Function(_GetCustomers value) getCustomers,
+    required TResult Function(_FetchCustomerData value) fetchCustomerData,
+    required TResult Function(_DeleteCustomer value) deleteCustomer,
+    required TResult Function(_EditCustomer value) editCustomer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_CustomerDetail value)? customerDetail,
+    TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult? Function(_SelectCustomer value)? selectCustomer,
     TResult? Function(_SearchCustomer value)? searchCustomer,
-    TResult? Function(_GetCustomers value)? getCustomers,
+    TResult? Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult? Function(_DeleteCustomer value)? deleteCustomer,
+    TResult? Function(_EditCustomer value)? editCustomer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_CustomerDetail value)? customerDetail,
+    TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult Function(_SelectCustomer value)? selectCustomer,
     TResult Function(_SearchCustomer value)? searchCustomer,
-    TResult Function(_GetCustomers value)? getCustomers,
+    TResult Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult Function(_DeleteCustomer value)? deleteCustomer,
+    TResult Function(_EditCustomer value)? editCustomer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -87,34 +108,35 @@ class _$CustomerEventCopyWithImpl<$Res, $Val extends CustomerEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_OnStartedCopyWith<$Res> {
+  factory _$$_OnStartedCopyWith(
+          _$_OnStarted value, $Res Function(_$_OnStarted) then) =
+      __$$_OnStartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$CustomerEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_OnStartedCopyWithImpl<$Res>
+    extends _$CustomerEventCopyWithImpl<$Res, _$_OnStarted>
+    implements _$$_OnStartedCopyWith<$Res> {
+  __$$_OnStartedCopyWithImpl(
+      _$_OnStarted _value, $Res Function(_$_OnStarted) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_OnStarted implements _OnStarted {
+  const _$_OnStarted();
 
   @override
   String toString() {
-    return 'CustomerEvent.started()';
+    return 'CustomerEvent.onStarted()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$_OnStarted);
   }
 
   @override
@@ -123,36 +145,48 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() customerDetail,
-    required TResult Function() searchCustomer,
-    required TResult Function() getCustomers,
+    required TResult Function() onStarted,
+    required TResult Function(String customerId) openCustomerDetail,
+    required TResult Function(String id, int index) selectCustomer,
+    required TResult Function(String? id, String? name, String? identify)
+        searchCustomer,
+    required TResult Function() fetchCustomerData,
+    required TResult Function(String id) deleteCustomer,
+    required TResult Function(String id) editCustomer,
   }) {
-    return started();
+    return onStarted();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? customerDetail,
-    TResult? Function()? searchCustomer,
-    TResult? Function()? getCustomers,
+    TResult? Function()? onStarted,
+    TResult? Function(String customerId)? openCustomerDetail,
+    TResult? Function(String id, int index)? selectCustomer,
+    TResult? Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult? Function()? fetchCustomerData,
+    TResult? Function(String id)? deleteCustomer,
+    TResult? Function(String id)? editCustomer,
   }) {
-    return started?.call();
+    return onStarted?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? customerDetail,
-    TResult Function()? searchCustomer,
-    TResult Function()? getCustomers,
+    TResult Function()? onStarted,
+    TResult Function(String customerId)? openCustomerDetail,
+    TResult Function(String id, int index)? selectCustomer,
+    TResult Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult Function()? fetchCustomerData,
+    TResult Function(String id)? deleteCustomer,
+    TResult Function(String id)? editCustomer,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (onStarted != null) {
+      return onStarted();
     }
     return orElse();
   }
@@ -160,113 +194,162 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_CustomerDetail value) customerDetail,
+    required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_OpenCustomerDetail value) openCustomerDetail,
+    required TResult Function(_SelectCustomer value) selectCustomer,
     required TResult Function(_SearchCustomer value) searchCustomer,
-    required TResult Function(_GetCustomers value) getCustomers,
+    required TResult Function(_FetchCustomerData value) fetchCustomerData,
+    required TResult Function(_DeleteCustomer value) deleteCustomer,
+    required TResult Function(_EditCustomer value) editCustomer,
   }) {
-    return started(this);
+    return onStarted(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_CustomerDetail value)? customerDetail,
+    TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult? Function(_SelectCustomer value)? selectCustomer,
     TResult? Function(_SearchCustomer value)? searchCustomer,
-    TResult? Function(_GetCustomers value)? getCustomers,
+    TResult? Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult? Function(_DeleteCustomer value)? deleteCustomer,
+    TResult? Function(_EditCustomer value)? editCustomer,
   }) {
-    return started?.call(this);
+    return onStarted?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_CustomerDetail value)? customerDetail,
+    TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult Function(_SelectCustomer value)? selectCustomer,
     TResult Function(_SearchCustomer value)? searchCustomer,
-    TResult Function(_GetCustomers value)? getCustomers,
+    TResult Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult Function(_DeleteCustomer value)? deleteCustomer,
+    TResult Function(_EditCustomer value)? editCustomer,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (onStarted != null) {
+      return onStarted(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements CustomerEvent {
-  const factory _Started() = _$_Started;
+abstract class _OnStarted implements CustomerEvent {
+  const factory _OnStarted() = _$_OnStarted;
 }
 
 /// @nodoc
-abstract class _$$_CustomerDetailCopyWith<$Res> {
-  factory _$$_CustomerDetailCopyWith(
-          _$_CustomerDetail value, $Res Function(_$_CustomerDetail) then) =
-      __$$_CustomerDetailCopyWithImpl<$Res>;
+abstract class _$$_OpenCustomerDetailCopyWith<$Res> {
+  factory _$$_OpenCustomerDetailCopyWith(_$_OpenCustomerDetail value,
+          $Res Function(_$_OpenCustomerDetail) then) =
+      __$$_OpenCustomerDetailCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String customerId});
 }
 
 /// @nodoc
-class __$$_CustomerDetailCopyWithImpl<$Res>
-    extends _$CustomerEventCopyWithImpl<$Res, _$_CustomerDetail>
-    implements _$$_CustomerDetailCopyWith<$Res> {
-  __$$_CustomerDetailCopyWithImpl(
-      _$_CustomerDetail _value, $Res Function(_$_CustomerDetail) _then)
+class __$$_OpenCustomerDetailCopyWithImpl<$Res>
+    extends _$CustomerEventCopyWithImpl<$Res, _$_OpenCustomerDetail>
+    implements _$$_OpenCustomerDetailCopyWith<$Res> {
+  __$$_OpenCustomerDetailCopyWithImpl(
+      _$_OpenCustomerDetail _value, $Res Function(_$_OpenCustomerDetail) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? customerId = null,
+  }) {
+    return _then(_$_OpenCustomerDetail(
+      customerId: null == customerId
+          ? _value.customerId
+          : customerId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_CustomerDetail implements _CustomerDetail {
-  const _$_CustomerDetail();
+class _$_OpenCustomerDetail implements _OpenCustomerDetail {
+  const _$_OpenCustomerDetail({required this.customerId});
+
+  @override
+  final String customerId;
 
   @override
   String toString() {
-    return 'CustomerEvent.customerDetail()';
+    return 'CustomerEvent.openCustomerDetail(customerId: $customerId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_CustomerDetail);
+        (other.runtimeType == runtimeType &&
+            other is _$_OpenCustomerDetail &&
+            (identical(other.customerId, customerId) ||
+                other.customerId == customerId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, customerId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_OpenCustomerDetailCopyWith<_$_OpenCustomerDetail> get copyWith =>
+      __$$_OpenCustomerDetailCopyWithImpl<_$_OpenCustomerDetail>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() customerDetail,
-    required TResult Function() searchCustomer,
-    required TResult Function() getCustomers,
+    required TResult Function() onStarted,
+    required TResult Function(String customerId) openCustomerDetail,
+    required TResult Function(String id, int index) selectCustomer,
+    required TResult Function(String? id, String? name, String? identify)
+        searchCustomer,
+    required TResult Function() fetchCustomerData,
+    required TResult Function(String id) deleteCustomer,
+    required TResult Function(String id) editCustomer,
   }) {
-    return customerDetail();
+    return openCustomerDetail(customerId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? customerDetail,
-    TResult? Function()? searchCustomer,
-    TResult? Function()? getCustomers,
+    TResult? Function()? onStarted,
+    TResult? Function(String customerId)? openCustomerDetail,
+    TResult? Function(String id, int index)? selectCustomer,
+    TResult? Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult? Function()? fetchCustomerData,
+    TResult? Function(String id)? deleteCustomer,
+    TResult? Function(String id)? editCustomer,
   }) {
-    return customerDetail?.call();
+    return openCustomerDetail?.call(customerId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? customerDetail,
-    TResult Function()? searchCustomer,
-    TResult Function()? getCustomers,
+    TResult Function()? onStarted,
+    TResult Function(String customerId)? openCustomerDetail,
+    TResult Function(String id, int index)? selectCustomer,
+    TResult Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult Function()? fetchCustomerData,
+    TResult Function(String id)? deleteCustomer,
+    TResult Function(String id)? editCustomer,
     required TResult orElse(),
   }) {
-    if (customerDetail != null) {
-      return customerDetail();
+    if (openCustomerDetail != null) {
+      return openCustomerDetail(customerId);
     }
     return orElse();
   }
@@ -274,43 +357,234 @@ class _$_CustomerDetail implements _CustomerDetail {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_CustomerDetail value) customerDetail,
+    required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_OpenCustomerDetail value) openCustomerDetail,
+    required TResult Function(_SelectCustomer value) selectCustomer,
     required TResult Function(_SearchCustomer value) searchCustomer,
-    required TResult Function(_GetCustomers value) getCustomers,
+    required TResult Function(_FetchCustomerData value) fetchCustomerData,
+    required TResult Function(_DeleteCustomer value) deleteCustomer,
+    required TResult Function(_EditCustomer value) editCustomer,
   }) {
-    return customerDetail(this);
+    return openCustomerDetail(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_CustomerDetail value)? customerDetail,
+    TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult? Function(_SelectCustomer value)? selectCustomer,
     TResult? Function(_SearchCustomer value)? searchCustomer,
-    TResult? Function(_GetCustomers value)? getCustomers,
+    TResult? Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult? Function(_DeleteCustomer value)? deleteCustomer,
+    TResult? Function(_EditCustomer value)? editCustomer,
   }) {
-    return customerDetail?.call(this);
+    return openCustomerDetail?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_CustomerDetail value)? customerDetail,
+    TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult Function(_SelectCustomer value)? selectCustomer,
     TResult Function(_SearchCustomer value)? searchCustomer,
-    TResult Function(_GetCustomers value)? getCustomers,
+    TResult Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult Function(_DeleteCustomer value)? deleteCustomer,
+    TResult Function(_EditCustomer value)? editCustomer,
     required TResult orElse(),
   }) {
-    if (customerDetail != null) {
-      return customerDetail(this);
+    if (openCustomerDetail != null) {
+      return openCustomerDetail(this);
     }
     return orElse();
   }
 }
 
-abstract class _CustomerDetail implements CustomerEvent {
-  const factory _CustomerDetail() = _$_CustomerDetail;
+abstract class _OpenCustomerDetail implements CustomerEvent {
+  const factory _OpenCustomerDetail({required final String customerId}) =
+      _$_OpenCustomerDetail;
+
+  String get customerId;
+  @JsonKey(ignore: true)
+  _$$_OpenCustomerDetailCopyWith<_$_OpenCustomerDetail> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectCustomerCopyWith<$Res> {
+  factory _$$_SelectCustomerCopyWith(
+          _$_SelectCustomer value, $Res Function(_$_SelectCustomer) then) =
+      __$$_SelectCustomerCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id, int index});
+}
+
+/// @nodoc
+class __$$_SelectCustomerCopyWithImpl<$Res>
+    extends _$CustomerEventCopyWithImpl<$Res, _$_SelectCustomer>
+    implements _$$_SelectCustomerCopyWith<$Res> {
+  __$$_SelectCustomerCopyWithImpl(
+      _$_SelectCustomer _value, $Res Function(_$_SelectCustomer) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? index = null,
+  }) {
+    return _then(_$_SelectCustomer(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectCustomer implements _SelectCustomer {
+  const _$_SelectCustomer({required this.id, required this.index});
+
+  @override
+  final String id;
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'CustomerEvent.selectCustomer(id: $id, index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectCustomer &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectCustomerCopyWith<_$_SelectCustomer> get copyWith =>
+      __$$_SelectCustomerCopyWithImpl<_$_SelectCustomer>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function(String customerId) openCustomerDetail,
+    required TResult Function(String id, int index) selectCustomer,
+    required TResult Function(String? id, String? name, String? identify)
+        searchCustomer,
+    required TResult Function() fetchCustomerData,
+    required TResult Function(String id) deleteCustomer,
+    required TResult Function(String id) editCustomer,
+  }) {
+    return selectCustomer(id, index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function(String customerId)? openCustomerDetail,
+    TResult? Function(String id, int index)? selectCustomer,
+    TResult? Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult? Function()? fetchCustomerData,
+    TResult? Function(String id)? deleteCustomer,
+    TResult? Function(String id)? editCustomer,
+  }) {
+    return selectCustomer?.call(id, index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function(String customerId)? openCustomerDetail,
+    TResult Function(String id, int index)? selectCustomer,
+    TResult Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult Function()? fetchCustomerData,
+    TResult Function(String id)? deleteCustomer,
+    TResult Function(String id)? editCustomer,
+    required TResult orElse(),
+  }) {
+    if (selectCustomer != null) {
+      return selectCustomer(id, index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_OpenCustomerDetail value) openCustomerDetail,
+    required TResult Function(_SelectCustomer value) selectCustomer,
+    required TResult Function(_SearchCustomer value) searchCustomer,
+    required TResult Function(_FetchCustomerData value) fetchCustomerData,
+    required TResult Function(_DeleteCustomer value) deleteCustomer,
+    required TResult Function(_EditCustomer value) editCustomer,
+  }) {
+    return selectCustomer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult? Function(_SelectCustomer value)? selectCustomer,
+    TResult? Function(_SearchCustomer value)? searchCustomer,
+    TResult? Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult? Function(_DeleteCustomer value)? deleteCustomer,
+    TResult? Function(_EditCustomer value)? editCustomer,
+  }) {
+    return selectCustomer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult Function(_SelectCustomer value)? selectCustomer,
+    TResult Function(_SearchCustomer value)? searchCustomer,
+    TResult Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult Function(_DeleteCustomer value)? deleteCustomer,
+    TResult Function(_EditCustomer value)? editCustomer,
+    required TResult orElse(),
+  }) {
+    if (selectCustomer != null) {
+      return selectCustomer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectCustomer implements CustomerEvent {
+  const factory _SelectCustomer(
+      {required final String id, required final int index}) = _$_SelectCustomer;
+
+  String get id;
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_SelectCustomerCopyWith<_$_SelectCustomer> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -318,6 +592,8 @@ abstract class _$$_SearchCustomerCopyWith<$Res> {
   factory _$$_SearchCustomerCopyWith(
           _$_SearchCustomer value, $Res Function(_$_SearchCustomer) then) =
       __$$_SearchCustomerCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? id, String? name, String? identify});
 }
 
 /// @nodoc
@@ -327,60 +603,113 @@ class __$$_SearchCustomerCopyWithImpl<$Res>
   __$$_SearchCustomerCopyWithImpl(
       _$_SearchCustomer _value, $Res Function(_$_SearchCustomer) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? identify = freezed,
+  }) {
+    return _then(_$_SearchCustomer(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      identify: freezed == identify
+          ? _value.identify
+          : identify // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_SearchCustomer implements _SearchCustomer {
-  const _$_SearchCustomer();
+  const _$_SearchCustomer({this.id, this.name, this.identify});
+
+  @override
+  final String? id;
+  @override
+  final String? name;
+  @override
+  final String? identify;
 
   @override
   String toString() {
-    return 'CustomerEvent.searchCustomer()';
+    return 'CustomerEvent.searchCustomer(id: $id, name: $name, identify: $identify)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_SearchCustomer);
+        (other.runtimeType == runtimeType &&
+            other is _$_SearchCustomer &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.identify, identify) ||
+                other.identify == identify));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, id, name, identify);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SearchCustomerCopyWith<_$_SearchCustomer> get copyWith =>
+      __$$_SearchCustomerCopyWithImpl<_$_SearchCustomer>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() customerDetail,
-    required TResult Function() searchCustomer,
-    required TResult Function() getCustomers,
+    required TResult Function() onStarted,
+    required TResult Function(String customerId) openCustomerDetail,
+    required TResult Function(String id, int index) selectCustomer,
+    required TResult Function(String? id, String? name, String? identify)
+        searchCustomer,
+    required TResult Function() fetchCustomerData,
+    required TResult Function(String id) deleteCustomer,
+    required TResult Function(String id) editCustomer,
   }) {
-    return searchCustomer();
+    return searchCustomer(id, name, identify);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? customerDetail,
-    TResult? Function()? searchCustomer,
-    TResult? Function()? getCustomers,
+    TResult? Function()? onStarted,
+    TResult? Function(String customerId)? openCustomerDetail,
+    TResult? Function(String id, int index)? selectCustomer,
+    TResult? Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult? Function()? fetchCustomerData,
+    TResult? Function(String id)? deleteCustomer,
+    TResult? Function(String id)? editCustomer,
   }) {
-    return searchCustomer?.call();
+    return searchCustomer?.call(id, name, identify);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? customerDetail,
-    TResult Function()? searchCustomer,
-    TResult Function()? getCustomers,
+    TResult Function()? onStarted,
+    TResult Function(String customerId)? openCustomerDetail,
+    TResult Function(String id, int index)? selectCustomer,
+    TResult Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult Function()? fetchCustomerData,
+    TResult Function(String id)? deleteCustomer,
+    TResult Function(String id)? editCustomer,
     required TResult orElse(),
   }) {
     if (searchCustomer != null) {
-      return searchCustomer();
+      return searchCustomer(id, name, identify);
     }
     return orElse();
   }
@@ -388,10 +717,13 @@ class _$_SearchCustomer implements _SearchCustomer {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_CustomerDetail value) customerDetail,
+    required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_OpenCustomerDetail value) openCustomerDetail,
+    required TResult Function(_SelectCustomer value) selectCustomer,
     required TResult Function(_SearchCustomer value) searchCustomer,
-    required TResult Function(_GetCustomers value) getCustomers,
+    required TResult Function(_FetchCustomerData value) fetchCustomerData,
+    required TResult Function(_DeleteCustomer value) deleteCustomer,
+    required TResult Function(_EditCustomer value) editCustomer,
   }) {
     return searchCustomer(this);
   }
@@ -399,10 +731,13 @@ class _$_SearchCustomer implements _SearchCustomer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_CustomerDetail value)? customerDetail,
+    TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult? Function(_SelectCustomer value)? selectCustomer,
     TResult? Function(_SearchCustomer value)? searchCustomer,
-    TResult? Function(_GetCustomers value)? getCustomers,
+    TResult? Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult? Function(_DeleteCustomer value)? deleteCustomer,
+    TResult? Function(_EditCustomer value)? editCustomer,
   }) {
     return searchCustomer?.call(this);
   }
@@ -410,10 +745,13 @@ class _$_SearchCustomer implements _SearchCustomer {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_CustomerDetail value)? customerDetail,
+    TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult Function(_SelectCustomer value)? selectCustomer,
     TResult Function(_SearchCustomer value)? searchCustomer,
-    TResult Function(_GetCustomers value)? getCustomers,
+    TResult Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult Function(_DeleteCustomer value)? deleteCustomer,
+    TResult Function(_EditCustomer value)? editCustomer,
     required TResult orElse(),
   }) {
     if (searchCustomer != null) {
@@ -424,39 +762,49 @@ class _$_SearchCustomer implements _SearchCustomer {
 }
 
 abstract class _SearchCustomer implements CustomerEvent {
-  const factory _SearchCustomer() = _$_SearchCustomer;
+  const factory _SearchCustomer(
+      {final String? id,
+      final String? name,
+      final String? identify}) = _$_SearchCustomer;
+
+  String? get id;
+  String? get name;
+  String? get identify;
+  @JsonKey(ignore: true)
+  _$$_SearchCustomerCopyWith<_$_SearchCustomer> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_GetCustomersCopyWith<$Res> {
-  factory _$$_GetCustomersCopyWith(
-          _$_GetCustomers value, $Res Function(_$_GetCustomers) then) =
-      __$$_GetCustomersCopyWithImpl<$Res>;
+abstract class _$$_FetchCustomerDataCopyWith<$Res> {
+  factory _$$_FetchCustomerDataCopyWith(_$_FetchCustomerData value,
+          $Res Function(_$_FetchCustomerData) then) =
+      __$$_FetchCustomerDataCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetCustomersCopyWithImpl<$Res>
-    extends _$CustomerEventCopyWithImpl<$Res, _$_GetCustomers>
-    implements _$$_GetCustomersCopyWith<$Res> {
-  __$$_GetCustomersCopyWithImpl(
-      _$_GetCustomers _value, $Res Function(_$_GetCustomers) _then)
+class __$$_FetchCustomerDataCopyWithImpl<$Res>
+    extends _$CustomerEventCopyWithImpl<$Res, _$_FetchCustomerData>
+    implements _$$_FetchCustomerDataCopyWith<$Res> {
+  __$$_FetchCustomerDataCopyWithImpl(
+      _$_FetchCustomerData _value, $Res Function(_$_FetchCustomerData) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetCustomers implements _GetCustomers {
-  const _$_GetCustomers();
+class _$_FetchCustomerData implements _FetchCustomerData {
+  const _$_FetchCustomerData();
 
   @override
   String toString() {
-    return 'CustomerEvent.getCustomers()';
+    return 'CustomerEvent.fetchCustomerData()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetCustomers);
+        (other.runtimeType == runtimeType && other is _$_FetchCustomerData);
   }
 
   @override
@@ -465,36 +813,48 @@ class _$_GetCustomers implements _GetCustomers {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() customerDetail,
-    required TResult Function() searchCustomer,
-    required TResult Function() getCustomers,
+    required TResult Function() onStarted,
+    required TResult Function(String customerId) openCustomerDetail,
+    required TResult Function(String id, int index) selectCustomer,
+    required TResult Function(String? id, String? name, String? identify)
+        searchCustomer,
+    required TResult Function() fetchCustomerData,
+    required TResult Function(String id) deleteCustomer,
+    required TResult Function(String id) editCustomer,
   }) {
-    return getCustomers();
+    return fetchCustomerData();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? customerDetail,
-    TResult? Function()? searchCustomer,
-    TResult? Function()? getCustomers,
+    TResult? Function()? onStarted,
+    TResult? Function(String customerId)? openCustomerDetail,
+    TResult? Function(String id, int index)? selectCustomer,
+    TResult? Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult? Function()? fetchCustomerData,
+    TResult? Function(String id)? deleteCustomer,
+    TResult? Function(String id)? editCustomer,
   }) {
-    return getCustomers?.call();
+    return fetchCustomerData?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? customerDetail,
-    TResult Function()? searchCustomer,
-    TResult Function()? getCustomers,
+    TResult Function()? onStarted,
+    TResult Function(String customerId)? openCustomerDetail,
+    TResult Function(String id, int index)? selectCustomer,
+    TResult Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult Function()? fetchCustomerData,
+    TResult Function(String id)? deleteCustomer,
+    TResult Function(String id)? editCustomer,
     required TResult orElse(),
   }) {
-    if (getCustomers != null) {
-      return getCustomers();
+    if (fetchCustomerData != null) {
+      return fetchCustomerData();
     }
     return orElse();
   }
@@ -502,43 +862,384 @@ class _$_GetCustomers implements _GetCustomers {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_CustomerDetail value) customerDetail,
+    required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_OpenCustomerDetail value) openCustomerDetail,
+    required TResult Function(_SelectCustomer value) selectCustomer,
     required TResult Function(_SearchCustomer value) searchCustomer,
-    required TResult Function(_GetCustomers value) getCustomers,
+    required TResult Function(_FetchCustomerData value) fetchCustomerData,
+    required TResult Function(_DeleteCustomer value) deleteCustomer,
+    required TResult Function(_EditCustomer value) editCustomer,
   }) {
-    return getCustomers(this);
+    return fetchCustomerData(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_CustomerDetail value)? customerDetail,
+    TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult? Function(_SelectCustomer value)? selectCustomer,
     TResult? Function(_SearchCustomer value)? searchCustomer,
-    TResult? Function(_GetCustomers value)? getCustomers,
+    TResult? Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult? Function(_DeleteCustomer value)? deleteCustomer,
+    TResult? Function(_EditCustomer value)? editCustomer,
   }) {
-    return getCustomers?.call(this);
+    return fetchCustomerData?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_CustomerDetail value)? customerDetail,
+    TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult Function(_SelectCustomer value)? selectCustomer,
     TResult Function(_SearchCustomer value)? searchCustomer,
-    TResult Function(_GetCustomers value)? getCustomers,
+    TResult Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult Function(_DeleteCustomer value)? deleteCustomer,
+    TResult Function(_EditCustomer value)? editCustomer,
     required TResult orElse(),
   }) {
-    if (getCustomers != null) {
-      return getCustomers(this);
+    if (fetchCustomerData != null) {
+      return fetchCustomerData(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetCustomers implements CustomerEvent {
-  const factory _GetCustomers() = _$_GetCustomers;
+abstract class _FetchCustomerData implements CustomerEvent {
+  const factory _FetchCustomerData() = _$_FetchCustomerData;
+}
+
+/// @nodoc
+abstract class _$$_DeleteCustomerCopyWith<$Res> {
+  factory _$$_DeleteCustomerCopyWith(
+          _$_DeleteCustomer value, $Res Function(_$_DeleteCustomer) then) =
+      __$$_DeleteCustomerCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$_DeleteCustomerCopyWithImpl<$Res>
+    extends _$CustomerEventCopyWithImpl<$Res, _$_DeleteCustomer>
+    implements _$$_DeleteCustomerCopyWith<$Res> {
+  __$$_DeleteCustomerCopyWithImpl(
+      _$_DeleteCustomer _value, $Res Function(_$_DeleteCustomer) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_DeleteCustomer(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DeleteCustomer implements _DeleteCustomer {
+  const _$_DeleteCustomer({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'CustomerEvent.deleteCustomer(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DeleteCustomer &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DeleteCustomerCopyWith<_$_DeleteCustomer> get copyWith =>
+      __$$_DeleteCustomerCopyWithImpl<_$_DeleteCustomer>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function(String customerId) openCustomerDetail,
+    required TResult Function(String id, int index) selectCustomer,
+    required TResult Function(String? id, String? name, String? identify)
+        searchCustomer,
+    required TResult Function() fetchCustomerData,
+    required TResult Function(String id) deleteCustomer,
+    required TResult Function(String id) editCustomer,
+  }) {
+    return deleteCustomer(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function(String customerId)? openCustomerDetail,
+    TResult? Function(String id, int index)? selectCustomer,
+    TResult? Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult? Function()? fetchCustomerData,
+    TResult? Function(String id)? deleteCustomer,
+    TResult? Function(String id)? editCustomer,
+  }) {
+    return deleteCustomer?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function(String customerId)? openCustomerDetail,
+    TResult Function(String id, int index)? selectCustomer,
+    TResult Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult Function()? fetchCustomerData,
+    TResult Function(String id)? deleteCustomer,
+    TResult Function(String id)? editCustomer,
+    required TResult orElse(),
+  }) {
+    if (deleteCustomer != null) {
+      return deleteCustomer(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_OpenCustomerDetail value) openCustomerDetail,
+    required TResult Function(_SelectCustomer value) selectCustomer,
+    required TResult Function(_SearchCustomer value) searchCustomer,
+    required TResult Function(_FetchCustomerData value) fetchCustomerData,
+    required TResult Function(_DeleteCustomer value) deleteCustomer,
+    required TResult Function(_EditCustomer value) editCustomer,
+  }) {
+    return deleteCustomer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult? Function(_SelectCustomer value)? selectCustomer,
+    TResult? Function(_SearchCustomer value)? searchCustomer,
+    TResult? Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult? Function(_DeleteCustomer value)? deleteCustomer,
+    TResult? Function(_EditCustomer value)? editCustomer,
+  }) {
+    return deleteCustomer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult Function(_SelectCustomer value)? selectCustomer,
+    TResult Function(_SearchCustomer value)? searchCustomer,
+    TResult Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult Function(_DeleteCustomer value)? deleteCustomer,
+    TResult Function(_EditCustomer value)? editCustomer,
+    required TResult orElse(),
+  }) {
+    if (deleteCustomer != null) {
+      return deleteCustomer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteCustomer implements CustomerEvent {
+  const factory _DeleteCustomer({required final String id}) = _$_DeleteCustomer;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$_DeleteCustomerCopyWith<_$_DeleteCustomer> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_EditCustomerCopyWith<$Res> {
+  factory _$$_EditCustomerCopyWith(
+          _$_EditCustomer value, $Res Function(_$_EditCustomer) then) =
+      __$$_EditCustomerCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$_EditCustomerCopyWithImpl<$Res>
+    extends _$CustomerEventCopyWithImpl<$Res, _$_EditCustomer>
+    implements _$$_EditCustomerCopyWith<$Res> {
+  __$$_EditCustomerCopyWithImpl(
+      _$_EditCustomer _value, $Res Function(_$_EditCustomer) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_EditCustomer(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_EditCustomer implements _EditCustomer {
+  const _$_EditCustomer({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'CustomerEvent.editCustomer(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_EditCustomer &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_EditCustomerCopyWith<_$_EditCustomer> get copyWith =>
+      __$$_EditCustomerCopyWithImpl<_$_EditCustomer>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function(String customerId) openCustomerDetail,
+    required TResult Function(String id, int index) selectCustomer,
+    required TResult Function(String? id, String? name, String? identify)
+        searchCustomer,
+    required TResult Function() fetchCustomerData,
+    required TResult Function(String id) deleteCustomer,
+    required TResult Function(String id) editCustomer,
+  }) {
+    return editCustomer(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function(String customerId)? openCustomerDetail,
+    TResult? Function(String id, int index)? selectCustomer,
+    TResult? Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult? Function()? fetchCustomerData,
+    TResult? Function(String id)? deleteCustomer,
+    TResult? Function(String id)? editCustomer,
+  }) {
+    return editCustomer?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function(String customerId)? openCustomerDetail,
+    TResult Function(String id, int index)? selectCustomer,
+    TResult Function(String? id, String? name, String? identify)?
+        searchCustomer,
+    TResult Function()? fetchCustomerData,
+    TResult Function(String id)? deleteCustomer,
+    TResult Function(String id)? editCustomer,
+    required TResult orElse(),
+  }) {
+    if (editCustomer != null) {
+      return editCustomer(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_OpenCustomerDetail value) openCustomerDetail,
+    required TResult Function(_SelectCustomer value) selectCustomer,
+    required TResult Function(_SearchCustomer value) searchCustomer,
+    required TResult Function(_FetchCustomerData value) fetchCustomerData,
+    required TResult Function(_DeleteCustomer value) deleteCustomer,
+    required TResult Function(_EditCustomer value) editCustomer,
+  }) {
+    return editCustomer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult? Function(_SelectCustomer value)? selectCustomer,
+    TResult? Function(_SearchCustomer value)? searchCustomer,
+    TResult? Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult? Function(_DeleteCustomer value)? deleteCustomer,
+    TResult? Function(_EditCustomer value)? editCustomer,
+  }) {
+    return editCustomer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult Function(_SelectCustomer value)? selectCustomer,
+    TResult Function(_SearchCustomer value)? searchCustomer,
+    TResult Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult Function(_DeleteCustomer value)? deleteCustomer,
+    TResult Function(_EditCustomer value)? editCustomer,
+    required TResult orElse(),
+  }) {
+    if (editCustomer != null) {
+      return editCustomer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditCustomer implements CustomerEvent {
+  const factory _EditCustomer({required final String id}) = _$_EditCustomer;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$_EditCustomerCopyWith<_$_EditCustomer> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -548,38 +1249,66 @@ mixin _$CustomerState {
   TResult when<TResult extends Object?>({
     required TResult Function(CustomerModelState data) initial,
     required TResult Function(CustomerModelState data) loading,
-    required TResult Function(CustomerModelState data) getCustomerSuccess,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
     required TResult Function(CustomerModelState data, String message)
-        getCustomerFailed,
-    required TResult Function(CustomerModelState data, String id)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
         selectCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(CustomerModelState data)? initial,
     TResult? Function(CustomerModelState data)? loading,
-    TResult? Function(CustomerModelState data)? getCustomerSuccess,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult? Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult? Function(CustomerModelState data, String id)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
         selectCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CustomerModelState data)? initial,
     TResult Function(CustomerModelState data)? loading,
-    TResult Function(CustomerModelState data)? getCustomerSuccess,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult Function(CustomerModelState data, String id)? selectCustomerSuccess,
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -587,31 +1316,56 @@ mixin _$CustomerState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_GetCustomerSuccess value) getCustomerSuccess,
-    required TResult Function(_GetCustomerFailed value) getCustomerFailed,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
     required TResult Function(_SelectCustomerSuccess value)
         selectCustomerSuccess,
     required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult? Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
     TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
     TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -734,13 +1488,22 @@ class _$_Initial extends _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function(CustomerModelState data) initial,
     required TResult Function(CustomerModelState data) loading,
-    required TResult Function(CustomerModelState data) getCustomerSuccess,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
     required TResult Function(CustomerModelState data, String message)
-        getCustomerFailed,
-    required TResult Function(CustomerModelState data, String id)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
         selectCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
   }) {
     return initial(data);
   }
@@ -750,13 +1513,22 @@ class _$_Initial extends _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(CustomerModelState data)? initial,
     TResult? Function(CustomerModelState data)? loading,
-    TResult? Function(CustomerModelState data)? getCustomerSuccess,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult? Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult? Function(CustomerModelState data, String id)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
         selectCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
   }) {
     return initial?.call(data);
   }
@@ -766,12 +1538,22 @@ class _$_Initial extends _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CustomerModelState data)? initial,
     TResult Function(CustomerModelState data)? loading,
-    TResult Function(CustomerModelState data)? getCustomerSuccess,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult Function(CustomerModelState data, String id)? selectCustomerSuccess,
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -785,11 +1567,22 @@ class _$_Initial extends _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_GetCustomerSuccess value) getCustomerSuccess,
-    required TResult Function(_GetCustomerFailed value) getCustomerFailed,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
     required TResult Function(_SelectCustomerSuccess value)
         selectCustomerSuccess,
     required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
   }) {
     return initial(this);
   }
@@ -799,10 +1592,18 @@ class _$_Initial extends _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult? Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
     TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
   }) {
     return initial?.call(this);
   }
@@ -812,10 +1613,16 @@ class _$_Initial extends _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
     TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -907,13 +1714,22 @@ class _$_Loading extends _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function(CustomerModelState data) initial,
     required TResult Function(CustomerModelState data) loading,
-    required TResult Function(CustomerModelState data) getCustomerSuccess,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
     required TResult Function(CustomerModelState data, String message)
-        getCustomerFailed,
-    required TResult Function(CustomerModelState data, String id)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
         selectCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
   }) {
     return loading(data);
   }
@@ -923,13 +1739,22 @@ class _$_Loading extends _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(CustomerModelState data)? initial,
     TResult? Function(CustomerModelState data)? loading,
-    TResult? Function(CustomerModelState data)? getCustomerSuccess,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult? Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult? Function(CustomerModelState data, String id)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
         selectCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
   }) {
     return loading?.call(data);
   }
@@ -939,12 +1764,22 @@ class _$_Loading extends _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CustomerModelState data)? initial,
     TResult Function(CustomerModelState data)? loading,
-    TResult Function(CustomerModelState data)? getCustomerSuccess,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult Function(CustomerModelState data, String id)? selectCustomerSuccess,
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -958,11 +1793,22 @@ class _$_Loading extends _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_GetCustomerSuccess value) getCustomerSuccess,
-    required TResult Function(_GetCustomerFailed value) getCustomerFailed,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
     required TResult Function(_SelectCustomerSuccess value)
         selectCustomerSuccess,
     required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
   }) {
     return loading(this);
   }
@@ -972,10 +1818,18 @@ class _$_Loading extends _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult? Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
     TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
   }) {
     return loading?.call(this);
   }
@@ -985,10 +1839,16 @@ class _$_Loading extends _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
     TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1011,11 +1871,12 @@ abstract class _Loading extends CustomerState {
 }
 
 /// @nodoc
-abstract class _$$_GetCustomerSuccessCopyWith<$Res>
+abstract class _$$_FetchCustomerDataSuccessCopyWith<$Res>
     implements $CustomerStateCopyWith<$Res> {
-  factory _$$_GetCustomerSuccessCopyWith(_$_GetCustomerSuccess value,
-          $Res Function(_$_GetCustomerSuccess) then) =
-      __$$_GetCustomerSuccessCopyWithImpl<$Res>;
+  factory _$$_FetchCustomerDataSuccessCopyWith(
+          _$_FetchCustomerDataSuccess value,
+          $Res Function(_$_FetchCustomerDataSuccess) then) =
+      __$$_FetchCustomerDataSuccessCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({CustomerModelState data});
@@ -1025,11 +1886,11 @@ abstract class _$$_GetCustomerSuccessCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GetCustomerSuccessCopyWithImpl<$Res>
-    extends _$CustomerStateCopyWithImpl<$Res, _$_GetCustomerSuccess>
-    implements _$$_GetCustomerSuccessCopyWith<$Res> {
-  __$$_GetCustomerSuccessCopyWithImpl(
-      _$_GetCustomerSuccess _value, $Res Function(_$_GetCustomerSuccess) _then)
+class __$$_FetchCustomerDataSuccessCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$_FetchCustomerDataSuccess>
+    implements _$$_FetchCustomerDataSuccessCopyWith<$Res> {
+  __$$_FetchCustomerDataSuccessCopyWithImpl(_$_FetchCustomerDataSuccess _value,
+      $Res Function(_$_FetchCustomerDataSuccess) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1037,7 +1898,7 @@ class __$$_GetCustomerSuccessCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_GetCustomerSuccess(
+    return _then(_$_FetchCustomerDataSuccess(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1048,22 +1909,22 @@ class __$$_GetCustomerSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetCustomerSuccess extends _GetCustomerSuccess {
-  const _$_GetCustomerSuccess({required this.data}) : super._();
+class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
+  const _$_FetchCustomerDataSuccess({required this.data}) : super._();
 
   @override
   final CustomerModelState data;
 
   @override
   String toString() {
-    return 'CustomerState.getCustomerSuccess(data: $data)';
+    return 'CustomerState.fetchCustomerDataSuccess(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetCustomerSuccess &&
+            other is _$_FetchCustomerDataSuccess &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -1073,24 +1934,33 @@ class _$_GetCustomerSuccess extends _GetCustomerSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetCustomerSuccessCopyWith<_$_GetCustomerSuccess> get copyWith =>
-      __$$_GetCustomerSuccessCopyWithImpl<_$_GetCustomerSuccess>(
-          this, _$identity);
+  _$$_FetchCustomerDataSuccessCopyWith<_$_FetchCustomerDataSuccess>
+      get copyWith => __$$_FetchCustomerDataSuccessCopyWithImpl<
+          _$_FetchCustomerDataSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(CustomerModelState data) initial,
     required TResult Function(CustomerModelState data) loading,
-    required TResult Function(CustomerModelState data) getCustomerSuccess,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
     required TResult Function(CustomerModelState data, String message)
-        getCustomerFailed,
-    required TResult Function(CustomerModelState data, String id)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
         selectCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
   }) {
-    return getCustomerSuccess(data);
+    return fetchCustomerDataSuccess(data);
   }
 
   @override
@@ -1098,15 +1968,24 @@ class _$_GetCustomerSuccess extends _GetCustomerSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(CustomerModelState data)? initial,
     TResult? Function(CustomerModelState data)? loading,
-    TResult? Function(CustomerModelState data)? getCustomerSuccess,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult? Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult? Function(CustomerModelState data, String id)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
         selectCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
   }) {
-    return getCustomerSuccess?.call(data);
+    return fetchCustomerDataSuccess?.call(data);
   }
 
   @override
@@ -1114,16 +1993,26 @@ class _$_GetCustomerSuccess extends _GetCustomerSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CustomerModelState data)? initial,
     TResult Function(CustomerModelState data)? loading,
-    TResult Function(CustomerModelState data)? getCustomerSuccess,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult Function(CustomerModelState data, String id)? selectCustomerSuccess,
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
     required TResult orElse(),
   }) {
-    if (getCustomerSuccess != null) {
-      return getCustomerSuccess(data);
+    if (fetchCustomerDataSuccess != null) {
+      return fetchCustomerDataSuccess(data);
     }
     return orElse();
   }
@@ -1133,13 +2022,24 @@ class _$_GetCustomerSuccess extends _GetCustomerSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_GetCustomerSuccess value) getCustomerSuccess,
-    required TResult Function(_GetCustomerFailed value) getCustomerFailed,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
     required TResult Function(_SelectCustomerSuccess value)
         selectCustomerSuccess,
     required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
   }) {
-    return getCustomerSuccess(this);
+    return fetchCustomerDataSuccess(this);
   }
 
   @override
@@ -1147,12 +2047,20 @@ class _$_GetCustomerSuccess extends _GetCustomerSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult? Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
     TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
   }) {
-    return getCustomerSuccess?.call(this);
+    return fetchCustomerDataSuccess?.call(this);
   }
 
   @override
@@ -1160,38 +2068,44 @@ class _$_GetCustomerSuccess extends _GetCustomerSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
     TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
     required TResult orElse(),
   }) {
-    if (getCustomerSuccess != null) {
-      return getCustomerSuccess(this);
+    if (fetchCustomerDataSuccess != null) {
+      return fetchCustomerDataSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetCustomerSuccess extends CustomerState {
-  const factory _GetCustomerSuccess({required final CustomerModelState data}) =
-      _$_GetCustomerSuccess;
-  const _GetCustomerSuccess._() : super._();
+abstract class _FetchCustomerDataSuccess extends CustomerState {
+  const factory _FetchCustomerDataSuccess(
+      {required final CustomerModelState data}) = _$_FetchCustomerDataSuccess;
+  const _FetchCustomerDataSuccess._() : super._();
 
   @override
   CustomerModelState get data;
   @override
   @JsonKey(ignore: true)
-  _$$_GetCustomerSuccessCopyWith<_$_GetCustomerSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_FetchCustomerDataSuccessCopyWith<_$_FetchCustomerDataSuccess>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_GetCustomerFailedCopyWith<$Res>
+abstract class _$$_FetchCustomerDataFailedCopyWith<$Res>
     implements $CustomerStateCopyWith<$Res> {
-  factory _$$_GetCustomerFailedCopyWith(_$_GetCustomerFailed value,
-          $Res Function(_$_GetCustomerFailed) then) =
-      __$$_GetCustomerFailedCopyWithImpl<$Res>;
+  factory _$$_FetchCustomerDataFailedCopyWith(_$_FetchCustomerDataFailed value,
+          $Res Function(_$_FetchCustomerDataFailed) then) =
+      __$$_FetchCustomerDataFailedCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({CustomerModelState data, String message});
@@ -1201,11 +2115,11 @@ abstract class _$$_GetCustomerFailedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GetCustomerFailedCopyWithImpl<$Res>
-    extends _$CustomerStateCopyWithImpl<$Res, _$_GetCustomerFailed>
-    implements _$$_GetCustomerFailedCopyWith<$Res> {
-  __$$_GetCustomerFailedCopyWithImpl(
-      _$_GetCustomerFailed _value, $Res Function(_$_GetCustomerFailed) _then)
+class __$$_FetchCustomerDataFailedCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$_FetchCustomerDataFailed>
+    implements _$$_FetchCustomerDataFailedCopyWith<$Res> {
+  __$$_FetchCustomerDataFailedCopyWithImpl(_$_FetchCustomerDataFailed _value,
+      $Res Function(_$_FetchCustomerDataFailed) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1214,7 +2128,7 @@ class __$$_GetCustomerFailedCopyWithImpl<$Res>
     Object? data = null,
     Object? message = null,
   }) {
-    return _then(_$_GetCustomerFailed(
+    return _then(_$_FetchCustomerDataFailed(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1229,8 +2143,8 @@ class __$$_GetCustomerFailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetCustomerFailed extends _GetCustomerFailed {
-  const _$_GetCustomerFailed({required this.data, required this.message})
+class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
+  const _$_FetchCustomerDataFailed({required this.data, required this.message})
       : super._();
 
   @override
@@ -1240,14 +2154,14 @@ class _$_GetCustomerFailed extends _GetCustomerFailed {
 
   @override
   String toString() {
-    return 'CustomerState.getCustomerFailed(data: $data, message: $message)';
+    return 'CustomerState.fetchCustomerDataFailed(data: $data, message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetCustomerFailed &&
+            other is _$_FetchCustomerDataFailed &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -1258,24 +2172,34 @@ class _$_GetCustomerFailed extends _GetCustomerFailed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetCustomerFailedCopyWith<_$_GetCustomerFailed> get copyWith =>
-      __$$_GetCustomerFailedCopyWithImpl<_$_GetCustomerFailed>(
-          this, _$identity);
+  _$$_FetchCustomerDataFailedCopyWith<_$_FetchCustomerDataFailed>
+      get copyWith =>
+          __$$_FetchCustomerDataFailedCopyWithImpl<_$_FetchCustomerDataFailed>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(CustomerModelState data) initial,
     required TResult Function(CustomerModelState data) loading,
-    required TResult Function(CustomerModelState data) getCustomerSuccess,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
     required TResult Function(CustomerModelState data, String message)
-        getCustomerFailed,
-    required TResult Function(CustomerModelState data, String id)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
         selectCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
   }) {
-    return getCustomerFailed(data, message);
+    return fetchCustomerDataFailed(data, message);
   }
 
   @override
@@ -1283,15 +2207,24 @@ class _$_GetCustomerFailed extends _GetCustomerFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(CustomerModelState data)? initial,
     TResult? Function(CustomerModelState data)? loading,
-    TResult? Function(CustomerModelState data)? getCustomerSuccess,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult? Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult? Function(CustomerModelState data, String id)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
         selectCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
   }) {
-    return getCustomerFailed?.call(data, message);
+    return fetchCustomerDataFailed?.call(data, message);
   }
 
   @override
@@ -1299,16 +2232,26 @@ class _$_GetCustomerFailed extends _GetCustomerFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CustomerModelState data)? initial,
     TResult Function(CustomerModelState data)? loading,
-    TResult Function(CustomerModelState data)? getCustomerSuccess,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult Function(CustomerModelState data, String id)? selectCustomerSuccess,
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
     required TResult orElse(),
   }) {
-    if (getCustomerFailed != null) {
-      return getCustomerFailed(data, message);
+    if (fetchCustomerDataFailed != null) {
+      return fetchCustomerDataFailed(data, message);
     }
     return orElse();
   }
@@ -1318,13 +2261,24 @@ class _$_GetCustomerFailed extends _GetCustomerFailed {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_GetCustomerSuccess value) getCustomerSuccess,
-    required TResult Function(_GetCustomerFailed value) getCustomerFailed,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
     required TResult Function(_SelectCustomerSuccess value)
         selectCustomerSuccess,
     required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
   }) {
-    return getCustomerFailed(this);
+    return fetchCustomerDataFailed(this);
   }
 
   @override
@@ -1332,12 +2286,20 @@ class _$_GetCustomerFailed extends _GetCustomerFailed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult? Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
     TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
   }) {
-    return getCustomerFailed?.call(this);
+    return fetchCustomerDataFailed?.call(this);
   }
 
   @override
@@ -1345,32 +2307,532 @@ class _$_GetCustomerFailed extends _GetCustomerFailed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
     TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
     required TResult orElse(),
   }) {
-    if (getCustomerFailed != null) {
-      return getCustomerFailed(this);
+    if (fetchCustomerDataFailed != null) {
+      return fetchCustomerDataFailed(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetCustomerFailed extends CustomerState {
-  const factory _GetCustomerFailed(
+abstract class _FetchCustomerDataFailed extends CustomerState {
+  const factory _FetchCustomerDataFailed(
       {required final CustomerModelState data,
-      required final String message}) = _$_GetCustomerFailed;
-  const _GetCustomerFailed._() : super._();
+      required final String message}) = _$_FetchCustomerDataFailed;
+  const _FetchCustomerDataFailed._() : super._();
 
   @override
   CustomerModelState get data;
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_GetCustomerFailedCopyWith<_$_GetCustomerFailed> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_FetchCustomerDataFailedCopyWith<_$_FetchCustomerDataFailed>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_OpenCustomerDetailSuccessCopyWith<$Res>
+    implements $CustomerStateCopyWith<$Res> {
+  factory _$$_OpenCustomerDetailSuccessCopyWith(
+          _$_OpenCustomerDetailSuccess value,
+          $Res Function(_$_OpenCustomerDetailSuccess) then) =
+      __$$_OpenCustomerDetailSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CustomerModelState data, Customer customer});
+
+  @override
+  $CustomerModelStateCopyWith<$Res> get data;
+  $CustomerCopyWith<$Res> get customer;
+}
+
+/// @nodoc
+class __$$_OpenCustomerDetailSuccessCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$_OpenCustomerDetailSuccess>
+    implements _$$_OpenCustomerDetailSuccessCopyWith<$Res> {
+  __$$_OpenCustomerDetailSuccessCopyWithImpl(
+      _$_OpenCustomerDetailSuccess _value,
+      $Res Function(_$_OpenCustomerDetailSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? customer = null,
+  }) {
+    return _then(_$_OpenCustomerDetailSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CustomerModelState,
+      customer: null == customer
+          ? _value.customer
+          : customer // ignore: cast_nullable_to_non_nullable
+              as Customer,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CustomerCopyWith<$Res> get customer {
+    return $CustomerCopyWith<$Res>(_value.customer, (value) {
+      return _then(_value.copyWith(customer: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_OpenCustomerDetailSuccess extends _OpenCustomerDetailSuccess {
+  const _$_OpenCustomerDetailSuccess(
+      {required this.data, required this.customer})
+      : super._();
+
+  @override
+  final CustomerModelState data;
+  @override
+  final Customer customer;
+
+  @override
+  String toString() {
+    return 'CustomerState.openCustomerDetailSuccess(data: $data, customer: $customer)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OpenCustomerDetailSuccess &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.customer, customer) ||
+                other.customer == customer));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, customer);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_OpenCustomerDetailSuccessCopyWith<_$_OpenCustomerDetailSuccess>
+      get copyWith => __$$_OpenCustomerDetailSuccessCopyWithImpl<
+          _$_OpenCustomerDetailSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CustomerModelState data) initial,
+    required TResult Function(CustomerModelState data) loading,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        selectCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
+  }) {
+    return openCustomerDetailSuccess(data, customer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CustomerModelState data)? initial,
+    TResult? Function(CustomerModelState data)? loading,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+  }) {
+    return openCustomerDetailSuccess?.call(data, customer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CustomerModelState data)? initial,
+    TResult Function(CustomerModelState data)? loading,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+    required TResult orElse(),
+  }) {
+    if (openCustomerDetailSuccess != null) {
+      return openCustomerDetailSuccess(data, customer);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
+    required TResult Function(_SelectCustomerSuccess value)
+        selectCustomerSuccess,
+    required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
+  }) {
+    return openCustomerDetailSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
+    TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+  }) {
+    return openCustomerDetailSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
+    TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+    required TResult orElse(),
+  }) {
+    if (openCustomerDetailSuccess != null) {
+      return openCustomerDetailSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenCustomerDetailSuccess extends CustomerState {
+  const factory _OpenCustomerDetailSuccess(
+      {required final CustomerModelState data,
+      required final Customer customer}) = _$_OpenCustomerDetailSuccess;
+  const _OpenCustomerDetailSuccess._() : super._();
+
+  @override
+  CustomerModelState get data;
+  Customer get customer;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OpenCustomerDetailSuccessCopyWith<_$_OpenCustomerDetailSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_OpenCustomerDetailFailedCopyWith<$Res>
+    implements $CustomerStateCopyWith<$Res> {
+  factory _$$_OpenCustomerDetailFailedCopyWith(
+          _$_OpenCustomerDetailFailed value,
+          $Res Function(_$_OpenCustomerDetailFailed) then) =
+      __$$_OpenCustomerDetailFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CustomerModelState data, String message});
+
+  @override
+  $CustomerModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_OpenCustomerDetailFailedCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$_OpenCustomerDetailFailed>
+    implements _$$_OpenCustomerDetailFailedCopyWith<$Res> {
+  __$$_OpenCustomerDetailFailedCopyWithImpl(_$_OpenCustomerDetailFailed _value,
+      $Res Function(_$_OpenCustomerDetailFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_OpenCustomerDetailFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CustomerModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_OpenCustomerDetailFailed extends _OpenCustomerDetailFailed {
+  const _$_OpenCustomerDetailFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final CustomerModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'CustomerState.openCustomerDetailFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OpenCustomerDetailFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_OpenCustomerDetailFailedCopyWith<_$_OpenCustomerDetailFailed>
+      get copyWith => __$$_OpenCustomerDetailFailedCopyWithImpl<
+          _$_OpenCustomerDetailFailed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CustomerModelState data) initial,
+    required TResult Function(CustomerModelState data) loading,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        selectCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
+  }) {
+    return openCustomerDetailFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CustomerModelState data)? initial,
+    TResult? Function(CustomerModelState data)? loading,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+  }) {
+    return openCustomerDetailFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CustomerModelState data)? initial,
+    TResult Function(CustomerModelState data)? loading,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+    required TResult orElse(),
+  }) {
+    if (openCustomerDetailFailed != null) {
+      return openCustomerDetailFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
+    required TResult Function(_SelectCustomerSuccess value)
+        selectCustomerSuccess,
+    required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
+  }) {
+    return openCustomerDetailFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
+    TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+  }) {
+    return openCustomerDetailFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
+    TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+    required TResult orElse(),
+  }) {
+    if (openCustomerDetailFailed != null) {
+      return openCustomerDetailFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenCustomerDetailFailed extends CustomerState {
+  const factory _OpenCustomerDetailFailed(
+      {required final CustomerModelState data,
+      required final String message}) = _$_OpenCustomerDetailFailed;
+  const _OpenCustomerDetailFailed._() : super._();
+
+  @override
+  CustomerModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OpenCustomerDetailFailedCopyWith<_$_OpenCustomerDetailFailed>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1381,10 +2843,11 @@ abstract class _$$_SelectCustomerSuccessCopyWith<$Res>
       __$$_SelectCustomerSuccessCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CustomerModelState data, String id});
+  $Res call({CustomerModelState data, Customer customer});
 
   @override
   $CustomerModelStateCopyWith<$Res> get data;
+  $CustomerCopyWith<$Res> get customer;
 }
 
 /// @nodoc
@@ -1399,35 +2862,43 @@ class __$$_SelectCustomerSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
-    Object? id = null,
+    Object? customer = null,
   }) {
     return _then(_$_SelectCustomerSuccess(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as CustomerModelState,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
+      customer: null == customer
+          ? _value.customer
+          : customer // ignore: cast_nullable_to_non_nullable
+              as Customer,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CustomerCopyWith<$Res> get customer {
+    return $CustomerCopyWith<$Res>(_value.customer, (value) {
+      return _then(_value.copyWith(customer: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
-  const _$_SelectCustomerSuccess({required this.data, required this.id})
+  const _$_SelectCustomerSuccess({required this.data, required this.customer})
       : super._();
 
   @override
   final CustomerModelState data;
   @override
-  final String id;
+  final Customer customer;
 
   @override
   String toString() {
-    return 'CustomerState.selectCustomerSuccess(data: $data, id: $id)';
+    return 'CustomerState.selectCustomerSuccess(data: $data, customer: $customer)';
   }
 
   @override
@@ -1436,11 +2907,12 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
         (other.runtimeType == runtimeType &&
             other is _$_SelectCustomerSuccess &&
             (identical(other.data, data) || other.data == data) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.customer, customer) ||
+                other.customer == customer));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data, id);
+  int get hashCode => Object.hash(runtimeType, data, customer);
 
   @JsonKey(ignore: true)
   @override
@@ -1454,15 +2926,24 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(CustomerModelState data) initial,
     required TResult Function(CustomerModelState data) loading,
-    required TResult Function(CustomerModelState data) getCustomerSuccess,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
     required TResult Function(CustomerModelState data, String message)
-        getCustomerFailed,
-    required TResult Function(CustomerModelState data, String id)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
         selectCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
   }) {
-    return selectCustomerSuccess(data, id);
+    return selectCustomerSuccess(data, customer);
   }
 
   @override
@@ -1470,15 +2951,24 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(CustomerModelState data)? initial,
     TResult? Function(CustomerModelState data)? loading,
-    TResult? Function(CustomerModelState data)? getCustomerSuccess,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult? Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult? Function(CustomerModelState data, String id)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
         selectCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
   }) {
-    return selectCustomerSuccess?.call(data, id);
+    return selectCustomerSuccess?.call(data, customer);
   }
 
   @override
@@ -1486,16 +2976,26 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CustomerModelState data)? initial,
     TResult Function(CustomerModelState data)? loading,
-    TResult Function(CustomerModelState data)? getCustomerSuccess,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult Function(CustomerModelState data, String id)? selectCustomerSuccess,
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
     required TResult orElse(),
   }) {
     if (selectCustomerSuccess != null) {
-      return selectCustomerSuccess(data, id);
+      return selectCustomerSuccess(data, customer);
     }
     return orElse();
   }
@@ -1505,11 +3005,22 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_GetCustomerSuccess value) getCustomerSuccess,
-    required TResult Function(_GetCustomerFailed value) getCustomerFailed,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
     required TResult Function(_SelectCustomerSuccess value)
         selectCustomerSuccess,
     required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
   }) {
     return selectCustomerSuccess(this);
   }
@@ -1519,10 +3030,18 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult? Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
     TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
   }) {
     return selectCustomerSuccess?.call(this);
   }
@@ -1532,10 +3051,16 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
     TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
     required TResult orElse(),
   }) {
     if (selectCustomerSuccess != null) {
@@ -1548,12 +3073,12 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
 abstract class _SelectCustomerSuccess extends CustomerState {
   const factory _SelectCustomerSuccess(
       {required final CustomerModelState data,
-      required final String id}) = _$_SelectCustomerSuccess;
+      required final Customer customer}) = _$_SelectCustomerSuccess;
   const _SelectCustomerSuccess._() : super._();
 
   @override
   CustomerModelState get data;
-  String get id;
+  Customer get customer;
   @override
   @JsonKey(ignore: true)
   _$$_SelectCustomerSuccessCopyWith<_$_SelectCustomerSuccess> get copyWith =>
@@ -1641,13 +3166,22 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
   TResult when<TResult extends Object?>({
     required TResult Function(CustomerModelState data) initial,
     required TResult Function(CustomerModelState data) loading,
-    required TResult Function(CustomerModelState data) getCustomerSuccess,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
     required TResult Function(CustomerModelState data, String message)
-        getCustomerFailed,
-    required TResult Function(CustomerModelState data, String id)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
         selectCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
   }) {
     return selectCustomerFailed(data, message);
   }
@@ -1657,13 +3191,22 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(CustomerModelState data)? initial,
     TResult? Function(CustomerModelState data)? loading,
-    TResult? Function(CustomerModelState data)? getCustomerSuccess,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult? Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult? Function(CustomerModelState data, String id)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
         selectCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
   }) {
     return selectCustomerFailed?.call(data, message);
   }
@@ -1673,12 +3216,22 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CustomerModelState data)? initial,
     TResult Function(CustomerModelState data)? loading,
-    TResult Function(CustomerModelState data)? getCustomerSuccess,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
     TResult Function(CustomerModelState data, String message)?
-        getCustomerFailed,
-    TResult Function(CustomerModelState data, String id)? selectCustomerSuccess,
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
     required TResult orElse(),
   }) {
     if (selectCustomerFailed != null) {
@@ -1692,11 +3245,22 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_GetCustomerSuccess value) getCustomerSuccess,
-    required TResult Function(_GetCustomerFailed value) getCustomerFailed,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
     required TResult Function(_SelectCustomerSuccess value)
         selectCustomerSuccess,
     required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
   }) {
     return selectCustomerFailed(this);
   }
@@ -1706,10 +3270,18 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult? Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
     TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
   }) {
     return selectCustomerFailed?.call(this);
   }
@@ -1719,10 +3291,16 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_GetCustomerSuccess value)? getCustomerSuccess,
-    TResult Function(_GetCustomerFailed value)? getCustomerFailed,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
     TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
     required TResult orElse(),
   }) {
     if (selectCustomerFailed != null) {
@@ -1745,4 +3323,714 @@ abstract class _SelectCustomerFailed extends CustomerState {
   @JsonKey(ignore: true)
   _$$_SelectCustomerFailedCopyWith<_$_SelectCustomerFailed> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_DeleteCustomerSuccessCopyWith<$Res>
+    implements $CustomerStateCopyWith<$Res> {
+  factory _$$_DeleteCustomerSuccessCopyWith(_$_DeleteCustomerSuccess value,
+          $Res Function(_$_DeleteCustomerSuccess) then) =
+      __$$_DeleteCustomerSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CustomerModelState data});
+
+  @override
+  $CustomerModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_DeleteCustomerSuccessCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$_DeleteCustomerSuccess>
+    implements _$$_DeleteCustomerSuccessCopyWith<$Res> {
+  __$$_DeleteCustomerSuccessCopyWithImpl(_$_DeleteCustomerSuccess _value,
+      $Res Function(_$_DeleteCustomerSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_DeleteCustomerSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CustomerModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DeleteCustomerSuccess extends _DeleteCustomerSuccess {
+  const _$_DeleteCustomerSuccess({required this.data}) : super._();
+
+  @override
+  final CustomerModelState data;
+
+  @override
+  String toString() {
+    return 'CustomerState.deleteCustomerSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DeleteCustomerSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DeleteCustomerSuccessCopyWith<_$_DeleteCustomerSuccess> get copyWith =>
+      __$$_DeleteCustomerSuccessCopyWithImpl<_$_DeleteCustomerSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CustomerModelState data) initial,
+    required TResult Function(CustomerModelState data) loading,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        selectCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
+  }) {
+    return deleteCustomerSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CustomerModelState data)? initial,
+    TResult? Function(CustomerModelState data)? loading,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+  }) {
+    return deleteCustomerSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CustomerModelState data)? initial,
+    TResult Function(CustomerModelState data)? loading,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+    required TResult orElse(),
+  }) {
+    if (deleteCustomerSuccess != null) {
+      return deleteCustomerSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
+    required TResult Function(_SelectCustomerSuccess value)
+        selectCustomerSuccess,
+    required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
+  }) {
+    return deleteCustomerSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
+    TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+  }) {
+    return deleteCustomerSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
+    TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+    required TResult orElse(),
+  }) {
+    if (deleteCustomerSuccess != null) {
+      return deleteCustomerSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteCustomerSuccess extends CustomerState {
+  const factory _DeleteCustomerSuccess(
+      {required final CustomerModelState data}) = _$_DeleteCustomerSuccess;
+  const _DeleteCustomerSuccess._() : super._();
+
+  @override
+  CustomerModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_DeleteCustomerSuccessCopyWith<_$_DeleteCustomerSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_DeleteCustomerFailedCopyWith<$Res>
+    implements $CustomerStateCopyWith<$Res> {
+  factory _$$_DeleteCustomerFailedCopyWith(_$_DeleteCustomerFailed value,
+          $Res Function(_$_DeleteCustomerFailed) then) =
+      __$$_DeleteCustomerFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CustomerModelState data, String message});
+
+  @override
+  $CustomerModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_DeleteCustomerFailedCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$_DeleteCustomerFailed>
+    implements _$$_DeleteCustomerFailedCopyWith<$Res> {
+  __$$_DeleteCustomerFailedCopyWithImpl(_$_DeleteCustomerFailed _value,
+      $Res Function(_$_DeleteCustomerFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_DeleteCustomerFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CustomerModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DeleteCustomerFailed extends _DeleteCustomerFailed {
+  const _$_DeleteCustomerFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final CustomerModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'CustomerState.deleteCustomerFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DeleteCustomerFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DeleteCustomerFailedCopyWith<_$_DeleteCustomerFailed> get copyWith =>
+      __$$_DeleteCustomerFailedCopyWithImpl<_$_DeleteCustomerFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CustomerModelState data) initial,
+    required TResult Function(CustomerModelState data) loading,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        selectCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
+  }) {
+    return deleteCustomerFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CustomerModelState data)? initial,
+    TResult? Function(CustomerModelState data)? loading,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+  }) {
+    return deleteCustomerFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CustomerModelState data)? initial,
+    TResult Function(CustomerModelState data)? loading,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+    required TResult orElse(),
+  }) {
+    if (deleteCustomerFailed != null) {
+      return deleteCustomerFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
+    required TResult Function(_SelectCustomerSuccess value)
+        selectCustomerSuccess,
+    required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
+  }) {
+    return deleteCustomerFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
+    TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+  }) {
+    return deleteCustomerFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
+    TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+    required TResult orElse(),
+  }) {
+    if (deleteCustomerFailed != null) {
+      return deleteCustomerFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteCustomerFailed extends CustomerState {
+  const factory _DeleteCustomerFailed(
+      {required final CustomerModelState data,
+      required final String message}) = _$_DeleteCustomerFailed;
+  const _DeleteCustomerFailed._() : super._();
+
+  @override
+  CustomerModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_DeleteCustomerFailedCopyWith<_$_DeleteCustomerFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_OpenCustomerAddEditPageCopyWith<$Res>
+    implements $CustomerStateCopyWith<$Res> {
+  factory _$$_OpenCustomerAddEditPageCopyWith(_$_OpenCustomerAddEditPage value,
+          $Res Function(_$_OpenCustomerAddEditPage) then) =
+      __$$_OpenCustomerAddEditPageCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CustomerModelState data, String message});
+
+  @override
+  $CustomerModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_OpenCustomerAddEditPageCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$_OpenCustomerAddEditPage>
+    implements _$$_OpenCustomerAddEditPageCopyWith<$Res> {
+  __$$_OpenCustomerAddEditPageCopyWithImpl(_$_OpenCustomerAddEditPage _value,
+      $Res Function(_$_OpenCustomerAddEditPage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_OpenCustomerAddEditPage(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CustomerModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_OpenCustomerAddEditPage extends _OpenCustomerAddEditPage {
+  const _$_OpenCustomerAddEditPage({required this.data, required this.message})
+      : super._();
+
+  @override
+  final CustomerModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'CustomerState.openCustomerAddEditPage(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OpenCustomerAddEditPage &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_OpenCustomerAddEditPageCopyWith<_$_OpenCustomerAddEditPage>
+      get copyWith =>
+          __$$_OpenCustomerAddEditPageCopyWithImpl<_$_OpenCustomerAddEditPage>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CustomerModelState data) initial,
+    required TResult Function(CustomerModelState data) loading,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        selectCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
+  }) {
+    return openCustomerAddEditPage(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CustomerModelState data)? initial,
+    TResult? Function(CustomerModelState data)? loading,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+  }) {
+    return openCustomerAddEditPage?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CustomerModelState data)? initial,
+    TResult Function(CustomerModelState data)? loading,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+    required TResult orElse(),
+  }) {
+    if (openCustomerAddEditPage != null) {
+      return openCustomerAddEditPage(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
+    required TResult Function(_SelectCustomerSuccess value)
+        selectCustomerSuccess,
+    required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
+  }) {
+    return openCustomerAddEditPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
+    TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+  }) {
+    return openCustomerAddEditPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
+    TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+    required TResult orElse(),
+  }) {
+    if (openCustomerAddEditPage != null) {
+      return openCustomerAddEditPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenCustomerAddEditPage extends CustomerState {
+  const factory _OpenCustomerAddEditPage(
+      {required final CustomerModelState data,
+      required final String message}) = _$_OpenCustomerAddEditPage;
+  const _OpenCustomerAddEditPage._() : super._();
+
+  @override
+  CustomerModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OpenCustomerAddEditPageCopyWith<_$_OpenCustomerAddEditPage>
+      get copyWith => throw _privateConstructorUsedError;
 }

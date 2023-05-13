@@ -172,7 +172,7 @@
     "totalPayment": "Total Payment",
     "payment": "Payment",
     "flightAdmin": "Flight Admin",
-    "welcomeoFlightAdmin": "Welcome to Flight Admin"
-
+    "welcomeoFlightAdmin": "Welcome to Flight Admin",
+    "customerInformation":"Customer Information"
 
 }

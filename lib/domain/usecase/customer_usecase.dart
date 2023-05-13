@@ -9,6 +9,10 @@ class CustomerUseCase {
   CustomerUseCase(this._customerRepository);
 
   Future<List<Customer>> fetchAllCustomer() async {
-    return _customerRepository.getAllCustomers().toList();
+    return await _customerRepository.getAllCustomers();
+  }
+
+  Future<Customer?> getCustomerById(String id) async {
+    return _customerRepository.getCustomerById(id);
   }
 }
