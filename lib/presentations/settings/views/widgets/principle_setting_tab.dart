@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import '../../../core/config/common_ui_config.dart';
-import '../../../generated/l10n.dart';
+import '../../../../core/config/common_ui_config.dart';
+import '../../../../generated/l10n.dart';
 import 'custom_textfield.dart';
 import 'dropdown_button_custom.dart';
 
@@ -554,10 +554,9 @@ class _PrincipleSettingTabState extends State<PrincipleSettingTab> {
                   thickness: 1,
                   color: Theme.of(context).dividerColor,
                 ),
-                Wrap(
-                  direction:
-                      widthDevice < 500 ? Axis.vertical : Axis.horizontal,
-                  crossAxisAlignment: WrapCrossAlignment.start,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Image.asset(
                       'images/plane-ticket.png',
@@ -628,7 +627,6 @@ class _PrincipleSettingTabState extends State<PrincipleSettingTab> {
                         ],
                       ),
                     ),
-                    const Spacer(),
                   ],
                 ),
               ],

@@ -1,14 +1,15 @@
 import 'package:flight_booking/core/config/common_ui_config.dart';
-import 'package:flight_booking/presentations/settings/widgets/custom_textfield.dart';
+import 'package:flight_booking/presentations/settings/views/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
-import '../../../generated/l10n.dart';
+import '../../../../generated/l10n.dart';
 
 // ignore: must_be_immutable
 class AccountSettingTab extends StatelessWidget {
   const AccountSettingTab({super.key});
 
   final bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(

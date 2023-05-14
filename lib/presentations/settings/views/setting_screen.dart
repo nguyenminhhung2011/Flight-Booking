@@ -1,12 +1,14 @@
 import 'package:flight_booking/core/config/common_ui_config.dart';
+import 'package:flight_booking/core/dependency_injection/di.dart';
 import 'package:flight_booking/generated/l10n.dart';
+import 'package:flight_booking/presentations/settings/bloc/general/general_setting_bloc.dart';
 import 'package:flight_booking/presentations/settings/bloc/setting_bloc.dart';
-import 'package:flight_booking/presentations/settings/widgets/account_setting_tab.dart';
-import 'package:flight_booking/presentations/settings/widgets/general_setting_tab.dart';
-import 'package:flight_booking/presentations/settings/widgets/principle_setting_tab.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flight_booking/presentations/settings/views/widgets/account_setting_tab.dart';
+import 'package:flight_booking/presentations/settings/views/widgets/general_setting_tab.dart';
+import 'package:flight_booking/presentations/settings/views/widgets/principle_setting_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -33,7 +35,8 @@ class _SettingScreenState extends State<SettingScreen> {
     },
   ];
 
-  final PageController pageController = PageController(initialPage: 0);
+  final PageController pageController =
+      PageController(initialPage: 0, keepPage: true);
 
   final List<Widget> pages = [
     const GeneralSettingsTab(),
@@ -47,13 +50,16 @@ class _SettingScreenState extends State<SettingScreen> {
     super.initState();
   }
 
+  int _currentIndex = 0;
+
   void _stateChangeListener(BuildContext context, SettingState state) {
     state.whenOrNull(
       initial: (data) {},
       switchTab: (data) {
         WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-          Future.delayed(const Duration(milliseconds: 80),
-              () => pageController.jumpToPage(data.currentPage));
+          setState(() {
+            _currentIndex = data.currentPage;
+          });
         });
       },
     );
@@ -62,7 +68,6 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     final widthDevice = MediaQuery.of(context).size.width;
-
     return BlocListener<SettingBloc, SettingState>(
       listener: _stateChangeListener,
       child: Scaffold(
@@ -116,10 +121,16 @@ class _SettingScreenState extends State<SettingScreen> {
                           width: 1, color: Theme.of(context).dividerColor),
                       borderRadius: CommonAppUIConfig.primaryRadiusBorder,
                     ),
-                    child: PageView(
-                      physics: const NeverScrollableScrollPhysics(),
-                      controller: pageController,
-                      children: pages,
+                    child: MultiProvider(
+                      providers: [
+                        BlocProvider<GeneralSettingBloc>(
+                            create: (context) => injector()),
+                      ],
+                      child: IndexedStack(
+                        sizing: StackFit.loose,
+                        index: _currentIndex,
+                        children: pages,
+                      ),
                     ),
                   ),
                 ),

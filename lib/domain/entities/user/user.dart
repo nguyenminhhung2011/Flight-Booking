@@ -13,4 +13,14 @@ class User with _$User {
     required String email,
     required String phone,
   }) = _User;
+
+  static final User empty = User(
+    id: "id",
+    username: "username",
+    password: "password",
+    name: "name",
+    birthday: DateTime.now(),
+    email: "email",
+    phone: "phone",
+  );
 }
