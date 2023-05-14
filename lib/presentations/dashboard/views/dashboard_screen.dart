@@ -158,9 +158,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(onWillPop: () async {
-      if (context.read<DashboardBloc>().state.data.viewEnum != 0) {
-        // context.start(0);
-      }
+      if (context.read<DashboardBloc>().state.data.viewEnum != 0) {}
       return true;
     }, child: BlocBuilder<DashboardBloc, DashboardState>(
       builder: (context, sate) {

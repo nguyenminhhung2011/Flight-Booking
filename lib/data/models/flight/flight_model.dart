@@ -16,6 +16,7 @@ class FlightModel {
   final int timeEnd;
   @JsonKey(name: 'NoCustomer')
   final int noCustomer;
+
   FlightModel(
     this.id,
     this.idStartAirport,
