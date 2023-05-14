@@ -1,5 +1,11 @@
 import 'dart:math';
 
+import 'package:flight_booking/core/components/const/image_const.dart';
+import 'package:flight_booking/core/components/widgets/coor_extension.dart';
+import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
+import 'package:flutter/material.dart';
+
 import '../../generated/l10n.dart';
 
 List<String> weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -50,6 +56,59 @@ List<String> mockDataImag = [
   'https://www.travelandleisure.com/thmb/qUyMl5D6VbtM9hxxtBlFMAY5cCU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/portland-international-airport-00-USAIRPORTSWB21-35b7a73d8c0c4a86a9f9e5b27a7c3bbe.jpg',
   'https://www.szairport.com/szairporten/xhtml/images/index-pic-01.jpg',
   'https://media.cnn.com/api/v1/images/stellar/prod/230314215301-03-world-best-airports-2023.jpg?c=original&q=w_1280,c_fill',
+];
+List<Map<String, dynamic>> dashboardItem = [
+  {
+    'icon': ImageConst.homeIcon,
+    'tit': 'Home',
+    'index': 0,
+    'screen': const HomeMobileScreen(),
+  },
+  {
+    'icon': ImageConst.searchIcon,
+    'tit': 'Search',
+    'index': 1,
+    'screen': const SizedBox()
+  },
+  {
+    'icon': ImageConst.documentIcon,
+    'tit': 'Favorite',
+    'index': 2,
+    'screen': const SizedBox()
+  },
+  {
+    'icon': ImageConst.personIcon,
+    'tit': 'Profile',
+    'index': 3,
+    'screen': const SizedBox()
+  },
+];
+
+List<Map<String, dynamic>> mockCategory = [
+  {
+    'text': 'Hotels',
+    'icon': ImageConst.hotel,
+    'color': '#ffd3b5ff'.toColor(),
+    'route': RoutesMobile.listFlightMobile,
+  },
+  {
+    'text': 'Flight',
+    'icon': ImageConst.airplaneIcon,
+    'color': '#ffffc0ee'.toColor(),
+    'route': RoutesMobile.listFlightMobile,
+  },
+  {
+    'text': 'Trips',
+    'icon': ImageConst.trip,
+    'color': '#ffffdab5'.toColor(),
+    'route': RoutesMobile.listFlightMobile,
+  },
+  {
+    'text': 'Ticket',
+    'icon': ImageConst.tic,
+    'color': '#ff97d5ff'.toColor(),
+    'route': RoutesMobile.listFlightMobile,
+  },
 ];
 List<String> sogun = [
   'Manage Customer',

@@ -20,6 +20,8 @@ part 'add_edit_airport_event.dart';
 part 'add_edit_airport_bloc.freezed.dart';
 
 const _idNull = '';
+const _imageNull = '';
+const _messageNull = '';
 
 @injectable
 class AddEditAirportBloc
@@ -121,7 +123,7 @@ class AddEditAirportBloc
     try {
       final newAirport = Airport(
         id: event.id,
-        image: '',
+        image: _imageNull,
         location: data.location.text,
         name: data.name.text,
       );
@@ -150,7 +152,7 @@ class AddEditAirportBloc
       String id = randomString();
       final newAirport = Airport(
         id: id,
-        image: '',
+        image: _imageNull,
         location: data.location.text,
         name: data.name.text,
       );
@@ -168,7 +170,7 @@ class AddEditAirportBloc
       if (add == null) {
         emit(AddEditAirportState.addNewAirportFailed(
           data: state.data,
-          message: '',
+          message: _messageNull,
         ));
         return;
       }
