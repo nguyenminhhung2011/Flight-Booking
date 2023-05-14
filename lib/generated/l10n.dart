@@ -1779,6 +1779,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Go Tour`
+  String get goTour {
+    return Intl.message(
+      'Go Tour',
+      name: 'goTour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You 'll easily book your bedroom, flights, train, bus and hotels`
+  String get sologan {
+    return Intl.message(
+      'You \'ll easily book your bedroom, flights, train, bus and hotels',
+      name: 'sologan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recomend Airport`
+  String get recomendAirport {
+    return Intl.message(
+      'Recomend Airport',
+      name: 'recomendAirport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See more`
+  String get seeMore {
+    return Intl.message(
+      'See more',
+      name: 'seeMore',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

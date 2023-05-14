@@ -172,7 +172,10 @@
     "totalPayment": "Total Payment",
     "payment": "Payment",
     "flightAdmin": "Flight Admin",
-    "welcomeoFlightAdmin": "Welcome to Flight Admin"
-
+    "welcomeoFlightAdmin": "Welcome to Flight Admin",
+    "goTour": "Go Tour",
+    "sologan": "You 'll easily book your bedroom, flights, train, bus and hotels",
+    "recomendAirport": "Recomend Airport",
+    "seeMore": "See more"
 
 }

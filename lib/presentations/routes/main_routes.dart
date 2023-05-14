@@ -1,4 +1,3 @@
-import 'package:flight_booking/domain/entities/customer/customer.dart';
 import 'package:flight_booking/presentations/customer/views/widgets/customer_detail_screen.dart';
 import 'package:flight_booking/presentations/dashboard/views/dashboard_screen.dart';
 import 'package:flight_booking/presentations/login/views/login_screen.dart';

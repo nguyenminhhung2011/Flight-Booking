@@ -149,6 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
         "generalSetting":
             MessageLookupByLibrary.simpleMessage("General Settings"),
+        "goTour": MessageLookupByLibrary.simpleMessage("Go Tour"),
         "hideInformation":
             MessageLookupByLibrary.simpleMessage("Hide Information"),
         "hours": MessageLookupByLibrary.simpleMessage("Hours"),
@@ -215,6 +216,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "principleSetting":
             MessageLookupByLibrary.simpleMessage("Principle Setting"),
+        "recomendAirport":
+            MessageLookupByLibrary.simpleMessage("Recomend Airport"),
         "reenterPassword":
             MessageLookupByLibrary.simpleMessage("Reenter Password"),
         "reenterYourPassword":
@@ -231,11 +234,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchAnything":
             MessageLookupByLibrary.simpleMessage("Search Anything..."),
         "seat": MessageLookupByLibrary.simpleMessage("Seat"),
+        "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
         "sentVerificationEmail":
             MessageLookupByLibrary.simpleMessage("Sent Verification Email"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "showMoreInformation":
             MessageLookupByLibrary.simpleMessage("Show more Information"),
+        "sologan": MessageLookupByLibrary.simpleMessage(
+            "You \'ll easily book your bedroom, flights, train, bus and hotels"),
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),
