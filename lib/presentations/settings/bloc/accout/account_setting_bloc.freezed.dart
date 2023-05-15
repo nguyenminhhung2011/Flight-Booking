@@ -20,21 +20,27 @@ mixin _$AccountSettingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function() fetchUserData,
-    required TResult Function() updateUserData,
+    required TResult Function(
+            String password, String newPassword, String retypePassword)
+        updateUserData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function()? fetchUserData,
-    TResult? Function()? updateUserData,
+    TResult? Function(
+            String password, String newPassword, String retypePassword)?
+        updateUserData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function()? fetchUserData,
-    TResult Function()? updateUserData,
+    TResult Function(
+            String password, String newPassword, String retypePassword)?
+        updateUserData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +126,9 @@ class _$_OnStarted extends _OnStarted {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function() fetchUserData,
-    required TResult Function() updateUserData,
+    required TResult Function(
+            String password, String newPassword, String retypePassword)
+        updateUserData,
   }) {
     return onStarted();
   }
@@ -130,7 +138,9 @@ class _$_OnStarted extends _OnStarted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function()? fetchUserData,
-    TResult? Function()? updateUserData,
+    TResult? Function(
+            String password, String newPassword, String retypePassword)?
+        updateUserData,
   }) {
     return onStarted?.call();
   }
@@ -140,7 +150,9 @@ class _$_OnStarted extends _OnStarted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function()? fetchUserData,
-    TResult Function()? updateUserData,
+    TResult Function(
+            String password, String newPassword, String retypePassword)?
+        updateUserData,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -229,7 +241,9 @@ class _$_FetchUserData extends _FetchUserData {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function() fetchUserData,
-    required TResult Function() updateUserData,
+    required TResult Function(
+            String password, String newPassword, String retypePassword)
+        updateUserData,
   }) {
     return fetchUserData();
   }
@@ -239,7 +253,9 @@ class _$_FetchUserData extends _FetchUserData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function()? fetchUserData,
-    TResult? Function()? updateUserData,
+    TResult? Function(
+            String password, String newPassword, String retypePassword)?
+        updateUserData,
   }) {
     return fetchUserData?.call();
   }
@@ -249,7 +265,9 @@ class _$_FetchUserData extends _FetchUserData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function()? fetchUserData,
-    TResult Function()? updateUserData,
+    TResult Function(
+            String password, String newPassword, String retypePassword)?
+        updateUserData,
     required TResult orElse(),
   }) {
     if (fetchUserData != null) {
@@ -303,6 +321,8 @@ abstract class _$$_UpdateUserDataCopyWith<$Res> {
   factory _$$_UpdateUserDataCopyWith(
           _$_UpdateUserData value, $Res Function(_$_UpdateUserData) then) =
       __$$_UpdateUserDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String password, String newPassword, String retypePassword});
 }
 
 /// @nodoc
@@ -312,35 +332,85 @@ class __$$_UpdateUserDataCopyWithImpl<$Res>
   __$$_UpdateUserDataCopyWithImpl(
       _$_UpdateUserData _value, $Res Function(_$_UpdateUserData) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? password = null,
+    Object? newPassword = null,
+    Object? retypePassword = null,
+  }) {
+    return _then(_$_UpdateUserData(
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      newPassword: null == newPassword
+          ? _value.newPassword
+          : newPassword // ignore: cast_nullable_to_non_nullable
+              as String,
+      retypePassword: null == retypePassword
+          ? _value.retypePassword
+          : retypePassword // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_UpdateUserData extends _UpdateUserData {
-  const _$_UpdateUserData() : super._();
+  const _$_UpdateUserData(
+      {required this.password,
+      required this.newPassword,
+      required this.retypePassword})
+      : super._();
+
+  @override
+  final String password;
+  @override
+  final String newPassword;
+  @override
+  final String retypePassword;
 
   @override
   String toString() {
-    return 'AccountSettingEvent.updateUserData()';
+    return 'AccountSettingEvent.updateUserData(password: $password, newPassword: $newPassword, retypePassword: $retypePassword)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_UpdateUserData);
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateUserData &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.newPassword, newPassword) ||
+                other.newPassword == newPassword) &&
+            (identical(other.retypePassword, retypePassword) ||
+                other.retypePassword == retypePassword));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, password, newPassword, retypePassword);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateUserDataCopyWith<_$_UpdateUserData> get copyWith =>
+      __$$_UpdateUserDataCopyWithImpl<_$_UpdateUserData>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function() fetchUserData,
-    required TResult Function() updateUserData,
+    required TResult Function(
+            String password, String newPassword, String retypePassword)
+        updateUserData,
   }) {
-    return updateUserData();
+    return updateUserData(password, newPassword, retypePassword);
   }
 
   @override
@@ -348,9 +418,11 @@ class _$_UpdateUserData extends _UpdateUserData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function()? fetchUserData,
-    TResult? Function()? updateUserData,
+    TResult? Function(
+            String password, String newPassword, String retypePassword)?
+        updateUserData,
   }) {
-    return updateUserData?.call();
+    return updateUserData?.call(password, newPassword, retypePassword);
   }
 
   @override
@@ -358,11 +430,13 @@ class _$_UpdateUserData extends _UpdateUserData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function()? fetchUserData,
-    TResult Function()? updateUserData,
+    TResult Function(
+            String password, String newPassword, String retypePassword)?
+        updateUserData,
     required TResult orElse(),
   }) {
     if (updateUserData != null) {
-      return updateUserData();
+      return updateUserData(password, newPassword, retypePassword);
     }
     return orElse();
   }
@@ -403,8 +477,18 @@ class _$_UpdateUserData extends _UpdateUserData {
 }
 
 abstract class _UpdateUserData extends AccountSettingEvent {
-  const factory _UpdateUserData() = _$_UpdateUserData;
+  const factory _UpdateUserData(
+      {required final String password,
+      required final String newPassword,
+      required final String retypePassword}) = _$_UpdateUserData;
   const _UpdateUserData._() : super._();
+
+  String get password;
+  String get newPassword;
+  String get retypePassword;
+  @JsonKey(ignore: true)
+  _$$_UpdateUserDataCopyWith<_$_UpdateUserData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -16,7 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AccountSettingModelState {
-  String get password => throw _privateConstructorUsedError;
+  String get oldPassword => throw _privateConstructorUsedError;
+  String get newPassword => throw _privateConstructorUsedError;
+  String get retypePassword => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AccountSettingModelStateCopyWith<AccountSettingModelState> get copyWith =>
@@ -29,7 +31,7 @@ abstract class $AccountSettingModelStateCopyWith<$Res> {
           $Res Function(AccountSettingModelState) then) =
       _$AccountSettingModelStateCopyWithImpl<$Res, AccountSettingModelState>;
   @useResult
-  $Res call({String password});
+  $Res call({String oldPassword, String newPassword, String retypePassword});
 }
 
 /// @nodoc
@@ -46,12 +48,22 @@ class _$AccountSettingModelStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = null,
+    Object? oldPassword = null,
+    Object? newPassword = null,
+    Object? retypePassword = null,
   }) {
     return _then(_value.copyWith(
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
+      oldPassword: null == oldPassword
+          ? _value.oldPassword
+          : oldPassword // ignore: cast_nullable_to_non_nullable
+              as String,
+      newPassword: null == newPassword
+          ? _value.newPassword
+          : newPassword // ignore: cast_nullable_to_non_nullable
+              as String,
+      retypePassword: null == retypePassword
+          ? _value.retypePassword
+          : retypePassword // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -66,7 +78,7 @@ abstract class _$$_AccountSettingModelStateCopyWith<$Res>
       __$$_AccountSettingModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String password});
+  $Res call({String oldPassword, String newPassword, String retypePassword});
 }
 
 /// @nodoc
@@ -81,12 +93,22 @@ class __$$_AccountSettingModelStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = null,
+    Object? oldPassword = null,
+    Object? newPassword = null,
+    Object? retypePassword = null,
   }) {
     return _then(_$_AccountSettingModelState(
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
+      oldPassword: null == oldPassword
+          ? _value.oldPassword
+          : oldPassword // ignore: cast_nullable_to_non_nullable
+              as String,
+      newPassword: null == newPassword
+          ? _value.newPassword
+          : newPassword // ignore: cast_nullable_to_non_nullable
+              as String,
+      retypePassword: null == retypePassword
+          ? _value.retypePassword
+          : retypePassword // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -95,14 +117,21 @@ class __$$_AccountSettingModelStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AccountSettingModelState implements _AccountSettingModelState {
-  const _$_AccountSettingModelState({required this.password});
+  const _$_AccountSettingModelState(
+      {required this.oldPassword,
+      required this.newPassword,
+      required this.retypePassword});
 
   @override
-  final String password;
+  final String oldPassword;
+  @override
+  final String newPassword;
+  @override
+  final String retypePassword;
 
   @override
   String toString() {
-    return 'AccountSettingModelState(password: $password)';
+    return 'AccountSettingModelState(oldPassword: $oldPassword, newPassword: $newPassword, retypePassword: $retypePassword)';
   }
 
   @override
@@ -110,12 +139,17 @@ class _$_AccountSettingModelState implements _AccountSettingModelState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AccountSettingModelState &&
-            (identical(other.password, password) ||
-                other.password == password));
+            (identical(other.oldPassword, oldPassword) ||
+                other.oldPassword == oldPassword) &&
+            (identical(other.newPassword, newPassword) ||
+                other.newPassword == newPassword) &&
+            (identical(other.retypePassword, retypePassword) ||
+                other.retypePassword == retypePassword));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, password);
+  int get hashCode =>
+      Object.hash(runtimeType, oldPassword, newPassword, retypePassword);
 
   @JsonKey(ignore: true)
   @override
@@ -126,11 +160,17 @@ class _$_AccountSettingModelState implements _AccountSettingModelState {
 }
 
 abstract class _AccountSettingModelState implements AccountSettingModelState {
-  const factory _AccountSettingModelState({required final String password}) =
-      _$_AccountSettingModelState;
+  const factory _AccountSettingModelState(
+      {required final String oldPassword,
+      required final String newPassword,
+      required final String retypePassword}) = _$_AccountSettingModelState;
 
   @override
-  String get password;
+  String get oldPassword;
+  @override
+  String get newPassword;
+  @override
+  String get retypePassword;
   @override
   @JsonKey(ignore: true)
   _$$_AccountSettingModelStateCopyWith<_$_AccountSettingModelState>
