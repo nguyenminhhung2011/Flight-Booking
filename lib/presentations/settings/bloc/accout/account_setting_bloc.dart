@@ -20,7 +20,11 @@ class AccountSettingBloc
   AccountSettingBloc(this._userUseCase)
       : super(
           const AccountSettingState.initial(
-            data: AccountSettingModelState(password: "123"),
+            data: AccountSettingModelState(
+              oldPassword: "",
+              newPassword: "",
+              retypePassword: "",
+            ),
           ),
         ) {
     on<_OnStarted>(_onStarted);
@@ -29,7 +33,9 @@ class AccountSettingBloc
   }
 
   FutureOr<void> _onStarted(
-      _OnStarted event, Emitter<AccountSettingState> emit) {}
+    _OnStarted event,
+    Emitter<AccountSettingState> emit,
+  ) {}
 
   FutureOr<void> _onFetchUserData(
       _FetchUserData event, Emitter<AccountSettingState> emit) {}
