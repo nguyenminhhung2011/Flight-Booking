@@ -170,8 +170,14 @@ class FlightDataCustomerScreen extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Image(
+            //   image: AssetImage("assets/images/seat.png"),
+            //   fit: BoxFit.contain,
+            //   height: 50,
+            //   width: 50,
+            // ),
             Image.asset(
-              "images/seat.png",
+              "assets/images/seat.png",
               fit: BoxFit.contain,
               height: 50,
               width: 50,

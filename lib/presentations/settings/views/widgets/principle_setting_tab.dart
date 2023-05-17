@@ -265,7 +265,7 @@ class _PrincipleSettingTabState extends State<PrincipleSettingTab> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Image.asset(
-                      'icons/airplane.png',
+                      'assets/icons/airplane.png',
                       width: 35,
                       scale: 1,
                       fit: BoxFit.contain,
@@ -361,7 +361,7 @@ class _PrincipleSettingTabState extends State<PrincipleSettingTab> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset(
-                      'icons/blocked.png',
+                      'assets/icons/blocked.png',
                       width: 35,
                       scale: 1,
                       fit: BoxFit.contain,
@@ -459,7 +459,7 @@ class _PrincipleSettingTabState extends State<PrincipleSettingTab> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset(
-                      'images/calendar.png',
+                      'assets/images/calendar.png',
                       width: 35,
                       scale: 1,
                       fit: BoxFit.contain,
@@ -559,7 +559,7 @@ class _PrincipleSettingTabState extends State<PrincipleSettingTab> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Image.asset(
-                      'images/plane-ticket.png',
+                      'assets/images/plane-ticket.png',
                       width: 35,
                       scale: 1,
                       fit: BoxFit.contain,

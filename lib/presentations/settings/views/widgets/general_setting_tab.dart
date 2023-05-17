@@ -50,7 +50,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                         children: [
                           ListTile(
                             leading: Image.asset(
-                              'images/resume.png',
+                              'assets/images/resume.png',
                               height: 50,
                               width: 50,
                               filterQuality: FilterQuality.high,

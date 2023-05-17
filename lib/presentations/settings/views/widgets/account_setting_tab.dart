@@ -1,7 +1,6 @@
 import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/presentations/settings/bloc/accout/account_setting_bloc.dart';
-import 'package:flight_booking/presentations/settings/bloc/accout/account_setting_model_state.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -66,7 +65,7 @@ class _AccountSettingTabState extends State<AccountSettingTab> {
                         children: [
                           ListTile(
                             leading: Image.asset(
-                              'images/password-manager.png',
+                              'assets/images/password-manager.png',
                               filterQuality: FilterQuality.high,
                               height: 50,
                               width: 50,

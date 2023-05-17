@@ -495,7 +495,7 @@ class FlightInformationCard extends StatelessWidget {
             Row(
               children: [
                 Image.asset(
-                  "icons/direct-flight.png",
+                  "assets/icons/direct-flight.png",
                   height: 30,
                   width: 30,
                   fit: BoxFit.contain,
