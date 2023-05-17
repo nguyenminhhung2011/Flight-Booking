@@ -139,6 +139,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "flightChartView":
             MessageLookupByLibrary.simpleMessage("Flight Chart view"),
         "flightDetail": MessageLookupByLibrary.simpleMessage("Flight Detail"),
+        "flightInfo": MessageLookupByLibrary.simpleMessage("Flight Info"),
         "flightInformation":
             MessageLookupByLibrary.simpleMessage("Flight Information"),
         "flightTickets": MessageLookupByLibrary.simpleMessage("Flight tickets"),
@@ -198,6 +199,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Password Settings"),
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
+        "person": MessageLookupByLibrary.simpleMessage("Person"),
         "personalInfo": MessageLookupByLibrary.simpleMessage("Personal Info"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "pickImage": MessageLookupByLibrary.simpleMessage("Pick Image"),

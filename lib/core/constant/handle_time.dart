@@ -33,3 +33,21 @@ String getjmFormat(DateTime dateTime) {
 
 String getRangeDateFormat(DateTime startDate, DateTime endDate) =>
     '${DateFormat().add_yMEd().format(startDate)} - ${DateFormat().add_yMEd().format(endDate)}';
+
+int hoursBetween(DateTime from, DateTime to) {
+  from = DateTime(from.year, from.month, from.day);
+  to = DateTime(to.year, to.month, to.day);
+  return to.difference(from).inHours;
+}
+
+int minutesBetween(DateTime from, DateTime to) {
+  from = DateTime(from.year, from.month, from.day);
+  to = DateTime(to.year, to.month, to.day);
+  return to.difference(from).inMinutes;
+}
+
+String displayHoursMinutesBetween(DateTime from, DateTime to) {
+  var hours = hoursBetween(from, to);
+  var minutes = minutesBetween(from, to);
+  return '$hours h $minutes m';
+}

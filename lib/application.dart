@@ -1,4 +1,4 @@
-import 'package:flight_booking/core/components/widgets/coor_extension.dart';
+import 'package:flight_booking/core/components/widgets/extension/coor_extension.dart';
 import 'package:flight_booking/presentations/routes/main_routes.dart';
 import 'package:flight_booking/presentations_mobile/main_routes_mobile.dart';
 import 'package:flutter/material.dart';

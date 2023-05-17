@@ -1,12 +1,11 @@
+import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flutter/material.dart';
-import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:intl/intl.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:table_calendar/table_calendar.dart';
 
 enum CalendarType {
-  timelineCalendar,
+  timelineCalendar, //done
   tableCalendar;
 
   bool get isTableCalendar => this == CalendarType.tableCalendar;
@@ -40,7 +39,6 @@ class _CalendarCustomState extends State<CalendarCustom> {
       );
     }
     return const SizedBox();
-    // return TableCalendarCustom();
   }
 }
 
@@ -65,6 +63,7 @@ class CalenderStyle {
 // }
 
 // class _TableCaendarStateCustom extends State<TableCalendarCustom> {
+//   CalendarFormat format = CalendarFormat.month;
 //   @override
 //   Widget build(BuildContext context) {
 //     return TableCalendar(
@@ -104,7 +103,7 @@ class CalenderStyle {
 //                 decoration: BoxDecoration(
 //                   borderRadius: BorderRadius.circular(30.0),
 //                   color: checkIsSameDate(day, focusedDay)
-//                       ? AppColors.primaryColor
+//                       ? Theme.of(context).primaryColor
 //                       : Colors.transparent,
 //                 ),
 //                 child: Text(
@@ -121,17 +120,17 @@ class CalenderStyle {
 //               Expanded(
 //                 child: Container(
 //                   decoration: BoxDecoration(
-//                     image: DecorationImage(
-//                       fit: BoxFit.cover,
-//                       image: AssetImage(
-//                         (!checkIsSameDate(day, DateTime.now()))
-//                             ? selectedEvents.containsKey(key)
-//                                 ? 'assets/images/app_icon.png'
-//                                 : 'assets/images/app_icon3.png'
-//                             : 'assets/images/app_icon1.png',
+//                       // image: DecorationImage(
+//                       //   fit: BoxFit.cover,
+//                       //   image: AssetImage(
+//                       //     (!checkIsSameDate(day, DateTime.now()))
+//                       //         ? selectedEvents.containsKey(key)
+//                       //             ? 'assets/images/app_icon.png'
+//                       //             : 'assets/images/app_icon3.png'
+//                       //         : 'assets/images/app_icon1.png',
+//                       //   ),
+//                       // ),
 //                       ),
-//                     ),
-//                   ),
 //                 ),
 //               ),
 //             ],
@@ -139,9 +138,9 @@ class CalenderStyle {
 //         );
 //       })),
 
-//       onFormatChanged: (CalendarFormat _format) {
+//       onFormatChanged: (CalendarFormat _) {
 //         setState(() {
-//           format = _format;
+//           format = _;
 //         });
 //       },
 //       startingDayOfWeek: StartingDayOfWeek.sunday,
@@ -150,22 +149,23 @@ class CalenderStyle {
 //       //Day Changed
 //       onDaySelected: (DateTime selectDay, DateTime focusDay) {
 //         setState(() {
-//           selectedDay = selectDay;
-//           focusedDay = focusDay;
+//           // selectedDay = selectDay;
+//           // focusedDay = focusDay;
 //         });
 //       },
 //       selectedDayPredicate: (DateTime date) {
-//         return isSameDay(selectedDay, date);
+//         return true;
+//         // return isSameDay(selectedDay, date);
 //       },
-//       eventLoader: getEventsfromDay,
+//       // eventLoader: ,
 
-//       daysOfWeekStyle: const DaysOfWeekStyle(
-//         weekdayStyle: TextStyle(
+//       daysOfWeekStyle: DaysOfWeekStyle(
+//         weekdayStyle: const TextStyle(
 //           color: Colors.white,
 //           fontWeight: FontWeight.bold,
 //         ),
 //         weekendStyle: TextStyle(
-//           color: AppColors.primaryColor,
+//           color: Theme.of(context).primaryColor,
 //           fontWeight: FontWeight.bold,
 //         ),
 //       ),
@@ -299,7 +299,7 @@ class _CalendarTimelineCustomState extends State<CalendarTimelineCustom> {
   @override
   Widget build(BuildContext context) {
     final widthDevice = MediaQuery.of(context).size.width;
-    _scrollAligment = 10 / widthDevice;
+    _scrollAligment = (widthDevice / 2 - 36.5) / widthDevice;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
