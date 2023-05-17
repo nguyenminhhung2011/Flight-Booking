@@ -4,7 +4,6 @@ import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_fligh
 import 'package:flight_booking/presentations/add_edit_flight/view/add_edit_flight_form.dart';
 import 'package:flight_booking/presentations/list_ticket/views/widgets/position_dialog.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
-import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

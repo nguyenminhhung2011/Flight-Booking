@@ -97,20 +97,21 @@ class FlightItem extends StatelessWidget {
     var primaryColor = Theme.of(context).primaryColor;
     var bodySmallStyle = Theme.of(context).textTheme.bodySmall;
     var titleBigStyle = Theme.of(context).textTheme.titleLarge;
-
-    if (isSmallItem) {
-      return _smallItem(
-        widthDevice,
-        context,
-        primaryColor,
-        bodySmallStyle,
-      );
-    }
-    return _fullScreenItem(
-      context,
-      titleBigStyle,
-      primaryColor,
-      bodySmallStyle,
+    return GestureDetector(
+      onTap: item.onPress,
+      child: isSmallItem
+          ? _smallItem(
+              widthDevice,
+              context,
+              primaryColor,
+              bodySmallStyle,
+            )
+          : _fullScreenItem(
+              context,
+              titleBigStyle,
+              primaryColor,
+              bodySmallStyle,
+            ),
     );
   }
 
@@ -494,6 +495,7 @@ class FlightStyle {
   final double percentWidthDevice;
   final bool enableClipper;
   final bool isShowClipper;
+  final Function() onPress;
 
   FlightStyle({
     required this.price,
@@ -501,6 +503,7 @@ class FlightStyle {
     required this.timeFinish,
     required this.startPlace,
     required this.comePlace,
+    required this.onPress,
     this.shadowColorPercent,
     this.shadowOffsetX,
     this.shadowOffsetY,

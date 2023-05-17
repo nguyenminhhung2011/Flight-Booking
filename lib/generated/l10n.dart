@@ -1839,6 +1839,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Boeing`
+  String get boeing {
+    return Intl.message(
+      'Boeing',
+      name: 'boeing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Benefits`
+  String get benefit {
+    return Intl.message(
+      'Benefits',
+      name: 'benefit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flight Type`
+  String get flightType {
+    return Intl.message(
+      'Flight Type',
+      name: 'flightType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Premium`
+  String get premium {
+    return Intl.message(
+      'Premium',
+      name: 'premium',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

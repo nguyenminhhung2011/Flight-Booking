@@ -178,6 +178,9 @@
     "recomendAirport": "Recomend Airport",
     "seeMore": "See more",
     "person": "Person",
-    "flightInfo": "Flight Info"
-
+    "flightInfo": "Flight Info",
+    "boeing": "Boeing",
+    "benefit": "Benefits",
+    "flightType": "Flight Type",
+    "premium": "Premium"
 }

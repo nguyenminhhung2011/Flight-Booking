@@ -1,4 +1,5 @@
 import 'package:flight_booking/presentations_mobile/dashboard_mobile/views/dashboard_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/flight_mobile_detail/views/flight_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/list_flight_mobile/views/list_flight_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
@@ -17,12 +18,17 @@ class MainRoutesMobile {
       case RoutesMobile.dashboardMobile:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => DashboardMobile(),
+          builder: (_) => const DashboardMobile(),
         );
       case RoutesMobile.listFlightMobile:
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const ListFlightMobileScreen(),
+        );
+      case RoutesMobile.flightDetailMobile:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const FlightDetailMobileSccreen(),
         );
 
       default:

@@ -4,6 +4,7 @@ import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/widgets/extension/coor_extension.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../generated/l10n.dart';
@@ -116,6 +117,48 @@ List<String> sogun = [
   'Manage Flight',
   'Manage Payment',
   'Update Account',
+];
+
+List<Map<String, dynamic>> mockDataBenefits = [
+  {'icon': Icons.cake, 'title': 'Meals'},
+  {'icon': Icons.wifi, 'title': 'Wifi'},
+  {'icon': Icons.tv, 'title': 'TV'},
+  {'icon': Icons.table_bar, 'title': 'Restroom'},
+  {'icon': Icons.dining_rounded, 'title': 'Drink'}
+];
+
+int fakeNumberChairiInFlight = 28;
+int fakeRowChair = 7;
+List<Map<String, dynamic>> fakeDataChair = [
+  {'index': 0, 'chec': 1},
+  {'index': 1, 'chec': 3},
+  {'index': 2, 'chec': 3},
+  {'index': 3, 'chec': 2},
+  {'index': 4, 'chec': 1},
+  {'index': 5, 'chec': 3},
+  {'index': 6, 'chec': 1},
+  {'index': 7, 'chec': 3},
+  {'index': 8, 'chec': 1},
+  {'index': 9, 'chec': 2},
+  {'index': 10, 'chec': 1},
+  {'index': 11, 'chec': 1},
+  {'index': 12, 'chec': 3},
+  {'index': 13, 'chec': 1},
+  {'index': 14, 'chec': 2},
+  {'index': 15, 'chec': 2},
+  {'index': 16, 'chec': 2},
+  {'index': 17, 'chec': 3},
+  {'index': 18, 'chec': 3},
+  {'index': 19, 'chec': 3},
+  {'index': 20, 'chec': 1},
+  {'index': 21, 'chec': 1},
+  {'index': 22, 'chec': 2},
+  {'index': 23, 'chec': 1},
+  {'index': 24, 'chec': 3},
+  {'index': 25, 'chec': 1},
+  {'index': 26, 'chec': 2},
+  {'index': 27, 'chec': 3},
+  {'index': 28, 'chec': 1},
 ];
 
 String randomString() {
