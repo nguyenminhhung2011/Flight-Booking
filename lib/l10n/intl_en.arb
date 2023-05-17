@@ -182,5 +182,14 @@
     "boeing": "Boeing",
     "benefit": "Benefits",
     "flightType": "Flight Type",
-    "premium": "Premium"
+    "premium": "Premium",
+    "listAirports": "List Airports",
+    "sortByRating": "Sort by rating",
+    "sortByFlights": "Sort by flights",
+    "reviews": "Reviews",
+    "detial": "Detail",
+    "anotherAirport": "Another airport",
+    "description": "Description"
+
+
 }

@@ -1,6 +1,6 @@
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
-import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/appbar.dart';
 import 'package:flight_booking/core/components/widgets/mobile/calendar_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/custom_template_screen_stack_scroll.dart';
@@ -27,15 +27,13 @@ class ListFlightMobileScreen extends StatelessWidget {
           ),
           Text(
             S.of(context).flight,
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                  fontWeight: FontWeight.w500,
-                ),
+            style: context.headerAppBarTextStyle,
           ),
           IconButton(
             onPressed: () {},
             icon: SvgPicture.asset(
               ImageConst.searchIcon,
+              color: Theme.of(context).scaffoldBackgroundColor,
             ),
           ),
         ].expand((element) => [element, const Spacer()]).toList()
@@ -64,17 +62,44 @@ class ListFlightMobileScreen extends StatelessWidget {
                   items: [
                     for (int i = 0; i < 5; i++)
                       FlightStyle(
-                          onPress: () => context.openListPageWithRoute(
-                                RoutesMobile.flightDetailMobile,
-                              ),
-                          timeStart: DateTime.now(),
-                          timeFinish: DateTime.now()
-                              .add(const Duration(hours: 4, minutes: 50)),
-                          startPlace: 'Comilia',
-                          comePlace: 'Sylhet',
-                          price: (i + 1) * 100)
+                        timeStart: DateTime.now(),
+                        timeFinish: DateTime.now()
+                            .add(const Duration(hours: 4, minutes: 50)),
+                        startPlace: 'Comilia',
+                        comePlace: 'Sylhet',
+                        price: (i + 1) * 100,
+                        onPress: () => context.openListPageWithRoute(
+                            RoutesMobile.flightDetailMobile),
+                      )
                   ],
                 ),
+                //     Column(
+                //   mainAxisAlignment: MainAxisAlignment.start,
+                //   children: <Widget>[
+                //     const SizedBox(height: 20.0),
+                //     FlightField(
+                //       type: FlightType.horizontalFlight,
+                //       paddingBottom: 10.0,
+                //       items: [
+                //         for (int i = 0; i < 5; i++)
+                //           FlightStyle(
+                //             timeStart: DateTime.now(),
+                //             timeFinish: DateTime.now()
+                //                 .add(const Duration(hours: 4, minutes: 50)),
+                //             startPlace: 'Comilia',
+                //             comePlace: 'Sylhet',
+                //             price: (i + 1) * 100,
+                //             shadowRadius: 5.0,
+                //             shadowColorPercent: 0.2,
+                //             shadowOffsetX: 0,
+                //             shadowOffsetY: 5.0,
+                //             onPress: () => context.openListPageWithRoute(
+                //                 RoutesMobile.flightDetailMobile),
+                //           )
+                //       ],
+                //     ),
+                //   ],
+                // ),
               ),
             ],
           ),

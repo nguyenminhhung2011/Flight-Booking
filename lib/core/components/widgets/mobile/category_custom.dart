@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'image_custom.dart';
 
 enum CategoryType {
-  expanCategory,
-  listCategory,
+  expanCategory, // done 80%
+  listCategory, // done
+  textCategory;
+
+  bool get isTextCategory => this == CategoryType.textCategory;
+  bool get isExpanCategory => this == CategoryType.expanCategory;
 }
 
 class CategoryField extends StatefulWidget {
@@ -37,62 +41,113 @@ class CategoryField extends StatefulWidget {
 }
 
 class _CategoryFieldState extends State<CategoryField> {
-  bool get isExpand => widget.categoryType == CategoryType.expanCategory;
   int get numberColumn => widget.numberColumn ?? 1;
   @override
   Widget build(BuildContext context) {
-    if (widget.categoryType == CategoryType.listCategory) {
+    if (widget.categoryType.isExpanCategory) {
+      return Container(
+        margin: EdgeInsets.only(
+          top: widget.marginTop ?? 0.0,
+          right: widget.marginRight ?? 0.0,
+          left: widget.marginLeft ?? 0.0,
+          bottom: widget.marginBottom ?? 0.0,
+        ),
+        child: Column(
+          children: List.generate(numberColumn, (indexC) {
+            return Row(
+              children: List.generate(
+                widget.categories.length,
+                (indexR) => Expanded(
+                  child: CategoryItem(
+                    category: widget.categories[indexR],
+                    isIconOut: widget.isIconOut,
+                    isExpand: widget.categoryType.isExpanCategory,
+                  ),
+                ),
+              ),
+            );
+          }),
+        ),
+      );
+    }
+    if (widget.categoryType.isTextCategory) {
       return Padding(
         padding: EdgeInsets.only(
           top: widget.marginTop ?? 0.0,
           right: widget.marginRight ?? 0.0,
           left: widget.marginLeft ?? 0.0,
-          bottom: widget.marginBottom ?? 0.0,
+          bottom: widget.marginBottom ?? 15.0,
         ),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: widget.categories
                 .map(
-                  (e) => CategoryItem(
-                    category: e,
-                    isIconOut: widget.isIconOut,
+                  (e) => GestureDetector(
+                    onTap: e.onPress,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          e.text,
+                          style: e.textStyle!.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: e.isSelected
+                                ? Theme.of(context).primaryColor
+                                : null,
+                          ),
+                        ),
+                        const SizedBox(height: 5.0),
+                        _dotAnimated(e.isSelected),
+                      ],
+                    ),
                   ),
                 )
                 .toList()
-                .expand(
-                  (element) =>
-                      [element, SizedBox(width: widget.spacingItem ?? 5.0)],
-                )
-                .toList()
-              ..removeLast(),
+                .expand((element) =>
+                    [element, SizedBox(width: widget.spacingItem ?? 5.0)])
+                .toList(),
           ),
         ),
       );
     }
-
-    return Container(
-      margin: EdgeInsets.only(
+    return Padding(
+      padding: EdgeInsets.only(
         top: widget.marginTop ?? 0.0,
         right: widget.marginRight ?? 0.0,
         left: widget.marginLeft ?? 0.0,
         bottom: widget.marginBottom ?? 0.0,
       ),
-      child: Column(
-        children: List.generate(numberColumn, (indexC) {
-          return Row(
-            children: List.generate(
-              widget.categories.length,
-              (indexR) => Expanded(
-                child: CategoryItem(
-                  category: widget.categories[indexR],
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: widget.categories
+              .map(
+                (e) => CategoryItem(
+                  category: e,
                   isIconOut: widget.isIconOut,
-                  isExpand: isExpand,
                 ),
-              ),
-            ),
-          );
-        }),
+              )
+              .toList()
+              .expand(
+                (element) =>
+                    [element, SizedBox(width: widget.spacingItem ?? 5.0)],
+              )
+              .toList()
+            ..removeLast(),
+        ),
+      ),
+    );
+  }
+
+  Widget _dotAnimated(bool isSelected) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      width: isSelected ? 6.0 : 0.0,
+      height: 6.0,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Theme.of(context).primaryColor,
       ),
     );
   }
@@ -186,6 +241,7 @@ class CategoryStyle {
   final double? paddingBottom;
   final TextStyle? textStyle;
   final Function() onPress;
+  final bool isSelected;
   CategoryStyle({
     required this.text,
     required this.onPress,
@@ -198,5 +254,6 @@ class CategoryStyle {
     this.paddingRight,
     this.paddingBottom,
     this.iconSize,
+    this.isSelected = false,
   });
 }

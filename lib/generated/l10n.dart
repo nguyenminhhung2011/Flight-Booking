@@ -1879,6 +1879,76 @@ class S {
       args: [],
     );
   }
+
+  /// `List Airports`
+  String get listAirports {
+    return Intl.message(
+      'List Airports',
+      name: 'listAirports',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sort by rating`
+  String get sortByRating {
+    return Intl.message(
+      'Sort by rating',
+      name: 'sortByRating',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sort by flights`
+  String get sortByFlights {
+    return Intl.message(
+      'Sort by flights',
+      name: 'sortByFlights',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reviews`
+  String get reviews {
+    return Intl.message(
+      'Reviews',
+      name: 'reviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Detail`
+  String get detial {
+    return Intl.message(
+      'Detail',
+      name: 'detial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Another airport`
+  String get anotherAirport {
+    return Intl.message(
+      'Another airport',
+      name: 'anotherAirport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

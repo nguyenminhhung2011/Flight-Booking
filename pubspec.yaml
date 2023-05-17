@@ -91,6 +91,7 @@ dependencies:
   calendar_timeline: ^1.1.2
   scrollable_positioned_list: ^0.3.8
   table_calendar: ^3.0.8
+  readmore: ^2.2.0
   
 dev_dependencies:
   flutter_test:

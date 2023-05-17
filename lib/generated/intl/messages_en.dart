@@ -55,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "airportStart": MessageLookupByLibrary.simpleMessage("Airport Start"),
         "allBooking": MessageLookupByLibrary.simpleMessage("All Booking"),
         "amount": MessageLookupByLibrary.simpleMessage("Amount"),
+        "anotherAirport":
+            MessageLookupByLibrary.simpleMessage("Another airport"),
         "applyNewPassword":
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
         "benefit": MessageLookupByLibrary.simpleMessage("Benefits"),
@@ -98,7 +100,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Deadline For Ticket Purchase"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "departureDate": MessageLookupByLibrary.simpleMessage("Departure Date"),
+        "description": MessageLookupByLibrary.simpleMessage("Description"),
         "destination": MessageLookupByLibrary.simpleMessage("Destination"),
+        "detial": MessageLookupByLibrary.simpleMessage("Detail"),
         "direct": MessageLookupByLibrary.simpleMessage("Direct"),
         "directFlight": MessageLookupByLibrary.simpleMessage("Direct Flight "),
         "donHaveAnAccount":
@@ -162,6 +166,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "identityNum": MessageLookupByLibrary.simpleMessage("Identity Number"),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
+        "listAirports": MessageLookupByLibrary.simpleMessage("List Airports"),
         "listCustomer": MessageLookupByLibrary.simpleMessage("List Customer"),
         "listFlights": MessageLookupByLibrary.simpleMessage("List Flights"),
         "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
@@ -232,6 +237,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Remember Information"),
         "retypePassword":
             MessageLookupByLibrary.simpleMessage("Enter your retype password"),
+        "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
         "ruleSettings": MessageLookupByLibrary.simpleMessage("Rule Settings"),
         "sale": MessageLookupByLibrary.simpleMessage("Sale"),
         "salePerformance":
@@ -248,6 +254,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Show more Information"),
         "sologan": MessageLookupByLibrary.simpleMessage(
             "You \'ll easily book your bedroom, flights, train, bus and hotels"),
+        "sortByFlights":
+            MessageLookupByLibrary.simpleMessage("Sort by flights"),
+        "sortByRating": MessageLookupByLibrary.simpleMessage("Sort by rating"),
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),

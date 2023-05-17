@@ -56,10 +56,7 @@ class _FlightDetailMobileSccreenState extends State<FlightDetailMobileSccreen> {
         title: [
           Text(
             S.of(context).flightDetail,
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                  fontWeight: FontWeight.w600,
-                ),
+            style: context.headerAppBarTextStyle,
           ),
         ],
       ),
@@ -78,7 +75,6 @@ class _FlightDetailMobileSccreenState extends State<FlightDetailMobileSccreen> {
       Color fontColorBycard, TextStyle headerStyle) {
     return Container(
       constraints: BoxConstraints(minHeight: heightDevice),
-      // padding: const EdgeInsets.all(25.0),
       margin: EdgeInsets.only(
         left: _hMarginCard,
         right: _hMarginCard,
