@@ -1,6 +1,7 @@
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/core/dependency_injection/di.dart';
 import 'package:flight_booking/generated/l10n.dart';
+import 'package:flight_booking/presentations/settings/bloc/accout/account_setting_bloc.dart';
 import 'package:flight_booking/presentations/settings/bloc/general/general_setting_bloc.dart';
 import 'package:flight_booking/presentations/settings/bloc/setting_bloc.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/account_setting_tab.dart';
@@ -125,6 +126,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       providers: [
                         BlocProvider<GeneralSettingBloc>(
                             create: (context) => injector()),
+                        BlocProvider<AccountSettingBloc>(
+                            create: (context) => injector())
                       ],
                       child: IndexedStack(
                         sizing: StackFit.loose,
