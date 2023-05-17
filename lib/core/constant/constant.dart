@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flight_booking/core/components/const/image_const.dart';
-import 'package:flight_booking/core/components/widgets/coor_extension.dart';
+import 'package:flight_booking/core/components/widgets/extension/coor_extension.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flutter/material.dart';
