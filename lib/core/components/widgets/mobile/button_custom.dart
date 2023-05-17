@@ -4,6 +4,7 @@ class ButtonCustom extends StatelessWidget {
   final Color? color;
   final double? radius;
   final double? width;
+  final double? height;
   final Widget child;
   final Function() onPress;
   const ButtonCustom({
@@ -11,6 +12,7 @@ class ButtonCustom extends StatelessWidget {
     this.color,
     this.radius,
     this.width,
+    this.height,
     required this.child,
     required this.onPress,
   });
@@ -19,6 +21,7 @@ class ButtonCustom extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? double.infinity,
+      height: height,
       child: ElevatedButton(
         onPressed: onPress,
         style: ButtonStyle(

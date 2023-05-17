@@ -57,8 +57,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "amount": MessageLookupByLibrary.simpleMessage("Amount"),
         "applyNewPassword":
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
+        "benefit": MessageLookupByLibrary.simpleMessage("Benefits"),
         "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
         "blockTime": MessageLookupByLibrary.simpleMessage("Block Time"),
+        "boeing": MessageLookupByLibrary.simpleMessage("Boeing"),
         "bookingTime": MessageLookupByLibrary.simpleMessage("Booking Time"),
         "bookingType": MessageLookupByLibrary.simpleMessage("Booking type"),
         "boy": MessageLookupByLibrary.simpleMessage("Boy"),
@@ -144,6 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Flight Information"),
         "flightTickets": MessageLookupByLibrary.simpleMessage("Flight tickets"),
         "flightTime": MessageLookupByLibrary.simpleMessage("Flight Time"),
+        "flightType": MessageLookupByLibrary.simpleMessage("Flight Type"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "gate": MessageLookupByLibrary.simpleMessage("Gate"),
@@ -211,6 +214,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please Enter your email to find your account"),
         "pleaseLogin": MessageLookupByLibrary.simpleMessage(
             "Please login to use our service"),
+        "premium": MessageLookupByLibrary.simpleMessage("Premium"),
         "premiumEconomyClass":
             MessageLookupByLibrary.simpleMessage("Premium Economy Class"),
         "premiumEconomyClassTicket": MessageLookupByLibrary.simpleMessage(

@@ -17,4 +17,14 @@ extension ContextExtension on BuildContext {
         color: Theme.of(this).primaryColor,
       );
   TextStyle get subTextStyle => textStyle.copyWith(fontWeight: FontWeight.w400);
+
+  TextStyle get primaryMediumText =>
+      Theme.of(this).textTheme.titleMedium!.copyWith(
+            color: Theme.of(this).primaryColor,
+            fontWeight: FontWeight.w600,
+          );
+
+  TextStyle get headlineMedium => Theme.of(this).textTheme.headlineMedium!;
+
+  TextStyle get titleSmall => Theme.of(this).textTheme.titleSmall!;
 }

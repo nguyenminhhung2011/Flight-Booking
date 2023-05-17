@@ -6,6 +6,8 @@ class AppbarCustom extends StatelessWidget {
   final bool? forceElevated;
   final bool? pinned;
   final bool? floating;
+  final bool isCenterTitle;
+
   final double? titleSpacing;
   final double? elevation;
   final double? height;
@@ -15,10 +17,10 @@ class AppbarCustom extends StatelessWidget {
   final double paddingRight;
   final double paddingTop;
   final double paddingBottom;
-  final bool isCenterTitle;
   final List<Widget> title;
   final List<Widget>? actions;
   final String? aftarImage;
+  final Widget? leading;
 
   const AppbarCustom({
     super.key,
@@ -40,6 +42,7 @@ class AppbarCustom extends StatelessWidget {
     this.expandedHeight,
     this.radius,
     required this.title,
+    this.leading,
   });
 
   List<Widget> get getActions => actions ?? [];
@@ -53,6 +56,7 @@ class AppbarCustom extends StatelessWidget {
       titleSpacing: titleSpacing ?? 0,
       automaticallyImplyLeading: false,
       elevation: elevation ?? 0,
+      leading: leading,
       forceElevated: forceElevated ?? true,
       expandedHeight:
           aftarImage != null ? expandedHeight ?? heightDevice * 0.3 : 0,
