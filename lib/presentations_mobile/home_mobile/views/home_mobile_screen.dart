@@ -1,6 +1,7 @@
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/widgets/appbar_widget.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/appbar.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flutter/material.dart';
@@ -30,13 +31,12 @@ class _HomeMobileScreenState extends State<HomeMobileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final heightDevice = MediaQuery.of(context).size.height;
     return CustomTemplateScreenStackScroll(
       appbar: AppbarCustom(
         pinned: true,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         aftarImage: ImageConst.bacground,
-        expandedHeight: heightDevice * 0.4,
+        expandedHeight: context.heightDevice * 0.4,
         title: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
           const Spacer(),

@@ -21,6 +21,7 @@ class AppbarCustom extends StatelessWidget {
   final List<Widget>? actions;
   final String? aftarImage;
   final Widget? leading;
+  final Widget? widgeExpanded;
 
   const AppbarCustom({
     super.key,
@@ -43,6 +44,7 @@ class AppbarCustom extends StatelessWidget {
     this.radius,
     required this.title,
     this.leading,
+    this.widgeExpanded,
   });
 
   List<Widget> get getActions => actions ?? [];
@@ -64,50 +66,57 @@ class AppbarCustom extends StatelessWidget {
       backgroundColor:
           backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
       foregroundColor: Theme.of(context).scaffoldBackgroundColor,
-      flexibleSpace: aftarImage != null
+      flexibleSpace: widgeExpanded != null
           ? FlexibleSpaceBar(
               centerTitle: true,
               titlePadding: const EdgeInsets.all(0.0),
-              background: SizedBox(
-                height: double.infinity,
-                width: double.infinity,
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        aftarImage!,
-                        width: double.maxFinite,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Container(
-                      height: 2,
-                      width: double.infinity,
-                      color: Theme.of(context).scaffoldBackgroundColor,
-                    ),
-                  ],
-                ),
-              ),
-              title: Container(
-                width: double.infinity,
-                height: 20,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(radius ?? 30.0),
-                      topRight: Radius.circular(radius ?? 30.0),
-                    ),
-                    color: Theme.of(context).scaffoldBackgroundColor,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Theme.of(context).primaryColor,
-                        blurRadius: 100.0,
-                        offset: const Offset(0, -10),
-                      )
-                    ]),
-              ),
-              collapseMode: CollapseMode.parallax,
+              background: widgeExpanded,
             )
-          : null,
+          : aftarImage != null
+              ? FlexibleSpaceBar(
+                  centerTitle: true,
+                  titlePadding: const EdgeInsets.all(0.0),
+                  background: SizedBox(
+                    height: double.infinity,
+                    width: double.infinity,
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Image.asset(
+                            aftarImage!,
+                            width: double.maxFinite,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Container(
+                          height: 2,
+                          width: double.infinity,
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                        ),
+                      ],
+                    ),
+                  ),
+                  title: Container(
+                    width: double.infinity,
+                    height: 20,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(radius ?? 30.0),
+                        topRight: Radius.circular(radius ?? 30.0),
+                      ),
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Theme.of(context).primaryColor,
+                          blurRadius: 100.0,
+                          offset: const Offset(0, -10),
+                        )
+                      ],
+                    ),
+                  ),
+                  collapseMode: CollapseMode.parallax,
+                )
+              : null,
       title: Padding(
         padding: EdgeInsets.only(
           right: paddingRight,
