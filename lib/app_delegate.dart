@@ -7,6 +7,7 @@ import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart'
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flight_booking/presentations_mobile/dashboard_mobile/bloc/dashboard_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
+import 'package:flight_booking/presentations_mobile/search_mobile/bloc/search_mobile_bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,7 +32,8 @@ class AppDelegate {
           BlocProvider<DashboardBloc>(create: (_) => injector.get()),
         ],
         if (isMobile) ...[
-          BlocProvider<DashboardMobileBloc>(create: (_) => injector.get())
+          BlocProvider<DashboardMobileBloc>(create: (_) => injector.get()),
+          BlocProvider<SearchMobileBloc>(create: (_) => injector.get())
         ]
       ],
       initialRoute: isMobile ? RoutesMobile.dashboardMobile : Routes.dashboard,

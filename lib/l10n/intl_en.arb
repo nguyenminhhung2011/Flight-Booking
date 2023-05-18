@@ -197,7 +197,8 @@
     "writeReviews": "Write reviews",
     "upcoming": "Upcoming",
     "departureFlight": "Departure flight",
-    "landingFlight": "Landing flight"
-
-
+    "landingFlight": "Landing flight",
+    "gridView": "gridView",
+    "listView": "List View",
+    "apply": "Apply"
 }

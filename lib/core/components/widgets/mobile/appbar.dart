@@ -117,18 +117,22 @@ class AppbarCustom extends StatelessWidget {
                   collapseMode: CollapseMode.parallax,
                 )
               : null,
-      title: Padding(
-        padding: EdgeInsets.only(
-          right: paddingRight,
-          top: paddingTop,
-          left: paddingLeft,
-          bottom: paddingBottom,
-        ),
-        child: Row(
-          mainAxisAlignment: isCenterTitle
-              ? MainAxisAlignment.center
-              : MainAxisAlignment.start,
-          children: title.map((e) => e).toList(),
+      title: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: EdgeInsets.only(
+            right: paddingRight,
+            top: paddingTop,
+            left: paddingLeft,
+            bottom: paddingBottom,
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: isCenterTitle
+                ? MainAxisAlignment.center
+                : MainAxisAlignment.start,
+            children: title.map((e) => e).toList(),
+          ),
         ),
       ),
       toolbarHeight: height ?? 60.0,

@@ -1,5 +1,6 @@
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
+import 'package:flight_booking/core/components/enum/search_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/appbar.dart';
 import 'package:flight_booking/core/components/widgets/mobile/calendar_custom.dart';
@@ -30,7 +31,10 @@ class ListFlightMobileScreen extends StatelessWidget {
             style: context.headerAppBarTextStyle,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => context.openPageWithRouteAndParams(
+              RoutesMobile.searchMobile,
+              SearchEnum.flightSearch,
+            ),
             icon: SvgPicture.asset(
               ImageConst.searchIcon,
               color: Theme.of(context).scaffoldBackgroundColor,
@@ -77,28 +81,8 @@ class ListFlightMobileScreen extends StatelessWidget {
                 //   mainAxisAlignment: MainAxisAlignment.start,
                 //   children: <Widget>[
                 //     const SizedBox(height: 20.0),
-                //     FlightField(
-                //       type: FlightType.horizontalFlight,
-                //       paddingBottom: 10.0,
-                //       items: [
-                //         for (int i = 0; i < 5; i++)
-                //           FlightStyle(
-                //             timeStart: DateTime.now(),
-                //             timeFinish: DateTime.now()
-                //                 .add(const Duration(hours: 4, minutes: 50)),
-                //             startPlace: 'Comilia',
-                //             comePlace: 'Sylhet',
-                //             price: (i + 1) * 100,
-                //             shadowRadius: 5.0,
-                //             shadowColorPercent: 0.2,
-                //             shadowOffsetX: 0,
-                //             shadowOffsetY: 5.0,
-                //             onPress: () => context.openListPageWithRoute(
-                //                 RoutesMobile.flightDetailMobile),
-                //           )
-                //       ],
-                //     ),
-                //   ],
+
+                // ],
                 // ),
               ),
             ],
