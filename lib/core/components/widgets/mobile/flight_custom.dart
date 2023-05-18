@@ -111,6 +111,7 @@ class FlightItem extends StatelessWidget {
               titleBigStyle,
               primaryColor,
               bodySmallStyle,
+              margin,
             ),
     );
   }
@@ -160,7 +161,7 @@ class FlightItem extends StatelessWidget {
           ),
           const Divider(),
           ButtonCustom(
-            onPress: () {},
+            onPress: item.onPress,
             child: Text(
               S.of(context).view,
               style: Theme.of(context)
@@ -186,56 +187,63 @@ class FlightItem extends StatelessWidget {
     );
   }
 
-  ClipPath _fullScreenItem(BuildContext context, TextStyle? titleBigStyle,
-      Color primaryColor, TextStyle? bodySmallStyle) {
-    return ClipPath(
-      clipper: item.enableClipper ? FlightClipper() : null,
-      child: Container(
-        width: double.infinity,
-        padding: EdgeInsets.all(item.radius),
-        decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
-          borderRadius: BorderRadius.circular(item.radius),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            StartAndComePlace(
-              startPlace: item.startPlace,
-              comePlace: item.comePlace,
-            ),
-            const Divider(),
-            TimeStartAndFinish(
-              timeStart: item.timeStart,
-              timeFinish: item.timeFinish,
-            ),
-            const LineDottedDecoration(),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                ...[
-                  Text(
-                    '\$${item.price}',
-                    style: titleBigStyle!.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: primaryColor,
+  Padding _fullScreenItem(
+      BuildContext context,
+      TextStyle? titleBigStyle,
+      Color primaryColor,
+      TextStyle? bodySmallStyle,
+      EdgeInsetsGeometry? margin) {
+    return Padding(
+      padding: margin ?? const EdgeInsets.all(0.0),
+      child: ClipPath(
+        clipper: item.enableClipper ? FlightClipper() : null,
+        child: Container(
+          width: double.infinity,
+          padding: EdgeInsets.all(item.radius),
+          decoration: BoxDecoration(
+            color: Theme.of(context).cardColor,
+            borderRadius: BorderRadius.circular(item.radius),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              StartAndComePlace(
+                startPlace: item.startPlace,
+                comePlace: item.comePlace,
+              ),
+              const Divider(),
+              TimeStartAndFinish(
+                timeStart: item.timeStart,
+                timeFinish: item.timeFinish,
+              ),
+              const LineDottedDecoration(),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  ...[
+                    Text(
+                      '\$${item.price}',
+                      style: titleBigStyle!.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: primaryColor,
+                      ),
                     ),
-                  ),
-                  Text('/${S.of(context).person}', style: bodySmallStyle),
+                    Text('/${S.of(context).person}', style: bodySmallStyle),
+                  ],
+                  const Spacer(),
+                  ...[
+                    _dot(primaryColor),
+                    const SizedBox(width: 2),
+                    Text(S.of(context).flightInfo, style: bodySmallStyle)
+                  ]
                 ],
-                const Spacer(),
-                ...[
-                  _dot(primaryColor),
-                  const SizedBox(width: 2),
-                  Text(S.of(context).flightInfo, style: bodySmallStyle)
-                ]
-              ],
-            ),
-          ]
-              .expand((element) => [element, const SizedBox(height: 10.0)])
-              .toList()
-            ..removeLast(),
+              ),
+            ]
+                .expand((element) => [element, const SizedBox(height: 10.0)])
+                .toList()
+              ..removeLast(),
+          ),
         ),
       ),
     );

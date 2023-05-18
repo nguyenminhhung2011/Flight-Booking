@@ -1,3 +1,4 @@
+import 'package:flight_booking/presentations_mobile/airport_detail_mobile/bloc/airport_detail_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/airport_detail_mobile/views/airport_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/dashboard_mobile/views/dashboard_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/flight_mobile_detail/views/flight_detail_mobile_screen.dart';
@@ -6,6 +7,9 @@ import 'package:flight_booking/presentations_mobile/list_airport_mobile/views/li
 import 'package:flight_booking/presentations_mobile/list_flight_mobile/views/list_flight_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../core/dependency_injection/di.dart';
 
 class MainRoutesMobile {
   static Route<dynamic> getRoute(RouteSettings settings) {
@@ -40,7 +44,10 @@ class MainRoutesMobile {
       case RoutesMobile.airportDetailMobile:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const AirportDetailMobileScreen(),
+          builder: (_) => BlocProvider<AirportDetailMobileBloc>(
+            create: (context) => injector(),
+            child: const AirportDetailMobileScreen(),
+          ),
         );
       default:
         return unDefinedRoute();

@@ -1949,6 +1949,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Time Activity`
+  String get timeActivity {
+    return Intl.message(
+      'Time Activity',
+      name: 'timeActivity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open`
+  String get open {
+    return Intl.message(
+      'Open',
+      name: 'open',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message(
+      'Close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Airport contact`
+  String get airportContact {
+    return Intl.message(
+      'Airport contact',
+      name: 'airportContact',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write reviews`
+  String get writeReviews {
+    return Intl.message(
+      'Write reviews',
+      name: 'writeReviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upcoming`
+  String get upcoming {
+    return Intl.message(
+      'Upcoming',
+      name: 'upcoming',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Departure flight`
+  String get departureFlight {
+    return Intl.message(
+      'Departure flight',
+      name: 'departureFlight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Landing flight`
+  String get landingFlight {
+    return Intl.message(
+      'Landing flight',
+      name: 'landingFlight',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
