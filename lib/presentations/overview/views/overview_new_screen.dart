@@ -134,7 +134,7 @@ class _OverviewNewScreenState extends State<OverviewNewScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    S.of(context).welcomeoFlightAdmin,
+                                    S.of(context).welcomeFlightAdmin,
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleLarge!

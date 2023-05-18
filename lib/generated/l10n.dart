@@ -1771,10 +1771,10 @@ class S {
   }
 
   /// `Welcome to Flight Admin`
-  String get welcomeoFlightAdmin {
+  String get welcomeFlightAdmin {
     return Intl.message(
       'Welcome to Flight Admin',
-      name: 'welcomeoFlightAdmin',
+      name: 'welcomeFlightAdmin',
       desc: '',
       args: [],
     );
@@ -1785,6 +1785,56 @@ class S {
     return Intl.message(
       'Customer Information',
       name: 'customerInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customer Id`
+  String get customerId {
+    return Intl.message(
+      'Customer Id',
+      name: 'customerId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flight Id`
+  String get flightId {
+    return Intl.message(
+      'Flight Id',
+      name: 'flightId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Method`
+  String get paymentMethod {
+    return Intl.message(
+      'Payment Method',
+      name: 'paymentMethod',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Creation Date`
+  String get creDate {
+    return Intl.message(
+      'Creation Date',
+      name: 'creDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message(
+      'Status',
+      name: 'status',
       desc: '',
       args: [],
     );
