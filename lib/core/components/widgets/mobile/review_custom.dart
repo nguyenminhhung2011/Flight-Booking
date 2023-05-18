@@ -39,7 +39,7 @@ class _ReviewsFieldState extends State<ReviewsField> {
       child: Column(
         children: [
           if (widget.isShowOverviewReviews)
-            SizedBox(
+            const SizedBox(
               //update after
               width: double.infinity,
               child: Row(
@@ -49,7 +49,7 @@ class _ReviewsFieldState extends State<ReviewsField> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [],
                   ),
-                  const SizedBox(width: 5.0),
+                  SizedBox(width: 5.0),
                   Expanded(
                     child: Column(),
                   ),

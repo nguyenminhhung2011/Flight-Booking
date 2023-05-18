@@ -228,8 +228,8 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   }
 
   Column _listCustomerView(BuildContext context) {
-    return Column(
-      children: const [
+    return const Column(
+      children: [
         TicColumnListView(
           ticType: TicTypeEnum.businessClass,
           count: 10,

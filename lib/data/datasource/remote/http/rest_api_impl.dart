@@ -6,8 +6,6 @@ import 'package:flight_booking/data/datasource/remote/rest_api/rest_api.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../../core/components/network/app_exception.dart';
-
 @Injectable(as: RestApi)
 class RestApiImpl implements RestApi {
   @override
