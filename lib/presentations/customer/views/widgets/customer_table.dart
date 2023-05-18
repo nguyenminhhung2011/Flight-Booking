@@ -6,7 +6,9 @@ class CustomerTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemBuilder: (context, index) {},
+      itemBuilder: (context, index) {
+        return null;
+      },
     );
   }
 }
