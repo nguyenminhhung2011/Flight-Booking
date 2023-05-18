@@ -1,4 +1,3 @@
-import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {

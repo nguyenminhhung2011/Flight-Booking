@@ -13,7 +13,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/components/widgets/mobile/button_custom.dart';
 import '../../../core/components/widgets/mobile/flight_custom.dart';
 import '../../../core/components/widgets/mobile/item_view_custom.dart';
-import '../../../core/constant/constant.dart';
 import '../../../generated/l10n.dart';
 import '../../routes_mobile.dart';
 import 'bottom_filter.dart';
