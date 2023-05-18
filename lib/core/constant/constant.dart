@@ -4,6 +4,7 @@ import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/widgets/extension/coor_extension.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
+import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -69,7 +70,7 @@ List<Map<String, dynamic>> dashboardItem = [
     'icon': ImageConst.searchIcon,
     'tit': 'Search',
     'index': 1,
-    'screen': const SizedBox()
+    'screen': const SeearchMobileScreen()
   },
   {
     'icon': ImageConst.documentIcon,
@@ -83,6 +84,13 @@ List<Map<String, dynamic>> dashboardItem = [
     'index': 3,
     'screen': const SizedBox()
   },
+];
+
+List<String> filterRating = [
+  '1 - 2 Stars',
+  '2 - 3 Stars',
+  '3 - 4 Stars',
+  '1 - 2 Stars'
 ];
 
 List<Map<String, dynamic>> mockCategory = [

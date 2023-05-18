@@ -5,11 +5,13 @@ class SortButton extends StatelessWidget {
   final String title;
   final IconData icon;
   final Function() onPress;
+  final double? radius;
   const SortButton({
     super.key,
     required this.title,
     required this.icon,
     required this.onPress,
+    this.radius,
   });
 
   @override
@@ -21,7 +23,9 @@ class SortButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColor.withOpacity(0.2),
           border: Border.all(width: 1, color: Theme.of(context).primaryColor),
-          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(radius ?? 10.0),
+          ),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 extension ContextExtension on BuildContext {
   double get widthDevice => MediaQuery.of(this).size.width;
   double get heightDevice => MediaQuery.of(this).size.height;
+  //bool
+  bool get canPop => Navigator.maybeOf(this)?.canPop() ?? false;
 
   // text
 

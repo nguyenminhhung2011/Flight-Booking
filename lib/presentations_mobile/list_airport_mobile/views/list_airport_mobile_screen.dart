@@ -1,4 +1,5 @@
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/enum/search_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/appbar.dart';
 import 'package:flight_booking/core/components/widgets/mobile/custom_template_screen_stack_scroll.dart';
@@ -35,7 +36,8 @@ class _ListAirportMobileScreenState extends State<ListAirportMobileScreen> {
             style: context.headerAppBarTextStyle,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => context.openPageWithRouteAndParams(
+                RoutesMobile.searchMobile, SearchEnum.airportSearch),
             icon: SvgPicture.asset(
               ImageConst.searchIcon,
               color: Theme.of(context).scaffoldBackgroundColor,

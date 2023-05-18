@@ -2029,6 +2029,36 @@ class S {
       args: [],
     );
   }
+
+  /// `gridView`
+  String get gridView {
+    return Intl.message(
+      'gridView',
+      name: 'gridView',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List View`
+  String get listView {
+    return Intl.message(
+      'List View',
+      name: 'listView',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apply`
+  String get apply {
+    return Intl.message(
+      'Apply',
+      name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

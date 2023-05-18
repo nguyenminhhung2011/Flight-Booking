@@ -48,7 +48,7 @@ class _AirportDetailMobileScreenState extends State<AirportDetailMobileScreen> {
     BuildContext context,
     AirportDetailMobileState state,
   ) {
-    state.whenOrNull();
+    state.maybeWhen(orElse: () {});
   }
 
   @override
@@ -72,9 +72,10 @@ class _AirportDetailMobileScreenState extends State<AirportDetailMobileScreen> {
                       Expanded(
                         child: Text(
                           S.of(context).writeReviews,
-                          maxLines: 1,
                           style: context.titleSmall.copyWith(
                             fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ),

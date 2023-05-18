@@ -24,6 +24,7 @@ class FlightField extends StatelessWidget {
   final double spacingItem;
   final List<FlightStyle> items;
   final FlightType type;
+  final bool isSliver;
   const FlightField({
     super.key,
     this.paddingLeft,
@@ -33,11 +34,33 @@ class FlightField extends StatelessWidget {
     this.type = FlightType.listFlight,
     required this.items,
     this.spacingItem = 10.0,
+    this.isSliver = false,
   });
 
   @override
   Widget build(BuildContext context) {
     if (type.isListFlight) {
+      if (isSliver) {
+        //🚑 dumb code
+        return SliverPadding(
+          padding: EdgeInsets.only(
+            right: paddingRight ?? 20.0,
+            left: paddingLeft ?? 20.0,
+            top: paddingTop ?? 20.0,
+            bottom: paddingBottom ?? 15.0,
+          ),
+          sliver: SliverList(
+            delegate: SliverChildListDelegate(<Widget>[
+              ...items
+                  .map((e) => FlightItem(item: e))
+                  .toList()
+                  .expand((element) => [element, SizedBox(height: spacingItem)])
+                  .toList()
+                ..removeLast(),
+            ]),
+          ),
+        );
+      }
       return Padding(
         padding: EdgeInsets.only(
           right: paddingRight ?? 20.0,
@@ -52,6 +75,38 @@ class FlightField extends StatelessWidget {
               .expand((element) => [element, SizedBox(height: spacingItem)])
               .toList()
             ..removeLast(),
+        ),
+      );
+    }
+    if (type.isGridFlight) {
+      return SliverPadding(
+        //update after
+        padding: EdgeInsets.only(
+          left: paddingLeft ?? 15.0,
+          top: paddingTop ?? 15.0,
+          right: paddingRight ?? 15.0,
+          bottom: paddingBottom ?? 15.0,
+        ),
+        sliver: SliverGrid(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisSpacing: 5.0,
+            crossAxisCount: 2,
+            mainAxisSpacing: 2.0,
+            childAspectRatio: 0.8,
+          ),
+          delegate: SliverChildBuilderDelegate(
+            addAutomaticKeepAlives: false,
+            (BuildContext contex, int index) => Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                FlightItem(
+                  item: items[index],
+                  isSmallItem: true,
+                )
+              ],
+            ),
+            childCount: items.length,
+          ),
         ),
       );
     }

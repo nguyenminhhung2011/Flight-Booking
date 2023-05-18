@@ -1,5 +1,6 @@
+import 'dart:ffi';
+
 import 'package:collection/collection.dart';
-import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/core/components/widgets/mobile/rating_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/save_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -19,20 +20,23 @@ enum ImageViewItemType {
 class ImageViewField extends StatelessWidget {
   final List<ImageViewStyle> imageViews;
   final ImageViewItemType imageViewType;
-  final bool isOuttext;
   final double? marginLeft;
   final double? marginRight;
   final double? marginTop;
   final double? marginBottom;
   final double? spacingItem;
-  final bool isNetworImage;
   final double? widthItem;
   final double? heighItem;
+  final bool isNetworImage;
+  final bool isOuttext;
+  final bool isSliver;
+  final int? crossCount;
   const ImageViewField({
     super.key,
     required this.imageViewType,
     required this.imageViews,
     this.isOuttext = true,
+    this.isSliver = false,
     this.isNetworImage = true,
     this.marginLeft,
     this.marginRight,
@@ -41,6 +45,7 @@ class ImageViewField extends StatelessWidget {
     this.spacingItem,
     this.widthItem,
     this.heighItem,
+    this.crossCount,
   });
 
   @override
@@ -81,18 +86,66 @@ class ImageViewField extends StatelessWidget {
       );
     }
     if (imageViewType.isGridView) {
-      return const Placeholder();
+      return SliverPadding(
+        //update after
+        padding: EdgeInsets.only(
+          left: marginLeft ?? 15.0,
+          top: marginTop ?? 15.0,
+          right: marginRight ?? 15.0,
+          bottom: marginBottom ?? 15.0,
+        ),
+        sliver: SliverGrid(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisSpacing: 5.0,
+            crossAxisCount: 2,
+            mainAxisSpacing: 2.0,
+            childAspectRatio: 0.65,
+          ),
+          delegate: SliverChildBuilderDelegate(
+            addAutomaticKeepAlives: false,
+            (BuildContext contex, int index) => Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ImageViewItem(
+                  imageView: imageViews[index],
+                  isOutText: isOuttext,
+                  isFullWidthItem: false,
+                ),
+              ],
+            ),
+            childCount: imageViews.length,
+          ),
+        ),
+      );
+    }
+    if (isSliver) {
+      //🚑 dumb code because i hard core this code
+      return SliverList(
+        delegate: SliverChildListDelegate(<Widget>[
+          SizedBox(height: marginTop ?? 20.0),
+          ...imageViews
+              .map(
+                (e) => ImageViewItem(
+                  imageView: e,
+                  isOutText: isOuttext,
+                  isFullWidthItem: true,
+                ),
+              )
+              .expand((element) => [
+                    element,
+                    SizedBox(height: spacingItem ?? 10.0),
+                  ])
+        ]),
+      );
     }
     return Column(
       children: [
-        SizedBox(
-          height: marginTop ?? 20.0,
-        ),
+        SizedBox(height: marginTop ?? 20.0),
         ...imageViews
             .map(
               (e) => ImageViewItem(
                 imageView: e,
-                isOutText: false,
+                isOutText: isOuttext,
                 isFullWidthItem: true,
               ),
             )

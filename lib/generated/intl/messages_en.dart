@@ -59,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "amount": MessageLookupByLibrary.simpleMessage("Amount"),
         "anotherAirport":
             MessageLookupByLibrary.simpleMessage("Another airport"),
+        "apply": MessageLookupByLibrary.simpleMessage("Apply"),
         "applyNewPassword":
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
         "benefit": MessageLookupByLibrary.simpleMessage("Benefits"),
@@ -163,6 +164,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "generalSetting":
             MessageLookupByLibrary.simpleMessage("General Settings"),
         "goTour": MessageLookupByLibrary.simpleMessage("Go Tour"),
+        "gridView": MessageLookupByLibrary.simpleMessage("gridView"),
         "hideInformation":
             MessageLookupByLibrary.simpleMessage("Hide Information"),
         "hours": MessageLookupByLibrary.simpleMessage("Hours"),
@@ -176,6 +178,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "listCustomer": MessageLookupByLibrary.simpleMessage("List Customer"),
         "listFlights": MessageLookupByLibrary.simpleMessage("List Flights"),
         "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
+        "listView": MessageLookupByLibrary.simpleMessage("List View"),
         "location": MessageLookupByLibrary.simpleMessage("Location"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
