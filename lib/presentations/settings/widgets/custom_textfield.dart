@@ -45,7 +45,7 @@ class _CustomerTextFieldState extends State<CustomerTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 60, minHeight: 20),
+      constraints: const BoxConstraints(maxHeight: 60, minHeight: 20),
       width: widget.width ?? double.infinity,
       child: TextFormField(
         readOnly: widget.readOnly ?? false,
@@ -61,7 +61,8 @@ class _CustomerTextFieldState extends State<CustomerTextField> {
               ]
             : [],
         decoration: InputDecoration(
-          suffixIconConstraints: BoxConstraints(minHeight: 48, minWidth: 20),
+          suffixIconConstraints:
+              const BoxConstraints(minHeight: 48, minWidth: 20),
           isDense: widget.isDense,
           contentPadding:
               const EdgeInsets.symmetric(vertical: 10, horizontal: 15),

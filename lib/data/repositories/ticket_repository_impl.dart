@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/ticket/ticket.dart';

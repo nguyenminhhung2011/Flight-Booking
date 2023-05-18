@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:collection/collection.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flutter/material.dart';
