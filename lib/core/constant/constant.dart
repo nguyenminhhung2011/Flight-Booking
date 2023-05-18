@@ -5,7 +5,6 @@ import 'package:flight_booking/core/components/widgets/extension/coor_extension.
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../generated/l10n.dart';

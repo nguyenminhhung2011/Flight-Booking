@@ -20,10 +20,10 @@ class _CustomerDetailCardState extends State<CustomerDetailCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Expanded(
             flex: 1,
             child: CustomerInformationCard(),
@@ -110,9 +110,9 @@ class CustomerInformationCard extends StatelessWidget {
                     ?.copyWith(fontWeight: FontWeight.bold),
               ),
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 LabelText(label: "Name", title: "Hoang Truong"),
                 LabelText(label: "Gender", title: "Male"),
               ],
