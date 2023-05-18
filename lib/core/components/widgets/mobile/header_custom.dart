@@ -6,6 +6,7 @@ class HeaderTextCustom extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final String headerText;
   final TextStyle? textStyle;
+  final Widget? widget;
   final bool isShowSeeMore;
   final Function()? onPress;
   const HeaderTextCustom({
@@ -15,6 +16,7 @@ class HeaderTextCustom extends StatelessWidget {
     this.isShowSeeMore = false,
     required this.headerText,
     this.onPress,
+    this.widget,
   });
 
   @override
@@ -32,6 +34,7 @@ class HeaderTextCustom extends StatelessWidget {
                       ),
             ),
           ),
+          if (widget != null) widget!,
           if (isShowSeeMore)
             TextButton(
               onPressed: onPress ?? () {},

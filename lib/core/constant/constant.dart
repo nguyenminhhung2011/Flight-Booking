@@ -126,6 +126,32 @@ List<Map<String, dynamic>> mockDataBenefits = [
   {'icon': Icons.table_bar, 'title': 'Restroom'},
   {'icon': Icons.dining_rounded, 'title': 'Drink'}
 ];
+List<Map<String, dynamic>> mockDataReviews = [
+  {
+    'reviews':
+        'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
+    'name': 'Nguyen Minh Hung',
+    'rating': 3,
+  },
+  {
+    'reviews':
+        'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces .',
+    'name': 'Truong Huynh Duc Hoang',
+    'rating': 4,
+  },
+  {
+    'reviews':
+        'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces .',
+    'name': 'Truong Huynh Duc Hoang',
+    'rating': 4,
+  },
+  {
+    'reviews':
+        'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces .',
+    'name': 'Truong Huynh Duc Hoang',
+    'rating': 5,
+  },
+];
 
 int fakeNumberChairiInFlight = 28;
 int fakeRowChair = 7;

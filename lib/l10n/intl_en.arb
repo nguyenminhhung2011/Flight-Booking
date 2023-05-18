@@ -189,7 +189,15 @@
     "reviews": "Reviews",
     "detial": "Detail",
     "anotherAirport": "Another airport",
-    "description": "Description"
+    "description": "Description",
+    "timeActivity": "Time Activity",
+    "open": "Open",
+    "close": "Close",
+    "airportContact": "Airport contact",
+    "writeReviews": "Write reviews",
+    "upcoming": "Upcoming",
+    "departureFlight": "Departure flight",
+    "landingFlight": "Landing flight"
 
 
 }

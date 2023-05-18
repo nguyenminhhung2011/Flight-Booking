@@ -10,6 +10,7 @@ class CustomTemplateScreenStackScroll extends StatefulWidget {
   final Color? color;
   final Widget? bottomSheet;
   final Widget? afterMainScreen;
+  final Widget? floatingButton;
   final Function()? willPopup;
   const CustomTemplateScreenStackScroll({
     super.key,
@@ -21,6 +22,7 @@ class CustomTemplateScreenStackScroll extends StatefulWidget {
     this.bottomSheet,
     this.willPopup,
     this.afterMainScreen,
+    this.floatingButton,
   });
 
   @override
@@ -49,6 +51,7 @@ class _CustomTemplateScreenStackScrollState
       },
       child: Scaffold(
         extendBody: true,
+        floatingActionButton: widget.floatingButton,
         bottomNavigationBar: widget.bottomSheet,
         backgroundColor:
             widget.color ?? Theme.of(context).scaffoldBackgroundColor,

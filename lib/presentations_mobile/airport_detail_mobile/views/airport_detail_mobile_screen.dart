@@ -3,16 +3,24 @@ import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/appbar.dart';
+import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/category_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/custom_template_screen_stack_scroll.dart';
+import 'package:flight_booking/core/components/widgets/mobile/flight_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/header_custom.dart';
 import 'package:flight_booking/core/constant/constant.dart';
+import 'package:flight_booking/presentations_mobile/airport_detail_mobile/bloc/airport_detail_mobile_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../../core/components/const/image_const.dart';
+import '../../../core/components/widgets/mobile/image_preview_custom.dart';
 import '../../../core/components/widgets/mobile/item_view_custom.dart';
+import '../../../core/components/widgets/mobile/review_custom.dart';
+import '../../../core/constant/handle_time.dart';
 import '../../../generated/l10n.dart';
+import '../../routes_mobile.dart';
 
 class AirportDetailMobileScreen extends StatefulWidget {
   const AirportDetailMobileScreen({super.key});
@@ -23,9 +31,24 @@ class AirportDetailMobileScreen extends StatefulWidget {
 }
 
 class _AirportDetailMobileScreenState extends State<AirportDetailMobileScreen> {
-  final ValueNotifier<int> tabView = ValueNotifier<int>(0);
+  AirportDetailMobileBloc get _bloc =>
+      BlocProvider.of<AirportDetailMobileBloc>(context);
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc.add(const AirportDetailMobileEvent.onStarted());
+  }
+
   void onTabChange(int index) {
-    tabView.value = index;
+    _bloc.add(AirportDetailMobileEvent.changeTabView(index: index));
+  }
+
+  void _listenStateChange(
+    BuildContext context,
+    AirportDetailMobileState state,
+  ) {
+    state.whenOrNull();
   }
 
   @override
@@ -34,102 +57,243 @@ class _AirportDetailMobileScreenState extends State<AirportDetailMobileScreen> {
         .textTheme
         .titleMedium!
         .copyWith(fontWeight: FontWeight.w600, color: Colors.grey);
-    return CustomTemplateScreenStackScroll(
-      appbar: AppbarCustom(
-        pinned: true,
-        backgroundColor: Theme.of(context).primaryColor,
-        aftarImage: ImageConst.bacground,
-        widgeExpanded: ImagePreviewCustom(images: mockDataImag),
-        expandedHeight: context.heightDevice * 0.35,
-        title: [
-          IconButton(
-            onPressed: () => context.pop(),
-            icon: const Icon(Icons.arrow_back),
-          ),
-          const Spacer(),
-        ],
-      ),
-      children: [
-        SliverList(
-          delegate: SliverChildListDelegate(
-            <Widget>[
-              const SizedBox(height: 20.0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            'Viet Nam air',
-                            maxLines: 1,
-                            style: context.headlineSmall.copyWith(
-                              fontWeight: FontWeight.w500,
-                              color: Theme.of(context)
-                                  .scaffoldBackgroundColor
-                                  .fontColorByBackground,
-                            ),
+    return BlocConsumer<AirportDetailMobileBloc, AirportDetailMobileState>(
+      listener: _listenStateChange,
+      builder: (context, state) {
+        final data = state.data;
+        return CustomTemplateScreenStackScroll(
+          floatingButton: data.tabIndex == 2
+              ? ButtonCustom(
+                  radius: 5.0,
+                  width: context.widthDevice * 0.4,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          S.of(context).writeReviews,
+                          maxLines: 1,
+                          style: context.titleSmall.copyWith(
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
-                          '⭐ 4.9(5,6k reviews)',
-                          style:
-                              context.titleSmall.copyWith(color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      '🗺️ Thi Xa An khe, tinh Gia Lai',
-                      style: context.titleSmall.copyWith(
-                        fontWeight: FontWeight.w400,
-                        color: Colors.grey,
                       ),
-                    ),
-                  ],
-                ),
+                      const SizedBox(width: 4),
+                      const Icon(Icons.edit),
+                    ],
+                  ),
+                  onPress: () {},
+                )
+              : null,
+          appbar: AppbarCustom(
+            pinned: true,
+            backgroundColor: Theme.of(context).primaryColor,
+            aftarImage: ImageConst.bacground,
+            widgeExpanded: ImagePreviewCustom(images: mockDataImag),
+            expandedHeight: context.heightDevice * 0.35,
+            title: [
+              IconButton(
+                onPressed: () => context.pop(),
+                icon: const Icon(Icons.arrow_back),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
-                child: Divider(),
-              ),
-              ValueListenableBuilder(
-                valueListenable: tabView,
-                builder: (_, tab, __) {
-                  return CategoryField(
-                    categoryType: CategoryType.textCategory,
-                    marginLeft: 15.0,
-                    marginTop: 10.0,
-                    spacingItem: 15.0,
-                    categories: [
-                      S.of(context).detial,
-                      S.of(context).flight,
-                      S.of(context).reviews
-                    ]
-                        .mapIndexed(
-                          (index, e) => CategoryStyle(
-                            text: e,
-                            isSelected: tab == index,
-                            onPress: () => onTabChange(index),
-                            textStyle: Theme.of(context).textTheme.titleMedium,
-                          ),
-                        )
-                        .toList(),
-                  );
-                },
-              ),
-              _detailTab(headerStyle),
+              const Spacer(),
             ],
           ),
-        ),
+          children: [
+            SliverList(
+              delegate: SliverChildListDelegate(
+                <Widget>[
+                  const SizedBox(height: 20.0),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CategoryField(
+                        categoryType: CategoryType.textCategory,
+                        marginLeft: 15.0,
+                        marginTop: 10.0,
+                        spacingItem: 15.0,
+                        categories: [
+                          S.of(context).detial,
+                          S.of(context).flight,
+                          S.of(context).reviews
+                        ]
+                            .mapIndexed(
+                              (index, e) => CategoryStyle(
+                                text: e,
+                                isSelected: data.tabIndex == index,
+                                onPress: () => onTabChange(index),
+                                textStyle:
+                                    Theme.of(context).textTheme.titleMedium,
+                              ),
+                            )
+                            .toList(),
+                      ),
+                      [
+                        // 🚑 Dumb code
+                        _detailTab(headerStyle, context),
+                        _flightTab(headerStyle),
+                        _reviewsTab(headerStyle),
+                      ][data.tabIndex],
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _reviewsTab(TextStyle headerStyle) {
+    return Column(
+      children: [
+        ReviewsField(
+          spacingItem: 15.0,
+          reviews: mockDataReviews
+              .map(
+                (e) => ReviewStyle(
+                  title: e['reviews'],
+                  userName: e['name'],
+                  ratings: e['rating'] * 1.0,
+                  isShowFav: true,
+                  fav: 10,
+                ),
+              )
+              .toList(),
+        )
       ],
     );
   }
 
-  Widget _detailTab(TextStyle headerStyle) {
+  Widget _flightTab(TextStyle headerStyle) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        HeaderTextCustom(
+          headerText: S.of(context).upcoming,
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
+          textStyle: headerStyle,
+        ),
+        FlightItem(
+          margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
+          item: FlightStyle(
+            price: 20.0,
+            timeStart: DateTime.now(),
+            timeFinish: DateTime.now().add(const Duration(hours: 10)),
+            startPlace: 'HaNoi',
+            comePlace: 'HCM City',
+            onPress: () {},
+          ),
+        ),
+        const SizedBox(height: 5.0),
+        HeaderTextCustom(
+          headerText: S.of(context).landingFlight,
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
+          textStyle: headerStyle,
+        ),
+        FlightField(
+          type: FlightType.horizontalFlight,
+          paddingBottom: 10.0,
+          paddingLeft: 15.0,
+          items: [
+            for (int i = 0; i < 5; i++)
+              FlightStyle(
+                timeStart: DateTime.now(),
+                timeFinish:
+                    DateTime.now().add(const Duration(hours: 4, minutes: 50)),
+                startPlace: 'Comilia',
+                comePlace: 'Sylhet',
+                price: (i + 1) * 100,
+                shadowRadius: 5.0,
+                shadowColorPercent: 0.2,
+                shadowOffsetX: 0,
+                shadowOffsetY: 5.0,
+                onPress: () => context
+                    .openListPageWithRoute(RoutesMobile.flightDetailMobile),
+              )
+          ],
+        ),
+        const SizedBox(height: 5.0),
+        HeaderTextCustom(
+          headerText: S.of(context).departureFlight,
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
+          textStyle: headerStyle,
+        ),
+        FlightField(
+          type: FlightType.horizontalFlight,
+          paddingBottom: 10.0,
+          paddingLeft: 15.0,
+          items: [
+            for (int i = 0; i < 5; i++)
+              FlightStyle(
+                timeStart: DateTime.now(),
+                timeFinish:
+                    DateTime.now().add(const Duration(hours: 4, minutes: 50)),
+                startPlace: 'Comilia',
+                comePlace: 'Sylhet',
+                price: (i + 1) * 100,
+                shadowRadius: 5.0,
+                shadowColorPercent: 0.2,
+                shadowOffsetX: 0,
+                shadowOffsetY: 5.0,
+                onPress: () => context
+                    .openListPageWithRoute(RoutesMobile.flightDetailMobile),
+              )
+          ],
+        ),
+        const SizedBox(height: 40.0),
+      ],
+    );
+  }
+
+  Widget _detailTab(TextStyle headerStyle, BuildContext context) {
+    var smallPrimaryText = context.titleSmall.copyWith(
+      fontWeight: FontWeight.bold,
+      color: Theme.of(context).primaryColor,
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Viet Nam air',
+                      maxLines: 1,
+                      style: context.headlineSmall.copyWith(
+                        fontWeight: FontWeight.w500,
+                        color: Theme.of(context)
+                            .scaffoldBackgroundColor
+                            .fontColorByBackground,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '⭐ 4.9(5,6k reviews)',
+                    style: context.titleSmall.copyWith(color: Colors.grey),
+                  ),
+                ],
+              ),
+              Text(
+                '🗺️ Thi Xa An khe, tinh Gia Lai',
+                style: context.titleSmall.copyWith(
+                  fontWeight: FontWeight.w400,
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+          child: Divider(),
+        ),
         HeaderTextCustom(
           headerText: S.of(context).description,
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
@@ -144,15 +308,66 @@ class _AirportDetailMobileScreenState extends State<AirportDetailMobileScreen> {
             trimMode: TrimMode.Line,
             trimCollapsedText: 'Show more',
             trimExpandedText: 'Show less',
-            lessStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).primaryColor),
-            moreStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).primaryColor),
+            lessStyle: smallPrimaryText,
+            moreStyle: smallPrimaryText,
           ),
         ),
         const SizedBox(height: 5.0),
+        HeaderTextCustom(
+          headerText: S.of(context).timeActivity,
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+          textStyle: headerStyle,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: RichText(
+            text: TextSpan(
+              children: <TextSpan>[
+                TextSpan(text: S.of(context).open, style: smallPrimaryText),
+                TextSpan(
+                  text: ' ${getjmFormat(DateTime.now())}',
+                  style: context.titleSmall,
+                ),
+                const TextSpan(text: ' - '),
+                TextSpan(text: S.of(context).close, style: smallPrimaryText),
+                TextSpan(
+                  text: ' ${getjmFormat(DateTime.now())}',
+                  style: context.titleSmall,
+                )
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 5.0),
+        HeaderTextCustom(
+          headerText: S.of(context).airportContact,
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+          textStyle: headerStyle,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: Wrap(
+            children: [
+              'Viet Nam air',
+              'Super Airport',
+              'Pig Airport',
+              'Cat Airport'
+            ]
+                .map(
+                  (e) => Padding(
+                    padding: const EdgeInsets.only(right: 10.0, bottom: 3.0),
+                    child: Text(
+                      e,
+                      style: smallPrimaryText.copyWith(
+                        decoration: TextDecoration.underline,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
+          ),
+        ),
         HeaderTextCustom(
           headerText: S.of(context).anotherAirport,
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
@@ -174,117 +389,8 @@ class _AirportDetailMobileScreenState extends State<AirportDetailMobileScreen> {
               )
           ],
         ),
+        const SizedBox(height: 20.0),
       ],
-    );
-  }
-}
-
-class ImagePreviewCustom extends StatefulWidget {
-  final List<String> images;
-  const ImagePreviewCustom({
-    super.key,
-    required this.images,
-  });
-
-  @override
-  State<ImagePreviewCustom> createState() => _ImagePreviewCustomState();
-}
-
-class _ImagePreviewCustomState extends State<ImagePreviewCustom> {
-  final ValueNotifier<int> _indexPage = ValueNotifier<int>(0);
-
-  void onPageChange(int index) {
-    _indexPage.value = index;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: double.infinity,
-      child: Stack(
-        children: [
-          PageView.builder(
-            itemCount: widget.images.length,
-            onPageChanged: onPageChange,
-            itemBuilder: (_, index) => Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(widget.images[index]),
-                    ),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                    colors: [
-                      Theme.of(context).shadowColor.withOpacity(0.2),
-                      Theme.of(context).shadowColor.withOpacity(0.3)
-                    ],
-                  )),
-                ),
-              ],
-            ),
-          ),
-          ValueListenableBuilder<int>(
-            valueListenable: _indexPage,
-            builder: (context, indexPage, child) {
-              return Align(
-                alignment: Alignment.bottomCenter,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: mockDataImag
-                        .mapIndexed((index, e) => FastImagePreview(
-                            imageUrl: e, isView: index == indexPage))
-                        .toList()
-                        .expand(
-                            (element) => [element, const SizedBox(width: 5.0)])
-                        .toList(),
-                  ),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class FastImagePreview extends StatelessWidget {
-  final String imageUrl;
-  final bool isView;
-  final Function()? onPress;
-  const FastImagePreview({
-    super.key,
-    required this.imageUrl,
-    required this.isView,
-    this.onPress,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPress,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        width: isView ? 80 : 60,
-        height: isView ? 50 : 30,
-        margin: const EdgeInsets.only(bottom: 10.0),
-        decoration: BoxDecoration(
-          border: Border.all(width: 1.5, color: Theme.of(context).primaryColor),
-          borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: NetworkImage(imageUrl),
-          ),
-        ),
-      ),
     );
   }
 }

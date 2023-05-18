@@ -49,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "addressData": m0,
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "airport": MessageLookupByLibrary.simpleMessage("Airport"),
+        "airportContact":
+            MessageLookupByLibrary.simpleMessage("Airport contact"),
         "airportFinish": MessageLookupByLibrary.simpleMessage("Airport Finish"),
         "airportOverview":
             MessageLookupByLibrary.simpleMessage("Airport Overview"),
@@ -77,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "class1": MessageLookupByLibrary.simpleMessage("Class"),
         "clickToUpload":
             MessageLookupByLibrary.simpleMessage("Click to upload"),
+        "close": MessageLookupByLibrary.simpleMessage("Close"),
         "commingFlights":
             MessageLookupByLibrary.simpleMessage("Comming Flights"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
@@ -100,6 +103,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Deadline For Ticket Purchase"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "departureDate": MessageLookupByLibrary.simpleMessage("Departure Date"),
+        "departureFlight":
+            MessageLookupByLibrary.simpleMessage("Departure flight"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "destination": MessageLookupByLibrary.simpleMessage("Destination"),
         "detial": MessageLookupByLibrary.simpleMessage("Detail"),
@@ -165,6 +170,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "idData": m1,
         "identityNum": MessageLookupByLibrary.simpleMessage("Identity Number"),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
+        "landingFlight": MessageLookupByLibrary.simpleMessage("Landing flight"),
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
         "listAirports": MessageLookupByLibrary.simpleMessage("List Airports"),
         "listCustomer": MessageLookupByLibrary.simpleMessage("List Customer"),
@@ -197,6 +203,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "numberEmployee": m4,
         "numberOfAirport":
             MessageLookupByLibrary.simpleMessage("Number Of Airports"),
+        "open": MessageLookupByLibrary.simpleMessage("Open"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "orDrag": MessageLookupByLibrary.simpleMessage(
             " or drag and drop SVG, PNG, JPG or GIF (max 800x400px)"),
@@ -264,12 +271,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "This will be display on your profile"),
         "ticketNumber":
             MessageLookupByLibrary.simpleMessage("Number of Ticket"),
+        "timeActivity": MessageLookupByLibrary.simpleMessage("Time Activity"),
         "times": MessageLookupByLibrary.simpleMessage("Times"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "totalAirport": MessageLookupByLibrary.simpleMessage("Total Airport"),
         "totalCustomer": MessageLookupByLibrary.simpleMessage("Total Customer"),
         "totalFlight": MessageLookupByLibrary.simpleMessage("Total Flight"),
         "totalPayment": MessageLookupByLibrary.simpleMessage("Total Payment"),
+        "upcoming": MessageLookupByLibrary.simpleMessage("Upcoming"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "updateProfile": MessageLookupByLibrary.simpleMessage("Update Profile"),
         "updateYourAvatar": MessageLookupByLibrary.simpleMessage(
@@ -285,6 +294,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "weHaveSentAVerification": m5,
         "welcomeoFlightAdmin":
             MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
+        "writeReviews": MessageLookupByLibrary.simpleMessage("Write reviews"),
         "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
         "yourPhoto": MessageLookupByLibrary.simpleMessage("Your Photo")
       };
