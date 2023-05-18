@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/search_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
