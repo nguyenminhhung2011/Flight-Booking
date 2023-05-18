@@ -19,7 +19,7 @@ class AirportScreen extends StatefulWidget {
 }
 
 class _AirportScreenState extends State<AirportScreen> {
-  late final _textController;
+  late final textController;
 
   AirportBloc get _bloc => BlocProvider.of<AirportBloc>(context);
 
@@ -27,7 +27,7 @@ class _AirportScreenState extends State<AirportScreen> {
   void initState() {
     super.initState();
     _bloc.add(const AirportEvent.onStarted());
-    _textController = TextEditingController();
+    textController = TextEditingController();
   }
 
   void _listenStateChange(BuildContext context, AirportState state) {

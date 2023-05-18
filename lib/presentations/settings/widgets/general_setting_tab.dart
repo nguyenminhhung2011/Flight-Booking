@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:flight_booking/core/config/common_ui_config.dart';
-import 'package:flight_booking/presentations/settings/widgets/custom_button.dart';
 import 'package:flight_booking/presentations/settings/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -25,7 +24,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
     });
   }
 
-  bool _isLoading = false;
+  final bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {

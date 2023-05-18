@@ -12,25 +12,21 @@ class CustomerRepositoryImpl implements CustomerRepository {
 
   @override
   Future<bool> deleteCustomer(String id) {
-    // TODO: implement deleteCustomer
     throw UnimplementedError();
   }
 
   @override
   Future<Customer> editCustomer(Customer customer) {
-    // TODO: implement editCustomer
     throw UnimplementedError();
   }
 
   @override
   List<Customer> getAllCustomers() {
-    // TODO: implement getAllCustomers
     throw UnimplementedError();
   }
 
   @override
   Customer? getCustomerById(String id) {
-    // TODO: implement getCustomerById
     throw UnimplementedError();
   }
 }

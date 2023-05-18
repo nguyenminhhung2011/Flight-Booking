@@ -18,15 +18,15 @@ const _searchNull = '';
 
 @injectable
 class SearchMobileBloc extends Bloc<SearchMobileEvent, SearchMobileState> {
-  final AirportUsecase _airportUsecase;
-  final FlightsUsecase _flightsUsecase;
+  final AirportUsecase airportUsecase;
+  final FlightsUsecase flightsUsecase;
   final SearchEnum _searchType;
   SearchMobileModelState get data => state.data;
   SearchEnum get getSearchType => _searchType;
   SearchMobileBloc(
     @factoryParam SearchEnum? searchType,
-    this._airportUsecase,
-    this._flightsUsecase,
+    this.airportUsecase,
+    this.flightsUsecase,
   )   : _searchType = searchType ?? SearchEnum.airportSearch,
         super(
           const SearchMobileState.initial(
@@ -47,7 +47,7 @@ class SearchMobileBloc extends Bloc<SearchMobileEvent, SearchMobileState> {
       _GetDataByText event, Emitter<SearchMobileState> emit) async {
     emit(SearchMobileState.loading(data: data));
     // if(_searchType.isAirportSearch){
-    //   await _airportUsecase.fetchAllAirports();
+    //   await airportUsecase.fetchAllAirports();
     // }
     //
     emit(SearchMobileState.searchSuccess(data: data));
