@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:collection/collection.dart';
 import 'package:flight_booking/core/components/widgets/mobile/rating_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/save_icon_button.dart';
