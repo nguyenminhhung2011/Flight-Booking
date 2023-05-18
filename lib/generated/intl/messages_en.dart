@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "commingFlights":
             MessageLookupByLibrary.simpleMessage("Comming Flights"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
+        "creDate": MessageLookupByLibrary.simpleMessage("Creation Date"),
         "createYourNewPassword":
             MessageLookupByLibrary.simpleMessage("Create Your New Password"),
         "currentPassword":
@@ -83,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "customer": MessageLookupByLibrary.simpleMessage("Customer"),
         "customerChartView":
             MessageLookupByLibrary.simpleMessage("Customer Chart view"),
+        "customerId": MessageLookupByLibrary.simpleMessage("Customer Id"),
         "customerInformation":
             MessageLookupByLibrary.simpleMessage("Customer Information"),
         "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
@@ -141,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "flightChartView":
             MessageLookupByLibrary.simpleMessage("Flight Chart view"),
         "flightDetail": MessageLookupByLibrary.simpleMessage("Flight Detail"),
+        "flightId": MessageLookupByLibrary.simpleMessage("Flight Id"),
         "flightInformation":
             MessageLookupByLibrary.simpleMessage("Flight Information"),
         "flightTickets": MessageLookupByLibrary.simpleMessage("Flight tickets"),
@@ -198,6 +201,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordSettings":
             MessageLookupByLibrary.simpleMessage("Password Settings"),
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
+        "paymentMethod": MessageLookupByLibrary.simpleMessage("Payment Method"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
         "personalInfo": MessageLookupByLibrary.simpleMessage("Personal Info"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
@@ -239,6 +243,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "showMoreInformation":
             MessageLookupByLibrary.simpleMessage("Show more Information"),
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
+        "status": MessageLookupByLibrary.simpleMessage("Status"),
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),
         "thisWillDisplay": MessageLookupByLibrary.simpleMessage(
@@ -264,7 +269,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "weHaveSentAVerification": m5,
-        "welcomeoFlightAdmin":
+        "welcomeFlightAdmin":
             MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
         "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
         "yourPhoto": MessageLookupByLibrary.simpleMessage("Your Photo")
