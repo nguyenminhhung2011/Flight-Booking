@@ -9,6 +9,7 @@ import 'package:flight_booking/presentations_mobile/search_mobile/bloc/search_mo
 import 'package:flight_booking/presentations_mobile/search_mobile/bloc/search_mobile_model_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/components/widgets/mobile/button_custom.dart';
 import '../../../core/components/widgets/mobile/flight_custom.dart';
@@ -27,9 +28,11 @@ class SeearchMobileScreen extends StatefulWidget {
 class _SeearchMobileScreenState extends State<SeearchMobileScreen> {
   final TextEditingController _searchController = TextEditingController();
   SearchMobileBloc get _bloc => BlocProvider.of<SearchMobileBloc>(context);
-
+  final controller =
+      SearchMobileController(searchEnum: SearchEnum.airportSearch);
   @override
   void dispose() {
+    controller.removeListener(_searchControllerListenChange);
     _searchController.dispose();
     super.dispose();
   }
@@ -37,8 +40,11 @@ class _SeearchMobileScreenState extends State<SeearchMobileScreen> {
   @override
   void initState() {
     super.initState();
+    controller.addListener(_searchControllerListenChange);
     _bloc.add(const SearchMobileEvent.onStarted());
   }
+
+  void _searchControllerListenChange() {}
 
   void onTextChange(String text) {
     _bloc.add(SearchMobileEvent.textChange(text: text));
@@ -66,7 +72,11 @@ class _SeearchMobileScreenState extends State<SeearchMobileScreen> {
         top: Radius.circular(15.0),
       )),
       builder: (context) {
-        return BottomFilterView(searchType: searchType);
+        controller.searchEnum = searchType;
+        return ChangeNotifierProvider<SearchMobileController>.value(
+          value: controller,
+          child: const BottomFilterView(),
+        );
       },
     );
   }

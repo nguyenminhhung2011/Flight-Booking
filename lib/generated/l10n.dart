@@ -2059,6 +2059,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Time Open`
+  String get timeOpen {
+    return Intl.message(
+      'Time Open',
+      name: 'timeOpen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time Close`
+  String get timeClose {
+    return Intl.message(
+      'Time Close',
+      name: 'timeClose',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
