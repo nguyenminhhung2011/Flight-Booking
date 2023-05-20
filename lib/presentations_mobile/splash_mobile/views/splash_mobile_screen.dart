@@ -2,22 +2,34 @@ import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
+import 'package:flight_booking/presentations_mobile/splash_mobile/views/widgets/app_name.dart';
 import 'package:flutter/material.dart';
 
 import '../../../generated/l10n.dart';
 
-class SplashMobileScreen extends StatelessWidget {
+class SplashMobileScreen extends StatefulWidget {
   const SplashMobileScreen({super.key});
+
+  @override
+  State<SplashMobileScreen> createState() => _SplashMobileScreenState();
+}
+
+class _SplashMobileScreenState extends State<SplashMobileScreen> {
   Future<void> initData() async {
     //Do something
     await Future.delayed(const Duration(seconds: 5));
   }
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     initData().then((value) {
-      context.openListPageWithRoute(RoutesMobile.dashboardMobile);
+      context.openListPageWithRoute(RoutesMobile.onboard);
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Center(
@@ -43,21 +55,7 @@ class SplashMobileScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10.0),
-            RichText(
-              text: TextSpan(children: [
-                TextSpan(
-                  text: 'Go',
-                  style: context.titleLarge.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).primaryColor),
-                ),
-                TextSpan(
-                  text: ' tour',
-                  style:
-                      context.titleLarge.copyWith(fontWeight: FontWeight.bold),
-                ),
-              ]),
-            ),
+            const AppName(),
             Text(
               S.of(context).youCanTravelToAnyPlaceWithGotour,
               textAlign: TextAlign.center,

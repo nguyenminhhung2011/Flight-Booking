@@ -8,6 +8,7 @@ class RoutesMobile {
   static const String searchMobile = '/search_mobile'; //✅
   //////////////////////////////////////////
   static const String splash = 'splash_mobile'; //✅
+  static const String onboard = 'onboard_mobile'; //
   static const String login = 'login_mobile'; //
   static const String register = 'register_mobile'; //
   static const String save = 'save_mobile'; //

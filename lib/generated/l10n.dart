@@ -2089,6 +2089,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Continue`
+  String get continueText {
+    return Intl.message(
+      'Continue',
+      name: 'continueText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip for now`
+  String get skipForNow {
+    return Intl.message(
+      'Skip for now',
+      name: 'skipForNow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
