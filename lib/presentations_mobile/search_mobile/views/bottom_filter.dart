@@ -125,7 +125,7 @@ class _BottomFilterViewState extends State<BottomFilterView> {
                       Text(S.of(context).dateStart, style: leadingTitleStyle),
                   trailing: ButtonPicDateCustom(
                     width: 150.0,
-                    value: model.timeStart!,
+                    value: model.timeStart ?? DateTime.now(),
                     onChange: model.setTimeStart,
                   ),
                 ),
@@ -134,7 +134,7 @@ class _BottomFilterViewState extends State<BottomFilterView> {
                       Text(S.of(context).dateFinish, style: leadingTitleStyle),
                   trailing: ButtonPicDateCustom(
                     width: 150.0,
-                    value: model.timeFinish!,
+                    value: model.timeFinish ?? DateTime.now(),
                     onChange: model.setTimeFinish,
                   ),
                 ),

@@ -9,8 +9,11 @@ import 'package:flight_booking/presentations_mobile/list_flight_mobile/views/lis
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/bloc/search_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/splash_mobile/notifier/splash_notifier.dart';
+import 'package:flight_booking/presentations_mobile/splash_mobile/views/splash_mobile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 import '../core/dependency_injection/di.dart';
 
@@ -23,6 +26,15 @@ class MainRoutesMobile {
           builder: (_) {
             return const HomeMobileScreen();
           },
+        );
+      case RoutesMobile.splash:
+        final controller = SplashNotifier();
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => ChangeNotifierProvider<SplashNotifier>.value(
+            value: controller,
+            child: const SplashMobileScreen(),
+          ),
         );
       case RoutesMobile.dashboardMobile:
         return MaterialPageRoute(
