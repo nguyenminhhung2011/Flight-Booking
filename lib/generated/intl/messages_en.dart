@@ -84,7 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "commingFlights":
             MessageLookupByLibrary.simpleMessage("Comming Flights"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
-        "creDate": MessageLookupByLibrary.simpleMessage("Creation Date"),
+        "creDate": MessageLookupByLibrary.simpleMessage("Create Date"),
         "createYourNewPassword":
             MessageLookupByLibrary.simpleMessage("Create Your New Password"),
         "currentPassword":
@@ -155,6 +155,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "flightChartView":
             MessageLookupByLibrary.simpleMessage("Flight Chart view"),
         "flightDetail": MessageLookupByLibrary.simpleMessage("Flight Detail"),
+        "flightId": MessageLookupByLibrary.simpleMessage("Flight Id"),
+        "flightInfo": MessageLookupByLibrary.simpleMessage("Flight Info"),
         "flightInformation":
             MessageLookupByLibrary.simpleMessage("Flight Information"),
         "flightTickets": MessageLookupByLibrary.simpleMessage("Flight tickets"),
@@ -162,6 +164,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "flightType": MessageLookupByLibrary.simpleMessage("Flight Type"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gate": MessageLookupByLibrary.simpleMessage("Gate"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
         "generalSetting":
@@ -300,7 +303,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "weHaveSentAVerification": m5,
-        "welcomeFlightAdmin":
+        "welcomeoFlightAdmin":
             MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
         "writeReviews": MessageLookupByLibrary.simpleMessage("Write reviews"),
         "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),

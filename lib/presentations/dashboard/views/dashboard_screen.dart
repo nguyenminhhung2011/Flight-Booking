@@ -224,8 +224,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 ? Icons.dark_mode
                                 : Icons.light_mode,
                           ),
-                          Text(
-                            ' ${data.isDarkTheme ? S.of(context).darkMode : S.of(context).lightMode}',
+                          Expanded(
+                            child: Text(
+                              ' ${data.isDarkTheme ? S.of(context).darkMode : S.of(context).lightMode}',
+                            ),
                           ),
                           Switch(
                             value: data.isDarkTheme,

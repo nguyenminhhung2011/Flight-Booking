@@ -1771,10 +1771,10 @@ class S {
   }
 
   /// `Welcome to Flight Admin`
-  String get welcomeFlightAdmin {
+  String get welcomeoFlightAdmin {
     return Intl.message(
       'Welcome to Flight Admin',
-      name: 'welcomeFlightAdmin',
+      name: 'welcomeoFlightAdmin',
       desc: '',
       args: [],
     );
@@ -1820,10 +1820,10 @@ class S {
     );
   }
 
-  /// `Creation Date`
+  /// `Create Date`
   String get creDate {
     return Intl.message(
-      'Creation Date',
+      'Create Date',
       name: 'creDate',
       desc: '',
       args: [],
@@ -2115,6 +2115,16 @@ class S {
     return Intl.message(
       'Apply',
       name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get fullName {
+    return Intl.message(
+      'Full Name',
+      name: 'fullName',
       desc: '',
       args: [],
     );
