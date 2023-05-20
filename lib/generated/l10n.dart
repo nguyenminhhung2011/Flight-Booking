@@ -2079,6 +2079,16 @@ class S {
       args: [],
     );
   }
+
+  /// `you can travel to any place\nwith gotour`
+  String get youCanTravelToAnyPlaceWithGotour {
+    return Intl.message(
+      'you can travel to any place\nwith gotour',
+      name: 'youCanTravelToAnyPlaceWithGotour',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

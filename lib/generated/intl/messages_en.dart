@@ -300,6 +300,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeoFlightAdmin":
             MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
         "writeReviews": MessageLookupByLibrary.simpleMessage("Write reviews"),
+        "youCanTravelToAnyPlaceWithGotour":
+            MessageLookupByLibrary.simpleMessage(
+                "you can travel to any place\nwith gotour"),
         "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
         "yourPhoto": MessageLookupByLibrary.simpleMessage("Your Photo")
       };

@@ -36,7 +36,7 @@ class AppDelegate {
           BlocProvider<SearchMobileBloc>(create: (_) => injector.get())
         ]
       ],
-      initialRoute: isMobile ? RoutesMobile.dashboardMobile : Routes.dashboard,
+      initialRoute: isMobile ? RoutesMobile.splash : Routes.dashboard,
       savedThemeMode: savedThemeMode,
       isMobile: isMobile,
     );
