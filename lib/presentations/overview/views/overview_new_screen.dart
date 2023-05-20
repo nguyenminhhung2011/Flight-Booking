@@ -48,7 +48,6 @@ class _OverviewNewScreenState extends State<OverviewNewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final widthField = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: ListView(
@@ -56,9 +55,10 @@ class _OverviewNewScreenState extends State<OverviewNewScreen> {
           ListTile(
             title: Text(
               S.of(context).dashboard,
-              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall!
+                  .copyWith(fontWeight: FontWeight.bold),
               maxLines: 1,
             ),
             trailing: SizedBox(
@@ -134,7 +134,7 @@ class _OverviewNewScreenState extends State<OverviewNewScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    S.of(context).welcomeFlightAdmin,
+                                    S.of(context).welcomeoFlightAdmin,
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleLarge!

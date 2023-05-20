@@ -135,19 +135,21 @@ class CustomerDetailScreen extends StatelessWidget {
                 flex: 3,
                 child: Column(
                   children: [
-                    const Expanded(
+                    Expanded(
                       flex: 1,
                       child: Row(
                         children: [
                           Expanded(
-                            child: CustomerInformationCard(),
+                            child: CustomerInformationCard(
+                              customer: Customer.empty,
+                            ),
                           ),
-                          SizedBox(width: 5),
-                          Expanded(
+                          const SizedBox(width: 5),
+                          const Expanded(
                             child: CustomerStatisticCard(),
                           ),
-                          SizedBox(width: 5),
-                          Expanded(
+                          const SizedBox(width: 5),
+                          const Expanded(
                             child: CardCustom(child: CustomerAirlinePieChart()),
                           ),
                         ],

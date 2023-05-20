@@ -119,7 +119,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                       child: FluxTicketTable<Customer>(
                         rowSelectedDecoration: BoxDecoration(
                             border: Border.all(
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                           width: 0.5,
                         )),
                         currentIndex: customerState.data.currentIndex,

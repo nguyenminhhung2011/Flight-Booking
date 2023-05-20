@@ -1,26 +1,24 @@
 import 'dart:math';
 
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flight_booking/core/components/enum/action_enum.dart';
 import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_ticket_table.dart';
 import 'package:flight_booking/core/components/widgets/payment_status_utils.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
-import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../core/config/color_config.dart';
-
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
 
   Widget _buildStatisticRow(BuildContext context) {
-    return Row(
-      children: const [
+    return const Row(
+      children: [
         Expanded(
           child: PaymentStatisticComponent(
             title: "Total Payments Today",
@@ -89,7 +87,7 @@ class PaymentScreen extends StatelessWidget {
                   thickness: 0.5,
                   color: Theme.of(context).dividerColor,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 250,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -209,7 +207,7 @@ class PaymentScreen extends StatelessWidget {
   Widget _buildPaymentStatusComponent(
       BuildContext context, PaymentStatus status) {
     return Container(
-      width: 120,
+      width: 150,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
       decoration: BoxDecoration(
         color: PaymentStatusUtils.getColorBaseOnStatus(status).shade200,
@@ -275,8 +273,28 @@ class PaymentScreen extends StatelessWidget {
               return _buildPaymentStatusComponent(context, data);
             }
             if (columnIndex == 7) {
-              return IconButton(
-                onPressed: () {},
+              return PopupMenuButton<ActionEnum>(
+                itemBuilder: (context) => [
+                  PopupMenuItem<ActionEnum>(
+                    child: Text(
+                      ActionEnum.detail.name,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ),
+                  PopupMenuItem<ActionEnum>(
+                    child: Text(
+                      ActionEnum.edit.name,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ),
+                  PopupMenuItem<ActionEnum>(
+                    child: Text(
+                      ActionEnum.delete.name,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ),
+                ],
+                onSelected: (value) {},
                 icon: const Icon(Icons.more_vert),
               );
             }
@@ -323,7 +341,7 @@ class PaymentScreen extends StatelessWidget {
           FlexRowTableData<String>(flex: 2, data: S.of(context).amount),
           FlexRowTableData<String>(flex: 2, data: S.of(context).creDate),
           FlexRowTableData<String>(flex: 2, data: S.of(context).status),
-          FlexRowTableData(flex: 1, data: "Action"),
+          FlexRowTableData<String>(flex: 1, data: S.of(context).actions),
         ],
       ),
       isSelectable: true,
@@ -530,7 +548,6 @@ class TicketTierStatisticComponent extends StatelessWidget {
 
   List<PieChartSectionData> showingSections() {
     return List.generate(4, (i) {
-      const shadows = [Shadow(color: Colors.black, blurRadius: 2)];
       switch (i) {
         case 0:
           return PieChartSectionData(

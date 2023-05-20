@@ -122,7 +122,7 @@ class CustomerInformationCard extends StatelessWidget {
                     ?.copyWith(fontWeight: FontWeight.bold),
               ),
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 LabelText(label: S.of(context).name, title: customer.name),
