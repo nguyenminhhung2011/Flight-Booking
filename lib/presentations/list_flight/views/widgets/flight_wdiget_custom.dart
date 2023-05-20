@@ -1,4 +1,4 @@
-import 'package:dotted_decoration/dotted_decoration.dart';
+  import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/rich_text_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';

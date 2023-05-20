@@ -172,11 +172,7 @@
     "totalPayment": "Total Payment",
     "payment": "Payment",
     "flightAdmin": "Flight Admin",
-    "welcomeFlightAdmin": "Welcome to Flight Admin",
-    "customerInformation":"Customer Information",
-    "customerId":"Customer Id",
-    "flightId":"Flight Id",
-    "paymentMethod":"Payment Method",
-    "creDate":"Creation Date",
-    "status":"Status"
+    "welcomeoFlightAdmin": "Welcome to Flight Admin"
+
+
 }

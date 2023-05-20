@@ -33,7 +33,6 @@ class CustomImage extends StatelessWidget {
           width: width,
           height: height,
           fit: fit ?? BoxFit.contain,
-          color: color,
         );
       }
       if (useExtendedImage) {
@@ -83,7 +82,6 @@ class CustomImage extends StatelessWidget {
         width: width,
         height: height,
         fit: fit ?? BoxFit.contain,
-        color: color,
       );
     }
 

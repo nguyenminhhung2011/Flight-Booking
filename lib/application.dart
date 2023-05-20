@@ -1,4 +1,5 @@
-import 'package:flight_booking/presentations/routes/main_routes.dart';
+import 'package:flight_booking/core/components/widgets/extension/coor_extension.dart';
+import 'package:flight_booking/presentations_mobile/main_routes_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,12 +11,14 @@ class Application extends StatefulWidget {
   final GlobalKey<NavigatorState> navigationKey;
   final List<BlocProvider> providers;
   final String initialRoute;
+  final bool isMobile;
   const Application({
     super.key,
     required this.providers,
     required this.initialRoute,
     required this.navigationKey,
     required this.savedThemeMode,
+    required this.isMobile,
   });
 
   @override
@@ -32,7 +35,9 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
       title: 'Flight booking',
       navigatorKey: widget.navigationKey,
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: MainRoutes.getRoute,
+      onGenerateRoute: MainRoutesMobile.getRoute,
+      // widget.isMobile ? MainRoutesMobile.getRoute : MainRoutes.getRoute,
+      // onGenerateRoute: MainRoutesMobile.getRoute,
       initialRoute: widget.initialRoute,
       localizationsDelegates: const [
         S.delegate,
@@ -41,8 +46,14 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      theme: light,
-      darkTheme: dark,
+      theme: ThemeData(
+        primaryColor: '#07AEAF'.toColor(),
+        primaryColorDark: '#07AEAF'.toColor(),
+        fontFamily: 'Montserrat',
+      ),
+      darkTheme: ThemeData.dark().copyWith(
+        primaryColor: '#07AEAF'.toColor(),
+      ),
       locale: locale,
     );
   }
@@ -63,18 +74,13 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return AdaptiveTheme(
-      // light: theme.getTheme(Brightness.light),
-      // dark: theme.getTheme(Brightness.dark),
       light: ThemeData.light(),
       dark: ThemeData.dark(),
-      initial: widget.savedThemeMode ?? AdaptiveThemeMode.dark,
+      initial: widget.savedThemeMode ?? AdaptiveThemeMode.light,
       builder: (ThemeData light, ThemeData dark) => MultiBlocProvider(
         providers: widget.providers,
         child: _buildMaterialApp(
-          locale: const Locale(
-            'en',
-            '',
-          ),
+          locale: const Locale('en', ''),
           light: light,
           dark: dark,
         ),

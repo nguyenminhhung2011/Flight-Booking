@@ -49,7 +49,7 @@ extension AppCoordinator<T> on BuildContext {
   }
 
   Future<DateTime?> pickDateTime() async {
-    DateTime? date = (await pickDate()) as DateTime?;
+    DateTime? date = (await pickDate(DatePickerMode.day));
     if (date == null) {
       return null;
     }
@@ -68,12 +68,13 @@ extension AppCoordinator<T> on BuildContext {
         ),
       ) as Future<T?>;
 
-  Future<T?> pickDate() => showDatePicker(
+  Future<DateTime?> pickDate(DatePickerMode mode) => showDatePicker(
+        initialDatePickerMode: mode,
         context: this,
         initialDate: DateTime.now(),
         firstDate: DateTime(1900),
         lastDate: DateTime(2100),
-      ) as Future<T?>;
+      );
 
   Future<List<DateTime>?> pickRangeDate(
     RangeDateController rangeDateController,
@@ -122,6 +123,14 @@ extension AppCoordinator<T> on BuildContext {
         type: type,
       ),
     );
+  }
+
+  Future<T?> openListPageWithRoute(String route) {
+    return Navigator.of(this).pushNamed(route);
+  }
+
+  Future<T?> openPageWithRouteAndParams(String route, dynamic param) {
+    return Navigator.of(this).pushNamed(route, arguments: param);
   }
 }
 
