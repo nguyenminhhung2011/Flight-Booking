@@ -275,6 +275,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ticketNumber":
             MessageLookupByLibrary.simpleMessage("Number of Ticket"),
         "timeActivity": MessageLookupByLibrary.simpleMessage("Time Activity"),
+        "timeClose": MessageLookupByLibrary.simpleMessage("Time Close"),
+        "timeOpen": MessageLookupByLibrary.simpleMessage("Time Open"),
         "times": MessageLookupByLibrary.simpleMessage("Times"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "totalAirport": MessageLookupByLibrary.simpleMessage("Total Airport"),

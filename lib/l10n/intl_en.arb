@@ -200,5 +200,8 @@
     "landingFlight": "Landing flight",
     "gridView": "gridView",
     "listView": "List View",
-    "apply": "Apply"
+    "apply": "Apply",
+    "timeOpen": "Time Open",
+    "timeClose": "Time Close"
+
 }
