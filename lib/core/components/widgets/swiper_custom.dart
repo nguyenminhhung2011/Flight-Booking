@@ -16,6 +16,7 @@ class SwiperCustom extends StatefulWidget {
   final bool? autoPlay;
   final bool? isShowSlideDot;
   final bool? isCenterSlideDot;
+  final bool swipperOnly;
   final EdgeInsetsGeometry? margin;
   const SwiperCustom({
     super.key,
@@ -32,6 +33,7 @@ class SwiperCustom extends StatefulWidget {
     this.isShowSlideDot = true,
     this.isCenterSlideDot = true,
     this.spacingItem,
+    this.swipperOnly = false,
   });
 
   @override
@@ -72,46 +74,52 @@ class _SwiperCustomState extends State<SwiperCustom> {
   Widget build(BuildContext context) {
     return Padding(
       padding: widget.margin ?? const EdgeInsets.all(0.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: widget.width ?? double.infinity,
-            height: widget.height ?? double.infinity,
-            child: Swiper(
-              onIndexChanged: (newIndex) => index.value = newIndex,
-              layout: widget.swiperLayout ?? SwiperLayout.TINDER,
-              controller: swiperController,
-              autoplay: widget.autoPlay ?? false,
-              viewportFraction: widget.viewPortFraction ?? 0.8,
-              scale: widget.scale ?? 0.9,
-              duration: widget.duration ?? 300,
-              itemCount: widget.itemCount,
-              itemBuilder: (_, index) => widget.itemBuilder(index),
+      child: widget.swipperOnly
+          ? _swiper()
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _swiper(),
+                if (widget.isShowSlideDot!)
+                  ValueListenableBuilder<int>(
+                    valueListenable: index,
+                    builder: (context, currentIndex, child) => Row(
+                        mainAxisAlignment: widget.isCenterSlideDot!
+                            ? MainAxisAlignment.center
+                            : MainAxisAlignment.start,
+                        children: [
+                          for (int i = 0; i < widget.itemCount; i++)
+                            BuildIndicator(
+                              isActive: i == currentIndex,
+                              onPress: () => changeView(i),
+                            )
+                        ]),
+                  )
+              ]
+                  .expand((element) => [
+                        element,
+                        SizedBox(height: widget.spacingItem ?? 5.0),
+                      ])
+                  .toList()
+                ..removeLast(),
             ),
-          ),
-          if (widget.isShowSlideDot!)
-            ValueListenableBuilder<int>(
-              valueListenable: index,
-              builder: (context, currentIndex, child) => Row(
-                  mainAxisAlignment: widget.isCenterSlideDot!
-                      ? MainAxisAlignment.center
-                      : MainAxisAlignment.start,
-                  children: [
-                    for (int i = 0; i < widget.itemCount; i++)
-                      BuildIndicator(
-                        isActive: i == currentIndex,
-                        onPress: () => changeView(i),
-                      )
-                  ]),
-            )
-        ]
-            .expand((element) => [
-                  element,
-                  SizedBox(height: widget.spacingItem ?? 5.0),
-                ])
-            .toList()
-          ..removeLast(),
+    );
+  }
+
+  SizedBox _swiper() {
+    return SizedBox(
+      width: widget.width ?? double.infinity,
+      height: widget.height ?? double.infinity,
+      child: Swiper(
+        onIndexChanged: (newIndex) => index.value = newIndex,
+        layout: widget.swiperLayout ?? SwiperLayout.TINDER,
+        controller: swiperController,
+        autoplay: widget.autoPlay ?? false,
+        viewportFraction: widget.viewPortFraction ?? 0.8,
+        scale: widget.scale ?? 0.9,
+        duration: widget.duration ?? 300,
+        itemCount: widget.itemCount,
+        itemBuilder: (_, index) => widget.itemBuilder(index),
       ),
     );
   }

@@ -1,7 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flight_booking/core/config/color_config.dart';
-import 'package:flight_booking/core/services/cloundinary_service.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ItemAddImage extends StatelessWidget {

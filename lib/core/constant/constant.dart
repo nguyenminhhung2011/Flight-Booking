@@ -1,5 +1,12 @@
 import 'dart:math';
 
+import 'package:flight_booking/core/components/const/image_const.dart';
+import 'package:flight_booking/core/components/widgets/extension/coor_extension.dart';
+import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
+import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
+import 'package:flutter/material.dart';
+
 import '../../generated/l10n.dart';
 
 List<String> weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -51,12 +58,140 @@ List<String> mockDataImag = [
   'https://www.szairport.com/szairporten/xhtml/images/index-pic-01.jpg',
   'https://media.cnn.com/api/v1/images/stellar/prod/230314215301-03-world-best-airports-2023.jpg?c=original&q=w_1280,c_fill',
 ];
+List<Map<String, dynamic>> dashboardItem = [
+  {
+    'icon': ImageConst.homeIcon,
+    'tit': 'Home',
+    'index': 0,
+    'screen': const HomeMobileScreen(),
+  },
+  {
+    'icon': ImageConst.searchIcon,
+    'tit': 'Search',
+    'index': 1,
+    'screen': const SeearchMobileScreen()
+  },
+  {
+    'icon': ImageConst.documentIcon,
+    'tit': 'Favorite',
+    'index': 2,
+    'screen': const SizedBox()
+  },
+  {
+    'icon': ImageConst.personIcon,
+    'tit': 'Profile',
+    'index': 3,
+    'screen': const SizedBox()
+  },
+];
+
+List<String> filterRating = [
+  '1 - 2 Stars',
+  '2 - 3 Stars',
+  '3 - 4 Stars',
+  '1 - 2 Stars'
+];
+
+List<Map<String, dynamic>> mockCategory = [
+  {
+    'text': 'Hotels',
+    'icon': ImageConst.hotel,
+    'color': '#ffd3b5ff'.toColor(),
+    'route': RoutesMobile.listFlightMobile,
+  },
+  {
+    'text': 'Flight',
+    'icon': ImageConst.airplaneIcon,
+    'color': '#ffffc0ee'.toColor(),
+    'route': RoutesMobile.listFlightMobile,
+  },
+  {
+    'text': 'Airports',
+    'icon': ImageConst.trip,
+    'color': '#ffffdab5'.toColor(),
+    'route': RoutesMobile.listAirportMobile,
+  },
+  {
+    'text': 'Ticket',
+    'icon': ImageConst.tic,
+    'color': '#ff97d5ff'.toColor(),
+    'route': RoutesMobile.listFlightMobile,
+  },
+];
 List<String> sogun = [
   'Manage Customer',
   'Manage Airport',
   'Manage Flight',
   'Manage Payment',
   'Update Account',
+];
+
+List<Map<String, dynamic>> mockDataBenefits = [
+  {'icon': Icons.cake, 'title': 'Meals'},
+  {'icon': Icons.wifi, 'title': 'Wifi'},
+  {'icon': Icons.tv, 'title': 'TV'},
+  {'icon': Icons.table_bar, 'title': 'Restroom'},
+  {'icon': Icons.dining_rounded, 'title': 'Drink'}
+];
+List<Map<String, dynamic>> mockDataReviews = [
+  {
+    'reviews':
+        'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
+    'name': 'Nguyen Minh Hung',
+    'rating': 3,
+  },
+  {
+    'reviews':
+        'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces .',
+    'name': 'Truong Huynh Duc Hoang',
+    'rating': 4,
+  },
+  {
+    'reviews':
+        'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces .',
+    'name': 'Truong Huynh Duc Hoang',
+    'rating': 4,
+  },
+  {
+    'reviews':
+        'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces .',
+    'name': 'Truong Huynh Duc Hoang',
+    'rating': 5,
+  },
+];
+
+int fakeNumberChairiInFlight = 28;
+int fakeRowChair = 7;
+List<Map<String, dynamic>> fakeDataChair = [
+  {'index': 0, 'chec': 1},
+  {'index': 1, 'chec': 3},
+  {'index': 2, 'chec': 3},
+  {'index': 3, 'chec': 2},
+  {'index': 4, 'chec': 1},
+  {'index': 5, 'chec': 3},
+  {'index': 6, 'chec': 1},
+  {'index': 7, 'chec': 3},
+  {'index': 8, 'chec': 1},
+  {'index': 9, 'chec': 2},
+  {'index': 10, 'chec': 1},
+  {'index': 11, 'chec': 1},
+  {'index': 12, 'chec': 3},
+  {'index': 13, 'chec': 1},
+  {'index': 14, 'chec': 2},
+  {'index': 15, 'chec': 2},
+  {'index': 16, 'chec': 2},
+  {'index': 17, 'chec': 3},
+  {'index': 18, 'chec': 3},
+  {'index': 19, 'chec': 3},
+  {'index': 20, 'chec': 1},
+  {'index': 21, 'chec': 1},
+  {'index': 22, 'chec': 2},
+  {'index': 23, 'chec': 1},
+  {'index': 24, 'chec': 3},
+  {'index': 25, 'chec': 1},
+  {'index': 26, 'chec': 2},
+  {'index': 27, 'chec': 3},
+  {'index': 28, 'chec': 1},
 ];
 
 String randomString() {

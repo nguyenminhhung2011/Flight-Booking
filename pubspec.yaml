@@ -16,10 +16,10 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version:  1.0.0+3000
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -37,55 +37,82 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_localizations:
     sdk: flutter
+  flutter_bloc: ^8.1.2
+  adaptive_theme: ^3.2.1
   
   equatable: ^2.0.3
   provider: ^6.0.5
-  jumping_dot: ^0.0.4
+  # jumping_dot: ^0.0.4
   get_it: ^7.2.0
-  collection: 1.17.0
-  supabase_flutter: ^1.5.0
-  extended_image: ^7.0.2
-  image_gallery_saver: ^1.7.1
-  async_button_builder: ^3.0.0+1
+  collection: 1.17.1
+  # supabase_flutter: ^1.5.0
+  # extended_image: ^7.0.2
+  # image_gallery_saver: ^1.7.1
+  # async_button_builder: ^3.0.0+1
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
   bloc: ^8.1.1
-  flutter_bloc: ^8.1.2
+  # flutter_bloc: ^8.1.2
   http: ^0.13.5
-  share_plus: ^6.3.1
-  path_provider: ^2.0.13
-  dropdown_button2: 1.9.4
-  carousel_slider: ^4.2.1
-  flutter_svg: 1.1.6
-  intl: 0.17.0
-  animated_text_kit: ^4.2.2
-  flutter_linkify: ^5.0.2
-  url_launcher: ^6.1.10
-  smooth_page_indicator: ^1.0.1
-  multiple_localization: 0.3.0
-  flutter_adaptive_scaffold: ^0.1.2
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
-  fl_chart: ^0.62.0
-  adaptive_theme: ^3.2.0
+  # share_plus: ^6.3.1
+  # path_provider: ^2.0.13
+  # dropdown_button2: 1.9.4
+  # carousel_slider: ^4.2.1
+  # flutter_svg: 1.1.6
+  intl: 0.18.0
+  # animated_text_kit: ^4.2.2
+  # flutter_linkify: ^5.0.2
+  # url_launcher: ^6.1.10
+  # smooth_page_indicator: ^1.0.1
+  # multiple_localization: 0.3.0
+  # flutter_adaptive_scaffold: ^0.1.2
+  # hive: ^2.2.3
+  # hive_flutter: ^1.1.0
+  # fl_chart: ^0.62.0
+  # adaptive_theme: ^3.2.0
   injectable: ^2.1.0
-  badges: ^3.0.3
+  flutter_swiper_null_safety: ^1.0.2
+  badges: ^3.1.1
+  extended_image: ^8.0.1
+  flutter_svg: ^2.0.5
+  fl_chart: ^0.62.0
+  calendar_timeline: ^1.1.2
+  # badges: ^3.0.3
 
-  dotted_decoration: ^2.0.0
-  ticket_widget: ^0.0.1
-  auto_size_text: ^3.0.0
-  date_time_picker: ^2.1.0
+  # dotted_decoration: ^2.0.0
+  # ticket_widget: ^0.0.1
+  # auto_size_text: ^3.0.0
+  # date_time_picker: ^2.1.0
   retrofit: ^4.0.1
   dio: ^5.1.1
-  bot_interceptor: ^0.0.1
-  file_picker: ^5.2.10
+  # bot_interceptor: ^0.0.1
+  # file_picker: ^5.2.10
+  # cloudinary_public: ^0.21.0
+  # image_picker: ^0.8.7+4
+  # dotted_border: ^2.0.0+3
+  # flutter_swiper_null_safety: ^1.0.2
+  # countries_world_map: ^1.0.3
+  # flutter_timeline: ^0.3.0
+  # syncfusion_flutter_datepicker: ^21.2.3
+  # flutter_rating_bar: ^4.0.1
+  # tab_indicator_styler: ^2.0.0
+  # calendar_timeline: ^1.1.2
+  scrollable_positioned_list: ^0.3.8
+  dotted_decoration: ^2.0.0
+  flutter_rating_bar: ^4.0.1
+  tab_indicator_styler: ^2.0.0
+  flutter_adaptive_scaffold: ^0.1.4
+  syncfusion_flutter_datepicker: ^21.2.5
   cloudinary_public: ^0.21.0
-  image_picker: ^0.8.7+4
+  file_picker: ^5.3.0
+  image_picker: ^0.8.7+5
   dotted_border: ^2.0.0+3
-  flutter_swiper_null_safety: ^1.0.2
-  countries_world_map: ^1.0.3
+  readmore: ^2.2.0
   flutter_timeline: ^0.3.0
-  syncfusion_flutter_datepicker: ^21.2.3
+  ticket_widget: ^0.0.1
+  countries_world_map: ^1.0.3
+  # table_calendar: ^3.0.8
+  # readmore: ^2.2.0
   
 dev_dependencies:
   flutter_test:
@@ -141,17 +168,54 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Montserrat-BlackItalic.ttf
+          weight: 900
+          style: italic
+        - asset: assets/fonts/Montserrat-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Montserrat-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/Montserrat-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Montserrat-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/Montserrat-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Montserrat-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/Montserrat-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/Montserrat-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Montserrat-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/Montserrat-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Montserrat-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Montserrat-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Montserrat-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/Montserrat-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Montserrat-ThinItalic.ttf
+          weight: 100
+          style: italic
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

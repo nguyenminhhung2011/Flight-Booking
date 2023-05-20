@@ -1839,6 +1839,286 @@ class S {
       args: [],
     );
   }
+
+  /// `Go Tour`
+  String get goTour {
+    return Intl.message(
+      'Go Tour',
+      name: 'goTour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You 'll easily book your bedroom, flights, train, bus and hotels`
+  String get sologan {
+    return Intl.message(
+      'You \'ll easily book your bedroom, flights, train, bus and hotels',
+      name: 'sologan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recomend Airport`
+  String get recomendAirport {
+    return Intl.message(
+      'Recomend Airport',
+      name: 'recomendAirport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See more`
+  String get seeMore {
+    return Intl.message(
+      'See more',
+      name: 'seeMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Person`
+  String get person {
+    return Intl.message(
+      'Person',
+      name: 'person',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flight Info`
+  String get flightInfo {
+    return Intl.message(
+      'Flight Info',
+      name: 'flightInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Boeing`
+  String get boeing {
+    return Intl.message(
+      'Boeing',
+      name: 'boeing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Benefits`
+  String get benefit {
+    return Intl.message(
+      'Benefits',
+      name: 'benefit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flight Type`
+  String get flightType {
+    return Intl.message(
+      'Flight Type',
+      name: 'flightType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Premium`
+  String get premium {
+    return Intl.message(
+      'Premium',
+      name: 'premium',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List Airports`
+  String get listAirports {
+    return Intl.message(
+      'List Airports',
+      name: 'listAirports',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sort by rating`
+  String get sortByRating {
+    return Intl.message(
+      'Sort by rating',
+      name: 'sortByRating',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sort by flights`
+  String get sortByFlights {
+    return Intl.message(
+      'Sort by flights',
+      name: 'sortByFlights',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reviews`
+  String get reviews {
+    return Intl.message(
+      'Reviews',
+      name: 'reviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Detail`
+  String get detial {
+    return Intl.message(
+      'Detail',
+      name: 'detial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Another airport`
+  String get anotherAirport {
+    return Intl.message(
+      'Another airport',
+      name: 'anotherAirport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time Activity`
+  String get timeActivity {
+    return Intl.message(
+      'Time Activity',
+      name: 'timeActivity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open`
+  String get open {
+    return Intl.message(
+      'Open',
+      name: 'open',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message(
+      'Close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Airport contact`
+  String get airportContact {
+    return Intl.message(
+      'Airport contact',
+      name: 'airportContact',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write reviews`
+  String get writeReviews {
+    return Intl.message(
+      'Write reviews',
+      name: 'writeReviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upcoming`
+  String get upcoming {
+    return Intl.message(
+      'Upcoming',
+      name: 'upcoming',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Departure flight`
+  String get departureFlight {
+    return Intl.message(
+      'Departure flight',
+      name: 'departureFlight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Landing flight`
+  String get landingFlight {
+    return Intl.message(
+      'Landing flight',
+      name: 'landingFlight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `gridView`
+  String get gridView {
+    return Intl.message(
+      'gridView',
+      name: 'gridView',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List View`
+  String get listView {
+    return Intl.message(
+      'List View',
+      name: 'listView',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apply`
+  String get apply {
+    return Intl.message(
+      'Apply',
+      name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -2,7 +2,6 @@ import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/presentations/list_ticket/bloc/list_ticket_bloc.dart';
 import 'package:flight_booking/presentations/list_ticket/views/widgets/column_tic_view.dart';
-import 'package:flight_booking/presentations/list_ticket/views/widgets/position_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -128,11 +127,11 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
                   ),
                   child: ListView(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: double.infinity,
                         height: 100,
                         child: Row(
-                          children: const [
+                          children: [
                             Expanded(
                               child: LabelTextField(
                                 title: 'Flights',
@@ -172,8 +171,8 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
                                 ),
                               ],
                             )
-                          : Column(
-                              children: const [
+                          : const Column(
+                              children: [
                                 TicColumnListView(
                                   ticType: TicTypeEnum.businessClass,
                                   count: 10,

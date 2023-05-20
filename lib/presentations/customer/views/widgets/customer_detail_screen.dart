@@ -135,20 +135,19 @@ class CustomerDetailScreen extends StatelessWidget {
                 flex: 3,
                 child: Column(
                   children: [
-                    Expanded(
+                    const Expanded(
                       flex: 1,
                       child: Row(
                         children: [
                           Expanded(
-                            child: CustomerInformationCard(
-                                customer: Customer.empty),
+                            child: CustomerInformationCard(),
                           ),
-                          const SizedBox(width: 5),
-                          const Expanded(
+                          SizedBox(width: 5),
+                          Expanded(
                             child: CustomerStatisticCard(),
                           ),
-                          const SizedBox(width: 5),
-                          const Expanded(
+                          SizedBox(width: 5),
+                          Expanded(
                             child: CardCustom(child: CustomerAirlinePieChart()),
                           ),
                         ],
@@ -163,15 +162,14 @@ class CustomerDetailScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 5),
-              Expanded(
+              const Expanded(
                 child: Column(
                   children: [
                     Expanded(
                       flex: 1,
                       child: FlightInformationCard(),
                     ),
-                    Expanded(
-                        flex: 2, child: const CustomerTicketInformationCard()),
+                    Expanded(flex: 2, child: CustomerTicketInformationCard()),
                   ],
                 ),
               ),
@@ -199,7 +197,6 @@ class _CustomerAirlinePieChartState extends State<CustomerAirlinePieChart> {
       final isTouched = i == _touchIndex;
       final fontSize = isTouched ? 20.0 : 16.0;
       final radius = isTouched ? 110.0 : 100.0;
-      final widgetSize = isTouched ? 55.0 : 40.0;
       const shadows = [Shadow(color: Colors.black, blurRadius: 2)];
 
       switch (i) {
