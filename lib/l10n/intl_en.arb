@@ -203,6 +203,8 @@
     "apply": "Apply",
     "timeOpen": "Time Open",
     "timeClose": "Time Close",
-    "youCanTravelToAnyPlaceWithGotour": "you can travel to any place\nwith gotour"
+    "youCanTravelToAnyPlaceWithGotour": "you can travel to any place\nwith gotour",
+    "continueText": "Continue",
+    "skipForNow": "Skip for now"
 
 }

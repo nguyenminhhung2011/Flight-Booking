@@ -83,6 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "commingFlights":
             MessageLookupByLibrary.simpleMessage("Comming Flights"),
+        "continueText": MessageLookupByLibrary.simpleMessage("Continue"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
         "createYourNewPassword":
             MessageLookupByLibrary.simpleMessage("Create Your New Password"),
@@ -262,6 +263,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "showMoreInformation":
             MessageLookupByLibrary.simpleMessage("Show more Information"),
+        "skipForNow": MessageLookupByLibrary.simpleMessage("Skip for now"),
         "sologan": MessageLookupByLibrary.simpleMessage(
             "You \'ll easily book your bedroom, flights, train, bus and hotels"),
         "sortByFlights":
