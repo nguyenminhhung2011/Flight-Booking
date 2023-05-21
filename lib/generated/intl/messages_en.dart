@@ -61,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "amount": MessageLookupByLibrary.simpleMessage("Amount"),
         "anotherAirport":
             MessageLookupByLibrary.simpleMessage("Another airport"),
+        "anotherSettings":
+            MessageLookupByLibrary.simpleMessage("Another Settings"),
         "apply": MessageLookupByLibrary.simpleMessage("Apply"),
         "applyNewPassword":
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
@@ -95,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "customerChartView":
             MessageLookupByLibrary.simpleMessage("Customer Chart view"),
         "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
+        "darkTheme": MessageLookupByLibrary.simpleMessage("Dark Theme"),
         "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "dateBorn": MessageLookupByLibrary.simpleMessage("Date Born"),
@@ -129,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailPhoneDetail":
             MessageLookupByLibrary.simpleMessage("Email and Phone Details"),
         "employee": MessageLookupByLibrary.simpleMessage("Employee"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
         "enterCurrentPassword":
             MessageLookupByLibrary.simpleMessage("Enter your current Password"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
@@ -140,10 +144,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter your password again"),
         "enterYourEmail":
             MessageLookupByLibrary.simpleMessage("Enter your email"),
+        "enterYourName":
+            MessageLookupByLibrary.simpleMessage("Enter your name"),
         "enterYourNewPassword":
             MessageLookupByLibrary.simpleMessage("Enter Your New Password"),
         "enterYourPassword":
             MessageLookupByLibrary.simpleMessage("Enter your Password"),
+        "enterYourPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Enter your phone number"),
         "exp": MessageLookupByLibrary.simpleMessage("Exp"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
         "facebook": MessageLookupByLibrary.simpleMessage("Facebook"),
@@ -184,7 +192,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "identityNum": MessageLookupByLibrary.simpleMessage("Identity Number"),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
         "landingFlight": MessageLookupByLibrary.simpleMessage("Landing flight"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
+        "lightTheme": MessageLookupByLibrary.simpleMessage("Light Theme"),
         "listAirports": MessageLookupByLibrary.simpleMessage("List Airports"),
         "listCustomer": MessageLookupByLibrary.simpleMessage("List Customer"),
         "listFlights": MessageLookupByLibrary.simpleMessage("List Flights"),
@@ -209,6 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Minimum Flight Time"),
         "month": MessageLookupByLibrary.simpleMessage("Month"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
+        "myReview": MessageLookupByLibrary.simpleMessage("My review"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "nameData": m2,
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
@@ -291,6 +302,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),
+        "theme": MessageLookupByLibrary.simpleMessage("Theme"),
         "thisWillDisplay": MessageLookupByLibrary.simpleMessage(
             "This will be display on your profile"),
         "ticket": MessageLookupByLibrary.simpleMessage("Ticket"),
