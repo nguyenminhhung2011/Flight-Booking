@@ -99,7 +99,7 @@ List<Map<String, dynamic>> mockCategory = [
     'text': 'Hotels',
     'icon': ImageConst.hotel,
     'color': '#ffd3b5ff'.toColor(),
-    'route': RoutesMobile.listFlightMobile,
+    'route': RoutesMobile.hotel,
   },
   {
     'text': 'Flight',

@@ -198,6 +198,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "listAirports": MessageLookupByLibrary.simpleMessage("List Airports"),
         "listCustomer": MessageLookupByLibrary.simpleMessage("List Customer"),
         "listFlights": MessageLookupByLibrary.simpleMessage("List Flights"),
+        "listHotels": MessageLookupByLibrary.simpleMessage("List Hotels"),
         "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
         "listView": MessageLookupByLibrary.simpleMessage("List View"),
         "location": MessageLookupByLibrary.simpleMessage("Location"),
