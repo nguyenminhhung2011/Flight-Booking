@@ -4,6 +4,7 @@ import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/widgets/extension/coor_extension.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
+import 'package:flight_booking/presentations_mobile/save/views/save_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -69,13 +70,13 @@ List<Map<String, dynamic>> dashboardItem = [
     'icon': ImageConst.searchIcon,
     'tit': 'Search',
     'index': 1,
-    'screen': const SeearchMobileScreen()
+    'screen': const SearchMobileScreen()
   },
   {
     'icon': ImageConst.documentIcon,
     'tit': 'Favorite',
     'index': 2,
-    'screen': const SizedBox()
+    'screen': const SaveMobileScreen()
   },
   {
     'icon': ImageConst.personIcon,

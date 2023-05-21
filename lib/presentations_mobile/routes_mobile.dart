@@ -11,8 +11,8 @@ class RoutesMobile {
   static const String onboard = 'onboard_mobile'; //✅
   static const String login = 'login_mobile'; //✅
   static const String register = 'register_mobile'; // ✅
-  static const String save = 'save_mobile'; //
-  static const String profileView = 'profile_mobile'; // 3️⃣
+  static const String save = 'save_mobile'; // 3️⃣✅
+  static const String profileView = 'profile_mobile'; //
   static const String hotel = 'hotel_mobile'; //
   static const String hotelDetail = 'hotel_detail_mobile'; //
   static const String ticket = 'ticket_mobile'; //

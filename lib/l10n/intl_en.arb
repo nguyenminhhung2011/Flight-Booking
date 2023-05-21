@@ -218,5 +218,8 @@
     "orSignUpWith": "Or sign up with",
     "google": "Google",
     "facebook": "Facebook",
-    "alreadyHaveAccount": "Already have account?"
+    "alreadyHaveAccount": "Already have account?",
+    "save": "Save",
+    "ticket": "Ticket",
+    "hotel": "Hotel"
 }

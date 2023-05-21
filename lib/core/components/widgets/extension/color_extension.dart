@@ -4,5 +4,5 @@ extension ColorExtension on Color {
   Color get fontColorByBackground =>
       (computeLuminance() > 0.4) ? Colors.black : Colors.white;
   Color get fontColorByBackgroundSecond =>
-      (computeLuminance() > 0.4) ? Colors.white : Colors.black;
+      (computeLuminance() > 0.5) ? Colors.white : Colors.black;
 }
