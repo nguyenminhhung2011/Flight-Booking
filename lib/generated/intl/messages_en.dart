@@ -56,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Airport Overview"),
         "airportStart": MessageLookupByLibrary.simpleMessage("Airport Start"),
         "allBooking": MessageLookupByLibrary.simpleMessage("All Booking"),
+        "alreadyHaveAccount":
+            MessageLookupByLibrary.simpleMessage("Already have account?"),
         "amount": MessageLookupByLibrary.simpleMessage("Amount"),
         "anotherAirport":
             MessageLookupByLibrary.simpleMessage("Another airport"),
@@ -129,8 +131,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "employee": MessageLookupByLibrary.simpleMessage("Employee"),
         "enterCurrentPassword":
             MessageLookupByLibrary.simpleMessage("Enter your current Password"),
+        "enterEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enterNewPassword":
             MessageLookupByLibrary.simpleMessage("Enter your new Password"),
+        "enterPassword":
+            MessageLookupByLibrary.simpleMessage("Enter your password"),
+        "enterRePassword":
+            MessageLookupByLibrary.simpleMessage("Enter your password again"),
         "enterYourEmail":
             MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enterYourNewPassword":
@@ -139,6 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter your Password"),
         "exp": MessageLookupByLibrary.simpleMessage("Exp"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
+        "facebook": MessageLookupByLibrary.simpleMessage("Facebook"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
         "firstClass": MessageLookupByLibrary.simpleMessage("First Class"),
@@ -165,6 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "generalSetting":
             MessageLookupByLibrary.simpleMessage("General Settings"),
         "goTour": MessageLookupByLibrary.simpleMessage("Go Tour"),
+        "google": MessageLookupByLibrary.simpleMessage("Google"),
         "gridView": MessageLookupByLibrary.simpleMessage("gridView"),
         "hideInformation":
             MessageLookupByLibrary.simpleMessage("Hide Information"),
@@ -211,6 +220,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "orDrag": MessageLookupByLibrary.simpleMessage(
             " or drag and drop SVG, PNG, JPG or GIF (max 800x400px)"),
+        "orSignInWith": MessageLookupByLibrary.simpleMessage("Or sign in with"),
+        "orSignUpWith": MessageLookupByLibrary.simpleMessage("Or sign up with"),
         "overview": MessageLookupByLibrary.simpleMessage("Overview"),
         "passengers": MessageLookupByLibrary.simpleMessage("Passengers"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
@@ -238,12 +249,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "principleSetting":
             MessageLookupByLibrary.simpleMessage("Principle Setting"),
+        "rePassword": MessageLookupByLibrary.simpleMessage("RePassword"),
         "recomendAirport":
             MessageLookupByLibrary.simpleMessage("Recomend Airport"),
         "reenterPassword":
             MessageLookupByLibrary.simpleMessage("Reenter Password"),
         "reenterYourPassword":
             MessageLookupByLibrary.simpleMessage("Reenter Your Password"),
+        "registerNewAccount":
+            MessageLookupByLibrary.simpleMessage("Register New Account"),
         "rememberInformation":
             MessageLookupByLibrary.simpleMessage("Remember Information"),
         "retypePassword":
@@ -263,6 +277,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "showMoreInformation":
             MessageLookupByLibrary.simpleMessage("Show more Information"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "skipForNow": MessageLookupByLibrary.simpleMessage("Skip for now"),
         "sologan": MessageLookupByLibrary.simpleMessage(
             "You \'ll easily book your bedroom, flights, train, bus and hotels"),
@@ -304,7 +321,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "writeReviews": MessageLookupByLibrary.simpleMessage("Write reviews"),
         "youCanTravelToAnyPlaceWithGotour":
             MessageLookupByLibrary.simpleMessage(
-                "you can travel to any place\nwith gotour"),
+                "You can travel to any place\nwith gotour"),
         "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
         "yourPhoto": MessageLookupByLibrary.simpleMessage("Your Photo")
       };

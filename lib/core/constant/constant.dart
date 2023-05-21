@@ -193,7 +193,6 @@ List<Map<String, dynamic>> fakeDataChair = [
   {'index': 27, 'chec': 3},
   {'index': 28, 'chec': 1},
 ];
-
 String randomString() {
   const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
   var rnd = Random(DateTime.now().microsecondsSinceEpoch);

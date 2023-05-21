@@ -203,8 +203,20 @@
     "apply": "Apply",
     "timeOpen": "Time Open",
     "timeClose": "Time Close",
-    "youCanTravelToAnyPlaceWithGotour": "you can travel to any place\nwith gotour",
+    "youCanTravelToAnyPlaceWithGotour": "You can travel to any place\nwith gotour",
     "continueText": "Continue",
-    "skipForNow": "Skip for now"
-
+    "skipForNow": "Skip for now",
+    "signIn": "Sign In",
+    "registerNewAccount": "Register New Account",
+    "enterEmail": "Enter your email",
+    "enterPassword": "Enter your password",
+    "rePassword": "RePassword",
+    "enterRePassword": "Enter your password again",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "orSignInWith": "Or sign in with",
+    "orSignUpWith": "Or sign up with",
+    "google": "Google",
+    "facebook": "Facebook",
+    "alreadyHaveAccount": "Already have account?"
 }

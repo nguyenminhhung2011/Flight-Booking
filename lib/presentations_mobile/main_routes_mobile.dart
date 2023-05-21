@@ -1,6 +1,9 @@
 import 'package:flight_booking/core/components/enum/search_enum.dart';
 import 'package:flight_booking/presentations_mobile/airport_detail_mobile/bloc/airport_detail_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/airport_detail_mobile/views/airport_detail_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/auth/bloc/auth_bloc.dart';
+import 'package:flight_booking/presentations_mobile/auth/views/login_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/auth/views/register_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/dashboard_mobile/views/dashboard_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/flight_mobile_detail/views/flight_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
@@ -86,6 +89,19 @@ class MainRoutesMobile {
           builder: (_) => BlocProvider<SearchMobileBloc>(
             create: (context) => injector(param1: searchType),
             child: const SeearchMobileScreen(),
+          ),
+        );
+      case RoutesMobile.register:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const RegisterMobileScreen(),
+        );
+      case RoutesMobile.login:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => BlocProvider<AuthBloc>(
+            create: (context) => injector(),
+            child: const LoginMobileScreen(),
           ),
         );
       default:

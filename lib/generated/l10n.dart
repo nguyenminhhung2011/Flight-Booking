@@ -2080,10 +2080,10 @@ class S {
     );
   }
 
-  /// `you can travel to any place\nwith gotour`
+  /// `You can travel to any place\nwith gotour`
   String get youCanTravelToAnyPlaceWithGotour {
     return Intl.message(
-      'you can travel to any place\nwith gotour',
+      'You can travel to any place\nwith gotour',
       name: 'youCanTravelToAnyPlaceWithGotour',
       desc: '',
       args: [],
@@ -2105,6 +2105,136 @@ class S {
     return Intl.message(
       'Skip for now',
       name: 'skipForNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In`
+  String get signIn {
+    return Intl.message(
+      'Sign In',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register New Account`
+  String get registerNewAccount {
+    return Intl.message(
+      'Register New Account',
+      name: 'registerNewAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email`
+  String get enterEmail {
+    return Intl.message(
+      'Enter your email',
+      name: 'enterEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your password`
+  String get enterPassword {
+    return Intl.message(
+      'Enter your password',
+      name: 'enterPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `RePassword`
+  String get rePassword {
+    return Intl.message(
+      'RePassword',
+      name: 'rePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your password again`
+  String get enterRePassword {
+    return Intl.message(
+      'Enter your password again',
+      name: 'enterRePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get signUp {
+    return Intl.message(
+      'Sign Up',
+      name: 'signUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Out`
+  String get signOut {
+    return Intl.message(
+      'Sign Out',
+      name: 'signOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or sign in with`
+  String get orSignInWith {
+    return Intl.message(
+      'Or sign in with',
+      name: 'orSignInWith',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or sign up with`
+  String get orSignUpWith {
+    return Intl.message(
+      'Or sign up with',
+      name: 'orSignUpWith',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Google`
+  String get google {
+    return Intl.message(
+      'Google',
+      name: 'google',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Facebook`
+  String get facebook {
+    return Intl.message(
+      'Facebook',
+      name: 'facebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have account?`
+  String get alreadyHaveAccount {
+    return Intl.message(
+      'Already have account?',
+      name: 'alreadyHaveAccount',
       desc: '',
       args: [],
     );
