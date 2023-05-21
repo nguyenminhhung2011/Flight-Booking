@@ -185,7 +185,7 @@ class CategoryItem extends StatelessWidget {
                   Theme.of(context).primaryColor.withOpacity(0.1),
             ),
             child: (isIconOut)
-                ? category.icon != null
+                ? category.icon != null || category.iconWidget != null
                     ? _iconCategory()
                     : const SizedBox()
                 : Row(
@@ -208,13 +208,19 @@ class CategoryItem extends StatelessWidget {
     );
   }
 
-  Widget _iconCategory() => ImageCustom(
-        imageUrl: category.icon!,
-        isNetworkImage: false,
-        color: category.color,
-        width: category.iconSize,
-        height: category.iconSize,
-      );
+  Widget _iconCategory() => category.isIcon
+      ? Icon(
+          category.iconWidget,
+          color: category.color,
+          size: category.iconSize,
+        )
+      : ImageCustom(
+          imageUrl: category.icon!,
+          isNetworkImage: false,
+          color: category.color,
+          width: category.iconSize,
+          height: category.iconSize,
+        );
 
   Widget _nameCategory(BuildContext context) {
     return Text(
@@ -242,6 +248,8 @@ class CategoryStyle {
   final TextStyle? textStyle;
   final Function() onPress;
   final bool isSelected;
+  final bool isIcon;
+  final IconData? iconWidget;
   CategoryStyle({
     required this.text,
     required this.onPress,
@@ -255,5 +263,7 @@ class CategoryStyle {
     this.paddingBottom,
     this.iconSize,
     this.isSelected = false,
+    this.isIcon = false,
+    this.iconWidget,
   });
 }

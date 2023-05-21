@@ -120,6 +120,33 @@ List<Map<String, dynamic>> mockCategory = [
     'route': RoutesMobile.listFlightMobile,
   },
 ];
+
+List<Map<String, dynamic>> mockFacilities = [
+  {
+    'text': '30 Rooms',
+    'icon': Icons.hotel,
+    'color': '#ffd3b5ff'.toColor(),
+    'route': RoutesMobile.hotel,
+  },
+  {
+    'text': 'Wifi',
+    'icon': Icons.wifi,
+    'color': '#ffffc0ee'.toColor(),
+    'route': RoutesMobile.listFlightMobile,
+  },
+  {
+    'text': 'Buffet',
+    'icon': Icons.cake,
+    'color': '#ffffdab5'.toColor(),
+    'route': RoutesMobile.listAirportMobile,
+  },
+  {
+    'text': 'Fitness',
+    'icon': Icons.fitness_center,
+    'color': '#ff97d5ff'.toColor(),
+    'route': RoutesMobile.listFlightMobile,
+  },
+];
 List<String> sogun = [
   'Manage Customer',
   'Manage Airport',
