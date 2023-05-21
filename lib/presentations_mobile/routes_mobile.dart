@@ -7,14 +7,14 @@ class RoutesMobile {
   static const String airportDetailMobile = '/airport_detail_mobile'; //✅
   static const String searchMobile = '/search_mobile'; //✅
   //////////////////////////////////////////
-  static const String splash = 'splash_mobile'; //✅
+  static const String splash = 'spl ash_mobile'; //✅
   static const String onboard = 'onboard_mobile'; //✅
   static const String login = 'login_mobile'; //✅
   static const String register = 'register_mobile'; // ✅
   static const String save = 'save_mobile'; // 3️⃣✅
   static const String profileView = 'profile_mobile'; //✅
-  static const String hotel = 'hotel_mobile'; //
-  static const String hotelDetail = 'hotel_detail_mobile'; //
+  static const String hotel = 'hotel_mobile'; //✅
+  static const String hotelDetail = 'hotel_detail_mobile'; //✅
   static const String ticket = 'ticket_mobile'; //
   static const String ticketDetail = 'ticket_detail_mobile'; //
   static const String checkout = 'checkout_mobile';

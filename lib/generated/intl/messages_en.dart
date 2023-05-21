@@ -155,6 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "exp": MessageLookupByLibrary.simpleMessage("Exp"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
         "facebook": MessageLookupByLibrary.simpleMessage("Facebook"),
+        "facilities": MessageLookupByLibrary.simpleMessage("Facilities"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
         "firstClass": MessageLookupByLibrary.simpleMessage("First Class"),
