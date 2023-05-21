@@ -93,8 +93,7 @@ class _OnboardMobileScreenState extends State<OnboardMobileScreen> {
                       child: ButtonCustom(
                         onPress: () {
                           if (model.index! >= 2) {
-                            context.openListPageWithRoute(
-                                RoutesMobile.dashboardMobile);
+                            context.openListPageWithRoute(RoutesMobile.login);
                           } else {
                             int newIndex = model.index! + 1;
                             onButtonTape(newIndex);

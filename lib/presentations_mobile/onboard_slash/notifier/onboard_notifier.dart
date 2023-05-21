@@ -26,7 +26,7 @@ class OnboardNotifier extends ChangeNotifier {
           '"Discover the joy of hassle-free travel planning. Find the perfect place to stay, book flights effortlessly, and uncover amazing experiences. ',
     },
   ];
-  Map<String, dynamic> get page => pages[index ?? 0];
+  Map<String, dynamic> get page => pages[index!];
 
   void changePage(int newIndex) {
     index = newIndex;
