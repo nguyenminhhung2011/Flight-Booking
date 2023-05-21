@@ -221,5 +221,14 @@
     "alreadyHaveAccount": "Already have account?",
     "save": "Save",
     "ticket": "Ticket",
-    "hotel": "Hotel"
+    "hotel": "Hotel",
+    "myReview": "My review",
+    "anotherSettings": "Another Settings",
+    "language": "Language",
+    "lightTheme": "Light Theme",
+    "darkTheme": "Dark Theme",
+    "theme": "Theme",
+    "english": "English",
+    "enterYourName": "Enter your name",
+    "enterYourPhoneNumber": "Enter your phone number"
 }

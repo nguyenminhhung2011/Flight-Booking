@@ -11,7 +11,6 @@ import '../../../core/components/widgets/mobile/page_view_custom.dart';
 import '../../../generated/l10n.dart';
 import '../../routes_mobile.dart';
 
-const _hMargin = 15.0;
 
 class SaveMobileScreen extends StatefulWidget {
   const SaveMobileScreen({super.key});
