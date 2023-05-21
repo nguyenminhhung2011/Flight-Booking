@@ -177,6 +177,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gridView": MessageLookupByLibrary.simpleMessage("gridView"),
         "hideInformation":
             MessageLookupByLibrary.simpleMessage("Hide Information"),
+        "hotel": MessageLookupByLibrary.simpleMessage("Hotel"),
         "hours": MessageLookupByLibrary.simpleMessage("Hours"),
         "id": MessageLookupByLibrary.simpleMessage("ID"),
         "idData": m1,
@@ -267,6 +268,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sale": MessageLookupByLibrary.simpleMessage("Sale"),
         "salePerformance":
             MessageLookupByLibrary.simpleMessage("Sale Performance"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
         "saveChange": MessageLookupByLibrary.simpleMessage("Save Change"),
         "searchAnything":
             MessageLookupByLibrary.simpleMessage("Search Anything..."),
@@ -291,6 +293,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "The Service have not finished yet !!!"),
         "thisWillDisplay": MessageLookupByLibrary.simpleMessage(
             "This will be display on your profile"),
+        "ticket": MessageLookupByLibrary.simpleMessage("Ticket"),
         "ticketNumber":
             MessageLookupByLibrary.simpleMessage("Number of Ticket"),
         "timeActivity": MessageLookupByLibrary.simpleMessage("Time Activity"),

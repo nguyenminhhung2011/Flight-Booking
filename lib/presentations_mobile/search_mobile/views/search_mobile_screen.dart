@@ -18,14 +18,14 @@ import '../../../generated/l10n.dart';
 import '../../routes_mobile.dart';
 import 'bottom_filter.dart';
 
-class SeearchMobileScreen extends StatefulWidget {
-  const SeearchMobileScreen({super.key});
+class SearchMobileScreen extends StatefulWidget {
+  const SearchMobileScreen({super.key});
 
   @override
-  State<SeearchMobileScreen> createState() => _SeearchMobileScreenState();
+  State<SearchMobileScreen> createState() => _SearchMobileScreenState();
 }
 
-class _SeearchMobileScreenState extends State<SeearchMobileScreen> {
+class _SearchMobileScreenState extends State<SearchMobileScreen> {
   final TextEditingController _searchController = TextEditingController();
   SearchMobileBloc get _bloc => BlocProvider.of<SearchMobileBloc>(context);
   final controller =

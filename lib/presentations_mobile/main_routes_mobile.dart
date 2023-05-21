@@ -12,6 +12,8 @@ import 'package:flight_booking/presentations_mobile/list_flight_mobile/views/lis
 import 'package:flight_booking/presentations_mobile/onboard_slash/notifier/onboard_notifier.dart';
 import 'package:flight_booking/presentations_mobile/onboard_slash/view/onboard_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
+import 'package:flight_booking/presentations_mobile/save/bloc/save_bloc.dart';
+import 'package:flight_booking/presentations_mobile/save/views/save_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/bloc/search_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/notifier/splash_notifier.dart';
@@ -88,7 +90,7 @@ class MainRoutesMobile {
           settings: settings,
           builder: (_) => BlocProvider<SearchMobileBloc>(
             create: (context) => injector(param1: searchType),
-            child: const SeearchMobileScreen(),
+            child: const SearchMobileScreen(),
           ),
         );
       case RoutesMobile.register:
@@ -102,6 +104,14 @@ class MainRoutesMobile {
           builder: (_) => BlocProvider<AuthBloc>(
             create: (context) => injector(),
             child: const LoginMobileScreen(),
+          ),
+        );
+      case RoutesMobile.save:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => BlocProvider<SaveBloc>(
+            create: (context) => injector(),
+            child: const SaveMobileScreen(),
           ),
         );
       default:
