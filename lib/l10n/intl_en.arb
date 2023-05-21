@@ -230,5 +230,6 @@
     "theme": "Theme",
     "english": "English",
     "enterYourName": "Enter your name",
-    "enterYourPhoneNumber": "Enter your phone number"
+    "enterYourPhoneNumber": "Enter your phone number",
+    "listHotels": "List Hotels"
 }

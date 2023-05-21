@@ -10,6 +10,7 @@ import 'package:flight_booking/presentations_mobile/flight_mobile_detail/views/f
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/list_airport_mobile/views/list_airport_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/list_flight_mobile/views/list_flight_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/list_hotel/views/list_hotel_screen.dart';
 import 'package:flight_booking/presentations_mobile/onboard_slash/notifier/onboard_notifier.dart';
 import 'package:flight_booking/presentations_mobile/onboard_slash/view/onboard_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
@@ -119,6 +120,11 @@ class MainRoutesMobile {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const ProfileMobileScreen(),
+        );
+      case RoutesMobile.hotel:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ListHotelScreen(),
         );
       default:
         return unDefinedRoute();
