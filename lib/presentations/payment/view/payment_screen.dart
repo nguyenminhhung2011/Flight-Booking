@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/action_enum.dart';
 import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
@@ -9,8 +10,10 @@ import 'package:flight_booking/core/components/widgets/payment_status_utils.dart
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/generated/l10n.dart';
+import 'package:flight_booking/presentations/payment/bloc/payment_bloc.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class PaymentScreen extends StatelessWidget {
@@ -50,162 +53,204 @@ class PaymentScreen extends StatelessWidget {
     );
   }
 
+  void _stateChangeListener(BuildContext context, PaymentState state) {
+    state.whenOrNull(
+      initial: (data) {},
+      loading: (data) {},
+      deletePaymentSuccess: (data) {},
+      fetchListPaymentDataSuccess: (data) {},
+      fetchPaymentDataSuccess: (data) {},
+      openPaymentDetailSuccess: (data) {
+        context.openPaymentDetailPage();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(15),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ListTile(
-                  leading: Icon(
-                    Icons.payment,
-                    size: 30,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  title: Text(
-                    "Payment Management",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyLarge
-                        ?.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Divider(
-                  height: 20,
-                  thickness: 0.5,
-                  color: Theme.of(context).dividerColor,
-                ),
-                _buildStatisticRow(context),
-                Divider(
-                  height: 20,
-                  thickness: 0.5,
-                  color: Theme.of(context).dividerColor,
-                ),
-                const SizedBox(
-                  height: 250,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Expanded(
-                          flex: 2, child: PaymentStatusStatisticComponent()),
-                      Expanded(
-                          flex: 2, child: PaymentMethodStatisticComponent()),
-                      Expanded(flex: 3, child: TicketTierStatisticComponent()),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 30),
-                Row(
+    return BlocConsumer<PaymentBloc, PaymentState>(
+      listener: _stateChangeListener,
+      builder: (context, state) {
+        return Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          body: SafeArea(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextButton.icon(
-                      style: TextButton.styleFrom(
-                        backgroundColor: Theme.of(context).cardColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: CommonAppUIConfig.primaryRadiusBorder,
-                          side: BorderSide(
-                              color: Theme.of(context).dividerColor, width: 1),
-                        ),
-                        padding: const EdgeInsets.all(10),
+                    ListTile(
+                      leading: Icon(
+                        Icons.payment,
+                        size: 30,
+                        color: Theme.of(context).primaryColor,
                       ),
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.calendar_month,
-                        color: Theme.of(context).dividerColor.withOpacity(0.5),
-                      ),
-                      label: Text(
-                        "Date Range",
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: Theme.of(context)
-                                .dividerColor
-                                .withOpacity(0.6)),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    TextButton.icon(
-                      style: TextButton.styleFrom(
-                        backgroundColor: Theme.of(context).cardColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: CommonAppUIConfig.primaryRadiusBorder,
-                          side: BorderSide(
-                              color: Theme.of(context).dividerColor, width: 1),
-                        ),
-                        padding: const EdgeInsets.all(10),
-                      ),
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.flag,
-                        color: Theme.of(context).dividerColor.withOpacity(0.5),
-                      ),
-                      label: Text(
-                        "Status",
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: Theme.of(context)
-                                .dividerColor
-                                .withOpacity(0.6)),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    TextButton.icon(
-                      style: TextButton.styleFrom(
-                        backgroundColor: Theme.of(context).cardColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: CommonAppUIConfig.primaryRadiusBorder,
-                          side: BorderSide(
-                              color: Theme.of(context).dividerColor, width: 1),
-                        ),
-                        padding: const EdgeInsets.all(10),
-                      ),
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.credit_card,
-                        color: Theme.of(context).dividerColor.withOpacity(0.5),
-                      ),
-                      label: Text(
-                        "Payment Method",
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: Theme.of(context)
-                                .dividerColor
-                                .withOpacity(0.6)),
-                      ),
-                    ),
-                    const Spacer(),
-                    Expanded(
-                      child: CustomerTextField(
-                        prefixWidget: const Icon(Icons.search),
-                        isDense: true,
-                        hint: "Search By Account Id, Payment Method,...",
-                        hintStyle: Theme.of(context)
+                      title: Text(
+                        "Payment Management",
+                        style: Theme.of(context)
                             .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: Theme.of(context).disabledColor),
+                            .bodyLarge
+                            ?.copyWith(fontWeight: FontWeight.bold),
                       ),
+                    ),
+                    Divider(
+                      height: 20,
+                      thickness: 0.5,
+                      color: Theme.of(context).dividerColor,
+                    ),
+                    _buildStatisticRow(context),
+                    Divider(
+                      height: 20,
+                      thickness: 0.5,
+                      color: Theme.of(context).dividerColor,
+                    ),
+                    const SizedBox(
+                      height: 250,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Expanded(
+                              flex: 2,
+                              child: PaymentStatusStatisticComponent()),
+                          Expanded(
+                              flex: 2,
+                              child: PaymentMethodStatisticComponent()),
+                          Expanded(
+                              flex: 3, child: TicketTierStatisticComponent()),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        TextButton.icon(
+                          style: TextButton.styleFrom(
+                            backgroundColor: Theme.of(context).cardColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  CommonAppUIConfig.primaryRadiusBorder,
+                              side: BorderSide(
+                                  color: Theme.of(context).dividerColor,
+                                  width: 1),
+                            ),
+                            padding: const EdgeInsets.all(10),
+                          ),
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.calendar_month,
+                            color:
+                                Theme.of(context).dividerColor.withOpacity(0.5),
+                          ),
+                          label: Text(
+                            "Date Range",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                    color: Theme.of(context)
+                                        .dividerColor
+                                        .withOpacity(0.6)),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        TextButton.icon(
+                          style: TextButton.styleFrom(
+                            backgroundColor: Theme.of(context).cardColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  CommonAppUIConfig.primaryRadiusBorder,
+                              side: BorderSide(
+                                  color: Theme.of(context).dividerColor,
+                                  width: 1),
+                            ),
+                            padding: const EdgeInsets.all(10),
+                          ),
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.flag,
+                            color:
+                                Theme.of(context).dividerColor.withOpacity(0.5),
+                          ),
+                          label: Text(
+                            "Status",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                    color: Theme.of(context)
+                                        .dividerColor
+                                        .withOpacity(0.6)),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        TextButton.icon(
+                          style: TextButton.styleFrom(
+                            backgroundColor: Theme.of(context).cardColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  CommonAppUIConfig.primaryRadiusBorder,
+                              side: BorderSide(
+                                  color: Theme.of(context).dividerColor,
+                                  width: 1),
+                            ),
+                            padding: const EdgeInsets.all(10),
+                          ),
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.credit_card,
+                            color:
+                                Theme.of(context).dividerColor.withOpacity(0.5),
+                          ),
+                          label: Text(
+                            "Payment Method",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                    color: Theme.of(context)
+                                        .dividerColor
+                                        .withOpacity(0.6)),
+                          ),
+                        ),
+                        const Spacer(),
+                        Expanded(
+                          child: CustomerTextField(
+                            prefixWidget: const Icon(Icons.search),
+                            isDense: true,
+                            hint: "Search By Account Id, Payment Method,...",
+                            hintStyle: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                    color: Theme.of(context).disabledColor),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      child: _buildPaymentTable(context),
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  child: _buildPaymentTable(context),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
   Widget _buildPaymentStatusComponent(
-      BuildContext context, PaymentStatus status) {
+    BuildContext context,
+    PaymentStatus status,
+  ) {
     return Container(
       width: 150,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
@@ -276,6 +321,7 @@ class PaymentScreen extends StatelessWidget {
               return PopupMenuButton<ActionEnum>(
                 itemBuilder: (context) => [
                   PopupMenuItem<ActionEnum>(
+                    value: ActionEnum.detail,
                     child: Text(
                       ActionEnum.detail.name,
                       style: Theme.of(context).textTheme.bodyMedium,
@@ -294,7 +340,11 @@ class PaymentScreen extends StatelessWidget {
                     ),
                   ),
                 ],
-                onSelected: (value) {},
+                onSelected: (value) {
+                  if (value == ActionEnum.detail) {
+                    context.openPaymentDetailPage();
+                  }
+                },
                 icon: const Icon(Icons.more_vert),
               );
             }
@@ -707,7 +757,7 @@ class PaymentMethodStatisticComponent extends StatelessWidget {
                     flex: 3,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: LinearProgressIndicator(
+                      child: const LinearProgressIndicator(
                         color: Colors.red,
                         value: 1,
                         minHeight: 12,
@@ -719,7 +769,7 @@ class PaymentMethodStatisticComponent extends StatelessWidget {
                     flex: 2,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: LinearProgressIndicator(
+                      child: const LinearProgressIndicator(
                         color: Colors.amber,
                         value: 1,
                         minHeight: 12,
@@ -730,7 +780,7 @@ class PaymentMethodStatisticComponent extends StatelessWidget {
                     flex: 5,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: LinearProgressIndicator(
+                      child: const LinearProgressIndicator(
                         color: Colors.blue,
                         value: 1,
                         minHeight: 12,

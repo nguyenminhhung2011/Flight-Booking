@@ -111,6 +111,7 @@ dependencies:
   flutter_timeline: ^0.3.0
   ticket_widget: ^0.0.1
   countries_world_map: ^1.0.3
+  dotted_line: ^3.1.0
   # table_calendar: ^3.0.8
   # readmore: ^2.2.0
   
