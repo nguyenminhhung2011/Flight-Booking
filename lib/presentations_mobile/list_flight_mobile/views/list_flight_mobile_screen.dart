@@ -58,9 +58,8 @@ class ListFlightMobileScreen extends StatelessWidget {
               Container(
                 constraints: BoxConstraints(minHeight: heightDevice),
                 decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(25.0),
-                    topRight: Radius.circular(25.0),
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(25.0),
                   ),
                   color: Theme.of(context).primaryColor,
                 ),

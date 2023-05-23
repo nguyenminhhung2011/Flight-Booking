@@ -30,6 +30,7 @@ class TextFieldCustom extends StatefulWidget {
   final bool isNumberInputType;
   final bool isPasswordField;
   final bool isPhoneNumberField;
+  final bool isShowBorderRadius;
   final Function()? prefixPress;
   final TextFieldType type;
   const TextFieldCustom({
@@ -57,6 +58,7 @@ class TextFieldCustom extends StatefulWidget {
     this.isNumberInputType = false,
     this.isPasswordField = false,
     this.isPhoneNumberField = false,
+    this.isShowBorderRadius = true,
     this.color,
   });
 
@@ -191,13 +193,16 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
                   horizontal: widget.hPaddingField ?? 10.0,
                   vertical: widget.vPaddingField ?? 8.0,
                 ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(widget.radius ?? 10),
-                  borderSide: BorderSide(
-                    color: widget.borderColor ?? Colors.grey[300]!,
-                    width: widget.widthBorder ?? 1,
-                  ),
-                ),
+                border: widget.isShowBorderRadius
+                    ? OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.circular(widget.radius ?? 10),
+                        borderSide: BorderSide(
+                          color: widget.borderColor ?? Colors.grey[300]!,
+                          width: widget.widthBorder ?? 1,
+                        ),
+                      )
+                    : null,
                 suffixIcon: widget.suffix,
                 prefixIcon: widget.isPhoneNumberField
                     ? GestureDetector(

@@ -17,6 +17,6 @@ class RoutesMobile {
   static const String hotelDetail = 'hotel_detail_mobile'; //✅
   static const String ticket = 'ticket_mobile'; //
   static const String ticketDetail = 'ticket_detail_mobile'; //
-  static const String checkout = 'checkout_mobile';
+  static const String checkout = 'checkout_mobile'; //✅
   static const String payment = 'payment_mobile'; //
 }

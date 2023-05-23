@@ -151,7 +151,8 @@ class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
                             context.openListPageWithRoute(RoutesMobile.save),
                       ),
                       ProfileViewRowCustom(header: S.of(context).payment),
-                      ProfileViewRowCustom(header: S.of(context).myReview)
+                      ProfileViewRowCustom(header: S.of(context).myReview),
+                      ProfileViewRowCustom(header: S.of(context).wallet)
                     ]
                         .expand(
                           (element) => [

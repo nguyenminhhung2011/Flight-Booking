@@ -10,6 +10,7 @@ import '../../../core/components/widgets/mobile/appbar.dart';
 import '../../../core/components/widgets/mobile/button_custom.dart';
 import '../../../core/components/widgets/mobile/text_field_custom.dart';
 import '../../../generated/l10n.dart';
+import '../../routes_mobile.dart';
 
 const _hMarginCard = 20.0;
 
@@ -34,7 +35,7 @@ class _FlightDetailMobileSccreenState extends State<FlightDetailMobileSccreen> {
         child: ButtonCustom(
           height: 50,
           child: Text(S.of(context).bookingTime),
-          onPress: () {},
+          onPress: () => context.openListPageWithRoute(RoutesMobile.checkout),
         ),
       ),
       color: Theme.of(context).primaryColor,

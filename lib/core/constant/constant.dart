@@ -162,6 +162,11 @@ List<Map<String, dynamic>> mockDataBenefits = [
   {'icon': Icons.table_bar, 'title': 'Restroom'},
   {'icon': Icons.dining_rounded, 'title': 'Drink'}
 ];
+List<Map<String, dynamic>> mocPayment = [
+  {'icon': ImageConst.cardIcon, 'title': 'Card'},
+  {'icon': ImageConst.visaIcon, 'title': 'Visa'},
+  {'icon': ImageConst.masterIcon, 'title': 'Mastero'},
+];
 List<Map<String, dynamic>> mockDataReviews = [
   {
     'reviews':
