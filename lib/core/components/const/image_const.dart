@@ -20,6 +20,9 @@ class ImageConst {
   static const String documentIcon = 'assets/icons/Document.svg';
   static const String searchIcon = 'assets/icons/Search.svg';
   static const String googleIcon = 'assets/images/goog.png';
+  static const String cardIcon = 'assets/images/card1.png';
+  static const String visaIcon = 'assets/images/visa.png';
+  static const String masterIcon = 'assets/images/master.png';
   //onboard
   static const String onboard1 = 'assets/images/onboard1.png';
   static const String onboard2 = 'assets/images/onboard2.png';

@@ -81,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "chair": MessageLookupByLibrary.simpleMessage("Chair"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
+        "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
         "class1": MessageLookupByLibrary.simpleMessage("Class"),
         "clickToUpload":
             MessageLookupByLibrary.simpleMessage("Click to upload"),
@@ -287,6 +288,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Search Anything..."),
         "seat": MessageLookupByLibrary.simpleMessage("Seat"),
         "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
+        "selectPaymentMethod":
+            MessageLookupByLibrary.simpleMessage("Select payment method"),
         "sentVerificationEmail":
             MessageLookupByLibrary.simpleMessage("Sent Verification Email"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
@@ -331,6 +334,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "viewDetail": MessageLookupByLibrary.simpleMessage("View Detail"),
         "visited10Of100Countries":
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries"),
+        "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "weHaveSentAVerification": m5,
         "welcomeoFlightAdmin":

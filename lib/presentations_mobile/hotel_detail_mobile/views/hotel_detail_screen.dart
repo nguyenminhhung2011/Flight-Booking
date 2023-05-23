@@ -4,7 +4,6 @@ import 'package:flight_booking/core/components/widgets/extension/context_extensi
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/custom_template_screen_stack_scroll.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:readmore/readmore.dart';
 
@@ -36,7 +35,7 @@ class HotelDetailScreen extends StatelessWidget {
         padding: const EdgeInsets.all(5.0),
         child: Container(
           width: double.infinity,
-          height: 50.0,
+          height: 60.0,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
             color: Theme.of(context).cardColor,

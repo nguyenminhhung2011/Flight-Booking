@@ -232,5 +232,8 @@
     "enterYourName": "Enter your name",
     "enterYourPhoneNumber": "Enter your phone number",
     "listHotels": "List Hotels",
-    "facilities": "Facilities"
+    "facilities": "Facilities",
+    "wallet": "Wallet",
+    "checkout": "Checkout",
+    "selectPaymentMethod": "Select payment method"
 }

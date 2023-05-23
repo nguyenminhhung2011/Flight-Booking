@@ -5,6 +5,7 @@ import 'package:flight_booking/presentations_mobile/airport_detail_mobile/views/
 import 'package:flight_booking/presentations_mobile/auth/bloc/auth_bloc.dart';
 import 'package:flight_booking/presentations_mobile/auth/views/login_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/auth/views/register_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/checkout/views/checkout_screen.dart';
 import 'package:flight_booking/presentations_mobile/dashboard_mobile/views/dashboard_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/flight_mobile_detail/views/flight_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
@@ -131,6 +132,11 @@ class MainRoutesMobile {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const HotelDetailScreen(),
+        );
+      case RoutesMobile.checkout:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const CheckoutScreen(),
         );
       default:
         return unDefinedRoute();
