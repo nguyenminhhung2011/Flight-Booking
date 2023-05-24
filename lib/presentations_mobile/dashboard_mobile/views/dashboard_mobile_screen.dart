@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/presentations_mobile/dashboard_mobile/bloc/dashboard_mobile_bloc.dart';
@@ -21,7 +19,6 @@ class _DashboardMobileState extends State<DashboardMobile>
     with SingleTickerProviderStateMixin {
   List<TabItem> _tabs = <TabItem>[];
   DashboardMobileBloc get _bloc => context.read<DashboardMobileBloc>();
-  final ValueNotifier<bool> isSideMenuClosed = ValueNotifier<bool>(true);
 
   late AnimationController _animationController;
   late Animation animation;
@@ -48,17 +45,19 @@ class _DashboardMobileState extends State<DashboardMobile>
 
   void _onTabChange(int index) {
     if (_bloc.state.index != index) {
-      _bloc.add(ChangeTabEvent(index));
+      _bloc.add(ChangeTabEvent(
+        index,
+      ));
     }
   }
 
   void _onViewChange() {
-    if (isSideMenuClosed.value) {
+    if (_bloc.state.isShowMenu) {
       _animationController.forward();
     } else {
       _animationController.reverse();
     }
-    isSideMenuClosed.value = !isSideMenuClosed.value;
+    _bloc.add(const ChangeShowMenuEvent());
   }
 
   @override
@@ -72,7 +71,7 @@ class _DashboardMobileState extends State<DashboardMobile>
     return BlocBuilder<DashboardMobileBloc, DashboardMobileState>(
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: const Color.fromARGB(255, 6, 31, 8),
+          backgroundColor: Colors.black,
           resizeToAvoidBottomInset: false,
           extendBody: true,
           bottomNavigationBar: TabBarCustom(
@@ -89,59 +88,54 @@ class _DashboardMobileState extends State<DashboardMobile>
             ],
             onChangeTab: _onTabChange,
           ),
-          body: ValueListenableBuilder<bool>(
-            valueListenable: isSideMenuClosed,
-            builder: (context, isShow, child) {
-              return Stack(
-                children: [
-                  AnimatedPositioned(
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.fastOutSlowIn,
-                    width: 288,
-                    left: isShow ? -288 : 0,
-                    height: context.heightDevice,
-                    child: SideMenu(
-                      call: _onViewChange,
-                      indexSelect: state.index,
-                      callChangePage: _onTabChange,
+          body: Stack(
+            children: [
+              AnimatedPositioned(
+                duration: const Duration(milliseconds: 200),
+                curve: Curves.fastOutSlowIn,
+                width: 288,
+                left: state.isShowMenu ? -288 : 0,
+                height: context.heightDevice,
+                child: SideMenu(
+                  call: _onViewChange,
+                  indexSelect: state.index,
+                  callChangePage: _onTabChange,
+                ),
+              ),
+              Transform.translate(
+                offset: Offset(animation.value * 265, 0),
+                child: Transform.scale(
+                  scale: scaleAnimation.value,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(state.isShowMenu ? 0.0 : 24.0),
+                    ),
+                    child: IndexedStack(
+                      index: state.index,
+                      sizing: StackFit.expand,
+                      children: _tabs.map((e) => e.screen).toList(),
                     ),
                   ),
-                  Transform.translate(
-                    offset: Offset(animation.value * 265, 0),
-                    child: Transform.scale(
-                      scale: scaleAnimation.value,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(isShow ? 0.0 : 24.0),
-                        ),
-                        child: IndexedStack(
-                          index: state.index,
-                          sizing: StackFit.expand,
-                          children: _tabs.map((e) => e.screen).toList(),
-                        ),
-                      ),
+                ),
+              ),
+              if (state.isShowMenu)
+                GestureDetector(
+                  onTap: _onViewChange,
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 15.0, top: 45),
+                    height: 40,
+                    width: 40,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.menu,
+                      color: Colors.black,
                     ),
                   ),
-                  if (isShow)
-                    GestureDetector(
-                      onTap: _onViewChange,
-                      child: Container(
-                        margin: const EdgeInsets.only(left: 15.0, top: 45),
-                        height: 40,
-                        width: 40,
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.menu,
-                          color: Colors.black,
-                        ),
-                      ),
-                    )
-                ],
-              );
-            },
+                )
+            ],
           ),
         );
       },

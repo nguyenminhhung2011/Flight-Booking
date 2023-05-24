@@ -1,8 +1,11 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:collection/collection.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../../generated/l10n.dart';
 
 class SideMenu extends StatelessWidget {
   final int indexSelect;
@@ -21,7 +24,7 @@ class SideMenu extends StatelessWidget {
         padding: const EdgeInsets.all(5.0),
         height: double.infinity,
         width: 288,
-        color: const Color.fromARGB(255, 6, 31, 8),
+        color: Colors.black,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -57,10 +60,16 @@ class SideMenu extends StatelessWidget {
                     ],
                   ),
                 ),
-                IconButton(onPressed: call, icon: const Icon(Icons.close))
+                IconButton(
+                  onPressed: call,
+                  icon: const Icon(
+                    Icons.close,
+                    color: Colors.white,
+                  ),
+                )
               ],
             ),
-            const Divider(),
+            const Divider(color: Colors.grey),
             ...dashboardItem.mapIndexed(
               (index, e) => Stack(
                 children: [
@@ -85,10 +94,27 @@ class SideMenu extends StatelessWidget {
                         e['icon'],
                         color: Colors.white,
                       ),
-                      title: Text(e['tit']),
+                      title: Text(
+                        e['tit'],
+                        style:
+                            context.titleMedium.copyWith(color: Colors.white),
+                      ),
                     ),
                   ),
                 ],
+              ),
+            ),
+            const Divider(color: Colors.grey),
+            GestureDetector(
+              onTap: () {
+                AdaptiveTheme.of(context).setDark();
+              },
+              child: ListTile(
+                leading: Text(
+                  S.of(context).lightTheme,
+                  style: context.titleMedium.copyWith(color: Colors.white),
+                ),
+                trailing: const Icon(Icons.light_mode, color: Colors.white),
               ),
             )
           ]
