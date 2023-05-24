@@ -240,5 +240,9 @@
     "tax": "Tax",
     "blackFridayOffer": "Black friday offer",
     "totalAmount": "Total Amount",
-    "sortByPrice": "Sort by price"
+    "sortByPrice": "Sort by price",
+    "addReview": "Add review",
+    "rateYourStay": "Rate your stay",
+    "yourReview": "Your Review"
+
 }
