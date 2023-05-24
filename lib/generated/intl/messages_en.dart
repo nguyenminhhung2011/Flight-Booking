@@ -181,6 +181,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "flightType": MessageLookupByLibrary.simpleMessage("Flight Type"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "gate": MessageLookupByLibrary.simpleMessage("Gate"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
         "generalSetting":
