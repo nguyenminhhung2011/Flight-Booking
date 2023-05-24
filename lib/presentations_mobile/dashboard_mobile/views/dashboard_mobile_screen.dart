@@ -118,7 +118,7 @@ class _DashboardMobileState extends State<DashboardMobile>
                   ),
                 ),
               ),
-              if (state.isShowMenu)
+              if (state.isShowMenu && state.index == 0)
                 GestureDetector(
                   onTap: _onViewChange,
                   child: Container(

@@ -117,7 +117,7 @@ List<Map<String, dynamic>> mockCategory = [
     'text': 'Ticket',
     'icon': ImageConst.tic,
     'color': '#ff97d5ff'.toColor(),
-    'route': RoutesMobile.listFlightMobile,
+    'route': RoutesMobile.ticket,
   },
 ];
 

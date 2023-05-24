@@ -31,10 +31,10 @@ import '../../domain/usecase/customer_usecase.dart' as _i9;
 import '../../domain/usecase/flight_usecase.dart' as _i17;
 import '../../domain/usecase/ticket_usecase.dart' as _i27;
 import '../../presentations/add_edit_airport/bloc/add_edit_airport_bloc.dart'
-    as _i36;
+    as _i37;
 import '../../presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart'
     as _i28;
-import '../../presentations/airport/bloc/airport_bloc.dart' as _i37;
+import '../../presentations/airport/bloc/airport_bloc.dart' as _i38;
 import '../../presentations/customer/bloc/customer_bloc.dart' as _i6;
 import '../../presentations/dashboard/bloc/dashboard_bloc.dart' as _i10;
 import '../../presentations/flight_detail/bloc/flight_detail_bloc.dart' as _i14;
@@ -49,10 +49,12 @@ import '../../presentations_mobile/dashboard_mobile/bloc/dashboard_mobile_bloc.d
 import '../../presentations_mobile/save/bloc/save_bloc.dart' as _i22;
 import '../../presentations_mobile/search_mobile/bloc/search_mobile_bloc.dart'
     as _i34;
+import '../../presentations_mobile/ticket_mobile/bloc/tic_mobile_bloc.dart'
+    as _i36;
 import '../components/enum/search_enum.dart' as _i35;
 import '../services/cloundinary_service.dart' as _i5;
 import '../services/image_pic_service.dart' as _i18;
-import 'modules/data_source_module.dart' as _i38;
+import 'modules/data_source_module.dart' as _i39;
 
 const String _prod = 'prod';
 
@@ -124,19 +126,21 @@ _i1.GetIt init(
         gh<_i32.AirportUsecase>(),
         gh<_i17.FlightsUsecase>(),
       ));
-  gh.factoryParam<_i36.AddEditAirportBloc, String, dynamic>((
+  gh.factory<_i36.TicMobileBloc>(
+      () => _i36.TicMobileBloc(gh<_i27.TicketUsecase>()));
+  gh.factoryParam<_i37.AddEditAirportBloc, String, dynamic>((
     airportId,
     _,
   ) =>
-      _i36.AddEditAirportBloc(
+      _i37.AddEditAirportBloc(
         airportId,
         gh<_i32.AirportUsecase>(),
         gh<_i5.CloundinaryService>(),
         gh<_i18.ImagePicService>(),
       ));
-  gh.factory<_i37.AirportBloc>(
-      () => _i37.AirportBloc(gh<_i32.AirportUsecase>()));
+  gh.factory<_i38.AirportBloc>(
+      () => _i38.AirportBloc(gh<_i32.AirportUsecase>()));
   return getIt;
 }
 
-class _$DataSourceModule extends _i38.DataSourceModule {}
+class _$DataSourceModule extends _i39.DataSourceModule {}

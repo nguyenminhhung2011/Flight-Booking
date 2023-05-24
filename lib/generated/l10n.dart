@@ -2449,6 +2449,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Sort by price`
+  String get sortByPrice {
+    return Intl.message(
+      'Sort by price',
+      name: 'sortByPrice',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
