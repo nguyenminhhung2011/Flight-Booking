@@ -197,9 +197,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       margin: const EdgeInsets.all(0.0),
                       child: Column(
                         children: [
-                          _rowPayment('Total Price', 200.0, false),
-                          _rowPayment('Tax', 12.0, false),
-                          _rowPayment('Black friday offer', -20.0, false),
+                          _rowPayment(S.of(context).totalPrice, 200.0, false),
+                          _rowPayment(S.of(context).tax, 12.0, false),
+                          _rowPayment(S.of(context).tax, -20.0, false),
                           Container(
                             height: 0.5,
                             width: double.infinity,
@@ -208,7 +208,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               color: Theme.of(context).dividerColor,
                             ),
                           ),
-                          _rowPayment('Total Amount', 192, true)
+                          _rowPayment(S.of(context).totalAmount, 192, true)
                         ]
                             .expand((element) =>
                                 [element, const SizedBox(height: 10.0)])

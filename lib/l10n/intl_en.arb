@@ -235,5 +235,9 @@
     "facilities": "Facilities",
     "wallet": "Wallet",
     "checkout": "Checkout",
-    "selectPaymentMethod": "Select payment method"
+    "selectPaymentMethod": "Select payment method",
+    "totalPrice": "Total Price",
+    "tax": "Tax",
+    "blackFridayOffer": "Black friday offer",
+    "totalAmount": "Total Amount"
 }

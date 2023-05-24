@@ -68,6 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
         "benefit": MessageLookupByLibrary.simpleMessage("Benefits"),
         "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
+        "blackFridayOffer":
+            MessageLookupByLibrary.simpleMessage("Black friday offer"),
         "blockTime": MessageLookupByLibrary.simpleMessage("Block Time"),
         "boeing": MessageLookupByLibrary.simpleMessage("Boeing"),
         "bookingTime": MessageLookupByLibrary.simpleMessage("Booking Time"),
@@ -305,6 +307,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sort by flights"),
         "sortByRating": MessageLookupByLibrary.simpleMessage("Sort by rating"),
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
+        "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),
         "theme": MessageLookupByLibrary.simpleMessage("Theme"),
@@ -319,9 +322,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "times": MessageLookupByLibrary.simpleMessage("Times"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "totalAirport": MessageLookupByLibrary.simpleMessage("Total Airport"),
+        "totalAmount": MessageLookupByLibrary.simpleMessage("Total Amount"),
         "totalCustomer": MessageLookupByLibrary.simpleMessage("Total Customer"),
         "totalFlight": MessageLookupByLibrary.simpleMessage("Total Flight"),
         "totalPayment": MessageLookupByLibrary.simpleMessage("Total Payment"),
+        "totalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),
         "upcoming": MessageLookupByLibrary.simpleMessage("Upcoming"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "updateProfile": MessageLookupByLibrary.simpleMessage("Update Profile"),
