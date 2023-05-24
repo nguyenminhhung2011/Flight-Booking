@@ -22,6 +22,8 @@ import 'package:flight_booking/presentations_mobile/search_mobile/bloc/search_mo
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/notifier/splash_notifier.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/views/splash_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/ticket_mobile/bloc/tic_mobile_bloc.dart';
+import 'package:flight_booking/presentations_mobile/ticket_mobile/views/tic_mobile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -137,6 +139,14 @@ class MainRoutesMobile {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const CheckoutScreen(),
+        );
+      case RoutesMobile.ticket:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => BlocProvider<TicMobileBloc>(
+            create: (context) => injector(),
+            child: const TicMobileScreen(),
+          ),
         );
       default:
         return unDefinedRoute();

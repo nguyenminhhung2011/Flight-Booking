@@ -239,5 +239,6 @@
     "totalPrice": "Total Price",
     "tax": "Tax",
     "blackFridayOffer": "Black friday offer",
-    "totalAmount": "Total Amount"
+    "totalAmount": "Total Amount",
+    "sortByPrice": "Sort by price"
 }

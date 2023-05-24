@@ -305,6 +305,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You \'ll easily book your bedroom, flights, train, bus and hotels"),
         "sortByFlights":
             MessageLookupByLibrary.simpleMessage("Sort by flights"),
+        "sortByPrice": MessageLookupByLibrary.simpleMessage("Sort by price"),
         "sortByRating": MessageLookupByLibrary.simpleMessage("Sort by rating"),
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
