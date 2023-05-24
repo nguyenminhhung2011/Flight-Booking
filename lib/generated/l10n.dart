@@ -2459,6 +2459,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Add review`
+  String get addReview {
+    return Intl.message(
+      'Add review',
+      name: 'addReview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rate your stay`
+  String get rateYourStay {
+    return Intl.message(
+      'Rate your stay',
+      name: 'rateYourStay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Review`
+  String get yourReview {
+    return Intl.message(
+      'Your Review',
+      name: 'yourReview',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

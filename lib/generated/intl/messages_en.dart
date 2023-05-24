@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addNewWidgets":
             MessageLookupByLibrary.simpleMessage("Add new widgets"),
         "addPlan": MessageLookupByLibrary.simpleMessage("Add Plan"),
+        "addReview": MessageLookupByLibrary.simpleMessage("Add review"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "addressData": m0,
         "age": MessageLookupByLibrary.simpleMessage("Age"),
@@ -266,6 +267,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "principleSetting":
             MessageLookupByLibrary.simpleMessage("Principle Setting"),
+        "rateYourStay": MessageLookupByLibrary.simpleMessage("Rate your stay"),
         "rePassword": MessageLookupByLibrary.simpleMessage("RePassword"),
         "recomendAirport":
             MessageLookupByLibrary.simpleMessage("Recomend Airport"),
@@ -350,6 +352,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "You can travel to any place\nwith gotour"),
         "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
-        "yourPhoto": MessageLookupByLibrary.simpleMessage("Your Photo")
+        "yourPhoto": MessageLookupByLibrary.simpleMessage("Your Photo"),
+        "yourReview": MessageLookupByLibrary.simpleMessage("Your Review")
       };
 }

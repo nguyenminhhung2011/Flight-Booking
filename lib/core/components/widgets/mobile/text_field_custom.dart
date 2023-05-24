@@ -31,6 +31,7 @@ class TextFieldCustom extends StatefulWidget {
   final bool isPasswordField;
   final bool isPhoneNumberField;
   final bool isShowBorderRadius;
+  final int? maxLines;
   final Function()? prefixPress;
   final TextFieldType type;
   const TextFieldCustom({
@@ -54,6 +55,7 @@ class TextFieldCustom extends StatefulWidget {
     this.prefixPress,
     this.prefix,
     this.suffix,
+    this.maxLines,
     this.type = TextFieldType.noBackgroundShadow,
     this.isNumberInputType = false,
     this.isPasswordField = false,
@@ -180,6 +182,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
           SizedBox(
             width: double.infinity,
             child: TextFormField(
+              maxLines: widget.maxLines ?? 1,
               keyboardType:
                   (widget.isNumberInputType || widget.isPhoneNumberField)
                       ? TextInputType.number
