@@ -5,10 +5,12 @@ import 'image_custom.dart';
 enum CategoryType {
   expanCategory, // done 80%
   listCategory, // done
-  textCategory;
+  textCategory,
+  selectedCategory; // done
 
   bool get isTextCategory => this == CategoryType.textCategory;
   bool get isExpanCategory => this == CategoryType.expanCategory;
+  bool get isSelectedCategory => this == CategoryType.selectedCategory;
 }
 
 class CategoryField extends StatefulWidget {
@@ -22,18 +24,20 @@ class CategoryField extends StatefulWidget {
   final List<CategoryStyle> categories;
   final bool isCategoryIcon;
   final bool isIconOut;
+  final Color? selectedColor;
   const CategoryField({
     super.key,
-    required this.categoryType,
     this.marginLeft,
     this.marginRight,
     this.marginTop,
     this.marginBottom,
-    required this.categories,
     this.isCategoryIcon = false,
     this.isIconOut = false,
     this.spacingItem = 5.0,
     this.numberColumn,
+    this.selectedColor,
+    required this.categoryType,
+    required this.categories,
   });
 
   @override
@@ -111,30 +115,87 @@ class _CategoryFieldState extends State<CategoryField> {
         ),
       );
     }
+    if (widget.categoryType.isSelectedCategory) {
+      return Padding(
+        padding: EdgeInsets.only(
+          right: widget.marginRight ?? 0.0,
+          top: widget.marginTop ?? 0.0,
+          bottom: widget.marginBottom ?? 0.0,
+        ),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(width: widget.marginLeft ?? 0.0),
+              ...widget.categories
+                  .map(
+                    (e) => GestureDetector(
+                      onTap: e.onPress,
+                      child: Container(
+                        padding: EdgeInsets.only(
+                          left: e.paddingLeft ?? 10.0,
+                          right: e.paddingRight ?? 10.0,
+                          top: e.paddingTop ?? 5.0,
+                          bottom: e.paddingBottom ?? 5.0,
+                        ),
+                        decoration: BoxDecoration(
+                          color: e.isSelected
+                              ? widget.selectedColor ??
+                                  Theme.of(context).primaryColor
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(e.radius ?? 10.0),
+                          ),
+                          border: Border.all(
+                            width: 1.5,
+                            color: widget.selectedColor ??
+                                Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            IconCategory(category: e),
+                            const SizedBox(width: 5.0),
+                            NameCategory(category: e, context: context),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                  .expand(
+                    (element) => [
+                      element,
+                      SizedBox(width: widget.spacingItem ?? 10.0),
+                    ],
+                  )
+            ],
+          ),
+        ),
+      );
+    }
     return Padding(
       padding: EdgeInsets.only(
         top: widget.marginTop ?? 0.0,
         right: widget.marginRight ?? 0.0,
-        left: widget.marginLeft ?? 0.0,
         bottom: widget.marginBottom ?? 0.0,
       ),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
-          children: widget.categories
-              .map(
-                (e) => CategoryItem(
-                  category: e,
-                  isIconOut: widget.isIconOut,
-                ),
-              )
-              .toList()
-              .expand(
-                (element) =>
-                    [element, SizedBox(width: widget.spacingItem ?? 5.0)],
-              )
-              .toList()
-            ..removeLast(),
+          children: [
+            SizedBox(width: widget.marginLeft ?? 0.0),
+            ...widget.categories
+                .map(
+                  (e) => CategoryItem(category: e, isIconOut: widget.isIconOut),
+                )
+                .expand(
+                  (element) =>
+                      [element, SizedBox(width: widget.spacingItem ?? 5.0)],
+                )
+                .toList()
+              ..removeLast()
+          ],
         ),
       ),
     );
@@ -185,38 +246,68 @@ class CategoryItem extends StatelessWidget {
                   Theme.of(context).primaryColor.withOpacity(0.1),
             ),
             child: (isIconOut)
-                ? category.icon != null
-                    ? _iconCategory()
+                ? category.icon != null || category.iconWidget != null
+                    ? IconCategory(category: category)
                     : const SizedBox()
                 : Row(
                     children: [
-                      if (category.icon != null) _iconCategory(),
+                      if (category.icon != null)
+                        IconCategory(category: category),
                       isExpand
                           ? Expanded(
-                              child: _nameCategory(context),
+                              child: NameCategory(
+                                  category: category, context: context),
                             )
-                          : _nameCategory(context)
+                          : NameCategory(category: category, context: context)
                     ],
                   ),
           ),
           if (isIconOut) ...[
             const SizedBox(height: 5.0),
-            _nameCategory(context),
+            NameCategory(category: category, context: context),
           ]
         ],
       ),
     );
   }
+}
 
-  Widget _iconCategory() => ImageCustom(
-        imageUrl: category.icon!,
-        isNetworkImage: false,
-        color: category.color,
-        width: category.iconSize,
-        height: category.iconSize,
-      );
+class IconCategory extends StatelessWidget {
+  const IconCategory({
+    super.key,
+    required this.category,
+  });
 
-  Widget _nameCategory(BuildContext context) {
+  final CategoryStyle category;
+
+  @override
+  Widget build(BuildContext context) => category.isIcon
+      ? Icon(
+          category.iconWidget,
+          color: category.color,
+          size: category.iconSize,
+        )
+      : ImageCustom(
+          imageUrl: category.icon!,
+          isNetworkImage: false,
+          color: category.color,
+          width: category.iconSize,
+          height: category.iconSize,
+        );
+}
+
+class NameCategory extends StatelessWidget {
+  const NameCategory({
+    super.key,
+    required this.category,
+    required this.context,
+  });
+
+  final CategoryStyle category;
+  final BuildContext context;
+
+  @override
+  Widget build(BuildContext context) {
     return Text(
       category.text,
       maxLines: 1,
@@ -242,6 +333,8 @@ class CategoryStyle {
   final TextStyle? textStyle;
   final Function() onPress;
   final bool isSelected;
+  final bool isIcon;
+  final IconData? iconWidget;
   CategoryStyle({
     required this.text,
     required this.onPress,
@@ -255,5 +348,7 @@ class CategoryStyle {
     this.paddingBottom,
     this.iconSize,
     this.isSelected = false,
+    this.isIcon = false,
+    this.iconWidget,
   });
 }

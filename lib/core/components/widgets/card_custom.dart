@@ -4,11 +4,14 @@ class CardCustom extends StatelessWidget {
   final Widget? child;
   final double? width;
   final double? height;
+  final double? radius;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final BoxDecoration? decoration;
   final bool isShowHeight;
   final bool isShowWidth;
+  final Color? color;
+
   const CardCustom(
       {super.key,
       this.child,
@@ -18,7 +21,9 @@ class CardCustom extends StatelessWidget {
       this.margin,
       this.decoration,
       this.isShowHeight = true,
-      this.isShowWidth = true});
+      this.isShowWidth = true,
+      this.color,
+      this.radius});
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +33,8 @@ class CardCustom extends StatelessWidget {
       padding: padding ?? const EdgeInsets.all(10.0),
       margin: margin ?? const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(15.0),
+        color: color ?? Theme.of(context).cardColor,
+        borderRadius: BorderRadius.circular(radius ?? 15.0),
         boxShadow: [
           BoxShadow(
             color: Theme.of(context).shadowColor.withOpacity(0.1),

@@ -45,9 +45,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "addNewWidgets":
             MessageLookupByLibrary.simpleMessage("Add new widgets"),
         "addPlan": MessageLookupByLibrary.simpleMessage("Add Plan"),
+        "addReview": MessageLookupByLibrary.simpleMessage("Add review"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "addressData": m0,
         "age": MessageLookupByLibrary.simpleMessage("Age"),
+        "airlines": MessageLookupByLibrary.simpleMessage("Airlines"),
         "airport": MessageLookupByLibrary.simpleMessage("Airport"),
         "airportContact":
             MessageLookupByLibrary.simpleMessage("Airport contact"),
@@ -56,14 +58,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Airport Overview"),
         "airportStart": MessageLookupByLibrary.simpleMessage("Airport Start"),
         "allBooking": MessageLookupByLibrary.simpleMessage("All Booking"),
+        "alreadyHaveAccount":
+            MessageLookupByLibrary.simpleMessage("Already have account?"),
         "amount": MessageLookupByLibrary.simpleMessage("Amount"),
         "anotherAirport":
             MessageLookupByLibrary.simpleMessage("Another airport"),
+        "anotherSettings":
+            MessageLookupByLibrary.simpleMessage("Another Settings"),
         "apply": MessageLookupByLibrary.simpleMessage("Apply"),
         "applyNewPassword":
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
         "benefit": MessageLookupByLibrary.simpleMessage("Benefits"),
         "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
+        "blackFridayOffer":
+            MessageLookupByLibrary.simpleMessage("Black friday offer"),
         "blockTime": MessageLookupByLibrary.simpleMessage("Block Time"),
         "boeing": MessageLookupByLibrary.simpleMessage("Boeing"),
         "bookingTime": MessageLookupByLibrary.simpleMessage("Booking Time"),
@@ -77,12 +85,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "chair": MessageLookupByLibrary.simpleMessage("Chair"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
+        "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
         "class1": MessageLookupByLibrary.simpleMessage("Class"),
         "clickToUpload":
             MessageLookupByLibrary.simpleMessage("Click to upload"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "commingFlights":
             MessageLookupByLibrary.simpleMessage("Comming Flights"),
+        "continueText": MessageLookupByLibrary.simpleMessage("Continue"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
         "creDate": MessageLookupByLibrary.simpleMessage("Create Date"),
         "createYourNewPassword":
@@ -96,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "customerInformation":
             MessageLookupByLibrary.simpleMessage("Customer Information"),
         "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
+        "darkTheme": MessageLookupByLibrary.simpleMessage("Dark Theme"),
         "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "dateBorn": MessageLookupByLibrary.simpleMessage("Date Born"),
@@ -130,18 +141,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailPhoneDetail":
             MessageLookupByLibrary.simpleMessage("Email and Phone Details"),
         "employee": MessageLookupByLibrary.simpleMessage("Employee"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
         "enterCurrentPassword":
             MessageLookupByLibrary.simpleMessage("Enter your current Password"),
+        "enterEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enterNewPassword":
             MessageLookupByLibrary.simpleMessage("Enter your new Password"),
+        "enterPassword":
+            MessageLookupByLibrary.simpleMessage("Enter your password"),
+        "enterRePassword":
+            MessageLookupByLibrary.simpleMessage("Enter your password again"),
         "enterYourEmail":
             MessageLookupByLibrary.simpleMessage("Enter your email"),
+        "enterYourName":
+            MessageLookupByLibrary.simpleMessage("Enter your name"),
         "enterYourNewPassword":
             MessageLookupByLibrary.simpleMessage("Enter Your New Password"),
         "enterYourPassword":
             MessageLookupByLibrary.simpleMessage("Enter your Password"),
+        "enterYourPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Enter your phone number"),
         "exp": MessageLookupByLibrary.simpleMessage("Exp"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
+        "facebook": MessageLookupByLibrary.simpleMessage("Facebook"),
+        "facilities": MessageLookupByLibrary.simpleMessage("Facilities"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
         "firstClass": MessageLookupByLibrary.simpleMessage("First Class"),
@@ -165,24 +188,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+        "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "gate": MessageLookupByLibrary.simpleMessage("Gate"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
         "generalSetting":
             MessageLookupByLibrary.simpleMessage("General Settings"),
         "goTour": MessageLookupByLibrary.simpleMessage("Go Tour"),
+        "google": MessageLookupByLibrary.simpleMessage("Google"),
         "gridView": MessageLookupByLibrary.simpleMessage("gridView"),
         "hideInformation":
             MessageLookupByLibrary.simpleMessage("Hide Information"),
+        "hotel": MessageLookupByLibrary.simpleMessage("Hotel"),
         "hours": MessageLookupByLibrary.simpleMessage("Hours"),
         "id": MessageLookupByLibrary.simpleMessage("ID"),
         "idData": m1,
         "identityNum": MessageLookupByLibrary.simpleMessage("Identity Number"),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
         "landingFlight": MessageLookupByLibrary.simpleMessage("Landing flight"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
+        "lightTheme": MessageLookupByLibrary.simpleMessage("Light Theme"),
         "listAirports": MessageLookupByLibrary.simpleMessage("List Airports"),
         "listCustomer": MessageLookupByLibrary.simpleMessage("List Customer"),
         "listFlights": MessageLookupByLibrary.simpleMessage("List Flights"),
+        "listHotels": MessageLookupByLibrary.simpleMessage("List Hotels"),
         "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
         "listView": MessageLookupByLibrary.simpleMessage("List View"),
         "location": MessageLookupByLibrary.simpleMessage("Location"),
@@ -204,6 +233,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Minimum Flight Time"),
         "month": MessageLookupByLibrary.simpleMessage("Month"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
+        "myReview": MessageLookupByLibrary.simpleMessage("My review"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "nameData": m2,
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
@@ -216,6 +246,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "orDrag": MessageLookupByLibrary.simpleMessage(
             " or drag and drop SVG, PNG, JPG or GIF (max 800x400px)"),
+        "orSignInWith": MessageLookupByLibrary.simpleMessage("Or sign in with"),
+        "orSignUpWith": MessageLookupByLibrary.simpleMessage("Or sign up with"),
         "overview": MessageLookupByLibrary.simpleMessage("Overview"),
         "passengers": MessageLookupByLibrary.simpleMessage("Passengers"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
@@ -244,12 +276,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "principleSetting":
             MessageLookupByLibrary.simpleMessage("Principle Setting"),
+        "rateYourStay": MessageLookupByLibrary.simpleMessage("Rate your stay"),
+        "rePassword": MessageLookupByLibrary.simpleMessage("RePassword"),
         "recomendAirport":
             MessageLookupByLibrary.simpleMessage("Recomend Airport"),
         "reenterPassword":
             MessageLookupByLibrary.simpleMessage("Reenter Password"),
         "reenterYourPassword":
             MessageLookupByLibrary.simpleMessage("Reenter Your Password"),
+        "registerNewAccount":
+            MessageLookupByLibrary.simpleMessage("Register New Account"),
         "rememberInformation":
             MessageLookupByLibrary.simpleMessage("Remember Information"),
         "retypePassword":
@@ -259,36 +295,52 @@ class MessageLookup extends MessageLookupByLibrary {
         "sale": MessageLookupByLibrary.simpleMessage("Sale"),
         "salePerformance":
             MessageLookupByLibrary.simpleMessage("Sale Performance"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
         "saveChange": MessageLookupByLibrary.simpleMessage("Save Change"),
         "searchAnything":
             MessageLookupByLibrary.simpleMessage("Search Anything..."),
         "seat": MessageLookupByLibrary.simpleMessage("Seat"),
         "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
+        "selectPaymentMethod":
+            MessageLookupByLibrary.simpleMessage("Select payment method"),
+        "selectScott": MessageLookupByLibrary.simpleMessage("Select Scott"),
         "sentVerificationEmail":
             MessageLookupByLibrary.simpleMessage("Sent Verification Email"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "showMoreInformation":
             MessageLookupByLibrary.simpleMessage("Show more Information"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "skipForNow": MessageLookupByLibrary.simpleMessage("Skip for now"),
         "sologan": MessageLookupByLibrary.simpleMessage(
             "You \'ll easily book your bedroom, flights, train, bus and hotels"),
         "sortByFlights":
             MessageLookupByLibrary.simpleMessage("Sort by flights"),
+        "sortByPrice": MessageLookupByLibrary.simpleMessage("Sort by price"),
         "sortByRating": MessageLookupByLibrary.simpleMessage("Sort by rating"),
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
+        "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),
+        "theme": MessageLookupByLibrary.simpleMessage("Theme"),
         "thisWillDisplay": MessageLookupByLibrary.simpleMessage(
             "This will be display on your profile"),
+        "ticket": MessageLookupByLibrary.simpleMessage("Ticket"),
         "ticketNumber":
             MessageLookupByLibrary.simpleMessage("Number of Ticket"),
         "timeActivity": MessageLookupByLibrary.simpleMessage("Time Activity"),
+        "timeClose": MessageLookupByLibrary.simpleMessage("Time Close"),
+        "timeOpen": MessageLookupByLibrary.simpleMessage("Time Open"),
         "times": MessageLookupByLibrary.simpleMessage("Times"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "totalAirport": MessageLookupByLibrary.simpleMessage("Total Airport"),
+        "totalAmount": MessageLookupByLibrary.simpleMessage("Total Amount"),
         "totalCustomer": MessageLookupByLibrary.simpleMessage("Total Customer"),
         "totalFlight": MessageLookupByLibrary.simpleMessage("Total Flight"),
         "totalPayment": MessageLookupByLibrary.simpleMessage("Total Payment"),
+        "totalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),
         "upcoming": MessageLookupByLibrary.simpleMessage("Upcoming"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "updateProfile": MessageLookupByLibrary.simpleMessage("Update Profile"),
@@ -301,12 +353,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "viewDetail": MessageLookupByLibrary.simpleMessage("View Detail"),
         "visited10Of100Countries":
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries"),
+        "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "weHaveSentAVerification": m5,
         "welcomeoFlightAdmin":
             MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
         "writeReviews": MessageLookupByLibrary.simpleMessage("Write reviews"),
+        "youCanTravelToAnyPlaceWithGotour":
+            MessageLookupByLibrary.simpleMessage(
+                "You can travel to any place\nwith gotour"),
         "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
-        "yourPhoto": MessageLookupByLibrary.simpleMessage("Your Photo")
+        "yourPhoto": MessageLookupByLibrary.simpleMessage("Your Photo"),
+        "yourReview": MessageLookupByLibrary.simpleMessage("Your Review")
       };
 }

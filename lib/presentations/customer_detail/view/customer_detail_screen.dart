@@ -134,10 +134,10 @@ class CustomerDetailScreen extends StatelessWidget {
                 flex: 3,
                 child: Column(
                   children: [
-                    Expanded(
+                    const Expanded(
                       flex: 1,
                       child: Row(
-                        children: const [
+                        children: [
                           Expanded(
                             child: CustomerInformationCard(),
                           ),
@@ -161,9 +161,9 @@ class CustomerDetailScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 5),
-              Expanded(
+              const Expanded(
                 child: Column(
-                  children: const [
+                  children: [
                     Expanded(
                       flex: 1,
                       child: FlightInformationCard(),
@@ -196,7 +196,6 @@ class _CustomerAirlinePieChartState extends State<CustomerAirlinePieChart> {
       final isTouched = i == _touchIndex;
       final fontSize = isTouched ? 20.0 : 16.0;
       final radius = isTouched ? 110.0 : 100.0;
-      final widgetSize = isTouched ? 55.0 : 40.0;
       const shadows = [Shadow(color: Colors.black, blurRadius: 2)];
 
       switch (i) {

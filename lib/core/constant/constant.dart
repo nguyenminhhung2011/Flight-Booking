@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/widgets/extension/coor_extension.dart';
+import 'package:flight_booking/presentations/profile/views/profile_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
+import 'package:flight_booking/presentations_mobile/save/views/save_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -69,19 +71,19 @@ List<Map<String, dynamic>> dashboardItem = [
     'icon': ImageConst.searchIcon,
     'tit': 'Search',
     'index': 1,
-    'screen': const SeearchMobileScreen()
+    'screen': const SearchMobileScreen()
   },
   {
     'icon': ImageConst.documentIcon,
     'tit': 'Favorite',
     'index': 2,
-    'screen': const SizedBox()
+    'screen': const SaveMobileScreen()
   },
   {
     'icon': ImageConst.personIcon,
     'tit': 'Profile',
     'index': 3,
-    'screen': const SizedBox()
+    'screen': const ProfileMobileScreen()
   },
 ];
 
@@ -97,7 +99,7 @@ List<Map<String, dynamic>> mockCategory = [
     'text': 'Hotels',
     'icon': ImageConst.hotel,
     'color': '#ffd3b5ff'.toColor(),
-    'route': RoutesMobile.listFlightMobile,
+    'route': RoutesMobile.hotel,
   },
   {
     'text': 'Flight',
@@ -114,6 +116,33 @@ List<Map<String, dynamic>> mockCategory = [
   {
     'text': 'Ticket',
     'icon': ImageConst.tic,
+    'color': '#ff97d5ff'.toColor(),
+    'route': RoutesMobile.ticket,
+  },
+];
+
+List<Map<String, dynamic>> mockFacilities = [
+  {
+    'text': '30 Rooms',
+    'icon': Icons.hotel,
+    'color': '#ffd3b5ff'.toColor(),
+    'route': RoutesMobile.hotel,
+  },
+  {
+    'text': 'Wifi',
+    'icon': Icons.wifi,
+    'color': '#ffffc0ee'.toColor(),
+    'route': RoutesMobile.listFlightMobile,
+  },
+  {
+    'text': 'Buffet',
+    'icon': Icons.cake,
+    'color': '#ffffdab5'.toColor(),
+    'route': RoutesMobile.listAirportMobile,
+  },
+  {
+    'text': 'Fitness',
+    'icon': Icons.fitness_center,
     'color': '#ff97d5ff'.toColor(),
     'route': RoutesMobile.listFlightMobile,
   },
@@ -132,6 +161,11 @@ List<Map<String, dynamic>> mockDataBenefits = [
   {'icon': Icons.tv, 'title': 'TV'},
   {'icon': Icons.table_bar, 'title': 'Restroom'},
   {'icon': Icons.dining_rounded, 'title': 'Drink'}
+];
+List<Map<String, dynamic>> mocPayment = [
+  {'icon': ImageConst.cardIcon, 'title': 'Card'},
+  {'icon': ImageConst.visaIcon, 'title': 'Visa'},
+  {'icon': ImageConst.masterIcon, 'title': 'Mastero'},
 ];
 List<Map<String, dynamic>> mockDataReviews = [
   {
@@ -193,7 +227,6 @@ List<Map<String, dynamic>> fakeDataChair = [
   {'index': 27, 'chec': 3},
   {'index': 28, 'chec': 1},
 ];
-
 String randomString() {
   const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
   var rnd = Random(DateTime.now().microsecondsSinceEpoch);

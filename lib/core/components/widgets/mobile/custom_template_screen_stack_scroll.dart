@@ -12,6 +12,7 @@ class CustomTemplateScreenStackScroll extends StatefulWidget {
   final Widget? afterMainScreen;
   final Widget? floatingButton;
   final Function()? willPopup;
+  final bool isScroll;
   const CustomTemplateScreenStackScroll({
     super.key,
     required this.children,
@@ -23,6 +24,7 @@ class CustomTemplateScreenStackScroll extends StatefulWidget {
     this.willPopup,
     this.afterMainScreen,
     this.floatingButton,
+    this.isScroll = true,
   });
 
   @override
@@ -59,8 +61,11 @@ class _CustomTemplateScreenStackScrollState
           children: [
             if (widget.afterMainScreen != null) widget.afterMainScreen!,
             CustomScrollView(
-              physics: const BouncingScrollPhysics(
-                  parent: AlwaysScrollableScrollPhysics()),
+              physics: BouncingScrollPhysics(
+                parent: widget.isScroll
+                    ? const AlwaysScrollableScrollPhysics()
+                    : const NeverScrollableScrollPhysics(),
+              ),
               slivers: <Widget>[
                 if (widget.appbar != null) widget.appbar!,
                 ...widget.children.map((e) => e)

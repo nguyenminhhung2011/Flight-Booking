@@ -23,17 +23,16 @@ class ListTicketScreen extends StatefulWidget {
 class _ListTicketScreenState extends State<ListTicketScreen> {
   ListTicketBloc get _bloc => BlocProvider.of<ListTicketBloc>(context);
 
-  late final _textController;
+  final textController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _textController = TextEditingController();
     _bloc.add(const ListTicketEvent.started());
   }
 
-  void _showPositonDia(positonClic, position, type, ticId) {
-    context.showPositionDialog(positonClic, position, type, ticId);
+  void _showPositionDialog(positionClick, position, type, ticId) {
+    context.showPositionDialog(positionClick, position, type, ticId);
   }
 
   void _listenStateChange(_, state) {
@@ -68,7 +67,7 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
                   width: widthField * 0.4,
                   child: CupertinoSearchTextField(
                     padding: const EdgeInsets.all(10.0),
-                    controller: _textController,
+                    controller: textController,
                     enabled: true,
                     style: Theme.of(context).textTheme.titleMedium,
                     onChanged: (value) {},
@@ -146,27 +145,36 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
                           ? Column(
                               children: [
                                 ColumnTicView(
-                                  onPress: (positonClic, position) =>
-                                      _showPositonDia(positonClic, position,
-                                          TicTypeEnum.economyClass, ''),
+                                  onPress: (positionClick, position) =>
+                                      _showPositionDialog(
+                                          positionClick,
+                                          position,
+                                          TicTypeEnum.economyClass,
+                                          ''),
                                   type: TicTypeEnum.economyClass,
                                 ),
                                 ColumnTicView(
-                                  onPress: (positonClic, position) =>
-                                      _showPositonDia(positonClic, position,
-                                          TicTypeEnum.businessClass, ''),
+                                  onPress: (positionClick, position) =>
+                                      _showPositionDialog(
+                                          positionClick,
+                                          position,
+                                          TicTypeEnum.businessClass,
+                                          ''),
                                   type: TicTypeEnum.businessClass,
                                 ),
                                 ColumnTicView(
-                                  onPress: (positonClic, position) =>
-                                      _showPositonDia(positonClic, position,
-                                          TicTypeEnum.premiumEconomyClass, ''),
+                                  onPress: (positionClick, position) =>
+                                      _showPositionDialog(
+                                          positionClick,
+                                          position,
+                                          TicTypeEnum.premiumEconomyClass,
+                                          ''),
                                   type: TicTypeEnum.premiumEconomyClass,
                                 ),
                                 ColumnTicView(
-                                  onPress: (positonClic, position) =>
-                                      _showPositonDia(positonClic, position,
-                                          TicTypeEnum.firstClass, ''),
+                                  onPress: (positionClick, position) =>
+                                      _showPositionDialog(positionClick,
+                                          position, TicTypeEnum.firstClass, ''),
                                   type: TicTypeEnum.firstClass,
                                 ),
                               ],

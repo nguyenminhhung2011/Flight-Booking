@@ -13,7 +13,7 @@ part 'dashboard_mobile_event.dart';
 
 @injectable
 class DashboardMobileBloc
-    extends Bloc<DashboarMobiledEvent, DashboardMobileState> {
+    extends Bloc<DashBoarMobileEvent, DashboardMobileState> {
   DashboardMobileBloc()
       : super(
           DashboardInitial([
@@ -23,22 +23,23 @@ class DashboardMobileBloc
                   icon: e['icon'],
                   index: e['index'],
                 ))
-            // for (int i = 0; i < 4; i++)
-            //   TabItem(
-            //     screen: const HomeMobileScreen(),
-            //     route: RoutesMobile.homeMobile,
-            //     icon: ImageConst.homeIcon,
-            //     index: i,
-            //   ),
-          ], 0),
+          ], 0, true),
         ) {
     on<ChangeTabEvent>(_onChangeTab);
+    on<ChangeShowMenuEvent>(_onChangeShoeMenu);
   }
 
   FutureOr<void> _onChangeTab(
     ChangeTabEvent event,
     Emitter<DashboardMobileState> emit,
   ) {
-    emit(ChangeTab(state.tabItems, event.index));
+    emit(ChangeTab(state.tabItems, event.index, state.isShowMenu));
+  }
+
+  FutureOr<void> _onChangeShoeMenu(
+    ChangeShowMenuEvent event,
+    Emitter<DashboardMobileState> emit,
+  ) {
+    emit(ChangeShowMenu(state.tabItems, state.index, !state.isShowMenu));
   }
 }

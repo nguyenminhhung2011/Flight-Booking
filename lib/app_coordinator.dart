@@ -53,20 +53,20 @@ extension AppCoordinator<T> on BuildContext {
     if (date == null) {
       return null;
     }
-    TimeOfDay? time = (await pickTime()) as TimeOfDay?;
+    TimeOfDay? time = await pickTime();
     if (time == null) {
       return null;
     }
     return date.copyWith(hour: time.hour, minute: time.minute);
   }
 
-  Future<T?> pickTime() => showTimePicker(
+  Future<TimeOfDay?> pickTime() => showTimePicker(
         context: this,
         initialTime: TimeOfDay(
           hour: _timeNow.hour,
           minute: _timeNow.minute,
         ),
-      ) as Future<T?>;
+      );
 
   Future<DateTime?> pickDate(DatePickerMode mode) => showDatePicker(
         initialDatePickerMode: mode,
