@@ -2129,6 +2129,8 @@ class S {
       args: [],
     );
   }
+
+  // skipped getter for the 'Payment Id' key
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,9 +1,9 @@
 import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flutter/material.dart';
 
-class PaymentStatusUtils {
-  static IconData getIconBaseOnStatus(PaymentStatus status) {
-    switch (status) {
+extension PaymentStatusUtils on PaymentStatus {
+  IconData getIconBaseOnStatus() {
+    switch (this) {
       case PaymentStatus.create:
         return Icons.flag_circle;
       case PaymentStatus.declined:
@@ -17,8 +17,8 @@ class PaymentStatusUtils {
     }
   }
 
-  static MaterialColor getColorBaseOnStatus(PaymentStatus status) {
-    switch (status) {
+  MaterialColor getColorBaseOnStatus() {
+    switch (this) {
       case PaymentStatus.create:
         return Colors.blue;
       case PaymentStatus.declined:
