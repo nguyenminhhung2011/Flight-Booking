@@ -1,5 +1,6 @@
 import 'package:flight_booking/core/components/widgets/extension/coor_extension.dart';
 import 'package:flight_booking/presentations/routes/main_routes.dart';
+import 'package:flight_booking/presentations_mobile/main_routes_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,9 +36,10 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
       title: 'Flight booking',
       navigatorKey: widget.navigationKey,
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: MainRoutes.getRoute,
-      // widget.isMobile ? MainRoutesMobile.getRoute : MainRoutes.getRoute,
-      // onGenerateRoute: MainRoutesMobile.getRoute,
+      // onGenerateRoute: MainRoutes.getRoute,
+
+      onGenerateRoute:
+          widget.isMobile ? MainRoutesMobile.getRoute : MainRoutes.getRoute,
       initialRoute: widget.initialRoute,
       localizationsDelegates: const [
         S.delegate,
