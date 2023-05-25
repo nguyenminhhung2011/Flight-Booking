@@ -18,9 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Customer {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get identityNum => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  String get identityNum => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   DateTime get birthday => throw _privateConstructorUsedError;
 
@@ -37,9 +37,9 @@ abstract class $CustomerCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      String identityNum,
       String phoneNumber,
       String email,
+      String identityNum,
       String gender,
       DateTime birthday});
 }
@@ -59,9 +59,9 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? identityNum = null,
     Object? phoneNumber = null,
     Object? email = null,
+    Object? identityNum = null,
     Object? gender = null,
     Object? birthday = null,
   }) {
@@ -74,10 +74,6 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      identityNum: null == identityNum
-          ? _value.identityNum
-          : identityNum // ignore: cast_nullable_to_non_nullable
-              as String,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -85,6 +81,10 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      identityNum: null == identityNum
+          ? _value.identityNum
+          : identityNum // ignore: cast_nullable_to_non_nullable
               as String,
       gender: null == gender
           ? _value.gender
@@ -108,9 +108,9 @@ abstract class _$$_CustomerCopyWith<$Res> implements $CustomerCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      String identityNum,
       String phoneNumber,
       String email,
+      String identityNum,
       String gender,
       DateTime birthday});
 }
@@ -128,9 +128,9 @@ class __$$_CustomerCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? identityNum = null,
     Object? phoneNumber = null,
     Object? email = null,
+    Object? identityNum = null,
     Object? gender = null,
     Object? birthday = null,
   }) {
@@ -143,10 +143,6 @@ class __$$_CustomerCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      identityNum: null == identityNum
-          ? _value.identityNum
-          : identityNum // ignore: cast_nullable_to_non_nullable
-              as String,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -154,6 +150,10 @@ class __$$_CustomerCopyWithImpl<$Res>
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      identityNum: null == identityNum
+          ? _value.identityNum
+          : identityNum // ignore: cast_nullable_to_non_nullable
               as String,
       gender: null == gender
           ? _value.gender
@@ -173,9 +173,9 @@ class _$_Customer implements _Customer {
   const _$_Customer(
       {required this.id,
       required this.name,
-      required this.identityNum,
       required this.phoneNumber,
       required this.email,
+      required this.identityNum,
       required this.gender,
       required this.birthday});
 
@@ -184,11 +184,11 @@ class _$_Customer implements _Customer {
   @override
   final String name;
   @override
-  final String identityNum;
-  @override
   final String phoneNumber;
   @override
   final String email;
+  @override
+  final String identityNum;
   @override
   final String gender;
   @override
@@ -196,7 +196,7 @@ class _$_Customer implements _Customer {
 
   @override
   String toString() {
-    return 'Customer(id: $id, name: $name, identityNum: $identityNum, phoneNumber: $phoneNumber, email: $email, gender: $gender, birthday: $birthday)';
+    return 'Customer(id: $id, name: $name, phoneNumber: $phoneNumber, email: $email, identityNum: $identityNum, gender: $gender, birthday: $birthday)';
   }
 
   @override
@@ -206,11 +206,11 @@ class _$_Customer implements _Customer {
             other is _$_Customer &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.identityNum, identityNum) ||
-                other.identityNum == identityNum) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
             (identical(other.email, email) || other.email == email) &&
+            (identical(other.identityNum, identityNum) ||
+                other.identityNum == identityNum) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.birthday, birthday) ||
                 other.birthday == birthday));
@@ -218,7 +218,7 @@ class _$_Customer implements _Customer {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, name, identityNum, phoneNumber, email, gender, birthday);
+      runtimeType, id, name, phoneNumber, email, identityNum, gender, birthday);
 
   @JsonKey(ignore: true)
   @override
@@ -231,9 +231,9 @@ abstract class _Customer implements Customer {
   const factory _Customer(
       {required final String id,
       required final String name,
-      required final String identityNum,
       required final String phoneNumber,
       required final String email,
+      required final String identityNum,
       required final String gender,
       required final DateTime birthday}) = _$_Customer;
 
@@ -242,11 +242,11 @@ abstract class _Customer implements Customer {
   @override
   String get name;
   @override
-  String get identityNum;
-  @override
   String get phoneNumber;
   @override
   String get email;
+  @override
+  String get identityNum;
   @override
   String get gender;
   @override

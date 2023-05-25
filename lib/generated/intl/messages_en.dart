@@ -39,8 +39,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Account Settings"),
         "actions": MessageLookupByLibrary.simpleMessage("Actions"),
         "activities": MessageLookupByLibrary.simpleMessage("Activities"),
+        "add": MessageLookupByLibrary.simpleMessage("Add"),
         "addNewAirport":
             MessageLookupByLibrary.simpleMessage("Add New Airport"),
+        "addNewCustomer":
+            MessageLookupByLibrary.simpleMessage("Add New Customer"),
         "addNewFlight": MessageLookupByLibrary.simpleMessage("Add New Flight"),
         "addNewWidgets":
             MessageLookupByLibrary.simpleMessage("Add new widgets"),
@@ -145,6 +148,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterCurrentPassword":
             MessageLookupByLibrary.simpleMessage("Enter your current Password"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
+        "enterIdentity": MessageLookupByLibrary.simpleMessage("Enter Identity"),
         "enterNewPassword":
             MessageLookupByLibrary.simpleMessage("Enter your new Password"),
         "enterPassword":
@@ -203,6 +207,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "id": MessageLookupByLibrary.simpleMessage("ID"),
         "idData": m1,
         "identityNum": MessageLookupByLibrary.simpleMessage("Identity Number"),
+        "identityNumber":
+            MessageLookupByLibrary.simpleMessage("Identity Number"),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
         "landingFlight": MessageLookupByLibrary.simpleMessage("Landing flight"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -227,6 +233,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Maximum Flight Time"),
         "maximumNumberOfLayovers":
             MessageLookupByLibrary.simpleMessage("Maximum Number of Layovers"),
+        "memberInfo":
+            MessageLookupByLibrary.simpleMessage("Member Information"),
         "minimumBlockTime":
             MessageLookupByLibrary.simpleMessage("Minimum Block Time"),
         "minimumFlightTime":
@@ -301,6 +309,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Search Anything..."),
         "seat": MessageLookupByLibrary.simpleMessage("Seat"),
         "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
+        "selectDateBorn":
+            MessageLookupByLibrary.simpleMessage("Select Dated Born"),
         "selectPaymentMethod":
             MessageLookupByLibrary.simpleMessage("Select payment method"),
         "selectScott": MessageLookupByLibrary.simpleMessage("Select Scott"),

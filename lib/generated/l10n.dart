@@ -2591,6 +2591,66 @@ class S {
   }
 
   // skipped getter for the 'Payment Id' key
+
+  /// `Member Information`
+  String get memberInfo {
+    return Intl.message(
+      'Member Information',
+      name: 'memberInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Dated Born`
+  String get selectDateBorn {
+    return Intl.message(
+      'Select Dated Born',
+      name: 'selectDateBorn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Identity Number`
+  String get identityNumber {
+    return Intl.message(
+      'Identity Number',
+      name: 'identityNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Identity`
+  String get enterIdentity {
+    return Intl.message(
+      'Enter Identity',
+      name: 'enterIdentity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Customer`
+  String get addNewCustomer {
+    return Intl.message(
+      'Add New Customer',
+      name: 'addNewCustomer',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

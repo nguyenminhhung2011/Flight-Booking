@@ -256,5 +256,11 @@
     "airlines": "Airlines",
 
     "fullName": "Full Name",
-    "Payment Id": "Payment ID"
+    "Payment Id": "Payment ID",
+    "memberInfo": "Member Information",
+    "add": "Add",
+    "selectDateBorn": "Select Dated Born",
+    "identityNumber": "Identity Number",
+    "enterIdentity": "Enter Identity",
+    "addNewCustomer": "Add New Customer"
 }

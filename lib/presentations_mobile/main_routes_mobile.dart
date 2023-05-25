@@ -21,6 +21,7 @@ import 'package:flight_booking/presentations_mobile/save/bloc/save_bloc.dart';
 import 'package:flight_booking/presentations_mobile/save/views/save_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/bloc/search_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/select_scott_mobile/bloc/select_scott_bloc.dart';
 import 'package:flight_booking/presentations_mobile/select_scott_mobile/views/select_scott_screen.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/notifier/splash_notifier.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/views/splash_mobile_screen.dart';
@@ -164,7 +165,10 @@ class MainRoutesMobile {
       case RoutesMobile.selectScott:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const SelectScottScreen(),
+          builder: (_) => BlocProvider<SelectScottBloc>(
+            create: (context) => injector(),
+            child: const SelectScottScreen(),
+          ),
         );
       default:
         return unDefinedRoute();
