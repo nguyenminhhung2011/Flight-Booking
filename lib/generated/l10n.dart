@@ -1780,6 +1780,66 @@ class S {
     );
   }
 
+  /// `Customer Information`
+  String get customerInformation {
+    return Intl.message(
+      'Customer Information',
+      name: 'customerInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customer Id`
+  String get customerId {
+    return Intl.message(
+      'Customer Id',
+      name: 'customerId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flight Id`
+  String get flightId {
+    return Intl.message(
+      'Flight Id',
+      name: 'flightId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Method`
+  String get paymentMethod {
+    return Intl.message(
+      'Payment Method',
+      name: 'paymentMethod',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Date`
+  String get creDate {
+    return Intl.message(
+      'Create Date',
+      name: 'creDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message(
+      'Status',
+      name: 'status',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Go Tour`
   String get goTour {
     return Intl.message(
@@ -2519,6 +2579,18 @@ class S {
       args: [],
     );
   }
+
+  /// `Full Name`
+  String get fullName {
+    return Intl.message(
+      'Full Name',
+      name: 'fullName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // skipped getter for the 'Payment Id' key
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

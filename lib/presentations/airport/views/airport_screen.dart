@@ -32,7 +32,7 @@ class _AirportScreenState extends State<AirportScreen> {
 
   void _listenStateChange(BuildContext context, AirportState state) {
     state.whenOrNull(
-      openAddEditAirportSucceess: (state, id) {
+      openAddEditAirportSuccess: (state, id) {
         final result = context.openDialogAdDEditAirport(id);
         if (result is Airport) {}
       },
@@ -55,9 +55,7 @@ class _AirportScreenState extends State<AirportScreen> {
             children: [
               AirportMainScreen(state: state),
               Breakpoints.large.isActive(context)
-                  ? AirportFastView(
-                      state: state,
-                    )
+                  ? AirportFastView(state: state)
                   : const SizedBox(),
             ],
           ),
@@ -154,7 +152,6 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
               ],
               rowBuilder: (data) {
                 return FluxTableRow(
-                  onTap: () {},
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   itemBuilder: (data, index) {

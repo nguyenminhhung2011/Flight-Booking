@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/config/common_ui_config.dart';
+import '../../../../core/config/common_ui_config.dart';
 
 class CustomDropdownButton<T> extends StatelessWidget {
   const CustomDropdownButton({

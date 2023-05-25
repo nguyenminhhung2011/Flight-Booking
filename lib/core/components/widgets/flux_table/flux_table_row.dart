@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class FluxTableRow<T> extends StatelessWidget {
   const FluxTableRow({
     super.key,
@@ -7,10 +8,8 @@ class FluxTableRow<T> extends StatelessWidget {
     required this.rowData,
     this.rowDecoration,
     this.padding,
-    this.onTap,
     this.margin,
   });
-  final Function()? onTap;
   final List<FlexRowTableData> rowData;
   final Widget Function(dynamic data, int columnIndex) itemBuilder;
   final BoxDecoration? rowDecoration;
@@ -19,44 +18,50 @@ class FluxTableRow<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        padding: padding ?? const EdgeInsets.symmetric(vertical: 10),
-        margin: margin,
-        decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
-          border: Border.all(color: Theme.of(context).canvasColor, width: 0.2),
-          borderRadius: BorderRadius.circular(5),
-        ).copyWith(
-          color: rowDecoration?.color,
-          backgroundBlendMode: rowDecoration?.backgroundBlendMode,
-          border: rowDecoration?.border,
-          borderRadius: rowDecoration?.borderRadius,
-          boxShadow: rowDecoration?.boxShadow,
-          gradient: rowDecoration?.gradient,
-          image: rowDecoration?.image,
-          shape: rowDecoration?.shape,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            for (int i = 0; i < rowData.length; i++)
-              rowData.elementAt(i).haveColumn
-                  ? Expanded(
-                      flex: rowData.elementAt(i).flex,
-                      child: Align(
-                        alignment: rowData.elementAt(i).alignment,
-                        child: itemBuilder(rowData.elementAt(i).data, i),
-                      ),
-                    )
-                  : Align(
+    return Container(
+      padding: padding ?? const EdgeInsets.symmetric(vertical: 10),
+      margin: margin,
+      decoration: rowDecoration ??
+          BoxDecoration(
+            color: Theme.of(context).cardColor,
+            border:
+                Border.all(color: Theme.of(context).canvasColor, width: 0.2),
+            borderRadius: BorderRadius.circular(5),
+          ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          for (int i = 0; i < rowData.length; i++)
+            rowData.elementAt(i).haveColumn
+                ? Expanded(
+                    flex: rowData.elementAt(i).flex,
+                    child: Align(
                       alignment: rowData.elementAt(i).alignment,
                       child: itemBuilder(rowData.elementAt(i).data, i),
                     ),
-          ],
-        ),
+                  )
+                : Align(
+                    alignment: rowData.elementAt(i).alignment,
+                    child: itemBuilder(rowData.elementAt(i).data, i),
+                  ),
+        ],
       ),
+    );
+  }
+
+  FluxTableRow<T> copyWith({
+    List<FlexRowTableData>? rowData,
+    Widget Function(dynamic data, int columnIndex)? itemBuilder,
+    BoxDecoration? rowDecoration,
+    EdgeInsetsGeometry? padding,
+    EdgeInsetsGeometry? margin,
+  }) {
+    return FluxTableRow<T>(
+      itemBuilder: itemBuilder ?? this.itemBuilder,
+      rowData: rowData ?? this.rowData,
+      margin: margin ?? this.margin,
+      padding: padding ?? this.padding,
+      rowDecoration: rowDecoration ?? this.rowDecoration,
     );
   }
 }

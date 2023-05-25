@@ -94,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Comming Flights"),
         "continueText": MessageLookupByLibrary.simpleMessage("Continue"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
+        "creDate": MessageLookupByLibrary.simpleMessage("Create Date"),
         "createYourNewPassword":
             MessageLookupByLibrary.simpleMessage("Create Your New Password"),
         "currentPassword":
@@ -101,6 +102,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "customer": MessageLookupByLibrary.simpleMessage("Customer"),
         "customerChartView":
             MessageLookupByLibrary.simpleMessage("Customer Chart view"),
+        "customerId": MessageLookupByLibrary.simpleMessage("Customer Id"),
+        "customerInformation":
+            MessageLookupByLibrary.simpleMessage("Customer Information"),
         "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Dark Theme"),
         "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
@@ -174,6 +178,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "flightChartView":
             MessageLookupByLibrary.simpleMessage("Flight Chart view"),
         "flightDetail": MessageLookupByLibrary.simpleMessage("Flight Detail"),
+        "flightId": MessageLookupByLibrary.simpleMessage("Flight Id"),
         "flightInfo": MessageLookupByLibrary.simpleMessage("Flight Info"),
         "flightInformation":
             MessageLookupByLibrary.simpleMessage("Flight Information"),
@@ -182,6 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "flightType": MessageLookupByLibrary.simpleMessage("Flight Type"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "gate": MessageLookupByLibrary.simpleMessage("Gate"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
@@ -248,6 +254,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordSettings":
             MessageLookupByLibrary.simpleMessage("Password Settings"),
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
+        "paymentMethod": MessageLookupByLibrary.simpleMessage("Payment Method"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
         "person": MessageLookupByLibrary.simpleMessage("Person"),
         "personalInfo": MessageLookupByLibrary.simpleMessage("Personal Info"),
@@ -313,6 +320,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sortByPrice": MessageLookupByLibrary.simpleMessage("Sort by price"),
         "sortByRating": MessageLookupByLibrary.simpleMessage("Sort by rating"),
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
+        "status": MessageLookupByLibrary.simpleMessage("Status"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),

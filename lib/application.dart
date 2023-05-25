@@ -1,5 +1,5 @@
 import 'package:flight_booking/core/components/widgets/extension/coor_extension.dart';
-import 'package:flight_booking/presentations_mobile/main_routes_mobile.dart';
+import 'package:flight_booking/presentations/routes/main_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +35,7 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
       title: 'Flight booking',
       navigatorKey: widget.navigationKey,
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: MainRoutesMobile.getRoute,
+      onGenerateRoute: MainRoutes.getRoute,
       // widget.isMobile ? MainRoutesMobile.getRoute : MainRoutes.getRoute,
       // onGenerateRoute: MainRoutesMobile.getRoute,
       initialRoute: widget.initialRoute,
@@ -51,9 +51,9 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
         primaryColorDark: '#07AEAF'.toColor(),
         fontFamily: 'Montserrat',
       ),
-      darkTheme: ThemeData.dark().copyWith(
-        primaryColor: '#07AEAF'.toColor(),
-      ),
+      // darkTheme: ThemeData.dark().copyWith(
+      //   primaryColor: '#07AEAF'.toColor(),
+      // ),
       locale: locale,
     );
   }
@@ -67,7 +67,6 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-
     super.dispose();
   }
 
@@ -75,14 +74,14 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return AdaptiveTheme(
       light: ThemeData.light(),
-      dark: ThemeData.dark(),
-      initial: widget.savedThemeMode ?? AdaptiveThemeMode.light,
+      // dark: ThemeData.dark(),
+      initial: AdaptiveThemeMode.light,
       builder: (ThemeData light, ThemeData dark) => MultiBlocProvider(
         providers: widget.providers,
         child: _buildMaterialApp(
           locale: const Locale('en', ''),
           light: light,
-          dark: dark,
+          // dark: dark,
         ),
       ),
     );

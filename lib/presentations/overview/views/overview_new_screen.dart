@@ -48,36 +48,21 @@ class _OverviewNewScreenState extends State<OverviewNewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final widthField = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: ListView(
         children: [
           ListTile(
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  S.of(context).dashboard,
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                  maxLines: 1,
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    S.of(context).addNewWidgets,
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: Theme.of(context).primaryColor,
-                        ),
-                    maxLines: 1,
-                  ),
-                )
-              ],
+            title: Text(
+              S.of(context).dashboard,
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall!
+                  .copyWith(fontWeight: FontWeight.bold),
+              maxLines: 1,
             ),
             trailing: SizedBox(
-              width: widthField * 0.4,
+              width: 500,
               child: CupertinoSearchTextField(
                 padding: const EdgeInsets.all(10.0),
                 controller: _textController,

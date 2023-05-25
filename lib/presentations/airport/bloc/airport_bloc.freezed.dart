@@ -1402,7 +1402,7 @@ mixin _$AirportState {
         fetchAirportsFailed,
     required TResult Function(AirportModelState data) loading,
     required TResult Function(AirportModelState data, String id)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(AirportModelState data) deleteAirportSuccess,
     required TResult Function(AirportModelState data, String message)
         deleteAirportFailed,
@@ -1417,7 +1417,7 @@ mixin _$AirportState {
         fetchAirportsFailed,
     TResult? Function(AirportModelState data)? loading,
     TResult? Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(AirportModelState data)? deleteAirportSuccess,
     TResult? Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -1432,7 +1432,7 @@ mixin _$AirportState {
         fetchAirportsFailed,
     TResult Function(AirportModelState data)? loading,
     TResult Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(AirportModelState data)? deleteAirportSuccess,
     TResult Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -1447,7 +1447,7 @@ mixin _$AirportState {
     required TResult Function(_FetchAirportFailed value) fetchAirportsFailed,
     required TResult Function(_Loading value) loading,
     required TResult Function(_OpenAddEditAirportSuccess value)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(_DeleteAirportSuccess value) deleteAirportSuccess,
     required TResult Function(_DeleteAirportFailed value) deleteAirportFailed,
     required TResult Function(_WaitCircularLoading value) waitCircularLoading,
@@ -1460,7 +1460,7 @@ mixin _$AirportState {
     TResult? Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult? Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult? Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -1473,7 +1473,7 @@ mixin _$AirportState {
     TResult Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult Function(_Loading value)? loading,
     TResult Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -1603,7 +1603,7 @@ class _$_Initial extends _Initial {
         fetchAirportsFailed,
     required TResult Function(AirportModelState data) loading,
     required TResult Function(AirportModelState data, String id)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(AirportModelState data) deleteAirportSuccess,
     required TResult Function(AirportModelState data, String message)
         deleteAirportFailed,
@@ -1621,7 +1621,7 @@ class _$_Initial extends _Initial {
         fetchAirportsFailed,
     TResult? Function(AirportModelState data)? loading,
     TResult? Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(AirportModelState data)? deleteAirportSuccess,
     TResult? Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -1639,7 +1639,7 @@ class _$_Initial extends _Initial {
         fetchAirportsFailed,
     TResult Function(AirportModelState data)? loading,
     TResult Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(AirportModelState data)? deleteAirportSuccess,
     TResult Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -1660,7 +1660,7 @@ class _$_Initial extends _Initial {
     required TResult Function(_FetchAirportFailed value) fetchAirportsFailed,
     required TResult Function(_Loading value) loading,
     required TResult Function(_OpenAddEditAirportSuccess value)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(_DeleteAirportSuccess value) deleteAirportSuccess,
     required TResult Function(_DeleteAirportFailed value) deleteAirportFailed,
     required TResult Function(_WaitCircularLoading value) waitCircularLoading,
@@ -1676,7 +1676,7 @@ class _$_Initial extends _Initial {
     TResult? Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult? Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult? Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -1692,7 +1692,7 @@ class _$_Initial extends _Initial {
     TResult Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult Function(_Loading value)? loading,
     TResult Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -1793,7 +1793,7 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
         fetchAirportsFailed,
     required TResult Function(AirportModelState data) loading,
     required TResult Function(AirportModelState data, String id)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(AirportModelState data) deleteAirportSuccess,
     required TResult Function(AirportModelState data, String message)
         deleteAirportFailed,
@@ -1811,7 +1811,7 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
         fetchAirportsFailed,
     TResult? Function(AirportModelState data)? loading,
     TResult? Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(AirportModelState data)? deleteAirportSuccess,
     TResult? Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -1829,7 +1829,7 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
         fetchAirportsFailed,
     TResult Function(AirportModelState data)? loading,
     TResult Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(AirportModelState data)? deleteAirportSuccess,
     TResult Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -1850,7 +1850,7 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
     required TResult Function(_FetchAirportFailed value) fetchAirportsFailed,
     required TResult Function(_Loading value) loading,
     required TResult Function(_OpenAddEditAirportSuccess value)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(_DeleteAirportSuccess value) deleteAirportSuccess,
     required TResult Function(_DeleteAirportFailed value) deleteAirportFailed,
     required TResult Function(_WaitCircularLoading value) waitCircularLoading,
@@ -1866,7 +1866,7 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
     TResult? Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult? Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult? Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -1882,7 +1882,7 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
     TResult Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult Function(_Loading value)? loading,
     TResult Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -1993,7 +1993,7 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
         fetchAirportsFailed,
     required TResult Function(AirportModelState data) loading,
     required TResult Function(AirportModelState data, String id)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(AirportModelState data) deleteAirportSuccess,
     required TResult Function(AirportModelState data, String message)
         deleteAirportFailed,
@@ -2011,7 +2011,7 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
         fetchAirportsFailed,
     TResult? Function(AirportModelState data)? loading,
     TResult? Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(AirportModelState data)? deleteAirportSuccess,
     TResult? Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -2029,7 +2029,7 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
         fetchAirportsFailed,
     TResult Function(AirportModelState data)? loading,
     TResult Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(AirportModelState data)? deleteAirportSuccess,
     TResult Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -2050,7 +2050,7 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
     required TResult Function(_FetchAirportFailed value) fetchAirportsFailed,
     required TResult Function(_Loading value) loading,
     required TResult Function(_OpenAddEditAirportSuccess value)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(_DeleteAirportSuccess value) deleteAirportSuccess,
     required TResult Function(_DeleteAirportFailed value) deleteAirportFailed,
     required TResult Function(_WaitCircularLoading value) waitCircularLoading,
@@ -2066,7 +2066,7 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
     TResult? Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult? Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult? Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -2082,7 +2082,7 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
     TResult Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult Function(_Loading value)? loading,
     TResult Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -2184,7 +2184,7 @@ class _$_Loading extends _Loading {
         fetchAirportsFailed,
     required TResult Function(AirportModelState data) loading,
     required TResult Function(AirportModelState data, String id)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(AirportModelState data) deleteAirportSuccess,
     required TResult Function(AirportModelState data, String message)
         deleteAirportFailed,
@@ -2202,7 +2202,7 @@ class _$_Loading extends _Loading {
         fetchAirportsFailed,
     TResult? Function(AirportModelState data)? loading,
     TResult? Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(AirportModelState data)? deleteAirportSuccess,
     TResult? Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -2220,7 +2220,7 @@ class _$_Loading extends _Loading {
         fetchAirportsFailed,
     TResult Function(AirportModelState data)? loading,
     TResult Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(AirportModelState data)? deleteAirportSuccess,
     TResult Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -2241,7 +2241,7 @@ class _$_Loading extends _Loading {
     required TResult Function(_FetchAirportFailed value) fetchAirportsFailed,
     required TResult Function(_Loading value) loading,
     required TResult Function(_OpenAddEditAirportSuccess value)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(_DeleteAirportSuccess value) deleteAirportSuccess,
     required TResult Function(_DeleteAirportFailed value) deleteAirportFailed,
     required TResult Function(_WaitCircularLoading value) waitCircularLoading,
@@ -2257,7 +2257,7 @@ class _$_Loading extends _Loading {
     TResult? Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult? Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult? Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -2273,7 +2273,7 @@ class _$_Loading extends _Loading {
     TResult Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult Function(_Loading value)? loading,
     TResult Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -2354,7 +2354,7 @@ class _$_OpenAddEditAirportSuccess extends _OpenAddEditAirportSuccess {
 
   @override
   String toString() {
-    return 'AirportState.openAddEditAirportSucceess(data: $data, id: $id)';
+    return 'AirportState.openAddEditAirportSuccess(data: $data, id: $id)';
   }
 
   @override
@@ -2385,13 +2385,13 @@ class _$_OpenAddEditAirportSuccess extends _OpenAddEditAirportSuccess {
         fetchAirportsFailed,
     required TResult Function(AirportModelState data) loading,
     required TResult Function(AirportModelState data, String id)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(AirportModelState data) deleteAirportSuccess,
     required TResult Function(AirportModelState data, String message)
         deleteAirportFailed,
     required TResult Function(AirportModelState data) waitCircularLoading,
   }) {
-    return openAddEditAirportSucceess(data, id);
+    return openAddEditAirportSuccess(data, id);
   }
 
   @override
@@ -2403,13 +2403,13 @@ class _$_OpenAddEditAirportSuccess extends _OpenAddEditAirportSuccess {
         fetchAirportsFailed,
     TResult? Function(AirportModelState data)? loading,
     TResult? Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(AirportModelState data)? deleteAirportSuccess,
     TResult? Function(AirportModelState data, String message)?
         deleteAirportFailed,
     TResult? Function(AirportModelState data)? waitCircularLoading,
   }) {
-    return openAddEditAirportSucceess?.call(data, id);
+    return openAddEditAirportSuccess?.call(data, id);
   }
 
   @override
@@ -2421,15 +2421,15 @@ class _$_OpenAddEditAirportSuccess extends _OpenAddEditAirportSuccess {
         fetchAirportsFailed,
     TResult Function(AirportModelState data)? loading,
     TResult Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(AirportModelState data)? deleteAirportSuccess,
     TResult Function(AirportModelState data, String message)?
         deleteAirportFailed,
     TResult Function(AirportModelState data)? waitCircularLoading,
     required TResult orElse(),
   }) {
-    if (openAddEditAirportSucceess != null) {
-      return openAddEditAirportSucceess(data, id);
+    if (openAddEditAirportSuccess != null) {
+      return openAddEditAirportSuccess(data, id);
     }
     return orElse();
   }
@@ -2442,12 +2442,12 @@ class _$_OpenAddEditAirportSuccess extends _OpenAddEditAirportSuccess {
     required TResult Function(_FetchAirportFailed value) fetchAirportsFailed,
     required TResult Function(_Loading value) loading,
     required TResult Function(_OpenAddEditAirportSuccess value)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(_DeleteAirportSuccess value) deleteAirportSuccess,
     required TResult Function(_DeleteAirportFailed value) deleteAirportFailed,
     required TResult Function(_WaitCircularLoading value) waitCircularLoading,
   }) {
-    return openAddEditAirportSucceess(this);
+    return openAddEditAirportSuccess(this);
   }
 
   @override
@@ -2458,12 +2458,12 @@ class _$_OpenAddEditAirportSuccess extends _OpenAddEditAirportSuccess {
     TResult? Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult? Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult? Function(_WaitCircularLoading value)? waitCircularLoading,
   }) {
-    return openAddEditAirportSucceess?.call(this);
+    return openAddEditAirportSuccess?.call(this);
   }
 
   @override
@@ -2474,14 +2474,14 @@ class _$_OpenAddEditAirportSuccess extends _OpenAddEditAirportSuccess {
     TResult Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult Function(_Loading value)? loading,
     TResult Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult Function(_WaitCircularLoading value)? waitCircularLoading,
     required TResult orElse(),
   }) {
-    if (openAddEditAirportSucceess != null) {
-      return openAddEditAirportSucceess(this);
+    if (openAddEditAirportSuccess != null) {
+      return openAddEditAirportSuccess(this);
     }
     return orElse();
   }
@@ -2578,7 +2578,7 @@ class _$_DeleteAirportSuccess extends _DeleteAirportSuccess {
         fetchAirportsFailed,
     required TResult Function(AirportModelState data) loading,
     required TResult Function(AirportModelState data, String id)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(AirportModelState data) deleteAirportSuccess,
     required TResult Function(AirportModelState data, String message)
         deleteAirportFailed,
@@ -2596,7 +2596,7 @@ class _$_DeleteAirportSuccess extends _DeleteAirportSuccess {
         fetchAirportsFailed,
     TResult? Function(AirportModelState data)? loading,
     TResult? Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(AirportModelState data)? deleteAirportSuccess,
     TResult? Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -2614,7 +2614,7 @@ class _$_DeleteAirportSuccess extends _DeleteAirportSuccess {
         fetchAirportsFailed,
     TResult Function(AirportModelState data)? loading,
     TResult Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(AirportModelState data)? deleteAirportSuccess,
     TResult Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -2635,7 +2635,7 @@ class _$_DeleteAirportSuccess extends _DeleteAirportSuccess {
     required TResult Function(_FetchAirportFailed value) fetchAirportsFailed,
     required TResult Function(_Loading value) loading,
     required TResult Function(_OpenAddEditAirportSuccess value)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(_DeleteAirportSuccess value) deleteAirportSuccess,
     required TResult Function(_DeleteAirportFailed value) deleteAirportFailed,
     required TResult Function(_WaitCircularLoading value) waitCircularLoading,
@@ -2651,7 +2651,7 @@ class _$_DeleteAirportSuccess extends _DeleteAirportSuccess {
     TResult? Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult? Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult? Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -2667,7 +2667,7 @@ class _$_DeleteAirportSuccess extends _DeleteAirportSuccess {
     TResult Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult Function(_Loading value)? loading,
     TResult Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -2778,7 +2778,7 @@ class _$_DeleteAirportFailed extends _DeleteAirportFailed {
         fetchAirportsFailed,
     required TResult Function(AirportModelState data) loading,
     required TResult Function(AirportModelState data, String id)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(AirportModelState data) deleteAirportSuccess,
     required TResult Function(AirportModelState data, String message)
         deleteAirportFailed,
@@ -2796,7 +2796,7 @@ class _$_DeleteAirportFailed extends _DeleteAirportFailed {
         fetchAirportsFailed,
     TResult? Function(AirportModelState data)? loading,
     TResult? Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(AirportModelState data)? deleteAirportSuccess,
     TResult? Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -2814,7 +2814,7 @@ class _$_DeleteAirportFailed extends _DeleteAirportFailed {
         fetchAirportsFailed,
     TResult Function(AirportModelState data)? loading,
     TResult Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(AirportModelState data)? deleteAirportSuccess,
     TResult Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -2835,7 +2835,7 @@ class _$_DeleteAirportFailed extends _DeleteAirportFailed {
     required TResult Function(_FetchAirportFailed value) fetchAirportsFailed,
     required TResult Function(_Loading value) loading,
     required TResult Function(_OpenAddEditAirportSuccess value)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(_DeleteAirportSuccess value) deleteAirportSuccess,
     required TResult Function(_DeleteAirportFailed value) deleteAirportFailed,
     required TResult Function(_WaitCircularLoading value) waitCircularLoading,
@@ -2851,7 +2851,7 @@ class _$_DeleteAirportFailed extends _DeleteAirportFailed {
     TResult? Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult? Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult? Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -2867,7 +2867,7 @@ class _$_DeleteAirportFailed extends _DeleteAirportFailed {
     TResult Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult Function(_Loading value)? loading,
     TResult Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -2971,7 +2971,7 @@ class _$_WaitCircularLoading extends _WaitCircularLoading {
         fetchAirportsFailed,
     required TResult Function(AirportModelState data) loading,
     required TResult Function(AirportModelState data, String id)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(AirportModelState data) deleteAirportSuccess,
     required TResult Function(AirportModelState data, String message)
         deleteAirportFailed,
@@ -2989,7 +2989,7 @@ class _$_WaitCircularLoading extends _WaitCircularLoading {
         fetchAirportsFailed,
     TResult? Function(AirportModelState data)? loading,
     TResult? Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(AirportModelState data)? deleteAirportSuccess,
     TResult? Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -3007,7 +3007,7 @@ class _$_WaitCircularLoading extends _WaitCircularLoading {
         fetchAirportsFailed,
     TResult Function(AirportModelState data)? loading,
     TResult Function(AirportModelState data, String id)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(AirportModelState data)? deleteAirportSuccess,
     TResult Function(AirportModelState data, String message)?
         deleteAirportFailed,
@@ -3028,7 +3028,7 @@ class _$_WaitCircularLoading extends _WaitCircularLoading {
     required TResult Function(_FetchAirportFailed value) fetchAirportsFailed,
     required TResult Function(_Loading value) loading,
     required TResult Function(_OpenAddEditAirportSuccess value)
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     required TResult Function(_DeleteAirportSuccess value) deleteAirportSuccess,
     required TResult Function(_DeleteAirportFailed value) deleteAirportFailed,
     required TResult Function(_WaitCircularLoading value) waitCircularLoading,
@@ -3044,7 +3044,7 @@ class _$_WaitCircularLoading extends _WaitCircularLoading {
     TResult? Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult? Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult? Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult? Function(_WaitCircularLoading value)? waitCircularLoading,
@@ -3060,7 +3060,7 @@ class _$_WaitCircularLoading extends _WaitCircularLoading {
     TResult Function(_FetchAirportFailed value)? fetchAirportsFailed,
     TResult Function(_Loading value)? loading,
     TResult Function(_OpenAddEditAirportSuccess value)?
-        openAddEditAirportSucceess,
+        openAddEditAirportSuccess,
     TResult Function(_DeleteAirportSuccess value)? deleteAirportSuccess,
     TResult Function(_DeleteAirportFailed value)? deleteAirportFailed,
     TResult Function(_WaitCircularLoading value)? waitCircularLoading,

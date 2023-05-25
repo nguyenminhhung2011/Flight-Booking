@@ -87,7 +87,7 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     Emitter<AirportState> emit,
   ) {
     emit(AirportState.loading(data: data));
-    emit(AirportState.openAddEditAirportSucceess(data: data, id: event.id));
+    emit(AirportState.openAddEditAirportSuccess(data: data, id: event.id));
   }
 
   FutureOr<void> _onUpdateAirportsAfterAdd(

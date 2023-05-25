@@ -12,4 +12,14 @@ class Customer with _$Customer {
     required String gender,
     required DateTime birthday,
   }) = _Customer;
+
+  static final Customer empty = Customer(
+    id: "id",
+    name: "name",
+    identityNum: "identityNum",
+    phoneNumber: " phoneNumber",
+    email: " email",
+    gender: " gender",
+    birthday: DateTime.now(),
+  );
 }
