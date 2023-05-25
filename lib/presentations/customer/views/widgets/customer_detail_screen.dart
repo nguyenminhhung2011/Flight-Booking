@@ -50,7 +50,6 @@ class CustomerDetailScreen extends StatelessWidget {
       ],
       rowBuilder: (data) {
         return FluxTableRow(
-          onTap: () {},
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           itemBuilder: (data, index) {
             if (index == 0) {
@@ -136,19 +135,21 @@ class CustomerDetailScreen extends StatelessWidget {
                 flex: 3,
                 child: Column(
                   children: [
-                    const Expanded(
+                    Expanded(
                       flex: 1,
                       child: Row(
                         children: [
                           Expanded(
-                            child: CustomerInformationCard(),
+                            child: CustomerInformationCard(
+                              customer: Customer.empty,
+                            ),
                           ),
-                          SizedBox(width: 5),
-                          Expanded(
+                          const SizedBox(width: 5),
+                          const Expanded(
                             child: CustomerStatisticCard(),
                           ),
-                          SizedBox(width: 5),
-                          Expanded(
+                          const SizedBox(width: 5),
+                          const Expanded(
                             child: CardCustom(child: CustomerAirlinePieChart()),
                           ),
                         ],
@@ -493,7 +494,7 @@ class FlightInformationCard extends StatelessWidget {
             Row(
               children: [
                 Image.asset(
-                  "icons/direct-flight.png",
+                  "assets/icons/direct-flight.png",
                   height: 30,
                   width: 30,
                   fit: BoxFit.contain,

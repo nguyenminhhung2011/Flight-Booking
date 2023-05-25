@@ -2,6 +2,7 @@ import 'package:flight_booking/core/config/color_config.dart';
 import 'package:flutter/material.dart';
 
 class CommonAppUIConfig {
+  static const double kNormalCorner = 15;
   static final primaryRadiusBorder = BorderRadius.circular(10);
   static const spaceBetweenElementForm = SizedBox(height: 50);
   static final elevationContainer = [

@@ -557,10 +557,10 @@ class __$$_ChangeTypeTicCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
+    Object? type = null,
   }) {
     return _then(_$_ChangeTypeTic(
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TicTypeEnum,
@@ -586,12 +586,11 @@ class _$_ChangeTypeTic implements _ChangeTypeTic {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChangeTypeTic &&
-            const DeepCollectionEquality().equals(other.type, type));
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(type));
+  int get hashCode => Object.hash(runtimeType, type);
 
   @JsonKey(ignore: true)
   @override

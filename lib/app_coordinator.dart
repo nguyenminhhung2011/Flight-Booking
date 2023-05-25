@@ -132,6 +132,10 @@ extension AppCoordinator<T> on BuildContext {
   Future<T?> openPageWithRouteAndParams(String route, dynamic param) {
     return Navigator.of(this).pushNamed(route, arguments: param);
   }
+
+  Future<T?> openPaymentDetailPage() {
+    return Navigator.of(this).pushNamed(Routes.paymentDetail);
+  }
 }
 
 // abstract class AppCoordinatorShared<T> {

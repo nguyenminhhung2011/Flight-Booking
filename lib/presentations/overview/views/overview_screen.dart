@@ -6,7 +6,6 @@ import 'package:flight_booking/presentations/overview/views/widgets/data_card.da
 import 'package:flight_booking/presentations/overview/views/widgets/data_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../../../core/components/widgets/button_border.dart';
 import '../../../core/components/widgets/drop_down_button.dart' as customize;
@@ -22,11 +21,9 @@ class OverviewScreen extends StatefulWidget {
 }
 
 class _OverviewScreenState extends State<OverviewScreen> {
-  late final _textController;
   @override
   void initState() {
     super.initState();
-    _textController = TextEditingController();
   }
 
   bool get checkMediumAndUp => Breakpoints.mediumAndUp.isActive(context);
@@ -67,38 +64,28 @@ class _OverviewScreenState extends State<OverviewScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  S.of(context).dashboard,
+                  S.of(context).overview,
                   style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                   maxLines: 1,
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    S.of(context).addNewWidgets,
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: Theme.of(context).primaryColor,
-                        ),
-                    maxLines: 1,
-                  ),
-                )
               ],
             ),
-            trailing: SizedBox(
-              width: widthField * 0.4,
-              child: CupertinoSearchTextField(
-                padding: const EdgeInsets.all(10.0),
-                controller: _textController,
-                enabled: true,
-                style: Theme.of(context).textTheme.titleMedium,
-                onChanged: (value) {},
-                onSubmitted: (value) {},
-                backgroundColor:
-                    Theme.of(context).primaryColor.withOpacity(0.05),
-                placeholder: S.of(context).searchAnything,
-              ),
-            ),
+            // trailing: SizedBox(
+            //   width: widthField * 0.4,
+            //   child: CupertinoSearchTextField(
+            //     padding: const EdgeInsets.all(10.0),
+            //     controller: _textController,
+            //     enabled: true,
+            //     style: Theme.of(context).textTheme.titleMedium,
+            //     onChanged: (value) {},
+            //     onSubmitted: (value) {},
+            //     backgroundColor:
+            //         Theme.of(context).primaryColor.withOpacity(0.05),
+            //     placeholder: S.of(context).searchAnything,
+            //   ),
+            // ),
           ),
           Breakpoints.large.isActive(context)
               ? SizedBox(

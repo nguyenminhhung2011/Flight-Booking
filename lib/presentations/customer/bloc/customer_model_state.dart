@@ -5,9 +5,10 @@ part "customer_model_state.freezed.dart";
 
 @freezed
 class CustomerModelState with _$CustomerModelState {
-  const factory CustomerModelState({required List<Customer> customers}) =
-      _CustomerModelState;
+  const factory CustomerModelState(
+      {required List<Customer> customers,
+      int? currentIndex}) = _CustomerModelState;
 
-  const factory CustomerModelState.detailCustomer(
-      {required Customer customer}) = _DetailCustomer;
+  // const factory CustomerModelState.detailCustomer(
+  //     {required Customer customer}) = _DetailCustomer;
 }

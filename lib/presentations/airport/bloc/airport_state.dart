@@ -21,7 +21,7 @@ class AirportState with _$AirportState {
     required AirportModelState data,
   }) = _Loading;
 
-  const factory AirportState.openAddEditAirportSucceess({
+  const factory AirportState.openAddEditAirportSuccess({
     required AirportModelState data,
     required String id,
   }) = _OpenAddEditAirportSuccess;
