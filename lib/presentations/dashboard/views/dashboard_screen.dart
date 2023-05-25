@@ -6,7 +6,7 @@ import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart'
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_model_state.dart';
 import 'package:flight_booking/presentations/list_ticket/bloc/list_ticket_bloc.dart';
 import 'package:flight_booking/presentations/overview/views/overview_new_screen.dart';
-import 'package:flight_booking/presentations/payment/view/payment_screen.dart';
+import 'package:flight_booking/presentations/payment_management/view/payment_management_screen.dart';
 import 'package:flight_booking/presentations/settings/bloc/setting_bloc.dart';
 import 'package:flight_booking/presentations/settings/views/setting_screen.dart';
 import 'package:flutter/material.dart';
@@ -50,11 +50,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       selectedIcon: Icon(Icons.connecting_airports_rounded),
       label: Text('Airport'),
     ),
-    NavigationRailDestination(
-      icon: Icon(Icons.airplane_ticket),
-      selectedIcon: Icon(Icons.airplane_ticket),
-      label: Text('Ticket'),
-    ),
+    // NavigationRailDestination(
+    //   icon: Icon(Icons.airplane_ticket),
+    //   selectedIcon: Icon(Icons.airplane_ticket),
+    //   label: Text('Ticket'),
+    // ),
     NavigationRailDestination(
       icon: Icon(Icons.personal_injury_rounded),
       selectedIcon: Icon(Icons.personal_injury_rounded),
@@ -101,6 +101,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
       'secondBody': null,
       'body_ratio': 0.5,
     },
+    // {
+    //   'body': BlocProvider<ListTicketBloc>(
+    //     create: (context) => injector(),
+    //     child: const ListTicketScreen(),
+    //   ),
+    //   'secondBody': null,
+    //   'body_ratio': 0.7,
+    // },
     {
       'body': BlocProvider<ListTicketBloc>(
         create: (context) => injector(),
@@ -110,15 +118,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       'body_ratio': 0.7,
     },
     {
-      'body': BlocProvider<ListTicketBloc>(
-        create: (context) => injector(),
-        child: const ListTicketScreen(),
-      ),
-      'secondBody': null,
-      'body_ratio': 0.7,
-    },
-    {
-      'body': const PaymentScreen(),
+      'body': const PaymentManagementScreen(),
       'secondBody': null,
       'body_ratio': 0.7,
     },
@@ -301,11 +301,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         selectedIcon: Icon(Icons.connecting_airports_outlined),
                         label: 'Airport',
                       ),
-                      NavigationDestination(
-                        icon: Icon(Icons.airplane_ticket),
-                        selectedIcon: Icon(Icons.airplane_ticket),
-                        label: 'Ticket',
-                      ),
+                      // NavigationDestination(
+                      //   icon: Icon(Icons.airplane_ticket),
+                      //   selectedIcon: Icon(Icons.airplane_ticket),
+                      //   label: 'Ticket',
+                      // ),
                       NavigationDestination(
                         icon: Icon(Icons.personal_injury_rounded),
                         selectedIcon: Icon(Icons.personal_injury_rounded),

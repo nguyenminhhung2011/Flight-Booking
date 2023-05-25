@@ -18,6 +18,7 @@ class SwiperCustom extends StatefulWidget {
   final bool? isCenterSlideDot;
   final bool swipperOnly;
   final EdgeInsetsGeometry? margin;
+  final SwiperController? controller;
   const SwiperCustom({
     super.key,
     required this.itemCount,
@@ -34,6 +35,7 @@ class SwiperCustom extends StatefulWidget {
     this.isCenterSlideDot = true,
     this.spacingItem,
     this.swipperOnly = false,
+    this.controller,
   });
 
   @override
@@ -47,7 +49,7 @@ class _SwiperCustomState extends State<SwiperCustom> {
   @override
   void initState() {
     super.initState();
-    swiperController = SwiperController();
+    swiperController = widget.controller ?? SwiperController();
     index = ValueNotifier<int>(0);
     swiperController.addListener(_listenSwiperChange);
   }
@@ -146,8 +148,8 @@ class BuildIndicator extends StatelessWidget {
         decoration: BoxDecoration(
           //container with border
           color: isActive
-              ? CommonColor.primaryColor
-              : CommonColor.primaryColor.withOpacity(0.2),
+              ? Theme.of(context).primaryColor
+              : Theme.of(context).primaryColor.withOpacity(0.2),
           borderRadius: const BorderRadius.all(Radius.circular(12)),
           boxShadow: const [
             BoxShadow(
