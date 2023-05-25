@@ -46,11 +46,18 @@ class _CustomerDetailCardState extends State<CustomerDetailCard> {
   }
 }
 
-class CustomerTicketInformationCard extends StatelessWidget {
+class CustomerTicketInformationCard extends StatefulWidget {
   const CustomerTicketInformationCard({
     super.key,
   });
 
+  @override
+  State<CustomerTicketInformationCard> createState() =>
+      _CustomerTicketInformationCardState();
+}
+
+class _CustomerTicketInformationCardState
+    extends State<CustomerTicketInformationCard> {
   final List<PassengerInfoCard> cards = const [
     PassengerInfoCard(),
     PassengerInfoCard(),
@@ -58,6 +65,8 @@ class CustomerTicketInformationCard extends StatelessWidget {
     PassengerInfoCard(),
     PassengerInfoCard(),
   ];
+
+  final SwiperController controller = SwiperController();
 
   @override
   Widget build(BuildContext context) {
@@ -79,13 +88,50 @@ class CustomerTicketInformationCard extends StatelessWidget {
                 child: const FlightDataCustomerScreen(),
               ),
               const SizedBox(height: 10),
-              SwiperCustom(
-                height: 300,
-                itemBuilder: (index) {
-                  return cards.elementAt(index);
-                },
-                itemCount: cards.length,
-                swiperLayout: SwiperLayout.DEFAULT,
+              Stack(
+                children: [
+                  SwiperCustom(
+                    controller: controller,
+                    height: 300,
+                    itemBuilder: (index) {
+                      return cards.elementAt(index);
+                    },
+                    itemCount: cards.length,
+                    swiperLayout: SwiperLayout.DEFAULT,
+                  ),
+                  Positioned(
+                    left: 0,
+                    top: 5,
+                    bottom: 5,
+                    child: IconButton(
+                      splashRadius: 20,
+                      icon: Icon(
+                        size: 30,
+                        Icons.arrow_back_ios_new,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      onPressed: () {
+                        controller.previous();
+                      },
+                    ),
+                  ),
+                  Positioned(
+                    right: 0,
+                    top: 5,
+                    bottom: 5,
+                    child: IconButton(
+                      splashRadius: 20,
+                      icon: Icon(
+                        size: 30,
+                        Icons.arrow_forward_ios,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      onPressed: () {
+                        controller.next();
+                      },
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -169,17 +215,11 @@ class FlightDataCustomerScreen extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Image(
-            //   image: AssetImage("assets/images/seat.png"),
-            //   fit: BoxFit.contain,
-            //   height: 50,
-            //   width: 50,
-            // ),
             Image.asset(
               "assets/images/seat.png",
               fit: BoxFit.contain,
-              height: 50,
-              width: 50,
+              height: 40,
+              width: 40,
             ),
             const SizedBox(width: 5),
             Text(
@@ -207,7 +247,7 @@ class FlightDataCustomerScreen extends StatelessWidget {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 25.0),
+          padding: const EdgeInsets.only(top: 15.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

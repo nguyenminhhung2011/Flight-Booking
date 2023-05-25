@@ -10,14 +10,14 @@ import 'package:flight_booking/core/components/widgets/payment_status_utils.dart
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/generated/l10n.dart';
-import 'package:flight_booking/presentations/payment/bloc/payment_bloc.dart';
+import 'package:flight_booking/presentations/payment_management/bloc/payment_bloc.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({super.key});
+class PaymentManagementScreen extends StatelessWidget {
+  const PaymentManagementScreen({super.key});
 
   Widget _buildStatisticRow(BuildContext context) {
     return const Row(

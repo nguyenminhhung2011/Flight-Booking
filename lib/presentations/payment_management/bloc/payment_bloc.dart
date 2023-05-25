@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:flight_booking/presentations/payment/bloc/model_state_data/payment_model_state_data.dart';
-import 'package:flight_booking/presentations/payment/bloc/model_state_data/payment_status_state_data.dart';
-import 'package:flight_booking/presentations/payment/bloc/model_state_data/revenue.dart';
-import 'package:flight_booking/presentations/payment/bloc/model_state_data/ticket_tiers_data.dart';
-import 'package:flight_booking/presentations/payment/bloc/model_state_data/total_statistical_data.dart';
+import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/payment_model_state_data.dart';
+import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/payment_status_state_data.dart';
+import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/revenue.dart';
+import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/ticket_tiers_data.dart';
+import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/total_statistical_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
