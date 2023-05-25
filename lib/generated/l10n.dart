@@ -2499,6 +2499,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Select Scott`
+  String get selectScott {
+    return Intl.message(
+      'Select Scott',
+      name: 'selectScott',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Airlines`
+  String get airlines {
+    return Intl.message(
+      'Airlines',
+      name: 'airlines',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

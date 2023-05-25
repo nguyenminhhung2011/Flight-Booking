@@ -199,7 +199,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         children: [
                           _rowPayment(S.of(context).totalPrice, 200.0, false),
                           _rowPayment(S.of(context).tax, 12.0, false),
-                          _rowPayment(S.of(context).tax, -20.0, false),
+                          _rowPayment(
+                              S.of(context).blackFridayOffer, -20.0, false),
                           Container(
                             height: 0.5,
                             width: double.infinity,

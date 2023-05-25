@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "addressData": m0,
         "age": MessageLookupByLibrary.simpleMessage("Age"),
+        "airlines": MessageLookupByLibrary.simpleMessage("Airlines"),
         "airport": MessageLookupByLibrary.simpleMessage("Airport"),
         "airportContact":
             MessageLookupByLibrary.simpleMessage("Airport contact"),
@@ -295,6 +296,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
         "selectPaymentMethod":
             MessageLookupByLibrary.simpleMessage("Select payment method"),
+        "selectScott": MessageLookupByLibrary.simpleMessage("Select Scott"),
         "sentVerificationEmail":
             MessageLookupByLibrary.simpleMessage("Sent Verification Email"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),

@@ -1,19 +1,14 @@
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
-import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/custom_template_screen_stack_scroll.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:readmore/readmore.dart';
-
-import '../../../core/components/widgets/card_custom.dart';
 import '../../../core/components/widgets/mobile/appbar.dart';
 import '../../../core/components/widgets/mobile/category_custom.dart';
 import '../../../core/components/widgets/mobile/header_custom.dart';
 import '../../../core/components/widgets/mobile/review_custom.dart';
-import '../../../core/components/widgets/swiper_custom.dart';
 import '../../../core/constant/constant.dart';
 import '../../../generated/l10n.dart';
 
@@ -22,14 +17,15 @@ class HotelDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var headerStyle = Theme.of(context).textTheme.titleMedium!.copyWith(
-        fontWeight: FontWeight.bold,
-        color: Theme.of(context).scaffoldBackgroundColor.fontColorByBackground);
+    var headerStyle = Theme.of(context)
+        .textTheme
+        .titleMedium!
+        .copyWith(fontWeight: FontWeight.bold, color: Colors.white);
     var smallPrimaryText = context.titleSmall.copyWith(
       fontWeight: FontWeight.bold,
       color: Theme.of(context).primaryColor,
     );
-    var titleBigStyle = Theme.of(context).textTheme.titleMedium;
+    var titleBigStyle = context.titleMedium.copyWith(color: Colors.white);
 
     return Stack(
       children: [
@@ -84,7 +80,7 @@ class HotelDetailScreen extends StatelessWidget {
                     text: TextSpan(children: <TextSpan>[
                       TextSpan(
                         text: '\$120.000',
-                        style: titleBigStyle!.copyWith(
+                        style: titleBigStyle.copyWith(
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor,
                         ),
@@ -115,19 +111,15 @@ class HotelDetailScreen extends StatelessWidget {
             title: [
               IconButton(
                 onPressed: () => context.pop(),
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back,
-                  color: Theme.of(context)
-                      .scaffoldBackgroundColor
-                      .fontColorByBackground,
+                  color: Colors.white,
                 ),
               ),
               Text(
                 'Huong Binh',
                 style: context.headerAppBarTextStyle.copyWith(
-                  color: Theme.of(context)
-                      .scaffoldBackgroundColor
-                      .fontColorByBackground,
+                  color: Colors.white,
                 ),
               ),
               IconButton(
@@ -188,11 +180,7 @@ class HotelDetailScreen extends StatelessWidget {
                       'Viet Nam air',
                       maxLines: 1,
                       style: context.headlineSmall.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: Theme.of(context)
-                            .scaffoldBackgroundColor
-                            .fontColorByBackground,
-                      ),
+                          fontWeight: FontWeight.w500, color: Colors.white),
                     ),
                   ),
                   Text(
@@ -228,6 +216,8 @@ class HotelDetailScreen extends StatelessWidget {
             trimExpandedText: 'Show less',
             lessStyle: smallPrimaryText,
             moreStyle: smallPrimaryText,
+            style: context.titleSmall
+                .copyWith(color: Colors.white, fontWeight: FontWeight.w400),
           ),
         ),
         const SizedBox(height: 10.0),
@@ -255,9 +245,10 @@ class HotelDetailScreen extends StatelessWidget {
                 paddingRight: 15.0,
                 paddingTop: 15.0,
                 paddingLeft: 15.0,
-                textStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      fontWeight: FontWeight.w400,
-                    ),
+                textStyle: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(fontWeight: FontWeight.w400, color: Colors.white),
                 onPress: () => context.openListPageWithRoute(e['route']),
               ),
             )
@@ -308,6 +299,8 @@ class HotelDetailScreen extends StatelessWidget {
                   userName: e['name'],
                   ratings: e['rating'] * 1.0,
                   isShowFav: true,
+                  reviewsStyle:
+                      context.titleSmall.copyWith(color: Colors.white),
                   fav: 10,
                 ),
               )
