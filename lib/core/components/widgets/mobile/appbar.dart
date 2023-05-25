@@ -22,6 +22,7 @@ class AppbarCustom extends StatelessWidget {
   final String? aftarImage;
   final Widget? leading;
   final Widget? widgeExpanded;
+  final Widget? titleExpand;
 
   const AppbarCustom({
     super.key,
@@ -45,13 +46,14 @@ class AppbarCustom extends StatelessWidget {
     required this.title,
     this.leading,
     this.widgeExpanded,
+    this.titleExpand,
   });
 
   List<Widget> get getActions => actions ?? [];
 
   @override
   Widget build(BuildContext context) {
-    final heightDevice = MediaQuery.of(context).size.height;
+    // final heightDevice = MediaQuery.of(context).size.height;
     return SliverAppBar(
       snap: snap ?? false,
       pinned: pinned ?? true,
@@ -60,17 +62,17 @@ class AppbarCustom extends StatelessWidget {
       elevation: elevation ?? 0,
       leading: leading,
       forceElevated: forceElevated ?? true,
-      expandedHeight:
-          aftarImage != null ? expandedHeight ?? heightDevice * 0.3 : 0,
+      expandedHeight: expandedHeight ?? 0,
       floating: floating ?? true,
       backgroundColor:
           backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
       foregroundColor: Theme.of(context).scaffoldBackgroundColor,
-      flexibleSpace: widgeExpanded != null
+      flexibleSpace: widgeExpanded != null || titleExpand != null
           ? FlexibleSpaceBar(
               centerTitle: true,
               titlePadding: const EdgeInsets.all(0.0),
               background: widgeExpanded,
+              title: titleExpand,
             )
           : aftarImage != null
               ? FlexibleSpaceBar(
@@ -96,24 +98,25 @@ class AppbarCustom extends StatelessWidget {
                       ],
                     ),
                   ),
-                  title: Container(
-                    width: double.infinity,
-                    height: 20,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(radius ?? 30.0),
-                        topRight: Radius.circular(radius ?? 30.0),
+                  title: titleExpand ??
+                      Container(
+                        width: double.infinity,
+                        height: 20,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(radius ?? 30.0),
+                            topRight: Radius.circular(radius ?? 30.0),
+                          ),
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Theme.of(context).primaryColor,
+                              blurRadius: 100.0,
+                              offset: const Offset(0, -10),
+                            )
+                          ],
+                        ),
                       ),
-                      color: Theme.of(context).scaffoldBackgroundColor,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Theme.of(context).primaryColor,
-                          blurRadius: 100.0,
-                          offset: const Offset(0, -10),
-                        )
-                      ],
-                    ),
-                  ),
                   collapseMode: CollapseMode.parallax,
                 )
               : null,

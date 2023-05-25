@@ -5,7 +5,7 @@ class ImageConst {
   static const String tic = 'assets/images/tic.png';
   static const String trip = 'assets/images/trip.png';
   static const String bacground = 'assets/images/bacground.jpg';
-
+  static const String gif = "assets/images/splash_gif.gif";
   //net
   static const String avatarDefaulte =
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5PswchnAfXt36TBzmZmDdJuUBB5iffttNidZ9mrb4&s';
@@ -19,4 +19,14 @@ class ImageConst {
   static const String personIcon = 'assets/icons/Profile.svg';
   static const String documentIcon = 'assets/icons/Document.svg';
   static const String searchIcon = 'assets/icons/Search.svg';
+  static const String googleIcon = 'assets/images/goog.png';
+  static const String cardIcon = 'assets/images/card1.png';
+  static const String visaIcon = 'assets/images/visa.png';
+  static const String masterIcon = 'assets/images/master.png';
+  static const String planeTicket = 'assets/images/plane-ticket.png';
+
+  //onboard
+  static const String onboard1 = 'assets/images/onboard1.png';
+  static const String onboard2 = 'assets/images/onboard2.png';
+  static const String onboard3 = 'assets/images/onboard3.png';
 }

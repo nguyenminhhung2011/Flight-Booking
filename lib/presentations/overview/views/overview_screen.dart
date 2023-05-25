@@ -6,7 +6,6 @@ import 'package:flight_booking/presentations/overview/views/widgets/data_card.da
 import 'package:flight_booking/presentations/overview/views/widgets/data_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../../../core/components/widgets/button_border.dart';
 import '../../../core/components/widgets/drop_down_button.dart' as customize;
@@ -22,11 +21,9 @@ class OverviewScreen extends StatefulWidget {
 }
 
 class _OverviewScreenState extends State<OverviewScreen> {
-  late final _textController;
   @override
   void initState() {
     super.initState();
-    _textController = TextEditingController();
   }
 
   bool get checkMediumAndUp => Breakpoints.mediumAndUp.isActive(context);

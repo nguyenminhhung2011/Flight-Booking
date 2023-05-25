@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TextFieldCustom extends StatelessWidget {
+enum TextFieldType {
+  backgroundShadow,
+  noBackgroundShadow;
+
+  bool get isBackgroundShadow => this == TextFieldType.backgroundShadow;
+}
+
+class TextFieldCustom extends StatefulWidget {
   final String? headerText;
   final TextStyle? headerTextStyle;
   final TextStyle? hintStyle;
@@ -17,11 +24,16 @@ class TextFieldCustom extends StatelessWidget {
   final double? vPaddingField;
   final String? hintText;
   final Color? borderColor;
+  final Color? color;
   final Widget? suffix;
+  final Widget? prefix;
   final bool isNumberInputType;
   final bool isPasswordField;
   final bool isPhoneNumberField;
+  final bool isShowBorderRadius;
+  final int? maxLines;
   final Function()? prefixPress;
+  final TextFieldType type;
   const TextFieldCustom({
     super.key,
     this.headerText,
@@ -40,64 +52,171 @@ class TextFieldCustom extends StatelessWidget {
     this.hPaddingField,
     this.vPaddingField,
     this.borderColor,
+    this.prefixPress,
+    this.prefix,
     this.suffix,
+    this.maxLines,
+    this.type = TextFieldType.noBackgroundShadow,
     this.isNumberInputType = false,
     this.isPasswordField = false,
     this.isPhoneNumberField = false,
-    this.prefixPress,
+    this.isShowBorderRadius = true,
+    this.color,
   });
 
   @override
+  State<TextFieldCustom> createState() => _TextFieldCustomState();
+}
+
+class _TextFieldCustomState extends State<TextFieldCustom> {
+  final ValueNotifier<bool> _isShowPass = ValueNotifier<bool>(false);
+  void changeShowPass() {
+    _isShowPass.value = !_isShowPass.value;
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if (widget.type.isBackgroundShadow) {
+      return ValueListenableBuilder(
+        valueListenable: _isShowPass,
+        builder: (context, isShowPass, child) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (widget.headerText != null)
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: widget.paddingLeft ?? 0.0,
+                    right: widget.paddingRight ?? 0.0,
+                    top: widget.paddingTop ?? 0.0,
+                    bottom: widget.paddingBottom ?? 0.0,
+                  ),
+                  child: Text(
+                    widget.headerText!,
+                    style: widget.headerTextStyle ??
+                        Theme.of(context).textTheme.titleMedium,
+                  ),
+                ),
+              SizedBox(height: widget.spacingText ?? 5.0),
+              Container(
+                margin: EdgeInsets.only(
+                  left: widget.paddingLeft ?? 0.0,
+                  right: widget.paddingRight ?? 0.0,
+                  top: widget.paddingTop ?? 0.0,
+                  bottom: widget.paddingBottom ?? 0.0,
+                ),
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(
+                  horizontal: widget.hPaddingField ?? 10.0,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(widget.radius ?? 10.0),
+                  ),
+                  color: widget.color ?? Theme.of(context).cardColor,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Theme.of(context).shadowColor.withOpacity(0.1),
+                      blurRadius: 5.0,
+                    )
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    if (widget.prefix != null) ...[
+                      widget.prefix!,
+                      const SizedBox(width: 5.0),
+                    ],
+                    Expanded(
+                      child: TextFormField(
+                        obscureText: isShowPass,
+                        controller: widget.controller,
+                        keyboardType: (widget.isNumberInputType ||
+                                widget.isPhoneNumberField)
+                            ? TextInputType.number
+                            : null,
+                        style: widget.textStyle,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintStyle: widget.hintStyle,
+                          hintText: widget.hintText ?? '',
+                          suffixIcon: widget.suffix,
+                        ),
+                      ),
+                    ),
+                    if (widget.isPasswordField)
+                      IconButton(
+                        onPressed: changeShowPass,
+                        icon: Icon(
+                          isShowPass
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
+                          color: Colors.grey,
+                        ),
+                      )
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    }
     return Padding(
       padding: EdgeInsets.only(
-        left: paddingLeft ?? 0.0,
-        right: paddingRight ?? 0.0,
-        top: paddingTop ?? 0.0,
-        bottom: paddingBottom ?? 0.0,
+        left: widget.paddingLeft ?? 0.0,
+        right: widget.paddingRight ?? 0.0,
+        top: widget.paddingTop ?? 0.0,
+        bottom: widget.paddingBottom ?? 0.0,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (headerText != null)
+          if (widget.headerText != null)
             Text(
-              headerText!,
-              style: headerTextStyle ?? Theme.of(context).textTheme.titleMedium,
+              widget.headerText!,
+              style: widget.headerTextStyle ??
+                  Theme.of(context).textTheme.titleMedium,
             ),
-          SizedBox(height: spacingText ?? 5.0),
+          SizedBox(height: widget.spacingText ?? 5.0),
           SizedBox(
             width: double.infinity,
             child: TextFormField(
-              keyboardType: (isNumberInputType || isPhoneNumberField)
-                  ? TextInputType.number
-                  : null,
-              style: textStyle,
-              controller: controller,
+              maxLines: widget.maxLines ?? 1,
+              keyboardType:
+                  (widget.isNumberInputType || widget.isPhoneNumberField)
+                      ? TextInputType.number
+                      : null,
+              style: widget.textStyle,
+              controller: widget.controller,
               decoration: InputDecoration(
-                hintStyle: hintStyle,
-                hintText: hintText ?? '',
+                hintStyle: widget.hintStyle,
+                hintText: widget.hintText ?? '',
                 contentPadding: EdgeInsets.symmetric(
-                  horizontal: hPaddingField ?? 10.0,
-                  vertical: vPaddingField ?? 8.0,
+                  horizontal: widget.hPaddingField ?? 10.0,
+                  vertical: widget.vPaddingField ?? 8.0,
                 ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(radius ?? 10),
-                  borderSide: BorderSide(
-                    color: borderColor ?? Colors.grey[300]!,
-                    width: widthBorder ?? 1,
-                  ),
-                ),
-                suffixIcon: suffix,
-                prefixIcon: isPhoneNumberField
+                border: widget.isShowBorderRadius
+                    ? OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.circular(widget.radius ?? 10),
+                        borderSide: BorderSide(
+                          color: widget.borderColor ?? Colors.grey[300]!,
+                          width: widget.widthBorder ?? 1,
+                        ),
+                      )
+                    : null,
+                suffixIcon: widget.suffix,
+                prefixIcon: widget.isPhoneNumberField
                     ? GestureDetector(
-                        onTap: prefixPress,
+                        onTap: widget.prefixPress,
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             const SizedBox(width: 10.0),
                             Text(
                               '+84',
-                              style: textStyle,
+                              style: widget.textStyle,
                             ), //update
                             const SizedBox(width: 10.0),
                             const Icon(Icons.arrow_drop_down),

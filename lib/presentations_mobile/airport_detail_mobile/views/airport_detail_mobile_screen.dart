@@ -83,7 +83,8 @@ class _AirportDetailMobileScreenState extends State<AirportDetailMobileScreen> {
                       const Icon(Icons.edit),
                     ],
                   ),
-                  onPress: () {},
+                  onPress: () =>
+                      context.openListPageWithRoute(RoutesMobile.addReview),
                 )
               : null,
           appbar: AppbarCustom(
