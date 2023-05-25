@@ -255,7 +255,7 @@ class PaymentScreen extends StatelessWidget {
       width: 150,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
       decoration: BoxDecoration(
-        color: PaymentStatusUtils.getColorBaseOnStatus(status).shade200,
+        color: status.getColorBaseOnStatus().shade200,
         borderRadius: CommonAppUIConfig.primaryRadiusBorder,
       ),
       child: Row(
@@ -263,15 +263,14 @@ class PaymentScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(
-            PaymentStatusUtils.getIconBaseOnStatus(status),
-            color: PaymentStatusUtils.getColorBaseOnStatus(status).shade900,
+            status.getIconBaseOnStatus(),
+            color: status.getColorBaseOnStatus().shade900,
           ),
           const SizedBox(width: 5),
           Text(
             status.name,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color:
-                      PaymentStatusUtils.getColorBaseOnStatus(status).shade900,
+                  color: status.getColorBaseOnStatus().shade900,
                   fontWeight: FontWeight.w600,
                 ),
           ),
@@ -409,10 +408,10 @@ class PaymentStatusStatisticComponent extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: PaymentStatusUtils.getColorBaseOnStatus(status).shade300,
+          color: status.getColorBaseOnStatus().shade300,
         ),
         child: Icon(
-          PaymentStatusUtils.getIconBaseOnStatus(status),
+          status.getIconBaseOnStatus(),
           size: 30,
           color: Theme.of(context).colorScheme.onPrimary,
         ),
@@ -838,7 +837,7 @@ class PaymentMethodStatisticComponent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "${percent}%",
+          "$percent%",
           style: Theme.of(context)
               .textTheme
               .titleLarge

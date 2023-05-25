@@ -9,6 +9,7 @@ class FluxTicketTable<T> extends StatelessWidget {
     required this.data,
     required this.rowBuilder,
     required this.titleRow,
+    this.tableDecoration,
     this.padding,
     this.rowSeparatorBuilder,
     this.distanceRow,
@@ -20,6 +21,7 @@ class FluxTicketTable<T> extends StatelessWidget {
     this.currentIndex,
   });
 
+  final BoxDecoration? tableDecoration;
   final int? currentIndex;
   final bool isSelectable;
   final Color? tableBackgroundColor;
@@ -40,11 +42,13 @@ class FluxTicketTable<T> extends StatelessWidget {
     return Container(
       padding: padding,
       alignment: Alignment.center,
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.blueGrey, width: 0.1),
-        borderRadius: BorderRadius.circular(10),
-        color: tableBackgroundColor,
-      ),
+      decoration: tableDecoration ??
+          BoxDecoration(
+            border:
+                Border.all(color: Theme.of(context).dividerColor, width: 0.1),
+            borderRadius: BorderRadius.circular(10),
+            color: tableBackgroundColor,
+          ),
       child: Column(
         children: [
           titleRow,
