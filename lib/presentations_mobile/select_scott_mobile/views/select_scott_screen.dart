@@ -3,11 +3,19 @@ import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/custom_template_screen_stack_scroll.dart';
+import 'package:flight_booking/core/components/widgets/mobile/header_custom.dart';
+import 'package:flight_booking/core/components/widgets/mobile/sort_button.dart';
 import 'package:flight_booking/core/constant/constant.dart';
+import 'package:flight_booking/core/constant/handle_time.dart';
+import 'package:flight_booking/domain/entities/customer/customer.dart';
+import 'package:flight_booking/presentations_mobile/select_scott_mobile/bloc/select_scott_bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/widgets/mobile/appbar.dart';
 import '../../../core/components/widgets/mobile/button_custom.dart';
+import '../../../core/components/widgets/mobile/dropdown_button_custom.dart';
 import '../../../core/components/widgets/mobile/text_field_custom.dart';
 import '../../../generated/l10n.dart';
 import '../../routes_mobile.dart';
@@ -22,61 +30,152 @@ class SelectScottScreen extends StatefulWidget {
 }
 
 class _SelectScottScreenState extends State<SelectScottScreen> {
+  SelectScottBloc get _bloc => BlocProvider.of<SelectScottBloc>(context);
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _identityController = TextEditingController();
+
+  // final TextEditingController _dateBornController = TextEditingController();
+  final ValueNotifier<String> _gender = ValueNotifier<String>('Male');
+  final ValueNotifier<DateTime> _dateBorn =
+      ValueNotifier<DateTime>(DateTime.now());
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc.add(const SelectScottEvent.started());
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _phoneNumberController.dispose();
+    _identityController.dispose();
+    super.dispose();
+  }
+
+  void _clearText() {
+    _nameController.clear();
+    _emailController.clear();
+    _phoneNumberController.clear();
+    _identityController.clear();
+  }
+
+  void _listenStateChange(BuildContext context, SelectScottState state) {
+    state.maybeWhen(orElse: () {});
+  }
+
+  void _onChangeTab(int index) {
+    _bloc.add(SelectScottEvent.changeTab(tab: index));
+  }
+
+  void _onAddNewCustomer() {
+    _bloc.add(SelectScottEvent.addNewCustomer(
+        customer: Customer(
+      id: randomString(),
+      name: _nameController.text,
+      identityNum: _identityController.text,
+      phoneNumber: _phoneNumberController.text,
+      email: _emailController.text,
+      gender: _gender.value,
+      birthday: _dateBorn.value,
+    )));
+    _clearText();
+  }
+
+  void _bottomClicked(int index) {
+    if (index == 1) {
+      _onAddNewCustomer();
+      return;
+    }
+    context.openListPageWithRoute(RoutesMobile.checkout);
+  }
+
+  void _onSelectDateBorn() async {
+    final result = await context.pickDate(DatePickerMode.day);
+    if (result != null) {
+      _dateBorn.value = result;
+    }
+  }
+
+  void _onChangeGender(String? newValue) {
+    _gender.value = newValue!;
+  }
+
+  void _onSelectCustomer(int index) {
+    _bloc.add(SelectScottEvent.selectCustomer(index: index));
+  }
+
   @override
   Widget build(BuildContext context) {
     final heightDevice = context.heightDevice;
     var fontColorByCard = Theme.of(context).cardColor.fontColorByBackground;
     var headerTextStyle = context.timeStyle
         .copyWith(fontWeight: FontWeight.w600, color: Colors.grey);
-    return CustomTemplateScreenStackScroll(
-      bottomSheet: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
-        child: ButtonCustom(
-          height: 50,
-          child: Text(S.of(context).bookingTime),
-          onPress: () => context.openListPageWithRoute(RoutesMobile.checkout),
-        ),
-      ),
-      color: Theme.of(context).primaryColor,
-      appbar: AppbarCustom(
-        leading: IconButton(
-          onPressed: () => context.pop(),
-          icon: const Icon(Icons.arrow_back),
-        ),
-        backgroundColor: Colors.transparent,
-        isCenterTitle: true,
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.more_vert_rounded),
-          )
-        ],
-        title: [
-          Text(
-            S.of(context).selectScott,
-            style: context.headerAppBarTextStyle,
+    return BlocConsumer<SelectScottBloc, SelectScottState>(
+      listener: _listenStateChange,
+      builder: (context, state) {
+        return CustomTemplateScreenStackScroll(
+          bottomSheet: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
+            child: ButtonCustom(
+              height: 50,
+              child: state.data.tab == 1
+                  ? Text(S.of(context).add)
+                  : Text(S.of(context).checkout),
+              onPress: () => _bottomClicked(state.data.tab),
+            ),
           ),
-        ],
-      ),
-      afterMainScreen: _after(heightDevice, context),
-      children: [
-        SliverList(
-          delegate: SliverChildListDelegate(<Widget>[
-            _book(heightDevice, context, fontColorByCard, headerTextStyle),
-          ]),
-        )
-      ],
+          color: Theme.of(context).primaryColor,
+          appbar: AppbarCustom(
+            leading: IconButton(
+              onPressed: () => context.pop(),
+              icon: const Icon(Icons.arrow_back),
+            ),
+            backgroundColor: Colors.transparent,
+            isCenterTitle: true,
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.more_vert_rounded),
+              )
+            ],
+            title: [
+              Text(
+                S.of(context).selectScott,
+                style: context.headerAppBarTextStyle,
+              ),
+            ],
+          ),
+          afterMainScreen: _after(heightDevice, context),
+          children: [
+            SliverList(
+              delegate: SliverChildListDelegate(<Widget>[
+                _book(heightDevice, context, fontColorByCard, headerTextStyle,
+                    state),
+              ]),
+            )
+          ],
+        );
+      },
     );
   }
 
   Container _book(double heightDevice, BuildContext context,
-      Color fontColorByCard, TextStyle headerStyle) {
+      Color fontColorByCard, TextStyle headerStyle, SelectScottState state) {
+    final customers = state.data.listCustomer;
+    final tab = state.data.tab;
+    final selectCustomer = state.data.selectCustomer;
     return Container(
-      constraints: BoxConstraints(minHeight: heightDevice),
+      // constraints: BoxConstraints(minHeight: heightDevice),
       margin: EdgeInsets.only(
         left: _hMarginCard,
         right: _hMarginCard,
         top: heightDevice * 0.45,
+        bottom: 70.0,
       ),
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
@@ -91,162 +190,389 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 15.0),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: _hMarginCard),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text('British Airways',
-                    style: context.primaryMediumText) // change this text
-              ],
-            ),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const SizedBox(height: 15.0),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: _hMarginCard),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('British Airways',
+                  style: context.primaryMediumText) // change this text
+            ],
           ),
-          _paddingDivider(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: _hMarginCard),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Expanded>[
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        S.of(context).firstClass,
-                        maxLines: 1,
-                        style: headerStyle,
+        ),
+        _paddingDivider(),
+        tab == 0
+            ? Column(
+                children: [
+                  HeaderTextCustom(
+                    headerText: S.of(context).memberInfo,
+                    textStyle: context.titleMedium.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: _hMarginCard),
+                    widget: ButtonCustom(
+                      width: 90,
+                      child: Text(S.of(context).add),
+                      onPress: () => _onChangeTab(1),
+                    ),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(10.0),
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: _hMarginCard),
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(15.0)),
+                      border: Border.all(
+                        width: 1,
+                        color: Theme.of(context).dividerColor,
                       ),
-                      const SizedBox(height: 10.0),
-                      Text(
-                        'Seat 5D',
-                        maxLines: 1,
-                        style: context.headlineMedium.copyWith(
-                          fontWeight: FontWeight.w600,
-                          color: fontColorByCard,
+                    ),
+                    child: Wrap(
+                      children: customers
+                          .mapIndexed((index, e) => Padding(
+                                padding: const EdgeInsets.only(right: 5.0),
+                                child: SortButton(
+                                  title: e.name,
+                                  icon: Icons.close,
+                                  onPress: () => _onSelectCustomer(index),
+                                ),
+                              ))
+                          .toList(),
+                    ),
+                  ),
+                  customers.isNotEmpty
+                      ? Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: _hMarginCard),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  _informationItem(context, S.of(context).name,
+                                      customers[selectCustomer].name, true),
+                                  _informationItem(
+                                      context,
+                                      S.of(context).gender,
+                                      customers[selectCustomer].gender,
+                                      false),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  _informationItem(
+                                      context,
+                                      S.of(context).dateBorn,
+                                      getYmdFormat(
+                                          customers[selectCustomer].birthday),
+                                      true),
+                                  _informationItem(
+                                      context,
+                                      S.of(context).identityNumber,
+                                      customers[selectCustomer].identityNum,
+                                      false),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  _informationItem(
+                                      context,
+                                      S.of(context).phoneNumber,
+                                      customers[selectCustomer].phoneNumber,
+                                      true),
+                                  _informationItem(context, S.of(context).email,
+                                      customers[selectCustomer].email, false),
+                                ],
+                              ),
+                            ]
+                                .expand((element) =>
+                                    [element, const SizedBox(height: 10.0)])
+                                .toList(),
+                          ),
+                        )
+                      : SizedBox(
+                          height: 150,
+                          width: double.infinity,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(Icons.search_off_sharp,
+                                  color: Colors.grey),
+                              Text(
+                                S.of(context).addNewCustomer,
+                                style: context.titleMedium.copyWith(
+                                  color: Colors.grey,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                      ) // update here
-                      // change this type
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Text(
-                        S.of(context).boeing, // update here,
-                        maxLines: 1,
-                        style: context.timeStyle.copyWith(
-                          fontWeight: FontWeight.w600,
-                          color: fontColorByCard,
-                        ),
-                      ),
-                      const SizedBox(height: 7.0),
-                      Text(
-                        '777 - 200ER', // update here,
-                        maxLines: 1,
-                        style: headerStyle,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(
-              vertical: 10.0,
-            ),
-            color: Theme.of(context).hoverColor,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: _hMarginCard),
-                  child: Text(
-                    S.of(context).benefit,
-                    style: headerStyle,
-                  ),
-                ),
-                const SizedBox(height: 10.0),
-                Row(children: [
-                  const SizedBox(width: 5.0),
-                  ...mockDataBenefits.map((e) => _benfitWithtext(e, context)),
-                  const SizedBox(width: 5.0)
-                ]),
-                const SizedBox(height: 10.0)
-              ],
-            ),
-          ),
-          TextFieldCustom(
-            paddingLeft: _hMarginCard,
-            paddingRight: _hMarginCard,
-            headerText: S.of(context).name,
-            headerTextStyle: headerStyle,
-            hintStyle: headerStyle,
-            controller: TextEditingController(text: 'Nguyen Minh Hung'),
-            textStyle: headerStyle.copyWith(
-              fontWeight: FontWeight.w600,
-              color: fontColorByCard,
-            ),
-          ),
-          TextFieldCustom(
-            paddingLeft: _hMarginCard,
-            paddingRight: _hMarginCard,
-            headerText: S.of(context).emailAddress,
-            headerTextStyle: headerStyle,
-            hintStyle: headerStyle,
-            controller:
-                TextEditingController(text: 'hungnguyen.201102@gmail.com'),
-            textStyle: headerStyle.copyWith(
-              fontWeight: FontWeight.w600,
-              color: fontColorByCard,
-            ),
-          ),
-          TextFieldCustom(
-            paddingLeft: _hMarginCard,
-            paddingRight: _hMarginCard,
-            headerText: S.of(context).phoneNumber,
-            isPhoneNumberField: true,
-            headerTextStyle: headerStyle,
-            isNumberInputType: true,
-            hintStyle: headerStyle,
-            controller: TextEditingController(text: '30012-345-67'),
-            textStyle: headerStyle.copyWith(
-              fontWeight: FontWeight.w600,
-              color: fontColorByCard,
-            ),
-          ),
-          TextFieldCustom(
-            paddingLeft: _hMarginCard,
-            paddingRight: _hMarginCard,
-            headerText: S.of(context).flightType,
-            headerTextStyle: headerStyle,
-            isNumberInputType: true,
-            hintStyle: headerStyle,
-            controller: TextEditingController(text: 'Round Trip'),
-            textStyle: headerStyle.copyWith(
-              fontWeight: FontWeight.w600,
-              color: fontColorByCard,
-            ),
-            suffix: IconButton(
-              icon: const Icon(Icons.arrow_drop_down),
-              onPressed: () {},
-            ),
-          ),
-        ].expand((element) => [element, const SizedBox(height: 15.0)]).toList(),
-      ),
+                ]
+                    .expand(
+                        (element) => [element, const SizedBox(height: 15.0)])
+                    .toList(),
+              )
+            : _addNewCustomerField(context, headerStyle, fontColorByCard),
+      ]),
     );
   }
 
-  Expanded _benfitWithtext(Map<String, dynamic> e, BuildContext context) {
+  Column _informationItem(
+    BuildContext context,
+    String header,
+    String title,
+    bool isStart,
+  ) {
+    return Column(
+      crossAxisAlignment:
+          isStart ? CrossAxisAlignment.start : CrossAxisAlignment.end,
+      children: [
+        Text(
+          header,
+          style: context.titleSmall.copyWith(
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            color: Theme.of(context).hintColor,
+          ),
+        ),
+        const SizedBox(height: 7.0),
+        Text(
+          title,
+          style: context.titleMedium.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
+        )
+      ],
+    );
+  }
+
+  Column _addNewCustomerField(
+      BuildContext context, TextStyle headerStyle, Color fontColorByCard) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: _hMarginCard),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Expanded>[
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      S.of(context).firstClass,
+                      maxLines: 1,
+                      style: headerStyle,
+                    ),
+                    const SizedBox(height: 10.0),
+                    Text(
+                      'Seat 5D',
+                      maxLines: 1,
+                      style: context.headlineMedium.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: fontColorByCard,
+                      ),
+                    ) // update here
+                    // change this type
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Text(
+                      S.of(context).boeing, // update here,
+                      maxLines: 1,
+                      style: context.timeStyle.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: fontColorByCard,
+                      ),
+                    ),
+                    const SizedBox(height: 7.0),
+                    Text(
+                      '777 - 200ER', // update here,
+                      maxLines: 1,
+                      style: headerStyle,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(
+            vertical: 10.0,
+          ),
+          color: Theme.of(context).hoverColor,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: _hMarginCard),
+                child: Text(
+                  S.of(context).benefit,
+                  style: headerStyle,
+                ),
+              ),
+              const SizedBox(height: 10.0),
+              Row(children: [
+                const SizedBox(width: 5.0),
+                ...mockDataBenefits.map((e) => _benefitWithText(e, context)),
+                const SizedBox(width: 5.0)
+              ]),
+              const SizedBox(height: 10.0)
+            ],
+          ),
+        ),
+        TextFieldCustom(
+          paddingLeft: _hMarginCard,
+          paddingRight: _hMarginCard,
+          headerText: S.of(context).name,
+          hintText: S.of(context).enterYourName,
+          headerTextStyle: headerStyle,
+          hintStyle: headerStyle,
+          controller: _nameController,
+          textStyle: headerStyle.copyWith(
+            fontWeight: FontWeight.w600,
+            color: fontColorByCard,
+          ),
+        ),
+        TextFieldCustom(
+          paddingLeft: _hMarginCard,
+          paddingRight: _hMarginCard,
+          headerText: S.of(context).emailAddress,
+          headerTextStyle: headerStyle,
+          hintStyle: headerStyle,
+          hintText: S.of(context).enterYourEmail,
+          controller: _emailController,
+          textStyle: headerStyle.copyWith(
+            fontWeight: FontWeight.w600,
+            color: fontColorByCard,
+          ),
+        ),
+        TextFieldCustom(
+          paddingLeft: _hMarginCard,
+          paddingRight: _hMarginCard,
+          headerText: S.of(context).phoneNumber,
+          hintText: S.of(context).enterYourPhoneNumber,
+          isPhoneNumberField: true,
+          headerTextStyle: headerStyle,
+          isNumberInputType: true,
+          hintStyle: headerStyle,
+          controller: _phoneNumberController,
+          textStyle: headerStyle.copyWith(
+            fontWeight: FontWeight.w600,
+            color: fontColorByCard,
+          ),
+        ),
+        TextFieldCustom(
+          paddingLeft: _hMarginCard,
+          paddingRight: _hMarginCard,
+          headerText: S.of(context).identityNumber,
+          hintText: 'xxx-xxxxxx-xxxxxx',
+          headerTextStyle: headerStyle,
+          isNumberInputType: true,
+          hintStyle: headerStyle,
+          controller: _identityController,
+          textStyle: headerStyle.copyWith(
+            fontWeight: FontWeight.w600,
+            color: fontColorByCard,
+          ),
+        ),
+        ValueListenableBuilder(
+          valueListenable: _dateBorn,
+          builder: (context, dateBorn, child) {
+            return TextFieldCustom(
+              paddingLeft: _hMarginCard,
+              paddingRight: _hMarginCard,
+              headerText: S.of(context).dateBorn,
+              hintText: S.of(context).selectDateBorn,
+              headerTextStyle: headerStyle,
+              isNumberInputType: true,
+              hintStyle: headerStyle,
+              controller: TextEditingController(text: getYmdFormat(dateBorn)),
+              textStyle: headerStyle.copyWith(
+                fontWeight: FontWeight.w600,
+                color: fontColorByCard,
+              ),
+              suffix: IconButton(
+                icon: const Icon(CupertinoIcons.calendar),
+                onPressed: _onSelectDateBorn,
+              ),
+            );
+          },
+        ),
+        ValueListenableBuilder(
+          valueListenable: _gender,
+          builder: (context, genderSelect, child) {
+            return ListTile(
+              title: Text(
+                S.of(context).gender,
+                style: headerStyle,
+              ),
+              trailing: DropdownButtonCustom<String?>(
+                borderColor: Colors.grey[300],
+                width: 150.0,
+                value: genderSelect,
+                onChange: _onChangeGender,
+                items: ['Male', 'Female']
+                    .map<DropdownMenuItem<String>>(
+                      (String value) => DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(
+                          value,
+                          style: headerStyle.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: fontColorByCard,
+                          ),
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+            );
+          },
+        ),
+        TextFieldCustom(
+          paddingLeft: _hMarginCard,
+          paddingRight: _hMarginCard,
+          headerText: S.of(context).flightType,
+          headerTextStyle: headerStyle,
+          isNumberInputType: true,
+          hintStyle: headerStyle,
+          controller: TextEditingController(text: 'Round Trip'),
+          textStyle: headerStyle.copyWith(
+            fontWeight: FontWeight.w600,
+            color: fontColorByCard,
+          ),
+          suffix: IconButton(
+            icon: const Icon(Icons.arrow_drop_down),
+            onPressed: () {},
+          ),
+        ),
+      ].expand((element) => [element, const SizedBox(height: 15.0)]).toList(),
+    );
+  }
+
+  Expanded _benefitWithText(Map<String, dynamic> e, BuildContext context) {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
