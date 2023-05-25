@@ -117,9 +117,10 @@ class ReviewItem extends StatelessWidget {
           if (review.isShowFav)
             Text(
               '❤️ ${review.fav ?? 0} favorites',
-              style: context.titleSmall.copyWith(
-                fontSize: 14.0,
-              ),
+              style: review.reviewsStyle ??
+                  context.titleSmall.copyWith(
+                    fontSize: 14.0,
+                  ),
             ),
         ],
       ),

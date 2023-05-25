@@ -20,4 +20,5 @@ class RoutesMobile {
   static const String checkout = 'checkout_mobile'; //✅
   static const String payment = 'payment_mobile'; //
   static const String addReview = 'add_review_mobile'; //✅
+  static const String selectScott = 'select_scott_mobile';
 }

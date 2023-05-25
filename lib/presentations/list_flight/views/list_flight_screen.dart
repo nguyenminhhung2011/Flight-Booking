@@ -21,12 +21,11 @@ class ListFlightScreen extends StatefulWidget {
 class _ListFlightScreenState extends State<ListFlightScreen> {
   ListFlightBloc get _bloc => BlocProvider.of<ListFlightBloc>(context);
 
-  late final _textController;
+  late final textController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _textController = TextEditingController();
     _bloc.add(const ListFlightEvent.started());
     _bloc.add(const ListFlightEvent.getFlights());
   }
@@ -70,7 +69,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
 
   @override
   void dispose() {
-    _textController.dispose();
+    textController.dispose();
     super.dispose();
   }
 
@@ -127,7 +126,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                   width: widthField * 0.4,
                   child: CupertinoSearchTextField(
                     padding: const EdgeInsets.all(10.0),
-                    controller: _textController,
+                    controller: textController,
                     enabled: true,
                     style: Theme.of(context).textTheme.titleMedium,
                     onChanged: (value) {},

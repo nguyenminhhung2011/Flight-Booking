@@ -21,8 +21,10 @@ import 'package:flight_booking/presentations_mobile/save/bloc/save_bloc.dart';
 import 'package:flight_booking/presentations_mobile/save/views/save_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/bloc/search_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/select_scott_mobile/views/select_scott_screen.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/notifier/splash_notifier.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/views/splash_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/tic_detail_mobile/views/tic_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/ticket_mobile/bloc/tic_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/ticket_mobile/views/tic_mobile_screen.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +74,7 @@ class MainRoutesMobile {
       case RoutesMobile.flightDetailMobile:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const FlightDetailMobileSccreen(),
+          builder: (_) => const FlightDetailMobileScreen(),
         );
       case RoutesMobile.listAirportMobile:
         return MaterialPageRoute(
@@ -153,6 +155,16 @@ class MainRoutesMobile {
             create: (context) => injector(),
             child: const TicMobileScreen(),
           ),
+        );
+      case RoutesMobile.ticketDetail:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const TicDetailMobileScreen(),
+        );
+      case RoutesMobile.selectScott:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const SelectScottScreen(),
         );
       default:
         return unDefinedRoute();
