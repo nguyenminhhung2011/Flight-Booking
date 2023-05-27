@@ -30,7 +30,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(no) => "${no} Employee";
 
-  static String m5(email) => "We have sent a verification email to: ${email}";
+  static String m5(number) => "Person (${number})";
+
+  static String m6(email) => "We have sent a verification email to: ${email}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -77,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Black friday offer"),
         "blockTime": MessageLookupByLibrary.simpleMessage("Block Time"),
         "boeing": MessageLookupByLibrary.simpleMessage("Boeing"),
+        "bookingCode": MessageLookupByLibrary.simpleMessage("Booking Code"),
         "bookingTime": MessageLookupByLibrary.simpleMessage("Booking Time"),
         "bookingType": MessageLookupByLibrary.simpleMessage("Booking type"),
         "boy": MessageLookupByLibrary.simpleMessage("Boy"),
@@ -93,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "clickToUpload":
             MessageLookupByLibrary.simpleMessage("Click to upload"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "codePayment": MessageLookupByLibrary.simpleMessage("Code Payment"),
         "commingFlights":
             MessageLookupByLibrary.simpleMessage("Comming Flights"),
         "continueText": MessageLookupByLibrary.simpleMessage("Continue"),
@@ -182,6 +186,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "flightChartView":
             MessageLookupByLibrary.simpleMessage("Flight Chart view"),
         "flightDetail": MessageLookupByLibrary.simpleMessage("Flight Detail"),
+        "flightHistory": MessageLookupByLibrary.simpleMessage("Flight History"),
         "flightId": MessageLookupByLibrary.simpleMessage("Flight Id"),
         "flightInfo": MessageLookupByLibrary.simpleMessage("Flight Info"),
         "flightInformation":
@@ -235,6 +240,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Maximum Number of Layovers"),
         "memberInfo":
             MessageLookupByLibrary.simpleMessage("Member Information"),
+        "minedBy": MessageLookupByLibrary.simpleMessage("Mined By"),
         "minimumBlockTime":
             MessageLookupByLibrary.simpleMessage("Minimum Block Time"),
         "minimumFlightTime":
@@ -265,6 +271,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "paymentMethod": MessageLookupByLibrary.simpleMessage("Payment Method"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
         "person": MessageLookupByLibrary.simpleMessage("Person"),
+        "personNumber": m5,
         "personalInfo": MessageLookupByLibrary.simpleMessage("Personal Info"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "pickImage": MessageLookupByLibrary.simpleMessage("Pick Image"),
@@ -340,9 +347,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "ticket": MessageLookupByLibrary.simpleMessage("Ticket"),
         "ticketNumber":
             MessageLookupByLibrary.simpleMessage("Number of Ticket"),
+        "ticketType": MessageLookupByLibrary.simpleMessage("Ticket Type"),
         "timeActivity": MessageLookupByLibrary.simpleMessage("Time Activity"),
         "timeClose": MessageLookupByLibrary.simpleMessage("Time Close"),
         "timeOpen": MessageLookupByLibrary.simpleMessage("Time Open"),
+        "timePayment": MessageLookupByLibrary.simpleMessage("Time Payment"),
         "times": MessageLookupByLibrary.simpleMessage("Times"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "totalAirport": MessageLookupByLibrary.simpleMessage("Total Airport"),
@@ -365,7 +374,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
-        "weHaveSentAVerification": m5,
+        "weHaveSentAVerification": m6,
         "welcomeoFlightAdmin":
             MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
         "writeReviews": MessageLookupByLibrary.simpleMessage("Write reviews"),

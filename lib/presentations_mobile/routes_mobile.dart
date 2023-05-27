@@ -22,4 +22,5 @@ class RoutesMobile {
   static const String addReview = 'add_review_mobile'; //✅
   static const String selectScott = 'select_scott_mobile'; //✅
   static const String flightHistory = 'flight_history_mobile'; //
+  static const String flightHistoryDetail = 'flight_history_detail'; //
 }
