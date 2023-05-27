@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:collection/collection.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
@@ -31,6 +33,8 @@ class SelectScottScreen extends StatefulWidget {
 
 class _SelectScottScreenState extends State<SelectScottScreen> {
   SelectScottBloc get _bloc => BlocProvider.of<SelectScottBloc>(context);
+  List<Customer> get listCustomerSelected => _bloc.data.listCustomer;
+
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
@@ -85,9 +89,17 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
     _clearText();
   }
 
+  void _onRemoveCustomer(int index) {
+    _bloc.add(SelectScottEvent.removeCustomer(index: index));
+  }
+
   void _bottomClicked(int index) {
     if (index == 1) {
       _onAddNewCustomer();
+      return;
+    }
+    if (listCustomerSelected.isEmpty) {
+      //⭐Handle after
       return;
     }
     context.openListPageWithRoute(RoutesMobile.checkout);
@@ -170,7 +182,6 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
     final tab = state.data.tab;
     final selectCustomer = state.data.selectCustomer;
     return Container(
-      // constraints: BoxConstraints(minHeight: heightDevice),
       margin: EdgeInsets.only(
         left: _hMarginCard,
         right: _hMarginCard,
@@ -205,128 +216,136 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
         ),
         _paddingDivider(),
         tab == 0
-            ? Column(
-                children: [
-                  HeaderTextCustom(
-                    headerText: S.of(context).memberInfo,
-                    textStyle: context.titleMedium.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: _hMarginCard),
-                    widget: ButtonCustom(
-                      width: 90,
-                      child: Text(S.of(context).add),
-                      onPress: () => _onChangeTab(1),
-                    ),
-                  ),
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(10.0),
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: _hMarginCard),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(15.0)),
-                      border: Border.all(
-                        width: 1,
-                        color: Theme.of(context).dividerColor,
-                      ),
-                    ),
-                    child: Wrap(
-                      children: customers
-                          .mapIndexed((index, e) => Padding(
-                                padding: const EdgeInsets.only(right: 5.0),
-                                child: SortButton(
-                                  title: e.name,
-                                  icon: Icons.close,
-                                  onPress: () => _onSelectCustomer(index),
-                                ),
-                              ))
-                          .toList(),
-                    ),
-                  ),
-                  customers.isNotEmpty
-                      ? Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: _hMarginCard),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  _informationItem(context, S.of(context).name,
-                                      customers[selectCustomer].name, true),
-                                  _informationItem(
-                                      context,
-                                      S.of(context).gender,
-                                      customers[selectCustomer].gender,
-                                      false),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  _informationItem(
-                                      context,
-                                      S.of(context).dateBorn,
-                                      getYmdFormat(
-                                          customers[selectCustomer].birthday),
-                                      true),
-                                  _informationItem(
-                                      context,
-                                      S.of(context).identityNumber,
-                                      customers[selectCustomer].identityNum,
-                                      false),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  _informationItem(
-                                      context,
-                                      S.of(context).phoneNumber,
-                                      customers[selectCustomer].phoneNumber,
-                                      true),
-                                  _informationItem(context, S.of(context).email,
-                                      customers[selectCustomer].email, false),
-                                ],
-                              ),
-                            ]
-                                .expand((element) =>
-                                    [element, const SizedBox(height: 10.0)])
-                                .toList(),
-                          ),
-                        )
-                      : SizedBox(
-                          height: 150,
-                          width: double.infinity,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(Icons.search_off_sharp,
-                                  color: Colors.grey),
-                              Text(
-                                S.of(context).addNewCustomer,
-                                style: context.titleMedium.copyWith(
-                                  color: Colors.grey,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                ]
-                    .expand(
-                        (element) => [element, const SizedBox(height: 15.0)])
-                    .toList(),
-              )
+            ? _listCustomerSelectedView(context, customers, selectCustomer)
             : _addNewCustomerField(context, headerStyle, fontColorByCard),
       ]),
+    );
+  }
+
+  Column _listCustomerSelectedView(
+      BuildContext context, List<Customer> customers, int selectedIndex) {
+    return Column(
+      children: [
+        HeaderTextCustom(
+          headerText: S.of(context).memberInfo,
+          textStyle: context.titleMedium.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: _hMarginCard),
+          widget: ButtonCustom(
+            width: 90,
+            child: Text(S.of(context).add),
+            onPress: () => _onChangeTab(1),
+          ),
+        ),
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(horizontal: _hMarginCard),
+          decoration: BoxDecoration(
+            color: Colors.transparent,
+            borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+            border: Border.all(
+              width: 1,
+              color: Theme.of(context).dividerColor,
+            ),
+          ),
+          child: Wrap(
+            children: customers
+                .mapIndexed((index, e) => Padding(
+                      padding: const EdgeInsets.only(
+                          right: 5.0, top: 5.0, bottom: 5.0),
+                      child: GestureDetector(
+                        onTap: () => _onSelectCustomer(index),
+                        onDoubleTap: () => _onRemoveCustomer(index),
+                        child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 5.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              color: Theme.of(context)
+                                  .primaryColor
+                                  .withOpacity(0.1),
+                              border: Border.all(
+                                  width: 1,
+                                  color: Theme.of(context).primaryColor),
+                            ),
+                            child: Text(
+                              e.name,
+                              style: context.titleMedium.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                  color: Theme.of(context).primaryColor),
+                            )),
+                      ),
+                    ))
+                .toList(),
+          ),
+        ),
+        customers.isNotEmpty
+            ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: _hMarginCard),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _informationItem(context, S.of(context).name,
+                            customers[selectedIndex].name, true),
+                        _informationItem(context, S.of(context).gender,
+                            customers[selectedIndex].gender, false),
+                      ]
+                          .expand((element) => [Expanded(child: element)])
+                          .toList(),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _informationItem(
+                            context,
+                            S.of(context).dateBorn,
+                            getYmdFormat(customers[selectedIndex].birthday),
+                            true),
+                        _informationItem(context, S.of(context).identityNumber,
+                            customers[selectedIndex].identityNum, false),
+                      ]
+                          .expand((element) => [Expanded(child: element)])
+                          .toList(),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _informationItem(context, S.of(context).phoneNumber,
+                            customers[selectedIndex].phoneNumber, true),
+                        _informationItem(context, S.of(context).email,
+                            customers[selectedIndex].email, false),
+                      ]
+                          .expand((element) => [Expanded(child: element)])
+                          .toList(),
+                    ),
+                  ]
+                      .expand(
+                          (element) => [element, const SizedBox(height: 10.0)])
+                      .toList(),
+                ),
+              )
+            : SizedBox(
+                height: 150,
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.search_off_sharp, color: Colors.grey),
+                    Text(
+                      S.of(context).addNewCustomer,
+                      style: context.titleMedium.copyWith(
+                        color: Colors.grey,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+      ].expand((element) => [element, const SizedBox(height: 15.0)]).toList(),
     );
   }
 
@@ -346,6 +365,7 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
             fontSize: 12,
             fontWeight: FontWeight.w400,
             color: Theme.of(context).hintColor,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
         const SizedBox(height: 7.0),
@@ -353,6 +373,7 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
           title,
           style: context.titleMedium.copyWith(
             fontWeight: FontWeight.bold,
+            overflow: TextOverflow.ellipsis,
           ),
         )
       ],

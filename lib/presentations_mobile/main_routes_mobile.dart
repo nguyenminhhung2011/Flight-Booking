@@ -7,6 +7,7 @@ import 'package:flight_booking/presentations_mobile/auth/views/login_mobile_scre
 import 'package:flight_booking/presentations_mobile/auth/views/register_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/checkout/views/checkout_screen.dart';
 import 'package:flight_booking/presentations_mobile/dashboard_mobile/views/dashboard_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_mobile/views/flight_history_screen.dart';
 import 'package:flight_booking/presentations_mobile/flight_mobile_detail/views/flight_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/hotel_detail_mobile/views/hotel_detail_screen.dart';
@@ -169,6 +170,11 @@ class MainRoutesMobile {
             create: (context) => injector(),
             child: const SelectScottScreen(),
           ),
+        );
+      case RoutesMobile.flightHistory:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const FlightHistoryScreen(),
         );
       default:
         return unDefinedRoute();

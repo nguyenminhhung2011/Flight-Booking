@@ -8,4 +8,6 @@ class SelectScottEvent with _$SelectScottEvent {
       _AddNewCustomer;
   const factory SelectScottEvent.selectCustomer({required int index}) =
       _SelectCustomer;
+  const factory SelectScottEvent.removeCustomer({required int index}) =
+      _RemoveCustomer;
 }
