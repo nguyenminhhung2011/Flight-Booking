@@ -2651,6 +2651,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Flight History`
+  String get flightHistory {
+    return Intl.message(
+      'Flight History',
+      name: 'flightHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Booking Code`
+  String get bookingCode {
+    return Intl.message(
+      'Booking Code',
+      name: 'bookingCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ticket Type`
+  String get ticketType {
+    return Intl.message(
+      'Ticket Type',
+      name: 'ticketType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mined By`
+  String get minedBy {
+    return Intl.message(
+      'Mined By',
+      name: 'minedBy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code Payment`
+  String get codePayment {
+    return Intl.message(
+      'Code Payment',
+      name: 'codePayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time Payment`
+  String get timePayment {
+    return Intl.message(
+      'Time Payment',
+      name: 'timePayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Person ({number})`
+  String personNumber(Object number) {
+    return Intl.message(
+      'Person ($number)',
+      name: 'personNumber',
+      desc: '',
+      args: [number],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

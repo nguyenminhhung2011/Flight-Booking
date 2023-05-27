@@ -7,6 +7,8 @@ import 'package:flight_booking/presentations_mobile/auth/views/login_mobile_scre
 import 'package:flight_booking/presentations_mobile/auth/views/register_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/checkout/views/checkout_screen.dart';
 import 'package:flight_booking/presentations_mobile/dashboard_mobile/views/dashboard_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_detail/bloc/flight_history_detail_bloc.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
 import 'package:flight_booking/presentations_mobile/flight_history_mobile/views/flight_history_screen.dart';
 import 'package:flight_booking/presentations_mobile/flight_mobile_detail/views/flight_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
@@ -175,6 +177,19 @@ class MainRoutesMobile {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const FlightHistoryScreen(),
+        );
+      case RoutesMobile.flightHistoryDetail:
+        final args = settings.arguments;
+        String id = '';
+        if (args is String) {
+          id = args;
+        }
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => BlocProvider<FlightHistoryDetailBloc>(
+            create: (context) => injector(param1: id),
+            child: const FlightHistoryDetailScreen(),
+          ),
         );
       default:
         return unDefinedRoute();

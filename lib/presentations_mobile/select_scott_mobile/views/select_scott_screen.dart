@@ -1,12 +1,9 @@
-import 'dart:math';
-
 import 'package:collection/collection.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/custom_template_screen_stack_scroll.dart';
 import 'package:flight_booking/core/components/widgets/mobile/header_custom.dart';
-import 'package:flight_booking/core/components/widgets/mobile/sort_button.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/domain/entities/customer/customer.dart';
@@ -20,6 +17,7 @@ import '../../../core/components/widgets/mobile/button_custom.dart';
 import '../../../core/components/widgets/mobile/dropdown_button_custom.dart';
 import '../../../core/components/widgets/mobile/text_field_custom.dart';
 import '../../../generated/l10n.dart';
+import '../../flight_history_detail/views/widgets/customer_information_field.dart';
 import '../../routes_mobile.dart';
 
 const _hMarginCard = 20.0;
@@ -289,10 +287,16 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _informationItem(context, S.of(context).name,
-                            customers[selectedIndex].name, true),
-                        _informationItem(context, S.of(context).gender,
-                            customers[selectedIndex].gender, false),
+                        InformationColumnItem(
+                            context: context,
+                            header: S.of(context).name,
+                            title: customers[selectedIndex].name,
+                            isStart: true),
+                        InformationColumnItem(
+                            context: context,
+                            header: S.of(context).gender,
+                            title: customers[selectedIndex].gender,
+                            isStart: false),
                       ]
                           .expand((element) => [Expanded(child: element)])
                           .toList(),
@@ -300,13 +304,17 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _informationItem(
-                            context,
-                            S.of(context).dateBorn,
-                            getYmdFormat(customers[selectedIndex].birthday),
-                            true),
-                        _informationItem(context, S.of(context).identityNumber,
-                            customers[selectedIndex].identityNum, false),
+                        InformationColumnItem(
+                            context: context,
+                            header: S.of(context).dateBorn,
+                            title:
+                                getYmdFormat(customers[selectedIndex].birthday),
+                            isStart: true),
+                        InformationColumnItem(
+                            context: context,
+                            header: S.of(context).identityNumber,
+                            title: customers[selectedIndex].identityNum,
+                            isStart: false),
                       ]
                           .expand((element) => [Expanded(child: element)])
                           .toList(),
@@ -314,10 +322,16 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _informationItem(context, S.of(context).phoneNumber,
-                            customers[selectedIndex].phoneNumber, true),
-                        _informationItem(context, S.of(context).email,
-                            customers[selectedIndex].email, false),
+                        InformationColumnItem(
+                            context: context,
+                            header: S.of(context).phoneNumber,
+                            title: customers[selectedIndex].phoneNumber,
+                            isStart: true),
+                        InformationColumnItem(
+                            context: context,
+                            header: S.of(context).email,
+                            title: customers[selectedIndex].email,
+                            isStart: false),
                       ]
                           .expand((element) => [Expanded(child: element)])
                           .toList(),
@@ -346,37 +360,6 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
                 ),
               ),
       ].expand((element) => [element, const SizedBox(height: 15.0)]).toList(),
-    );
-  }
-
-  Column _informationItem(
-    BuildContext context,
-    String header,
-    String title,
-    bool isStart,
-  ) {
-    return Column(
-      crossAxisAlignment:
-          isStart ? CrossAxisAlignment.start : CrossAxisAlignment.end,
-      children: [
-        Text(
-          header,
-          style: context.titleSmall.copyWith(
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            color: Theme.of(context).hintColor,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-        const SizedBox(height: 7.0),
-        Text(
-          title,
-          style: context.titleMedium.copyWith(
-            fontWeight: FontWeight.bold,
-            overflow: TextOverflow.ellipsis,
-          ),
-        )
-      ],
     );
   }
 

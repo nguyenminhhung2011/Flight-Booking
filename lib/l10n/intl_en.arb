@@ -262,5 +262,12 @@
     "selectDateBorn": "Select Dated Born",
     "identityNumber": "Identity Number",
     "enterIdentity": "Enter Identity",
-    "addNewCustomer": "Add New Customer"
+    "addNewCustomer": "Add New Customer",
+    "flightHistory": "Flight History",
+    "bookingCode": "Booking Code",
+    "ticketType": "Ticket Type",
+    "minedBy": "Mined By",
+    "codePayment": "Code Payment",
+    "timePayment": "Time Payment",
+    "personNumber": "Person ({number})"
 }
