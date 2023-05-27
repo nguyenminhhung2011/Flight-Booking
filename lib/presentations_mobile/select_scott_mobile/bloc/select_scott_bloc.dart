@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
 import 'package:flight_booking/domain/entities/customer/customer.dart';
 import 'package:flight_booking/presentations_mobile/select_scott_mobile/bloc/select_scott_model_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,6 +28,7 @@ class SelectScottBloc extends Bloc<SelectScottEvent, SelectScottState> {
     on<_ChangeTab>(_onChangeTab);
     on<_AddNewCustomer>(_onAddNewCustomer);
     on<_SelectCustomer>(_onSelectCustomer);
+    on<_RemoveCustomer>(_onRemoveCustomer);
   }
 
   FutureOr<void> _onStarted(
@@ -58,5 +60,17 @@ class SelectScottBloc extends Bloc<SelectScottEvent, SelectScottState> {
     Emitter<SelectScottState> emit,
   ) {
     emit(state.copyWith(data: data.copyWith(selectCustomer: event.index)));
+  }
+
+  FutureOr<void> _onRemoveCustomer(
+    _RemoveCustomer event,
+    Emitter<SelectScottState> emit,
+  ) {
+    emit(state.copyWith(
+        data: data.copyWith(
+      listCustomer: data.listCustomer
+          .whereIndexed((index, element) => index != event.index)
+          .toList(),
+    )));
   }
 }

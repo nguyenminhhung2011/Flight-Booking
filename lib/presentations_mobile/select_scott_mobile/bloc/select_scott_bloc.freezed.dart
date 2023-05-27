@@ -22,6 +22,7 @@ mixin _$SelectScottEvent {
     required TResult Function(int tab) changeTab,
     required TResult Function(Customer customer) addNewCustomer,
     required TResult Function(int index) selectCustomer,
+    required TResult Function(int index) removeCustomer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$SelectScottEvent {
     TResult? Function(int tab)? changeTab,
     TResult? Function(Customer customer)? addNewCustomer,
     TResult? Function(int index)? selectCustomer,
+    TResult? Function(int index)? removeCustomer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$SelectScottEvent {
     TResult Function(int tab)? changeTab,
     TResult Function(Customer customer)? addNewCustomer,
     TResult Function(int index)? selectCustomer,
+    TResult Function(int index)? removeCustomer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$SelectScottEvent {
     required TResult Function(_ChangeTab value) changeTab,
     required TResult Function(_AddNewCustomer value) addNewCustomer,
     required TResult Function(_SelectCustomer value) selectCustomer,
+    required TResult Function(_RemoveCustomer value) removeCustomer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$SelectScottEvent {
     TResult? Function(_ChangeTab value)? changeTab,
     TResult? Function(_AddNewCustomer value)? addNewCustomer,
     TResult? Function(_SelectCustomer value)? selectCustomer,
+    TResult? Function(_RemoveCustomer value)? removeCustomer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$SelectScottEvent {
     TResult Function(_ChangeTab value)? changeTab,
     TResult Function(_AddNewCustomer value)? addNewCustomer,
     TResult Function(_SelectCustomer value)? selectCustomer,
+    TResult Function(_RemoveCustomer value)? removeCustomer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +133,7 @@ class _$_Started implements _Started {
     required TResult Function(int tab) changeTab,
     required TResult Function(Customer customer) addNewCustomer,
     required TResult Function(int index) selectCustomer,
+    required TResult Function(int index) removeCustomer,
   }) {
     return started();
   }
@@ -138,6 +145,7 @@ class _$_Started implements _Started {
     TResult? Function(int tab)? changeTab,
     TResult? Function(Customer customer)? addNewCustomer,
     TResult? Function(int index)? selectCustomer,
+    TResult? Function(int index)? removeCustomer,
   }) {
     return started?.call();
   }
@@ -149,6 +157,7 @@ class _$_Started implements _Started {
     TResult Function(int tab)? changeTab,
     TResult Function(Customer customer)? addNewCustomer,
     TResult Function(int index)? selectCustomer,
+    TResult Function(int index)? removeCustomer,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -164,6 +173,7 @@ class _$_Started implements _Started {
     required TResult Function(_ChangeTab value) changeTab,
     required TResult Function(_AddNewCustomer value) addNewCustomer,
     required TResult Function(_SelectCustomer value) selectCustomer,
+    required TResult Function(_RemoveCustomer value) removeCustomer,
   }) {
     return started(this);
   }
@@ -175,6 +185,7 @@ class _$_Started implements _Started {
     TResult? Function(_ChangeTab value)? changeTab,
     TResult? Function(_AddNewCustomer value)? addNewCustomer,
     TResult? Function(_SelectCustomer value)? selectCustomer,
+    TResult? Function(_RemoveCustomer value)? removeCustomer,
   }) {
     return started?.call(this);
   }
@@ -186,6 +197,7 @@ class _$_Started implements _Started {
     TResult Function(_ChangeTab value)? changeTab,
     TResult Function(_AddNewCustomer value)? addNewCustomer,
     TResult Function(_SelectCustomer value)? selectCustomer,
+    TResult Function(_RemoveCustomer value)? removeCustomer,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -267,6 +279,7 @@ class _$_ChangeTab implements _ChangeTab {
     required TResult Function(int tab) changeTab,
     required TResult Function(Customer customer) addNewCustomer,
     required TResult Function(int index) selectCustomer,
+    required TResult Function(int index) removeCustomer,
   }) {
     return changeTab(tab);
   }
@@ -278,6 +291,7 @@ class _$_ChangeTab implements _ChangeTab {
     TResult? Function(int tab)? changeTab,
     TResult? Function(Customer customer)? addNewCustomer,
     TResult? Function(int index)? selectCustomer,
+    TResult? Function(int index)? removeCustomer,
   }) {
     return changeTab?.call(tab);
   }
@@ -289,6 +303,7 @@ class _$_ChangeTab implements _ChangeTab {
     TResult Function(int tab)? changeTab,
     TResult Function(Customer customer)? addNewCustomer,
     TResult Function(int index)? selectCustomer,
+    TResult Function(int index)? removeCustomer,
     required TResult orElse(),
   }) {
     if (changeTab != null) {
@@ -304,6 +319,7 @@ class _$_ChangeTab implements _ChangeTab {
     required TResult Function(_ChangeTab value) changeTab,
     required TResult Function(_AddNewCustomer value) addNewCustomer,
     required TResult Function(_SelectCustomer value) selectCustomer,
+    required TResult Function(_RemoveCustomer value) removeCustomer,
   }) {
     return changeTab(this);
   }
@@ -315,6 +331,7 @@ class _$_ChangeTab implements _ChangeTab {
     TResult? Function(_ChangeTab value)? changeTab,
     TResult? Function(_AddNewCustomer value)? addNewCustomer,
     TResult? Function(_SelectCustomer value)? selectCustomer,
+    TResult? Function(_RemoveCustomer value)? removeCustomer,
   }) {
     return changeTab?.call(this);
   }
@@ -326,6 +343,7 @@ class _$_ChangeTab implements _ChangeTab {
     TResult Function(_ChangeTab value)? changeTab,
     TResult Function(_AddNewCustomer value)? addNewCustomer,
     TResult Function(_SelectCustomer value)? selectCustomer,
+    TResult Function(_RemoveCustomer value)? removeCustomer,
     required TResult orElse(),
   }) {
     if (changeTab != null) {
@@ -423,6 +441,7 @@ class _$_AddNewCustomer implements _AddNewCustomer {
     required TResult Function(int tab) changeTab,
     required TResult Function(Customer customer) addNewCustomer,
     required TResult Function(int index) selectCustomer,
+    required TResult Function(int index) removeCustomer,
   }) {
     return addNewCustomer(customer);
   }
@@ -434,6 +453,7 @@ class _$_AddNewCustomer implements _AddNewCustomer {
     TResult? Function(int tab)? changeTab,
     TResult? Function(Customer customer)? addNewCustomer,
     TResult? Function(int index)? selectCustomer,
+    TResult? Function(int index)? removeCustomer,
   }) {
     return addNewCustomer?.call(customer);
   }
@@ -445,6 +465,7 @@ class _$_AddNewCustomer implements _AddNewCustomer {
     TResult Function(int tab)? changeTab,
     TResult Function(Customer customer)? addNewCustomer,
     TResult Function(int index)? selectCustomer,
+    TResult Function(int index)? removeCustomer,
     required TResult orElse(),
   }) {
     if (addNewCustomer != null) {
@@ -460,6 +481,7 @@ class _$_AddNewCustomer implements _AddNewCustomer {
     required TResult Function(_ChangeTab value) changeTab,
     required TResult Function(_AddNewCustomer value) addNewCustomer,
     required TResult Function(_SelectCustomer value) selectCustomer,
+    required TResult Function(_RemoveCustomer value) removeCustomer,
   }) {
     return addNewCustomer(this);
   }
@@ -471,6 +493,7 @@ class _$_AddNewCustomer implements _AddNewCustomer {
     TResult? Function(_ChangeTab value)? changeTab,
     TResult? Function(_AddNewCustomer value)? addNewCustomer,
     TResult? Function(_SelectCustomer value)? selectCustomer,
+    TResult? Function(_RemoveCustomer value)? removeCustomer,
   }) {
     return addNewCustomer?.call(this);
   }
@@ -482,6 +505,7 @@ class _$_AddNewCustomer implements _AddNewCustomer {
     TResult Function(_ChangeTab value)? changeTab,
     TResult Function(_AddNewCustomer value)? addNewCustomer,
     TResult Function(_SelectCustomer value)? selectCustomer,
+    TResult Function(_RemoveCustomer value)? removeCustomer,
     required TResult orElse(),
   }) {
     if (addNewCustomer != null) {
@@ -569,6 +593,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     required TResult Function(int tab) changeTab,
     required TResult Function(Customer customer) addNewCustomer,
     required TResult Function(int index) selectCustomer,
+    required TResult Function(int index) removeCustomer,
   }) {
     return selectCustomer(index);
   }
@@ -580,6 +605,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     TResult? Function(int tab)? changeTab,
     TResult? Function(Customer customer)? addNewCustomer,
     TResult? Function(int index)? selectCustomer,
+    TResult? Function(int index)? removeCustomer,
   }) {
     return selectCustomer?.call(index);
   }
@@ -591,6 +617,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     TResult Function(int tab)? changeTab,
     TResult Function(Customer customer)? addNewCustomer,
     TResult Function(int index)? selectCustomer,
+    TResult Function(int index)? removeCustomer,
     required TResult orElse(),
   }) {
     if (selectCustomer != null) {
@@ -606,6 +633,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     required TResult Function(_ChangeTab value) changeTab,
     required TResult Function(_AddNewCustomer value) addNewCustomer,
     required TResult Function(_SelectCustomer value) selectCustomer,
+    required TResult Function(_RemoveCustomer value) removeCustomer,
   }) {
     return selectCustomer(this);
   }
@@ -617,6 +645,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     TResult? Function(_ChangeTab value)? changeTab,
     TResult? Function(_AddNewCustomer value)? addNewCustomer,
     TResult? Function(_SelectCustomer value)? selectCustomer,
+    TResult? Function(_RemoveCustomer value)? removeCustomer,
   }) {
     return selectCustomer?.call(this);
   }
@@ -628,6 +657,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     TResult Function(_ChangeTab value)? changeTab,
     TResult Function(_AddNewCustomer value)? addNewCustomer,
     TResult Function(_SelectCustomer value)? selectCustomer,
+    TResult Function(_RemoveCustomer value)? removeCustomer,
     required TResult orElse(),
   }) {
     if (selectCustomer != null) {
@@ -643,6 +673,157 @@ abstract class _SelectCustomer implements SelectScottEvent {
   int get index;
   @JsonKey(ignore: true)
   _$$_SelectCustomerCopyWith<_$_SelectCustomer> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RemoveCustomerCopyWith<$Res> {
+  factory _$$_RemoveCustomerCopyWith(
+          _$_RemoveCustomer value, $Res Function(_$_RemoveCustomer) then) =
+      __$$_RemoveCustomerCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$_RemoveCustomerCopyWithImpl<$Res>
+    extends _$SelectScottEventCopyWithImpl<$Res, _$_RemoveCustomer>
+    implements _$$_RemoveCustomerCopyWith<$Res> {
+  __$$_RemoveCustomerCopyWithImpl(
+      _$_RemoveCustomer _value, $Res Function(_$_RemoveCustomer) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$_RemoveCustomer(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RemoveCustomer implements _RemoveCustomer {
+  const _$_RemoveCustomer({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'SelectScottEvent.removeCustomer(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RemoveCustomer &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RemoveCustomerCopyWith<_$_RemoveCustomer> get copyWith =>
+      __$$_RemoveCustomerCopyWithImpl<_$_RemoveCustomer>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int tab) changeTab,
+    required TResult Function(Customer customer) addNewCustomer,
+    required TResult Function(int index) selectCustomer,
+    required TResult Function(int index) removeCustomer,
+  }) {
+    return removeCustomer(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int tab)? changeTab,
+    TResult? Function(Customer customer)? addNewCustomer,
+    TResult? Function(int index)? selectCustomer,
+    TResult? Function(int index)? removeCustomer,
+  }) {
+    return removeCustomer?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int tab)? changeTab,
+    TResult Function(Customer customer)? addNewCustomer,
+    TResult Function(int index)? selectCustomer,
+    TResult Function(int index)? removeCustomer,
+    required TResult orElse(),
+  }) {
+    if (removeCustomer != null) {
+      return removeCustomer(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangeTab value) changeTab,
+    required TResult Function(_AddNewCustomer value) addNewCustomer,
+    required TResult Function(_SelectCustomer value) selectCustomer,
+    required TResult Function(_RemoveCustomer value) removeCustomer,
+  }) {
+    return removeCustomer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeTab value)? changeTab,
+    TResult? Function(_AddNewCustomer value)? addNewCustomer,
+    TResult? Function(_SelectCustomer value)? selectCustomer,
+    TResult? Function(_RemoveCustomer value)? removeCustomer,
+  }) {
+    return removeCustomer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangeTab value)? changeTab,
+    TResult Function(_AddNewCustomer value)? addNewCustomer,
+    TResult Function(_SelectCustomer value)? selectCustomer,
+    TResult Function(_RemoveCustomer value)? removeCustomer,
+    required TResult orElse(),
+  }) {
+    if (removeCustomer != null) {
+      return removeCustomer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveCustomer implements SelectScottEvent {
+  const factory _RemoveCustomer({required final int index}) = _$_RemoveCustomer;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_RemoveCustomerCopyWith<_$_RemoveCustomer> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
