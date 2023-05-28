@@ -3,6 +3,10 @@ import 'package:flight_booking/core/components/widgets/extension/context_extensi
 import 'package:flight_booking/core/components/widgets/mobile/appbar.dart';
 import 'package:flight_booking/core/components/widgets/mobile/calendar_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/custom_template_screen_stack_scroll.dart';
+import 'package:flight_booking/core/components/widgets/mobile/header_custom.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_mobile/views/widgets/flight_history_item.dart';
+import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flutter/material.dart';
 
 import '../../../generated/l10n.dart';
@@ -58,6 +62,54 @@ class _FlightHistoryScreenState extends State<FlightHistoryScreen> {
                   onSelectedDate: (value) {},
                   headerText: S.of(context).view,
                 ),
+              ),
+              const DividerCustomWithAirplane(),
+              const SizedBox(height: _hMarginCard),
+              HeaderTextCustom(
+                headerText: S.of(context).upcoming,
+                textStyle:
+                    context.titleMedium.copyWith(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10.0),
+              FlightHistoryItem(
+                onPress: () => context
+                    .openListPageWithRoute(RoutesMobile.flightHistoryDetail),
+                flight: 'Viet Nam air',
+                flightId: 'GSSDNDGN',
+                airportStart: 'SGB',
+                airportFinish: 'GAM',
+                placeStart: 'Ho Chi Minh City',
+                placeFinish: 'Binh Dinh',
+                timeStart: DateTime.now(),
+                timeFinish: DateTime.now().add(const Duration(hours: 15)),
+                noPeople: 3,
+                price: 124.14,
+                isDone: false,
+              ),
+              const SizedBox(height: _hMarginCard),
+              const DividerCustomWithAirplane(),
+              const SizedBox(height: _hMarginCard),
+              Column(
+                children: [
+                  for (int index = 0; index < 5; index++)
+                    FlightHistoryItem(
+                      onPress: () => context.openListPageWithRoute(
+                          RoutesMobile.flightHistoryDetail),
+                      flight: 'Viet Nam air',
+                      flightId: 'GSSDNDGN',
+                      airportStart: 'SGB',
+                      airportFinish: 'GAM',
+                      placeStart: 'Ho Chi Minh City',
+                      placeFinish: 'Binh Dinh',
+                      timeStart: DateTime.now(),
+                      timeFinish: DateTime.now().add(const Duration(hours: 15)),
+                      noPeople: 3,
+                      price: 124.14,
+                      isDone: true,
+                    ),
+                ]
+                    .expand((element) => [element, const SizedBox(height: 5.0)])
+                    .toList(),
               )
             ],
           ),
