@@ -27,7 +27,7 @@ class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
   }
 
   void _onOpenFlightHistoryScreen() {
-    context.openPageWithRouteAndParams(RoutesMobile.flightHistoryDetail, '');
+    context.openListPageWithRoute(RoutesMobile.flightHistory);
   }
 
   void _onSignOut() {}
@@ -115,8 +115,10 @@ class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
                                 'hungnguyen.201102@gmail.com',
                                 maxLines: 1,
                                 style: context.titleMedium.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                    overflow: TextOverflow.ellipsis),
+                                  fontWeight: FontWeight.w400,
+                                  overflow: TextOverflow.ellipsis,
+                                  color: Theme.of(context).hintColor,
+                                ),
                               )
                             ],
                           ),
