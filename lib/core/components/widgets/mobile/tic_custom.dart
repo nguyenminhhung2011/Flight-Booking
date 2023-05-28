@@ -80,13 +80,48 @@ class TicItem extends StatelessWidget {
           ),
         ),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              ImageConst.planeTicket,
-              height: 80,
-              width: 80.0,
+            SizedBox(
+              width: 100,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.flight,
+                    style: context.titleMedium.copyWith(
+                      overflow: TextOverflow.ellipsis,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    item.placeStart,
+                    style: context.titleSmall.copyWith(
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Icon(
+                    Icons.airplane_ticket,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  Text(
+                    item.placeEnd,
+                    style: context.titleSmall.copyWith(
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  )
+                ]
+                    .expand((element) => [element, const SizedBox(height: 2.0)])
+                    .toList()
+                  ..removeLast(),
+              ),
             ),
-            const SizedBox(width: 10.0),
+            Container(
+              width: 0.2,
+              height: 80,
+              margin: const EdgeInsets.symmetric(horizontal: 10.0),
+              decoration: DottedDecoration(linePosition: LinePosition.left),
+            ),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,9 +188,9 @@ class TicItem extends StatelessWidget {
               color: Theme.of(context).dividerColor,
             ),
           ),
-          child: const Icon(
+          child: Icon(
             Icons.airplanemode_active_sharp,
-            color: Colors.blue,
+            color: Theme.of(context).primaryColor,
             size: 16.0,
           ),
         ),
@@ -185,6 +220,9 @@ class TicStyle {
   final TicTypeEnum type;
   final String airportStart;
   final String airportFinish;
+  final String flight;
+  final String placeStart;
+  final String placeEnd;
   final Color? color;
   final Function()? onPress;
 
@@ -200,5 +238,8 @@ class TicStyle {
     required this.airportFinish,
     required this.airportStart,
     required this.price,
+    required this.flight,
+    required this.placeStart,
+    required this.placeEnd,
   });
 }
