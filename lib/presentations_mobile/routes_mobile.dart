@@ -18,9 +18,10 @@ class RoutesMobile {
   static const String ticket = 'ticket_mobile'; //✅
   static const String ticketDetail = 'ticket_detail_mobile'; //
   static const String checkout = 'checkout_mobile'; //✅
-  static const String payment = 'payment_mobile'; //
+  static const String payment = 'wallet_mobile'; //
   static const String addReview = 'add_review_mobile'; //✅
   static const String selectScott = 'select_scott_mobile'; //✅
-  static const String flightHistory = 'flight_history_mobile'; //
-  static const String flightHistoryDetail = 'flight_history_detail'; //
+  static const String flightHistory = 'flight_history_mobile'; //✅
+  static const String flightHistoryDetail = 'flight_history_detail'; //✅
+  static const String walletScreen = 'wallet_mobile';
 }
