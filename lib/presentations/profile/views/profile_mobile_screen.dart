@@ -159,8 +159,6 @@ class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
                         header: S.of(context).save,
                         onPress: _onSave,
                       ),
-                      ProfileViewRowCustom(header: S.of(context).payment),
-                      ProfileViewRowCustom(header: S.of(context).myReview),
                       ProfileViewRowCustom(
                         header: S.of(context).wallet,
                         onPress: _onOpenWalletScreen,
