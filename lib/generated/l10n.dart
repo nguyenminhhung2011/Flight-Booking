@@ -2721,6 +2721,36 @@ class S {
       args: [number],
     );
   }
+
+  /// `Add New Card`
+  String get addNewCard {
+    return Intl.message(
+      'Add New Card',
+      name: 'addNewCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maestro Card`
+  String get maestroCard {
+    return Intl.message(
+      'Maestro Card',
+      name: 'maestroCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expenses`
+  String get expenses {
+    return Intl.message(
+      'Expenses',
+      name: 'expenses',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

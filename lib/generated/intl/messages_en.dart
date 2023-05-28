@@ -44,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "addNewAirport":
             MessageLookupByLibrary.simpleMessage("Add New Airport"),
+        "addNewCard": MessageLookupByLibrary.simpleMessage("Add New Card"),
         "addNewCustomer":
             MessageLookupByLibrary.simpleMessage("Add New Customer"),
         "addNewFlight": MessageLookupByLibrary.simpleMessage("Add New Flight"),
@@ -170,6 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterYourPhoneNumber":
             MessageLookupByLibrary.simpleMessage("Enter your phone number"),
         "exp": MessageLookupByLibrary.simpleMessage("Exp"),
+        "expenses": MessageLookupByLibrary.simpleMessage("Expenses"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
         "facebook": MessageLookupByLibrary.simpleMessage("Facebook"),
         "facilities": MessageLookupByLibrary.simpleMessage("Facilities"),
@@ -231,6 +233,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginWithGoogle":
             MessageLookupByLibrary.simpleMessage("Login with Google"),
         "luggage": MessageLookupByLibrary.simpleMessage("luggage"),
+        "maestroCard": MessageLookupByLibrary.simpleMessage("Maestro Card"),
         "male": MessageLookupByLibrary.simpleMessage("Male"),
         "maximumBlockTime":
             MessageLookupByLibrary.simpleMessage("Maximum Block Time"),

@@ -32,6 +32,10 @@ class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
 
   void _onSignOut() {}
 
+  void _onOpenWalletScreen() {
+    context.openListPageWithRoute(RoutesMobile.walletScreen);
+  }
+
   Future _onChangePassword() {
     return showModalBottomSheet(
       context: context,
@@ -157,7 +161,10 @@ class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
                       ),
                       ProfileViewRowCustom(header: S.of(context).payment),
                       ProfileViewRowCustom(header: S.of(context).myReview),
-                      ProfileViewRowCustom(header: S.of(context).wallet),
+                      ProfileViewRowCustom(
+                        header: S.of(context).wallet,
+                        onPress: _onOpenWalletScreen,
+                      ),
                       ProfileViewRowCustom(
                         header: S.of(context).flightHistory,
                         onPress: _onOpenFlightHistoryScreen,

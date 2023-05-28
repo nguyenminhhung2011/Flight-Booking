@@ -6,6 +6,8 @@ class ImageConst {
   static const String trip = 'assets/images/trip.png';
   static const String bacground = 'assets/images/bacground.jpg';
   static const String gif = "assets/images/splash_gif.gif";
+  static const String splash = 'assets/images/splash2.png';
+
   //net
   static const String avatarDefaulte =
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5PswchnAfXt36TBzmZmDdJuUBB5iffttNidZ9mrb4&s';

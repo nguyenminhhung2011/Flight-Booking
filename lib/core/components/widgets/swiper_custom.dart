@@ -146,8 +146,8 @@ class BuildIndicator extends StatelessWidget {
         decoration: BoxDecoration(
           //container with border
           color: isActive
-              ? CommonColor.primaryColor
-              : CommonColor.primaryColor.withOpacity(0.2),
+              ? Theme.of(context).primaryColor
+              : Theme.of(context).primaryColor.withOpacity(0.2),
           borderRadius: const BorderRadius.all(Radius.circular(12)),
           boxShadow: const [
             BoxShadow(

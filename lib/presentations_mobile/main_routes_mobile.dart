@@ -31,6 +31,7 @@ import 'package:flight_booking/presentations_mobile/splash_mobile/views/splash_m
 import 'package:flight_booking/presentations_mobile/tic_detail_mobile/views/tic_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/ticket_mobile/bloc/tic_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/ticket_mobile/views/tic_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/wallet/views/wallet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -190,6 +191,11 @@ class MainRoutesMobile {
             create: (context) => injector(param1: id),
             child: const FlightHistoryDetailScreen(),
           ),
+        );
+      case RoutesMobile.walletScreen:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const WalletScreen(),
         );
       default:
         return unDefinedRoute();

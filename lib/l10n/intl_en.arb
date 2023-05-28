@@ -269,5 +269,8 @@
     "minedBy": "Mined By",
     "codePayment": "Code Payment",
     "timePayment": "Time Payment",
-    "personNumber": "Person ({number})"
+    "personNumber": "Person ({number})",
+    "addNewCard": "Add New Card",
+    "maestroCard": "Maestro Card",
+    "expenses": "Expenses"
 }
