@@ -107,7 +107,7 @@ class SideMenu extends StatelessWidget {
             const Divider(color: Colors.grey),
             GestureDetector(
               onTap: () {
-                AdaptiveTheme.of(context).setDark();
+                AdaptiveTheme.of(context).setLight();
               },
               child: ListTile(
                 leading: Text(

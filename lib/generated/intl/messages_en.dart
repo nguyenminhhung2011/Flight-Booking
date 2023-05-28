@@ -30,7 +30,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(no) => "${no} Employee";
 
-  static String m5(email) => "We have sent a verification email to: ${email}";
+  static String m5(number) => "Person (${number})";
+
+  static String m6(email) => "We have sent a verification email to: ${email}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -39,8 +41,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Account Settings"),
         "actions": MessageLookupByLibrary.simpleMessage("Actions"),
         "activities": MessageLookupByLibrary.simpleMessage("Activities"),
+        "add": MessageLookupByLibrary.simpleMessage("Add"),
         "addNewAirport":
             MessageLookupByLibrary.simpleMessage("Add New Airport"),
+        "addNewCard": MessageLookupByLibrary.simpleMessage("Add New Card"),
+        "addNewCustomer":
+            MessageLookupByLibrary.simpleMessage("Add New Customer"),
         "addNewFlight": MessageLookupByLibrary.simpleMessage("Add New Flight"),
         "addNewWidgets":
             MessageLookupByLibrary.simpleMessage("Add new widgets"),
@@ -74,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Black friday offer"),
         "blockTime": MessageLookupByLibrary.simpleMessage("Block Time"),
         "boeing": MessageLookupByLibrary.simpleMessage("Boeing"),
+        "bookingCode": MessageLookupByLibrary.simpleMessage("Booking Code"),
         "bookingTime": MessageLookupByLibrary.simpleMessage("Booking Time"),
         "bookingType": MessageLookupByLibrary.simpleMessage("Booking type"),
         "boy": MessageLookupByLibrary.simpleMessage("Boy"),
@@ -90,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "clickToUpload":
             MessageLookupByLibrary.simpleMessage("Click to upload"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "codePayment": MessageLookupByLibrary.simpleMessage("Code Payment"),
         "commingFlights":
             MessageLookupByLibrary.simpleMessage("Comming Flights"),
         "continueText": MessageLookupByLibrary.simpleMessage("Continue"),
@@ -145,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterCurrentPassword":
             MessageLookupByLibrary.simpleMessage("Enter your current Password"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
+        "enterIdentity": MessageLookupByLibrary.simpleMessage("Enter Identity"),
         "enterNewPassword":
             MessageLookupByLibrary.simpleMessage("Enter your new Password"),
         "enterPassword":
@@ -162,6 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterYourPhoneNumber":
             MessageLookupByLibrary.simpleMessage("Enter your phone number"),
         "exp": MessageLookupByLibrary.simpleMessage("Exp"),
+        "expenses": MessageLookupByLibrary.simpleMessage("Expenses"),
         "export": MessageLookupByLibrary.simpleMessage("Export"),
         "facebook": MessageLookupByLibrary.simpleMessage("Facebook"),
         "facilities": MessageLookupByLibrary.simpleMessage("Facilities"),
@@ -178,6 +188,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "flightChartView":
             MessageLookupByLibrary.simpleMessage("Flight Chart view"),
         "flightDetail": MessageLookupByLibrary.simpleMessage("Flight Detail"),
+        "flightHistory": MessageLookupByLibrary.simpleMessage("Flight History"),
         "flightId": MessageLookupByLibrary.simpleMessage("Flight Id"),
         "flightInfo": MessageLookupByLibrary.simpleMessage("Flight Info"),
         "flightInformation":
@@ -203,6 +214,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "id": MessageLookupByLibrary.simpleMessage("ID"),
         "idData": m1,
         "identityNum": MessageLookupByLibrary.simpleMessage("Identity Number"),
+        "identityNumber":
+            MessageLookupByLibrary.simpleMessage("Identity Number"),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
         "landingFlight": MessageLookupByLibrary.simpleMessage("Landing flight"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -220,6 +233,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginWithGoogle":
             MessageLookupByLibrary.simpleMessage("Login with Google"),
         "luggage": MessageLookupByLibrary.simpleMessage("luggage"),
+        "maestroCard": MessageLookupByLibrary.simpleMessage("Maestro Card"),
         "male": MessageLookupByLibrary.simpleMessage("Male"),
         "maximumBlockTime":
             MessageLookupByLibrary.simpleMessage("Maximum Block Time"),
@@ -227,6 +241,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Maximum Flight Time"),
         "maximumNumberOfLayovers":
             MessageLookupByLibrary.simpleMessage("Maximum Number of Layovers"),
+        "memberInfo":
+            MessageLookupByLibrary.simpleMessage("Member Information"),
+        "minedBy": MessageLookupByLibrary.simpleMessage("Mined By"),
         "minimumBlockTime":
             MessageLookupByLibrary.simpleMessage("Minimum Block Time"),
         "minimumFlightTime":
@@ -257,6 +274,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "paymentMethod": MessageLookupByLibrary.simpleMessage("Payment Method"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
         "person": MessageLookupByLibrary.simpleMessage("Person"),
+        "personNumber": m5,
         "personalInfo": MessageLookupByLibrary.simpleMessage("Personal Info"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "pickImage": MessageLookupByLibrary.simpleMessage("Pick Image"),
@@ -301,6 +319,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Search Anything..."),
         "seat": MessageLookupByLibrary.simpleMessage("Seat"),
         "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
+        "selectDateBorn":
+            MessageLookupByLibrary.simpleMessage("Select Dated Born"),
         "selectPaymentMethod":
             MessageLookupByLibrary.simpleMessage("Select payment method"),
         "selectScott": MessageLookupByLibrary.simpleMessage("Select Scott"),
@@ -330,9 +350,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "ticket": MessageLookupByLibrary.simpleMessage("Ticket"),
         "ticketNumber":
             MessageLookupByLibrary.simpleMessage("Number of Ticket"),
+        "ticketType": MessageLookupByLibrary.simpleMessage("Ticket Type"),
         "timeActivity": MessageLookupByLibrary.simpleMessage("Time Activity"),
         "timeClose": MessageLookupByLibrary.simpleMessage("Time Close"),
         "timeOpen": MessageLookupByLibrary.simpleMessage("Time Open"),
+        "timePayment": MessageLookupByLibrary.simpleMessage("Time Payment"),
         "times": MessageLookupByLibrary.simpleMessage("Times"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "totalAirport": MessageLookupByLibrary.simpleMessage("Total Airport"),
@@ -355,7 +377,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
-        "weHaveSentAVerification": m5,
+        "weHaveSentAVerification": m6,
         "welcomeoFlightAdmin":
             MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
         "writeReviews": MessageLookupByLibrary.simpleMessage("Write reviews"),

@@ -36,8 +36,6 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
       title: 'Flight booking',
       navigatorKey: widget.navigationKey,
       debugShowCheckedModeBanner: false,
-      // onGenerateRoute: MainRoutes.getRoute,
-
       onGenerateRoute:
           widget.isMobile ? MainRoutesMobile.getRoute : MainRoutes.getRoute,
       initialRoute: widget.initialRoute,
@@ -53,9 +51,9 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
         primaryColorDark: '#07AEAF'.toColor(),
         fontFamily: 'Montserrat',
       ),
-      // darkTheme: ThemeData.dark().copyWith(
-      //   primaryColor: '#07AEAF'.toColor(),
-      // ),
+      darkTheme: ThemeData.dark().copyWith(
+        primaryColor: '#07AEAF'.toColor(),
+      ),
       locale: locale,
     );
   }
@@ -76,14 +74,14 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return AdaptiveTheme(
       light: ThemeData.light(),
-      // dark: ThemeData.dark(),
-      initial: AdaptiveThemeMode.light,
+      dark: ThemeData.dark(),
+      initial: widget.savedThemeMode ?? AdaptiveThemeMode.light,
       builder: (ThemeData light, ThemeData dark) => MultiBlocProvider(
         providers: widget.providers,
         child: _buildMaterialApp(
           locale: const Locale('en', ''),
           light: light,
-          // dark: dark,
+          dark: dark,
         ),
       ),
     );
