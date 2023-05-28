@@ -1,9 +1,9 @@
+import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import '../../../generated/l10n.dart';
-import '../../config/color_config.dart';
 import 'card_custom.dart';
 
 enum RangeDatePicType { weekRange, autoRange }
@@ -11,12 +11,19 @@ enum RangeDatePicType { weekRange, autoRange }
 class RangeDateController extends ChangeNotifier {
   RangeDateController() {
     getStartDateAndFinishDate();
+    updateDatesUI();
   }
 
   final DateRangePickerController _datePick = DateRangePickerController();
+
   List<DateTime> _listDate = <DateTime>[];
+
   DateTime _startDate = DateTime.now();
   DateTime _endDate = DateTime.now();
+
+  //☀️Display UI
+  List<DateTime> _listDateUI = <DateTime>[];
+  List<DateTime> get listDateUI => _listDateUI;
 
   DateRangePickerController get datePick => _datePick;
   List<DateTime> get listDate => _listDate;
@@ -28,6 +35,11 @@ class RangeDateController extends ChangeNotifier {
   void dispose() {
     _datePick.dispose();
     super.dispose();
+  }
+
+  void updateDatesUI() {
+    _listDateUI = listDate;
+    notifyListeners();
   }
 
   void getStartDateAndFinishDate() {
@@ -140,8 +152,11 @@ class _RangeDatePicDialogState extends State<RangeDatePicDialog> {
     super.initState();
   }
 
-  void popDia() =>
-      Navigator.of(context).pop(widget.rangeDateController.listDate);
+  void popDia() {
+    widget.rangeDateController.updateDatesUI();
+    Navigator.of(context).pop(widget.rangeDateController.listDateUI);
+  }
+
   @override
   Widget build(BuildContext context) {
     return CardCustom(
@@ -172,18 +187,21 @@ class _RangeDatePicDialogState extends State<RangeDatePicDialog> {
                     Theme.of(context).textTheme.titleSmall!.copyWith(
                         fontWeight: FontWeight.bold, color: Colors.grey),
               ),
-              selectionColor: widget.primeColor ?? CommonColor.primaryColor,
+              startRangeSelectionColor: Theme.of(context).primaryColor,
+              endRangeSelectionColor: Theme.of(context).primaryColor,
+              selectionColor:
+                  widget.primeColor ?? Theme.of(context).primaryColor,
               rangeSelectionColor: widget.primeColor ??
-                  CommonColor.primaryColor.withOpacity(0.3),
+                  Theme.of(context).primaryColor.withOpacity(0.3),
               todayHighlightColor:
-                  widget.primeColor ?? CommonColor.primaryColor,
+                  widget.primeColor ?? Theme.of(context).primaryColor,
               controller: widget.rangeDateController.datePick,
               view: DateRangePickerView.month,
               selectionMode: DateRangePickerSelectionMode.range,
               onSelectionChanged:
                   widget.rangeDatePicType == RangeDatePicType.autoRange
                       ? widget.rangeDateController.selectionChanged
-                      : widget.rangeDateController.selectionChanged,
+                      : widget.rangeDateController.selectionChangedInWeek,
               monthViewSettings: const DateRangePickerMonthViewSettings(
                 enableSwipeSelection: false,
               ),
@@ -193,8 +211,8 @@ class _RangeDatePicDialogState extends State<RangeDatePicDialog> {
           SizedBox(
             height: 50.0,
             width: double.infinity,
-            child: ElevatedButton(
-              onPressed: popDia,
+            child: ButtonCustom(
+              onPress: popDia,
               child: Text(S.of(context).update),
             ),
           )
