@@ -175,6 +175,9 @@ class _TicMobileScreenState extends State<TicMobileScreen> {
                           airportFinish: 'Airport1',
                           airportStart: 'Airport2',
                           price: 212.00,
+                          flight: 'Viet Name air',
+                          placeEnd: 'Ho Chi Minh City',
+                          placeStart: 'Ha Noi',
                           onPress: () => context
                               .openListPageWithRoute(RoutesMobile.ticketDetail),
                         )

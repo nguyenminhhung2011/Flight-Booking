@@ -5,6 +5,7 @@ class DropdownButtonCustom<T> extends StatelessWidget {
   final double? height;
   final double? radius;
   final Color? color;
+  final Color? borderColor;
   final EdgeInsetsGeometry? padding;
   final List<DropdownMenuItem<T>> items;
   final T value;
@@ -16,6 +17,7 @@ class DropdownButtonCustom<T> extends StatelessWidget {
     this.radius,
     this.color,
     this.padding,
+    this.borderColor,
     required this.items,
     required this.value,
     required this.onChange,
@@ -31,7 +33,7 @@ class DropdownButtonCustom<T> extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.0),
         border: Border.all(
           width: 1,
-          color: Theme.of(context).dividerColor,
+          color: borderColor ?? Theme.of(context).dividerColor,
         ),
       ),
       child: DropdownButtonFormField<T>(

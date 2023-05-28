@@ -2591,6 +2591,166 @@ class S {
   }
 
   // skipped getter for the 'Payment Id' key
+
+  /// `Member Information`
+  String get memberInfo {
+    return Intl.message(
+      'Member Information',
+      name: 'memberInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Dated Born`
+  String get selectDateBorn {
+    return Intl.message(
+      'Select Dated Born',
+      name: 'selectDateBorn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Identity Number`
+  String get identityNumber {
+    return Intl.message(
+      'Identity Number',
+      name: 'identityNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Identity`
+  String get enterIdentity {
+    return Intl.message(
+      'Enter Identity',
+      name: 'enterIdentity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Customer`
+  String get addNewCustomer {
+    return Intl.message(
+      'Add New Customer',
+      name: 'addNewCustomer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flight History`
+  String get flightHistory {
+    return Intl.message(
+      'Flight History',
+      name: 'flightHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Booking Code`
+  String get bookingCode {
+    return Intl.message(
+      'Booking Code',
+      name: 'bookingCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ticket Type`
+  String get ticketType {
+    return Intl.message(
+      'Ticket Type',
+      name: 'ticketType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mined By`
+  String get minedBy {
+    return Intl.message(
+      'Mined By',
+      name: 'minedBy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code Payment`
+  String get codePayment {
+    return Intl.message(
+      'Code Payment',
+      name: 'codePayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time Payment`
+  String get timePayment {
+    return Intl.message(
+      'Time Payment',
+      name: 'timePayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Person ({number})`
+  String personNumber(Object number) {
+    return Intl.message(
+      'Person ($number)',
+      name: 'personNumber',
+      desc: '',
+      args: [number],
+    );
+  }
+
+  /// `Add New Card`
+  String get addNewCard {
+    return Intl.message(
+      'Add New Card',
+      name: 'addNewCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maestro Card`
+  String get maestroCard {
+    return Intl.message(
+      'Maestro Card',
+      name: 'maestroCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expenses`
+  String get expenses {
+    return Intl.message(
+      'Expenses',
+      name: 'expenses',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

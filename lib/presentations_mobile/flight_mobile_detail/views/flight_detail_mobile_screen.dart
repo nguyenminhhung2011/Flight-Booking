@@ -229,10 +229,12 @@ class _FlightDetailMobileScreenState extends State<FlightDetailMobileScreen> {
                           children: [
                             Text(
                               e['header'],
+                              maxLines: 1,
                               style: context.titleSmall,
                             ),
                             Text(
                               e['title'],
+                              maxLines: 1,
                               style: context.titleSmall
                                   .copyWith(fontWeight: FontWeight.bold),
                             ),

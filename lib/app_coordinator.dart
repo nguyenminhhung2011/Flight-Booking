@@ -95,6 +95,26 @@ extension AppCoordinator<T> on BuildContext {
     return null;
   }
 
+  Future<List<DateTime>?> pickWeekRange(
+    RangeDateController rangeDateController,
+  ) async {
+    final dates = await showDialog(
+      context: this,
+      builder: (_) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: RangeDatePicDialog(
+          height: 450,
+          rangeDateController: rangeDateController,
+          rangeDatePicType: RangeDatePicType.weekRange,
+        ),
+      ),
+    );
+    if (dates is List<DateTime>) {
+      return dates;
+    }
+    return null;
+  }
+
   Future<T?> openLoginPage() {
     return Navigator.of(this).pushNamed(Routes.login);
   }

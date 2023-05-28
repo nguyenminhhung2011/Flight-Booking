@@ -7,6 +7,9 @@ import 'package:flight_booking/presentations_mobile/auth/views/login_mobile_scre
 import 'package:flight_booking/presentations_mobile/auth/views/register_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/checkout/views/checkout_screen.dart';
 import 'package:flight_booking/presentations_mobile/dashboard_mobile/views/dashboard_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_detail/bloc/flight_history_detail_bloc.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_mobile/views/flight_history_screen.dart';
 import 'package:flight_booking/presentations_mobile/flight_mobile_detail/views/flight_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/hotel_detail_mobile/views/hotel_detail_screen.dart';
@@ -21,12 +24,14 @@ import 'package:flight_booking/presentations_mobile/save/bloc/save_bloc.dart';
 import 'package:flight_booking/presentations_mobile/save/views/save_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/bloc/search_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/select_scott_mobile/bloc/select_scott_bloc.dart';
 import 'package:flight_booking/presentations_mobile/select_scott_mobile/views/select_scott_screen.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/notifier/splash_notifier.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/views/splash_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/tic_detail_mobile/views/tic_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/ticket_mobile/bloc/tic_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/ticket_mobile/views/tic_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/wallet/views/wallet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -164,7 +169,33 @@ class MainRoutesMobile {
       case RoutesMobile.selectScott:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const SelectScottScreen(),
+          builder: (_) => BlocProvider<SelectScottBloc>(
+            create: (context) => injector(),
+            child: const SelectScottScreen(),
+          ),
+        );
+      case RoutesMobile.flightHistory:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const FlightHistoryScreen(),
+        );
+      case RoutesMobile.flightHistoryDetail:
+        final args = settings.arguments;
+        String id = '';
+        if (args is String) {
+          id = args;
+        }
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => BlocProvider<FlightHistoryDetailBloc>(
+            create: (context) => injector(param1: id),
+            child: const FlightHistoryDetailScreen(),
+          ),
+        );
+      case RoutesMobile.walletScreen:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const WalletScreen(),
         );
       default:
         return unDefinedRoute();

@@ -139,7 +139,7 @@ class _HomeMobileScreenState extends State<HomeMobileScreen> {
                     )
                 ],
               ),
-              const SizedBox(height: 40.0),
+              const SizedBox(height: 69.0),
             ]
                 .expand((element) => [element, const SizedBox(height: 5.0)])
                 .toList()

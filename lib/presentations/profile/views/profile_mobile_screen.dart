@@ -22,11 +22,19 @@ class ProfileMobileScreen extends StatefulWidget {
 class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
   void _onChangeTheme() {}
   void _onChangeLanguage() {}
-  // void _onSave() {
-  //   context.openListPageWithRoute(RoutesMobile.save);
-  // }
+  void _onSave() {
+    context.openListPageWithRoute(RoutesMobile.save);
+  }
+
+  void _onOpenFlightHistoryScreen() {
+    context.openListPageWithRoute(RoutesMobile.flightHistory);
+  }
 
   void _onSignOut() {}
+
+  void _onOpenWalletScreen() {
+    context.openListPageWithRoute(RoutesMobile.walletScreen);
+  }
 
   Future _onChangePassword() {
     return showModalBottomSheet(
@@ -111,8 +119,10 @@ class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
                                 'hungnguyen.201102@gmail.com',
                                 maxLines: 1,
                                 style: context.titleMedium.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                    overflow: TextOverflow.ellipsis),
+                                  fontWeight: FontWeight.w400,
+                                  overflow: TextOverflow.ellipsis,
+                                  color: Theme.of(context).hintColor,
+                                ),
                               )
                             ],
                           ),
@@ -147,12 +157,16 @@ class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
                     ...[
                       ProfileViewRowCustom(
                         header: S.of(context).save,
-                        onPress: () =>
-                            context.openListPageWithRoute(RoutesMobile.save),
+                        onPress: _onSave,
                       ),
-                      ProfileViewRowCustom(header: S.of(context).payment),
-                      ProfileViewRowCustom(header: S.of(context).myReview),
-                      ProfileViewRowCustom(header: S.of(context).wallet)
+                      ProfileViewRowCustom(
+                        header: S.of(context).wallet,
+                        onPress: _onOpenWalletScreen,
+                      ),
+                      ProfileViewRowCustom(
+                        header: S.of(context).flightHistory,
+                        onPress: _onOpenFlightHistoryScreen,
+                      )
                     ]
                         .expand(
                           (element) => [

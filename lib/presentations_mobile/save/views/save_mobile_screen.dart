@@ -1,4 +1,5 @@
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/presentations_mobile/save/bloc/save_bloc.dart';
@@ -8,9 +9,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/components/widgets/mobile/flight_custom.dart';
 import '../../../core/components/widgets/mobile/item_view_custom.dart';
 import '../../../core/components/widgets/mobile/page_view_custom.dart';
+import '../../../core/components/widgets/mobile/tic_custom.dart';
 import '../../../generated/l10n.dart';
 import '../../routes_mobile.dart';
-
 
 class SaveMobileScreen extends StatefulWidget {
   const SaveMobileScreen({super.key});
@@ -94,7 +95,26 @@ class _SaveMobileScreenState extends State<SaveMobileScreen> {
                   physics: const BouncingScrollPhysics(
                     parent: AlwaysScrollableScrollPhysics(),
                   ),
-                  children: [],
+                  children: [
+                    TicField(
+                      paddingLeft: 15.0,
+                      paddingRight: 15.0,
+                      items: <TicStyle>[
+                        for (int i = 0; i < 10; i++)
+                          TicStyle(
+                            type: TicTypeEnum.businessClass,
+                            airportFinish: 'Airport1',
+                            airportStart: 'Airport2',
+                            price: 212.00,
+                            flight: 'Viet Name air',
+                            placeEnd: 'Ho Chi Minh City',
+                            placeStart: 'Ha Noi',
+                            onPress: () => context.openListPageWithRoute(
+                                RoutesMobile.ticketDetail),
+                          )
+                      ],
+                    )
+                  ],
                 ),
               ),
               PageViewModel(
