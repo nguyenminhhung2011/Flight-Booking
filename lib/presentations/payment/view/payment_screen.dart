@@ -147,7 +147,7 @@ class PaymentScreen extends StatelessWidget {
                                 Theme.of(context).dividerColor.withOpacity(0.5),
                           ),
                           label: Text(
-                            "Date Range",
+                            S.of(context).dateRange,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium
@@ -294,7 +294,7 @@ class PaymentScreen extends StatelessWidget {
       data: [
         for (int i = 0; i < 30; i++)
           Payment(
-            id: "id$i",
+            id: S.of(context).idData(i),
             customerId: "customerId$i",
             flightId: "flightId$i",
             paymentMethod: "paymentMethod$i",

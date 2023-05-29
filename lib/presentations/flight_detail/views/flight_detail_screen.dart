@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:dotted_decoration/dotted_decoration.dart';
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/presentations/flight_detail/bloc/flight_detail_bloc.dart';
@@ -18,6 +19,7 @@ import 'package:intl/intl.dart';
 
 import '../../../core/config/color_config.dart';
 import '../../../generated/l10n.dart';
+import '../../dialog_book_ticket/views/dialog_book_ticket.dart';
 import '../../list_flight/views/widgets/dot_custom.dart';
 
 class FlightDetailScreen extends StatefulWidget {
@@ -45,6 +47,13 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
 
   void _listenStateChanged(_, state) {
     state.whenOrNull();
+  }
+
+  void _showDialogSelectScott() async {
+    final show = await context.showBookTicketDialog();
+    if (show) {
+      //do something
+    }
   }
 
   @override
@@ -119,6 +128,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                           chairCharacyer: chairCharacyer,
                           text: '${chairCharacyer[i]} $t',
                           check: (i + t) % 3 == 0,
+                          onPress: _showDialogSelectScott,
                         ),
                     ],
                   ),

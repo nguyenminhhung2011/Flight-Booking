@@ -8,8 +8,10 @@ class ChairButton extends StatelessWidget {
     required this.chairCharacyer,
     required this.text,
     required this.check,
+    required this.onPress,
   });
 
+  final Function() onPress;
   final List<String> chairCharacyer;
   final String text;
   final bool check;
@@ -17,7 +19,7 @@ class ChairButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onPress,
       child: Container(
         margin: const EdgeInsets.all(10.0),
         padding: const EdgeInsets.all(15.0),
