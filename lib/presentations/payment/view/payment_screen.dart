@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/enum/action_enum.dart';
 import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
+import 'package:flight_booking/core/components/widgets/custom_row_column.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_ticket_table.dart';
 import 'package:flight_booking/core/components/widgets/payment_status_utils.dart';
@@ -11,47 +13,15 @@ import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/presentations/payment/bloc/payment_bloc.dart';
+import 'package:flight_booking/presentations/payment/view/widgets/payment_statistic_component.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
-
-  Widget _buildStatisticRow(BuildContext context) {
-    return const Row(
-      children: [
-        Expanded(
-          child: PaymentStatisticComponent(
-            title: "Total Payments Today",
-            imageAssets: "icons/total_payment.png",
-          ),
-        ),
-        SizedBox(width: 10),
-        Expanded(
-          child: PaymentStatisticComponent(
-            title: "Total Customers Today",
-            imageAssets: "icons/total_customer.png",
-          ),
-        ),
-        SizedBox(width: 10),
-        Expanded(
-          child: PaymentStatisticComponent(
-            title: "Total Flights Today",
-            imageAssets: "icons/total_flight.png",
-          ),
-        ),
-        SizedBox(width: 10),
-        Expanded(
-          child: PaymentStatisticComponent(
-            title: "Total Passenger Today",
-            imageAssets: "icons/total_passenger.png",
-          ),
-        ),
-      ],
-    );
-  }
 
   void _stateChangeListener(BuildContext context, PaymentState state) {
     state.whenOrNull(
@@ -88,38 +58,39 @@ class PaymentScreen extends StatelessWidget {
                         color: Theme.of(context).primaryColor,
                       ),
                       title: Text(
-                        "Payment Management",
+                        S.of(context).paymentManagement,
                         style: Theme.of(context)
                             .textTheme
                             .bodyLarge
                             ?.copyWith(fontWeight: FontWeight.bold),
                       ),
                     ),
-                    Divider(
-                      height: 20,
-                      thickness: 0.5,
-                      color: Theme.of(context).dividerColor,
-                    ),
+                    _divider(context),
                     _buildStatisticRow(context),
-                    Divider(
-                      height: 20,
-                      thickness: 0.5,
-                      color: Theme.of(context).dividerColor,
-                    ),
-                    const SizedBox(
-                      height: 250,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Expanded(
+                    _divider(context),
+                    // const SizedBox(
+                    //   height: 250,
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.start,
+                    //     crossAxisAlignment: CrossAxisAlignment.stretch,
+                    //     children: [
+
+                    //     ],
+                    //   ),
+                    // ),
+                    SizedBox(
+                      child: CustomRowColumn(
+                        isRow: Breakpoints.large.isActive(context),
+                        children: <FlexItemRowColumData>[
+                          FlexItemRowColumData(
                               flex: 2,
-                              child: PaymentStatusStatisticComponent()),
-                          Expanded(
+                              data: const PaymentStatusStatisticComponent()),
+                          FlexItemRowColumData(
                               flex: 2,
-                              child: PaymentMethodStatisticComponent()),
-                          Expanded(
-                              flex: 3, child: TicketTierStatisticComponent()),
+                              data: const PaymentMethodStatisticComponent()),
+                          FlexItemRowColumData(
+                              flex: 3,
+                              data: const TicketTierStatisticComponent()),
                         ],
                       ),
                     ),
@@ -247,6 +218,46 @@ class PaymentScreen extends StatelessWidget {
     );
   }
 
+  Divider _divider(BuildContext context) {
+    return Divider(
+      height: 20,
+      thickness: 0.5,
+      color: Theme.of(context).dividerColor,
+    );
+  }
+
+  Widget _buildStatisticRow(BuildContext context) {
+    return CustomRowColumn(
+        isRow: Breakpoints.large.isActive(context),
+        children: <Map<String, dynamic>>[
+          {
+            'title': S.of(context).totalPaymentsToday,
+            'image': ImageConst.totalPayment,
+          },
+          {
+            'title': S.of(context).totalCustomersToday,
+            'image': ImageConst.totalCustomer,
+          },
+          {
+            'title': S.of(context).totalFlightsToday,
+            'image': ImageConst.totalFlight,
+          },
+          {
+            'title': S.of(context).totalPassengerToday,
+            'image': ImageConst.totalPassenger,
+          },
+        ]
+            .map(
+              (e) => FlexItemRowColumData(
+                data: PaymentStatisticComponent(
+                  title: e['title'],
+                  imageAssets: e['image'],
+                ),
+              ),
+            )
+            .toList());
+  }
+
   Widget _buildPaymentStatusComponent(
     BuildContext context,
     PaymentStatus status,
@@ -267,12 +278,15 @@ class PaymentScreen extends StatelessWidget {
             color: status.getColorBaseOnStatus().shade900,
           ),
           const SizedBox(width: 5),
-          Text(
-            status.name,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: status.getColorBaseOnStatus().shade900,
-                  fontWeight: FontWeight.w600,
-                ),
+          Expanded(
+            child: Text(
+              status.name,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: status.getColorBaseOnStatus().shade900,
+                    fontWeight: FontWeight.w600,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+            ),
           ),
         ],
       ),
@@ -400,7 +414,8 @@ class PaymentScreen extends StatelessWidget {
 }
 
 class PaymentStatusStatisticComponent extends StatelessWidget {
-  const PaymentStatusStatisticComponent({super.key});
+  final double? height;
+  const PaymentStatusStatisticComponent({super.key, this.height});
 
   Widget _buildStatusStatisticItem(BuildContext context, PaymentStatus status) {
     return ListTile(
@@ -420,68 +435,66 @@ class PaymentStatusStatisticComponent extends StatelessWidget {
       minLeadingWidth: 0,
       title: Text(
         status.name,
-        style: Theme.of(context)
-            .textTheme
-            .titleMedium
-            ?.copyWith(fontWeight: FontWeight.w600),
+        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            fontWeight: FontWeight.w600, overflow: TextOverflow.ellipsis),
       ),
       subtitle: Text(
         "15",
-        style: Theme.of(context)
-            .textTheme
-            .headlineMedium
-            ?.copyWith(fontWeight: FontWeight.bold),
+        style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+            fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Theme.of(context).cardColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(CommonAppUIConfig.kNormalCorner),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                "Payment Status Statistic",
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge
-                    ?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Expanded(
-                      child: _buildStatusStatisticItem(
-                          context, PaymentStatus.create)),
-                  Expanded(
-                      child: _buildStatusStatisticItem(
-                          context, PaymentStatus.declined)),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                      child: _buildStatusStatisticItem(
-                          context, PaymentStatus.pending)),
-                  Expanded(
-                      child: _buildStatusStatisticItem(
-                          context, PaymentStatus.succeeded)),
-                ],
-              ),
-            ],
+    return SizedBox(
+      height: height ?? 250,
+      child: Card(
+        color: Theme.of(context).cardColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(CommonAppUIConfig.kNormalCorner),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "Payment Status Statistic",
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      overflow: TextOverflow.ellipsis),
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Expanded(
+                        child: _buildStatusStatisticItem(
+                            context, PaymentStatus.create)),
+                    Expanded(
+                        child: _buildStatusStatisticItem(
+                            context, PaymentStatus.declined)),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Expanded(
+                        child: _buildStatusStatisticItem(
+                            context, PaymentStatus.pending)),
+                    Expanded(
+                        child: _buildStatusStatisticItem(
+                            context, PaymentStatus.succeeded)),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -489,81 +502,9 @@ class PaymentStatusStatisticComponent extends StatelessWidget {
   }
 }
 
-class PaymentStatisticComponent extends StatelessWidget {
-  const PaymentStatisticComponent({
-    super.key,
-    required this.title,
-    required this.imageAssets,
-  });
-
-  final String title;
-  final String imageAssets;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: Theme.of(context).cardColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      child: Padding(
-        padding: const EdgeInsets.all(30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(imageAssets),
-                      fit: BoxFit.contain,
-                      filterQuality: FilterQuality.high,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 25),
-                Text(
-                  title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge
-                      ?.copyWith(fontWeight: FontWeight.w600),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Text(
-                  "352",
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).iconTheme.color),
-                ),
-                const Spacer(),
-                Icon(
-                  Icons.show_chart,
-                  color: Theme.of(context).primaryColor,
-                  size: 50,
-                ),
-                Text(
-                  "+20%",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge
-                      ?.copyWith(color: Theme.of(context).primaryColor),
-                )
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class TicketTierStatisticComponent extends StatelessWidget {
-  const TicketTierStatisticComponent({super.key});
+  final double? height;
+  const TicketTierStatisticComponent({super.key, this.height});
 
   Widget _buildStatisticalDataComponent(
     BuildContext context, {
@@ -578,18 +519,16 @@ class TicketTierStatisticComponent extends StatelessWidget {
       children: [
         Text(
           "$percent%",
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium
-              ?.copyWith(fontWeight: FontWeight.w500, color: color),
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+              fontWeight: FontWeight.w500,
+              color: color,
+              overflow: TextOverflow.ellipsis),
         ),
         const SizedBox(height: 5),
         Text(
           ticketTier,
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge
-              ?.copyWith(fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis),
         ),
       ],
     );
@@ -630,88 +569,90 @@ class TicketTierStatisticComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Theme.of(context).cardColor,
-      shape: RoundedRectangleBorder(
-          borderRadius: CommonAppUIConfig.primaryRadiusBorder),
-      child: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Ticket Tier Statistic",
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleLarge
-                        ?.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 15),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            _buildStatisticalDataComponent(
-                              context,
-                              color: Colors.blue,
-                              percent: 15,
-                              ticketTier: "Economy Class",
-                            ),
-                            _buildStatisticalDataComponent(
-                              context,
-                              color: Colors.blue,
-                              percent: 15,
-                              ticketTier: "Premium Economy Class",
-                            ),
-                          ],
+    return SizedBox(
+      height: height ?? 250,
+      child: Card(
+        color: Theme.of(context).cardColor,
+        shape: RoundedRectangleBorder(
+            borderRadius: CommonAppUIConfig.primaryRadiusBorder),
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Ticket Tier Statistic",
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          overflow: TextOverflow.ellipsis),
+                    ),
+                    const SizedBox(height: 15),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _buildStatisticalDataComponent(
+                                context,
+                                color: Colors.blue,
+                                percent: 15,
+                                ticketTier: "Economy Class",
+                              ),
+                              _buildStatisticalDataComponent(
+                                context,
+                                color: Colors.blue,
+                                percent: 15,
+                                ticketTier: "Premium Economy Class",
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            _buildStatisticalDataComponent(
-                              context,
-                              color: Colors.blue,
-                              percent: 15,
-                              ticketTier: "Economy Class",
-                            ),
-                            _buildStatisticalDataComponent(
-                              context,
-                              color: Colors.blue,
-                              percent: 15,
-                              ticketTier: "Premium Economy Class",
-                            ),
-                          ],
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _buildStatisticalDataComponent(
+                                context,
+                                color: Colors.blue,
+                                percent: 15,
+                                ticketTier: "Economy Class",
+                              ),
+                              _buildStatisticalDataComponent(
+                                context,
+                                color: Colors.blue,
+                                percent: 15,
+                                ticketTier: "Premium Economy Class",
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: ConstrainedBox(
-                constraints:
-                    const BoxConstraints(maxHeight: 200, minHeight: 100),
-                child: PieChart(
-                  PieChartData(
-                    borderData: FlBorderData(show: false),
-                    sectionsSpace: 0,
-                    centerSpaceRadius: 55,
-                    sections: showingSections(),
+              Expanded(
+                flex: 1,
+                child: ConstrainedBox(
+                  constraints:
+                      const BoxConstraints(maxHeight: 200, minHeight: 100),
+                  child: PieChart(
+                    PieChartData(
+                      borderData: FlBorderData(show: false),
+                      sectionsSpace: 0,
+                      centerSpaceRadius: 55,
+                      sections: showingSections(),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -719,107 +660,111 @@ class TicketTierStatisticComponent extends StatelessWidget {
 }
 
 class PaymentMethodStatisticComponent extends StatelessWidget {
-  const PaymentMethodStatisticComponent({super.key});
+  final double? height;
+  const PaymentMethodStatisticComponent({super.key, this.height});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Theme.of(context).cardColor,
-      shape: RoundedRectangleBorder(
-          borderRadius: CommonAppUIConfig.primaryRadiusBorder),
-      child: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Total Revenue Today",
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge
-                    ?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 15),
-              Text(
-                "\$473.85",
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge
-                    ?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: const LinearProgressIndicator(
+    return SizedBox(
+      height: height ?? 250,
+      child: Card(
+        color: Theme.of(context).cardColor,
+        shape: RoundedRectangleBorder(
+            borderRadius: CommonAppUIConfig.primaryRadiusBorder),
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Total Revenue Today",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 15),
+                Text(
+                  "\$473.85",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: const LinearProgressIndicator(
+                          color: Colors.red,
+                          value: 1,
+                          minHeight: 12,
+                          backgroundColor: Colors.amber,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: const LinearProgressIndicator(
+                          color: Colors.amber,
+                          value: 1,
+                          minHeight: 12,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: const LinearProgressIndicator(
+                          color: Colors.blue,
+                          value: 1,
+                          minHeight: 12,
+                          backgroundColor: Colors.green,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: _buildAnnotateComponent(
+                        context,
+                        percent: 15,
+                        title: "Test",
                         color: Colors.red,
-                        value: 1,
-                        minHeight: 12,
-                        backgroundColor: Colors.amber,
                       ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: const LinearProgressIndicator(
-                        color: Colors.amber,
-                        value: 1,
-                        minHeight: 12,
+                    Expanded(
+                      child: _buildAnnotateComponent(
+                        context,
+                        percent: 15,
+                        title: "Test",
+                        color: Colors.orange,
                       ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 5,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: const LinearProgressIndicator(
+                    Expanded(
+                      child: _buildAnnotateComponent(
+                        context,
+                        percent: 15,
+                        title: "Test",
                         color: Colors.blue,
-                        value: 1,
-                        minHeight: 12,
-                        backgroundColor: Colors.green,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: _buildAnnotateComponent(
-                      context,
-                      percent: 15,
-                      title: "Test",
-                      color: Colors.red,
-                    ),
-                  ),
-                  Expanded(
-                    child: _buildAnnotateComponent(
-                      context,
-                      percent: 15,
-                      title: "Test",
-                      color: Colors.orange,
-                    ),
-                  ),
-                  Expanded(
-                    child: _buildAnnotateComponent(
-                      context,
-                      percent: 15,
-                      title: "Test",
-                      color: Colors.blue,
-                    ),
-                  ),
-                ],
-              )
-            ],
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -855,10 +800,8 @@ class PaymentMethodStatisticComponent extends StatelessWidget {
           ),
           title: Text(
             title,
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge
-                ?.copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis),
           ),
         )
       ],

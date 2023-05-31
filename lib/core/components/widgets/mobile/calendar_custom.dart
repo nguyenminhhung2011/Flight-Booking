@@ -5,7 +5,6 @@ import 'package:flight_booking/core/components/widgets/extension/color_extension
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/dot_custom.dart';
-import 'package:flight_booking/presentations/overview/views/overview_new_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';

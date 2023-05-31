@@ -2,7 +2,7 @@ import 'package:flight_booking/presentations/add_edit_airport/bloc/add_edit_airp
 import 'package:flight_booking/presentations/add_edit_airport/views/add_edit_airport_form.dart';
 import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart';
 import 'package:flight_booking/presentations/add_edit_flight/view/add_edit_flight_form.dart';
-import 'package:flight_booking/presentations/dialog_book_ticket/views/dialog_book_ticket.dart';
+import 'package:flight_booking/presentations/dialog_book_ticket/views/dialog_book_ticket_screen.dart';
 import 'package:flight_booking/presentations/list_ticket/views/widgets/position_dialog.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flutter/material.dart';

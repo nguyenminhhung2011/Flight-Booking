@@ -46,7 +46,7 @@ class _AirportScreenState extends State<AirportScreen> {
       builder: (context, state) {
         // if (state.isWaitCircularLoading) {
         //   return const Center(
-        //     child: CircularProgressIndicator(color: CommonColor.primaryColor),
+        //     child: CircularProgressIndicator(color: Theme.of(context).primaryColor),
         //   );
         // }
         return Scaffold(
@@ -122,7 +122,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 rowDecoration:
-                    const BoxDecoration(color: CommonColor.primaryColor),
+                    BoxDecoration(color: Theme.of(context).primaryColor),
                 itemBuilder: (data, index) {
                   return Text(
                     data.toString(),

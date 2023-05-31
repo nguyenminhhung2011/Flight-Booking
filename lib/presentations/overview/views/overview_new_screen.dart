@@ -3,7 +3,6 @@ import 'package:countries_world_map/countries_world_map.dart';
 import 'package:countries_world_map/data/maps/world_map.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flight_booking/app_coordinator.dart';
-import 'package:flight_booking/core/config/color_config.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/presentations/overview/views/widgets/chart_card_item.dart';
@@ -125,9 +124,8 @@ class _OverviewNewScreenState extends State<OverviewNewScreen> {
                               margin: const EdgeInsets.only(right: 10.0),
                               padding: const EdgeInsets.all(20.0),
                               height: 250,
-                              decoration: const BoxDecoration(
-                                boxShadow: [],
-                                color: CommonColor.primaryColor,
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).primaryColor,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,

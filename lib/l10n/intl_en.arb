@@ -272,5 +272,10 @@
     "personNumber": "Person ({number})",
     "addNewCard": "Add New Card",
     "maestroCard": "Maestro Card",
-    "expenses": "Expenses"
+    "expenses": "Expenses",
+    "paymentManagement": "Payment Management",
+    "totalPaymentsToday": "Total Payments Today",
+    "totalCustomersToday": "Total Customers Today",
+    "totalFlightsToday": "Total Flights Today",
+    "totalPassengerToday": "Total Passenger Today"
 }

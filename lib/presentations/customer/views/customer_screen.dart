@@ -1,6 +1,5 @@
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
-import 'package:flight_booking/core/config/color_config.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/presentations/customer/bloc/customer_bloc.dart';
 import 'package:flight_booking/core/components/widgets/label_textfield.dart';
@@ -136,8 +135,8 @@ class _CustomerScreenState extends State<CustomerScreen> {
                           margin: const EdgeInsets.symmetric(vertical: 5.0),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 10),
-                          rowDecoration: const BoxDecoration(
-                              color: CommonColor.primaryColor),
+                          rowDecoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor),
                           itemBuilder: (data, index) {
                             if (data == null) return const SizedBox();
                             return Text(data.toString());
