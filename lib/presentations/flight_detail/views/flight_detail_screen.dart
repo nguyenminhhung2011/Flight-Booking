@@ -17,9 +17,7 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-import '../../../core/config/color_config.dart';
 import '../../../generated/l10n.dart';
-import '../../dialog_book_ticket/views/dialog_book_ticket.dart';
 import '../../list_flight/views/widgets/dot_custom.dart';
 
 class FlightDetailScreen extends StatefulWidget {
@@ -65,7 +63,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
         return Scaffold(
           floatingActionButton: Breakpoints.small.isActive(context)
               ? IconButton(
-                  color: CommonColor.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   onPressed: () {},
                   icon: const Icon(Icons.airplanemode_active),
                 )
@@ -109,11 +107,11 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
             duration: const Duration(seconds: 1),
             height: animation,
           ),
-          const Align(
+          Align(
             alignment: Alignment.center,
             child: Icon(
               Icons.airplanemode_on,
-              color: CommonColor.primaryColor,
+              color: Theme.of(context).primaryColor,
             ),
           ),
           _shadowBox(
@@ -195,9 +193,9 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Icon(
+                Icon(
                   Icons.airplane_ticket,
-                  color: CommonColor.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   size: 20.0,
                 ),
                 Text(
@@ -413,9 +411,9 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
               ),
               Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.airplane_ticket,
-                    color: CommonColor.primaryColor,
+                    color: Theme.of(context).primaryColor,
                     size: 15.0,
                   ),
                   Text(

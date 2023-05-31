@@ -3,7 +3,6 @@
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/config/color_config.dart';
 import '../../../../domain/entities/flight/flight.dart';
 
 class FlightInAirportWdiget extends StatelessWidget {
@@ -25,7 +24,7 @@ class FlightInAirportWdiget extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 10.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        color: CommonColor.primaryColor,
+        color: Theme.of(context).primaryColor,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,

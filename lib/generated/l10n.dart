@@ -2751,6 +2751,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Payment Management`
+  String get paymentManagement {
+    return Intl.message(
+      'Payment Management',
+      name: 'paymentManagement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Payments Today`
+  String get totalPaymentsToday {
+    return Intl.message(
+      'Total Payments Today',
+      name: 'totalPaymentsToday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Customers Today`
+  String get totalCustomersToday {
+    return Intl.message(
+      'Total Customers Today',
+      name: 'totalCustomersToday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Flights Today`
+  String get totalFlightsToday {
+    return Intl.message(
+      'Total Flights Today',
+      name: 'totalFlightsToday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Passenger Today`
+  String get totalPassengerToday {
+    return Intl.message(
+      'Total Passenger Today',
+      name: 'totalPassengerToday',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

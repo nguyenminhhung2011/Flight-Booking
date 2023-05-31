@@ -856,7 +856,7 @@ class FlightDestinationComponent extends StatelessWidget {
             ],
           ),
         ),
-        VerticalDivider(color: Colors.grey, thickness: 0.5, width: 20),
+        const VerticalDivider(color: Colors.grey, thickness: 0.5, width: 20),
         Expanded(
           flex: 1,
           child: _buildColumnDataDisplay(

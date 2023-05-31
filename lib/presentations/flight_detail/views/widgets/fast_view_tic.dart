@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ticket_widget/ticket_widget.dart';
 
 import '../../../../core/components/enum/tic_type_enum.dart';
-import '../../../../core/config/color_config.dart';
 import '../../../../generated/l10n.dart';
 import '../../../list_flight/views/widgets/flight_details_widget.dart';
 
@@ -94,7 +93,7 @@ class FastViewTic extends StatelessWidget {
                 height: 60.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
-                  color: CommonColor.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   boxShadow: [
                     BoxShadow(
                       color: Theme.of(context).shadowColor.withOpacity(0.1),

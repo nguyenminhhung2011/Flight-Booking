@@ -271,6 +271,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordSettings":
             MessageLookupByLibrary.simpleMessage("Password Settings"),
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
+        "paymentManagement":
+            MessageLookupByLibrary.simpleMessage("Payment Management"),
         "paymentMethod": MessageLookupByLibrary.simpleMessage("Payment Method"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
         "person": MessageLookupByLibrary.simpleMessage("Person"),
@@ -360,8 +362,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "totalAirport": MessageLookupByLibrary.simpleMessage("Total Airport"),
         "totalAmount": MessageLookupByLibrary.simpleMessage("Total Amount"),
         "totalCustomer": MessageLookupByLibrary.simpleMessage("Total Customer"),
+        "totalCustomersToday":
+            MessageLookupByLibrary.simpleMessage("Total Customers Today"),
         "totalFlight": MessageLookupByLibrary.simpleMessage("Total Flight"),
+        "totalFlightsToday":
+            MessageLookupByLibrary.simpleMessage("Total Flights Today"),
+        "totalPassengerToday":
+            MessageLookupByLibrary.simpleMessage("Total Passenger Today"),
         "totalPayment": MessageLookupByLibrary.simpleMessage("Total Payment"),
+        "totalPaymentsToday":
+            MessageLookupByLibrary.simpleMessage("Total Payments Today"),
         "totalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),
         "upcoming": MessageLookupByLibrary.simpleMessage("Upcoming"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),

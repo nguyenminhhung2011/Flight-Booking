@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/config/color_config.dart';
-
 class ChairButton extends StatelessWidget {
   const ChairButton({
     super.key,
@@ -25,8 +23,9 @@ class ChairButton extends StatelessWidget {
         padding: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color:
-              check ? Theme.of(context).hoverColor : CommonColor.primaryColor,
+          color: check
+              ? Theme.of(context).hoverColor
+              : Theme.of(context).primaryColor,
         ),
         child: Text(
           text,

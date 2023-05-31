@@ -2,7 +2,6 @@ import 'package:flight_booking/app_coordinator.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/components/enum/tic_type_enum.dart';
-import '../../../../core/config/color_config.dart';
 import '../../../../generated/l10n.dart';
 import '../../../list_flight/views/widgets/dot_custom.dart';
 import '../../../list_flight/views/widgets/flight_details_widget.dart';
@@ -100,7 +99,7 @@ class PositionDialog extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(
                         width: 1,
-                        color: CommonColor.primaryColor,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                     child: Column(
