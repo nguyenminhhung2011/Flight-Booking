@@ -26,6 +26,10 @@ class ImageConst {
   static const String visaIcon = 'assets/images/visa.png';
   static const String masterIcon = 'assets/images/master.png';
   static const String planeTicket = 'assets/images/plane-ticket.png';
+  static const String totalPayment = 'icons/total_payment.png';
+  static const String totalCustomer = 'icons/total_customer.png';
+  static const String totalFlight = 'icons/total_flight.png';
+  static const String totalPassenger = 'icons/total_passenger.png';
 
   //onboard
   static const String onboard1 = 'assets/images/onboard1.png';

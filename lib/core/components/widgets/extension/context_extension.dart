@@ -39,4 +39,6 @@ extension ContextExtension on BuildContext {
             fontWeight: FontWeight.bold,
             color: Theme.of(this).scaffoldBackgroundColor,
           );
+
+  TextStyle get bodyMedium => Theme.of(this).textTheme.bodyMedium!;
 }

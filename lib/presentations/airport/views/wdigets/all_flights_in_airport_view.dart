@@ -1,7 +1,6 @@
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/config/color_config.dart';
 import '../../../../domain/entities/flight/flight.dart';
 import '../airport_fast_view.dart';
 import 'flightIn_airport_wdiget.dart';
@@ -101,7 +100,7 @@ class _AllFlightsInAirportViewState extends State<AllFlightsInAirportView> {
       height: 400.0,
       decoration: DottedDecoration(
         shape: Shape.line,
-        color: CommonColor.primaryColor,
+        color: Theme.of(context).primaryColor,
         linePosition: LinePosition.right,
       ),
     );

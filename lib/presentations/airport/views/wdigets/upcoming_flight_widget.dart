@@ -36,7 +36,7 @@ class UpcomingFlightWdiget extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
-              color: CommonColor.primaryColor,
+              color: Theme.of(context).primaryColor,
               boxShadow: [
                 BoxShadow(
                   color: Theme.of(context).shadowColor.withOpacity(0.1),

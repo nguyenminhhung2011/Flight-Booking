@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../core/config/color_config.dart';
 import '../../../../generated/l10n.dart';
 import '../../../list_flight/views/widgets/dot_custom.dart';
 
@@ -44,7 +43,7 @@ class TicItem extends StatelessWidget {
                 'B10',
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: CommonColor.primaryColor,
+                      color: Theme.of(context).primaryColor,
                     ),
               ),
             ],
@@ -230,7 +229,7 @@ class _TicItem3State extends State<TicItem3> {
                   'B10',
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: CommonColor.primaryColor,
+                        color: Theme.of(context).primaryColor,
                       ),
                 ),
               ],

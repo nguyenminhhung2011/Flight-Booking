@@ -1,4 +1,3 @@
-import 'package:flight_booking/core/config/color_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -38,9 +37,9 @@ class ItemImage extends StatelessWidget {
                 color: Colors.white,
                 shape: BoxShape.circle,
               ),
-              child: const Center(
+              child: Center(
                 child: Icon(Icons.close,
-                    color: CommonColor.primaryColor, size: 16),
+                    color: Theme.of(context).primaryColor, size: 16),
               ),
             ),
           ),

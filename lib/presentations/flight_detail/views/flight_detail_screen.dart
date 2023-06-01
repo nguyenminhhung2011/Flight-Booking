@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:dotted_decoration/dotted_decoration.dart';
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/presentations/flight_detail/bloc/flight_detail_bloc.dart';
@@ -16,7 +17,6 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-import '../../../core/config/color_config.dart';
 import '../../../generated/l10n.dart';
 import '../../list_flight/views/widgets/dot_custom.dart';
 
@@ -47,6 +47,13 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
     state.whenOrNull();
   }
 
+  void _showDialogSelectScott() async {
+    final show = await context.showBookTicketDialog();
+    if (show) {
+      //do something
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<String> chairCharacyer = ['A', 'B', 'C', 'D'];
@@ -56,7 +63,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
         return Scaffold(
           floatingActionButton: Breakpoints.small.isActive(context)
               ? IconButton(
-                  color: CommonColor.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   onPressed: () {},
                   icon: const Icon(Icons.airplanemode_active),
                 )
@@ -100,11 +107,11 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
             duration: const Duration(seconds: 1),
             height: animation,
           ),
-          const Align(
+          Align(
             alignment: Alignment.center,
             child: Icon(
               Icons.airplanemode_on,
-              color: CommonColor.primaryColor,
+              color: Theme.of(context).primaryColor,
             ),
           ),
           _shadowBox(
@@ -119,6 +126,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                           chairCharacyer: chairCharacyer,
                           text: '${chairCharacyer[i]} $t',
                           check: (i + t) % 3 == 0,
+                          onPress: _showDialogSelectScott,
                         ),
                     ],
                   ),
@@ -185,9 +193,9 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Icon(
+                Icon(
                   Icons.airplane_ticket,
-                  color: CommonColor.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   size: 20.0,
                 ),
                 Text(
@@ -403,9 +411,9 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
               ),
               Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.airplane_ticket,
-                    color: CommonColor.primaryColor,
+                    color: Theme.of(context).primaryColor,
                     size: 15.0,
                   ),
                   Text(

@@ -2751,6 +2751,146 @@ class S {
       args: [],
     );
   }
+
+  /// `Payment Management`
+  String get paymentManagement {
+    return Intl.message(
+      'Payment Management',
+      name: 'paymentManagement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Payments Today`
+  String get totalPaymentsToday {
+    return Intl.message(
+      'Total Payments Today',
+      name: 'totalPaymentsToday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Customers Today`
+  String get totalCustomersToday {
+    return Intl.message(
+      'Total Customers Today',
+      name: 'totalCustomersToday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Flights Today`
+  String get totalFlightsToday {
+    return Intl.message(
+      'Total Flights Today',
+      name: 'totalFlightsToday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Passenger Today`
+  String get totalPassengerToday {
+    return Intl.message(
+      'Total Passenger Today',
+      name: 'totalPassengerToday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Methods`
+  String get paymentMethods {
+    return Intl.message(
+      'Payment Methods',
+      name: 'paymentMethods',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search By Account Id, Payment Method,...`
+  String get searchByAccount {
+    return Intl.message(
+      'Search By Account Id, Payment Method,...',
+      name: 'searchByAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `customerId {id}`
+  String customerID(Object id) {
+    return Intl.message(
+      'customerId $id',
+      name: 'customerID',
+      desc: '',
+      args: [id],
+    );
+  }
+
+  /// `FlightId {id}`
+  String flightIdParams(Object id) {
+    return Intl.message(
+      'FlightId $id',
+      name: 'flightIdParams',
+      desc: '',
+      args: [id],
+    );
+  }
+
+  /// `PaymentMethod {id}`
+  String paymentMethodParams(Object id) {
+    return Intl.message(
+      'PaymentMethod $id',
+      name: 'paymentMethodParams',
+      desc: '',
+      args: [id],
+    );
+  }
+
+  /// `status {id}`
+  String statusParams(Object id) {
+    return Intl.message(
+      'status $id',
+      name: 'statusParams',
+      desc: '',
+      args: [id],
+    );
+  }
+
+  /// `Payment Status Statistic`
+  String get paymentStatusStatistic {
+    return Intl.message(
+      'Payment Status Statistic',
+      name: 'paymentStatusStatistic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ticket Tier Statistic`
+  String get ticketTierStatistic {
+    return Intl.message(
+      'Ticket Tier Statistic',
+      name: 'ticketTierStatistic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Revenue Today`
+  String get totalRevenueToday {
+    return Intl.message(
+      'Total Revenue Today',
+      name: 'totalRevenueToday',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

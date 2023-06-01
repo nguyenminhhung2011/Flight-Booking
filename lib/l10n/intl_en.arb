@@ -272,5 +272,19 @@
     "personNumber": "Person ({number})",
     "addNewCard": "Add New Card",
     "maestroCard": "Maestro Card",
-    "expenses": "Expenses"
+    "expenses": "Expenses",
+    "paymentManagement": "Payment Management",
+    "totalPaymentsToday": "Total Payments Today",
+    "totalCustomersToday": "Total Customers Today",
+    "totalFlightsToday": "Total Flights Today",
+    "totalPassengerToday": "Total Passenger Today",
+    "paymentMethods": "Payment Methods",
+    "searchByAccount": "Search By Account Id, Payment Method,...",
+    "customerID": "customerId {id}",
+    "flightIdParams": "FlightId {id}",
+    "paymentMethodParams": "PaymentMethod {id}",
+    "statusParams": "status {id}",
+    "paymentStatusStatistic": "Payment Status Statistic",
+    "ticketTierStatistic": "Ticket Tier Statistic",
+    "totalRevenueToday": "Total Revenue Today"
 }
