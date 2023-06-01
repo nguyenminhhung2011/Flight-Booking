@@ -67,6 +67,11 @@ class _CustomerTicketInformationCardState
   ];
 
   final SwiperController controller = SwiperController();
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
