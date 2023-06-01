@@ -32,6 +32,9 @@ class _BottomUpdateProfileState extends State<BottomUpdateProfile> {
 
   @override
   void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _phoneNumberController.dispose();
     super.dispose();
   }
 

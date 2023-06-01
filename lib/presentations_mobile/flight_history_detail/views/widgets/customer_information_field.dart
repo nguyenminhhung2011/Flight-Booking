@@ -7,9 +7,11 @@ import '../../../../generated/l10n.dart';
 
 class CustomerInformationField extends StatelessWidget {
   final Customer customer;
+  final bool isBorder;
   const CustomerInformationField({
     super.key,
     required this.customer,
+    this.isBorder = false,
   });
 
   @override
@@ -20,49 +22,52 @@ class CustomerInformationField extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            InformationColumnItem(
-                context: context,
-                header: S.of(context).name,
-                title: customer.name,
-                isStart: true),
-            InformationColumnItem(
-                context: context,
-                header: S.of(context).gender,
-                title: customer.gender,
-                isStart: false),
+            _leftFiled(context, S.of(context).name, customer.name),
+            _rightField(context, S.of(context).gender, customer.gender),
           ].expand((element) => [Expanded(child: element)]).toList(),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            InformationColumnItem(
-                context: context,
-                header: S.of(context).dateBorn,
-                title: getYmdFormat(customer.birthday),
-                isStart: true),
-            InformationColumnItem(
-                context: context,
-                header: S.of(context).identityNumber,
-                title: customer.identityNum,
-                isStart: false),
+            _leftFiled(context, S.of(context).dateBorn,
+                getYmdFormat(customer.birthday)),
+            _rightField(
+                context, S.of(context).identityNumber, customer.identityNum),
           ].expand((element) => [Expanded(child: element)]).toList(),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            InformationColumnItem(
-                context: context,
-                header: S.of(context).phoneNumber,
-                title: customer.phoneNumber,
-                isStart: true),
-            InformationColumnItem(
-                context: context,
-                header: S.of(context).email,
-                title: customer.email,
-                isStart: false),
+            _leftFiled(context, S.of(context).email, customer.email),
+            _rightField(
+                context, S.of(context).phoneNumber, customer.phoneNumber),
           ].expand((element) => [Expanded(child: element)]).toList(),
         ),
       ].expand((element) => [element, const SizedBox(height: 10.0)]).toList(),
+    );
+  }
+
+  InformationColumnItem _rightField(
+      BuildContext context, String header, String text) {
+    return InformationColumnItem(
+      context: context,
+      header: header,
+      title: text,
+      isStart: false,
+      isBorder: isBorder,
+      margin: const EdgeInsets.only(left: 5.0),
+    );
+  }
+
+  InformationColumnItem _leftFiled(
+      BuildContext context, String header, String text) {
+    return InformationColumnItem(
+      context: context,
+      header: header,
+      title: text,
+      isStart: true,
+      isBorder: isBorder,
+      margin: const EdgeInsets.only(right: 5.0),
     );
   }
 }
@@ -76,20 +81,26 @@ class InformationColumnItem extends StatelessWidget {
     required this.isStart,
     this.headerStyle,
     this.titleStyle,
+    this.margin,
+    this.isBorder = false,
   });
-
+  final bool isBorder;
   final BuildContext context;
   final String header;
   final String title;
   final bool isStart;
   final TextStyle? headerStyle;
   final TextStyle? titleStyle;
+  final EdgeInsets? margin;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment:
-          isStart ? CrossAxisAlignment.start : CrossAxisAlignment.end,
+      crossAxisAlignment: isBorder
+          ? CrossAxisAlignment.start
+          : isStart
+              ? CrossAxisAlignment.start
+              : CrossAxisAlignment.end,
       children: [
         Text(
           header,
@@ -102,15 +113,32 @@ class InformationColumnItem extends StatelessWidget {
               ),
         ),
         const SizedBox(height: 7.0),
-        Text(
-          title,
-          style: titleStyle ??
-              context.titleMedium.copyWith(
-                fontWeight: FontWeight.bold,
-                overflow: TextOverflow.ellipsis,
-              ),
-        )
+        isBorder
+            ? Container(
+                padding: const EdgeInsets.all(10.0),
+                margin: margin,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                  border:
+                      Border.all(width: 1, color: Theme.of(context).hintColor),
+                  color: Colors.transparent,
+                ),
+                child: _text(context),
+              )
+            : _text(context)
       ],
+    );
+  }
+
+  Text _text(BuildContext context) {
+    return Text(
+      title,
+      style: titleStyle ??
+          context.titleMedium.copyWith(
+            fontWeight: FontWeight.bold,
+            overflow: TextOverflow.ellipsis,
+          ),
     );
   }
 }

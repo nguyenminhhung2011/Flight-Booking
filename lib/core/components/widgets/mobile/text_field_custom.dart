@@ -32,6 +32,8 @@ class TextFieldCustom extends StatefulWidget {
   final bool isPhoneNumberField;
   final bool isShowBorderRadius;
   final int? maxLines;
+  final String? underText;
+  final TextStyle? underTextStyle;
   final Function()? prefixPress;
   final TextFieldType type;
   const TextFieldCustom({
@@ -62,6 +64,8 @@ class TextFieldCustom extends StatefulWidget {
     this.isPhoneNumberField = false,
     this.isShowBorderRadius = true,
     this.color,
+    this.underText,
+    this.underTextStyle,
   });
 
   @override
@@ -231,7 +235,13 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
                     : null,
               ),
             ),
-          )
+          ),
+          const SizedBox(height: 5),
+          if (widget.underText?.isNotEmpty ?? false)
+            Text(
+              widget.underText ?? '',
+              style: widget.underTextStyle,
+            )
         ],
       ),
     );

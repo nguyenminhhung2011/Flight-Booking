@@ -19,7 +19,6 @@ import '../../../core/components/widgets/mobile/category_custom.dart';
 import '../../../core/components/widgets/mobile/flight_custom.dart';
 import '../../../domain/entities/customer/customer.dart';
 import '../../../generated/l10n.dart';
-import '../../select_scott_mobile/views/select_scott_screen.dart';
 import '../bloc/flight_history_detail_bloc.dart';
 
 const _hMarginCard = 15.0;
@@ -345,13 +344,11 @@ class _FlightHistoryDetailScreenState extends State<FlightHistoryDetailScreen> {
             '1h 20m',
             style: context.titleSmall.copyWith(color: Colors.grey),
           ),
-          _timeFlightRow(
-            context,
-            DateTime.now(),
-            DateTime.now().add(
-              const Duration(hours: 14),
-            ),
-          ),
+          TimeFlightRow(
+              timeStart: DateTime.now(),
+              timeEnd: DateTime.now().add(
+                const Duration(hours: 14),
+              )),
           Row(
             //🚑Hard code
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -448,9 +445,20 @@ class _FlightHistoryDetailScreenState extends State<FlightHistoryDetailScreen> {
       ),
     );
   }
+}
 
-  Row _timeFlightRow(
-      BuildContext context, DateTime timeStart, DateTime timeEnd) {
+class TimeFlightRow extends StatelessWidget {
+  const TimeFlightRow({
+    super.key,
+    required this.timeStart,
+    required this.timeEnd,
+  });
+
+  final DateTime timeStart;
+  final DateTime timeEnd;
+
+  @override
+  Widget build(BuildContext context) {
     final timeStyle = context.titleLarge
         .copyWith(fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis);
     return Row(
@@ -473,7 +481,11 @@ class _FlightHistoryDetailScreenState extends State<FlightHistoryDetailScreen> {
         ),
         Expanded(
           flex: 1,
-          child: Text(getjmFormat(timeEnd), style: timeStyle),
+          child: Text(
+            getjmFormat(timeEnd),
+            style: timeStyle,
+            textAlign: TextAlign.end,
+          ),
         ),
       ],
     );
