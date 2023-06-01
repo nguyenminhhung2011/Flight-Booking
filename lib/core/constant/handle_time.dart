@@ -52,5 +52,9 @@ String displayHoursMinutesBetween(DateTime from, DateTime to) {
   return '$hours h $minutes m';
 }
 
+String getDayInWeek(DateTime time) => DateFormat().add_E().format(time);
+
+String getFlightTime({required DateTime from, required DateTime to}) =>
+    "${getDayInWeek(from).toUpperCase()} ${DateFormat().add_MMMMd().format(from)}  ${DateFormat().add_Hm().format(from)}  -  ${getDayInWeek(to).toUpperCase()} ${DateFormat().add_MMMMd().format(to)}  ${DateFormat().add_Hm().format(to)}";
 String getMMMMEEEd(DateTime time) =>
     DateFormat().add_MMMMEEEEd().add_Hm().format(time);

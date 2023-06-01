@@ -1,7 +1,7 @@
 import 'package:flight_booking/presentations/customer/views/widgets/customer_detail_screen.dart';
 import 'package:flight_booking/presentations/dashboard/views/dashboard_screen.dart';
 import 'package:flight_booking/presentations/login/views/login_screen.dart';
-import 'package:flight_booking/presentations/payment_confimation/payment_confirmation_screen.dart';
+import 'package:flight_booking/presentations/payment_detail/view/payment_detail_screen.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flight_booking/presentations/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +57,7 @@ class MainRoutes {
       case Routes.paymentDetail:
         return MaterialPageRoute(
           builder: (context) {
-            return const PaymentConfirmationScreen();
+            return PaymentDetailScreen();
           },
           settings: settings,
         );

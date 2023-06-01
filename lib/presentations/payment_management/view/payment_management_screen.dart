@@ -13,7 +13,7 @@ import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/generated/l10n.dart';
-import 'package:flight_booking/presentations/payment/bloc/payment_bloc.dart';
+import 'package:flight_booking/presentations/payment_management/bloc/payment_bloc.dart';
 import 'package:flight_booking/presentations/payment/view/widgets/payment_method_statistic_component.dart';
 import 'package:flight_booking/presentations/payment/view/widgets/payment_statistic_component.dart';
 import 'package:flight_booking/presentations/payment/view/widgets/payment_status_statistic_component.dart';
@@ -31,8 +31,8 @@ enum PaymentFilterMethod {
   paymentMethod,
 }
 
-class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({super.key});
+class PaymentManagementScreen extends StatelessWidget {
+  const PaymentManagementScreen({super.key});
 
   void _stateChangeListener(BuildContext context, PaymentState state) {
     state.whenOrNull(
