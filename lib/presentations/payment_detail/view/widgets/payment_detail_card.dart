@@ -1,8 +1,8 @@
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/generated/l10n.dart';
-import 'package:flight_booking/presentations/payment/view/widgets/payment_screen.dart';
-import 'package:flight_booking/presentations_mobile/checkout/views/checkout_screen.dart';
+import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class PaymentDetailCard extends StatelessWidget {
@@ -262,11 +262,7 @@ class PaymentDetailCard extends StatelessWidget {
                 const SizedBox(height: 20),
                 TextButton.icon(
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const PaymentScreen(),
-                      ),
-                    );
+                    context.openListPageWithRoute(Routes.payment);
                   },
                   style: TextButton.styleFrom(
                     minimumSize: const Size(double.maxFinite, 50),

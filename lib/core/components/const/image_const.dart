@@ -30,6 +30,7 @@ class ImageConst {
   static const String totalCustomer = 'icons/total_customer.png';
   static const String totalFlight = 'icons/total_flight.png';
   static const String totalPassenger = 'icons/total_passenger.png';
+  static const String planeIcons = "icons/plane.png";
 
   //onboard
   static const String onboard1 = 'assets/images/onboard1.png';

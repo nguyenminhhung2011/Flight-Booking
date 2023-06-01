@@ -1,6 +1,7 @@
 import 'package:flight_booking/presentations/customer/views/widgets/customer_detail_screen.dart';
 import 'package:flight_booking/presentations/dashboard/views/dashboard_screen.dart';
 import 'package:flight_booking/presentations/login/views/login_screen.dart';
+import 'package:flight_booking/presentations/payment/view/widgets/payment_screen.dart';
 import 'package:flight_booking/presentations/payment_detail/view/payment_detail_screen.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flight_booking/presentations/splash/splash_screen.dart';
@@ -67,6 +68,13 @@ class MainRoutes {
           settings: settings,
           builder: (_) {
             return const CustomerDetailScreen();
+          },
+        );
+      case Routes.payment:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) {
+            return const PaymentScreen();
           },
         );
       default:

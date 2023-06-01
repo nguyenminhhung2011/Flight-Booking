@@ -7,4 +7,5 @@ class Routes {
   static const String flightDetail = "/flightDetail";
   static const String customerDetail = "/customerDetail";
   static const String paymentDetail = "/paymentDetail";
+  static const String payment = "/paymentScreen";
 }

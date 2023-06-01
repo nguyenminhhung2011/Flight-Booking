@@ -286,5 +286,7 @@
     "statusParams": "status {id}",
     "paymentStatusStatistic": "Payment Status Statistic",
     "ticketTierStatistic": "Ticket Tier Statistic",
-    "totalRevenueToday": "Total Revenue Today"
+    "totalRevenueToday": "Total Revenue Today",
+    "detail": "Detail",
+    "totalAirfare": "Total Airfare:"
 }
