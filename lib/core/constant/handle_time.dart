@@ -51,3 +51,6 @@ String displayHoursMinutesBetween(DateTime from, DateTime to) {
   var minutes = minutesBetween(from, to);
   return '$hours h $minutes m';
 }
+
+String getMMMMEEEd(DateTime time) =>
+    DateFormat().add_MMMMEEEEd().add_Hm().format(time);

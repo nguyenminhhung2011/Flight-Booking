@@ -62,13 +62,14 @@ class PaymentStatisticComponent extends StatelessWidget {
                 Icon(
                   Icons.show_chart,
                   color: Theme.of(context).primaryColor,
-                  size: 40,
+                  size: 30,
                 ),
                 Text(
                   "+20%",
-                  style: titleStyle.copyWith(
-                      color: Theme.of(context).primaryColor),
-                  overflow: TextOverflow.ellipsis,
+                  style: context.titleMedium.copyWith(
+                    color: Theme.of(context).primaryColor,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 )
               ],
             ),
