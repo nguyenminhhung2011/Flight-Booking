@@ -27,6 +27,7 @@ extension ContextExtension on BuildContext {
           );
 
   TextStyle get headlineMedium => Theme.of(this).textTheme.headlineMedium!;
+  TextStyle get headlineLarge => Theme.of(this).textTheme.headlineLarge!;
   TextStyle get headlineSmall => Theme.of(this).textTheme.headlineSmall!;
 
   TextStyle get titleSmall => Theme.of(this).textTheme.titleSmall!;
