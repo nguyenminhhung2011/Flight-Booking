@@ -2891,6 +2891,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Detail`
+  String get detail {
+    return Intl.message(
+      'Detail',
+      name: 'detail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Airfare:`
+  String get totalAirfare {
+    return Intl.message(
+      'Total Airfare:',
+      name: 'totalAirfare',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

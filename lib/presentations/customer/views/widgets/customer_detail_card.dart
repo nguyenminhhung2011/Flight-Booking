@@ -73,68 +73,65 @@ class _CustomerTicketInformationCardState
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
-        side: const BorderSide(color: Colors.blueGrey, width: 0.2),
       ),
       color: Theme.of(context).cardColor,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                constraints: const BoxConstraints(maxHeight: 350),
-                child: const FlightDataCustomerScreen(),
-              ),
-              const SizedBox(height: 10),
-              Stack(
-                children: [
-                  SwiperCustom(
-                    controller: controller,
-                    height: 300,
-                    itemBuilder: (index) {
-                      return cards.elementAt(index);
+        padding: const EdgeInsets.symmetric(vertical: 15),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              constraints: const BoxConstraints(maxHeight: 350),
+              child: const FlightDataCustomerScreen(),
+            ),
+            const SizedBox(height: 10),
+            Stack(
+              children: [
+                SwiperCustom(
+                  controller: controller,
+                  height: 300,
+                  itemBuilder: (index) {
+                    return cards.elementAt(index);
+                  },
+                  itemCount: cards.length,
+                  swiperLayout: SwiperLayout.DEFAULT,
+                ),
+                Positioned(
+                  left: 0,
+                  top: 5,
+                  bottom: 5,
+                  child: IconButton(
+                    splashRadius: 20,
+                    icon: Icon(
+                      size: 30,
+                      Icons.arrow_back_ios_new,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    onPressed: () {
+                      controller.previous();
                     },
-                    itemCount: cards.length,
-                    swiperLayout: SwiperLayout.DEFAULT,
                   ),
-                  Positioned(
-                    left: 0,
-                    top: 5,
-                    bottom: 5,
-                    child: IconButton(
-                      splashRadius: 20,
-                      icon: Icon(
-                        size: 30,
-                        Icons.arrow_back_ios_new,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      onPressed: () {
-                        controller.previous();
-                      },
+                ),
+                Positioned(
+                  right: 0,
+                  top: 5,
+                  bottom: 5,
+                  child: IconButton(
+                    splashRadius: 20,
+                    icon: Icon(
+                      size: 30,
+                      Icons.arrow_forward_ios,
+                      color: Theme.of(context).primaryColor,
                     ),
+                    onPressed: () {
+                      controller.next();
+                    },
                   ),
-                  Positioned(
-                    right: 0,
-                    top: 5,
-                    bottom: 5,
-                    child: IconButton(
-                      splashRadius: 20,
-                      icon: Icon(
-                        size: 30,
-                        Icons.arrow_forward_ios,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      onPressed: () {
-                        controller.next();
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
