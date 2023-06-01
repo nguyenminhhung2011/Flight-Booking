@@ -1,4 +1,3 @@
-import 'package:flight_booking/core/config/color_config.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flutter/material.dart';
 
@@ -170,7 +169,7 @@ class EnterEmailPage extends StatelessWidget {
                         nextPage(currentPage + 1);
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: CommonColor.primaryColor,
+                        backgroundColor: Theme.of(context).primaryColor,
                         elevation: 5,
                         shape: RoundedRectangleBorder(
                           borderRadius: CommonAppUIConfig.primaryRadiusBorder,
@@ -342,7 +341,7 @@ class EnterPasswordWidget extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () async {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: CommonColor.primaryColor,
+                        backgroundColor: Theme.of(context).primaryColor,
                         elevation: 5,
                         shape: RoundedRectangleBorder(
                           borderRadius: CommonAppUIConfig.primaryRadiusBorder,

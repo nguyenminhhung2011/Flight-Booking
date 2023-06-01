@@ -2,7 +2,6 @@ import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/presentations/login/views/widgets/forget_password_form.dart';
 import 'package:flutter/material.dart';
 import '../../../core/components/widgets/custom_dialog_error/error_dialog.dart';
-import '../../../core/config/color_config.dart';
 import '../../../core/config/common_ui_config.dart';
 import '../../../generated/l10n.dart';
 
@@ -253,8 +252,8 @@ class LoginForm extends StatelessWidget {
                 onPressed: navigateToForgetPassword,
                 child: Text(
                   S.of(context).forgotPassword,
-                  style: const TextStyle(
-                    color: CommonColor.primaryColor,
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
                   ),
@@ -270,29 +269,28 @@ class LoginForm extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(loginFormWidth * 0.7, 50),
-                backgroundColor: CommonColor.primaryColor,
+                backgroundColor: Theme.of(context).primaryColor,
                 elevation: 5,
                 shape: RoundedRectangleBorder(
                   borderRadius: CommonAppUIConfig.primaryRadiusBorder,
                 ),
               ),
-              child: ValueListenableBuilder(
+              child: ValueListenableBuilder<bool>(
                 valueListenable: isLoading,
-                builder: (context, isLoadingValue, child) =>
-                    !(isLoadingValue as bool)
-                        ? Text(
-                            S.of(context).logIn,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          )
-                        : const Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                            ),
-                          ),
+                builder: (context, isLoadingValue, child) => !(isLoadingValue)
+                    ? Text(
+                        S.of(context).logIn,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )
+                    : const Center(
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                        ),
+                      ),
               ),
             ),
           ),

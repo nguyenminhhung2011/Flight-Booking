@@ -1,6 +1,5 @@
 import 'package:flight_booking/core/components/widgets/card_custom.dart';
 import 'package:flight_booking/core/components/widgets/swiper_custom.dart';
-import 'package:flight_booking/core/config/color_config.dart';
 import 'package:flight_booking/domain/entities/flight/flight.dart';
 import 'package:flight_booking/presentations/airport/views/wdigets/all_flights_in_airport_view.dart';
 import 'package:flight_booking/presentations/airport/views/wdigets/upcoming_flight_widget.dart';
@@ -121,10 +120,10 @@ class _AirportFastViewState extends State<AirportFastView> {
                 ),
                 IconButton(
                   onPressed: pageViewChange,
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.change_circle,
                     size: 18,
-                    color: CommonColor.primaryColor,
+                    color: Theme.of(context).primaryColor,
                   ),
                 )
               ],
@@ -166,8 +165,8 @@ class _AirportFastViewState extends State<AirportFastView> {
       decoration: BoxDecoration(
         //container with border
         color: isActive
-            ? CommonColor.primaryColor
-            : CommonColor.primaryColor.withOpacity(0.2),
+            ? Theme.of(context).primaryColor
+            : Theme.of(context).primaryColor.withOpacity(0.2),
         borderRadius: const BorderRadius.all(Radius.circular(12)),
         boxShadow: const [
           BoxShadow(color: Colors.black38, offset: Offset(2, 3), blurRadius: 3)

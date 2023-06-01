@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/config/color_config.dart';
-
 class IconButtonCustom extends StatelessWidget {
   final IconData iconData;
   final Function() onPress;
@@ -22,7 +20,9 @@ class IconButtonCustom extends StatelessWidget {
         padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(3.0),
-          color: isSec ? CommonColor.primaryColor : Theme.of(context).cardColor,
+          color: isSec
+              ? Theme.of(context).primaryColor
+              : Theme.of(context).cardColor,
         ),
         child: Icon(iconData, size: 14.0),
       ),
