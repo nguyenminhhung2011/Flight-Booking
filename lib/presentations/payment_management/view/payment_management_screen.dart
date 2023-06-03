@@ -3,12 +3,14 @@ import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/enum/action_enum.dart';
 import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
+import 'package:flight_booking/core/components/enum/payment_type.dart';
 import 'package:flight_booking/core/components/widgets/custom_row_column.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_ticket_table.dart';
 import 'package:flight_booking/core/components/widgets/mobile/sort_button.dart';
 import 'package:flight_booking/core/components/widgets/payment_status_utils.dart';
+import 'package:flight_booking/core/components/widgets/range_date_picker_custom.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
@@ -31,8 +33,16 @@ enum PaymentFilterMethod {
   paymentMethod,
 }
 
-class PaymentManagementScreen extends StatelessWidget {
+class PaymentManagementScreen extends StatefulWidget {
   const PaymentManagementScreen({super.key});
+
+  @override
+  State<PaymentManagementScreen> createState() =>
+      _PaymentManagementScreenState();
+}
+
+class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
+  PaymentBloc get _paymentBLoc => BlocProvider.of(context);
 
   void _stateChangeListener(BuildContext context, PaymentState state) {
     state.whenOrNull(
@@ -47,33 +57,50 @@ class PaymentManagementScreen extends StatelessWidget {
     );
   }
 
-  Future<List<Payment>>? _filterPayment() async {
-    // do something
-    var result = <Payment>[];
-    return result;
+  void _filterPayment(PaymentType? type) async {}
+
+  void _filterStatus(PaymentStatus? status) async {}
+
+  void _filterCalendar() async {
+    final dateRange = await context.pickRangeDate(RangeDateController());
+    if (dateRange == null) return;
+    _paymentBLoc.add(PaymentEvent.fetchPaymentData(dateRange: dateRange));
   }
 
-  Future<List<Payment>>? _filterStatus() async {
-    // do something
-    var result = <Payment>[];
-    return result;
-  }
-
-  Future<List<Payment>>? _filterCalendar() async {
-    // do something
-    var result = <Payment>[];
-    return result;
-  }
-
-  void _onPressFilter(PaymentFilterMethod caseMethod) async {
-    final methodResult = await switch (caseMethod) {
-      PaymentFilterMethod.calendarMethod => _filterCalendar(),
-      PaymentFilterMethod.statusMethod => _filterStatus(),
-      _ => _filterPayment()
+  Widget _buildFilterButton({
+    required PaymentFilterMethod filter,
+    required String title,
+    required IconData icon,
+  }) {
+    return switch (filter) {
+      PaymentFilterMethod.paymentMethod => DropdownButton<PaymentType>(
+          value: PaymentType.all,
+          items: [
+            DropdownMenuItem(
+              value: PaymentType.card,
+              child: Text(PaymentType.card.name, style: context.bodyMedium),
+            ),
+            DropdownMenuItem(
+              value: PaymentType.cash,
+              child: Text(PaymentType.cash.name, style: context.bodyMedium),
+            ),
+            DropdownMenuItem(
+              value: PaymentType.all,
+              child: Text(PaymentType.all.name, style: context.bodyMedium),
+            ),
+          ],
+          onChanged: _filterPayment,
+        ),
+      PaymentFilterMethod.statusMethod => DropdownButton<PaymentStatus>(
+          items: [],
+          onChanged: _filterStatus,
+        ),
+      _ => SortButton(
+          title: title,
+          icon: icon,
+          onPress: _filterCalendar,
+        ),
     };
-    if (methodResult != null && methodResult.isNotEmpty) {
-      //do something
-    }
   }
 
   @override
@@ -157,15 +184,18 @@ class PaymentManagementScreen extends StatelessWidget {
                             'case': PaymentFilterMethod.paymentMethod,
                           }
                         ]
-                            .map((e) => SortButton(
+                            .map(
+                              (e) => _buildFilterButton(
+                                filter: e['case'] as PaymentFilterMethod,
                                 title: e['text'].toString(),
                                 icon: e['icon'] as IconData,
-                                onPress: () => _onPressFilter(
-                                      e['case'] as PaymentFilterMethod,
-                                    )))
+                              ),
+                            )
                             .expand(
-                              (element) =>
-                                  [element, const SizedBox(width: 10.0)],
+                              (element) => [
+                                element,
+                                const SizedBox(width: 10.0),
+                              ],
                             ),
                         const Spacer(),
                         Expanded(
