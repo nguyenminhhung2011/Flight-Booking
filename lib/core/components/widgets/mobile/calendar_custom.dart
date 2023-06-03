@@ -325,7 +325,7 @@ class _TableCaendarStateCustom extends State<TableCalendarCustom> {
           );
         }, //app_icon1.png
         prioritizedBuilder: ((context, day, focusedDay) {
-          final key = '${day.year}/${day.month}/${day.day}';
+          // final key = '${day.year}/${day.month}/${day.day}';
           return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

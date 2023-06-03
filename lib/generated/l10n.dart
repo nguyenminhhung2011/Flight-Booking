@@ -2911,6 +2911,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Login or Register`
+  String get loginOrRegister {
+    return Intl.message(
+      'Login or Register',
+      name: 'loginOrRegister',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Booking for me`
+  String get bookingForMe {
+    return Intl.message(
+      'Booking for me',
+      name: 'bookingForMe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Information`
+  String get contactInfo {
+    return Intl.message(
+      'Contact Information',
+      name: 'contactInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fill in your information and check your booking`
+  String get fillInYourInfo {
+    return Intl.message(
+      'Fill in your information and check your booking',
+      name: 'fillInYourInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login or Register and enjoy exclusive member offers`
+  String get loginOrRegisterAndEn {
+    return Intl.message(
+      'Login or Register and enjoy exclusive member offers',
+      name: 'loginOrRegisterAndEn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Booking faster and easier with Passenger Quick Pick`
+  String get bookingFasterAndEasier {
+    return Intl.message(
+      'Booking faster and easier with Passenger Quick Pick',
+      name: 'bookingFasterAndEasier',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passenger Information`
+  String get passengerInfo {
+    return Intl.message(
+      'Passenger Information',
+      name: 'passengerInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Make sure the passenger name matches the name on the CCCD/ID/Passport/Driver/ License issued by the government.You should avoid mistakes as some airlines allow name changes after booking.`
+  String get warningsPassenger {
+    return Intl.message(
+      'Make sure the passenger name matches the name on the CCCD/ID/Passport/Driver/ License issued by the government.You should avoid mistakes as some airlines allow name changes after booking.',
+      name: 'warningsPassenger',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use this code to check in at airport or check in online`
+  String get useThisCode {
+    return Intl.message(
+      'Use this code to check in at airport or check in online',
+      name: 'useThisCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price Summary`
+  String get priceSummary {
+    return Intl.message(
+      'Price Summary',
+      name: 'priceSummary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact information (receiving tickets/vouchers)`
+  String get contactInformationStatus {
+    return Intl.message(
+      'Contact information (receiving tickets/vouchers)',
+      name: 'contactInformationStatus',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

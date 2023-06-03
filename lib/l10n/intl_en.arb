@@ -288,5 +288,16 @@
     "ticketTierStatistic": "Ticket Tier Statistic",
     "totalRevenueToday": "Total Revenue Today",
     "detail": "Detail",
-    "totalAirfare": "Total Airfare:"
+    "totalAirfare": "Total Airfare:",
+    "loginOrRegister": "Login or Register",
+    "bookingForMe": "Booking for me",
+    "contactInfo": "Contact Information",
+    "fillInYourInfo": "Fill in your information and check your booking",
+    "loginOrRegisterAndEn": "Login or Register and enjoy exclusive member offers",
+    "bookingFasterAndEasier": "Booking faster and easier with Passenger Quick Pick",
+    "passengerInfo": "Passenger Information",
+    "warningsPassenger": "Make sure the passenger name matches the name on the CCCD/ID/Passport/Driver/ License issued by the government.You should avoid mistakes as some airlines allow name changes after booking.",
+    "useThisCode": "Use this code to check in at airport or check in online",
+    "priceSummary": "Price Summary",
+    "contactInformationStatus": "Contact information (receiving tickets/vouchers)"
 }
