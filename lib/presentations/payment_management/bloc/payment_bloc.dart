@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
+import 'package:flight_booking/core/components/enum/payment_type.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/payment_model_state_data.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/payment_status_state_data.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/revenue.dart';

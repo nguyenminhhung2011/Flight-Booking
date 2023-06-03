@@ -583,7 +583,7 @@ class FlightSummaryCard extends StatelessWidget {
                 filterQuality: FilterQuality.high,
               ),
               title: Text(
-                "Vietname Airlines",
+                "Vietnam Airlines",
                 style: context.titleSmall.copyWith(fontWeight: FontWeight.bold),
               ),
               subtitle: Text(
