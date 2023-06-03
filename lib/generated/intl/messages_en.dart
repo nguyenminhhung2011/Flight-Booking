@@ -89,6 +89,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "blockTime": MessageLookupByLibrary.simpleMessage("Block Time"),
         "boeing": MessageLookupByLibrary.simpleMessage("Boeing"),
         "bookingCode": MessageLookupByLibrary.simpleMessage("Booking Code"),
+        "bookingFasterAndEasier": MessageLookupByLibrary.simpleMessage(
+            "Booking faster and easier with Passenger Quick Pick"),
+        "bookingForMe": MessageLookupByLibrary.simpleMessage("Booking for me"),
         "bookingTime": MessageLookupByLibrary.simpleMessage("Booking Time"),
         "bookingType": MessageLookupByLibrary.simpleMessage("Booking type"),
         "boy": MessageLookupByLibrary.simpleMessage("Boy"),
@@ -108,6 +111,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "codePayment": MessageLookupByLibrary.simpleMessage("Code Payment"),
         "commingFlights":
             MessageLookupByLibrary.simpleMessage("Comming Flights"),
+        "contactInfo":
+            MessageLookupByLibrary.simpleMessage("Contact Information"),
+        "contactInformationStatus": MessageLookupByLibrary.simpleMessage(
+            "Contact information (receiving tickets/vouchers)"),
         "continueText": MessageLookupByLibrary.simpleMessage("Continue"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
         "creDate": MessageLookupByLibrary.simpleMessage("Create Date"),
@@ -186,6 +193,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "facebook": MessageLookupByLibrary.simpleMessage("Facebook"),
         "facilities": MessageLookupByLibrary.simpleMessage("Facilities"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
+        "fillInYourInfo": MessageLookupByLibrary.simpleMessage(
+            "Fill in your information and check your booking"),
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
         "firstClass": MessageLookupByLibrary.simpleMessage("First Class"),
         "firstClassTicket":
@@ -241,6 +250,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "location": MessageLookupByLibrary.simpleMessage("Location"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "loginOrRegister":
+            MessageLookupByLibrary.simpleMessage("Login or Register"),
+        "loginOrRegisterAndEn": MessageLookupByLibrary.simpleMessage(
+            "Login or Register and enjoy exclusive member offers"),
         "loginWithGoogle":
             MessageLookupByLibrary.simpleMessage("Login with Google"),
         "luggage": MessageLookupByLibrary.simpleMessage("luggage"),
@@ -277,6 +290,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "orSignInWith": MessageLookupByLibrary.simpleMessage("Or sign in with"),
         "orSignUpWith": MessageLookupByLibrary.simpleMessage("Or sign up with"),
         "overview": MessageLookupByLibrary.simpleMessage("Overview"),
+        "passengerInfo":
+            MessageLookupByLibrary.simpleMessage("Passenger Information"),
         "passengers": MessageLookupByLibrary.simpleMessage("Passengers"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordSettings":
@@ -310,6 +325,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "premiumEconomyClassTicket": MessageLookupByLibrary.simpleMessage(
             "Premium Economy Class Ticket"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
+        "priceSummary": MessageLookupByLibrary.simpleMessage("Price Summary"),
         "principleSetting":
             MessageLookupByLibrary.simpleMessage("Principle Setting"),
         "rateYourStay": MessageLookupByLibrary.simpleMessage("Rate your stay"),
@@ -404,6 +420,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Update your avatar and personal information here"),
         "uploadProfileImage":
             MessageLookupByLibrary.simpleMessage("Upload Profile Image"),
+        "useThisCode": MessageLookupByLibrary.simpleMessage(
+            "Use this code to check in at airport or check in online"),
         "username": MessageLookupByLibrary.simpleMessage("Username"),
         "view": MessageLookupByLibrary.simpleMessage("View"),
         "viewDetail": MessageLookupByLibrary.simpleMessage("View Detail"),
@@ -411,6 +429,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
+        "warningsPassenger": MessageLookupByLibrary.simpleMessage(
+            "Make sure the passenger name matches the name on the CCCD/ID/Passport/Driver/ License issued by the government.You should avoid mistakes as some airlines allow name changes after booking."),
         "weHaveSentAVerification": m10,
         "welcomeoFlightAdmin":
             MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
