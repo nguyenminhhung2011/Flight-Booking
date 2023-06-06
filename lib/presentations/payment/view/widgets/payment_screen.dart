@@ -10,8 +10,10 @@ import 'package:flight_booking/presentations_mobile/flight_history_detail/views/
 import 'package:flutter/material.dart';
 
 import '../../../../core/components/widgets/mobile/flight_custom.dart';
+import '../../../../core/components/widgets/mobile/text_field_custom.dart';
 import '../../../../presentations_mobile/flight_history_detail/views/widgets/customer_information_field.dart';
 import '../../../customer/views/widgets/customer_detail_card.dart';
+
 import '../../../payment_detail/view/widgets/process_payment_bar.dart';
 import 'book_payment_tab.dart';
 
@@ -62,7 +64,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ),
             ],
             const Expanded(
-              child: BookPaymentTab(),
+              child: PaymentTab(),
             ),
           ],
         ),
@@ -79,10 +81,23 @@ class PaymentTab extends StatefulWidget {
 }
 
 class _PaymentTabState extends State<PaymentTab> {
+  final TextEditingController _paymentNumber = TextEditingController();
+  final TextEditingController _nameOnPayment = TextEditingController();
+  final TextEditingController _fitToComeDate = TextEditingController();
+  final TextEditingController _cvvAndCvn = TextEditingController();
   final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
 
   void _onChangeTab(int index) {
     _selectedIndex.value = index;
+  }
+
+  @override
+  void dispose() {
+    _paymentNumber.dispose();
+    _nameOnPayment.dispose();
+    _fitToComeDate.dispose();
+    _cvvAndCvn.dispose();
+    super.dispose();
   }
 
   @override
@@ -170,8 +185,7 @@ class _PaymentTabState extends State<PaymentTab> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Payment Card', style: headerStyle),
-                const Spacer(),
+                Expanded(child: Text('Payment Card', style: headerStyle)),
                 ...[
                   ImageConst.visaIcon,
                   ImageConst.masterIcon,
@@ -183,7 +197,191 @@ class _PaymentTabState extends State<PaymentTab> {
               ],
             ),
           ),
-          const SizedBox(height: 15.0)
+          const SizedBox(height: 15.0),
+          const DividerCustomWithAirplane(),
+          const SizedBox(height: 15.0),
+          TextFieldCustom(
+            paddingLeft: _hPaddingCard,
+            paddingRight: _hPaddingCard,
+            headerText: "Payment number",
+            headerTextStyle: headerStyle1,
+            hintStyle: titStyle1,
+            hintText: "Payment number",
+            controller: _paymentNumber,
+            textStyle: textStyle,
+          ),
+          const SizedBox(height: 15.0),
+          Row(
+            children: [
+              Expanded(
+                child: TextFieldCustom(
+                  paddingLeft: _hPaddingCard,
+                  paddingRight: 5.0,
+                  headerText: "Fit to come",
+                  headerTextStyle: headerStyle1,
+                  hintStyle: titStyle1,
+                  hintText: "MM/YY",
+                  controller: _fitToComeDate,
+                  textStyle: textStyle,
+                ),
+              ),
+              Expanded(
+                child: TextFieldCustom(
+                  paddingLeft: 5.0,
+                  paddingRight: _hPaddingCard,
+                  headerText: "CVV/CVN",
+                  headerTextStyle: headerStyle1,
+                  hintStyle: titStyle1,
+                  hintText: "3 - 4 number",
+                  controller: _cvvAndCvn,
+                  textStyle: textStyle,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 15.0),
+          TextFieldCustom(
+            paddingLeft: _hPaddingCard,
+            paddingRight: _hPaddingCard,
+            headerText: "Name on card",
+            headerTextStyle: headerStyle1,
+            hintStyle: titStyle1,
+            hintText: "Name on card",
+            controller: _nameOnPayment,
+            textStyle: textStyle,
+          ),
+          const SizedBox(height: 15.0),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(10.0),
+            margin: const EdgeInsets.symmetric(horizontal: _hPaddingCard),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.0),
+              color: primaryColor.withOpacity(0.1),
+              border: Border.all(
+                width: 1,
+                color: primaryColor,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Paymnet information', style: headerStyle),
+                const DividerCustomWithAirplane(),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Total paymnet', style: headerStyle1),
+                          const SizedBox(height: 15.0),
+                          Column(
+                            children: <Map<String, dynamic>>[
+                              {
+                                'header': S.of(context).personNumber(1),
+                                'title': '\$252.00'
+                              },
+                              {
+                                'header': S.of(context).personNumber(2),
+                                'title': '\$212.00'
+                              },
+                              {
+                                'header': S.of(context).totalAmount,
+                                'title': '\$200.00'
+                              },
+                              {
+                                'header': S.of(context).codePayment,
+                                'title': '23423423489'
+                              },
+                              {
+                                'header': S.of(context).timePayment,
+                                'title':
+                                    '${getjmFormat(DateTime.now())} - ${getYmdFormat(
+                                  DateTime.now(),
+                                )}'
+                              }
+                            ]
+                                .map(
+                                  (e) => _rowIndexInformation(
+                                    context,
+                                    titStyle,
+                                    e['header'],
+                                    e['title'],
+                                    false,
+                                  ),
+                                )
+                                .expand((element) =>
+                                    [element, const SizedBox(height: 5.0)])
+                                .toList()
+                              ..remove,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: _hPaddingCard),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text('Offer', style: headerStyle1),
+                          const SizedBox(height: 15.0),
+                          Column(
+                            children: <Map<String, dynamic>>[
+                              {'header': 'Offer month 3', 'title': '\$200.00'},
+                            ]
+                                .map(
+                                  (e) => _rowIndexInformation(
+                                    context,
+                                    titStyle,
+                                    e['header'],
+                                    e['title'],
+                                    true,
+                                  ),
+                                )
+                                .expand((element) =>
+                                    [element, const SizedBox(height: 5.0)])
+                                .toList()
+                              ..remove,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const DividerCustomWithAirplane(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [Text('\$2313.0', style: headerStyle)],
+                ),
+              ]
+                  .expand((element) =>
+                      [element, const SizedBox(height: _hPaddingCard)])
+                  .toList()
+                ..removeLast(),
+            ),
+          ),
+          const SizedBox(height: 15.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              SizedBox(
+                width: 200,
+                height: 45,
+                child: ButtonCustom(
+                  radius: 5.0,
+                  child: Text(
+                    "Payment by card",
+                    style: headerStyle1,
+                  ),
+                  onPress: () {},
+                ),
+              ),
+              const SizedBox(width: _hPaddingCard)
+            ],
+          ),
         ],
       ),
     );
@@ -253,6 +451,35 @@ class _PaymentTabState extends State<PaymentTab> {
           ),
         ),
       ],
+    );
+  }
+
+  Row _rowIndexInformation(
+    BuildContext context,
+    TextStyle titleStyle,
+    String header,
+    String title,
+    bool isOffer,
+  ) {
+    return Row(
+      children: [
+        Text(
+          header,
+          style: context.titleSmall.copyWith(
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).hintColor,
+              overflow: TextOverflow.ellipsis,
+              fontStyle: isOffer ? FontStyle.italic : null),
+        ),
+        Text(
+          title,
+          textAlign: TextAlign.end,
+          style: titleStyle.copyWith(
+            decoration:
+                isOffer ? TextDecoration.lineThrough : TextDecoration.none,
+          ),
+        ),
+      ].expand((element) => [Expanded(child: element)]).toList(),
     );
   }
 }
