@@ -12,7 +12,10 @@ class AppCoreFactory {
     final dio = Dio(
       BaseOptions(
         baseUrl: baseUrl,
-        headers: {},
+        headers: {
+          "content-type": "application/json",
+          "Accept": "*/*",
+        },
       ),
     )..interceptors.add(
         InterceptorsWrapper(
