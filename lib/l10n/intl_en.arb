@@ -299,5 +299,18 @@
     "warningsPassenger": "Make sure the passenger name matches the name on the CCCD/ID/Passport/Driver/ License issued by the government.You should avoid mistakes as some airlines allow name changes after booking.",
     "useThisCode": "Use this code to check in at airport or check in online",
     "priceSummary": "Price Summary",
-    "contactInformationStatus": "Contact information (receiving tickets/vouchers)"
+    "contactInformationStatus": "Contact information (receiving tickets/vouchers)",
+    "paymentOptions": "Payment Options",
+    "makePaymentWithin": "Make payment within {secs}",
+    "paymentCard": "Payment Card",
+    "paymentNumber": "Payment number",
+    "fitToCome": "Fit to come",
+    "nameOnCard": "Name on card",
+    "paymentInfo": "Payment Information",
+    "offer": "Offer",
+    "paymentByCard": "Payment by card",
+    "paymentAtAirport": "Payment at airport",
+    "noteBeforePayment": "Note before payment",
+    "confirmInformation": "Confirm information",
+    "transaction": "Transaction"
 }

@@ -17,8 +17,10 @@ const _hPaddingCard = 15.0;
 const _maxWidthDevice = 1200;
 
 class BookPaymentTab extends StatefulWidget {
+  final Function() onNextPage;
   const BookPaymentTab({
     super.key,
+    required this.onNextPage,
   });
 
   @override
@@ -269,11 +271,11 @@ class _BookPaymentTabState extends State<BookPaymentTab> {
                       height: 50,
                       child: ButtonCustom(
                         radius: 5.0,
+                        onPress: widget.onNextPage,
                         child: Text(
                           S.of(context).continueText,
                           style: headerStyle,
                         ),
-                        onPress: () {},
                       ),
                     )
                   ],
