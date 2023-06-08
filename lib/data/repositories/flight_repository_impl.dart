@@ -1,3 +1,4 @@
+import 'package:flight_booking/data/datasource/remote/auth/auth_api.dart';
 import 'package:flight_booking/data/datasource/remote/flight/flight_api.dart';
 import 'package:flight_booking/data/models/flight/flight_model.dart';
 import 'package:injectable/injectable.dart';

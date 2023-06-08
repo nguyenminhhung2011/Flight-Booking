@@ -14,9 +14,10 @@ GetIt injector = GetIt.instance;
 GetIt configureDependencies({
   String? environment,
   EnvironmentFilter? environmentFilter,
-}) =>
-    init(
-      injector,
-      environment: environment,
-      environmentFilter: environmentFilter,
-    );
+}) {
+  return init(
+    injector,
+    environment: environment,
+    environmentFilter: environmentFilter,
+  );
+}

@@ -1,6 +1,8 @@
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/presentations/login/bloc/authentication_bloc.dart';
 import 'package:flight_booking/presentations/login/views/widgets/forget_password_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/components/widgets/custom_dialog_error/error_dialog.dart';
 import '../../../core/config/common_ui_config.dart';
 import '../../../generated/l10n.dart';
@@ -73,6 +75,9 @@ class LoginForm extends StatelessWidget {
   final ValueNotifier<bool> isObscureText = ValueNotifier(true);
   final ValueNotifier<bool> isRememberInfo = ValueNotifier(false);
   final Function() navigateToForgetPassword;
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -160,6 +165,7 @@ class LoginForm extends StatelessWidget {
             ],
           ),
           TextFormField(
+            controller: usernameController,
             maxLines: 1,
             decoration: InputDecoration(
               suffixIcon: const Icon(Icons.email_outlined),
@@ -189,6 +195,7 @@ class LoginForm extends StatelessWidget {
           ValueListenableBuilder<bool>(
             valueListenable: isObscureText,
             builder: (context, isObscure, child) => TextFormField(
+              controller: passwordController,
               obscureText: isObscure,
               maxLines: 1,
               decoration: InputDecoration(
@@ -265,7 +272,12 @@ class LoginForm extends StatelessWidget {
             alignment: Alignment.center,
             child: ElevatedButton(
               onPressed: () {
-                context.openDashboardPage();
+                // context.openDashboardPage();
+                print("text");
+                context.read<AuthenticationBloc>().add(LoginEvent(
+                      username: 'hoang',
+                      password: '123456',
+                    ));
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(loginFormWidth * 0.7, 50),
