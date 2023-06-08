@@ -25,7 +25,6 @@ class AirportRepositoryImpl extends AirportRepository {
       airport.location,
     );
     final body = airportModel.toJson();
-
     final response = await _airportApi.addNewAirPorts(body: body);
 
     final result = response.data?.toEntity();
@@ -38,7 +37,6 @@ class AirportRepositoryImpl extends AirportRepository {
   @override
   Future<bool> deleteAirport(String id) async {
     final response = await _airportApi.deleteAirport(id);
-
     return response.data;
   }
 
