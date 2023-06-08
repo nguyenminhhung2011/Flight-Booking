@@ -8,8 +8,6 @@ import 'package:flutter/foundation.dart';
 class AppCoreFactory {
   static Dio createDio(
     String baseUrl,
-    // share preferences
-    // app storage
   ) {
     final dio = Dio(
       BaseOptions(

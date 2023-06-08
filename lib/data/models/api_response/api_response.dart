@@ -37,7 +37,7 @@ class ApiResponse<T> extends Equatable {
 
   T _getData() {
     if (0 != code && (message?.isNotEmpty ?? false || _data == null)) {
-      throw AppException(message: message!);
+      throw AppException(message: message);
     }
     return _data as T;
   }

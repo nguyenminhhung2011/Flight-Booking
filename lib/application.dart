@@ -52,9 +52,9 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
         primaryColorDark: '#07AEAF'.toColor(),
         fontFamily: 'Montserrat',
       ),
-      // darkTheme: ThemeData.dark().copyWith(
-      //   primaryColor: '#07AEAF'.toColor(),
-      // ),
+      darkTheme: ThemeData.dark().copyWith(
+        primaryColor: '#07AEAF'.toColor(),
+      ),
       locale: locale,
     );
   }
@@ -72,12 +72,11 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
   }
 
   @override
-  Widget build(BuildContextcontext) {
+  Widget build(BuildContext context) {
     return AdaptiveTheme(
       light: ThemeData.light(),
-      // dark: ThemeData.dark(),
-      // initial: widget.savedThemeMode ?? AdaptiveThemeMode.light,
-      initial: AdaptiveThemeMode.light,
+      dark: ThemeData.dark(),
+      initial: widget.savedThemeMode ?? AdaptiveThemeMode.light,
       builder: (
         ThemeData light,
         ThemeData dark,
