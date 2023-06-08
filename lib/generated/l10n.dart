@@ -3021,6 +3021,136 @@ class S {
       args: [],
     );
   }
+
+  /// `Payment Options`
+  String get paymentOptions {
+    return Intl.message(
+      'Payment Options',
+      name: 'paymentOptions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Make payment within {secs}`
+  String makePaymentWithin(Object secs) {
+    return Intl.message(
+      'Make payment within $secs',
+      name: 'makePaymentWithin',
+      desc: '',
+      args: [secs],
+    );
+  }
+
+  /// `Payment Card`
+  String get paymentCard {
+    return Intl.message(
+      'Payment Card',
+      name: 'paymentCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment number`
+  String get paymentNumber {
+    return Intl.message(
+      'Payment number',
+      name: 'paymentNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fit to come`
+  String get fitToCome {
+    return Intl.message(
+      'Fit to come',
+      name: 'fitToCome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name on card`
+  String get nameOnCard {
+    return Intl.message(
+      'Name on card',
+      name: 'nameOnCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Information`
+  String get paymentInfo {
+    return Intl.message(
+      'Payment Information',
+      name: 'paymentInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offer`
+  String get offer {
+    return Intl.message(
+      'Offer',
+      name: 'offer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment by card`
+  String get paymentByCard {
+    return Intl.message(
+      'Payment by card',
+      name: 'paymentByCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment at airport`
+  String get paymentAtAirport {
+    return Intl.message(
+      'Payment at airport',
+      name: 'paymentAtAirport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Note before payment`
+  String get noteBeforePayment {
+    return Intl.message(
+      'Note before payment',
+      name: 'noteBeforePayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm information`
+  String get confirmInformation {
+    return Intl.message(
+      'Confirm information',
+      name: 'confirmInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Transaction`
+  String get transaction {
+    return Intl.message(
+      'Transaction',
+      name: 'transaction',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

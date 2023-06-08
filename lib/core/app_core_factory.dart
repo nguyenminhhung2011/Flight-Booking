@@ -16,8 +16,6 @@ class AppCoreFactory {
         baseUrl: baseUrl,
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization':
-              'Bearer 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',
         },
       ),
     )..interceptors.add(

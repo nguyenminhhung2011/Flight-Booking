@@ -28,19 +28,21 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(id) => "id ${id}";
 
-  static String m4(name) => "name ${name}";
+  static String m4(secs) => "Make payment within ${secs}";
 
-  static String m5(no) => "${no} Customer";
+  static String m5(name) => "name ${name}";
 
-  static String m6(no) => "${no} Employee";
+  static String m6(no) => "${no} Customer";
 
-  static String m7(id) => "PaymentMethod ${id}";
+  static String m7(no) => "${no} Employee";
 
-  static String m8(number) => "Person (${number})";
+  static String m8(id) => "PaymentMethod ${id}";
 
-  static String m9(id) => "status ${id}";
+  static String m9(number) => "Person (${number})";
 
-  static String m10(email) => "We have sent a verification email to: ${email}";
+  static String m10(id) => "status ${id}";
+
+  static String m11(email) => "We have sent a verification email to: ${email}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -111,6 +113,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "codePayment": MessageLookupByLibrary.simpleMessage("Code Payment"),
         "commingFlights":
             MessageLookupByLibrary.simpleMessage("Comming Flights"),
+        "confirmInformation":
+            MessageLookupByLibrary.simpleMessage("Confirm information"),
         "contactInfo":
             MessageLookupByLibrary.simpleMessage("Contact Information"),
         "contactInformationStatus": MessageLookupByLibrary.simpleMessage(
@@ -200,6 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstClassTicket":
             MessageLookupByLibrary.simpleMessage("First Class Ticket"),
         "firstOfficer": MessageLookupByLibrary.simpleMessage("First Officer"),
+        "fitToCome": MessageLookupByLibrary.simpleMessage("Fit to come"),
         "flight": MessageLookupByLibrary.simpleMessage("Flight"),
         "flightAdmin": MessageLookupByLibrary.simpleMessage("Flight Admin"),
         "flightAttendant":
@@ -258,6 +263,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Login with Google"),
         "luggage": MessageLookupByLibrary.simpleMessage("luggage"),
         "maestroCard": MessageLookupByLibrary.simpleMessage("Maestro Card"),
+        "makePaymentWithin": m4,
         "male": MessageLookupByLibrary.simpleMessage("Male"),
         "maximumBlockTime":
             MessageLookupByLibrary.simpleMessage("Maximum Block Time"),
@@ -276,13 +282,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "myReview": MessageLookupByLibrary.simpleMessage("My review"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
-        "nameData": m4,
+        "nameData": m5,
+        "nameOnCard": MessageLookupByLibrary.simpleMessage("Name on card"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "noCustomer": MessageLookupByLibrary.simpleMessage("No Customer"),
-        "numberCustomer": m5,
-        "numberEmployee": m6,
+        "noteBeforePayment":
+            MessageLookupByLibrary.simpleMessage("Note before payment"),
+        "numberCustomer": m6,
+        "numberEmployee": m7,
         "numberOfAirport":
             MessageLookupByLibrary.simpleMessage("Number Of Airports"),
+        "offer": MessageLookupByLibrary.simpleMessage("Offer"),
         "open": MessageLookupByLibrary.simpleMessage("Open"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "orDrag": MessageLookupByLibrary.simpleMessage(
@@ -297,17 +307,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordSettings":
             MessageLookupByLibrary.simpleMessage("Password Settings"),
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
+        "paymentAtAirport":
+            MessageLookupByLibrary.simpleMessage("Payment at airport"),
+        "paymentByCard":
+            MessageLookupByLibrary.simpleMessage("Payment by card"),
+        "paymentCard": MessageLookupByLibrary.simpleMessage("Payment Card"),
+        "paymentInfo":
+            MessageLookupByLibrary.simpleMessage("Payment Information"),
         "paymentManagement":
             MessageLookupByLibrary.simpleMessage("Payment Management"),
         "paymentMethod": MessageLookupByLibrary.simpleMessage("Payment Method"),
-        "paymentMethodParams": m7,
+        "paymentMethodParams": m8,
         "paymentMethods":
             MessageLookupByLibrary.simpleMessage("Payment Methods"),
+        "paymentNumber": MessageLookupByLibrary.simpleMessage("Payment number"),
+        "paymentOptions":
+            MessageLookupByLibrary.simpleMessage("Payment Options"),
         "paymentStatusStatistic":
             MessageLookupByLibrary.simpleMessage("Payment Status Statistic"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
         "person": MessageLookupByLibrary.simpleMessage("Person"),
-        "personNumber": m8,
+        "personNumber": m9,
         "personalInfo": MessageLookupByLibrary.simpleMessage("Personal Info"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "pickImage": MessageLookupByLibrary.simpleMessage("Pick Image"),
@@ -377,7 +397,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sortByRating": MessageLookupByLibrary.simpleMessage("Sort by rating"),
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
-        "statusParams": m9,
+        "statusParams": m10,
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),
@@ -413,6 +433,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "totalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),
         "totalRevenueToday":
             MessageLookupByLibrary.simpleMessage("Total Revenue Today"),
+        "transaction": MessageLookupByLibrary.simpleMessage("Transaction"),
         "upcoming": MessageLookupByLibrary.simpleMessage("Upcoming"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "updateProfile": MessageLookupByLibrary.simpleMessage("Update Profile"),
@@ -431,7 +452,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "warningsPassenger": MessageLookupByLibrary.simpleMessage(
             "Make sure the passenger name matches the name on the CCCD/ID/Passport/Driver/ License issued by the government.You should avoid mistakes as some airlines allow name changes after booking."),
-        "weHaveSentAVerification": m10,
+        "weHaveSentAVerification": m11,
         "welcomeoFlightAdmin":
             MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
         "writeReviews": MessageLookupByLibrary.simpleMessage("Write reviews"),
