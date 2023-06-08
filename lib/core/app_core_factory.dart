@@ -14,11 +14,7 @@ class AppCoreFactory {
     final dio = Dio(
       BaseOptions(
         baseUrl: baseUrl,
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization':
-              'Bearer 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',
-        },
+        headers: {},
       ),
     )..interceptors.add(
         InterceptorsWrapper(
@@ -26,10 +22,10 @@ class AppCoreFactory {
             handler.next(options);
           },
           onRequest: (options, handler) {
-            if (options.path.contains('http')) {
-              handler.next(options);
-              //do nothing
-            }
+            // if (options.path.contains('http')) {
+            handler.next(options);
+            //do nothing
+            // }
           },
           onError: (error, handler) {
             if (error.response?.statusCode == 401) {

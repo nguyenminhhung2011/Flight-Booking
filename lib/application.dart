@@ -72,7 +72,7 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContextcontext) {
     return AdaptiveTheme(
       light: ThemeData.light(),
       // dark: ThemeData.dark(),

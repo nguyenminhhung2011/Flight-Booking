@@ -9,17 +9,17 @@ class User with _$User {
     required String username,
     required String password,
     required String name,
-    required DateTime birthday,
+    DateTime? birthday,
     required String email,
     required String phone,
   }) = _User;
 
-  static final User empty = User(
+  static const User empty = User(
     id: "id",
     username: "username",
     password: "password",
     name: "name",
-    birthday: DateTime.now(),
+    birthday: null,
     email: "email",
     phone: "phone",
   );

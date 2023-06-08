@@ -1,32 +1,43 @@
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/const/image_const.dart';
+import 'package:flight_booking/presentations/login/bloc/authentication_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
-  Future<void> initData() async {
+  Future<void> checkingAuthentication(BuildContext context) async {
     //Do something
-    await Future.delayed(const Duration(seconds: 5));
+    context.read<AuthenticationBloc>().add(OnStarted());
   }
 
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
-    initData().then((value) {
-      context.openLoginPage();
-    });
-    return Scaffold(
-      backgroundColor: Colors.pink,
-      body: Align(
-        alignment: Alignment.center,
-        child: Container(
-          width: (deviceWidth * 0.4),
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage("assets/images/splash_gif.gif"),
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.high,
+    checkingAuthentication(context);
+    return BlocListener<AuthenticationBloc, AuthenticationState>(
+      listener: (context, authenticateState) {
+        if (authenticateState.status == AuthenticationStatus.authenticated) {
+          context.openDashboardPage();
+        } else if (authenticateState.status ==
+            AuthenticationStatus.unauthenticated) {
+          context.openLoginPage();
+        }
+      },
+      child: Scaffold(
+        backgroundColor: Colors.pink,
+        body: Align(
+          alignment: Alignment.center,
+          child: Container(
+            width: (deviceWidth * 0.4),
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: AssetImage(ImageConst.splashIcon),
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.high,
+              ),
             ),
           ),
         ),

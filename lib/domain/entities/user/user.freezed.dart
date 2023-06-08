@@ -20,7 +20,7 @@ mixin _$User {
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  DateTime get birthday => throw _privateConstructorUsedError;
+  DateTime? get birthday => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
 
@@ -38,7 +38,7 @@ abstract class $UserCopyWith<$Res> {
       String username,
       String password,
       String name,
-      DateTime birthday,
+      DateTime? birthday,
       String email,
       String phone});
 }
@@ -60,7 +60,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? username = null,
     Object? password = null,
     Object? name = null,
-    Object? birthday = null,
+    Object? birthday = freezed,
     Object? email = null,
     Object? phone = null,
   }) {
@@ -81,10 +81,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      birthday: null == birthday
+      birthday: freezed == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -108,7 +108,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String username,
       String password,
       String name,
-      DateTime birthday,
+      DateTime? birthday,
       String email,
       String phone});
 }
@@ -126,7 +126,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? username = null,
     Object? password = null,
     Object? name = null,
-    Object? birthday = null,
+    Object? birthday = freezed,
     Object? email = null,
     Object? phone = null,
   }) {
@@ -147,10 +147,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      birthday: null == birthday
+      birthday: freezed == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -171,7 +171,7 @@ class _$_User implements _User {
       required this.username,
       required this.password,
       required this.name,
-      required this.birthday,
+      this.birthday,
       required this.email,
       required this.phone});
 
@@ -184,7 +184,7 @@ class _$_User implements _User {
   @override
   final String name;
   @override
-  final DateTime birthday;
+  final DateTime? birthday;
   @override
   final String email;
   @override
@@ -229,7 +229,7 @@ abstract class _User implements User {
       required final String username,
       required final String password,
       required final String name,
-      required final DateTime birthday,
+      final DateTime? birthday,
       required final String email,
       required final String phone}) = _$_User;
 
@@ -242,7 +242,7 @@ abstract class _User implements User {
   @override
   String get name;
   @override
-  DateTime get birthday;
+  DateTime? get birthday;
   @override
   String get email;
   @override

@@ -16,4 +16,8 @@ class UserUseCase {
   Future<User?> updateUserInfo(User user) async {
     return await _userRepository.updateUserInfo(user);
   }
+
+  Future<User?> login(String username, String password) async {
+    return await _userRepository.login(username, password);
+  }
 }

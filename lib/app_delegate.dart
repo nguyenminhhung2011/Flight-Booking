@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flight_booking/application.dart';
 import 'package:flight_booking/core/components/configurations/configurations.dart';
+import 'package:flight_booking/core/components/utils/preferences.dart';
 import 'package:flight_booking/presentations/customer/bloc/customer_bloc.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
+import 'package:flight_booking/presentations/login/bloc/authentication_bloc.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/payment_bloc.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flight_booking/presentations_mobile/auth/bloc/auth_bloc.dart';
@@ -36,7 +38,8 @@ class AppDelegate {
         BlocProvider<CustomerBloc>(create: (_) => injector.get()),
         if (!isMobile) ...[
           BlocProvider<DashboardBloc>(create: (_) => injector.get()),
-          BlocProvider<PaymentBloc>(create: (context) => injector()),
+          BlocProvider<PaymentBloc>(create: (_) => injector.get()),
+          BlocProvider<AuthenticationBloc>(create: (_) => injector.get()),
         ],
         if (isMobile) ...[
           BlocProvider<DashboardMobileBloc>(create: (_) => injector.get()),
@@ -45,7 +48,7 @@ class AppDelegate {
           BlocProvider<SaveBloc>(create: (_) => injector.get()),
         ],
       ],
-      initialRoute: isMobile ? RoutesMobile.splash : Routes.dashboard,
+      initialRoute: isMobile ? RoutesMobile.splash : Routes.splash,
       savedThemeMode: savedThemeMode,
       isMobile: isMobile,
     );
@@ -53,6 +56,7 @@ class AppDelegate {
 
   Future<void> run(Map<String, dynamic> environment) async {
     final app = await build(environment);
+    await Preferences.ensureInitedPreferences();
     runZonedGuarded(
       () => {runApp(app)},
       (error, stack) {

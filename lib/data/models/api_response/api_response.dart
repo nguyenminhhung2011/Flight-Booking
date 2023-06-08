@@ -6,19 +6,20 @@ part 'api_response.g.dart';
 
 @JsonSerializable(genericArgumentFactories: true)
 class ApiResponse<T> extends Equatable {
-  final int? code;
-  final String? message;
+  final int code;
+  final String message;
+  final String? link;
+  final bool success;
 
   @JsonKey(name: 'data', includeIfNull: false)
   final T? _data;
 
-  final String? link;
-
   const ApiResponse({
     T? data,
-    this.code,
-    this.message,
+    this.code = 500,
+    this.message = "",
     this.link,
+    this.success = false,
   }) : _data = data;
 
   Map<String, dynamic> toJson(Object Function(T value) toJsonT) =>
