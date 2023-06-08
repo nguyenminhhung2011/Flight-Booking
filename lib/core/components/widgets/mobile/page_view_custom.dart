@@ -57,6 +57,12 @@ class _PageViewCustomState extends State<PageViewCustom> {
   }
 
   @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<int>(
       valueListenable: _tabIndex,
