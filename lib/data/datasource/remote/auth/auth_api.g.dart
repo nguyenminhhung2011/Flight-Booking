@@ -12,41 +12,36 @@ class _AuthApi implements AuthApi {
   _AuthApi(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'http://localhost:8080/api/v1/';
-  }
+  });
 
   final Dio _dio;
 
   String? baseUrl;
 
   @override
-  Future<ApiResponse<UserModel?>> login({required body}) async {
+  Future<HttpResponse<UserModel?>> login({required body}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body);
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<UserModel>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
+        _setStreamType<HttpResponse<UserModel>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'account/login',
+              '/api/v1/account/login',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ApiResponse<UserModel?>.fromJson(
-      _result.data!,
-      (json) => json == null
-          ? null
-          : UserModel.fromJson(json as Map<String, dynamic>),
-    );
-    return value;
+    final value =
+        _result.data == null ? null : UserModel.fromJson(_result.data!);
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
