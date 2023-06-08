@@ -3,6 +3,7 @@ import 'package:flight_booking/presentations/login/bloc/authentication_bloc.dart
 import 'package:flight_booking/presentations/login/views/widgets/forget_password_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../core/components/utils/bencrypt_utils.dart';
 import '../../../core/components/widgets/custom_dialog_error/error_dialog.dart';
 import '../../../core/config/common_ui_config.dart';
 import '../../../generated/l10n.dart';
@@ -114,14 +115,14 @@ class LoginForm extends StatelessWidget {
                 fixedSize: Size(loginFormWidth * 0.7, 50),
                 side: const BorderSide(color: Colors.blueGrey, width: 0.4),
               ),
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => ErrorDialog(
-                    question: S.of(context).warning,
-                    title1: S.of(context).theServiceHaveNotFinished,
-                  ),
-                );
+              onPressed: () async {
+                // showDialog(
+                //   context: context,
+                //   builder: (context) => ErrorDialog(
+                //     question: S.of(context).warning,
+                //     title1: S.of(context).theServiceHaveNotFinished,
+                //   ),
+                // );
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -275,9 +276,8 @@ class LoginForm extends StatelessWidget {
                 // context.openDashboardPage();
                 print("text");
                 context.read<AuthenticationBloc>().add(LoginEvent(
-                      username: 'hoang',
-                      password: '123456',
-                    ));
+                    username: usernameController.text,
+                    password: passwordController.text));
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(loginFormWidth * 0.7, 50),
