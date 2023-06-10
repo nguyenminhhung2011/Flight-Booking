@@ -4,7 +4,7 @@ part 'airport.freezed.dart';
 @freezed
 class Airport with _$Airport {
   const factory Airport({
-    required String id,
+    required int id,
     required String name,
     required String image,
     required String location,

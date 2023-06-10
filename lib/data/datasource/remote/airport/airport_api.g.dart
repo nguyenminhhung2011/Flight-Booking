@@ -32,7 +32,7 @@ class _AirportApi implements AirportApi {
     )
             .compose(
               _dio.options,
-              'airport/fetch',
+              '/api/v1/airport/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -64,7 +64,7 @@ class _AirportApi implements AirportApi {
     )
             .compose(
               _dio.options,
-              'airport/add',
+              '/airport/add',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -92,7 +92,7 @@ class _AirportApi implements AirportApi {
     )
             .compose(
               _dio.options,
-              'airport/delete/${id}',
+              '/airport/delete/${id}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -119,7 +119,7 @@ class _AirportApi implements AirportApi {
     )
             .compose(
               _dio.options,
-              'airport/edit',
+              '/airport/edit',
               queryParameters: queryParameters,
               data: _data,
             )

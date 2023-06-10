@@ -7,10 +7,10 @@ import 'package:retrofit/retrofit.dart';
 part 'airport_api.g.dart';
 
 class AirportEndPoint {
-  static const fetchAirportUrl = "airport/fetch";
-  static const editAirportUrl = "airport/edit";
-  static const deleteAirportUrl = "airport/delete";
-  static const addAirportUrl = "airport/add";
+  static const fetchAirportUrl = "/api/v1/airport/";
+  static const editAirportUrl = "/airport/edit";
+  static const deleteAirportUrl = "/airport/delete";
+  static const addAirportUrl = "/airport/add";
 }
 
 @RestApi()
