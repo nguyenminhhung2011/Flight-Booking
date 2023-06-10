@@ -312,5 +312,9 @@
     "paymentAtAirport": "Payment at airport",
     "noteBeforePayment": "Note before payment",
     "confirmInformation": "Confirm information",
-    "transaction": "Transaction"
+    "transaction": "Transaction",
+    "provinces": "Provinces",
+    "districts": "Districts",
+    "wards": "Wards"
+
 }

@@ -12,6 +12,8 @@ import 'package:injectable/injectable.dart';
 import '../../../core/constant/constant.dart';
 import '../../../core/services/cloundinary_service.dart';
 import '../../../core/services/image_pic_service.dart';
+import '../../../core/services/place/place_service.dart';
+import '../../../data/models/place/place_model.dart';
 import '../../../generated/l10n.dart';
 import 'add_edit_airport_model_state.dart';
 
@@ -30,6 +32,7 @@ class AddEditAirportBloc
   final AirportUsecase _airportsUsecase;
   final CloundinaryService _cloundinaryService;
   final ImagePicService _imagePicSercice;
+  final PlaceService _placeService;
 
   AddEditAirportModelState get data => state.data;
 
@@ -38,6 +41,7 @@ class AddEditAirportBloc
     this._airportsUsecase,
     this._cloundinaryService,
     this._imagePicSercice,
+    this._placeService,
   )   : _airportId = airportId,
         super(
           AddEditAirportState.initial(
@@ -46,6 +50,12 @@ class AddEditAirportBloc
               name: TextEditingController(),
               headerText: S.current.editAirport,
               images: [],
+              districts: <PlaceModel>[],
+              provinces: <PlaceModel>[],
+              wards: <PlaceModel>[],
+              provincesSelected: 0,
+              districtsSelected: 0,
+              wardsSelected: 0,
             ),
           ),
         ) {
@@ -55,6 +65,9 @@ class AddEditAirportBloc
     on<_AddNewAirport>(_onAddNewAirport);
     on<_PickImage>(_onPickImage);
     on<_RemoveImage>(_onRemoveImage);
+    on<_FetchPlace>(_onFetchPlace);
+    on<_FetchDistricts>(_onFetchDistricts);
+    on<_FetchWards>(_onFetchWards);
   }
 
   FutureOr<void> _onPickImage(
@@ -119,7 +132,7 @@ class AddEditAirportBloc
     _EditAirport event,
     Emitter<AddEditAirportState> emit,
   ) async {
-    emit(AddEditAirportState.loading(data: state.data));
+    emit(AddEditAirportState.loading(data: state.data, groupLoading: 0));
     try {
       final newAirport = Airport(
         id: event.id,
@@ -143,11 +156,94 @@ class AddEditAirportBloc
     }
   }
 
+  FutureOr<void> _onFetchPlace(
+    _FetchPlace event,
+    Emitter<AddEditAirportState> emit,
+  ) async {
+    emit(AddEditAirportState.loading(data: data, groupLoading: 2));
+    try {
+      final provinces = await _placeService.getProvinces();
+      if (provinces.isEmpty) {
+        emit(AddEditAirportState.fetchPlaceFailed(
+          data: data,
+          message: 'Can\'t get provinces',
+        ));
+        return;
+      }
+      emit(AddEditAirportState.fetchPlaceSuccess(
+          data: data.copyWith(
+        provinces: provinces,
+        provincesSelected: 0,
+      )));
+      return;
+    } catch (e) {
+      emit(
+        AddEditAirportState.fetchPlaceFailed(data: data, message: e.toString()),
+      );
+    }
+  }
+
+  FutureOr<void> _onFetchDistricts(
+    _FetchDistricts event,
+    Emitter<AddEditAirportState> emit,
+  ) async {
+    emit(AddEditAirportState.loading(data: data, groupLoading: 3));
+    try {
+      final districts = await _placeService.getDistricts(event.code);
+      if (districts.isEmpty) {
+        emit(AddEditAirportState.fetchDistrictsFailed(
+          data: data,
+          message: 'Can\'t get districts',
+        ));
+        return;
+      }
+      emit(AddEditAirportState.fetchDistrictsSuccess(
+          data: data.copyWith(
+        districts: districts,
+        districtsSelected: 0,
+      )));
+      return;
+    } catch (e) {
+      emit(AddEditAirportState.fetchDistrictsFailed(
+        data: data,
+        message: e.toString(),
+      ));
+    }
+  }
+
+  FutureOr<void> _onFetchWards(
+    _FetchWards event,
+    Emitter<AddEditAirportState> emit,
+  ) async {
+    emit(AddEditAirportState.loading(data: data, groupLoading: 4));
+    try {
+      final wards = await _placeService.getWards(event.code);
+      if (wards.isEmpty) {
+        emit(AddEditAirportState.fetchWardsFailed(
+          data: data,
+          message: 'Can\'t get wards',
+        ));
+        return;
+      }
+      emit(AddEditAirportState.fetchWardsSuccess(
+          data: data.copyWith(
+        wards: wards,
+        wardsSelected: 0,
+      )));
+      return;
+    } catch (e) {
+      emit(AddEditAirportState.addNewAirportFailed(
+        data: data,
+        message: e.toString(),
+      ));
+    }
+  }
+
   FutureOr<void> _onAddNewAirport(
     _AddNewAirport event,
     Emitter<AddEditAirportState> emit,
   ) async {
-    emit(AddEditAirportState.loading(data: state.data));
+    emit(AddEditAirportState.loading(data: state.data, groupLoading: 1));
     try {
       String id = randomString();
       final newAirport = Airport(

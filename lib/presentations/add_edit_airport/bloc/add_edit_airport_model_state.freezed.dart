@@ -20,6 +20,12 @@ mixin _$AddEditAirportModelState {
   TextEditingController get location => throw _privateConstructorUsedError;
   String get headerText => throw _privateConstructorUsedError;
   List<Uint8List> get images => throw _privateConstructorUsedError;
+  List<PlaceModel> get provinces => throw _privateConstructorUsedError;
+  List<PlaceModel> get districts => throw _privateConstructorUsedError;
+  List<PlaceModel> get wards => throw _privateConstructorUsedError;
+  int get provincesSelected => throw _privateConstructorUsedError;
+  int get districtsSelected => throw _privateConstructorUsedError;
+  int get wardsSelected => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddEditAirportModelStateCopyWith<AddEditAirportModelState> get copyWith =>
@@ -36,7 +42,13 @@ abstract class $AddEditAirportModelStateCopyWith<$Res> {
       {TextEditingController name,
       TextEditingController location,
       String headerText,
-      List<Uint8List> images});
+      List<Uint8List> images,
+      List<PlaceModel> provinces,
+      List<PlaceModel> districts,
+      List<PlaceModel> wards,
+      int provincesSelected,
+      int districtsSelected,
+      int wardsSelected});
 }
 
 /// @nodoc
@@ -57,6 +69,12 @@ class _$AddEditAirportModelStateCopyWithImpl<$Res,
     Object? location = null,
     Object? headerText = null,
     Object? images = null,
+    Object? provinces = null,
+    Object? districts = null,
+    Object? wards = null,
+    Object? provincesSelected = null,
+    Object? districtsSelected = null,
+    Object? wardsSelected = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -75,6 +93,30 @@ class _$AddEditAirportModelStateCopyWithImpl<$Res,
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<Uint8List>,
+      provinces: null == provinces
+          ? _value.provinces
+          : provinces // ignore: cast_nullable_to_non_nullable
+              as List<PlaceModel>,
+      districts: null == districts
+          ? _value.districts
+          : districts // ignore: cast_nullable_to_non_nullable
+              as List<PlaceModel>,
+      wards: null == wards
+          ? _value.wards
+          : wards // ignore: cast_nullable_to_non_nullable
+              as List<PlaceModel>,
+      provincesSelected: null == provincesSelected
+          ? _value.provincesSelected
+          : provincesSelected // ignore: cast_nullable_to_non_nullable
+              as int,
+      districtsSelected: null == districtsSelected
+          ? _value.districtsSelected
+          : districtsSelected // ignore: cast_nullable_to_non_nullable
+              as int,
+      wardsSelected: null == wardsSelected
+          ? _value.wardsSelected
+          : wardsSelected // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -92,7 +134,13 @@ abstract class _$$_AddEditAirportModelStateCopyWith<$Res>
       {TextEditingController name,
       TextEditingController location,
       String headerText,
-      List<Uint8List> images});
+      List<Uint8List> images,
+      List<PlaceModel> provinces,
+      List<PlaceModel> districts,
+      List<PlaceModel> wards,
+      int provincesSelected,
+      int districtsSelected,
+      int wardsSelected});
 }
 
 /// @nodoc
@@ -111,6 +159,12 @@ class __$$_AddEditAirportModelStateCopyWithImpl<$Res>
     Object? location = null,
     Object? headerText = null,
     Object? images = null,
+    Object? provinces = null,
+    Object? districts = null,
+    Object? wards = null,
+    Object? provincesSelected = null,
+    Object? districtsSelected = null,
+    Object? wardsSelected = null,
   }) {
     return _then(_$_AddEditAirportModelState(
       name: null == name
@@ -129,6 +183,30 @@ class __$$_AddEditAirportModelStateCopyWithImpl<$Res>
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
               as List<Uint8List>,
+      provinces: null == provinces
+          ? _value._provinces
+          : provinces // ignore: cast_nullable_to_non_nullable
+              as List<PlaceModel>,
+      districts: null == districts
+          ? _value._districts
+          : districts // ignore: cast_nullable_to_non_nullable
+              as List<PlaceModel>,
+      wards: null == wards
+          ? _value._wards
+          : wards // ignore: cast_nullable_to_non_nullable
+              as List<PlaceModel>,
+      provincesSelected: null == provincesSelected
+          ? _value.provincesSelected
+          : provincesSelected // ignore: cast_nullable_to_non_nullable
+              as int,
+      districtsSelected: null == districtsSelected
+          ? _value.districtsSelected
+          : districtsSelected // ignore: cast_nullable_to_non_nullable
+              as int,
+      wardsSelected: null == wardsSelected
+          ? _value.wardsSelected
+          : wardsSelected // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -140,8 +218,17 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
       {required this.name,
       required this.location,
       required this.headerText,
-      required final List<Uint8List> images})
-      : _images = images;
+      required final List<Uint8List> images,
+      required final List<PlaceModel> provinces,
+      required final List<PlaceModel> districts,
+      required final List<PlaceModel> wards,
+      required this.provincesSelected,
+      required this.districtsSelected,
+      required this.wardsSelected})
+      : _images = images,
+        _provinces = provinces,
+        _districts = districts,
+        _wards = wards;
 
   @override
   final TextEditingController name;
@@ -157,9 +244,40 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
     return EqualUnmodifiableListView(_images);
   }
 
+  final List<PlaceModel> _provinces;
+  @override
+  List<PlaceModel> get provinces {
+    if (_provinces is EqualUnmodifiableListView) return _provinces;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_provinces);
+  }
+
+  final List<PlaceModel> _districts;
+  @override
+  List<PlaceModel> get districts {
+    if (_districts is EqualUnmodifiableListView) return _districts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_districts);
+  }
+
+  final List<PlaceModel> _wards;
+  @override
+  List<PlaceModel> get wards {
+    if (_wards is EqualUnmodifiableListView) return _wards;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_wards);
+  }
+
+  @override
+  final int provincesSelected;
+  @override
+  final int districtsSelected;
+  @override
+  final int wardsSelected;
+
   @override
   String toString() {
-    return 'AddEditAirportModelState(name: $name, location: $location, headerText: $headerText, images: $images)';
+    return 'AddEditAirportModelState(name: $name, location: $location, headerText: $headerText, images: $images, provinces: $provinces, districts: $districts, wards: $wards, provincesSelected: $provincesSelected, districtsSelected: $districtsSelected, wardsSelected: $wardsSelected)';
   }
 
   @override
@@ -172,12 +290,33 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
                 other.location == location) &&
             (identical(other.headerText, headerText) ||
                 other.headerText == headerText) &&
-            const DeepCollectionEquality().equals(other._images, _images));
+            const DeepCollectionEquality().equals(other._images, _images) &&
+            const DeepCollectionEquality()
+                .equals(other._provinces, _provinces) &&
+            const DeepCollectionEquality()
+                .equals(other._districts, _districts) &&
+            const DeepCollectionEquality().equals(other._wards, _wards) &&
+            (identical(other.provincesSelected, provincesSelected) ||
+                other.provincesSelected == provincesSelected) &&
+            (identical(other.districtsSelected, districtsSelected) ||
+                other.districtsSelected == districtsSelected) &&
+            (identical(other.wardsSelected, wardsSelected) ||
+                other.wardsSelected == wardsSelected));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, location, headerText,
-      const DeepCollectionEquality().hash(_images));
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      location,
+      headerText,
+      const DeepCollectionEquality().hash(_images),
+      const DeepCollectionEquality().hash(_provinces),
+      const DeepCollectionEquality().hash(_districts),
+      const DeepCollectionEquality().hash(_wards),
+      provincesSelected,
+      districtsSelected,
+      wardsSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -192,7 +331,13 @@ abstract class _AddEditAirportModelState implements AddEditAirportModelState {
       {required final TextEditingController name,
       required final TextEditingController location,
       required final String headerText,
-      required final List<Uint8List> images}) = _$_AddEditAirportModelState;
+      required final List<Uint8List> images,
+      required final List<PlaceModel> provinces,
+      required final List<PlaceModel> districts,
+      required final List<PlaceModel> wards,
+      required final int provincesSelected,
+      required final int districtsSelected,
+      required final int wardsSelected}) = _$_AddEditAirportModelState;
 
   @override
   TextEditingController get name;
@@ -202,6 +347,18 @@ abstract class _AddEditAirportModelState implements AddEditAirportModelState {
   String get headerText;
   @override
   List<Uint8List> get images;
+  @override
+  List<PlaceModel> get provinces;
+  @override
+  List<PlaceModel> get districts;
+  @override
+  List<PlaceModel> get wards;
+  @override
+  int get provincesSelected;
+  @override
+  int get districtsSelected;
+  @override
+  int get wardsSelected;
   @override
   @JsonKey(ignore: true)
   _$$_AddEditAirportModelStateCopyWith<_$_AddEditAirportModelState>

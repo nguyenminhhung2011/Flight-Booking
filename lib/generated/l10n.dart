@@ -3151,6 +3151,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Provinces`
+  String get provinces {
+    return Intl.message(
+      'Provinces',
+      name: 'provinces',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Districts`
+  String get districts {
+    return Intl.message(
+      'Districts',
+      name: 'districts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wards`
+  String get wards {
+    return Intl.message(
+      'Wards',
+      name: 'wards',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

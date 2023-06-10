@@ -30,7 +30,7 @@ class DropdownButtonCustom<T> extends StatelessWidget {
       padding: padding ?? const EdgeInsets.symmetric(horizontal: 10.0),
       decoration: BoxDecoration(
         color: color ?? Colors.transparent,
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(radius ?? 15.0),
         border: Border.all(
           width: 1,
           color: borderColor ?? Theme.of(context).dividerColor,

@@ -28,9 +28,6 @@ class AirportRepositoryImpl extends AirportRepository {
     final response = await _airportApi.addNewAirPorts(body: body);
 
     final result = response.data?.toEntity();
-    if (result == null) {
-      return null;
-    }
     return result;
   }
 
@@ -53,9 +50,6 @@ class AirportRepositoryImpl extends AirportRepository {
     final response = await _airportApi.editAirport(body: body);
 
     final result = response.data?.toEntity();
-    if (result == null) {
-      return null;
-    }
     return result;
   }
 }
