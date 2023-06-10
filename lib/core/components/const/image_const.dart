@@ -19,6 +19,10 @@ class ImageConst {
   //splash
   static const String splashIcon = "assets/images/splash_gif.gif";
 
+  //login background
+  static const String loginBackground = "images/vecteezy_airplane.jpg";
+  static const String loginBackgroundDark = "images/login_background_dark.jpg";
+
   //icons
   static const String homeIcon = 'assets/icons/Home.svg';
   static const String personIcon = 'assets/icons/Profile.svg';
@@ -35,6 +39,7 @@ class ImageConst {
   static const String totalPassenger = 'icons/total_passenger.png';
   static const String planeIcons = "icons/plane.png";
 
+  static const String googleIconLogin = 'assets/icons/google.jpg';
   //onboard
   static const String onboard1 = 'assets/images/onboard1.png';
   static const String onboard2 = 'assets/images/onboard2.png';

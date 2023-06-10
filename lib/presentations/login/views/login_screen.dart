@@ -1,10 +1,8 @@
-import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/presentations/login/bloc/authentication_bloc.dart';
 import 'package:flight_booking/presentations/login/views/widgets/forget_password_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../core/components/utils/bencrypt_utils.dart';
-import '../../../core/components/widgets/custom_dialog_error/error_dialog.dart';
 import '../../../core/config/common_ui_config.dart';
 import '../../../generated/l10n.dart';
 
@@ -15,24 +13,35 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final loginFormWidth = MediaQuery.of(context).size.width * 0.4;
-    final loginFormHeight = MediaQuery.of(context).size.height * 0.55;
+    // final loginFormWidth = MediaQuery.of(context).size.width * 0.4;
+    // final loginFormHeight = MediaQuery.of(context).size.height * 0.55;
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.25,
+          vertical: MediaQuery.of(context).size.height * 0.15,
+        ),
         alignment: Alignment.center,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage("images/vecteezy_airplane.jpg"),
+            image: AssetImage(
+              Theme.of(context).brightness == Brightness.light
+                  ? ImageConst.loginBackground
+                  : ImageConst.loginBackgroundDark,
+            ),
           ),
         ),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-          width: loginFormWidth,
-          height: loginFormHeight,
+          padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.05,
+            vertical: MediaQuery.of(context).size.height * 0.05,
+          ),
+          // width: loginFormWidth,
+          // height: loginFormHeight,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).scaffoldBackgroundColor,
             borderRadius: BorderRadius.circular(15),
           ),
           child: PageView(
@@ -40,7 +49,7 @@ class LoginScreen extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             children: [
               LoginForm(
-                loginFormWidth: loginFormWidth,
+                // loginFormWidth: loginFormWidth,
                 navigateToForgetPassword: () async {
                   await pageController.nextPage(
                     duration: const Duration(milliseconds: 200),
@@ -67,11 +76,11 @@ class LoginScreen extends StatelessWidget {
 class LoginForm extends StatelessWidget {
   LoginForm({
     super.key,
-    required this.loginFormWidth,
+    // required this.loginFormWidth,
     required this.navigateToForgetPassword,
   });
 
-  final double loginFormWidth;
+  // final double loginFormWidth;
   final ValueNotifier<bool> isLoading = ValueNotifier(false);
   final ValueNotifier<bool> isObscureText = ValueNotifier(true);
   final ValueNotifier<bool> isRememberInfo = ValueNotifier(false);
@@ -89,46 +98,31 @@ class LoginForm extends StatelessWidget {
         children: [
           Text(
             S.of(context).logIn,
-            style: const TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           Text(
             S.of(context).pleaseLogin,
-            style: const TextStyle(
-              color: Colors.black87,
-              fontSize: 17,
-            ),
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           Align(
             alignment: Alignment.center,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 15),
                 elevation: 5,
                 shape: RoundedRectangleBorder(
                   borderRadius: CommonAppUIConfig.primaryRadiusBorder,
                 ),
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.blue,
-                fixedSize: Size(loginFormWidth * 0.7, 50),
+                foregroundColor: Theme.of(context).hintColor,
+                backgroundColor: Theme.of(context).primaryColor,
                 side: const BorderSide(color: Colors.blueGrey, width: 0.4),
               ),
-              onPressed: () async {
-                // showDialog(
-                //   context: context,
-                //   builder: (context) => ErrorDialog(
-                //     question: S.of(context).warning,
-                //     title1: S.of(context).theServiceHaveNotFinished,
-                //   ),
-                // );
-              },
+              onPressed: () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Image(
-                    image: AssetImage('assets/icons/google.jpg'),
+                  Image(
+                    image: AssetImage(ImageConst.googleIconLogin),
                     fit: BoxFit.cover,
                     filterQuality: FilterQuality.high,
                     height: 30,
@@ -137,10 +131,7 @@ class LoginForm extends StatelessWidget {
                   const SizedBox(width: 10),
                   Text(
                     S.of(context).loginWithGoogle,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   )
                 ],
               ),
@@ -171,18 +162,17 @@ class LoginForm extends StatelessWidget {
             decoration: InputDecoration(
               suffixIcon: const Icon(Icons.email_outlined),
               hintText: S.of(context).enterYourEmail,
-              hintStyle: const TextStyle(
-                  fontSize: 12.5,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.grey),
+              hintStyle: Theme.of(context)
+                  .textTheme
+                  .bodyLarge
+                  ?.copyWith(color: Theme.of(context).hintColor),
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               labelText: S.of(context).email,
-              labelStyle: const TextStyle(
-                color: Colors.grey,
-                fontSize: 12.5,
-                fontWeight: FontWeight.w500,
-              ),
+              labelStyle: Theme.of(context)
+                  .textTheme
+                  .bodyLarge
+                  ?.copyWith(color: Theme.of(context).hintColor),
               enabledBorder: OutlineInputBorder(
                 borderRadius: CommonAppUIConfig.primaryRadiusBorder,
                 borderSide: const BorderSide(color: Colors.grey),
@@ -211,16 +201,15 @@ class LoginForm extends StatelessWidget {
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 hintText: S.of(context).enterYourEmail,
-                hintStyle: const TextStyle(
-                    fontSize: 12.5,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey),
+                hintStyle: Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.copyWith(color: Theme.of(context).hintColor),
                 labelText: S.of(context).password,
-                labelStyle: const TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12.5,
-                  fontWeight: FontWeight.w500,
-                ),
+                labelStyle: Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.copyWith(color: Theme.of(context).hintColor),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: CommonAppUIConfig.primaryRadiusBorder,
                   borderSide: const BorderSide(color: Colors.grey),
@@ -256,31 +245,29 @@ class LoginForm extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              TextButton(
-                onPressed: navigateToForgetPassword,
-                child: Text(
-                  S.of(context).forgotPassword,
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              )
             ],
+          ),
+          TextButton(
+            onPressed: navigateToForgetPassword,
+            child: Text(
+              S.of(context).forgotPassword,
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ),
           Align(
             alignment: Alignment.center,
             child: ElevatedButton(
               onPressed: () {
-                // context.openDashboardPage();
-                print("text");
                 context.read<AuthenticationBloc>().add(LoginEvent(
                     username: usernameController.text,
                     password: passwordController.text));
               },
               style: ElevatedButton.styleFrom(
-                minimumSize: Size(loginFormWidth * 0.7, 50),
+                minimumSize: const Size.fromHeight(50),
                 backgroundColor: Theme.of(context).primaryColor,
                 elevation: 5,
                 shape: RoundedRectangleBorder(
@@ -306,23 +293,19 @@ class LoginForm extends StatelessWidget {
               ),
             ),
           ),
-          Row(
+          Wrap(
+            runSpacing: 5,
             children: [
               Text(
                 S.of(context).donHaveAnAccount,
-                style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black),
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
-              Expanded(
-                child: Text(
-                  S.of(context).pleaseContact,
-                  style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
-                ),
+              Text(
+                S.of(context).pleaseContact,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
             ],
           ),

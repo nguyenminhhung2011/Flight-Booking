@@ -78,7 +78,6 @@ dependencies:
   fl_chart: ^0.62.0
   calendar_timeline: ^1.1.2
   # badges: ^3.0.3
-
   # dotted_decoration: ^2.0.0
   # ticket_widget: ^0.0.1
   # auto_size_text: ^3.0.0

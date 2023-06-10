@@ -34,6 +34,7 @@ class AuthenticationBloc
   FutureOr<void> _onLoginEvent(
       LoginEvent event, Emitter<AuthenticationState> emit) async {
     final user = await _userUseCase.login(event.username, event.password);
+
     if (user != null) {
       return emit(AuthenticationState.authenticated(user: user));
     }
