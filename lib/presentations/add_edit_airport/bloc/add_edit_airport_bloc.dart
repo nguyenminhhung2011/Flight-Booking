@@ -68,6 +68,7 @@ class AddEditAirportBloc
     on<_FetchPlace>(_onFetchPlace);
     on<_FetchDistricts>(_onFetchDistricts);
     on<_FetchWards>(_onFetchWards);
+    on<_SelectedWard>(_onSelectedWard);
   }
 
   FutureOr<void> _onPickImage(
@@ -201,6 +202,7 @@ class AddEditAirportBloc
           data: data.copyWith(
         districts: districts,
         districtsSelected: 0,
+        provincesSelected: event.provincesIndex,
       )));
       return;
     } catch (e) {
@@ -221,7 +223,7 @@ class AddEditAirportBloc
       if (wards.isEmpty) {
         emit(AddEditAirportState.fetchWardsFailed(
           data: data,
-          message: 'Can\'t get wards',
+          message: 'Can\'t g  et wards',
         ));
         return;
       }
@@ -229,6 +231,7 @@ class AddEditAirportBloc
           data: data.copyWith(
         wards: wards,
         wardsSelected: 0,
+        districtsSelected: event.districtsIndex,
       )));
       return;
     } catch (e) {
@@ -237,6 +240,17 @@ class AddEditAirportBloc
         message: e.toString(),
       ));
     }
+  }
+
+  FutureOr<void> _onSelectedWard(
+    _SelectedWard event,
+    Emitter<AddEditAirportState> emit,
+  ) {
+    emit(state.copyWith(
+      data: data.copyWith(
+        wardsSelected: 0,
+      ),
+    ));
   }
 
   FutureOr<void> _onAddNewAirport(
