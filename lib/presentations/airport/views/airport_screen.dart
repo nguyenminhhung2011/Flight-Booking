@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/widgets/flux_table/flux_table_row.dart';
 import '../../../core/components/widgets/flux_table/flux_ticket_table.dart';
+import '../../../core/components/widgets/mobile/button_custom.dart';
 import '../../../core/config/color_config.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/airport_bloc.dart';
@@ -44,11 +45,6 @@ class _AirportScreenState extends State<AirportScreen> {
     return BlocConsumer<AirportBloc, AirportState>(
       listener: _listenStateChange,
       builder: (context, state) {
-        // if (state.isWaitCircularLoading) {
-        //   return const Center(
-        //     child: CircularProgressIndicator(color: Theme.of(context).primaryColor),
-        //   );
-        // }
         return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Row(
@@ -105,9 +101,12 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                       ),
                   maxLines: 1,
                 ),
-                ElevatedButton(
-                  onPressed: () => openAddEditFlightDialog(''),
+                ButtonCustom(
+                  width: 150,
+                  height: 35,
+                  radius: 5,
                   child: Text(S.of(context).addNewAirport),
+                  onPress: () => openAddEditFlightDialog(''),
                 )
               ],
             ),

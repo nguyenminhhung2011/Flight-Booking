@@ -155,6 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "detial": MessageLookupByLibrary.simpleMessage("Detail"),
         "direct": MessageLookupByLibrary.simpleMessage("Direct"),
         "directFlight": MessageLookupByLibrary.simpleMessage("Direct Flight "),
+        "districts": MessageLookupByLibrary.simpleMessage("Districts"),
         "donHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account ?"),
         "driver": MessageLookupByLibrary.simpleMessage("Driver"),
@@ -348,6 +349,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "priceSummary": MessageLookupByLibrary.simpleMessage("Price Summary"),
         "principleSetting":
             MessageLookupByLibrary.simpleMessage("Principle Setting"),
+        "provinces": MessageLookupByLibrary.simpleMessage("Provinces"),
         "rateYourStay": MessageLookupByLibrary.simpleMessage("Rate your stay"),
         "rePassword": MessageLookupByLibrary.simpleMessage("RePassword"),
         "recomendAirport":
@@ -449,6 +451,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "visited10Of100Countries":
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
+        "wards": MessageLookupByLibrary.simpleMessage("Wards"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "warningsPassenger": MessageLookupByLibrary.simpleMessage(
             "Make sure the passenger name matches the name on the CCCD/ID/Passport/Driver/ License issued by the government.You should avoid mistakes as some airlines allow name changes after booking."),

@@ -166,6 +166,10 @@ extension AppCoordinator<T> on BuildContext {
     return Navigator.of(this).pushNamed(route);
   }
 
+  Future<T?> pushAndRemoveAll(String route) {
+    return Navigator.of(this).pushNamedAndRemoveUntil(route, (route) => false);
+  }
+
   Future<T?> openPageWithRouteAndParams(String route, dynamic param) {
     return Navigator.of(this).pushNamed(route, arguments: param);
   }

@@ -1,4 +1,9 @@
+import 'dart:developer';
+
+import 'package:collection/collection.dart';
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/widgets/mobile/dropdown_button_custom.dart';
+import 'package:flight_booking/data/models/place/place_model.dart';
 import 'package:flight_booking/presentations/add_edit_airport/views/widgets/item_add_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
@@ -23,6 +28,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
   void initState() {
     super.initState();
     _bloc.add(const AddEditAirportEvent.onStarted());
+    _bloc.add(const AddEditAirportEvent.fetchPlace());
   }
 
   void pickImage() {
@@ -33,22 +39,71 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
     _bloc.add(AddEditAirportEvent.removeImage(index));
   }
 
-  void _listenStateChange(_, AddEditAirportState state) {
-    state.whenOrNull(addNewAirportSuccess: (data, flight) {
-      context.popArgs(flight);
-    }, editAirportSuccess: (data, flight) {
-      context.popArgs(flight);
-    });
+  void _onSelectedProvinces(int code) {
+    _bloc.add(AddEditAirportEvent.fetchDistricts(code));
   }
+
+  void _onSelectedDistricts(int code) {
+    _bloc.add(AddEditAirportEvent.fetchWards(code));
+  }
+
+  void _listenStateChange(_, AddEditAirportState state) {
+    state.whenOrNull(
+        addNewAirportSuccess: (data, flight) {
+          context.popArgs(flight);
+        },
+        editAirportSuccess: (data, flight) {
+          context.popArgs(flight);
+        },
+        fetchPlaceSuccess: (data) {
+          if (data.provinces.isNotEmpty) {
+            _bloc.add(
+                AddEditAirportEvent.fetchDistricts(data.provinces[0].code));
+          }
+        },
+        fetchDistrictsSuccess: (data) {
+          if (data.districts.isNotEmpty) {
+            _bloc.add(AddEditAirportEvent.fetchWards(data.districts[0].code));
+          }
+        },
+        fetchWardsSuccess: (data) {},
+        fetchPlaceFailed: (data, error) {
+          log(error);
+        },
+        fetchDistrictsFailed: (data, error) {
+          log(error);
+        },
+        fetchWardsFailed: (data, error) {
+          log(error);
+        });
+  }
+
+  bool get loadingProvinces => _bloc.state
+      .maybeWhen(orElse: () => false, loading: (data, type) => type == 2);
+  bool get loadingWards => _bloc.state
+      .maybeWhen(orElse: () => false, loading: (data, type) => type == 4);
+
+  bool get loadingDistricts => _bloc.state
+      .maybeWhen(orElse: () => false, loading: (data, type) => type == 3);
 
   @override
   Widget build(BuildContext context) {
     final widthDevice = MediaQuery.of(context).size.width;
+    final headerText = Theme.of(context).textTheme.titleMedium!.copyWith(
+          fontWeight: FontWeight.bold,
+        );
     return BlocConsumer<AddEditAirportBloc, AddEditAirportState>(
       listener: _listenStateChange,
       builder: (context, state) {
         final data = state.data;
         final images = data.images;
+        final provinces = state.data.provinces;
+        final districts = state.data.districts;
+        final wards = state.data.wards;
+        final provincesSelected = state.data.provincesSelected;
+        final districtsSelected = state.data.districtsSelected;
+        final wardsSelected = state.data.wardsSelected;
+
         return Container(
           width: Breakpoints.small.isActive(context)
               ? double.infinity
@@ -62,12 +117,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                data.headerText,
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
+              Text(data.headerText, style: headerText),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,20 +139,85 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                   )
                 ],
               ),
-              SizedBox(
-                width: double.infinity,
-                child: FilterCategory(
-                  controller: data.location,
-                  hint: S.of(context).location,
-                  iconData: Icons.location_on,
-                ),
-              ),
+              // Group location
+              if (!loadingProvinces) ...<Widget>[
+                if (provinces.isNotEmpty) ...<Widget>[
+                  ...[
+                    Text(S.of(context).provinces, style: headerText),
+                    SizedBox(
+                      width: double.infinity,
+                      child: DropdownButtonCustom<int?>(
+                        radius: 10.0,
+                        items: provinces
+                            .mapIndexed<DropdownMenuItem<int>>(
+                                (int index, PlaceModel value) =>
+                                    DropdownMenuItem<int>(
+                                      value: index,
+                                      child: Text(value.name),
+                                    ))
+                            .toList(),
+                        value: provincesSelected,
+                        onChange: (value) =>
+                            _onSelectedProvinces(provinces[value ?? 0].code),
+                      ),
+                    ),
+                  ]
+                ]
+              ],
+              const SizedBox(height: 10.0),
+              if (!loadingDistricts) ...<Widget>[
+                if (districts.isNotEmpty) ...<Widget>[
+                  Text(S.of(context).districts, style: headerText),
+                  SizedBox(
+                    width: double.infinity,
+                    child: DropdownButtonCustom<int?>(
+                      radius: 10.0,
+                      items: districts
+                          .mapIndexed<DropdownMenuItem<int>>(
+                              (int index, PlaceModel value) =>
+                                  DropdownMenuItem<int>(
+                                    value: index,
+                                    child: Text(value.name),
+                                  ))
+                          .toList(),
+                      value: districtsSelected,
+                      onChange: (value) =>
+                          _onSelectedDistricts(districts[value ?? 0].code),
+                    ),
+                  ),
+                ]
+              ],
+              const SizedBox(height: 10.0),
+              if (!loadingWards) ...<Widget>[
+                if (wards.isNotEmpty) ...<Widget>[
+                  Text(S.of(context).wards, style: headerText),
+                  SizedBox(
+                    width: double.infinity,
+                    child: DropdownButtonCustom<int?>(
+                      radius: 10.0,
+                      items: wards
+                          .mapIndexed<DropdownMenuItem<int>>(
+                              (int index, PlaceModel value) =>
+                                  DropdownMenuItem<int>(
+                                    value: index,
+                                    child: Text(value.name),
+                                  ))
+                          .toList(),
+                      value: wardsSelected,
+                      onChange: (value) {},
+                    ),
+                  ),
+                ]
+              ],
+              if (state.isLoading) _loadingWidget(),
+              const SizedBox(height: 10.0),
               Text(
                 S.of(context).pickImage,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
               ),
+
               GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 6,
@@ -145,4 +260,6 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
       },
     );
   }
+
+  Widget _loadingWidget() => const Center(child: CircularProgressIndicator());
 }
