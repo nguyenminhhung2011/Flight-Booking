@@ -3335,8 +3335,9 @@ mixin _$AddEditAirportEvent {
     required TResult Function() pickImage,
     required TResult Function(int index) removeImage,
     required TResult Function() fetchPlace,
-    required TResult Function(int code) fetchDistricts,
-    required TResult Function(int code) fetchWards,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3348,8 +3349,9 @@ mixin _$AddEditAirportEvent {
     TResult? Function()? pickImage,
     TResult? Function(int index)? removeImage,
     TResult? Function()? fetchPlace,
-    TResult? Function(int code)? fetchDistricts,
-    TResult? Function(int code)? fetchWards,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3361,8 +3363,9 @@ mixin _$AddEditAirportEvent {
     TResult Function()? pickImage,
     TResult Function(int index)? removeImage,
     TResult Function()? fetchPlace,
-    TResult Function(int code)? fetchDistricts,
-    TResult Function(int code)? fetchWards,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3377,6 +3380,7 @@ mixin _$AddEditAirportEvent {
     required TResult Function(_FetchPlace value) fetchPlace,
     required TResult Function(_FetchDistricts value) fetchDistricts,
     required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3390,6 +3394,7 @@ mixin _$AddEditAirportEvent {
     TResult? Function(_FetchPlace value)? fetchPlace,
     TResult? Function(_FetchDistricts value)? fetchDistricts,
     TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3403,6 +3408,7 @@ mixin _$AddEditAirportEvent {
     TResult Function(_FetchPlace value)? fetchPlace,
     TResult Function(_FetchDistricts value)? fetchDistricts,
     TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3470,8 +3476,9 @@ class _$_Started implements _Started {
     required TResult Function() pickImage,
     required TResult Function(int index) removeImage,
     required TResult Function() fetchPlace,
-    required TResult Function(int code) fetchDistricts,
-    required TResult Function(int code) fetchWards,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
   }) {
     return onStarted();
   }
@@ -3486,8 +3493,9 @@ class _$_Started implements _Started {
     TResult? Function()? pickImage,
     TResult? Function(int index)? removeImage,
     TResult? Function()? fetchPlace,
-    TResult? Function(int code)? fetchDistricts,
-    TResult? Function(int code)? fetchWards,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
   }) {
     return onStarted?.call();
   }
@@ -3502,8 +3510,9 @@ class _$_Started implements _Started {
     TResult Function()? pickImage,
     TResult Function(int index)? removeImage,
     TResult Function()? fetchPlace,
-    TResult Function(int code)? fetchDistricts,
-    TResult Function(int code)? fetchWards,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -3524,6 +3533,7 @@ class _$_Started implements _Started {
     required TResult Function(_FetchPlace value) fetchPlace,
     required TResult Function(_FetchDistricts value) fetchDistricts,
     required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
   }) {
     return onStarted(this);
   }
@@ -3540,6 +3550,7 @@ class _$_Started implements _Started {
     TResult? Function(_FetchPlace value)? fetchPlace,
     TResult? Function(_FetchDistricts value)? fetchDistricts,
     TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
   }) {
     return onStarted?.call(this);
   }
@@ -3556,6 +3567,7 @@ class _$_Started implements _Started {
     TResult Function(_FetchPlace value)? fetchPlace,
     TResult Function(_FetchDistricts value)? fetchDistricts,
     TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -3613,8 +3625,9 @@ class _$_Dispose implements _Dispose {
     required TResult Function() pickImage,
     required TResult Function(int index) removeImage,
     required TResult Function() fetchPlace,
-    required TResult Function(int code) fetchDistricts,
-    required TResult Function(int code) fetchWards,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
   }) {
     return dispose();
   }
@@ -3629,8 +3642,9 @@ class _$_Dispose implements _Dispose {
     TResult? Function()? pickImage,
     TResult? Function(int index)? removeImage,
     TResult? Function()? fetchPlace,
-    TResult? Function(int code)? fetchDistricts,
-    TResult? Function(int code)? fetchWards,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
   }) {
     return dispose?.call();
   }
@@ -3645,8 +3659,9 @@ class _$_Dispose implements _Dispose {
     TResult Function()? pickImage,
     TResult Function(int index)? removeImage,
     TResult Function()? fetchPlace,
-    TResult Function(int code)? fetchDistricts,
-    TResult Function(int code)? fetchWards,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
     required TResult orElse(),
   }) {
     if (dispose != null) {
@@ -3667,6 +3682,7 @@ class _$_Dispose implements _Dispose {
     required TResult Function(_FetchPlace value) fetchPlace,
     required TResult Function(_FetchDistricts value) fetchDistricts,
     required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
   }) {
     return dispose(this);
   }
@@ -3683,6 +3699,7 @@ class _$_Dispose implements _Dispose {
     TResult? Function(_FetchPlace value)? fetchPlace,
     TResult? Function(_FetchDistricts value)? fetchDistricts,
     TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
   }) {
     return dispose?.call(this);
   }
@@ -3699,6 +3716,7 @@ class _$_Dispose implements _Dispose {
     TResult Function(_FetchPlace value)? fetchPlace,
     TResult Function(_FetchDistricts value)? fetchDistricts,
     TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
     required TResult orElse(),
   }) {
     if (dispose != null) {
@@ -3783,8 +3801,9 @@ class _$_EditAirport implements _EditAirport {
     required TResult Function() pickImage,
     required TResult Function(int index) removeImage,
     required TResult Function() fetchPlace,
-    required TResult Function(int code) fetchDistricts,
-    required TResult Function(int code) fetchWards,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
   }) {
     return editAirport(id);
   }
@@ -3799,8 +3818,9 @@ class _$_EditAirport implements _EditAirport {
     TResult? Function()? pickImage,
     TResult? Function(int index)? removeImage,
     TResult? Function()? fetchPlace,
-    TResult? Function(int code)? fetchDistricts,
-    TResult? Function(int code)? fetchWards,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
   }) {
     return editAirport?.call(id);
   }
@@ -3815,8 +3835,9 @@ class _$_EditAirport implements _EditAirport {
     TResult Function()? pickImage,
     TResult Function(int index)? removeImage,
     TResult Function()? fetchPlace,
-    TResult Function(int code)? fetchDistricts,
-    TResult Function(int code)? fetchWards,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
     required TResult orElse(),
   }) {
     if (editAirport != null) {
@@ -3837,6 +3858,7 @@ class _$_EditAirport implements _EditAirport {
     required TResult Function(_FetchPlace value) fetchPlace,
     required TResult Function(_FetchDistricts value) fetchDistricts,
     required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
   }) {
     return editAirport(this);
   }
@@ -3853,6 +3875,7 @@ class _$_EditAirport implements _EditAirport {
     TResult? Function(_FetchPlace value)? fetchPlace,
     TResult? Function(_FetchDistricts value)? fetchDistricts,
     TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
   }) {
     return editAirport?.call(this);
   }
@@ -3869,6 +3892,7 @@ class _$_EditAirport implements _EditAirport {
     TResult Function(_FetchPlace value)? fetchPlace,
     TResult Function(_FetchDistricts value)? fetchDistricts,
     TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
     required TResult orElse(),
   }) {
     if (editAirport != null) {
@@ -3932,8 +3956,9 @@ class _$_AddNewAirport implements _AddNewAirport {
     required TResult Function() pickImage,
     required TResult Function(int index) removeImage,
     required TResult Function() fetchPlace,
-    required TResult Function(int code) fetchDistricts,
-    required TResult Function(int code) fetchWards,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
   }) {
     return addNewAirport();
   }
@@ -3948,8 +3973,9 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult? Function()? pickImage,
     TResult? Function(int index)? removeImage,
     TResult? Function()? fetchPlace,
-    TResult? Function(int code)? fetchDistricts,
-    TResult? Function(int code)? fetchWards,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
   }) {
     return addNewAirport?.call();
   }
@@ -3964,8 +3990,9 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult Function()? pickImage,
     TResult Function(int index)? removeImage,
     TResult Function()? fetchPlace,
-    TResult Function(int code)? fetchDistricts,
-    TResult Function(int code)? fetchWards,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
     required TResult orElse(),
   }) {
     if (addNewAirport != null) {
@@ -3986,6 +4013,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     required TResult Function(_FetchPlace value) fetchPlace,
     required TResult Function(_FetchDistricts value) fetchDistricts,
     required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
   }) {
     return addNewAirport(this);
   }
@@ -4002,6 +4030,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult? Function(_FetchPlace value)? fetchPlace,
     TResult? Function(_FetchDistricts value)? fetchDistricts,
     TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
   }) {
     return addNewAirport?.call(this);
   }
@@ -4018,6 +4047,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult Function(_FetchPlace value)? fetchPlace,
     TResult Function(_FetchDistricts value)? fetchDistricts,
     TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
     required TResult orElse(),
   }) {
     if (addNewAirport != null) {
@@ -4076,8 +4106,9 @@ class _$_PickImage implements _PickImage {
     required TResult Function() pickImage,
     required TResult Function(int index) removeImage,
     required TResult Function() fetchPlace,
-    required TResult Function(int code) fetchDistricts,
-    required TResult Function(int code) fetchWards,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
   }) {
     return pickImage();
   }
@@ -4092,8 +4123,9 @@ class _$_PickImage implements _PickImage {
     TResult? Function()? pickImage,
     TResult? Function(int index)? removeImage,
     TResult? Function()? fetchPlace,
-    TResult? Function(int code)? fetchDistricts,
-    TResult? Function(int code)? fetchWards,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
   }) {
     return pickImage?.call();
   }
@@ -4108,8 +4140,9 @@ class _$_PickImage implements _PickImage {
     TResult Function()? pickImage,
     TResult Function(int index)? removeImage,
     TResult Function()? fetchPlace,
-    TResult Function(int code)? fetchDistricts,
-    TResult Function(int code)? fetchWards,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
     required TResult orElse(),
   }) {
     if (pickImage != null) {
@@ -4130,6 +4163,7 @@ class _$_PickImage implements _PickImage {
     required TResult Function(_FetchPlace value) fetchPlace,
     required TResult Function(_FetchDistricts value) fetchDistricts,
     required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
   }) {
     return pickImage(this);
   }
@@ -4146,6 +4180,7 @@ class _$_PickImage implements _PickImage {
     TResult? Function(_FetchPlace value)? fetchPlace,
     TResult? Function(_FetchDistricts value)? fetchDistricts,
     TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
   }) {
     return pickImage?.call(this);
   }
@@ -4162,6 +4197,7 @@ class _$_PickImage implements _PickImage {
     TResult Function(_FetchPlace value)? fetchPlace,
     TResult Function(_FetchDistricts value)? fetchDistricts,
     TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
     required TResult orElse(),
   }) {
     if (pickImage != null) {
@@ -4246,8 +4282,9 @@ class _$_RemoveImage implements _RemoveImage {
     required TResult Function() pickImage,
     required TResult Function(int index) removeImage,
     required TResult Function() fetchPlace,
-    required TResult Function(int code) fetchDistricts,
-    required TResult Function(int code) fetchWards,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
   }) {
     return removeImage(index);
   }
@@ -4262,8 +4299,9 @@ class _$_RemoveImage implements _RemoveImage {
     TResult? Function()? pickImage,
     TResult? Function(int index)? removeImage,
     TResult? Function()? fetchPlace,
-    TResult? Function(int code)? fetchDistricts,
-    TResult? Function(int code)? fetchWards,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
   }) {
     return removeImage?.call(index);
   }
@@ -4278,8 +4316,9 @@ class _$_RemoveImage implements _RemoveImage {
     TResult Function()? pickImage,
     TResult Function(int index)? removeImage,
     TResult Function()? fetchPlace,
-    TResult Function(int code)? fetchDistricts,
-    TResult Function(int code)? fetchWards,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
     required TResult orElse(),
   }) {
     if (removeImage != null) {
@@ -4300,6 +4339,7 @@ class _$_RemoveImage implements _RemoveImage {
     required TResult Function(_FetchPlace value) fetchPlace,
     required TResult Function(_FetchDistricts value) fetchDistricts,
     required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
   }) {
     return removeImage(this);
   }
@@ -4316,6 +4356,7 @@ class _$_RemoveImage implements _RemoveImage {
     TResult? Function(_FetchPlace value)? fetchPlace,
     TResult? Function(_FetchDistricts value)? fetchDistricts,
     TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
   }) {
     return removeImage?.call(this);
   }
@@ -4332,6 +4373,7 @@ class _$_RemoveImage implements _RemoveImage {
     TResult Function(_FetchPlace value)? fetchPlace,
     TResult Function(_FetchDistricts value)? fetchDistricts,
     TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
     required TResult orElse(),
   }) {
     if (removeImage != null) {
@@ -4395,8 +4437,9 @@ class _$_FetchPlace implements _FetchPlace {
     required TResult Function() pickImage,
     required TResult Function(int index) removeImage,
     required TResult Function() fetchPlace,
-    required TResult Function(int code) fetchDistricts,
-    required TResult Function(int code) fetchWards,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
   }) {
     return fetchPlace();
   }
@@ -4411,8 +4454,9 @@ class _$_FetchPlace implements _FetchPlace {
     TResult? Function()? pickImage,
     TResult? Function(int index)? removeImage,
     TResult? Function()? fetchPlace,
-    TResult? Function(int code)? fetchDistricts,
-    TResult? Function(int code)? fetchWards,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
   }) {
     return fetchPlace?.call();
   }
@@ -4427,8 +4471,9 @@ class _$_FetchPlace implements _FetchPlace {
     TResult Function()? pickImage,
     TResult Function(int index)? removeImage,
     TResult Function()? fetchPlace,
-    TResult Function(int code)? fetchDistricts,
-    TResult Function(int code)? fetchWards,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
     required TResult orElse(),
   }) {
     if (fetchPlace != null) {
@@ -4449,6 +4494,7 @@ class _$_FetchPlace implements _FetchPlace {
     required TResult Function(_FetchPlace value) fetchPlace,
     required TResult Function(_FetchDistricts value) fetchDistricts,
     required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
   }) {
     return fetchPlace(this);
   }
@@ -4465,6 +4511,7 @@ class _$_FetchPlace implements _FetchPlace {
     TResult? Function(_FetchPlace value)? fetchPlace,
     TResult? Function(_FetchDistricts value)? fetchDistricts,
     TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
   }) {
     return fetchPlace?.call(this);
   }
@@ -4481,6 +4528,7 @@ class _$_FetchPlace implements _FetchPlace {
     TResult Function(_FetchPlace value)? fetchPlace,
     TResult Function(_FetchDistricts value)? fetchDistricts,
     TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
     required TResult orElse(),
   }) {
     if (fetchPlace != null) {
@@ -4500,7 +4548,7 @@ abstract class _$$_FetchDistrictsCopyWith<$Res> {
           _$_FetchDistricts value, $Res Function(_$_FetchDistricts) then) =
       __$$_FetchDistrictsCopyWithImpl<$Res>;
   @useResult
-  $Res call({int code});
+  $Res call({int code, int provincesIndex});
 }
 
 /// @nodoc
@@ -4515,11 +4563,16 @@ class __$$_FetchDistrictsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? code = null,
+    Object? provincesIndex = null,
   }) {
     return _then(_$_FetchDistricts(
-      null == code
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
+              as int,
+      provincesIndex: null == provincesIndex
+          ? _value.provincesIndex
+          : provincesIndex // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -4528,14 +4581,16 @@ class __$$_FetchDistrictsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FetchDistricts implements _FetchDistricts {
-  const _$_FetchDistricts(this.code);
+  const _$_FetchDistricts({required this.code, required this.provincesIndex});
 
   @override
   final int code;
+  @override
+  final int provincesIndex;
 
   @override
   String toString() {
-    return 'AddEditAirportEvent.fetchDistricts(code: $code)';
+    return 'AddEditAirportEvent.fetchDistricts(code: $code, provincesIndex: $provincesIndex)';
   }
 
   @override
@@ -4543,11 +4598,13 @@ class _$_FetchDistricts implements _FetchDistricts {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FetchDistricts &&
-            (identical(other.code, code) || other.code == code));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.provincesIndex, provincesIndex) ||
+                other.provincesIndex == provincesIndex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, code);
+  int get hashCode => Object.hash(runtimeType, code, provincesIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -4565,10 +4622,11 @@ class _$_FetchDistricts implements _FetchDistricts {
     required TResult Function() pickImage,
     required TResult Function(int index) removeImage,
     required TResult Function() fetchPlace,
-    required TResult Function(int code) fetchDistricts,
-    required TResult Function(int code) fetchWards,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
   }) {
-    return fetchDistricts(code);
+    return fetchDistricts(code, provincesIndex);
   }
 
   @override
@@ -4581,10 +4639,11 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult? Function()? pickImage,
     TResult? Function(int index)? removeImage,
     TResult? Function()? fetchPlace,
-    TResult? Function(int code)? fetchDistricts,
-    TResult? Function(int code)? fetchWards,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
   }) {
-    return fetchDistricts?.call(code);
+    return fetchDistricts?.call(code, provincesIndex);
   }
 
   @override
@@ -4597,12 +4656,13 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult Function()? pickImage,
     TResult Function(int index)? removeImage,
     TResult Function()? fetchPlace,
-    TResult Function(int code)? fetchDistricts,
-    TResult Function(int code)? fetchWards,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
     required TResult orElse(),
   }) {
     if (fetchDistricts != null) {
-      return fetchDistricts(code);
+      return fetchDistricts(code, provincesIndex);
     }
     return orElse();
   }
@@ -4619,6 +4679,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     required TResult Function(_FetchPlace value) fetchPlace,
     required TResult Function(_FetchDistricts value) fetchDistricts,
     required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
   }) {
     return fetchDistricts(this);
   }
@@ -4635,6 +4696,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult? Function(_FetchPlace value)? fetchPlace,
     TResult? Function(_FetchDistricts value)? fetchDistricts,
     TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
   }) {
     return fetchDistricts?.call(this);
   }
@@ -4651,6 +4713,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult Function(_FetchPlace value)? fetchPlace,
     TResult Function(_FetchDistricts value)? fetchDistricts,
     TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
     required TResult orElse(),
   }) {
     if (fetchDistricts != null) {
@@ -4661,9 +4724,12 @@ class _$_FetchDistricts implements _FetchDistricts {
 }
 
 abstract class _FetchDistricts implements AddEditAirportEvent {
-  const factory _FetchDistricts(final int code) = _$_FetchDistricts;
+  const factory _FetchDistricts(
+      {required final int code,
+      required final int provincesIndex}) = _$_FetchDistricts;
 
   int get code;
+  int get provincesIndex;
   @JsonKey(ignore: true)
   _$$_FetchDistrictsCopyWith<_$_FetchDistricts> get copyWith =>
       throw _privateConstructorUsedError;
@@ -4675,7 +4741,7 @@ abstract class _$$_FetchWardsCopyWith<$Res> {
           _$_FetchWards value, $Res Function(_$_FetchWards) then) =
       __$$_FetchWardsCopyWithImpl<$Res>;
   @useResult
-  $Res call({int code});
+  $Res call({int code, int districtsIndex});
 }
 
 /// @nodoc
@@ -4690,11 +4756,16 @@ class __$$_FetchWardsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? code = null,
+    Object? districtsIndex = null,
   }) {
     return _then(_$_FetchWards(
-      null == code
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
+              as int,
+      districtsIndex: null == districtsIndex
+          ? _value.districtsIndex
+          : districtsIndex // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -4703,14 +4774,16 @@ class __$$_FetchWardsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FetchWards implements _FetchWards {
-  const _$_FetchWards(this.code);
+  const _$_FetchWards({required this.code, required this.districtsIndex});
 
   @override
   final int code;
+  @override
+  final int districtsIndex;
 
   @override
   String toString() {
-    return 'AddEditAirportEvent.fetchWards(code: $code)';
+    return 'AddEditAirportEvent.fetchWards(code: $code, districtsIndex: $districtsIndex)';
   }
 
   @override
@@ -4718,11 +4791,13 @@ class _$_FetchWards implements _FetchWards {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FetchWards &&
-            (identical(other.code, code) || other.code == code));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.districtsIndex, districtsIndex) ||
+                other.districtsIndex == districtsIndex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, code);
+  int get hashCode => Object.hash(runtimeType, code, districtsIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -4740,10 +4815,11 @@ class _$_FetchWards implements _FetchWards {
     required TResult Function() pickImage,
     required TResult Function(int index) removeImage,
     required TResult Function() fetchPlace,
-    required TResult Function(int code) fetchDistricts,
-    required TResult Function(int code) fetchWards,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
   }) {
-    return fetchWards(code);
+    return fetchWards(code, districtsIndex);
   }
 
   @override
@@ -4756,10 +4832,11 @@ class _$_FetchWards implements _FetchWards {
     TResult? Function()? pickImage,
     TResult? Function(int index)? removeImage,
     TResult? Function()? fetchPlace,
-    TResult? Function(int code)? fetchDistricts,
-    TResult? Function(int code)? fetchWards,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
   }) {
-    return fetchWards?.call(code);
+    return fetchWards?.call(code, districtsIndex);
   }
 
   @override
@@ -4772,12 +4849,13 @@ class _$_FetchWards implements _FetchWards {
     TResult Function()? pickImage,
     TResult Function(int index)? removeImage,
     TResult Function()? fetchPlace,
-    TResult Function(int code)? fetchDistricts,
-    TResult Function(int code)? fetchWards,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
     required TResult orElse(),
   }) {
     if (fetchWards != null) {
-      return fetchWards(code);
+      return fetchWards(code, districtsIndex);
     }
     return orElse();
   }
@@ -4794,6 +4872,7 @@ class _$_FetchWards implements _FetchWards {
     required TResult Function(_FetchPlace value) fetchPlace,
     required TResult Function(_FetchDistricts value) fetchDistricts,
     required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
   }) {
     return fetchWards(this);
   }
@@ -4810,6 +4889,7 @@ class _$_FetchWards implements _FetchWards {
     TResult? Function(_FetchPlace value)? fetchPlace,
     TResult? Function(_FetchDistricts value)? fetchDistricts,
     TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
   }) {
     return fetchWards?.call(this);
   }
@@ -4826,6 +4906,7 @@ class _$_FetchWards implements _FetchWards {
     TResult Function(_FetchPlace value)? fetchPlace,
     TResult Function(_FetchDistricts value)? fetchDistricts,
     TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
     required TResult orElse(),
   }) {
     if (fetchWards != null) {
@@ -4836,10 +4917,194 @@ class _$_FetchWards implements _FetchWards {
 }
 
 abstract class _FetchWards implements AddEditAirportEvent {
-  const factory _FetchWards(final int code) = _$_FetchWards;
+  const factory _FetchWards(
+      {required final int code,
+      required final int districtsIndex}) = _$_FetchWards;
+
+  int get code;
+  int get districtsIndex;
+  @JsonKey(ignore: true)
+  _$$_FetchWardsCopyWith<_$_FetchWards> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedWardCopyWith<$Res> {
+  factory _$$_SelectedWardCopyWith(
+          _$_SelectedWard value, $Res Function(_$_SelectedWard) then) =
+      __$$_SelectedWardCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int code});
+}
+
+/// @nodoc
+class __$$_SelectedWardCopyWithImpl<$Res>
+    extends _$AddEditAirportEventCopyWithImpl<$Res, _$_SelectedWard>
+    implements _$$_SelectedWardCopyWith<$Res> {
+  __$$_SelectedWardCopyWithImpl(
+      _$_SelectedWard _value, $Res Function(_$_SelectedWard) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? code = null,
+  }) {
+    return _then(_$_SelectedWard(
+      null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedWard implements _SelectedWard {
+  const _$_SelectedWard(this.code);
+
+  @override
+  final int code;
+
+  @override
+  String toString() {
+    return 'AddEditAirportEvent.selectedWard(code: $code)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedWard &&
+            (identical(other.code, code) || other.code == code));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, code);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedWardCopyWith<_$_SelectedWard> get copyWith =>
+      __$$_SelectedWardCopyWithImpl<_$_SelectedWard>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() dispose,
+    required TResult Function(String id) editAirport,
+    required TResult Function() addNewAirport,
+    required TResult Function() pickImage,
+    required TResult Function(int index) removeImage,
+    required TResult Function() fetchPlace,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
+  }) {
+    return selectedWard(code);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? dispose,
+    TResult? Function(String id)? editAirport,
+    TResult? Function()? addNewAirport,
+    TResult? Function()? pickImage,
+    TResult? Function(int index)? removeImage,
+    TResult? Function()? fetchPlace,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
+  }) {
+    return selectedWard?.call(code);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? dispose,
+    TResult Function(String id)? editAirport,
+    TResult Function()? addNewAirport,
+    TResult Function()? pickImage,
+    TResult Function(int index)? removeImage,
+    TResult Function()? fetchPlace,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
+    required TResult orElse(),
+  }) {
+    if (selectedWard != null) {
+      return selectedWard(code);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
+    required TResult Function(_EditAirport value) editAirport,
+    required TResult Function(_AddNewAirport value) addNewAirport,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_RemoveImage value) removeImage,
+    required TResult Function(_FetchPlace value) fetchPlace,
+    required TResult Function(_FetchDistricts value) fetchDistricts,
+    required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
+  }) {
+    return selectedWard(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
+    TResult? Function(_EditAirport value)? editAirport,
+    TResult? Function(_AddNewAirport value)? addNewAirport,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_RemoveImage value)? removeImage,
+    TResult? Function(_FetchPlace value)? fetchPlace,
+    TResult? Function(_FetchDistricts value)? fetchDistricts,
+    TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
+  }) {
+    return selectedWard?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
+    TResult Function(_EditAirport value)? editAirport,
+    TResult Function(_AddNewAirport value)? addNewAirport,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_RemoveImage value)? removeImage,
+    TResult Function(_FetchPlace value)? fetchPlace,
+    TResult Function(_FetchDistricts value)? fetchDistricts,
+    TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
+    required TResult orElse(),
+  }) {
+    if (selectedWard != null) {
+      return selectedWard(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedWard implements AddEditAirportEvent {
+  const factory _SelectedWard(final int code) = _$_SelectedWard;
 
   int get code;
   @JsonKey(ignore: true)
-  _$$_FetchWardsCopyWith<_$_FetchWards> get copyWith =>
+  _$$_SelectedWardCopyWith<_$_SelectedWard> get copyWith =>
       throw _privateConstructorUsedError;
 }

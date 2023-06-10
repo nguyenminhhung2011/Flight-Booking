@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:collection/collection.dart';
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/dropdown_button_custom.dart';
 import 'package:flight_booking/data/models/place/place_model.dart';
 import 'package:flight_booking/presentations/add_edit_airport/views/widgets/item_add_image.dart';
@@ -39,12 +40,20 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
     _bloc.add(AddEditAirportEvent.removeImage(index));
   }
 
-  void _onSelectedProvinces(int code) {
-    _bloc.add(AddEditAirportEvent.fetchDistricts(code));
+  void _onSelectedProvinces(int code, int index) {
+    _bloc.add(
+      AddEditAirportEvent.fetchDistricts(code: code, provincesIndex: index),
+    );
   }
 
-  void _onSelectedDistricts(int code) {
-    _bloc.add(AddEditAirportEvent.fetchWards(code));
+  void _onSelectedDistricts(int code, int index) {
+    _bloc.add(
+      AddEditAirportEvent.fetchWards(code: code, districtsIndex: index),
+    );
+  }
+
+  void _onSelectedWards(int? code) {
+    _bloc.add(AddEditAirportEvent.selectedWard(code ?? 0));
   }
 
   void _listenStateChange(_, AddEditAirportState state) {
@@ -57,13 +66,18 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
         },
         fetchPlaceSuccess: (data) {
           if (data.provinces.isNotEmpty) {
-            _bloc.add(
-                AddEditAirportEvent.fetchDistricts(data.provinces[0].code));
+            _bloc.add(AddEditAirportEvent.fetchDistricts(
+              code: data.provinces[0].code,
+              provincesIndex: 0,
+            ));
           }
         },
         fetchDistrictsSuccess: (data) {
           if (data.districts.isNotEmpty) {
-            _bloc.add(AddEditAirportEvent.fetchWards(data.districts[0].code));
+            _bloc.add(AddEditAirportEvent.fetchWards(
+              code: data.districts[0].code,
+              districtsIndex: 0,
+            ));
           }
         },
         fetchWardsSuccess: (data) {},
@@ -157,8 +171,8 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                                     ))
                             .toList(),
                         value: provincesSelected,
-                        onChange: (value) =>
-                            _onSelectedProvinces(provinces[value ?? 0].code),
+                        onChange: (value) => _onSelectedProvinces(
+                            provinces[value ?? 0].code, value ?? 0),
                       ),
                     ),
                   ]
@@ -181,8 +195,8 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                                   ))
                           .toList(),
                       value: districtsSelected,
-                      onChange: (value) =>
-                          _onSelectedDistricts(districts[value ?? 0].code),
+                      onChange: (value) => _onSelectedDistricts(
+                          districts[value ?? 0].code, value ?? 0),
                     ),
                   ),
                 ]
@@ -204,7 +218,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                                   ))
                           .toList(),
                       value: wardsSelected,
-                      onChange: (value) {},
+                      onChange: _onSelectedWards,
                     ),
                   ),
                 ]
@@ -243,13 +257,12 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                   );
                 },
               ),
-              SizedBox(
+              ButtonCustom(
                 width: double.infinity,
                 height: 45.0,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(data.headerText),
-                ),
+                radius: 5.0,
+                onPress: () {},
+                child: Text(data.headerText),
               ),
             ]
                 .expand((element) => [element, const SizedBox(height: 10.0)])
