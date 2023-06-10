@@ -6,10 +6,11 @@ import 'package:retrofit/dio.dart';
 
 abstract class BaseApi {
   Future<DataState<T>> getStateOf<T>({
-    required Future<HttpResponse<T?>> Function() request,
+    required Future<HttpResponse<T>> Function() request,
   }) async {
     try {
       final httpResponse = await request();
+
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(data: httpResponse.data);
       } else {

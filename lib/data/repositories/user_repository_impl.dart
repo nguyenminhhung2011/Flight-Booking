@@ -46,12 +46,12 @@ class UserRepositoryImpl extends BaseApi implements UserRepository {
   }
 
   @override
-  Future<User?> login(String username, String password) async {
-    final result = await getStateOf<UserModel>(
-      request: () async => await _authApi
-          .login(body: {"username": username, "password": password}),
+  Future<DataState<UserModel?>> login(String username, String password) async {
+    return await getStateOf<UserModel?>(
+      request: () async => await _authApi.login(
+        body: {"username": username, "password": password},
+      ),
     );
-    return result.data?.toEntity();
   }
 
   @override

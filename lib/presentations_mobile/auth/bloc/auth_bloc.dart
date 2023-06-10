@@ -43,7 +43,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthState.loginFailed(data: data, message: 'Can\'t login'));
         return;
       }
-      final saveUser = await CommonAppSettingPref.setUserId(user.id);
+      final saveUser = await CommonAppSettingPref.setUserId(user.data!.id);
       if (!saveUser) {
         emit(AuthState.loginFailed(
           data: data,
