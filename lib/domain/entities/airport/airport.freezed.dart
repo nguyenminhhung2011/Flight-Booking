@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Airport {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
@@ -30,7 +30,7 @@ abstract class $AirportCopyWith<$Res> {
   factory $AirportCopyWith(Airport value, $Res Function(Airport) then) =
       _$AirportCopyWithImpl<$Res, Airport>;
   @useResult
-  $Res call({String id, String name, String image, String location});
+  $Res call({int id, String name, String image, String location});
 }
 
 /// @nodoc
@@ -55,7 +55,7 @@ class _$AirportCopyWithImpl<$Res, $Val extends Airport>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -79,7 +79,7 @@ abstract class _$$_AirportCopyWith<$Res> implements $AirportCopyWith<$Res> {
       __$$_AirportCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String image, String location});
+  $Res call({int id, String name, String image, String location});
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class __$$_AirportCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -128,7 +128,7 @@ class _$_Airport implements _Airport {
       required this.location});
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
@@ -165,13 +165,13 @@ class _$_Airport implements _Airport {
 
 abstract class _Airport implements Airport {
   const factory _Airport(
-      {required final String id,
+      {required final int id,
       required final String name,
       required final String image,
       required final String location}) = _$_Airport;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override

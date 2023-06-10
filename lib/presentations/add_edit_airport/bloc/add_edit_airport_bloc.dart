@@ -136,7 +136,7 @@ class AddEditAirportBloc
     emit(AddEditAirportState.loading(data: state.data, groupLoading: 0));
     try {
       final newAirport = Airport(
-        id: event.id,
+        id: randDomNumber(100),
         image: _imageNull,
         location: data.location.text,
         name: data.name.text,
@@ -223,7 +223,7 @@ class AddEditAirportBloc
       if (wards.isEmpty) {
         emit(AddEditAirportState.fetchWardsFailed(
           data: data,
-          message: 'Can\'t g  et wards',
+          message: 'Can\'t get wards',
         ));
         return;
       }
@@ -259,23 +259,32 @@ class AddEditAirportBloc
   ) async {
     emit(AddEditAirportState.loading(data: state.data, groupLoading: 1));
     try {
-      String id = randomString();
-      final newAirport = Airport(
-        id: id,
-        image: _imageNull,
-        location: data.location.text,
-        name: data.name.text,
-      );
-      List<String> imagesUrl = [];
+      int id = randDomNumber(100);
+      String imageFeature = _imageNull;
+      String location =
+          '${data.provinces[data.provincesSelected].name}, ${data.districts[data.districtsSelected].name}, ${data.wards[data.wardsSelected].name}';
+      String name = data.name.text;
+
+      List<String> imageUrls = [];
+
       for (var item in data.images) {
         String? imageUrl = await _cloundinaryService.convertUti8ListToUrl(
           item,
           '$id ${data.images.length}',
         );
         if (imageUrl != null) {
-          imagesUrl.add(imageUrl);
+          imageUrls.add(imageUrl);
         }
       }
+      if (imageUrls.isNotEmpty) {
+        imageFeature = imageUrls.first;
+      }
+      final newAirport = Airport(
+        id: id,
+        name: name,
+        image: imageFeature,
+        location: location,
+      );
       final add = await _airportsUsecase.addNewAirport(newAirport);
       if (add == null) {
         emit(AddEditAirportState.addNewAirportFailed(

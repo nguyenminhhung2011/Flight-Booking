@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flutter/material.dart';
@@ -28,16 +30,17 @@ class _AirportScreenState extends State<AirportScreen> {
   void initState() {
     super.initState();
     _bloc.add(const AirportEvent.onStarted());
+    _bloc.add(const AirportEvent.fetchAirports());
     textController = TextEditingController();
   }
 
   void _listenStateChange(BuildContext context, AirportState state) {
-    state.whenOrNull(
-      openAddEditAirportSuccess: (state, id) {
-        final result = context.openDialogAdDEditAirport(id);
-        if (result is Airport) {}
-      },
-    );
+    state.whenOrNull(openAddEditAirportSuccess: (state, id) {
+      final result = context.openDialogAdDEditAirport(id);
+      if (result is Airport) {}
+    }, fetchAirportsFailed: (data, error) {
+      log(error);
+    });
   }
 
   @override
@@ -142,7 +145,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
               data: [
                 for (int i = 0; i < 50; i++)
                   const Airport(
-                    id: 'D1-2134',
+                    id: 100,
                     name: 'Ben Xe Mien Dong',
                     image:
                         'https://media.cnn.com/api/v1/images/stellar/prod/230314215301-03-world-best-airports-2023.jpg?c=original&q=w_1280,c_fill',
@@ -208,7 +211,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                     return Text(data.toString());
                   },
                   rowData: [
-                    FlexRowTableData<String>(flex: 1, data: data.id),
+                    FlexRowTableData<String>(flex: 1, data: data.id.toString()),
                     FlexRowTableData<String>(flex: 1, data: data.name),
                     FlexRowTableData<String>(flex: 1, data: data.image),
                     FlexRowTableData<String>(flex: 1, data: data.location),

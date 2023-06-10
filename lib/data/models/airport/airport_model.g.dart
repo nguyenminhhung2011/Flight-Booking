@@ -7,16 +7,16 @@ part of 'airport_model.dart';
 // **************************************************************************
 
 AirportModel _$AirportModelFromJson(Map<String, dynamic> json) => AirportModel(
-      json['Id'] as String,
-      json['Name'] as String,
-      json['Image'] as String,
-      json['Location'] as String,
+      json['id'] as int,
+      json['airportName'] as String,
+      json['imageUrl'] as String,
+      json['location'] as String,
     );
 
 Map<String, dynamic> _$AirportModelToJson(AirportModel instance) =>
     <String, dynamic>{
-      'Id': instance.id,
-      'Name': instance.name,
-      'Image': instance.image,
-      'Location': instance.location,
+      'id': instance.id,
+      'airportName': instance.name,
+      'imageUrl': instance.image,
+      'location': instance.location,
     };

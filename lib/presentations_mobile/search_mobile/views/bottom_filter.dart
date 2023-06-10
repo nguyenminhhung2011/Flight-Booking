@@ -193,11 +193,11 @@ const List<String> filterRating = <String>[
 ];
 
 List<Airport> filterAirport = <Airport>[
-  Airport(id: randomString(), name: 'Airport1', image: '', location: ''),
-  Airport(id: randomString(), name: 'Airport2', image: '', location: ''),
-  Airport(id: randomString(), name: 'Airport3', image: '', location: ''),
-  Airport(id: randomString(), name: 'Airport4', image: '', location: ''),
-  Airport(id: randomString(), name: 'Airport5', image: '', location: ''),
+  Airport(id: randDomNumber(100), name: 'Airport1', image: '', location: ''),
+  Airport(id: randDomNumber(100), name: 'Airport2', image: '', location: ''),
+  Airport(id: randDomNumber(100), name: 'Airport3', image: '', location: ''),
+  Airport(id: randDomNumber(100), name: 'Airport4', image: '', location: ''),
+  Airport(id: randDomNumber(100), name: 'Airport5', image: '', location: ''),
 ];
 
 class SearchMobileController extends ChangeNotifier {

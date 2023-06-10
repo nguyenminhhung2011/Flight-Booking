@@ -5,13 +5,13 @@ part 'airport_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class AirportModel {
-  @JsonKey(name: 'Id')
-  final String id;
-  @JsonKey(name: 'Name')
+  @JsonKey(name: 'id')
+  final int id;
+  @JsonKey(name: 'airportName')
   final String name;
-  @JsonKey(name: 'Image')
+  @JsonKey(name: 'imageUrl')
   final String image;
-  @JsonKey(name: 'Location')
+  @JsonKey(name: 'location')
   final String location;
 
   AirportModel(this.id, this.name, this.image, this.location);

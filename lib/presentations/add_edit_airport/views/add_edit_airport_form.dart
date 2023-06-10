@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:collection/collection.dart';
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/dropdown_button_custom.dart';
 import 'package:flight_booking/data/models/place/place_model.dart';
@@ -56,6 +57,10 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
     _bloc.add(AddEditAirportEvent.selectedWard(code ?? 0));
   }
 
+  void _onAddNewAirport() {
+    _bloc.add(const AddEditAirportEvent.addNewAirport());
+  }
+
   void _listenStateChange(_, AddEditAirportState state) {
     state.whenOrNull(
         addNewAirportSuccess: (data, flight) {
@@ -99,6 +104,9 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
 
   bool get loadingDistricts => _bloc.state
       .maybeWhen(orElse: () => false, loading: (data, type) => type == 3);
+
+  bool get loadingButton => _bloc.state
+      .maybeWhen(orElse: () => false, loading: (data, type) => type == 1);
 
   @override
   Widget build(BuildContext context) {
@@ -223,7 +231,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                   ),
                 ]
               ],
-              if (state.isLoading) _loadingWidget(),
+              if (state.isLoading && !loadingButton) _loadingWidget(context),
               const SizedBox(height: 10.0),
               Text(
                 S.of(context).pickImage,
@@ -261,8 +269,10 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                 width: double.infinity,
                 height: 45.0,
                 radius: 5.0,
-                onPress: () {},
-                child: Text(data.headerText),
+                onPress: _onAddNewAirport,
+                child: loadingButton
+                    ? _loadingWidget(context)
+                    : Text(data.headerText),
               ),
             ]
                 .expand((element) => [element, const SizedBox(height: 10.0)])
@@ -274,5 +284,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
     );
   }
 
-  Widget _loadingWidget() => const Center(child: CircularProgressIndicator());
+  Widget _loadingWidget(BuildContext context) => Center(
+        child: CircularProgressIndicator(color: context.titleLarge.color),
+      );
 }
