@@ -38,6 +38,10 @@ class AirportState with _$AirportState {
     required AirportModelState data,
   }) = _WaitCircularLoading;
 
+  const factory AirportState.updateAirportSuccess({
+    required AirportModelState data,
+  }) = _UpdateAirportSuccess;
+
   bool get isLoading => this is _Loading;
   bool get isWaitCircularLoading => this is _WaitCircularLoading;
 }

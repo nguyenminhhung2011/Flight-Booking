@@ -69,6 +69,7 @@ class AddEditAirportBloc
     on<_FetchDistricts>(_onFetchDistricts);
     on<_FetchWards>(_onFetchWards);
     on<_SelectedWard>(_onSelectedWard);
+    on<_ButtonTap>(_onButtonTap);
   }
 
   FutureOr<void> _onPickImage(
@@ -128,34 +129,6 @@ class AddEditAirportBloc
     _Dispose event,
     Emitter<AddEditAirportState> emit,
   ) {}
-
-  FutureOr<void> _onEditAirport(
-    _EditAirport event,
-    Emitter<AddEditAirportState> emit,
-  ) async {
-    emit(AddEditAirportState.loading(data: state.data, groupLoading: 0));
-    try {
-      final newAirport = Airport(
-        id: randDomNumber(100),
-        image: _imageNull,
-        location: data.location.text,
-        name: data.name.text,
-      );
-      final edit = await _airportsUsecase.editAirport(newAirport);
-      if (edit == null) {
-        emit(
-          AddEditAirportState.editAirportFailed(data: state.data, message: ''),
-        );
-        return;
-      }
-      emit(AddEditAirportState.editAirportSuccess(data: data, airport: edit));
-    } catch (e) {
-      emit(AddEditAirportState.editAirportFailed(
-        data: state.data,
-        message: e.toString(),
-      ));
-    }
-  }
 
   FutureOr<void> _onFetchPlace(
     _FetchPlace event,
@@ -264,8 +237,15 @@ class AddEditAirportBloc
       String location =
           '${data.provinces[data.provincesSelected].name}, ${data.districts[data.districtsSelected].name}, ${data.wards[data.wardsSelected].name}';
       String name = data.name.text;
-
       List<String> imageUrls = [];
+
+      if (name.isEmpty || location.isEmpty) {
+        emit(AddEditAirportState.addNewAirportFailed(
+          data: data,
+          message: 'Field is not null',
+        ));
+        return;
+      }
 
       for (var item in data.images) {
         String? imageUrl = await _cloundinaryService.convertUti8ListToUrl(
@@ -299,6 +279,45 @@ class AddEditAirportBloc
         data: state.data,
         message: e.toString(),
       ));
+    }
+  }
+
+  FutureOr<void> _onEditAirport(
+    _EditAirport event,
+    Emitter<AddEditAirportState> emit,
+  ) async {
+    emit(AddEditAirportState.loading(data: state.data, groupLoading: 0));
+    try {
+      final newAirport = Airport(
+        id: randDomNumber(100),
+        image: _imageNull,
+        location: data.location.text,
+        name: data.name.text,
+      );
+      final edit = await _airportsUsecase.editAirport(newAirport);
+      if (edit == null) {
+        emit(
+          AddEditAirportState.editAirportFailed(data: state.data, message: ''),
+        );
+        return;
+      }
+      emit(AddEditAirportState.editAirportSuccess(data: data, airport: edit));
+    } catch (e) {
+      emit(AddEditAirportState.editAirportFailed(
+        data: state.data,
+        message: e.toString(),
+      ));
+    }
+  }
+
+  FutureOr<void> _onButtonTap(
+    _ButtonTap event,
+    Emitter<AddEditAirportState> emit,
+  ) {
+    if (_airportId.isNotEmpty) {
+      add(_EditAirport(id: _airportId));
+    } else {
+      add(const _AddNewAirport());
     }
   }
 }
