@@ -19,6 +19,8 @@ mixin _$AddEditAirportModelState {
   TextEditingController get name => throw _privateConstructorUsedError;
   TextEditingController get location => throw _privateConstructorUsedError;
   String get headerText => throw _privateConstructorUsedError;
+  String get locationEdit => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
   List<Uint8List> get images => throw _privateConstructorUsedError;
   List<PlaceModel> get provinces => throw _privateConstructorUsedError;
   List<PlaceModel> get districts => throw _privateConstructorUsedError;
@@ -42,6 +44,8 @@ abstract class $AddEditAirportModelStateCopyWith<$Res> {
       {TextEditingController name,
       TextEditingController location,
       String headerText,
+      String locationEdit,
+      String imageUrl,
       List<Uint8List> images,
       List<PlaceModel> provinces,
       List<PlaceModel> districts,
@@ -68,6 +72,8 @@ class _$AddEditAirportModelStateCopyWithImpl<$Res,
     Object? name = null,
     Object? location = null,
     Object? headerText = null,
+    Object? locationEdit = null,
+    Object? imageUrl = null,
     Object? images = null,
     Object? provinces = null,
     Object? districts = null,
@@ -88,6 +94,14 @@ class _$AddEditAirportModelStateCopyWithImpl<$Res,
       headerText: null == headerText
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
+              as String,
+      locationEdit: null == locationEdit
+          ? _value.locationEdit
+          : locationEdit // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       images: null == images
           ? _value.images
@@ -134,6 +148,8 @@ abstract class _$$_AddEditAirportModelStateCopyWith<$Res>
       {TextEditingController name,
       TextEditingController location,
       String headerText,
+      String locationEdit,
+      String imageUrl,
       List<Uint8List> images,
       List<PlaceModel> provinces,
       List<PlaceModel> districts,
@@ -158,6 +174,8 @@ class __$$_AddEditAirportModelStateCopyWithImpl<$Res>
     Object? name = null,
     Object? location = null,
     Object? headerText = null,
+    Object? locationEdit = null,
+    Object? imageUrl = null,
     Object? images = null,
     Object? provinces = null,
     Object? districts = null,
@@ -178,6 +196,14 @@ class __$$_AddEditAirportModelStateCopyWithImpl<$Res>
       headerText: null == headerText
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
+              as String,
+      locationEdit: null == locationEdit
+          ? _value.locationEdit
+          : locationEdit // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       images: null == images
           ? _value._images
@@ -218,6 +244,8 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
       {required this.name,
       required this.location,
       required this.headerText,
+      required this.locationEdit,
+      required this.imageUrl,
       required final List<Uint8List> images,
       required final List<PlaceModel> provinces,
       required final List<PlaceModel> districts,
@@ -236,6 +264,10 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
   final TextEditingController location;
   @override
   final String headerText;
+  @override
+  final String locationEdit;
+  @override
+  final String imageUrl;
   final List<Uint8List> _images;
   @override
   List<Uint8List> get images {
@@ -277,7 +309,7 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
 
   @override
   String toString() {
-    return 'AddEditAirportModelState(name: $name, location: $location, headerText: $headerText, images: $images, provinces: $provinces, districts: $districts, wards: $wards, provincesSelected: $provincesSelected, districtsSelected: $districtsSelected, wardsSelected: $wardsSelected)';
+    return 'AddEditAirportModelState(name: $name, location: $location, headerText: $headerText, locationEdit: $locationEdit, imageUrl: $imageUrl, images: $images, provinces: $provinces, districts: $districts, wards: $wards, provincesSelected: $provincesSelected, districtsSelected: $districtsSelected, wardsSelected: $wardsSelected)';
   }
 
   @override
@@ -290,6 +322,10 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
                 other.location == location) &&
             (identical(other.headerText, headerText) ||
                 other.headerText == headerText) &&
+            (identical(other.locationEdit, locationEdit) ||
+                other.locationEdit == locationEdit) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
             const DeepCollectionEquality()
                 .equals(other._provinces, _provinces) &&
@@ -310,6 +346,8 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
       name,
       location,
       headerText,
+      locationEdit,
+      imageUrl,
       const DeepCollectionEquality().hash(_images),
       const DeepCollectionEquality().hash(_provinces),
       const DeepCollectionEquality().hash(_districts),
@@ -331,6 +369,8 @@ abstract class _AddEditAirportModelState implements AddEditAirportModelState {
       {required final TextEditingController name,
       required final TextEditingController location,
       required final String headerText,
+      required final String locationEdit,
+      required final String imageUrl,
       required final List<Uint8List> images,
       required final List<PlaceModel> provinces,
       required final List<PlaceModel> districts,
@@ -345,6 +385,10 @@ abstract class _AddEditAirportModelState implements AddEditAirportModelState {
   TextEditingController get location;
   @override
   String get headerText;
+  @override
+  String get locationEdit;
+  @override
+  String get imageUrl;
   @override
   List<Uint8List> get images;
   @override

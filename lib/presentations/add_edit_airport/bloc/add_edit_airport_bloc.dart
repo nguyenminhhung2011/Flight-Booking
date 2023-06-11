@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
+import 'package:flight_booking/core/components/network/app_exception.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/domain/usecase/airport_usecase.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ part 'add_edit_airport_bloc.freezed.dart';
 const _idNull = '';
 const _imageNull = '';
 const _messageNull = '';
+const _locationNUll = '';
 
 @injectable
 class AddEditAirportBloc
@@ -35,6 +37,7 @@ class AddEditAirportBloc
   final PlaceService _placeService;
 
   AddEditAirportModelState get data => state.data;
+  String get airportId => _airportId;
 
   AddEditAirportBloc(
     @factoryParam String airportId,
@@ -47,7 +50,9 @@ class AddEditAirportBloc
           AddEditAirportState.initial(
             data: AddEditAirportModelState(
               location: TextEditingController(),
+              locationEdit: _locationNUll,
               name: TextEditingController(),
+              imageUrl: _imageNull,
               headerText: S.current.editAirport,
               images: [],
               districts: <PlaceModel>[],
@@ -70,6 +75,7 @@ class AddEditAirportBloc
     on<_FetchWards>(_onFetchWards);
     on<_SelectedWard>(_onSelectedWard);
     on<_ButtonTap>(_onButtonTap);
+    on<_GetAirportById>(_onGetAirportById);
   }
 
   FutureOr<void> _onPickImage(
@@ -96,24 +102,45 @@ class AddEditAirportBloc
     )));
   }
 
+  FutureOr<void> _onGetAirportById(
+      _GetAirportById event, Emitter<AddEditAirportState> emit) async {
+    if (_airportId.isNotEmpty) {
+      emit(AddEditAirportState.loading(data: data, groupLoading: 5));
+      try {
+        final result = await _airportsUsecase.getAirportById(_airportId);
+        if (result == null) {
+          emit(AddEditAirportState.getAirportByIdFailed(
+            data: data,
+            message: 'Can\'t get airport',
+          ));
+          return;
+        }
+        emit(AddEditAirportState.getAirportByIdSuccess(
+          data: data.copyWith(
+            name: TextEditingController(text: result.name),
+            location: TextEditingController(text: result.location),
+            locationEdit: result.location,
+            imageUrl: result.image,
+          ),
+        ));
+      } on AppException catch (error) {
+        emit(AddEditAirportState.getAirportByIdFailed(
+          data: data,
+          message: error.message,
+        ));
+      } catch (error) {
+        emit(AddEditAirportState.getAirportByIdFailed(
+          data: data,
+          message: error.toString(),
+        ));
+      }
+    }
+  }
+
   FutureOr<void> _onStarted(
     _Started event,
     Emitter<AddEditAirportState> emit,
   ) {
-    if (_airportId != _idNull) {
-      // emit(
-      //   state.copyWith(
-      //     data: data.copyWith(
-      //       headerText: S.current.editAirport,
-      //       airPortStart: ,
-      //       airPortFinish: TextEditingController(),
-      //       timeEnd: DateTime.now(),
-      //       timeStart: DateTime.now(),
-      //       noCustomer: _noCustomerDefault,
-      //     ),
-      //   ),
-      // );
-    }
     emit(
       state.copyWith(
         data: data.copyWith(
@@ -226,6 +253,20 @@ class AddEditAirportBloc
     ));
   }
 
+  Future<List<String>> _generateImageToString() async {
+    var imageUrls = <String>[];
+    for (var item in data.images) {
+      String? imageUrl = await _cloundinaryService.convertUti8ListToUrl(
+        item,
+        '$_airportId ${data.images.length}',
+      );
+      if (imageUrl != null) {
+        imageUrls.add(imageUrl);
+      }
+    }
+    return imageUrls;
+  }
+
   FutureOr<void> _onAddNewAirport(
     _AddNewAirport event,
     Emitter<AddEditAirportState> emit,
@@ -247,15 +288,7 @@ class AddEditAirportBloc
         return;
       }
 
-      for (var item in data.images) {
-        String? imageUrl = await _cloundinaryService.convertUti8ListToUrl(
-          item,
-          '$id ${data.images.length}',
-        );
-        if (imageUrl != null) {
-          imageUrls.add(imageUrl);
-        }
-      }
+      imageUrls = await _generateImageToString();
       if (imageUrls.isNotEmpty) {
         imageFeature = imageUrls.first;
       }
@@ -286,22 +319,47 @@ class AddEditAirportBloc
     _EditAirport event,
     Emitter<AddEditAirportState> emit,
   ) async {
-    emit(AddEditAirportState.loading(data: state.data, groupLoading: 0));
+    emit(AddEditAirportState.loading(data: state.data, groupLoading: 1));
     try {
+      int id = int.parse(_airportId);
+      String imageFeature = data.imageUrl;
+      String location =
+          '${data.provinces[data.provincesSelected].name}, ${data.districts[data.districtsSelected].name}, ${data.wards[data.wardsSelected].name}';
+      String name = data.name.text;
+      List<String> imageUrls = [];
+
+      if (name.isEmpty || location.isEmpty) {
+        emit(AddEditAirportState.editAirportFailed(
+          data: data,
+          message: 'Field is not null',
+        ));
+        return;
+      }
+
+      imageUrls = await _generateImageToString();
+      if (imageUrls.isNotEmpty) {
+        imageFeature = imageUrls.first;
+      }
       final newAirport = Airport(
-        id: randDomNumber(100),
-        image: _imageNull,
-        location: data.location.text,
-        name: data.name.text,
+        id: id,
+        name: name,
+        image: imageFeature,
+        location: location,
       );
       final edit = await _airportsUsecase.editAirport(newAirport);
       if (edit == null) {
-        emit(
-          AddEditAirportState.editAirportFailed(data: state.data, message: ''),
-        );
+        emit(AddEditAirportState.editAirportFailed(
+          data: state.data,
+          message: _messageNull,
+        ));
         return;
       }
       emit(AddEditAirportState.editAirportSuccess(data: data, airport: edit));
+    } on AppException catch (e) {
+      emit(AddEditAirportState.editAirportFailed(
+        data: data,
+        message: e.message,
+      ));
     } catch (e) {
       emit(AddEditAirportState.editAirportFailed(
         data: state.data,

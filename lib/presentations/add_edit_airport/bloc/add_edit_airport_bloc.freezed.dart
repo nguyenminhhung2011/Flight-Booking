@@ -41,6 +41,10 @@ mixin _$AddEditAirportState {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,9 @@ mixin _$AddEditAirportState {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -89,6 +96,9 @@ mixin _$AddEditAirportState {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -108,6 +118,9 @@ mixin _$AddEditAirportState {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -125,6 +138,8 @@ mixin _$AddEditAirportState {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -142,6 +157,8 @@ mixin _$AddEditAirportState {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -284,6 +301,10 @@ class _$_Initial extends _Initial {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return initial(data);
   }
@@ -311,6 +332,9 @@ class _$_Initial extends _Initial {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return initial?.call(data);
   }
@@ -338,6 +362,9 @@ class _$_Initial extends _Initial {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -363,6 +390,9 @@ class _$_Initial extends _Initial {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return initial(this);
   }
@@ -383,6 +413,8 @@ class _$_Initial extends _Initial {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return initial?.call(this);
   }
@@ -403,6 +435,8 @@ class _$_Initial extends _Initial {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -525,6 +559,10 @@ class _$_Loading extends _Loading {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return loading(data, groupLoading);
   }
@@ -552,6 +590,9 @@ class _$_Loading extends _Loading {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return loading?.call(data, groupLoading);
   }
@@ -579,6 +620,9 @@ class _$_Loading extends _Loading {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -604,6 +648,9 @@ class _$_Loading extends _Loading {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return loading(this);
   }
@@ -624,6 +671,8 @@ class _$_Loading extends _Loading {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return loading?.call(this);
   }
@@ -644,6 +693,8 @@ class _$_Loading extends _Loading {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -778,6 +829,10 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return addNewAirportSuccess(data, airport);
   }
@@ -805,6 +860,9 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return addNewAirportSuccess?.call(data, airport);
   }
@@ -832,6 +890,9 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (addNewAirportSuccess != null) {
@@ -857,6 +918,9 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return addNewAirportSuccess(this);
   }
@@ -877,6 +941,8 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return addNewAirportSuccess?.call(this);
   }
@@ -897,6 +963,8 @@ class _$_AddNewAirportSuccess extends _AddNewAirportSuccess {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (addNewAirportSuccess != null) {
@@ -1022,6 +1090,10 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return addNewAirportFailed(data, message);
   }
@@ -1049,6 +1121,9 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return addNewAirportFailed?.call(data, message);
   }
@@ -1076,6 +1151,9 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (addNewAirportFailed != null) {
@@ -1101,6 +1179,9 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return addNewAirportFailed(this);
   }
@@ -1121,6 +1202,8 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return addNewAirportFailed?.call(this);
   }
@@ -1141,6 +1224,8 @@ class _$_AddNewAirportFailed extends _AddNewAirportFailed {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (addNewAirportFailed != null) {
@@ -1275,6 +1360,10 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return editAirportSuccess(data, airport);
   }
@@ -1302,6 +1391,9 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return editAirportSuccess?.call(data, airport);
   }
@@ -1329,6 +1421,9 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (editAirportSuccess != null) {
@@ -1354,6 +1449,9 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return editAirportSuccess(this);
   }
@@ -1374,6 +1472,8 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return editAirportSuccess?.call(this);
   }
@@ -1394,6 +1494,8 @@ class _$_EditAirportSuccess extends _EditAirportSuccess {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (editAirportSuccess != null) {
@@ -1519,6 +1621,10 @@ class _$_EditAirportFailed extends _EditAirportFailed {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return editAirportFailed(data, message);
   }
@@ -1546,6 +1652,9 @@ class _$_EditAirportFailed extends _EditAirportFailed {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return editAirportFailed?.call(data, message);
   }
@@ -1573,6 +1682,9 @@ class _$_EditAirportFailed extends _EditAirportFailed {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (editAirportFailed != null) {
@@ -1598,6 +1710,9 @@ class _$_EditAirportFailed extends _EditAirportFailed {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return editAirportFailed(this);
   }
@@ -1618,6 +1733,8 @@ class _$_EditAirportFailed extends _EditAirportFailed {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return editAirportFailed?.call(this);
   }
@@ -1638,6 +1755,8 @@ class _$_EditAirportFailed extends _EditAirportFailed {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (editAirportFailed != null) {
@@ -1753,6 +1872,10 @@ class _$_PickImageSuccess extends _PickImageSuccess {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return pickImageSuccess(data);
   }
@@ -1780,6 +1903,9 @@ class _$_PickImageSuccess extends _PickImageSuccess {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return pickImageSuccess?.call(data);
   }
@@ -1807,6 +1933,9 @@ class _$_PickImageSuccess extends _PickImageSuccess {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (pickImageSuccess != null) {
@@ -1832,6 +1961,9 @@ class _$_PickImageSuccess extends _PickImageSuccess {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return pickImageSuccess(this);
   }
@@ -1852,6 +1984,8 @@ class _$_PickImageSuccess extends _PickImageSuccess {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return pickImageSuccess?.call(this);
   }
@@ -1872,6 +2006,8 @@ class _$_PickImageSuccess extends _PickImageSuccess {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (pickImageSuccess != null) {
@@ -1986,6 +2122,10 @@ class _$_FetchPlaceSuccess extends _FetchPlaceSuccess {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return fetchPlaceSuccess(data);
   }
@@ -2013,6 +2153,9 @@ class _$_FetchPlaceSuccess extends _FetchPlaceSuccess {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return fetchPlaceSuccess?.call(data);
   }
@@ -2040,6 +2183,9 @@ class _$_FetchPlaceSuccess extends _FetchPlaceSuccess {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchPlaceSuccess != null) {
@@ -2065,6 +2211,9 @@ class _$_FetchPlaceSuccess extends _FetchPlaceSuccess {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return fetchPlaceSuccess(this);
   }
@@ -2085,6 +2234,8 @@ class _$_FetchPlaceSuccess extends _FetchPlaceSuccess {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return fetchPlaceSuccess?.call(this);
   }
@@ -2105,6 +2256,8 @@ class _$_FetchPlaceSuccess extends _FetchPlaceSuccess {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchPlaceSuccess != null) {
@@ -2227,6 +2380,10 @@ class _$_FetchPlaceFailed extends _FetchPlaceFailed {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return fetchPlaceFailed(data, message);
   }
@@ -2254,6 +2411,9 @@ class _$_FetchPlaceFailed extends _FetchPlaceFailed {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return fetchPlaceFailed?.call(data, message);
   }
@@ -2281,6 +2441,9 @@ class _$_FetchPlaceFailed extends _FetchPlaceFailed {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchPlaceFailed != null) {
@@ -2306,6 +2469,9 @@ class _$_FetchPlaceFailed extends _FetchPlaceFailed {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return fetchPlaceFailed(this);
   }
@@ -2326,6 +2492,8 @@ class _$_FetchPlaceFailed extends _FetchPlaceFailed {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return fetchPlaceFailed?.call(this);
   }
@@ -2346,6 +2514,8 @@ class _$_FetchPlaceFailed extends _FetchPlaceFailed {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchPlaceFailed != null) {
@@ -2462,6 +2632,10 @@ class _$_FetchDistrictsSuccess extends _FetchDistrictsSuccess {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return fetchDistrictsSuccess(data);
   }
@@ -2489,6 +2663,9 @@ class _$_FetchDistrictsSuccess extends _FetchDistrictsSuccess {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return fetchDistrictsSuccess?.call(data);
   }
@@ -2516,6 +2693,9 @@ class _$_FetchDistrictsSuccess extends _FetchDistrictsSuccess {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchDistrictsSuccess != null) {
@@ -2541,6 +2721,9 @@ class _$_FetchDistrictsSuccess extends _FetchDistrictsSuccess {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return fetchDistrictsSuccess(this);
   }
@@ -2561,6 +2744,8 @@ class _$_FetchDistrictsSuccess extends _FetchDistrictsSuccess {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return fetchDistrictsSuccess?.call(this);
   }
@@ -2581,6 +2766,8 @@ class _$_FetchDistrictsSuccess extends _FetchDistrictsSuccess {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchDistrictsSuccess != null) {
@@ -2705,6 +2892,10 @@ class _$_FetchDistrictsFailed extends _FetchDistrictsFailed {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return fetchDistrictsFailed(data, message);
   }
@@ -2732,6 +2923,9 @@ class _$_FetchDistrictsFailed extends _FetchDistrictsFailed {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return fetchDistrictsFailed?.call(data, message);
   }
@@ -2759,6 +2953,9 @@ class _$_FetchDistrictsFailed extends _FetchDistrictsFailed {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchDistrictsFailed != null) {
@@ -2784,6 +2981,9 @@ class _$_FetchDistrictsFailed extends _FetchDistrictsFailed {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return fetchDistrictsFailed(this);
   }
@@ -2804,6 +3004,8 @@ class _$_FetchDistrictsFailed extends _FetchDistrictsFailed {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return fetchDistrictsFailed?.call(this);
   }
@@ -2824,6 +3026,8 @@ class _$_FetchDistrictsFailed extends _FetchDistrictsFailed {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchDistrictsFailed != null) {
@@ -2940,6 +3144,10 @@ class _$_FetchWardsSuccess extends _FetchWardsSuccess {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return fetchWardsSuccess(data);
   }
@@ -2967,6 +3175,9 @@ class _$_FetchWardsSuccess extends _FetchWardsSuccess {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return fetchWardsSuccess?.call(data);
   }
@@ -2994,6 +3205,9 @@ class _$_FetchWardsSuccess extends _FetchWardsSuccess {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchWardsSuccess != null) {
@@ -3019,6 +3233,9 @@ class _$_FetchWardsSuccess extends _FetchWardsSuccess {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return fetchWardsSuccess(this);
   }
@@ -3039,6 +3256,8 @@ class _$_FetchWardsSuccess extends _FetchWardsSuccess {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return fetchWardsSuccess?.call(this);
   }
@@ -3059,6 +3278,8 @@ class _$_FetchWardsSuccess extends _FetchWardsSuccess {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchWardsSuccess != null) {
@@ -3181,6 +3402,10 @@ class _$_FetchWardsFailed extends _FetchWardsFailed {
     required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
     required TResult Function(AddEditAirportModelState data, String message)
         fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
   }) {
     return fetchWardsFailed(data, message);
   }
@@ -3208,6 +3433,9 @@ class _$_FetchWardsFailed extends _FetchWardsFailed {
     TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult? Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
   }) {
     return fetchWardsFailed?.call(data, message);
   }
@@ -3235,6 +3463,9 @@ class _$_FetchWardsFailed extends _FetchWardsFailed {
     TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
     TResult Function(AddEditAirportModelState data, String message)?
         fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchWardsFailed != null) {
@@ -3260,6 +3491,9 @@ class _$_FetchWardsFailed extends _FetchWardsFailed {
     required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
     required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
     required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
   }) {
     return fetchWardsFailed(this);
   }
@@ -3280,6 +3514,8 @@ class _$_FetchWardsFailed extends _FetchWardsFailed {
     TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
   }) {
     return fetchWardsFailed?.call(this);
   }
@@ -3300,6 +3536,8 @@ class _$_FetchWardsFailed extends _FetchWardsFailed {
     TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
     TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
     TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
     required TResult orElse(),
   }) {
     if (fetchWardsFailed != null) {
@@ -3325,6 +3563,518 @@ abstract class _FetchWardsFailed extends AddEditAirportState {
 }
 
 /// @nodoc
+abstract class _$$_GetAirportByIdSuccessCopyWith<$Res>
+    implements $AddEditAirportStateCopyWith<$Res> {
+  factory _$$_GetAirportByIdSuccessCopyWith(_$_GetAirportByIdSuccess value,
+          $Res Function(_$_GetAirportByIdSuccess) then) =
+      __$$_GetAirportByIdSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AddEditAirportModelState data});
+
+  @override
+  $AddEditAirportModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetAirportByIdSuccessCopyWithImpl<$Res>
+    extends _$AddEditAirportStateCopyWithImpl<$Res, _$_GetAirportByIdSuccess>
+    implements _$$_GetAirportByIdSuccessCopyWith<$Res> {
+  __$$_GetAirportByIdSuccessCopyWithImpl(_$_GetAirportByIdSuccess _value,
+      $Res Function(_$_GetAirportByIdSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_GetAirportByIdSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AddEditAirportModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetAirportByIdSuccess extends _GetAirportByIdSuccess {
+  const _$_GetAirportByIdSuccess({required this.data}) : super._();
+
+  @override
+  final AddEditAirportModelState data;
+
+  @override
+  String toString() {
+    return 'AddEditAirportState.getAirportByIdSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetAirportByIdSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetAirportByIdSuccessCopyWith<_$_GetAirportByIdSuccess> get copyWith =>
+      __$$_GetAirportByIdSuccessCopyWithImpl<_$_GetAirportByIdSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AddEditAirportModelState data) initial,
+    required TResult Function(AddEditAirportModelState data, int groupLoading)
+        loading,
+    required TResult Function(AddEditAirportModelState data, Airport airport)
+        addNewAirportSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        addNewAirportFailed,
+    required TResult Function(AddEditAirportModelState data, Airport airport)
+        editAirportSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        editAirportFailed,
+    required TResult Function(AddEditAirportModelState data) pickImageSuccess,
+    required TResult Function(AddEditAirportModelState data) fetchPlaceSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(AddEditAirportModelState data)
+        fetchDistrictsSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        fetchDistrictsFailed,
+    required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
+  }) {
+    return getAirportByIdSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AddEditAirportModelState data)? initial,
+    TResult? Function(AddEditAirportModelState data, int groupLoading)? loading,
+    TResult? Function(AddEditAirportModelState data, Airport airport)?
+        addNewAirportSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        addNewAirportFailed,
+    TResult? Function(AddEditAirportModelState data, Airport airport)?
+        editAirportSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        editAirportFailed,
+    TResult? Function(AddEditAirportModelState data)? pickImageSuccess,
+    TResult? Function(AddEditAirportModelState data)? fetchPlaceSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(AddEditAirportModelState data)? fetchDistrictsSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        fetchDistrictsFailed,
+    TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
+  }) {
+    return getAirportByIdSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AddEditAirportModelState data)? initial,
+    TResult Function(AddEditAirportModelState data, int groupLoading)? loading,
+    TResult Function(AddEditAirportModelState data, Airport airport)?
+        addNewAirportSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        addNewAirportFailed,
+    TResult Function(AddEditAirportModelState data, Airport airport)?
+        editAirportSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        editAirportFailed,
+    TResult Function(AddEditAirportModelState data)? pickImageSuccess,
+    TResult Function(AddEditAirportModelState data)? fetchPlaceSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(AddEditAirportModelState data)? fetchDistrictsSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        fetchDistrictsFailed,
+    TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
+    required TResult orElse(),
+  }) {
+    if (getAirportByIdSuccess != null) {
+      return getAirportByIdSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddNewAirportSuccess value) addNewAirportSuccess,
+    required TResult Function(_AddNewAirportFailed value) addNewAirportFailed,
+    required TResult Function(_EditAirportSuccess value) editAirportSuccess,
+    required TResult Function(_EditAirportFailed value) editAirportFailed,
+    required TResult Function(_PickImageSuccess value) pickImageSuccess,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchDistrictsSuccess value)
+        fetchDistrictsSuccess,
+    required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
+    required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
+    required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
+  }) {
+    return getAirportByIdSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddNewAirportSuccess value)? addNewAirportSuccess,
+    TResult? Function(_AddNewAirportFailed value)? addNewAirportFailed,
+    TResult? Function(_EditAirportSuccess value)? editAirportSuccess,
+    TResult? Function(_EditAirportFailed value)? editAirportFailed,
+    TResult? Function(_PickImageSuccess value)? pickImageSuccess,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchDistrictsSuccess value)? fetchDistrictsSuccess,
+    TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
+    TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
+    TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
+  }) {
+    return getAirportByIdSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddNewAirportSuccess value)? addNewAirportSuccess,
+    TResult Function(_AddNewAirportFailed value)? addNewAirportFailed,
+    TResult Function(_EditAirportSuccess value)? editAirportSuccess,
+    TResult Function(_EditAirportFailed value)? editAirportFailed,
+    TResult Function(_PickImageSuccess value)? pickImageSuccess,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchDistrictsSuccess value)? fetchDistrictsSuccess,
+    TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
+    TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
+    TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
+    required TResult orElse(),
+  }) {
+    if (getAirportByIdSuccess != null) {
+      return getAirportByIdSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAirportByIdSuccess extends AddEditAirportState {
+  const factory _GetAirportByIdSuccess(
+          {required final AddEditAirportModelState data}) =
+      _$_GetAirportByIdSuccess;
+  const _GetAirportByIdSuccess._() : super._();
+
+  @override
+  AddEditAirportModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetAirportByIdSuccessCopyWith<_$_GetAirportByIdSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetAirportByIdFailedCopyWith<$Res>
+    implements $AddEditAirportStateCopyWith<$Res> {
+  factory _$$_GetAirportByIdFailedCopyWith(_$_GetAirportByIdFailed value,
+          $Res Function(_$_GetAirportByIdFailed) then) =
+      __$$_GetAirportByIdFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AddEditAirportModelState data, String message});
+
+  @override
+  $AddEditAirportModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetAirportByIdFailedCopyWithImpl<$Res>
+    extends _$AddEditAirportStateCopyWithImpl<$Res, _$_GetAirportByIdFailed>
+    implements _$$_GetAirportByIdFailedCopyWith<$Res> {
+  __$$_GetAirportByIdFailedCopyWithImpl(_$_GetAirportByIdFailed _value,
+      $Res Function(_$_GetAirportByIdFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_GetAirportByIdFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AddEditAirportModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetAirportByIdFailed extends _GetAirportByIdFailed {
+  const _$_GetAirportByIdFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final AddEditAirportModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AddEditAirportState.getAirportByIdFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetAirportByIdFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetAirportByIdFailedCopyWith<_$_GetAirportByIdFailed> get copyWith =>
+      __$$_GetAirportByIdFailedCopyWithImpl<_$_GetAirportByIdFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AddEditAirportModelState data) initial,
+    required TResult Function(AddEditAirportModelState data, int groupLoading)
+        loading,
+    required TResult Function(AddEditAirportModelState data, Airport airport)
+        addNewAirportSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        addNewAirportFailed,
+    required TResult Function(AddEditAirportModelState data, Airport airport)
+        editAirportSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        editAirportFailed,
+    required TResult Function(AddEditAirportModelState data) pickImageSuccess,
+    required TResult Function(AddEditAirportModelState data) fetchPlaceSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(AddEditAirportModelState data)
+        fetchDistrictsSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        fetchDistrictsFailed,
+    required TResult Function(AddEditAirportModelState data) fetchWardsSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        fetchWardsFailed,
+    required TResult Function(AddEditAirportModelState data)
+        getAirportByIdSuccess,
+    required TResult Function(AddEditAirportModelState data, String message)
+        getAirportByIdFailed,
+  }) {
+    return getAirportByIdFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AddEditAirportModelState data)? initial,
+    TResult? Function(AddEditAirportModelState data, int groupLoading)? loading,
+    TResult? Function(AddEditAirportModelState data, Airport airport)?
+        addNewAirportSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        addNewAirportFailed,
+    TResult? Function(AddEditAirportModelState data, Airport airport)?
+        editAirportSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        editAirportFailed,
+    TResult? Function(AddEditAirportModelState data)? pickImageSuccess,
+    TResult? Function(AddEditAirportModelState data)? fetchPlaceSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(AddEditAirportModelState data)? fetchDistrictsSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        fetchDistrictsFailed,
+    TResult? Function(AddEditAirportModelState data)? fetchWardsSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        fetchWardsFailed,
+    TResult? Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult? Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
+  }) {
+    return getAirportByIdFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AddEditAirportModelState data)? initial,
+    TResult Function(AddEditAirportModelState data, int groupLoading)? loading,
+    TResult Function(AddEditAirportModelState data, Airport airport)?
+        addNewAirportSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        addNewAirportFailed,
+    TResult Function(AddEditAirportModelState data, Airport airport)?
+        editAirportSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        editAirportFailed,
+    TResult Function(AddEditAirportModelState data)? pickImageSuccess,
+    TResult Function(AddEditAirportModelState data)? fetchPlaceSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(AddEditAirportModelState data)? fetchDistrictsSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        fetchDistrictsFailed,
+    TResult Function(AddEditAirportModelState data)? fetchWardsSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        fetchWardsFailed,
+    TResult Function(AddEditAirportModelState data)? getAirportByIdSuccess,
+    TResult Function(AddEditAirportModelState data, String message)?
+        getAirportByIdFailed,
+    required TResult orElse(),
+  }) {
+    if (getAirportByIdFailed != null) {
+      return getAirportByIdFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddNewAirportSuccess value) addNewAirportSuccess,
+    required TResult Function(_AddNewAirportFailed value) addNewAirportFailed,
+    required TResult Function(_EditAirportSuccess value) editAirportSuccess,
+    required TResult Function(_EditAirportFailed value) editAirportFailed,
+    required TResult Function(_PickImageSuccess value) pickImageSuccess,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchDistrictsSuccess value)
+        fetchDistrictsSuccess,
+    required TResult Function(_FetchDistrictsFailed value) fetchDistrictsFailed,
+    required TResult Function(_FetchWardsSuccess value) fetchWardsSuccess,
+    required TResult Function(_FetchWardsFailed value) fetchWardsFailed,
+    required TResult Function(_GetAirportByIdSuccess value)
+        getAirportByIdSuccess,
+    required TResult Function(_GetAirportByIdFailed value) getAirportByIdFailed,
+  }) {
+    return getAirportByIdFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddNewAirportSuccess value)? addNewAirportSuccess,
+    TResult? Function(_AddNewAirportFailed value)? addNewAirportFailed,
+    TResult? Function(_EditAirportSuccess value)? editAirportSuccess,
+    TResult? Function(_EditAirportFailed value)? editAirportFailed,
+    TResult? Function(_PickImageSuccess value)? pickImageSuccess,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchDistrictsSuccess value)? fetchDistrictsSuccess,
+    TResult? Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
+    TResult? Function(_FetchWardsSuccess value)? fetchWardsSuccess,
+    TResult? Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult? Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult? Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
+  }) {
+    return getAirportByIdFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddNewAirportSuccess value)? addNewAirportSuccess,
+    TResult Function(_AddNewAirportFailed value)? addNewAirportFailed,
+    TResult Function(_EditAirportSuccess value)? editAirportSuccess,
+    TResult Function(_EditAirportFailed value)? editAirportFailed,
+    TResult Function(_PickImageSuccess value)? pickImageSuccess,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchDistrictsSuccess value)? fetchDistrictsSuccess,
+    TResult Function(_FetchDistrictsFailed value)? fetchDistrictsFailed,
+    TResult Function(_FetchWardsSuccess value)? fetchWardsSuccess,
+    TResult Function(_FetchWardsFailed value)? fetchWardsFailed,
+    TResult Function(_GetAirportByIdSuccess value)? getAirportByIdSuccess,
+    TResult Function(_GetAirportByIdFailed value)? getAirportByIdFailed,
+    required TResult orElse(),
+  }) {
+    if (getAirportByIdFailed != null) {
+      return getAirportByIdFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAirportByIdFailed extends AddEditAirportState {
+  const factory _GetAirportByIdFailed(
+      {required final AddEditAirportModelState data,
+      required final String message}) = _$_GetAirportByIdFailed;
+  const _GetAirportByIdFailed._() : super._();
+
+  @override
+  AddEditAirportModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetAirportByIdFailedCopyWith<_$_GetAirportByIdFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AddEditAirportEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -3339,6 +4089,7 @@ mixin _$AddEditAirportEvent {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3354,6 +4105,7 @@ mixin _$AddEditAirportEvent {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3369,6 +4121,7 @@ mixin _$AddEditAirportEvent {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3385,6 +4138,7 @@ mixin _$AddEditAirportEvent {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3400,6 +4154,7 @@ mixin _$AddEditAirportEvent {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3415,6 +4170,7 @@ mixin _$AddEditAirportEvent {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3486,6 +4242,7 @@ class _$_Started implements _Started {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) {
     return onStarted();
   }
@@ -3504,6 +4261,7 @@ class _$_Started implements _Started {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) {
     return onStarted?.call();
   }
@@ -3522,6 +4280,7 @@ class _$_Started implements _Started {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -3544,6 +4303,7 @@ class _$_Started implements _Started {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) {
     return onStarted(this);
   }
@@ -3562,6 +4322,7 @@ class _$_Started implements _Started {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) {
     return onStarted?.call(this);
   }
@@ -3580,6 +4341,7 @@ class _$_Started implements _Started {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -3641,6 +4403,7 @@ class _$_Dispose implements _Dispose {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) {
     return dispose();
   }
@@ -3659,6 +4422,7 @@ class _$_Dispose implements _Dispose {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) {
     return dispose?.call();
   }
@@ -3677,6 +4441,7 @@ class _$_Dispose implements _Dispose {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) {
     if (dispose != null) {
@@ -3699,6 +4464,7 @@ class _$_Dispose implements _Dispose {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) {
     return dispose(this);
   }
@@ -3717,6 +4483,7 @@ class _$_Dispose implements _Dispose {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) {
     return dispose?.call(this);
   }
@@ -3735,6 +4502,7 @@ class _$_Dispose implements _Dispose {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) {
     if (dispose != null) {
@@ -3823,6 +4591,7 @@ class _$_EditAirport implements _EditAirport {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) {
     return editAirport(id);
   }
@@ -3841,6 +4610,7 @@ class _$_EditAirport implements _EditAirport {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) {
     return editAirport?.call(id);
   }
@@ -3859,6 +4629,7 @@ class _$_EditAirport implements _EditAirport {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) {
     if (editAirport != null) {
@@ -3881,6 +4652,7 @@ class _$_EditAirport implements _EditAirport {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) {
     return editAirport(this);
   }
@@ -3899,6 +4671,7 @@ class _$_EditAirport implements _EditAirport {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) {
     return editAirport?.call(this);
   }
@@ -3917,6 +4690,7 @@ class _$_EditAirport implements _EditAirport {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) {
     if (editAirport != null) {
@@ -3984,6 +4758,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) {
     return addNewAirport();
   }
@@ -4002,6 +4777,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) {
     return addNewAirport?.call();
   }
@@ -4020,6 +4796,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) {
     if (addNewAirport != null) {
@@ -4042,6 +4819,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) {
     return addNewAirport(this);
   }
@@ -4060,6 +4838,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) {
     return addNewAirport?.call(this);
   }
@@ -4078,6 +4857,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) {
     if (addNewAirport != null) {
@@ -4140,6 +4920,7 @@ class _$_PickImage implements _PickImage {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) {
     return pickImage();
   }
@@ -4158,6 +4939,7 @@ class _$_PickImage implements _PickImage {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) {
     return pickImage?.call();
   }
@@ -4176,6 +4958,7 @@ class _$_PickImage implements _PickImage {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) {
     if (pickImage != null) {
@@ -4198,6 +4981,7 @@ class _$_PickImage implements _PickImage {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) {
     return pickImage(this);
   }
@@ -4216,6 +5000,7 @@ class _$_PickImage implements _PickImage {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) {
     return pickImage?.call(this);
   }
@@ -4234,6 +5019,7 @@ class _$_PickImage implements _PickImage {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) {
     if (pickImage != null) {
@@ -4322,6 +5108,7 @@ class _$_RemoveImage implements _RemoveImage {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) {
     return removeImage(index);
   }
@@ -4340,6 +5127,7 @@ class _$_RemoveImage implements _RemoveImage {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) {
     return removeImage?.call(index);
   }
@@ -4358,6 +5146,7 @@ class _$_RemoveImage implements _RemoveImage {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) {
     if (removeImage != null) {
@@ -4380,6 +5169,7 @@ class _$_RemoveImage implements _RemoveImage {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) {
     return removeImage(this);
   }
@@ -4398,6 +5188,7 @@ class _$_RemoveImage implements _RemoveImage {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) {
     return removeImage?.call(this);
   }
@@ -4416,6 +5207,7 @@ class _$_RemoveImage implements _RemoveImage {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) {
     if (removeImage != null) {
@@ -4483,6 +5275,7 @@ class _$_FetchPlace implements _FetchPlace {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) {
     return fetchPlace();
   }
@@ -4501,6 +5294,7 @@ class _$_FetchPlace implements _FetchPlace {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) {
     return fetchPlace?.call();
   }
@@ -4519,6 +5313,7 @@ class _$_FetchPlace implements _FetchPlace {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) {
     if (fetchPlace != null) {
@@ -4541,6 +5336,7 @@ class _$_FetchPlace implements _FetchPlace {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) {
     return fetchPlace(this);
   }
@@ -4559,6 +5355,7 @@ class _$_FetchPlace implements _FetchPlace {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) {
     return fetchPlace?.call(this);
   }
@@ -4577,6 +5374,7 @@ class _$_FetchPlace implements _FetchPlace {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) {
     if (fetchPlace != null) {
@@ -4674,6 +5472,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) {
     return fetchDistricts(code, provincesIndex);
   }
@@ -4692,6 +5491,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) {
     return fetchDistricts?.call(code, provincesIndex);
   }
@@ -4710,6 +5510,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) {
     if (fetchDistricts != null) {
@@ -4732,6 +5533,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) {
     return fetchDistricts(this);
   }
@@ -4750,6 +5552,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) {
     return fetchDistricts?.call(this);
   }
@@ -4768,6 +5571,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) {
     if (fetchDistricts != null) {
@@ -4873,6 +5677,7 @@ class _$_FetchWards implements _FetchWards {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) {
     return fetchWards(code, districtsIndex);
   }
@@ -4891,6 +5696,7 @@ class _$_FetchWards implements _FetchWards {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) {
     return fetchWards?.call(code, districtsIndex);
   }
@@ -4909,6 +5715,7 @@ class _$_FetchWards implements _FetchWards {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) {
     if (fetchWards != null) {
@@ -4931,6 +5738,7 @@ class _$_FetchWards implements _FetchWards {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) {
     return fetchWards(this);
   }
@@ -4949,6 +5757,7 @@ class _$_FetchWards implements _FetchWards {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) {
     return fetchWards?.call(this);
   }
@@ -4967,6 +5776,7 @@ class _$_FetchWards implements _FetchWards {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) {
     if (fetchWards != null) {
@@ -5063,6 +5873,7 @@ class _$_SelectedWard implements _SelectedWard {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) {
     return selectedWard(code);
   }
@@ -5081,6 +5892,7 @@ class _$_SelectedWard implements _SelectedWard {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) {
     return selectedWard?.call(code);
   }
@@ -5099,6 +5911,7 @@ class _$_SelectedWard implements _SelectedWard {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) {
     if (selectedWard != null) {
@@ -5121,6 +5934,7 @@ class _$_SelectedWard implements _SelectedWard {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) {
     return selectedWard(this);
   }
@@ -5139,6 +5953,7 @@ class _$_SelectedWard implements _SelectedWard {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) {
     return selectedWard?.call(this);
   }
@@ -5157,6 +5972,7 @@ class _$_SelectedWard implements _SelectedWard {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) {
     if (selectedWard != null) {
@@ -5224,6 +6040,7 @@ class _$_ButtonTap implements _ButtonTap {
     required TResult Function(int code, int districtsIndex) fetchWards,
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
   }) {
     return buttonTap();
   }
@@ -5242,6 +6059,7 @@ class _$_ButtonTap implements _ButtonTap {
     TResult? Function(int code, int districtsIndex)? fetchWards,
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
   }) {
     return buttonTap?.call();
   }
@@ -5260,6 +6078,7 @@ class _$_ButtonTap implements _ButtonTap {
     TResult Function(int code, int districtsIndex)? fetchWards,
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
     required TResult orElse(),
   }) {
     if (buttonTap != null) {
@@ -5282,6 +6101,7 @@ class _$_ButtonTap implements _ButtonTap {
     required TResult Function(_FetchWards value) fetchWards,
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
   }) {
     return buttonTap(this);
   }
@@ -5300,6 +6120,7 @@ class _$_ButtonTap implements _ButtonTap {
     TResult? Function(_FetchWards value)? fetchWards,
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
   }) {
     return buttonTap?.call(this);
   }
@@ -5318,6 +6139,7 @@ class _$_ButtonTap implements _ButtonTap {
     TResult Function(_FetchWards value)? fetchWards,
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
     required TResult orElse(),
   }) {
     if (buttonTap != null) {
@@ -5329,4 +6151,166 @@ class _$_ButtonTap implements _ButtonTap {
 
 abstract class _ButtonTap implements AddEditAirportEvent {
   const factory _ButtonTap() = _$_ButtonTap;
+}
+
+/// @nodoc
+abstract class _$$_GetAirportByIdCopyWith<$Res> {
+  factory _$$_GetAirportByIdCopyWith(
+          _$_GetAirportById value, $Res Function(_$_GetAirportById) then) =
+      __$$_GetAirportByIdCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetAirportByIdCopyWithImpl<$Res>
+    extends _$AddEditAirportEventCopyWithImpl<$Res, _$_GetAirportById>
+    implements _$$_GetAirportByIdCopyWith<$Res> {
+  __$$_GetAirportByIdCopyWithImpl(
+      _$_GetAirportById _value, $Res Function(_$_GetAirportById) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetAirportById implements _GetAirportById {
+  const _$_GetAirportById();
+
+  @override
+  String toString() {
+    return 'AddEditAirportEvent.getAirportById()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetAirportById);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() dispose,
+    required TResult Function(String id) editAirport,
+    required TResult Function() addNewAirport,
+    required TResult Function() pickImage,
+    required TResult Function(int index) removeImage,
+    required TResult Function() fetchPlace,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
+    required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
+  }) {
+    return getAirportById();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? dispose,
+    TResult? Function(String id)? editAirport,
+    TResult? Function()? addNewAirport,
+    TResult? Function()? pickImage,
+    TResult? Function(int index)? removeImage,
+    TResult? Function()? fetchPlace,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
+    TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
+  }) {
+    return getAirportById?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? dispose,
+    TResult Function(String id)? editAirport,
+    TResult Function()? addNewAirport,
+    TResult Function()? pickImage,
+    TResult Function(int index)? removeImage,
+    TResult Function()? fetchPlace,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
+    TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
+    required TResult orElse(),
+  }) {
+    if (getAirportById != null) {
+      return getAirportById();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
+    required TResult Function(_EditAirport value) editAirport,
+    required TResult Function(_AddNewAirport value) addNewAirport,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_RemoveImage value) removeImage,
+    required TResult Function(_FetchPlace value) fetchPlace,
+    required TResult Function(_FetchDistricts value) fetchDistricts,
+    required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
+    required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
+  }) {
+    return getAirportById(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
+    TResult? Function(_EditAirport value)? editAirport,
+    TResult? Function(_AddNewAirport value)? addNewAirport,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_RemoveImage value)? removeImage,
+    TResult? Function(_FetchPlace value)? fetchPlace,
+    TResult? Function(_FetchDistricts value)? fetchDistricts,
+    TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
+    TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
+  }) {
+    return getAirportById?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
+    TResult Function(_EditAirport value)? editAirport,
+    TResult Function(_AddNewAirport value)? addNewAirport,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_RemoveImage value)? removeImage,
+    TResult Function(_FetchPlace value)? fetchPlace,
+    TResult Function(_FetchDistricts value)? fetchDistricts,
+    TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
+    TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
+    required TResult orElse(),
+  }) {
+    if (getAirportById != null) {
+      return getAirportById(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAirportById implements AddEditAirportEvent {
+  const factory _GetAirportById() = _$_GetAirportById;
 }

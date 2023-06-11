@@ -24,4 +24,8 @@ class AirportUsecase {
   Future<Airport?> editAirport(Airport newAirport) async {
     return _airportRepository.editAirport(newAirport);
   }
+
+  Future<Airport?> getAirportById(String id) async {
+    return _airportRepository.getAirportById(id);
+  }
 }

@@ -63,5 +63,14 @@ class AddEditAirportState with _$AddEditAirportState {
     required String message,
   }) = _FetchWardsFailed;
 
+  const factory AddEditAirportState.getAirportByIdSuccess({
+    required AddEditAirportModelState data,
+  }) = _GetAirportByIdSuccess;
+
+  const factory AddEditAirportState.getAirportByIdFailed({
+    required AddEditAirportModelState data,
+    required String message,
+  }) = _GetAirportByIdFailed;
+
   bool get isLoading => this is _Loading;
 }

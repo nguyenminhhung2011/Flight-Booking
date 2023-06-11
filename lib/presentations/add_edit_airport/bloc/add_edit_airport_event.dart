@@ -10,10 +10,15 @@ class AddEditAirportEvent with _$AddEditAirportEvent {
   const factory AddEditAirportEvent.pickImage() = _PickImage;
   const factory AddEditAirportEvent.removeImage(int index) = _RemoveImage;
   const factory AddEditAirportEvent.fetchPlace() = _FetchPlace;
-  const factory AddEditAirportEvent.fetchDistricts(
-      {required int code, required int provincesIndex}) = _FetchDistricts;
-  const factory AddEditAirportEvent.fetchWards(
-      {required int code, required int districtsIndex}) = _FetchWards;
+  const factory AddEditAirportEvent.fetchDistricts({
+    required int code,
+    required int provincesIndex,
+  }) = _FetchDistricts;
+  const factory AddEditAirportEvent.fetchWards({
+    required int code,
+    required int districtsIndex,
+  }) = _FetchWards;
   const factory AddEditAirportEvent.selectedWard(int code) = _SelectedWard;
   const factory AddEditAirportEvent.buttonTap() = _ButtonTap;
+  const factory AddEditAirportEvent.getAirportById() = _GetAirportById;
 }

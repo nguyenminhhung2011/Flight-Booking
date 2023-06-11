@@ -12,6 +12,8 @@ class AddEditAirportModelState with _$AddEditAirportModelState {
     required TextEditingController name,
     required TextEditingController location,
     required String headerText,
+    required String locationEdit,
+    required String imageUrl,
     required List<Uint8List> images,
     required List<PlaceModel> provinces,
     required List<PlaceModel> districts,
