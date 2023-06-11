@@ -315,6 +315,7 @@
     "transaction": "Transaction",
     "provinces": "Provinces",
     "districts": "Districts",
-    "wards": "Wards"
-
+    "wards": "Wards",
+    "yes": "Yes",
+    "no": "No"
 }

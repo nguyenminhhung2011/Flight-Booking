@@ -17,7 +17,7 @@ class AirportUsecase {
     return add;
   }
 
-  Future<bool> deleteAirport(String id) async {
+  Future<bool> deleteAirport(int id) async {
     return _airportRepository.deleteAirport(id);
   }
 

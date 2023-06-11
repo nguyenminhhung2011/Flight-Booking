@@ -24,7 +24,7 @@ mixin _$AirportEvent {
     required TResult Function(String id) openAddEditAirportForm,
     required TResult Function(Airport airport) updateAirportsAfterAdd,
     required TResult Function(Airport airport) updateAirportsAfterEdit,
-    required TResult Function(String id) deleteAirport,
+    required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$AirportEvent {
     TResult? Function(String id)? openAddEditAirportForm,
     TResult? Function(Airport airport)? updateAirportsAfterAdd,
     TResult? Function(Airport airport)? updateAirportsAfterEdit,
-    TResult? Function(String id)? deleteAirport,
+    TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
   }) =>
       throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ mixin _$AirportEvent {
     TResult Function(String id)? openAddEditAirportForm,
     TResult Function(Airport airport)? updateAirportsAfterAdd,
     TResult Function(Airport airport)? updateAirportsAfterEdit,
-    TResult Function(String id)? deleteAirport,
+    TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     required TResult orElse(),
   }) =>
@@ -156,7 +156,7 @@ class _$_Started implements _Started {
     required TResult Function(String id) openAddEditAirportForm,
     required TResult Function(Airport airport) updateAirportsAfterAdd,
     required TResult Function(Airport airport) updateAirportsAfterEdit,
-    required TResult Function(String id) deleteAirport,
+    required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
   }) {
     return onStarted();
@@ -171,7 +171,7 @@ class _$_Started implements _Started {
     TResult? Function(String id)? openAddEditAirportForm,
     TResult? Function(Airport airport)? updateAirportsAfterAdd,
     TResult? Function(Airport airport)? updateAirportsAfterEdit,
-    TResult? Function(String id)? deleteAirport,
+    TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
   }) {
     return onStarted?.call();
@@ -186,7 +186,7 @@ class _$_Started implements _Started {
     TResult Function(String id)? openAddEditAirportForm,
     TResult Function(Airport airport)? updateAirportsAfterAdd,
     TResult Function(Airport airport)? updateAirportsAfterEdit,
-    TResult Function(String id)? deleteAirport,
+    TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     required TResult orElse(),
   }) {
@@ -297,7 +297,7 @@ class _$_FetchAirports implements _FetchAirports {
     required TResult Function(String id) openAddEditAirportForm,
     required TResult Function(Airport airport) updateAirportsAfterAdd,
     required TResult Function(Airport airport) updateAirportsAfterEdit,
-    required TResult Function(String id) deleteAirport,
+    required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
   }) {
     return fetchAirports();
@@ -312,7 +312,7 @@ class _$_FetchAirports implements _FetchAirports {
     TResult? Function(String id)? openAddEditAirportForm,
     TResult? Function(Airport airport)? updateAirportsAfterAdd,
     TResult? Function(Airport airport)? updateAirportsAfterEdit,
-    TResult? Function(String id)? deleteAirport,
+    TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
   }) {
     return fetchAirports?.call();
@@ -327,7 +327,7 @@ class _$_FetchAirports implements _FetchAirports {
     TResult Function(String id)? openAddEditAirportForm,
     TResult Function(Airport airport)? updateAirportsAfterAdd,
     TResult Function(Airport airport)? updateAirportsAfterEdit,
-    TResult Function(String id)? deleteAirport,
+    TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     required TResult orElse(),
   }) {
@@ -438,7 +438,7 @@ class _$_ChangePageView implements _ChangePageView {
     required TResult Function(String id) openAddEditAirportForm,
     required TResult Function(Airport airport) updateAirportsAfterAdd,
     required TResult Function(Airport airport) updateAirportsAfterEdit,
-    required TResult Function(String id) deleteAirport,
+    required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
   }) {
     return changePageView();
@@ -453,7 +453,7 @@ class _$_ChangePageView implements _ChangePageView {
     TResult? Function(String id)? openAddEditAirportForm,
     TResult? Function(Airport airport)? updateAirportsAfterAdd,
     TResult? Function(Airport airport)? updateAirportsAfterEdit,
-    TResult? Function(String id)? deleteAirport,
+    TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
   }) {
     return changePageView?.call();
@@ -468,7 +468,7 @@ class _$_ChangePageView implements _ChangePageView {
     TResult Function(String id)? openAddEditAirportForm,
     TResult Function(Airport airport)? updateAirportsAfterAdd,
     TResult Function(Airport airport)? updateAirportsAfterEdit,
-    TResult Function(String id)? deleteAirport,
+    TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     required TResult orElse(),
   }) {
@@ -606,7 +606,7 @@ class _$_OpenAddEditAirportForm implements _OpenAddEditAirportForm {
     required TResult Function(String id) openAddEditAirportForm,
     required TResult Function(Airport airport) updateAirportsAfterAdd,
     required TResult Function(Airport airport) updateAirportsAfterEdit,
-    required TResult Function(String id) deleteAirport,
+    required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
   }) {
     return openAddEditAirportForm(id);
@@ -621,7 +621,7 @@ class _$_OpenAddEditAirportForm implements _OpenAddEditAirportForm {
     TResult? Function(String id)? openAddEditAirportForm,
     TResult? Function(Airport airport)? updateAirportsAfterAdd,
     TResult? Function(Airport airport)? updateAirportsAfterEdit,
-    TResult? Function(String id)? deleteAirport,
+    TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
   }) {
     return openAddEditAirportForm?.call(id);
@@ -636,7 +636,7 @@ class _$_OpenAddEditAirportForm implements _OpenAddEditAirportForm {
     TResult Function(String id)? openAddEditAirportForm,
     TResult Function(Airport airport)? updateAirportsAfterAdd,
     TResult Function(Airport airport)? updateAirportsAfterEdit,
-    TResult Function(String id)? deleteAirport,
+    TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     required TResult orElse(),
   }) {
@@ -790,7 +790,7 @@ class _$_UpdateAirportsAfterAdd implements _UpdateAirportsAfterAdd {
     required TResult Function(String id) openAddEditAirportForm,
     required TResult Function(Airport airport) updateAirportsAfterAdd,
     required TResult Function(Airport airport) updateAirportsAfterEdit,
-    required TResult Function(String id) deleteAirport,
+    required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
   }) {
     return updateAirportsAfterAdd(airport);
@@ -805,7 +805,7 @@ class _$_UpdateAirportsAfterAdd implements _UpdateAirportsAfterAdd {
     TResult? Function(String id)? openAddEditAirportForm,
     TResult? Function(Airport airport)? updateAirportsAfterAdd,
     TResult? Function(Airport airport)? updateAirportsAfterEdit,
-    TResult? Function(String id)? deleteAirport,
+    TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
   }) {
     return updateAirportsAfterAdd?.call(airport);
@@ -820,7 +820,7 @@ class _$_UpdateAirportsAfterAdd implements _UpdateAirportsAfterAdd {
     TResult Function(String id)? openAddEditAirportForm,
     TResult Function(Airport airport)? updateAirportsAfterAdd,
     TResult Function(Airport airport)? updateAirportsAfterEdit,
-    TResult Function(String id)? deleteAirport,
+    TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     required TResult orElse(),
   }) {
@@ -975,7 +975,7 @@ class _$_UpdateAirportsAfterEdit implements _UpdateAirportsAfterEdit {
     required TResult Function(String id) openAddEditAirportForm,
     required TResult Function(Airport airport) updateAirportsAfterAdd,
     required TResult Function(Airport airport) updateAirportsAfterEdit,
-    required TResult Function(String id) deleteAirport,
+    required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
   }) {
     return updateAirportsAfterEdit(airport);
@@ -990,7 +990,7 @@ class _$_UpdateAirportsAfterEdit implements _UpdateAirportsAfterEdit {
     TResult? Function(String id)? openAddEditAirportForm,
     TResult? Function(Airport airport)? updateAirportsAfterAdd,
     TResult? Function(Airport airport)? updateAirportsAfterEdit,
-    TResult? Function(String id)? deleteAirport,
+    TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
   }) {
     return updateAirportsAfterEdit?.call(airport);
@@ -1005,7 +1005,7 @@ class _$_UpdateAirportsAfterEdit implements _UpdateAirportsAfterEdit {
     TResult Function(String id)? openAddEditAirportForm,
     TResult Function(Airport airport)? updateAirportsAfterAdd,
     TResult Function(Airport airport)? updateAirportsAfterEdit,
-    TResult Function(String id)? deleteAirport,
+    TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     required TResult orElse(),
   }) {
@@ -1084,7 +1084,7 @@ abstract class _$$_DeleteAirportCopyWith<$Res> {
           _$_DeleteAirport value, $Res Function(_$_DeleteAirport) then) =
       __$$_DeleteAirportCopyWithImpl<$Res>;
   @useResult
-  $Res call({String id});
+  $Res call({int id});
 }
 
 /// @nodoc
@@ -1104,7 +1104,7 @@ class __$$_DeleteAirportCopyWithImpl<$Res>
       null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -1115,7 +1115,7 @@ class _$_DeleteAirport implements _DeleteAirport {
   const _$_DeleteAirport(this.id);
 
   @override
-  final String id;
+  final int id;
 
   @override
   String toString() {
@@ -1148,7 +1148,7 @@ class _$_DeleteAirport implements _DeleteAirport {
     required TResult Function(String id) openAddEditAirportForm,
     required TResult Function(Airport airport) updateAirportsAfterAdd,
     required TResult Function(Airport airport) updateAirportsAfterEdit,
-    required TResult Function(String id) deleteAirport,
+    required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
   }) {
     return deleteAirport(id);
@@ -1163,7 +1163,7 @@ class _$_DeleteAirport implements _DeleteAirport {
     TResult? Function(String id)? openAddEditAirportForm,
     TResult? Function(Airport airport)? updateAirportsAfterAdd,
     TResult? Function(Airport airport)? updateAirportsAfterEdit,
-    TResult? Function(String id)? deleteAirport,
+    TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
   }) {
     return deleteAirport?.call(id);
@@ -1178,7 +1178,7 @@ class _$_DeleteAirport implements _DeleteAirport {
     TResult Function(String id)? openAddEditAirportForm,
     TResult Function(Airport airport)? updateAirportsAfterAdd,
     TResult Function(Airport airport)? updateAirportsAfterEdit,
-    TResult Function(String id)? deleteAirport,
+    TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     required TResult orElse(),
   }) {
@@ -1242,9 +1242,9 @@ class _$_DeleteAirport implements _DeleteAirport {
 }
 
 abstract class _DeleteAirport implements AirportEvent {
-  const factory _DeleteAirport(final String id) = _$_DeleteAirport;
+  const factory _DeleteAirport(final int id) = _$_DeleteAirport;
 
-  String get id;
+  int get id;
   @JsonKey(ignore: true)
   _$$_DeleteAirportCopyWith<_$_DeleteAirport> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1294,7 +1294,7 @@ class _$_LoadingComplete implements _LoadingComplete {
     required TResult Function(String id) openAddEditAirportForm,
     required TResult Function(Airport airport) updateAirportsAfterAdd,
     required TResult Function(Airport airport) updateAirportsAfterEdit,
-    required TResult Function(String id) deleteAirport,
+    required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
   }) {
     return loadingComplete();
@@ -1309,7 +1309,7 @@ class _$_LoadingComplete implements _LoadingComplete {
     TResult? Function(String id)? openAddEditAirportForm,
     TResult? Function(Airport airport)? updateAirportsAfterAdd,
     TResult? Function(Airport airport)? updateAirportsAfterEdit,
-    TResult? Function(String id)? deleteAirport,
+    TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
   }) {
     return loadingComplete?.call();
@@ -1324,7 +1324,7 @@ class _$_LoadingComplete implements _LoadingComplete {
     TResult Function(String id)? openAddEditAirportForm,
     TResult Function(Airport airport)? updateAirportsAfterAdd,
     TResult Function(Airport airport)? updateAirportsAfterEdit,
-    TResult Function(String id)? deleteAirport,
+    TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     required TResult orElse(),
   }) {
