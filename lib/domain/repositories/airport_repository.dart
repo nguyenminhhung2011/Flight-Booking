@@ -7,4 +7,6 @@ abstract class AirportRepository {
   Future<bool> deleteAirport(String id);
 
   Future<Airport?> editAirport(Airport newAirport);
+
+  Future<Airport?> getAirportById(String id);
 }

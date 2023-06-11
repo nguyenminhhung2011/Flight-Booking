@@ -8,8 +8,8 @@ part 'airport_api.g.dart';
 
 class AirportEndPoint {
   static const branch = '/api/v1/airport';
-  static const fetchAirportUrl = "$branch/";
-  static const editAirportUrl = '$branch/edit';
+  static const getAirportUrl = "$branch/";
+  static const editAirportUrl = '$branch/update';
   static const deleteAirportUrl = "/airport/delete";
   static const addAirportUrl = "$branch/add";
 }
@@ -20,8 +20,11 @@ abstract class AirportApi {
   @factoryMethod
   factory AirportApi(Dio dio) = _AirportApi;
 
-  @GET(AirportEndPoint.fetchAirportUrl)
+  @GET(AirportEndPoint.getAirportUrl)
   Future<HttpResponse<List<AirportModel>?>> fetchAirports();
+
+  @GET('${AirportEndPoint.getAirportUrl}{id}')
+  Future<HttpResponse<AirportModel>> getAirportById(@Path("id") String id);
 
   @POST(AirportEndPoint.addAirportUrl)
   Future<HttpResponse<AirportModel?>> addNewAirPorts({
@@ -32,7 +35,7 @@ abstract class AirportApi {
   Future<ApiResponse<bool>> deleteAirport(@Path("id") String id);
 
   @PUT(AirportEndPoint.editAirportUrl)
-  Future<ApiResponse<AirportModel?>> editAirport({
+  Future<HttpResponse<AirportModel?>> editAirport({
     @Body() required Map<String, dynamic> body,
   });
 }

@@ -98,17 +98,15 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     _UpdateAirportsAfterEdit event,
     Emitter<AirportState> emit,
   ) {
-    emit(
-      state.copyWith(
-          data: data.copyWith(
-        airports: data.airports.map((e) {
-          if (e.id == event.airport.id) {
-            return event.airport;
-          }
-          return e;
-        }).toList(),
-      )),
-    );
+    emit(AirportState.updateAirportSuccess(
+        data: data.copyWith(
+      airports: data.airports.map((e) {
+        if (e.id == event.airport.id) {
+          return event.airport;
+        }
+        return e;
+      }).toList(),
+    )));
   }
 
   FutureOr<void> _onDeleteAirport(

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
+import 'package:flight_booking/presentations/add_edit_airport/views/add_edit_airport_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,17 +36,28 @@ class _AirportScreenState extends State<AirportScreen> {
     textController = TextEditingController();
   }
 
-  void _updateAirports(Airport airport) {
-    //🐼 if edit
+  void _onUpdateAirportsAfterAdd(Airport airport) {
     _bloc.add(AirportEvent.updateAirportsAfterAdd(airport));
+  }
+
+  void _onUpdateAirportAfterEdit(Airport airport) {
+    _bloc.add(AirportEvent.updateAirportsAfterEdit(airport));
   }
 
   void _listenStateChange(BuildContext context, AirportState state) {
     state.whenOrNull(
       openAddEditAirportSuccess: (state, id) async {
-        final result = await context.openDialogAdDEditAirport(id);
-        if (result is Airport) {
-          _updateAirports(result);
+        Map result = await context.openDialogAdDEditAirport(id);
+        var type = result['type'];
+        var airport = result['airport'];
+        if (airport != null && airport is Airport) {
+          if (type != null && type is TypeUpdateAirportForm) {
+            if (type.isEdit) {
+              _onUpdateAirportAfterEdit(airport);
+            } else {
+              _onUpdateAirportsAfterAdd(airport);
+            }
+          }
         }
       },
       fetchAirportsFailed: (data, error) {
@@ -171,7 +183,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                 ],
               ),
               data: [..._airports],
-              rowBuilder: (data) {
+              rowBuilder: (airportData) {
                 return FluxTableRow(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -215,7 +227,9 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                         child: Row(
                           children: [
                             ElevatedButton(
-                              onPressed: () => openAddEditFlightDialog('id'),
+                              onPressed: () => openAddEditFlightDialog(
+                                airportData.id.toString(),
+                              ),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: CommonColor
                                     .primaryColor, // Background color
@@ -227,7 +241,9 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                             ),
                             const SizedBox(width: 5.0),
                             ElevatedButton(
-                              onPressed: () => deleteAirport('null'),
+                              onPressed: () => deleteAirport(
+                                airportData.id.toString(),
+                              ),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.red, // Background color
                               ),
@@ -240,10 +256,12 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                     return Text(data.toString());
                   },
                   rowData: [
-                    FlexRowTableData<String>(flex: 1, data: data.id.toString()),
-                    FlexRowTableData<String>(flex: 1, data: data.name),
-                    FlexRowTableData<String>(flex: 1, data: data.image),
-                    FlexRowTableData<String>(flex: 1, data: data.location),
+                    FlexRowTableData<String>(
+                        flex: 1, data: airportData.id.toString()),
+                    FlexRowTableData<String>(flex: 1, data: airportData.name),
+                    FlexRowTableData<String>(flex: 1, data: airportData.image),
+                    FlexRowTableData<String>(
+                        flex: 1, data: airportData.location),
                     FlexRowTableData<String>(flex: 1, data: ''),
                   ],
                 );

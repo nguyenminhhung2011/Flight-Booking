@@ -16,6 +16,13 @@ import '../../customer/views/widgets/customer_textfield.dart';
 import '../bloc/add_edit_airport_bloc.dart';
 import 'widgets/item_image.dart';
 
+enum TypeUpdateAirportForm {
+  edit,
+  add;
+
+  bool get isEdit => this == TypeUpdateAirportForm.edit;
+}
+
 class AddEditAirportForm extends StatefulWidget {
   const AddEditAirportForm({super.key});
 
@@ -31,6 +38,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
     super.initState();
     _bloc.add(const AddEditAirportEvent.onStarted());
     _bloc.add(const AddEditAirportEvent.fetchPlace());
+    _bloc.add(const AddEditAirportEvent.getAirportById());
   }
 
   void pickImage() {
@@ -66,10 +74,16 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
   void _listenStateChange(BuildContext context, AddEditAirportState state) {
     state.whenOrNull(
         addNewAirportSuccess: (data, airport) {
-          context.popArgs(airport);
+          context.popArgs({
+            'airport': airport,
+            'type': TypeUpdateAirportForm.add,
+          });
         },
-        editAirportSuccess: (data, flight) {
-          context.popArgs(flight);
+        editAirportSuccess: (data, airport) {
+          context.popArgs({
+            'airport': airport,
+            'type': TypeUpdateAirportForm.edit,
+          });
         },
         fetchPlaceSuccess: (data) {
           if (data.provinces.isNotEmpty) {
@@ -113,6 +127,9 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
   bool get loadingButton => _bloc.state
       .maybeWhen(orElse: () => false, loading: (data, type) => type == 1);
 
+  bool get loadingGetAirport => _bloc.state
+      .maybeWhen(orElse: () => false, loading: (data, type) => type == 5);
+
   @override
   Widget build(BuildContext context) {
     final widthDevice = MediaQuery.of(context).size.width;
@@ -130,6 +147,11 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
         final provincesSelected = state.data.provincesSelected;
         final districtsSelected = state.data.districtsSelected;
         final wardsSelected = state.data.wardsSelected;
+        final location = data.locationEdit;
+
+        if (loadingGetAirport) {
+          return _loadingWidget(context);
+        }
 
         return Container(
           width: Breakpoints.small.isActive(context)
@@ -151,7 +173,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                 children: [
                   Expanded(
                     child: FilterCategory(
-                      controller: TextEditingController(text: ''),
+                      controller: TextEditingController(text: _bloc.airportId),
                       hint: S.of(context).id,
                       iconData: Icons.insert_drive_file,
                     ),
@@ -166,6 +188,27 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                   )
                 ],
               ),
+              if (_bloc.airportId.isNotEmpty) ...[
+                const SizedBox(height: 10.0),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.location_on,
+                      color: Theme.of(context).primaryColor,
+                      size: 14,
+                    ),
+                    const SizedBox(width: 10.0),
+                    Text(
+                      location,
+                      style: context.titleMedium.copyWith(
+                        fontWeight: FontWeight.w500,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 10.0),
+              ],
               // Group location
               if (!loadingProvinces) ...<Widget>[
                 if (provinces.isNotEmpty) ...<Widget>[

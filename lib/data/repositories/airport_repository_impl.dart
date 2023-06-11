@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flight_booking/core/components/network/app_exception.dart';
 import 'package:flight_booking/data/datasource/remote/airport/airport_api.dart';
 import 'package:flight_booking/data/models/airport/airport_model.dart';
@@ -61,10 +59,26 @@ class AirportRepositoryImpl extends AirportRepository {
       newAirport.location,
     );
     final body = airportModel.toJson();
-
     final response = await _airportApi.editAirport(body: body);
-
+    if (response.response.statusCode != 200) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage!,
+      );
+    }
     final result = response.data?.toEntity();
     return result;
+  }
+
+  @override
+  Future<Airport?> getAirportById(String id) async {
+    final response = await _airportApi.getAirportById(id);
+    if (response.response.statusCode != 200) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage!,
+      );
+    }
+    return response.data.toEntity();
   }
 }
