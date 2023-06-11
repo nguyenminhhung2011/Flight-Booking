@@ -10,15 +10,11 @@ class AirportUsecase {
 
   Future<List<Airport>> fetchAllAirports() async {
     return await _airportRepository.getListAirport() ?? [];
-    // return [];
   }
 
   Future<Airport?> addNewAirport(Airport newAirport) async {
     var add = await _airportRepository.addNewAirport(newAirport);
-    if (add != null) {
-      return newAirport;
-    }
-    return null;
+    return add;
   }
 
   Future<bool> deleteAirport(String id) async {

@@ -19,13 +19,13 @@ class _AirportApi implements AirportApi {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<AirportModel>?>> fetchAirports() async {
+  Future<HttpResponse<List<AirportModel>?>> fetchAirports() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<AirportModel>>>(Options(
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<HttpResponse<List<AirportModel>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -37,45 +37,37 @@ class _AirportApi implements AirportApi {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ApiResponse<List<AirportModel>>.fromJson(
-      _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<AirportModel>(
-                  (i) => AirportModel.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
-    );
-    return value;
+    var value = _result.data
+        ?.map((dynamic i) => AirportModel.fromJson(i as Map<String, dynamic>))
+        .toList();
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
   }
 
   @override
-  Future<ApiResponse<AirportModel?>> addNewAirPorts({required body}) async {
+  Future<HttpResponse<AirportModel?>> addNewAirPorts({required body}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body);
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<AirportModel>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
+        _setStreamType<HttpResponse<AirportModel>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/airport/add',
+              '/api/v1/airport/add',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ApiResponse<AirportModel?>.fromJson(
-      _result.data!,
-      (json) => json == null
-          ? null
-          : AirportModel.fromJson(json as Map<String, dynamic>),
-    );
-    return value;
+    final value =
+        _result.data == null ? null : AirportModel.fromJson(_result.data!);
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
   }
 
   @override
@@ -119,7 +111,7 @@ class _AirportApi implements AirportApi {
     )
             .compose(
               _dio.options,
-              '/airport/edit',
+              '/api/v1/airport/edit',
               queryParameters: queryParameters,
               data: _data,
             )

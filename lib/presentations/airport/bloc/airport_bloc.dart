@@ -20,14 +20,12 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
   AirportModelState get data => state.data;
 
   AirportBloc(this._airportUsecase)
-      : super(
-          const AirportState.initial(
-            data: AirportModelState(
-              airports: [],
-              pageView: 0,
-            ),
+      : super(const AirportState.initial(
+          data: AirportModelState(
+            airports: [],
+            pageView: 0,
           ),
-        ) {
+        )) {
     on<_Started>(_onStarted);
     on<_FetchAirports>(_onFetchAirports);
     on<_ChangePageView>(_onChangePageView);
@@ -42,10 +40,7 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     _Started event,
     Emitter<AirportState> emit,
   ) {
-    // emit(AirportState.waitCircularLoading(data: data));
-    // Future.delayed(const Duration(seconds: 10)).whenComplete(() {
     add(const _LoadingComplete());
-    // });
   }
 
   FutureOr<void> _onLoadingComplete(
@@ -94,7 +89,7 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     _UpdateAirportsAfterAdd event,
     Emitter<AirportState> emit,
   ) {
-    emit(state.copyWith(
+    emit(AirportState.updateAirportSuccess(
       data: data.copyWith(airports: [...data.airports, event.airport]),
     ));
   }

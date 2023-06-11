@@ -15,4 +15,5 @@ class AddEditAirportEvent with _$AddEditAirportEvent {
   const factory AddEditAirportEvent.fetchWards(
       {required int code, required int districtsIndex}) = _FetchWards;
   const factory AddEditAirportEvent.selectedWard(int code) = _SelectedWard;
+  const factory AddEditAirportEvent.buttonTap() = _ButtonTap;
 }

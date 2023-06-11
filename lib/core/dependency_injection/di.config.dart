@@ -44,22 +44,24 @@ import '../../presentations/dashboard/bloc/dashboard_bloc.dart' as _i9;
 import '../../presentations/flight_detail/bloc/flight_detail_bloc.dart' as _i13;
 import '../../presentations/list_flight/bloc/list_flight_bloc.dart' as _i19;
 import '../../presentations/list_ticket/bloc/list_ticket_bloc.dart' as _i37;
-import '../../presentations/login/bloc/authentication_bloc.dart' as _i48;
+import '../../presentations/login/bloc/authentication_bloc.dart' as _i49;
 import '../../presentations/payment_detail/bloc/payment_detail_bloc.dart'
     as _i21;
 import '../../presentations/payment_management/bloc/payment_bloc.dart' as _i20;
 import '../../presentations/settings/bloc/accout/account_setting_bloc.dart'
     as _i44;
 import '../../presentations/settings/bloc/general/general_setting_bloc.dart'
-    as _i49;
+    as _i50;
 import '../../presentations/settings/bloc/setting_bloc.dart' as _i25;
 import '../../presentations_mobile/airport_detail_mobile/bloc/airport_detail_mobile_bloc.dart'
     as _i3;
-import '../../presentations_mobile/auth/bloc/auth_bloc.dart' as _i47;
+import '../../presentations_mobile/auth/bloc/auth_bloc.dart' as _i48;
 import '../../presentations_mobile/dashboard_mobile/bloc/dashboard_mobile_bloc.dart'
     as _i10;
 import '../../presentations_mobile/flight_history_detail/bloc/flight_history_detail_bloc.dart'
     as _i14;
+import '../../presentations_mobile/list_airport_mobile/bloc/airport_mobile_bloc.dart'
+    as _i47;
 import '../../presentations_mobile/save/bloc/save_bloc.dart' as _i23;
 import '../../presentations_mobile/search_mobile/bloc/search_mobile_bloc.dart'
     as _i38;
@@ -71,7 +73,7 @@ import '../components/enum/search_enum.dart' as _i39;
 import '../services/cloundinary_service.dart' as _i4;
 import '../services/image_pic_service.dart' as _i18;
 import '../services/place/place_service.dart' as _i22;
-import 'modules/data_source_module.dart' as _i50;
+import 'modules/data_source_module.dart' as _i51;
 
 const String _prod = 'prod';
 
@@ -175,12 +177,14 @@ _i1.GetIt init(
       ));
   gh.factory<_i46.AirportBloc>(
       () => _i46.AirportBloc(gh<_i34.AirportUsecase>()));
-  gh.factory<_i47.AuthBloc>(() => _i47.AuthBloc(gh<_i41.UserRepository>()));
-  gh.factory<_i48.AuthenticationBloc>(
-      () => _i48.AuthenticationBloc(gh<_i43.UserUseCase>()));
-  gh.factory<_i49.GeneralSettingBloc>(
-      () => _i49.GeneralSettingBloc(gh<_i43.UserUseCase>()));
+  gh.factory<_i47.AirportMobileBloc>(
+      () => _i47.AirportMobileBloc(gh<_i34.AirportUsecase>()));
+  gh.factory<_i48.AuthBloc>(() => _i48.AuthBloc(gh<_i41.UserRepository>()));
+  gh.factory<_i49.AuthenticationBloc>(
+      () => _i49.AuthenticationBloc(gh<_i43.UserUseCase>()));
+  gh.factory<_i50.GeneralSettingBloc>(
+      () => _i50.GeneralSettingBloc(gh<_i43.UserUseCase>()));
   return getIt;
 }
 
-class _$DataSourceModule extends _i50.DataSourceModule {}
+class _$DataSourceModule extends _i51.DataSourceModule {}

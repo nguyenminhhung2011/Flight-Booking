@@ -57,14 +57,16 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
     _bloc.add(AddEditAirportEvent.selectedWard(code ?? 0));
   }
 
-  void _onAddNewAirport() {
-    _bloc.add(const AddEditAirportEvent.addNewAirport());
+  void _onButtonTap() {
+    if (!_bloc.state.isLoading) {
+      _bloc.add(const AddEditAirportEvent.buttonTap());
+    }
   }
 
-  void _listenStateChange(_, AddEditAirportState state) {
+  void _listenStateChange(BuildContext context, AddEditAirportState state) {
     state.whenOrNull(
-        addNewAirportSuccess: (data, flight) {
-          context.popArgs(flight);
+        addNewAirportSuccess: (data, airport) {
+          context.popArgs(airport);
         },
         editAirportSuccess: (data, flight) {
           context.popArgs(flight);
@@ -86,6 +88,9 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
           }
         },
         fetchWardsSuccess: (data) {},
+        addNewAirportFailed: (data, error) {
+          log(error);
+        },
         fetchPlaceFailed: (data, error) {
           log(error);
         },
@@ -269,7 +274,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                 width: double.infinity,
                 height: 45.0,
                 radius: 5.0,
-                onPress: _onAddNewAirport,
+                onPress: _onButtonTap,
                 child: loadingButton
                     ? _loadingWidget(context)
                     : Text(data.headerText),

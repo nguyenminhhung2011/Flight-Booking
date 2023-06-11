@@ -12,6 +12,7 @@ import '../../../core/components/widgets/mobile/button_custom.dart';
 import '../../../core/config/color_config.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/airport_bloc.dart';
+import '../bloc/airport_model_state.dart';
 import 'airport_fast_view.dart';
 
 class AirportScreen extends StatefulWidget {
@@ -34,13 +35,23 @@ class _AirportScreenState extends State<AirportScreen> {
     textController = TextEditingController();
   }
 
+  void _updateAirports(Airport airport) {
+    //🐼 if edit
+    _bloc.add(AirportEvent.updateAirportsAfterAdd(airport));
+  }
+
   void _listenStateChange(BuildContext context, AirportState state) {
-    state.whenOrNull(openAddEditAirportSuccess: (state, id) {
-      final result = context.openDialogAdDEditAirport(id);
-      if (result is Airport) {}
-    }, fetchAirportsFailed: (data, error) {
-      log(error);
-    });
+    state.whenOrNull(
+      openAddEditAirportSuccess: (state, id) async {
+        final result = await context.openDialogAdDEditAirport(id);
+        if (result is Airport) {
+          _updateAirports(result);
+        }
+      },
+      fetchAirportsFailed: (data, error) {
+        log(error);
+      },
+    );
   }
 
   @override
@@ -76,12 +87,20 @@ class AirportMainScreen extends StatefulWidget {
 }
 
 class _AirportMainScreenState extends State<AirportMainScreen> {
+  AirportModelState get _data => widget.state.data;
+  List<Airport> get _airports => _data.airports;
+  AirportBloc get _bloc => context.read<AirportBloc>();
+
   void openAddEditFlightDialog(String id) {
-    context.read<AirportBloc>().add(AirportEvent.openAddEditAirportForm(id));
+    _bloc.add(AirportEvent.openAddEditAirportForm(id));
   }
 
   void deleteAirport(String id) {
-    context.read<AirportBloc>().add(AirportEvent.deleteAirport(id));
+    _bloc.add(AirportEvent.deleteAirport(id));
+  }
+
+  void _onRefreshAirport() {
+    _bloc.add(const AirportEvent.fetchAirports());
   }
 
   @override
@@ -94,7 +113,6 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
@@ -104,13 +122,22 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                       ),
                   maxLines: 1,
                 ),
+                const Spacer(),
                 ButtonCustom(
                   width: 150,
                   height: 35,
                   radius: 5,
                   child: Text(S.of(context).addNewAirport),
                   onPress: () => openAddEditFlightDialog(''),
-                )
+                ),
+                const SizedBox(width: 5.0),
+                ButtonCustom(
+                  width: 100,
+                  height: 35,
+                  radius: 5,
+                  onPress: _onRefreshAirport,
+                  child: const Text('Refresh'),
+                ),
               ],
             ),
           ),
@@ -118,6 +145,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
           Expanded(
             flex: 1,
             child: FluxTicketTable<Airport>(
+              loading: widget.state.isLoading,
               padding: const EdgeInsets.all(10),
               titleRow: FluxTableRow(
                 margin: const EdgeInsets.symmetric(vertical: 5.0),
@@ -142,25 +170,23 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                       flex: 1, data: S.of(context).actions),
                 ],
               ),
-              data: [
-                for (int i = 0; i < 50; i++)
-                  const Airport(
-                    id: 100,
-                    name: 'Ben Xe Mien Dong',
-                    image:
-                        'https://media.cnn.com/api/v1/images/stellar/prod/230314215301-03-world-best-airports-2023.jpg?c=original&q=w_1280,c_fill',
-                    location: 'Duong Pham Van Dong, quan Binh Thanh ',
-                  )
-              ],
+              data: [..._airports],
               rowBuilder: (data) {
                 return FluxTableRow(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   itemBuilder: (data, index) {
+                    if (index == 0) {
+                      return Text('Airport ${data.toString()}');
+                    }
                     if (index == 3) {
                       return Row(
                         children: [
-                          const Icon(Icons.location_on),
+                          Icon(
+                            Icons.location_on,
+                            size: 14,
+                            color: Theme.of(context).primaryColor,
+                          ),
                           const SizedBox(width: 5),
                           Expanded(
                               child: Text(
@@ -170,13 +196,16 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                         ],
                       );
                     } else if (index == 2) {
+                      if (data.toString().isEmpty) {
+                        return const SizedBox();
+                      }
                       return Container(
                         width: 80.0,
                         height: 50.0,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: NetworkImage(data),
+                            image: NetworkImage(data.toString()),
                           ),
                         ),
                       );
@@ -224,5 +253,14 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
         ],
       ),
     );
+  }
+}
+
+class AirportLoading extends StatelessWidget {
+  const AirportLoading({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }

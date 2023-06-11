@@ -7,10 +7,11 @@ import 'package:retrofit/retrofit.dart';
 part 'airport_api.g.dart';
 
 class AirportEndPoint {
-  static const fetchAirportUrl = "/api/v1/airport/";
-  static const editAirportUrl = "/airport/edit";
+  static const branch = '/api/v1/airport';
+  static const fetchAirportUrl = "$branch/";
+  static const editAirportUrl = '$branch/edit';
   static const deleteAirportUrl = "/airport/delete";
-  static const addAirportUrl = "/airport/add";
+  static const addAirportUrl = "$branch/add";
 }
 
 @RestApi()
@@ -20,10 +21,10 @@ abstract class AirportApi {
   factory AirportApi(Dio dio) = _AirportApi;
 
   @GET(AirportEndPoint.fetchAirportUrl)
-  Future<ApiResponse<List<AirportModel>?>> fetchAirports();
+  Future<HttpResponse<List<AirportModel>?>> fetchAirports();
 
   @POST(AirportEndPoint.addAirportUrl)
-  Future<ApiResponse<AirportModel?>> addNewAirPorts({
+  Future<HttpResponse<AirportModel?>> addNewAirPorts({
     @Body() required Map<String, dynamic> body,
   });
 
