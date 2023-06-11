@@ -45,25 +45,24 @@ class _AirportScreenState extends State<AirportScreen> {
   }
 
   void _listenStateChange(BuildContext context, AirportState state) {
-    state.whenOrNull(
-      openAddEditAirportSuccess: (state, id) async {
-        Map result = await context.openDialogAdDEditAirport(id);
-        var type = result['type'];
-        var airport = result['airport'];
-        if (airport != null && airport is Airport) {
-          if (type != null && type is TypeUpdateAirportForm) {
-            if (type.isEdit) {
-              _onUpdateAirportAfterEdit(airport);
-            } else {
-              _onUpdateAirportsAfterAdd(airport);
-            }
+    state.whenOrNull(openAddEditAirportSuccess: (state, id) async {
+      Map result = await context.openDialogAdDEditAirport(id);
+      var type = result['type'];
+      var airport = result['airport'];
+      if (airport != null && airport is Airport) {
+        if (type != null && type is TypeUpdateAirportForm) {
+          if (type.isEdit) {
+            _onUpdateAirportAfterEdit(airport);
+          } else {
+            _onUpdateAirportsAfterAdd(airport);
           }
         }
-      },
-      fetchAirportsFailed: (data, error) {
-        log(error);
-      },
-    );
+      }
+    }, fetchAirportsFailed: (data, error) {
+      log(error);
+    }, deleteAirportFailed: (data, error) {
+      log(error);
+    });
   }
 
   @override
@@ -107,8 +106,15 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
     _bloc.add(AirportEvent.openAddEditAirportForm(id));
   }
 
-  void deleteAirport(String id) {
-    _bloc.add(AirportEvent.deleteAirport(id));
+  void deleteAirport(int id) async {
+    final deleteForm = await context.showYesNoDialog(
+      300,
+      'Delete airport',
+      'Are you sure delete this airport?',
+    );
+    if (deleteForm) {
+      _bloc.add(AirportEvent.deleteAirport(id));
+    }
   }
 
   void _onRefreshAirport() {
@@ -242,7 +248,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                             const SizedBox(width: 5.0),
                             ElevatedButton(
                               onPressed: () => deleteAirport(
-                                airportData.id.toString(),
+                                airportData.id,
                               ),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.red, // Background color

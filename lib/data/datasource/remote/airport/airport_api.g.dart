@@ -95,29 +95,27 @@ class _AirportApi implements AirportApi {
   }
 
   @override
-  Future<ApiResponse<bool>> deleteAirport(id) async {
+  Future<HttpResponse<dynamic>> deleteAirport(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponse<bool>>(Options(
+    final _result =
+        await _dio.fetch(_setStreamType<HttpResponse<dynamic>>(Options(
       method: 'DELETE',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/airport/delete/${id}',
+              '/api/v1/airport/delete/${id}',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ApiResponse<bool>.fromJson(
-      _result.data!,
-      (json) => json as bool,
-    );
-    return value;
+    final value = _result.data;
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
   }
 
   @override

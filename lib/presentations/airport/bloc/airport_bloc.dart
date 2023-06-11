@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flight_booking/core/components/network/app_exception.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -129,6 +130,8 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
               data.airports.where((element) => element.id != event.id).toList(),
         ),
       ));
+    } on AppException catch (e) {
+      emit(AirportState.deleteAirportFailed(data: data, message: e.toString()));
     } catch (e) {
       emit(AirportState.deleteAirportFailed(data: data, message: e.toString()));
     }

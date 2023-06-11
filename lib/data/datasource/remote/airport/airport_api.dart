@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flight_booking/data/models/airport/airport_model.dart';
-import 'package:flight_booking/data/models/api_response/api_response.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -10,7 +9,7 @@ class AirportEndPoint {
   static const branch = '/api/v1/airport';
   static const getAirportUrl = "$branch/";
   static const editAirportUrl = '$branch/update';
-  static const deleteAirportUrl = "/airport/delete";
+  static const deleteAirportUrl = "$branch/delete";
   static const addAirportUrl = "$branch/add";
 }
 
@@ -32,7 +31,7 @@ abstract class AirportApi {
   });
 
   @DELETE('${AirportEndPoint.deleteAirportUrl}/{id}')
-  Future<ApiResponse<bool>> deleteAirport(@Path("id") String id);
+  Future<HttpResponse> deleteAirport(@Path("id") String id);
 
   @PUT(AirportEndPoint.editAirportUrl)
   Future<HttpResponse<AirportModel?>> editAirport({

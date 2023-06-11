@@ -45,9 +45,15 @@ class AirportRepositoryImpl extends AirportRepository {
   }
 
   @override
-  Future<bool> deleteAirport(String id) async {
-    final response = await _airportApi.deleteAirport(id);
-    return response.data;
+  Future<bool> deleteAirport(int id) async {
+    final response = await _airportApi.deleteAirport(id.toString());
+    if (response.response.statusCode != 204) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage!,
+      );
+    }
+    return true;
   }
 
   @override

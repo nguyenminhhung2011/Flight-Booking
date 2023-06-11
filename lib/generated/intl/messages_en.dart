@@ -286,6 +286,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nameData": m5,
         "nameOnCard": MessageLookupByLibrary.simpleMessage("Name on card"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
+        "no": MessageLookupByLibrary.simpleMessage("No"),
         "noCustomer": MessageLookupByLibrary.simpleMessage("No Customer"),
         "noteBeforePayment":
             MessageLookupByLibrary.simpleMessage("Note before payment"),
@@ -459,6 +460,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeoFlightAdmin":
             MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
         "writeReviews": MessageLookupByLibrary.simpleMessage("Write reviews"),
+        "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "youCanTravelToAnyPlaceWithGotour":
             MessageLookupByLibrary.simpleMessage(
                 "You can travel to any place\nwith gotour"),
