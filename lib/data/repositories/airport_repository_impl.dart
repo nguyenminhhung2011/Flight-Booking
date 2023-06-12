@@ -1,4 +1,5 @@
 import 'package:flight_booking/core/components/network/app_exception.dart';
+import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/data/datasource/remote/airport/airport_api.dart';
 import 'package:flight_booking/data/models/airport/airport_model.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
@@ -31,6 +32,9 @@ class AirportRepositoryImpl extends AirportRepository {
       airport.name,
       airport.image,
       airport.location,
+      airport.description,
+      timeOfDayToInt(airport.openTime),
+      timeOfDayToInt(airport.closeTime),
     );
     final body = airportModel.toJson();
     final response = await _airportApi.addNewAirPorts(body: body);
@@ -63,6 +67,9 @@ class AirportRepositoryImpl extends AirportRepository {
       newAirport.name,
       newAirport.image,
       newAirport.location,
+      newAirport.description,
+      timeOfDayToInt(newAirport.openTime),
+      timeOfDayToInt(newAirport.closeTime),
     );
     final body = airportModel.toJson();
     final response = await _airportApi.editAirport(body: body);

@@ -21,4 +21,8 @@ class AddEditAirportEvent with _$AddEditAirportEvent {
   const factory AddEditAirportEvent.selectedWard(int code) = _SelectedWard;
   const factory AddEditAirportEvent.buttonTap() = _ButtonTap;
   const factory AddEditAirportEvent.getAirportById() = _GetAirportById;
+  const factory AddEditAirportEvent.updateTime(
+    TimeOfDay time,
+    TimeOfDayType type,
+  ) = _UpdateTime;
 }

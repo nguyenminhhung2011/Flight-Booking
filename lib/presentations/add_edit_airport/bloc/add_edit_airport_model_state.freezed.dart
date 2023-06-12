@@ -18,6 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AddEditAirportModelState {
   TextEditingController get name => throw _privateConstructorUsedError;
   TextEditingController get location => throw _privateConstructorUsedError;
+  TextEditingController get description => throw _privateConstructorUsedError;
+  TimeOfDay get startTime => throw _privateConstructorUsedError;
+  TimeOfDay get closeTime => throw _privateConstructorUsedError;
   String get headerText => throw _privateConstructorUsedError;
   String get locationEdit => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
@@ -43,6 +46,9 @@ abstract class $AddEditAirportModelStateCopyWith<$Res> {
   $Res call(
       {TextEditingController name,
       TextEditingController location,
+      TextEditingController description,
+      TimeOfDay startTime,
+      TimeOfDay closeTime,
       String headerText,
       String locationEdit,
       String imageUrl,
@@ -71,6 +77,9 @@ class _$AddEditAirportModelStateCopyWithImpl<$Res,
   $Res call({
     Object? name = null,
     Object? location = null,
+    Object? description = null,
+    Object? startTime = null,
+    Object? closeTime = null,
     Object? headerText = null,
     Object? locationEdit = null,
     Object? imageUrl = null,
@@ -91,6 +100,18 @@ class _$AddEditAirportModelStateCopyWithImpl<$Res,
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      startTime: null == startTime
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      closeTime: null == closeTime
+          ? _value.closeTime
+          : closeTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
       headerText: null == headerText
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
@@ -147,6 +168,9 @@ abstract class _$$_AddEditAirportModelStateCopyWith<$Res>
   $Res call(
       {TextEditingController name,
       TextEditingController location,
+      TextEditingController description,
+      TimeOfDay startTime,
+      TimeOfDay closeTime,
       String headerText,
       String locationEdit,
       String imageUrl,
@@ -173,6 +197,9 @@ class __$$_AddEditAirportModelStateCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? location = null,
+    Object? description = null,
+    Object? startTime = null,
+    Object? closeTime = null,
     Object? headerText = null,
     Object? locationEdit = null,
     Object? imageUrl = null,
@@ -193,6 +220,18 @@ class __$$_AddEditAirportModelStateCopyWithImpl<$Res>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      startTime: null == startTime
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      closeTime: null == closeTime
+          ? _value.closeTime
+          : closeTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
       headerText: null == headerText
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
@@ -243,6 +282,9 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
   const _$_AddEditAirportModelState(
       {required this.name,
       required this.location,
+      required this.description,
+      required this.startTime,
+      required this.closeTime,
       required this.headerText,
       required this.locationEdit,
       required this.imageUrl,
@@ -262,6 +304,12 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
   final TextEditingController name;
   @override
   final TextEditingController location;
+  @override
+  final TextEditingController description;
+  @override
+  final TimeOfDay startTime;
+  @override
+  final TimeOfDay closeTime;
   @override
   final String headerText;
   @override
@@ -309,7 +357,7 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
 
   @override
   String toString() {
-    return 'AddEditAirportModelState(name: $name, location: $location, headerText: $headerText, locationEdit: $locationEdit, imageUrl: $imageUrl, images: $images, provinces: $provinces, districts: $districts, wards: $wards, provincesSelected: $provincesSelected, districtsSelected: $districtsSelected, wardsSelected: $wardsSelected)';
+    return 'AddEditAirportModelState(name: $name, location: $location, description: $description, startTime: $startTime, closeTime: $closeTime, headerText: $headerText, locationEdit: $locationEdit, imageUrl: $imageUrl, images: $images, provinces: $provinces, districts: $districts, wards: $wards, provincesSelected: $provincesSelected, districtsSelected: $districtsSelected, wardsSelected: $wardsSelected)';
   }
 
   @override
@@ -320,6 +368,12 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.location, location) ||
                 other.location == location) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.startTime, startTime) ||
+                other.startTime == startTime) &&
+            (identical(other.closeTime, closeTime) ||
+                other.closeTime == closeTime) &&
             (identical(other.headerText, headerText) ||
                 other.headerText == headerText) &&
             (identical(other.locationEdit, locationEdit) ||
@@ -345,6 +399,9 @@ class _$_AddEditAirportModelState implements _AddEditAirportModelState {
       runtimeType,
       name,
       location,
+      description,
+      startTime,
+      closeTime,
       headerText,
       locationEdit,
       imageUrl,
@@ -368,6 +425,9 @@ abstract class _AddEditAirportModelState implements AddEditAirportModelState {
   const factory _AddEditAirportModelState(
       {required final TextEditingController name,
       required final TextEditingController location,
+      required final TextEditingController description,
+      required final TimeOfDay startTime,
+      required final TimeOfDay closeTime,
       required final String headerText,
       required final String locationEdit,
       required final String imageUrl,
@@ -383,6 +443,12 @@ abstract class _AddEditAirportModelState implements AddEditAirportModelState {
   TextEditingController get name;
   @override
   TextEditingController get location;
+  @override
+  TextEditingController get description;
+  @override
+  TimeOfDay get startTime;
+  @override
+  TimeOfDay get closeTime;
   @override
   String get headerText;
   @override

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'airport.freezed.dart';
 
@@ -8,5 +9,8 @@ class Airport with _$Airport {
     required String name,
     required String image,
     required String location,
+    required String description,
+    required TimeOfDay openTime,
+    required TimeOfDay closeTime,
   }) = _Airport;
 }
