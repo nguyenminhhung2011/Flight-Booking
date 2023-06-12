@@ -6414,14 +6414,14 @@ class __$$_UpdateTimeCopyWithImpl<$Res>
   @override
   $Res call({
     Object? time = null,
-    Object? type = freezed,
+    Object? type = null,
   }) {
     return _then(_$_UpdateTime(
       null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
-      freezed == type
+      null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TimeOfDayType,
@@ -6450,12 +6450,11 @@ class _$_UpdateTime implements _UpdateTime {
         (other.runtimeType == runtimeType &&
             other is _$_UpdateTime &&
             (identical(other.time, time) || other.time == time) &&
-            const DeepCollectionEquality().equals(other.type, type));
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, time, const DeepCollectionEquality().hash(type));
+  int get hashCode => Object.hash(runtimeType, time, type);
 
   @JsonKey(ignore: true)
   @override
