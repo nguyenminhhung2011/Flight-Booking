@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
 import 'package:flight_booking/core/components/network/app_exception.dart';
+import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/domain/usecase/airport_usecase.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../core/components/enum/time_of_day_type.dart';
 import '../../../core/constant/constant.dart';
 import '../../../core/services/cloundinary_service.dart';
 import '../../../core/services/image_pic_service.dart';
@@ -26,6 +28,7 @@ const _idNull = '';
 const _imageNull = '';
 const _messageNull = '';
 const _locationNUll = '';
+var _defaultTime = const TimeOfDay(hour: 6, minute: 0);
 
 @injectable
 class AddEditAirportBloc
@@ -50,8 +53,11 @@ class AddEditAirportBloc
           AddEditAirportState.initial(
             data: AddEditAirportModelState(
               location: TextEditingController(),
-              locationEdit: _locationNUll,
               name: TextEditingController(),
+              description: TextEditingController(),
+              startTime: _defaultTime,
+              closeTime: _defaultTime,
+              locationEdit: _locationNUll,
               imageUrl: _imageNull,
               headerText: S.current.editAirport,
               images: [],
@@ -76,6 +82,18 @@ class AddEditAirportBloc
     on<_SelectedWard>(_onSelectedWard);
     on<_ButtonTap>(_onButtonTap);
     on<_GetAirportById>(_onGetAirportById);
+    on<_UpdateTime>(_onUpdateTime);
+  }
+
+  FutureOr<void> _onUpdateTime(
+    _UpdateTime event,
+    Emitter<AddEditAirportState> emit,
+  ) {
+    if (event.type.isOpenTime) {
+      emit(state.copyWith(data: data.copyWith(startTime: event.time)));
+    } else {
+      emit(state.copyWith(data: data.copyWith(closeTime: event.time)));
+    }
   }
 
   FutureOr<void> _onPickImage(
@@ -119,8 +137,11 @@ class AddEditAirportBloc
           data: data.copyWith(
             name: TextEditingController(text: result.name),
             location: TextEditingController(text: result.location),
+            description: TextEditingController(text: result.description),
             locationEdit: result.location,
             imageUrl: result.image,
+            startTime: result.openTime,
+            closeTime: result.closeTime,
           ),
         ));
       } on AppException catch (error) {
@@ -278,6 +299,9 @@ class AddEditAirportBloc
       String location =
           '${data.provinces[data.provincesSelected].name}, ${data.districts[data.districtsSelected].name}, ${data.wards[data.wardsSelected].name}';
       String name = data.name.text;
+      String description = data.description.text;
+      TimeOfDay openTime = data.startTime;
+      TimeOfDay closeTime = data.closeTime;
       List<String> imageUrls = [];
 
       if (name.isEmpty || location.isEmpty) {
@@ -297,6 +321,9 @@ class AddEditAirportBloc
         name: name,
         image: imageFeature,
         location: location,
+        description: description,
+        openTime: openTime,
+        closeTime: closeTime,
       );
       final add = await _airportsUsecase.addNewAirport(newAirport);
       if (add == null) {
@@ -326,7 +353,10 @@ class AddEditAirportBloc
       String location =
           '${data.provinces[data.provincesSelected].name}, ${data.districts[data.districtsSelected].name}, ${data.wards[data.wardsSelected].name}';
       String name = data.name.text;
+      String description = data.description.text;
       List<String> imageUrls = [];
+      TimeOfDay openTime = data.startTime;
+      TimeOfDay closeTime = data.closeTime;
 
       if (name.isEmpty || location.isEmpty) {
         emit(AddEditAirportState.editAirportFailed(
@@ -345,6 +375,9 @@ class AddEditAirportBloc
         name: name,
         image: imageFeature,
         location: location,
+        description: description,
+        openTime: openTime,
+        closeTime: closeTime,
       );
       final edit = await _airportsUsecase.editAirport(newAirport);
       if (edit == null) {

@@ -11,6 +11,9 @@ class AddEditAirportModelState with _$AddEditAirportModelState {
   const factory AddEditAirportModelState({
     required TextEditingController name,
     required TextEditingController location,
+    required TextEditingController description,
+    required TimeOfDay startTime,
+    required TimeOfDay closeTime,
     required String headerText,
     required String locationEdit,
     required String imageUrl,

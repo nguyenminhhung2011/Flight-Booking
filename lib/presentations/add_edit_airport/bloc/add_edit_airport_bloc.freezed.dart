@@ -4090,6 +4090,7 @@ mixin _$AddEditAirportEvent {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4106,6 +4107,7 @@ mixin _$AddEditAirportEvent {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4122,6 +4124,7 @@ mixin _$AddEditAirportEvent {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -4139,6 +4142,7 @@ mixin _$AddEditAirportEvent {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4155,6 +4159,7 @@ mixin _$AddEditAirportEvent {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4171,6 +4176,7 @@ mixin _$AddEditAirportEvent {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -4243,6 +4249,7 @@ class _$_Started implements _Started {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return onStarted();
   }
@@ -4262,6 +4269,7 @@ class _$_Started implements _Started {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return onStarted?.call();
   }
@@ -4281,6 +4289,7 @@ class _$_Started implements _Started {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -4304,6 +4313,7 @@ class _$_Started implements _Started {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return onStarted(this);
   }
@@ -4323,6 +4333,7 @@ class _$_Started implements _Started {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return onStarted?.call(this);
   }
@@ -4342,6 +4353,7 @@ class _$_Started implements _Started {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -4404,6 +4416,7 @@ class _$_Dispose implements _Dispose {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return dispose();
   }
@@ -4423,6 +4436,7 @@ class _$_Dispose implements _Dispose {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return dispose?.call();
   }
@@ -4442,6 +4456,7 @@ class _$_Dispose implements _Dispose {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (dispose != null) {
@@ -4465,6 +4480,7 @@ class _$_Dispose implements _Dispose {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return dispose(this);
   }
@@ -4484,6 +4500,7 @@ class _$_Dispose implements _Dispose {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return dispose?.call(this);
   }
@@ -4503,6 +4520,7 @@ class _$_Dispose implements _Dispose {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (dispose != null) {
@@ -4592,6 +4610,7 @@ class _$_EditAirport implements _EditAirport {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return editAirport(id);
   }
@@ -4611,6 +4630,7 @@ class _$_EditAirport implements _EditAirport {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return editAirport?.call(id);
   }
@@ -4630,6 +4650,7 @@ class _$_EditAirport implements _EditAirport {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (editAirport != null) {
@@ -4653,6 +4674,7 @@ class _$_EditAirport implements _EditAirport {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return editAirport(this);
   }
@@ -4672,6 +4694,7 @@ class _$_EditAirport implements _EditAirport {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return editAirport?.call(this);
   }
@@ -4691,6 +4714,7 @@ class _$_EditAirport implements _EditAirport {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (editAirport != null) {
@@ -4759,6 +4783,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return addNewAirport();
   }
@@ -4778,6 +4803,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return addNewAirport?.call();
   }
@@ -4797,6 +4823,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (addNewAirport != null) {
@@ -4820,6 +4847,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return addNewAirport(this);
   }
@@ -4839,6 +4867,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return addNewAirport?.call(this);
   }
@@ -4858,6 +4887,7 @@ class _$_AddNewAirport implements _AddNewAirport {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (addNewAirport != null) {
@@ -4921,6 +4951,7 @@ class _$_PickImage implements _PickImage {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return pickImage();
   }
@@ -4940,6 +4971,7 @@ class _$_PickImage implements _PickImage {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return pickImage?.call();
   }
@@ -4959,6 +4991,7 @@ class _$_PickImage implements _PickImage {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (pickImage != null) {
@@ -4982,6 +5015,7 @@ class _$_PickImage implements _PickImage {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return pickImage(this);
   }
@@ -5001,6 +5035,7 @@ class _$_PickImage implements _PickImage {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return pickImage?.call(this);
   }
@@ -5020,6 +5055,7 @@ class _$_PickImage implements _PickImage {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (pickImage != null) {
@@ -5109,6 +5145,7 @@ class _$_RemoveImage implements _RemoveImage {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return removeImage(index);
   }
@@ -5128,6 +5165,7 @@ class _$_RemoveImage implements _RemoveImage {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return removeImage?.call(index);
   }
@@ -5147,6 +5185,7 @@ class _$_RemoveImage implements _RemoveImage {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (removeImage != null) {
@@ -5170,6 +5209,7 @@ class _$_RemoveImage implements _RemoveImage {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return removeImage(this);
   }
@@ -5189,6 +5229,7 @@ class _$_RemoveImage implements _RemoveImage {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return removeImage?.call(this);
   }
@@ -5208,6 +5249,7 @@ class _$_RemoveImage implements _RemoveImage {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (removeImage != null) {
@@ -5276,6 +5318,7 @@ class _$_FetchPlace implements _FetchPlace {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return fetchPlace();
   }
@@ -5295,6 +5338,7 @@ class _$_FetchPlace implements _FetchPlace {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return fetchPlace?.call();
   }
@@ -5314,6 +5358,7 @@ class _$_FetchPlace implements _FetchPlace {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (fetchPlace != null) {
@@ -5337,6 +5382,7 @@ class _$_FetchPlace implements _FetchPlace {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return fetchPlace(this);
   }
@@ -5356,6 +5402,7 @@ class _$_FetchPlace implements _FetchPlace {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return fetchPlace?.call(this);
   }
@@ -5375,6 +5422,7 @@ class _$_FetchPlace implements _FetchPlace {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (fetchPlace != null) {
@@ -5473,6 +5521,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return fetchDistricts(code, provincesIndex);
   }
@@ -5492,6 +5541,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return fetchDistricts?.call(code, provincesIndex);
   }
@@ -5511,6 +5561,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (fetchDistricts != null) {
@@ -5534,6 +5585,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return fetchDistricts(this);
   }
@@ -5553,6 +5605,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return fetchDistricts?.call(this);
   }
@@ -5572,6 +5625,7 @@ class _$_FetchDistricts implements _FetchDistricts {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (fetchDistricts != null) {
@@ -5678,6 +5732,7 @@ class _$_FetchWards implements _FetchWards {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return fetchWards(code, districtsIndex);
   }
@@ -5697,6 +5752,7 @@ class _$_FetchWards implements _FetchWards {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return fetchWards?.call(code, districtsIndex);
   }
@@ -5716,6 +5772,7 @@ class _$_FetchWards implements _FetchWards {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (fetchWards != null) {
@@ -5739,6 +5796,7 @@ class _$_FetchWards implements _FetchWards {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return fetchWards(this);
   }
@@ -5758,6 +5816,7 @@ class _$_FetchWards implements _FetchWards {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return fetchWards?.call(this);
   }
@@ -5777,6 +5836,7 @@ class _$_FetchWards implements _FetchWards {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (fetchWards != null) {
@@ -5874,6 +5934,7 @@ class _$_SelectedWard implements _SelectedWard {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return selectedWard(code);
   }
@@ -5893,6 +5954,7 @@ class _$_SelectedWard implements _SelectedWard {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return selectedWard?.call(code);
   }
@@ -5912,6 +5974,7 @@ class _$_SelectedWard implements _SelectedWard {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (selectedWard != null) {
@@ -5935,6 +5998,7 @@ class _$_SelectedWard implements _SelectedWard {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return selectedWard(this);
   }
@@ -5954,6 +6018,7 @@ class _$_SelectedWard implements _SelectedWard {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return selectedWard?.call(this);
   }
@@ -5973,6 +6038,7 @@ class _$_SelectedWard implements _SelectedWard {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (selectedWard != null) {
@@ -6041,6 +6107,7 @@ class _$_ButtonTap implements _ButtonTap {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return buttonTap();
   }
@@ -6060,6 +6127,7 @@ class _$_ButtonTap implements _ButtonTap {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return buttonTap?.call();
   }
@@ -6079,6 +6147,7 @@ class _$_ButtonTap implements _ButtonTap {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (buttonTap != null) {
@@ -6102,6 +6171,7 @@ class _$_ButtonTap implements _ButtonTap {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return buttonTap(this);
   }
@@ -6121,6 +6191,7 @@ class _$_ButtonTap implements _ButtonTap {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return buttonTap?.call(this);
   }
@@ -6140,6 +6211,7 @@ class _$_ButtonTap implements _ButtonTap {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (buttonTap != null) {
@@ -6203,6 +6275,7 @@ class _$_GetAirportById implements _GetAirportById {
     required TResult Function(int code) selectedWard,
     required TResult Function() buttonTap,
     required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
   }) {
     return getAirportById();
   }
@@ -6222,6 +6295,7 @@ class _$_GetAirportById implements _GetAirportById {
     TResult? Function(int code)? selectedWard,
     TResult? Function()? buttonTap,
     TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
   }) {
     return getAirportById?.call();
   }
@@ -6241,6 +6315,7 @@ class _$_GetAirportById implements _GetAirportById {
     TResult Function(int code)? selectedWard,
     TResult Function()? buttonTap,
     TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
     required TResult orElse(),
   }) {
     if (getAirportById != null) {
@@ -6264,6 +6339,7 @@ class _$_GetAirportById implements _GetAirportById {
     required TResult Function(_SelectedWard value) selectedWard,
     required TResult Function(_ButtonTap value) buttonTap,
     required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
   }) {
     return getAirportById(this);
   }
@@ -6283,6 +6359,7 @@ class _$_GetAirportById implements _GetAirportById {
     TResult? Function(_SelectedWard value)? selectedWard,
     TResult? Function(_ButtonTap value)? buttonTap,
     TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
   }) {
     return getAirportById?.call(this);
   }
@@ -6302,6 +6379,7 @@ class _$_GetAirportById implements _GetAirportById {
     TResult Function(_SelectedWard value)? selectedWard,
     TResult Function(_ButtonTap value)? buttonTap,
     TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
     required TResult orElse(),
   }) {
     if (getAirportById != null) {
@@ -6313,4 +6391,214 @@ class _$_GetAirportById implements _GetAirportById {
 
 abstract class _GetAirportById implements AddEditAirportEvent {
   const factory _GetAirportById() = _$_GetAirportById;
+}
+
+/// @nodoc
+abstract class _$$_UpdateTimeCopyWith<$Res> {
+  factory _$$_UpdateTimeCopyWith(
+          _$_UpdateTime value, $Res Function(_$_UpdateTime) then) =
+      __$$_UpdateTimeCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TimeOfDay time, TimeOfDayType type});
+}
+
+/// @nodoc
+class __$$_UpdateTimeCopyWithImpl<$Res>
+    extends _$AddEditAirportEventCopyWithImpl<$Res, _$_UpdateTime>
+    implements _$$_UpdateTimeCopyWith<$Res> {
+  __$$_UpdateTimeCopyWithImpl(
+      _$_UpdateTime _value, $Res Function(_$_UpdateTime) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? time = null,
+    Object? type = freezed,
+  }) {
+    return _then(_$_UpdateTime(
+      null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as TimeOfDayType,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateTime implements _UpdateTime {
+  const _$_UpdateTime(this.time, this.type);
+
+  @override
+  final TimeOfDay time;
+  @override
+  final TimeOfDayType type;
+
+  @override
+  String toString() {
+    return 'AddEditAirportEvent.updateTime(time: $time, type: $type)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateTime &&
+            (identical(other.time, time) || other.time == time) &&
+            const DeepCollectionEquality().equals(other.type, type));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, time, const DeepCollectionEquality().hash(type));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateTimeCopyWith<_$_UpdateTime> get copyWith =>
+      __$$_UpdateTimeCopyWithImpl<_$_UpdateTime>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() dispose,
+    required TResult Function(String id) editAirport,
+    required TResult Function() addNewAirport,
+    required TResult Function() pickImage,
+    required TResult Function(int index) removeImage,
+    required TResult Function() fetchPlace,
+    required TResult Function(int code, int provincesIndex) fetchDistricts,
+    required TResult Function(int code, int districtsIndex) fetchWards,
+    required TResult Function(int code) selectedWard,
+    required TResult Function() buttonTap,
+    required TResult Function() getAirportById,
+    required TResult Function(TimeOfDay time, TimeOfDayType type) updateTime,
+  }) {
+    return updateTime(time, type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? dispose,
+    TResult? Function(String id)? editAirport,
+    TResult? Function()? addNewAirport,
+    TResult? Function()? pickImage,
+    TResult? Function(int index)? removeImage,
+    TResult? Function()? fetchPlace,
+    TResult? Function(int code, int provincesIndex)? fetchDistricts,
+    TResult? Function(int code, int districtsIndex)? fetchWards,
+    TResult? Function(int code)? selectedWard,
+    TResult? Function()? buttonTap,
+    TResult? Function()? getAirportById,
+    TResult? Function(TimeOfDay time, TimeOfDayType type)? updateTime,
+  }) {
+    return updateTime?.call(time, type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? dispose,
+    TResult Function(String id)? editAirport,
+    TResult Function()? addNewAirport,
+    TResult Function()? pickImage,
+    TResult Function(int index)? removeImage,
+    TResult Function()? fetchPlace,
+    TResult Function(int code, int provincesIndex)? fetchDistricts,
+    TResult Function(int code, int districtsIndex)? fetchWards,
+    TResult Function(int code)? selectedWard,
+    TResult Function()? buttonTap,
+    TResult Function()? getAirportById,
+    TResult Function(TimeOfDay time, TimeOfDayType type)? updateTime,
+    required TResult orElse(),
+  }) {
+    if (updateTime != null) {
+      return updateTime(time, type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
+    required TResult Function(_EditAirport value) editAirport,
+    required TResult Function(_AddNewAirport value) addNewAirport,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_RemoveImage value) removeImage,
+    required TResult Function(_FetchPlace value) fetchPlace,
+    required TResult Function(_FetchDistricts value) fetchDistricts,
+    required TResult Function(_FetchWards value) fetchWards,
+    required TResult Function(_SelectedWard value) selectedWard,
+    required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_UpdateTime value) updateTime,
+  }) {
+    return updateTime(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
+    TResult? Function(_EditAirport value)? editAirport,
+    TResult? Function(_AddNewAirport value)? addNewAirport,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_RemoveImage value)? removeImage,
+    TResult? Function(_FetchPlace value)? fetchPlace,
+    TResult? Function(_FetchDistricts value)? fetchDistricts,
+    TResult? Function(_FetchWards value)? fetchWards,
+    TResult? Function(_SelectedWard value)? selectedWard,
+    TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_UpdateTime value)? updateTime,
+  }) {
+    return updateTime?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
+    TResult Function(_EditAirport value)? editAirport,
+    TResult Function(_AddNewAirport value)? addNewAirport,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_RemoveImage value)? removeImage,
+    TResult Function(_FetchPlace value)? fetchPlace,
+    TResult Function(_FetchDistricts value)? fetchDistricts,
+    TResult Function(_FetchWards value)? fetchWards,
+    TResult Function(_SelectedWard value)? selectedWard,
+    TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_UpdateTime value)? updateTime,
+    required TResult orElse(),
+  }) {
+    if (updateTime != null) {
+      return updateTime(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateTime implements AddEditAirportEvent {
+  const factory _UpdateTime(final TimeOfDay time, final TimeOfDayType type) =
+      _$_UpdateTime;
+
+  TimeOfDay get time;
+  TimeOfDayType get type;
+  @JsonKey(ignore: true)
+  _$$_UpdateTimeCopyWith<_$_UpdateTime> get copyWith =>
+      throw _privateConstructorUsedError;
 }

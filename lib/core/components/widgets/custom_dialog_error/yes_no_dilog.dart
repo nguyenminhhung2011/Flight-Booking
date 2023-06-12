@@ -47,7 +47,7 @@ class YesNoDialog extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
             style: context.titleMedium.copyWith(
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w400,
             ),
           ),
           const SizedBox(height: 10.0),

@@ -10,7 +10,7 @@ import 'package:flight_booking/presentations/add_edit_airport/views/widgets/item
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import '../../../core/components/enum/time_of_day_type.dart';
 import '../../../generated/l10n.dart';
 import '../../customer/views/widgets/customer_textfield.dart';
 import '../bloc/add_edit_airport_bloc.dart';
@@ -69,6 +69,14 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
     if (!_bloc.state.isLoading) {
       _bloc.add(const AddEditAirportEvent.buttonTap());
     }
+  }
+
+  void _pickTime(BuildContext context, TimeOfDayType timeEnum) async {
+    TimeOfDay? timePic = (await context.pickTime());
+    if (timePic == null) {
+      return;
+    }
+    _bloc.add(AddEditAirportEvent.updateTime(timePic, timeEnum));
   }
 
   void _listenStateChange(BuildContext context, AddEditAirportState state) {
@@ -148,12 +156,15 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
         final districtsSelected = state.data.districtsSelected;
         final wardsSelected = state.data.wardsSelected;
         final location = data.locationEdit;
+        final timeOpen = data.startTime;
+        final timeClose = data.closeTime;
 
         if (loadingGetAirport) {
           return _loadingWidget(context);
         }
 
         return Container(
+          constraints: BoxConstraints(maxHeight: context.heightDevice),
           width: Breakpoints.small.isActive(context)
               ? double.infinity
               : widthDevice * 0.5,
@@ -162,9 +173,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
             borderRadius: BorderRadius.circular(10.0),
             color: Theme.of(context).cardColor,
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
             children: [
               Text(data.headerText, style: headerText),
               Row(
@@ -186,6 +195,42 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                       iconData: Icons.near_me,
                     ),
                   )
+                ],
+              ),
+              Text(S.of(context).description, style: headerText),
+              FilterCategory(
+                hint: S.of(context).description,
+                iconData: Icons.description,
+                controller: data.description,
+                lines: 4,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: FilterCategory(
+                      controller: TextEditingController(
+                        text: '${timeOpen.hour}:${timeOpen.minute}',
+                      ),
+                      title: S.of(context).timeOpen,
+                      hint: S.of(context).timeOpen,
+                      iconData: Icons.calendar_month,
+                      onPress: () => _pickTime(context, TimeOfDayType.openTime),
+                    ),
+                  ),
+                  const SizedBox(width: 10.0),
+                  Expanded(
+                    child: FilterCategory(
+                      controller: TextEditingController(
+                        text: '${timeClose.hour}:${timeClose.minute}',
+                      ),
+                      title: S.of(context).timeClose,
+                      hint: S.of(context).timeClose,
+                      iconData: Icons.calendar_month,
+                      onPress: () =>
+                          _pickTime(context, TimeOfDayType.closeTime),
+                    ),
+                  ),
                 ],
               ),
               if (_bloc.airportId.isNotEmpty) ...[
@@ -288,30 +333,33 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                     ),
               ),
 
-              GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 6,
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
-                  childAspectRatio: 1,
-                ),
-                shrinkWrap: true,
-                padding: const EdgeInsets.only(bottom: 16),
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: images.isEmpty ? 1 : images.length + 1,
-                itemBuilder: (context, index) {
-                  if (index == images.length) {
-                    return ItemAddImage(
-                      index: index,
-                      onPress: pickImage,
-                    );
-                  }
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 6,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    childAspectRatio: 1,
+                  ),
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.only(bottom: 16),
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: images.isEmpty ? 1 : images.length + 1,
+                  itemBuilder: (context, index) {
+                    if (index == images.length) {
+                      return ItemAddImage(
+                        index: index,
+                        onPress: pickImage,
+                      );
+                    }
 
-                  return ItemImage(
-                    callback: () => removeImage(index),
-                    image: data.images[index],
-                  );
-                },
+                    return ItemImage(
+                      callback: () => removeImage(index),
+                      image: data.images[index],
+                    );
+                  },
+                ),
               ),
               ButtonCustom(
                 width: double.infinity,
