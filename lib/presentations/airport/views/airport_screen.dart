@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/sort_button.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/presentations/add_edit_airport/views/add_edit_airport_form.dart';
@@ -37,8 +39,12 @@ class _AirportScreenState extends State<AirportScreen> {
     textController = TextEditingController();
   }
 
-  void _onUpdateAirportsAfterAdd(Airport airport) {
-    _bloc.add(AirportEvent.updateAirportsAfterAdd(airport));
+  void _onUpdateAirportsAfterAdd(Airport airport, int lengths) {
+    if (lengths >= 15) {
+      _bloc.add(AirportEvent.changePageAirportView(_bloc.data.currentPage));
+    } else {
+      _bloc.add(AirportEvent.updateAirportsAfterAdd(airport));
+    }
   }
 
   void _onUpdateAirportAfterEdit(Airport airport) {
@@ -46,24 +52,38 @@ class _AirportScreenState extends State<AirportScreen> {
   }
 
   void _listenStateChange(BuildContext context, AirportState state) {
-    state.whenOrNull(openAddEditAirportSuccess: (state, id) async {
-      Map result = await context.openDialogAdDEditAirport(id);
-      var type = result['type'];
-      var airport = result['airport'];
-      if (airport != null && airport is Airport) {
-        if (type != null && type is TypeUpdateAirportForm) {
-          if (type.isEdit) {
-            _onUpdateAirportAfterEdit(airport);
-          } else {
-            _onUpdateAirportsAfterAdd(airport);
+    state.whenOrNull(
+      openAddEditAirportSuccess: (data, id) async {
+        Map result = await context.openDialogAdDEditAirport(id);
+        var type = result['type'];
+        var airport = result['airport'];
+        if (airport != null && airport is Airport) {
+          if (type != null && type is TypeUpdateAirportForm) {
+            if (type.isEdit) {
+              _onUpdateAirportAfterEdit(airport);
+            } else {
+              _onUpdateAirportsAfterAdd(airport, data.airports.length);
+            }
           }
         }
-      }
-    }, fetchAirportsFailed: (data, error) {
-      log(error);
-    }, deleteAirportFailed: (data, error) {
-      log(error);
-    });
+      },
+      deleteAirportSuccess: (data) {
+        if (data.airports.isEmpty) {
+          if (data.currentPage > 0) {
+            _bloc.add(AirportEvent.changePageAirportView(data.currentPage - 1));
+          }
+        }
+      },
+      fetchAirportsFailed: (data, error) {
+        log(error);
+      },
+      deleteAirportFailed: (data, error) {
+        log(error);
+      },
+      changePageAirportFailed: (data, error) {
+        log(error);
+      },
+    );
   }
 
   @override
@@ -76,7 +96,7 @@ class _AirportScreenState extends State<AirportScreen> {
           body: Row(
             children: [
               AirportMainScreen(state: state),
-              Breakpoints.large.isActive(context)
+              context.widthDevice > 1200
                   ? AirportFastView(state: state)
                   : const SizedBox(),
             ],
@@ -100,8 +120,9 @@ class AirportMainScreen extends StatefulWidget {
 
 class _AirportMainScreenState extends State<AirportMainScreen> {
   AirportModelState get _data => widget.state.data;
-  List<Airport> get _airports => _data.airports;
   AirportBloc get _bloc => context.read<AirportBloc>();
+  final TextEditingController _searchController = TextEditingController();
+  List<Airport> get _airports => _data.airports;
   int get _currentPage => _data.currentPage;
   int get _totalPage => _data.totalPage;
 
@@ -122,13 +143,11 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
     }
   }
 
-  void _onRefreshAirport() {
-    _bloc.add(const AirportEvent.fetchAirports());
-  }
-
   void _onChangePageAirport(int page) {
     _bloc.add(AirportEvent.changePageAirportView(page));
   }
+
+  void _onTextChange(String value) {}
 
   @override
   Widget build(BuildContext context) {
@@ -157,14 +176,6 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                   child: Text(S.of(context).addNewAirport),
                   onPress: () => openAddEditFlightDialog(''),
                 ),
-                const SizedBox(width: 5.0),
-                ButtonCustom(
-                  width: 100,
-                  height: 35,
-                  radius: 5,
-                  onPress: _onRefreshAirport,
-                  child: const Text('Refresh'),
-                ),
               ],
             ),
           ),
@@ -185,10 +196,13 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                   radius: 5.0),
               const SizedBox(width: 5.0),
               IconButton(
-                  onPressed: () => _onChangePageAirport(_currentPage + 1),
-                  icon: const Icon(
-                    Icons.arrow_forward,
-                  )),
+                onPressed: () => _onChangePageAirport(_currentPage + 1),
+                icon: const Icon(
+                  Icons.arrow_forward,
+                ),
+              ),
+              const SizedBox(width: 10.0),
+              _searchField(context)
             ],
           ),
           const SizedBox(height: 10.0),
@@ -307,6 +321,34 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Expanded _searchField(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 5.0),
+        child: Container(
+          height: 45.0,
+          decoration: BoxDecoration(
+            color: Theme.of(context).cardColor,
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: TextFormField(
+            controller: _searchController,
+            onChanged: _onTextChange,
+            decoration: InputDecoration(
+              filled: true,
+              hintText: S.of(context).searchAnything,
+              hintStyle: context.titleSmall.copyWith(color: Colors.grey),
+              focusedBorder: InputBorder.none,
+              errorBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
+            ),
+          ),
+        ),
       ),
     );
   }
