@@ -3,6 +3,8 @@ import 'package:flight_booking/data/models/airport/airport_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../../models/page_response.dart';
+
 part 'airport_api.g.dart';
 
 class AirportEndPoint {
@@ -26,8 +28,9 @@ abstract class AirportApi {
   @GET('${AirportEndPoint.getAirportUrl}{id}')
   Future<HttpResponse<AirportModel>> getAirportById(@Path("id") String id);
 
-  @GET('${AirportEndPoint.getAirportByPageUrl}{cursor}/{pageSize}')
-  Future<HttpResponse<List<AirportModel>?>> getAirportByPage(
+  @GET(
+      '${AirportEndPoint.getAirportByPageUrl}cursor={cursor}&pageSize={pageSize}')
+  Future<HttpResponse<PageResponse<AirportModel>?>> getAirportByPage(
     @Path("cursor") int cursor,
     @Path("pageSize") int pageSize,
   );
@@ -39,8 +42,9 @@ abstract class AirportApi {
   @DELETE('${AirportEndPoint.deleteAirportUrl}/{id}')
   Future<HttpResponse> deleteAirport(@Path("id") String id);
 
-  @PUT(AirportEndPoint.editAirportUrl)
+  @PATCH('${AirportEndPoint.editAirportUrl}/{id}')
   Future<HttpResponse<AirportModel?>> editAirport({
+    @Path("id") required String id,
     @Body() required Map<String, dynamic> body,
   });
 }

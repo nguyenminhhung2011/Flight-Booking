@@ -14,6 +14,8 @@ part 'airport_state.dart';
 
 part 'airport_bloc.freezed.dart';
 
+const _pageSize = 15;
+
 @injectable
 class AirportBloc extends Bloc<AirportEvent, AirportState> {
   final AirportUsecase _airportUsecase;
@@ -25,6 +27,8 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
           data: AirportModelState(
             airports: [],
             pageView: 0,
+            currentPage: 0,
+            totalPage: 0,
           ),
         )) {
     on<_Started>(_onStarted);
@@ -35,6 +39,7 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     on<_UpdateAirportsAfterEdit>(_onUpdateAirportsAfterEdit);
     on<_DeleteAirport>(_onDeleteAirport);
     on<_LoadingComplete>(_onLoadingComplete);
+    on<_ChangePageAirportView>(_onChangePageAirportView);
   }
 
   FutureOr<void> _onStarted(
@@ -134,6 +139,48 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
       emit(AirportState.deleteAirportFailed(data: data, message: e.toString()));
     } catch (e) {
       emit(AirportState.deleteAirportFailed(data: data, message: e.toString()));
+    }
+  }
+
+  FutureOr<void> _onChangePageAirportView(
+    _ChangePageAirportView event,
+    Emitter<AirportState> emit,
+  ) async {
+    emit(AirportState.loading(data: data));
+    if (event.page != 0) {
+      if (event.page >= data.totalPage || event.page < 0) {
+        emit(AirportState.changePageAirportFailed(
+            data: data, message: 'Current page is max'));
+        return;
+      }
+    }
+    try {
+      final response =
+          await _airportUsecase.fetchAirportByPage(event.page, _pageSizeq);
+      if (response.data.isEmpty) {
+        emit(AirportState.changePageAirportFailed(
+          data: data,
+          message: 'Can\'t fetch airport',
+        ));
+        return;
+      }
+      emit(AirportState.changePageAirportSuccess(
+        data: data.copyWith(
+          airports: response.data as List<Airport>,
+          currentPage: event.page,
+          totalPage: response.totalPages,
+        ),
+      ));
+    } on AppException catch (e) {
+      emit(AirportState.changePageAirportFailed(
+        data: data,
+        message: e.toString(),
+      ));
+    } catch (e) {
+      emit(AirportState.changePageAirportFailed(
+        data: data,
+        message: e.toString(),
+      ));
     }
   }
 }

@@ -69,7 +69,7 @@ class _AirportApi implements AirportApi {
   }
 
   @override
-  Future<HttpResponse<List<AirportModel>?>> getAirportByPage(
+  Future<HttpResponse<PageResponse<AirportModel>?>> getAirportByPage(
     cursor,
     pageSize,
   ) async {
@@ -77,22 +77,25 @@ class _AirportApi implements AirportApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<AirportModel>>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
+        _setStreamType<HttpResponse<PageResponse<AirportModel>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/api/v1/airport/page/${cursor}/${pageSize}',
+              '/api/v1/airport/page/cursor=${cursor}&pageSize=${pageSize}',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data
-        ?.map((dynamic i) => AirportModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = _result.data == null
+        ? null
+        : PageResponse<AirportModel>.fromJson(
+            _result.data!,
+            (json) => AirportModel.fromJson(json as Map<String, dynamic>),
+          );
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }
@@ -148,7 +151,10 @@ class _AirportApi implements AirportApi {
   }
 
   @override
-  Future<HttpResponse<AirportModel?>> editAirport({required body}) async {
+  Future<HttpResponse<AirportModel?>> editAirport({
+    required id,
+    required body,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -156,13 +162,13 @@ class _AirportApi implements AirportApi {
     _data.addAll(body);
     final _result = await _dio.fetch<Map<String, dynamic>?>(
         _setStreamType<HttpResponse<AirportModel>>(Options(
-      method: 'PUT',
+      method: 'PATCH',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/api/v1/airport/update',
+              '/api/v1/airport/update/${id}',
               queryParameters: queryParameters,
               data: _data,
             )

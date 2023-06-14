@@ -6,6 +6,8 @@ import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/domain/repositories/airport_repository.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../domain/entities/page_response/page_response_entity.dart';
+
 @Injectable(as: AirportRepository)
 class AirportRepositoryImpl extends AirportRepository {
   final AirportApi _airportApi;
@@ -15,7 +17,7 @@ class AirportRepositoryImpl extends AirportRepository {
   Future<List<Airport>?> getListAirport() async {
     final response = await _airportApi.fetchAirports();
     // 🐼 Dumb code
-    if (response.response.statusCode != 200) {
+    if (response.response.statusCode != HttpStatusCode.OK) {
       throw AppException(
         code: response.response.statusCode,
         message: response.response.statusMessage!,
@@ -38,7 +40,7 @@ class AirportRepositoryImpl extends AirportRepository {
     );
     final body = airportModel.toJson();
     final response = await _airportApi.addNewAirPorts(body: body);
-    if (response.response.statusCode != 201) {
+    if (response.response.statusCode != HttpStatusCode.CREATED) {
       throw AppException(
         code: response.response.statusCode,
         message: response.response.statusMessage!,
@@ -51,7 +53,7 @@ class AirportRepositoryImpl extends AirportRepository {
   @override
   Future<bool> deleteAirport(int id) async {
     final response = await _airportApi.deleteAirport(id.toString());
-    if (response.response.statusCode != 204) {
+    if (response.response.statusCode != HttpStatusCode.NO_CONTENT) {
       throw AppException(
         code: response.response.statusCode,
         message: response.response.statusMessage!,
@@ -61,7 +63,7 @@ class AirportRepositoryImpl extends AirportRepository {
   }
 
   @override
-  Future<Airport?> editAirport(Airport newAirport) async {
+  Future<Airport?> editAirport(Airport newAirport, int id) async {
     final airportModel = AirportModel(
       newAirport.id,
       newAirport.name,
@@ -72,8 +74,9 @@ class AirportRepositoryImpl extends AirportRepository {
       timeOfDayToInt(newAirport.closeTime),
     );
     final body = airportModel.toJson();
-    final response = await _airportApi.editAirport(body: body);
-    if (response.response.statusCode != 200) {
+    final response =
+        await _airportApi.editAirport(body: body, id: id.toString());
+    if (response.response.statusCode != HttpStatusCode.OK) {
       throw AppException(
         code: response.response.statusCode,
         message: response.response.statusMessage!,
@@ -86,12 +89,32 @@ class AirportRepositoryImpl extends AirportRepository {
   @override
   Future<Airport?> getAirportById(String id) async {
     final response = await _airportApi.getAirportById(id);
-    if (response.response.statusCode != 200) {
+    if (response.response.statusCode != HttpStatusCode.OK) {
       throw AppException(
         code: response.response.statusCode,
         message: response.response.statusMessage!,
       );
     }
     return response.data.toEntity();
+  }
+
+  @override
+  Future<PageResponseEntity<Airport>> getListAirportByPage(
+      int cursor, int pageSize) async {
+    final response = await _airportApi.getAirportByPage(cursor, pageSize);
+    if (response.response.statusCode != HttpStatusCode.OK) {
+      throw AppException(
+        message: response.response.statusMessage!,
+        code: response.response.statusCode,
+      );
+    }
+    final result = response.data!;
+
+    return PageResponseEntity<Airport>(
+      currentPage: result.currentPage,
+      pageSize: result.pageSize,
+      totalPages: result.totalPages,
+      data: result.responseData.map((e) => e.toEntity()).toList(),
+    );
   }
 }

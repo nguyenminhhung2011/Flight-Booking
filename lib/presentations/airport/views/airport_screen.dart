@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/widgets/mobile/sort_button.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/presentations/add_edit_airport/views/add_edit_airport_form.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class _AirportScreenState extends State<AirportScreen> {
   void initState() {
     super.initState();
     _bloc.add(const AirportEvent.onStarted());
-    _bloc.add(const AirportEvent.fetchAirports());
+    _bloc.add(const AirportEvent.changePageAirportView(0));
     textController = TextEditingController();
   }
 
@@ -101,6 +102,10 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
   AirportModelState get _data => widget.state.data;
   List<Airport> get _airports => _data.airports;
   AirportBloc get _bloc => context.read<AirportBloc>();
+  int get _currentPage => _data.currentPage;
+  int get _totalPage => _data.totalPage;
+
+  String get pageString => '${_currentPage + 1} in $_totalPage';
 
   void openAddEditFlightDialog(String id) {
     _bloc.add(AirportEvent.openAddEditAirportForm(id));
@@ -119,6 +124,10 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
 
   void _onRefreshAirport() {
     _bloc.add(const AirportEvent.fetchAirports());
+  }
+
+  void _onChangePageAirport(int page) {
+    _bloc.add(AirportEvent.changePageAirportView(page));
   }
 
   @override
@@ -159,7 +168,30 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(
+                  onPressed: () => _onChangePageAirport(_currentPage - 1),
+                  icon: const Icon(
+                    Icons.arrow_back,
+                  )),
+              const SizedBox(width: 5.0),
+              SortButton(
+                  title: pageString,
+                  icon: Icons.pages,
+                  onPress: () {},
+                  radius: 5.0),
+              const SizedBox(width: 5.0),
+              IconButton(
+                  onPressed: () => _onChangePageAirport(_currentPage + 1),
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                  )),
+            ],
+          ),
+          const SizedBox(height: 10.0),
           Expanded(
             flex: 1,
             child: FluxTicketTable<Airport>(
