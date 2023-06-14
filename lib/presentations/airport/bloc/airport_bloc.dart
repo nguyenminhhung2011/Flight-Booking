@@ -156,7 +156,7 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     }
     try {
       final response =
-          await _airportUsecase.fetchAirportByPage(event.page, _pageSizeq);
+          await _airportUsecase.fetchAirportByPage(event.page, _pageSize);
       if (response.data.isEmpty) {
         emit(AirportState.changePageAirportFailed(
           data: data,
