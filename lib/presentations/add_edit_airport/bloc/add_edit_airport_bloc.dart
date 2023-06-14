@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../core/components/const/image_const.dart';
 import '../../../core/components/enum/time_of_day_type.dart';
 import '../../../core/constant/constant.dart';
 import '../../../core/services/cloundinary_service.dart';
@@ -315,7 +316,10 @@ class AddEditAirportBloc
       imageUrls = await _generateImageToString();
       if (imageUrls.isNotEmpty) {
         imageFeature = imageUrls.first;
+      } else {
+        imageFeature = ImageConst.airplaneIcon;
       }
+
       final newAirport = Airport(
         id: id,
         name: name,
@@ -379,7 +383,7 @@ class AddEditAirportBloc
         openTime: openTime,
         closeTime: closeTime,
       );
-      final edit = await _airportsUsecase.editAirport(newAirport);
+      final edit = await _airportsUsecase.editAirport(newAirport, id);
       if (edit == null) {
         emit(AddEditAirportState.editAirportFailed(
           data: state.data,

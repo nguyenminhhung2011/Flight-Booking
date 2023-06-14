@@ -18,6 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AirportModelState {
   List<Airport> get airports => throw _privateConstructorUsedError;
   int get pageView => throw _privateConstructorUsedError;
+  int get currentPage => throw _privateConstructorUsedError;
+  int get totalPage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AirportModelStateCopyWith<AirportModelState> get copyWith =>
@@ -30,7 +32,8 @@ abstract class $AirportModelStateCopyWith<$Res> {
           AirportModelState value, $Res Function(AirportModelState) then) =
       _$AirportModelStateCopyWithImpl<$Res, AirportModelState>;
   @useResult
-  $Res call({List<Airport> airports, int pageView});
+  $Res call(
+      {List<Airport> airports, int pageView, int currentPage, int totalPage});
 }
 
 /// @nodoc
@@ -48,6 +51,8 @@ class _$AirportModelStateCopyWithImpl<$Res, $Val extends AirportModelState>
   $Res call({
     Object? airports = null,
     Object? pageView = null,
+    Object? currentPage = null,
+    Object? totalPage = null,
   }) {
     return _then(_value.copyWith(
       airports: null == airports
@@ -57,6 +62,14 @@ class _$AirportModelStateCopyWithImpl<$Res, $Val extends AirportModelState>
       pageView: null == pageView
           ? _value.pageView
           : pageView // ignore: cast_nullable_to_non_nullable
+              as int,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPage: null == totalPage
+          ? _value.totalPage
+          : totalPage // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -70,7 +83,8 @@ abstract class _$$_AirportModelStateCopyWith<$Res>
       __$$_AirportModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Airport> airports, int pageView});
+  $Res call(
+      {List<Airport> airports, int pageView, int currentPage, int totalPage});
 }
 
 /// @nodoc
@@ -86,6 +100,8 @@ class __$$_AirportModelStateCopyWithImpl<$Res>
   $Res call({
     Object? airports = null,
     Object? pageView = null,
+    Object? currentPage = null,
+    Object? totalPage = null,
   }) {
     return _then(_$_AirportModelState(
       airports: null == airports
@@ -96,6 +112,14 @@ class __$$_AirportModelStateCopyWithImpl<$Res>
           ? _value.pageView
           : pageView // ignore: cast_nullable_to_non_nullable
               as int,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPage: null == totalPage
+          ? _value.totalPage
+          : totalPage // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -104,7 +128,10 @@ class __$$_AirportModelStateCopyWithImpl<$Res>
 
 class _$_AirportModelState implements _AirportModelState {
   const _$_AirportModelState(
-      {required final List<Airport> airports, required this.pageView})
+      {required final List<Airport> airports,
+      required this.pageView,
+      required this.currentPage,
+      required this.totalPage})
       : _airports = airports;
 
   final List<Airport> _airports;
@@ -117,10 +144,14 @@ class _$_AirportModelState implements _AirportModelState {
 
   @override
   final int pageView;
+  @override
+  final int currentPage;
+  @override
+  final int totalPage;
 
   @override
   String toString() {
-    return 'AirportModelState(airports: $airports, pageView: $pageView)';
+    return 'AirportModelState(airports: $airports, pageView: $pageView, currentPage: $currentPage, totalPage: $totalPage)';
   }
 
   @override
@@ -130,12 +161,20 @@ class _$_AirportModelState implements _AirportModelState {
             other is _$_AirportModelState &&
             const DeepCollectionEquality().equals(other._airports, _airports) &&
             (identical(other.pageView, pageView) ||
-                other.pageView == pageView));
+                other.pageView == pageView) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.totalPage, totalPage) ||
+                other.totalPage == totalPage));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_airports), pageView);
+      runtimeType,
+      const DeepCollectionEquality().hash(_airports),
+      pageView,
+      currentPage,
+      totalPage);
 
   @JsonKey(ignore: true)
   @override
@@ -148,12 +187,18 @@ class _$_AirportModelState implements _AirportModelState {
 abstract class _AirportModelState implements AirportModelState {
   const factory _AirportModelState(
       {required final List<Airport> airports,
-      required final int pageView}) = _$_AirportModelState;
+      required final int pageView,
+      required final int currentPage,
+      required final int totalPage}) = _$_AirportModelState;
 
   @override
   List<Airport> get airports;
   @override
   int get pageView;
+  @override
+  int get currentPage;
+  @override
+  int get totalPage;
   @override
   @JsonKey(ignore: true)
   _$$_AirportModelStateCopyWith<_$_AirportModelState> get copyWith =>

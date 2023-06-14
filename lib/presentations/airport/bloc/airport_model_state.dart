@@ -9,5 +9,7 @@ class AirportModelState with _$AirportModelState {
   const factory AirportModelState({
     required List<Airport> airports,
     required int pageView,
+    required int currentPage,
+    required int totalPage,
   }) = _AirportModelState;
 }
