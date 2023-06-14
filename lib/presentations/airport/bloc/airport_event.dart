@@ -16,4 +16,6 @@ class AirportEvent with _$AirportEvent {
   const factory AirportEvent.loadingComplete() = _LoadingComplete;
   const factory AirportEvent.changePageAirportView(int page) =
       _ChangePageAirportView;
+
+  const factory AirportEvent.textChange(String text) = _TextChange;
 }

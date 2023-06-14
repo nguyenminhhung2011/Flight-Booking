@@ -40,6 +40,7 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     on<_DeleteAirport>(_onDeleteAirport);
     on<_LoadingComplete>(_onLoadingComplete);
     on<_ChangePageAirportView>(_onChangePageAirportView);
+    on<_TextChange>(_onTextChange);
   }
 
   FutureOr<void> _onStarted(
@@ -150,7 +151,9 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     if (event.page != 0) {
       if (event.page >= data.totalPage || event.page < 0) {
         emit(AirportState.changePageAirportFailed(
-            data: data, message: 'Current page is max'));
+          data: data,
+          message: 'Current page is max',
+        ));
         return;
       }
     }
@@ -183,4 +186,9 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
       ));
     }
   }
+
+  FutureOr<void> _onTextChange(
+    _TextChange event,
+    Emitter<AirportState> emit,
+  ) {}
 }

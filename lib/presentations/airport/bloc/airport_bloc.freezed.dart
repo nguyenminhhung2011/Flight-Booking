@@ -27,6 +27,7 @@ mixin _$AirportEvent {
     required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
     required TResult Function(int page) changePageAirportView,
+    required TResult Function(String text) textChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +41,7 @@ mixin _$AirportEvent {
     TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
     TResult? Function(int page)? changePageAirportView,
+    TResult? Function(String text)? textChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +55,7 @@ mixin _$AirportEvent {
     TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     TResult Function(int page)? changePageAirportView,
+    TResult Function(String text)? textChange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,6 +74,7 @@ mixin _$AirportEvent {
     required TResult Function(_LoadingComplete value) loadingComplete,
     required TResult Function(_ChangePageAirportView value)
         changePageAirportView,
+    required TResult Function(_TextChange value) textChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,6 +88,7 @@ mixin _$AirportEvent {
     TResult? Function(_DeleteAirport value)? deleteAirport,
     TResult? Function(_LoadingComplete value)? loadingComplete,
     TResult? Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult? Function(_TextChange value)? textChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,6 +102,7 @@ mixin _$AirportEvent {
     TResult Function(_DeleteAirport value)? deleteAirport,
     TResult Function(_LoadingComplete value)? loadingComplete,
     TResult Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult Function(_TextChange value)? textChange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -166,6 +172,7 @@ class _$_Started implements _Started {
     required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
     required TResult Function(int page) changePageAirportView,
+    required TResult Function(String text) textChange,
   }) {
     return onStarted();
   }
@@ -182,6 +189,7 @@ class _$_Started implements _Started {
     TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
     TResult? Function(int page)? changePageAirportView,
+    TResult? Function(String text)? textChange,
   }) {
     return onStarted?.call();
   }
@@ -198,6 +206,7 @@ class _$_Started implements _Started {
     TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     TResult Function(int page)? changePageAirportView,
+    TResult Function(String text)? textChange,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -222,6 +231,7 @@ class _$_Started implements _Started {
     required TResult Function(_LoadingComplete value) loadingComplete,
     required TResult Function(_ChangePageAirportView value)
         changePageAirportView,
+    required TResult Function(_TextChange value) textChange,
   }) {
     return onStarted(this);
   }
@@ -238,6 +248,7 @@ class _$_Started implements _Started {
     TResult? Function(_DeleteAirport value)? deleteAirport,
     TResult? Function(_LoadingComplete value)? loadingComplete,
     TResult? Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult? Function(_TextChange value)? textChange,
   }) {
     return onStarted?.call(this);
   }
@@ -254,6 +265,7 @@ class _$_Started implements _Started {
     TResult Function(_DeleteAirport value)? deleteAirport,
     TResult Function(_LoadingComplete value)? loadingComplete,
     TResult Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult Function(_TextChange value)? textChange,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -314,6 +326,7 @@ class _$_FetchAirports implements _FetchAirports {
     required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
     required TResult Function(int page) changePageAirportView,
+    required TResult Function(String text) textChange,
   }) {
     return fetchAirports();
   }
@@ -330,6 +343,7 @@ class _$_FetchAirports implements _FetchAirports {
     TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
     TResult? Function(int page)? changePageAirportView,
+    TResult? Function(String text)? textChange,
   }) {
     return fetchAirports?.call();
   }
@@ -346,6 +360,7 @@ class _$_FetchAirports implements _FetchAirports {
     TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     TResult Function(int page)? changePageAirportView,
+    TResult Function(String text)? textChange,
     required TResult orElse(),
   }) {
     if (fetchAirports != null) {
@@ -370,6 +385,7 @@ class _$_FetchAirports implements _FetchAirports {
     required TResult Function(_LoadingComplete value) loadingComplete,
     required TResult Function(_ChangePageAirportView value)
         changePageAirportView,
+    required TResult Function(_TextChange value) textChange,
   }) {
     return fetchAirports(this);
   }
@@ -386,6 +402,7 @@ class _$_FetchAirports implements _FetchAirports {
     TResult? Function(_DeleteAirport value)? deleteAirport,
     TResult? Function(_LoadingComplete value)? loadingComplete,
     TResult? Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult? Function(_TextChange value)? textChange,
   }) {
     return fetchAirports?.call(this);
   }
@@ -402,6 +419,7 @@ class _$_FetchAirports implements _FetchAirports {
     TResult Function(_DeleteAirport value)? deleteAirport,
     TResult Function(_LoadingComplete value)? loadingComplete,
     TResult Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult Function(_TextChange value)? textChange,
     required TResult orElse(),
   }) {
     if (fetchAirports != null) {
@@ -462,6 +480,7 @@ class _$_ChangePageView implements _ChangePageView {
     required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
     required TResult Function(int page) changePageAirportView,
+    required TResult Function(String text) textChange,
   }) {
     return changePageView();
   }
@@ -478,6 +497,7 @@ class _$_ChangePageView implements _ChangePageView {
     TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
     TResult? Function(int page)? changePageAirportView,
+    TResult? Function(String text)? textChange,
   }) {
     return changePageView?.call();
   }
@@ -494,6 +514,7 @@ class _$_ChangePageView implements _ChangePageView {
     TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     TResult Function(int page)? changePageAirportView,
+    TResult Function(String text)? textChange,
     required TResult orElse(),
   }) {
     if (changePageView != null) {
@@ -518,6 +539,7 @@ class _$_ChangePageView implements _ChangePageView {
     required TResult Function(_LoadingComplete value) loadingComplete,
     required TResult Function(_ChangePageAirportView value)
         changePageAirportView,
+    required TResult Function(_TextChange value) textChange,
   }) {
     return changePageView(this);
   }
@@ -534,6 +556,7 @@ class _$_ChangePageView implements _ChangePageView {
     TResult? Function(_DeleteAirport value)? deleteAirport,
     TResult? Function(_LoadingComplete value)? loadingComplete,
     TResult? Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult? Function(_TextChange value)? textChange,
   }) {
     return changePageView?.call(this);
   }
@@ -550,6 +573,7 @@ class _$_ChangePageView implements _ChangePageView {
     TResult Function(_DeleteAirport value)? deleteAirport,
     TResult Function(_LoadingComplete value)? loadingComplete,
     TResult Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult Function(_TextChange value)? textChange,
     required TResult orElse(),
   }) {
     if (changePageView != null) {
@@ -637,6 +661,7 @@ class _$_OpenAddEditAirportForm implements _OpenAddEditAirportForm {
     required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
     required TResult Function(int page) changePageAirportView,
+    required TResult Function(String text) textChange,
   }) {
     return openAddEditAirportForm(id);
   }
@@ -653,6 +678,7 @@ class _$_OpenAddEditAirportForm implements _OpenAddEditAirportForm {
     TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
     TResult? Function(int page)? changePageAirportView,
+    TResult? Function(String text)? textChange,
   }) {
     return openAddEditAirportForm?.call(id);
   }
@@ -669,6 +695,7 @@ class _$_OpenAddEditAirportForm implements _OpenAddEditAirportForm {
     TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     TResult Function(int page)? changePageAirportView,
+    TResult Function(String text)? textChange,
     required TResult orElse(),
   }) {
     if (openAddEditAirportForm != null) {
@@ -693,6 +720,7 @@ class _$_OpenAddEditAirportForm implements _OpenAddEditAirportForm {
     required TResult Function(_LoadingComplete value) loadingComplete,
     required TResult Function(_ChangePageAirportView value)
         changePageAirportView,
+    required TResult Function(_TextChange value) textChange,
   }) {
     return openAddEditAirportForm(this);
   }
@@ -709,6 +737,7 @@ class _$_OpenAddEditAirportForm implements _OpenAddEditAirportForm {
     TResult? Function(_DeleteAirport value)? deleteAirport,
     TResult? Function(_LoadingComplete value)? loadingComplete,
     TResult? Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult? Function(_TextChange value)? textChange,
   }) {
     return openAddEditAirportForm?.call(this);
   }
@@ -725,6 +754,7 @@ class _$_OpenAddEditAirportForm implements _OpenAddEditAirportForm {
     TResult Function(_DeleteAirport value)? deleteAirport,
     TResult Function(_LoadingComplete value)? loadingComplete,
     TResult Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult Function(_TextChange value)? textChange,
     required TResult orElse(),
   }) {
     if (openAddEditAirportForm != null) {
@@ -828,6 +858,7 @@ class _$_UpdateAirportsAfterAdd implements _UpdateAirportsAfterAdd {
     required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
     required TResult Function(int page) changePageAirportView,
+    required TResult Function(String text) textChange,
   }) {
     return updateAirportsAfterAdd(airport);
   }
@@ -844,6 +875,7 @@ class _$_UpdateAirportsAfterAdd implements _UpdateAirportsAfterAdd {
     TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
     TResult? Function(int page)? changePageAirportView,
+    TResult? Function(String text)? textChange,
   }) {
     return updateAirportsAfterAdd?.call(airport);
   }
@@ -860,6 +892,7 @@ class _$_UpdateAirportsAfterAdd implements _UpdateAirportsAfterAdd {
     TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     TResult Function(int page)? changePageAirportView,
+    TResult Function(String text)? textChange,
     required TResult orElse(),
   }) {
     if (updateAirportsAfterAdd != null) {
@@ -884,6 +917,7 @@ class _$_UpdateAirportsAfterAdd implements _UpdateAirportsAfterAdd {
     required TResult Function(_LoadingComplete value) loadingComplete,
     required TResult Function(_ChangePageAirportView value)
         changePageAirportView,
+    required TResult Function(_TextChange value) textChange,
   }) {
     return updateAirportsAfterAdd(this);
   }
@@ -900,6 +934,7 @@ class _$_UpdateAirportsAfterAdd implements _UpdateAirportsAfterAdd {
     TResult? Function(_DeleteAirport value)? deleteAirport,
     TResult? Function(_LoadingComplete value)? loadingComplete,
     TResult? Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult? Function(_TextChange value)? textChange,
   }) {
     return updateAirportsAfterAdd?.call(this);
   }
@@ -916,6 +951,7 @@ class _$_UpdateAirportsAfterAdd implements _UpdateAirportsAfterAdd {
     TResult Function(_DeleteAirport value)? deleteAirport,
     TResult Function(_LoadingComplete value)? loadingComplete,
     TResult Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult Function(_TextChange value)? textChange,
     required TResult orElse(),
   }) {
     if (updateAirportsAfterAdd != null) {
@@ -1020,6 +1056,7 @@ class _$_UpdateAirportsAfterEdit implements _UpdateAirportsAfterEdit {
     required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
     required TResult Function(int page) changePageAirportView,
+    required TResult Function(String text) textChange,
   }) {
     return updateAirportsAfterEdit(airport);
   }
@@ -1036,6 +1073,7 @@ class _$_UpdateAirportsAfterEdit implements _UpdateAirportsAfterEdit {
     TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
     TResult? Function(int page)? changePageAirportView,
+    TResult? Function(String text)? textChange,
   }) {
     return updateAirportsAfterEdit?.call(airport);
   }
@@ -1052,6 +1090,7 @@ class _$_UpdateAirportsAfterEdit implements _UpdateAirportsAfterEdit {
     TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     TResult Function(int page)? changePageAirportView,
+    TResult Function(String text)? textChange,
     required TResult orElse(),
   }) {
     if (updateAirportsAfterEdit != null) {
@@ -1076,6 +1115,7 @@ class _$_UpdateAirportsAfterEdit implements _UpdateAirportsAfterEdit {
     required TResult Function(_LoadingComplete value) loadingComplete,
     required TResult Function(_ChangePageAirportView value)
         changePageAirportView,
+    required TResult Function(_TextChange value) textChange,
   }) {
     return updateAirportsAfterEdit(this);
   }
@@ -1092,6 +1132,7 @@ class _$_UpdateAirportsAfterEdit implements _UpdateAirportsAfterEdit {
     TResult? Function(_DeleteAirport value)? deleteAirport,
     TResult? Function(_LoadingComplete value)? loadingComplete,
     TResult? Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult? Function(_TextChange value)? textChange,
   }) {
     return updateAirportsAfterEdit?.call(this);
   }
@@ -1108,6 +1149,7 @@ class _$_UpdateAirportsAfterEdit implements _UpdateAirportsAfterEdit {
     TResult Function(_DeleteAirport value)? deleteAirport,
     TResult Function(_LoadingComplete value)? loadingComplete,
     TResult Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult Function(_TextChange value)? textChange,
     required TResult orElse(),
   }) {
     if (updateAirportsAfterEdit != null) {
@@ -1200,6 +1242,7 @@ class _$_DeleteAirport implements _DeleteAirport {
     required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
     required TResult Function(int page) changePageAirportView,
+    required TResult Function(String text) textChange,
   }) {
     return deleteAirport(id);
   }
@@ -1216,6 +1259,7 @@ class _$_DeleteAirport implements _DeleteAirport {
     TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
     TResult? Function(int page)? changePageAirportView,
+    TResult? Function(String text)? textChange,
   }) {
     return deleteAirport?.call(id);
   }
@@ -1232,6 +1276,7 @@ class _$_DeleteAirport implements _DeleteAirport {
     TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     TResult Function(int page)? changePageAirportView,
+    TResult Function(String text)? textChange,
     required TResult orElse(),
   }) {
     if (deleteAirport != null) {
@@ -1256,6 +1301,7 @@ class _$_DeleteAirport implements _DeleteAirport {
     required TResult Function(_LoadingComplete value) loadingComplete,
     required TResult Function(_ChangePageAirportView value)
         changePageAirportView,
+    required TResult Function(_TextChange value) textChange,
   }) {
     return deleteAirport(this);
   }
@@ -1272,6 +1318,7 @@ class _$_DeleteAirport implements _DeleteAirport {
     TResult? Function(_DeleteAirport value)? deleteAirport,
     TResult? Function(_LoadingComplete value)? loadingComplete,
     TResult? Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult? Function(_TextChange value)? textChange,
   }) {
     return deleteAirport?.call(this);
   }
@@ -1288,6 +1335,7 @@ class _$_DeleteAirport implements _DeleteAirport {
     TResult Function(_DeleteAirport value)? deleteAirport,
     TResult Function(_LoadingComplete value)? loadingComplete,
     TResult Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult Function(_TextChange value)? textChange,
     required TResult orElse(),
   }) {
     if (deleteAirport != null) {
@@ -1353,6 +1401,7 @@ class _$_LoadingComplete implements _LoadingComplete {
     required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
     required TResult Function(int page) changePageAirportView,
+    required TResult Function(String text) textChange,
   }) {
     return loadingComplete();
   }
@@ -1369,6 +1418,7 @@ class _$_LoadingComplete implements _LoadingComplete {
     TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
     TResult? Function(int page)? changePageAirportView,
+    TResult? Function(String text)? textChange,
   }) {
     return loadingComplete?.call();
   }
@@ -1385,6 +1435,7 @@ class _$_LoadingComplete implements _LoadingComplete {
     TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     TResult Function(int page)? changePageAirportView,
+    TResult Function(String text)? textChange,
     required TResult orElse(),
   }) {
     if (loadingComplete != null) {
@@ -1409,6 +1460,7 @@ class _$_LoadingComplete implements _LoadingComplete {
     required TResult Function(_LoadingComplete value) loadingComplete,
     required TResult Function(_ChangePageAirportView value)
         changePageAirportView,
+    required TResult Function(_TextChange value) textChange,
   }) {
     return loadingComplete(this);
   }
@@ -1425,6 +1477,7 @@ class _$_LoadingComplete implements _LoadingComplete {
     TResult? Function(_DeleteAirport value)? deleteAirport,
     TResult? Function(_LoadingComplete value)? loadingComplete,
     TResult? Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult? Function(_TextChange value)? textChange,
   }) {
     return loadingComplete?.call(this);
   }
@@ -1441,6 +1494,7 @@ class _$_LoadingComplete implements _LoadingComplete {
     TResult Function(_DeleteAirport value)? deleteAirport,
     TResult Function(_LoadingComplete value)? loadingComplete,
     TResult Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult Function(_TextChange value)? textChange,
     required TResult orElse(),
   }) {
     if (loadingComplete != null) {
@@ -1528,6 +1582,7 @@ class _$_ChangePageAirportView implements _ChangePageAirportView {
     required TResult Function(int id) deleteAirport,
     required TResult Function() loadingComplete,
     required TResult Function(int page) changePageAirportView,
+    required TResult Function(String text) textChange,
   }) {
     return changePageAirportView(page);
   }
@@ -1544,6 +1599,7 @@ class _$_ChangePageAirportView implements _ChangePageAirportView {
     TResult? Function(int id)? deleteAirport,
     TResult? Function()? loadingComplete,
     TResult? Function(int page)? changePageAirportView,
+    TResult? Function(String text)? textChange,
   }) {
     return changePageAirportView?.call(page);
   }
@@ -1560,6 +1616,7 @@ class _$_ChangePageAirportView implements _ChangePageAirportView {
     TResult Function(int id)? deleteAirport,
     TResult Function()? loadingComplete,
     TResult Function(int page)? changePageAirportView,
+    TResult Function(String text)? textChange,
     required TResult orElse(),
   }) {
     if (changePageAirportView != null) {
@@ -1584,6 +1641,7 @@ class _$_ChangePageAirportView implements _ChangePageAirportView {
     required TResult Function(_LoadingComplete value) loadingComplete,
     required TResult Function(_ChangePageAirportView value)
         changePageAirportView,
+    required TResult Function(_TextChange value) textChange,
   }) {
     return changePageAirportView(this);
   }
@@ -1600,6 +1658,7 @@ class _$_ChangePageAirportView implements _ChangePageAirportView {
     TResult? Function(_DeleteAirport value)? deleteAirport,
     TResult? Function(_LoadingComplete value)? loadingComplete,
     TResult? Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult? Function(_TextChange value)? textChange,
   }) {
     return changePageAirportView?.call(this);
   }
@@ -1616,6 +1675,7 @@ class _$_ChangePageAirportView implements _ChangePageAirportView {
     TResult Function(_DeleteAirport value)? deleteAirport,
     TResult Function(_LoadingComplete value)? loadingComplete,
     TResult Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult Function(_TextChange value)? textChange,
     required TResult orElse(),
   }) {
     if (changePageAirportView != null) {
@@ -1632,6 +1692,191 @@ abstract class _ChangePageAirportView implements AirportEvent {
   int get page;
   @JsonKey(ignore: true)
   _$$_ChangePageAirportViewCopyWith<_$_ChangePageAirportView> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_TextChangeCopyWith<$Res> {
+  factory _$$_TextChangeCopyWith(
+          _$_TextChange value, $Res Function(_$_TextChange) then) =
+      __$$_TextChangeCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String text});
+}
+
+/// @nodoc
+class __$$_TextChangeCopyWithImpl<$Res>
+    extends _$AirportEventCopyWithImpl<$Res, _$_TextChange>
+    implements _$$_TextChangeCopyWith<$Res> {
+  __$$_TextChangeCopyWithImpl(
+      _$_TextChange _value, $Res Function(_$_TextChange) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+  }) {
+    return _then(_$_TextChange(
+      null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TextChange implements _TextChange {
+  const _$_TextChange(this.text);
+
+  @override
+  final String text;
+
+  @override
+  String toString() {
+    return 'AirportEvent.textChange(text: $text)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TextChange &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, text);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TextChangeCopyWith<_$_TextChange> get copyWith =>
+      __$$_TextChangeCopyWithImpl<_$_TextChange>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() fetchAirports,
+    required TResult Function() changePageView,
+    required TResult Function(String id) openAddEditAirportForm,
+    required TResult Function(Airport airport) updateAirportsAfterAdd,
+    required TResult Function(Airport airport) updateAirportsAfterEdit,
+    required TResult Function(int id) deleteAirport,
+    required TResult Function() loadingComplete,
+    required TResult Function(int page) changePageAirportView,
+    required TResult Function(String text) textChange,
+  }) {
+    return textChange(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? fetchAirports,
+    TResult? Function()? changePageView,
+    TResult? Function(String id)? openAddEditAirportForm,
+    TResult? Function(Airport airport)? updateAirportsAfterAdd,
+    TResult? Function(Airport airport)? updateAirportsAfterEdit,
+    TResult? Function(int id)? deleteAirport,
+    TResult? Function()? loadingComplete,
+    TResult? Function(int page)? changePageAirportView,
+    TResult? Function(String text)? textChange,
+  }) {
+    return textChange?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? fetchAirports,
+    TResult Function()? changePageView,
+    TResult Function(String id)? openAddEditAirportForm,
+    TResult Function(Airport airport)? updateAirportsAfterAdd,
+    TResult Function(Airport airport)? updateAirportsAfterEdit,
+    TResult Function(int id)? deleteAirport,
+    TResult Function()? loadingComplete,
+    TResult Function(int page)? changePageAirportView,
+    TResult Function(String text)? textChange,
+    required TResult orElse(),
+  }) {
+    if (textChange != null) {
+      return textChange(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_FetchAirports value) fetchAirports,
+    required TResult Function(_ChangePageView value) changePageView,
+    required TResult Function(_OpenAddEditAirportForm value)
+        openAddEditAirportForm,
+    required TResult Function(_UpdateAirportsAfterAdd value)
+        updateAirportsAfterAdd,
+    required TResult Function(_UpdateAirportsAfterEdit value)
+        updateAirportsAfterEdit,
+    required TResult Function(_DeleteAirport value) deleteAirport,
+    required TResult Function(_LoadingComplete value) loadingComplete,
+    required TResult Function(_ChangePageAirportView value)
+        changePageAirportView,
+    required TResult Function(_TextChange value) textChange,
+  }) {
+    return textChange(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_FetchAirports value)? fetchAirports,
+    TResult? Function(_ChangePageView value)? changePageView,
+    TResult? Function(_OpenAddEditAirportForm value)? openAddEditAirportForm,
+    TResult? Function(_UpdateAirportsAfterAdd value)? updateAirportsAfterAdd,
+    TResult? Function(_UpdateAirportsAfterEdit value)? updateAirportsAfterEdit,
+    TResult? Function(_DeleteAirport value)? deleteAirport,
+    TResult? Function(_LoadingComplete value)? loadingComplete,
+    TResult? Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult? Function(_TextChange value)? textChange,
+  }) {
+    return textChange?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_FetchAirports value)? fetchAirports,
+    TResult Function(_ChangePageView value)? changePageView,
+    TResult Function(_OpenAddEditAirportForm value)? openAddEditAirportForm,
+    TResult Function(_UpdateAirportsAfterAdd value)? updateAirportsAfterAdd,
+    TResult Function(_UpdateAirportsAfterEdit value)? updateAirportsAfterEdit,
+    TResult Function(_DeleteAirport value)? deleteAirport,
+    TResult Function(_LoadingComplete value)? loadingComplete,
+    TResult Function(_ChangePageAirportView value)? changePageAirportView,
+    TResult Function(_TextChange value)? textChange,
+    required TResult orElse(),
+  }) {
+    if (textChange != null) {
+      return textChange(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TextChange implements AirportEvent {
+  const factory _TextChange(final String text) = _$_TextChange;
+
+  String get text;
+  @JsonKey(ignore: true)
+  _$$_TextChangeCopyWith<_$_TextChange> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
