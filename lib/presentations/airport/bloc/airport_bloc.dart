@@ -190,5 +190,25 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
   FutureOr<void> _onTextChange(
     _TextChange event,
     Emitter<AirportState> emit,
-  ) {}
+  ) async {
+    emit(AirportState.loading(data: data));
+    if (event.text.isEmpty) {
+      add(const AirportEvent.changePageAirportView(0));
+    }
+    try {
+      final airports = await _airportUsecase.filterAirports(search: event.text);
+      if (airports.isNotEmpty) {
+        emit(AirportState.searchSuccess(
+            data: data.copyWith(
+          airports: airports,
+          currentPage: 0,
+        )));
+      }
+      return;
+    } on AppException catch (e) {
+      emit(AirportState.searchFailed(data: data, message: e.toString()));
+    } catch (e) {
+      emit(AirportState.searchFailed(data: data, message: e.toString()));
+    }
+  }
 }

@@ -51,6 +51,15 @@ class AirportState with _$AirportState {
     required String message,
   }) = _ChangePageAirportFailed;
 
+  const factory AirportState.searchSuccess({
+    required AirportModelState data,
+  }) = _SearchSuccess;
+
+  const factory AirportState.searchFailed({
+    required AirportModelState data,
+    required String message,
+  }) = _SearchFailed;
+
   bool get isLoading => this is _Loading;
   bool get isWaitCircularLoading => this is _WaitCircularLoading;
 }

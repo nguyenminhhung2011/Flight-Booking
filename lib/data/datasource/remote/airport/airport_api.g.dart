@@ -58,7 +58,7 @@ class _AirportApi implements AirportApi {
     )
             .compose(
               _dio.options,
-              '/api/v1/airport/${id}',
+              '/api/v1/airport/id=${id}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -96,6 +96,33 @@ class _AirportApi implements AirportApi {
             _result.data!,
             (json) => AirportModel.fromJson(json as Map<String, dynamic>),
           );
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
+  }
+
+  @override
+  Future<HttpResponse<List<AirportModel>?>> filterAirport(
+      {required search}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<HttpResponse<List<AirportModel>>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/v1/airport/filter/keyword=${search}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data
+        ?.map((dynamic i) => AirportModel.fromJson(i as Map<String, dynamic>))
+        .toList();
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

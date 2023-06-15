@@ -14,6 +14,7 @@ class AirportEndPoint {
   static const deleteAirportUrl = "$branch/delete";
   static const addAirportUrl = "$branch/add";
   static const getAirportByPageUrl = "$branch/page/";
+  static const filterAirportUrl = "$branch/filter/";
 }
 
 @RestApi()
@@ -25,7 +26,7 @@ abstract class AirportApi {
   @GET(AirportEndPoint.getAirportUrl)
   Future<HttpResponse<List<AirportModel>?>> fetchAirports();
 
-  @GET('${AirportEndPoint.getAirportUrl}{id}')
+  @GET('${AirportEndPoint.getAirportUrl}id={id}')
   Future<HttpResponse<AirportModel>> getAirportById(@Path("id") String id);
 
   @GET(
@@ -34,6 +35,12 @@ abstract class AirportApi {
     @Path("cursor") int cursor,
     @Path("pageSize") int pageSize,
   );
+
+  @GET('${AirportEndPoint.filterAirportUrl}keyword={search}')
+  Future<HttpResponse<List<AirportModel>?>> filterAirport({
+    @Path("search") required String search,
+  });
+
   @POST(AirportEndPoint.addAirportUrl)
   Future<HttpResponse<AirportModel?>> addNewAirPorts({
     @Body() required Map<String, dynamic> body,
