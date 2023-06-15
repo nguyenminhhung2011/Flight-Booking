@@ -243,6 +243,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "identityNumber":
             MessageLookupByLibrary.simpleMessage("Identity Number"),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
+        "informationBeforeEdit":
+            MessageLookupByLibrary.simpleMessage("Information before edit"),
         "landingFlight": MessageLookupByLibrary.simpleMessage("Landing flight"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
@@ -346,6 +348,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Premium Economy Class"),
         "premiumEconomyClassTicket": MessageLookupByLibrary.simpleMessage(
             "Premium Economy Class Ticket"),
+        "preview": MessageLookupByLibrary.simpleMessage("Preview"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "priceSummary": MessageLookupByLibrary.simpleMessage("Price Summary"),
         "principleSetting":

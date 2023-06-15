@@ -20,4 +20,6 @@ class AddEditFlightEvent with _$AddEditFlightEvent {
   const factory AddEditFlightEvent.buttonTap() = _ButtonTap;
   const factory AddEditFlightEvent.selectedAirline({required Airline airline}) =
       _SelectedAirline;
+  const factory AddEditFlightEvent.getFlightById({required String id}) =
+      _GetFlightById;
 }

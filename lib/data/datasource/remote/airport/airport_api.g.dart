@@ -101,8 +101,10 @@ class _AirportApi implements AirportApi {
   }
 
   @override
-  Future<HttpResponse<List<AirportModel>?>> filterAirport(
-      {required search}) async {
+  Future<HttpResponse<List<AirportModel>?>> filterAirport({
+    required search,
+    required cancelRequest,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -118,6 +120,7 @@ class _AirportApi implements AirportApi {
               '/api/v1/airport/filter/keyword=${search}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelRequest,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data

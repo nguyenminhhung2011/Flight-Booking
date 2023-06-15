@@ -317,5 +317,7 @@
     "districts": "Districts",
     "wards": "Wards",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "informationBeforeEdit": "Information before edit",
+    "preview": "Preview"
 }

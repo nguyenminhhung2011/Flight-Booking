@@ -333,7 +333,6 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
           height: 45.0,
           decoration: BoxDecoration(
             color: Theme.of(context).cardColor,
-            borderRadius: BorderRadius.circular(10.0),
           ),
           child: TextFormField(
             controller: _searchController,

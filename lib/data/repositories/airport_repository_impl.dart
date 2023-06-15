@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flight_booking/core/components/network/app_exception.dart';
 import 'package:flight_booking/data/datasource/remote/airport/airport_api.dart';
 import 'package:flight_booking/data/models/model_heloer.dart';
@@ -111,6 +112,7 @@ class AirportRepositoryImpl extends AirportRepository {
   }) async {
     final response = await _airportApi.filterAirport(
       search: searchText ?? _filterTextNull,
+      cancelRequest: CancelToken(),
     );
     if (response.response.statusCode != HttpStatusCode.OK) {
       throw AppException(
