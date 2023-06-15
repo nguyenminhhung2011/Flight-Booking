@@ -209,8 +209,8 @@ class _OverviewScreenState extends State<OverviewScreen> {
     );
   }
 
-  AdaptiveLayouRowCol _overview(double widthField) {
-    return AdaptiveLayouRowCol(
+  AdaptiveLayoutRowCol _overview(double widthField) {
+    return AdaptiveLayoutRowCol(
       child: [
         Container(
           width: Breakpoints.large.isActive(context)

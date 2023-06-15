@@ -67,11 +67,10 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
       emit(AirportState.fetchAirportsSuccess(
         data: state.data.copyWith(airports: airports),
       ));
+    } on AppException catch (e) {
+      emit(AirportState.fetchAirportsFailed(data: data, message: e.toString()));
     } catch (e) {
-      emit(AirportState.fetchAirportsFailed(
-        data: state.data,
-        message: e.toString(),
-      ));
+      emit(AirportState.fetchAirportsFailed(data: data, message: e.toString()));
     }
   }
 

@@ -11,9 +11,9 @@ class ListFlightEvent with _$ListFlightEvent {
   const factory ListFlightEvent.openAddEditFlightForm(String id) =
       _OpenAddEditFlightForm;
 
-  const factory ListFlightEvent.updateFlightssAfterEdit(
+  const factory ListFlightEvent.updateFlightsAfterEdit(
     Flight flight,
-  ) = _UpdateFlighstAfterEdit;
+  ) = _UpdateFlightsAfterEdit;
   const factory ListFlightEvent.updateFlightsAfterAdd(
     Flight flight,
   ) = _UpdateFlightsAfterAdd;

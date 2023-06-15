@@ -7,20 +7,20 @@ part of 'flight_model.dart';
 // **************************************************************************
 
 FlightModel _$FlightModelFromJson(Map<String, dynamic> json) => FlightModel(
-      json['Id'] as String,
-      json['IdStartAirport'] as String,
-      json['IdComeAirport'] as String,
-      json['TimeStart'] as int,
-      json['TimeEnd'] as int,
-      json['NoCustomer'] as int,
+      json['id'] as int,
+      AirportModel.fromJson(json['arrivalAirport'] as Map<String, dynamic>),
+      AirportModel.fromJson(json['departureAirport'] as Map<String, dynamic>),
+      DateTime.parse(json['arrivalTime'] as String),
+      DateTime.parse(json['departureTime'] as String),
+      AirlineModel.fromJson(json['airline'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$FlightModelToJson(FlightModel instance) =>
     <String, dynamic>{
-      'Id': instance.id,
-      'IdStartAirport': instance.idStartAirport,
-      'IdComeAirport': instance.idComeAirport,
-      'TimeStart': instance.timeStart,
-      'TimeEnd': instance.timeEnd,
-      'NoCustomer': instance.noCustomer,
+      'id': instance.id,
+      'arrivalAirport': instance.arrivalAirport.toJson(),
+      'departureAirport': instance.departureAirport.toJson(),
+      'arrivalTime': instance.timeStart.toIso8601String(),
+      'departureTime': instance.timeEnd.toIso8601String(),
+      'airline': instance.airline.toJson(),
     };

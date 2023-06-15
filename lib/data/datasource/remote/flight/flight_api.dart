@@ -2,16 +2,16 @@ import 'package:dio/dio.dart';
 import 'package:flight_booking/data/models/flight/flight_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
-
-import '../../../models/api_response/api_response.dart';
-
 part 'flight_api.g.dart';
 
 class FlightEndPoint {
-  static const fetchFlightUrl = "flight/fetch";
-  static const editFlightUrl = "flight/edit";
-  static const deleteFlightUrl = "flight/delete";
-  static const addFlightUrl = "flight/add";
+  static const branch = 'api/v1/flight';
+  static const fetchFlightUrl = "$branch/";
+  static const editFlightUrl = "$branch/update/";
+  static const deleteFlightUrl = "$branch/delete/";
+  static const addFlightUrl = "$branch/add";
+  static const getFlightByPageUrl = '$branch/page/';
+  static const filterFlightUrl = '$branch/filter/';
 }
 
 @RestApi()
@@ -21,18 +21,22 @@ abstract class FlightApi {
   factory FlightApi(Dio dio) = _FlightApi;
 
   @GET(FlightEndPoint.fetchFlightUrl)
-  Future<ApiResponse<List<FlightModel>?>> fetchFlights();
+  Future<HttpResponse<List<FlightModel>?>> fetchFlights();
+
+  @GET('${FlightEndPoint.fetchFlightUrl}id={id}')
+  Future<HttpResponse<FlightModel?>> getFlightById(@Path("id") String id);
 
   @POST(FlightEndPoint.addFlightUrl)
-  Future<ApiResponse<FlightModel?>> addNewFlight({
+  Future<HttpResponse<FlightModel?>> addNewFlight({
     @Body() required Map<String, dynamic> body,
   });
 
   @DELETE('${FlightEndPoint.deleteFlightUrl}/{id}')
-  Future<ApiResponse<bool>> deleteFlight(@Path("id") String id);
+  Future<HttpResponse> deleteFlight(@Path("id") String id);
 
-  @PUT(FlightEndPoint.editFlightUrl)
-  Future<ApiResponse<FlightModel?>> editFlight({
+  @PUT('${FlightEndPoint.editFlightUrl}/{id}')
+  Future<HttpResponse<FlightModel?>> editFlight({
+    @Path("id") required String id,
     @Body() required Map<String, dynamic> body,
   });
 }

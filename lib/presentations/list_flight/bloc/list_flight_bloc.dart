@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flight_booking/core/components/network/app_exception.dart';
 import 'package:flight_booking/domain/usecase/flight_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -24,7 +25,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
   ) : super(
           const ListFlightState.initial(
             data: ListFlightModelState(
-              flights: [],
+              flights: <Flight>[],
             ),
           ),
         ) {
@@ -32,7 +33,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     on<_Started>(_onStarted);
     on<_GetFlights>(_onGetFlights);
     on<_OpenAddEditFlightForm>(_onOpenAddEditFlightForm);
-    on<_UpdateFlighstAfterEdit>(_onUpdateFlightAfterEdit);
+    on<_UpdateFlightsAfterEdit>(_onUpdateFlightAfterEdit);
     on<_UpdateFlightsAfterAdd>(_onUpdateFlightAfterAdd);
     on<_DeleteFlight>(_onDeleteFlight);
   }
@@ -50,7 +51,9 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     emit(ListFlightState.loading(data: state.data));
     emit(
       ListFlightState.openAddEditFlightFormSuccess(
-          data: state.data, flightId: event.id),
+        data: state.data,
+        flightId: event.id,
+      ),
     );
   }
 
@@ -64,6 +67,8 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
       emit(ListFlightState.getFlightsSuccess(
         data: state.data.copyWith(flights: flights),
       ));
+    } on AppException catch (e) {
+      emit(ListFlightState.getFlightsFailed(data: data, message: e.toString()));
     } catch (e) {
       emit(ListFlightState.getFlightsFailed(
         data: state.data,
@@ -97,16 +102,16 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _UpdateFlightsAfterAdd event,
     Emitter<ListFlightState> emit,
   ) {
-    emit(state.copyWith(
+    emit(ListFlightState.updateFlightSuccess(
       data: data.copyWith(flights: [event.flight, ...data.flights]),
     ));
   }
 
   FutureOr<void> _onUpdateFlightAfterEdit(
-    _UpdateFlighstAfterEdit event,
+    _UpdateFlightsAfterEdit event,
     Emitter<ListFlightState> emit,
   ) {
-    emit(state.copyWith(
+    emit(ListFlightState.updateFlightSuccess(
       data: data.copyWith(
           flights: data.flights.map(
         (e) {

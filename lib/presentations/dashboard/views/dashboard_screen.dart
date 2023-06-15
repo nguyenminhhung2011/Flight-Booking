@@ -330,9 +330,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 }
 
-class AdaptiveLayouRowCol extends StatelessWidget {
+class AdaptiveLayoutRowCol extends StatelessWidget {
   final List<Widget> child;
-  const AdaptiveLayouRowCol({super.key, required this.child});
+  const AdaptiveLayoutRowCol({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
