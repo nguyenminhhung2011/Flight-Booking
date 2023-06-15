@@ -49,4 +49,13 @@ class AddEditFlightState with _$AddEditFlightState {
     required AddEditFlightModelState data,
     required String message,
   }) = _FetchAirlineFailed;
+
+  const factory AddEditFlightState.getFlightByIdSuccess({
+    required AddEditFlightModelState data,
+  }) = _GetFlightByIdSuccess;
+
+  const factory AddEditFlightState.getFlightByIdFailed({
+    required AddEditFlightModelState data,
+    required String message,
+  }) = _GetFlightByIdFailed;
 }

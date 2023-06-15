@@ -13,9 +13,9 @@ class FlightModel {
   final AirportModel arrivalAirport;
   @JsonKey(name: 'departureAirport')
   final AirportModel departureAirport;
-  @JsonKey(name: 'arrivalTime')
-  final DateTime timeStart;
   @JsonKey(name: 'departureTime')
+  final DateTime timeStart;
+  @JsonKey(name: 'arrivalTime')
   final DateTime timeEnd;
   @JsonKey(name: 'airline')
   final AirlineModel airline;

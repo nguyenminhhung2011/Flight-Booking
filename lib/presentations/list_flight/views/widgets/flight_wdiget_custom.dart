@@ -156,7 +156,7 @@ class FlightWidgetCustom extends StatelessWidget {
                   context,
                   getYmdFormat(flight.timeStart),
                   getjmFormat(flight.timeStart),
-                  flight.arrivalAirport.location,
+                  flight.departureAirport.location,
                   true,
                 )),
             Expanded(
@@ -169,7 +169,7 @@ class FlightWidgetCustom extends StatelessWidget {
                   context,
                   getYmdFormat(flight.timeEnd),
                   getjmFormat(flight.timeEnd),
-                  flight.departureAirport.location,
+                  flight.arrivalAirport.location,
                   false,
                 )),
           ],

@@ -21,6 +21,11 @@ class FlightsUsecase {
     return null;
   }
 
+  Future<Flight?> getFlightById(String id) async {
+    var result = await _flightRepository.getFlightById(id);
+    return result;
+  }
+
   Future<bool> deleteFlight(String id) async {
     return _flightRepository.deleteFlight(id);
   }

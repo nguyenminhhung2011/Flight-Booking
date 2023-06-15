@@ -59,6 +59,7 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
     on<_SelectedAirline>(_onSelectAirline);
     on<_SelectedAirport>(_onSelectAirport);
     on<_ButtonTap>(_onButtonTap);
+    on<_GetFlightById>(_onGetFlightById);
   }
 
   bool get _isDataNull =>
@@ -66,20 +67,21 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
       data.airportStart == null ||
       data.airportEnd == null;
 
+  String get flightId => _flightId;
+
   FutureOr<void> _onStarted(
     _Started event,
     Emitter<AddEditFlightState> emit,
   ) {
-    if (_flightId != _idNull) {}
-    emit(
-      state.copyWith(
-        data: data.copyWith(
-          headerText: _flightId != _idNull
-              ? S.current.editFlight
-              : S.current.addNewFlight,
+    if (_flightId != _idNull) {
+      add(_GetFlightById(id: _flightId));
+    } else {
+      emit(
+        state.copyWith(
+          data: data.copyWith(headerText: S.current.addNewFlight),
         ),
-      ),
-    );
+      );
+    }
   }
 
   FutureOr<void> _onButtonTap(
@@ -195,8 +197,8 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
     try {
       final newFlight = Flight(
         id: 0,
-        arrivalAirport: data.airportStart!,
-        departureAirport: data.airportEnd!,
+        arrivalAirport: data.airportEnd!,
+        departureAirport: data.airportStart!,
         timeStart: data.timeStart,
         timeEnd: data.timeEnd,
         airline: data.airline!,
@@ -240,8 +242,8 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
     try {
       final newFlight = Flight(
         id: 0,
-        arrivalAirport: data.airportStart!,
-        departureAirport: data.airportEnd!,
+        arrivalAirport: data.airportEnd!,
+        departureAirport: data.airportStart!,
         timeStart: data.timeStart,
         timeEnd: data.timeEnd,
         airline: data.airline!,
@@ -276,6 +278,43 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
       emit(state.copyWith(data: data.copyWith(timeStart: event.dateTime)));
     } else {
       emit(state.copyWith(data: data.copyWith(timeEnd: event.dateTime)));
+    }
+  }
+
+  FutureOr<void> _onGetFlightById(
+    _GetFlightById event,
+    Emitter<AddEditFlightState> emit,
+  ) async {
+    emit(AddEditFlightState.loading(data: data, type: 0));
+    try {
+      final result = await _flightsUsecase.getFlightById(_flightId);
+      if (result == null) {
+        emit(AddEditFlightState.getFlightByIdFailed(
+          data: state.data,
+          message: 'Can\'t get flight',
+        ));
+        return;
+      }
+      emit(AddEditFlightState.getFlightByIdSuccess(
+        data: data.copyWith(
+          timeStart: result.timeStart,
+          timeEnd: result.timeEnd,
+          airline: result.airline,
+          airportStart: result.departureAirport,
+          airportEnd: result.arrivalAirport,
+          headerText: S.current.editAirport,
+        ),
+      ));
+    } on AppException catch (e) {
+      emit(AddEditFlightState.getFlightByIdFailed(
+        data: state.data,
+        message: e.toString(),
+      ));
+    } catch (e) {
+      emit(AddEditFlightState.getFlightByIdFailed(
+        data: state.data,
+        message: e.toString(),
+      ));
     }
   }
 }

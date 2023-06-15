@@ -3201,6 +3201,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Information before edit`
+  String get informationBeforeEdit {
+    return Intl.message(
+      'Information before edit',
+      name: 'informationBeforeEdit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Preview`
+  String get preview {
+    return Intl.message(
+      'Preview',
+      name: 'preview',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

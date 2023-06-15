@@ -39,6 +39,7 @@ abstract class AirportApi {
   @GET('${AirportEndPoint.filterAirportUrl}keyword={search}')
   Future<HttpResponse<List<AirportModel>?>> filterAirport({
     @Path("search") required String search,
+    @CancelRequest() required CancelToken cancelRequest,
   });
 
   @POST(AirportEndPoint.addAirportUrl)

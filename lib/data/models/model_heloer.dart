@@ -22,8 +22,8 @@ class ModelHelper {
         flight.id,
         airportConvert(flight.arrivalAirport),
         airportConvert(flight.departureAirport),
-        flight.timeStart,
-        flight.timeEnd,
+        flight.timeStart.subtract(const Duration(hours: 7)),
+        flight.timeEnd.subtract(const Duration(hours: 7)),
         airlineConvert(flight.airline),
       );
 

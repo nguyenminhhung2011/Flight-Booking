@@ -3,10 +3,13 @@ import 'dart:developer';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/date_time_enum.dart';
 import 'package:flight_booking/core/components/enum/type_form_flight.dart';
+import 'package:flight_booking/core/components/widgets/dialog/airport_preview_dialog.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/domain/entities/airline/airline.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart';
+import 'package:flight_booking/presentations/list_flight/views/widgets/dot_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -82,6 +85,16 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
     _bloc.add(AddEditFlightEvent.selectedAirline(airline: airline!));
   }
 
+  void _onShowAirportPreviewDialog(Airport airport) async {
+    await showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: AirportPreviewDialog(airport: airport),
+      ),
+    );
+  }
+
   bool get _loadButton => _bloc.state
       .maybeWhen(orElse: () => false, loading: (data, type) => type == 1);
   bool get _loadGetData => _bloc.state
@@ -99,7 +112,13 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
         final startAirportSelected = data.airportStart;
         final finishAirportSelected = data.airportEnd;
         final airlineSelected = data.airline;
+        final primaryColor = Theme.of(context).primaryColor;
+        final flightId = _bloc.flightId;
         return Container(
+          // constraints: BoxConstraints(
+          //   maxHeight: context.heightDevice,
+          //   minHeight: context.heightDevice * 0.6,
+          // ),
           width: Breakpoints.small.isActive(context)
               ? double.infinity
               : widthDevice * 0.5,
@@ -113,16 +132,47 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
                   child: CircularProgressIndicator(),
                 )
               : Column(
+                  // mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (airlines.isEmpty) ...<Widget>[
-                      Text(
-                        data.headerText,
-                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                              fontWeight: FontWeight.bold,
+                    Text(
+                      data.headerText,
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                    if (flightId.isNotEmpty) ...[
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(15.0),
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(width: 1.5, color: primaryColor),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              S.of(context).informationBeforeEdit,
+                              style: context.titleMedium.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
+                            const SizedBox(height: 10.0),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                DotCustom(color: primaryColor, full: true),
+                                const SizedBox(width: 5.0),
+                                Text('${S.of(context).flight} ${flightId}')
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
+                    ],
+                    if (airlines.isNotEmpty) ...<Widget>[
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -149,54 +199,74 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(S.of(context).airportStart),
-                                const SizedBox(height: 5.0),
-                                DropdownButtonCustom<Airport?>(
-                                  radius: 10.0,
-                                  items: airports
-                                      .map<DropdownMenuItem<Airport>>(
-                                          (Airport value) =>
-                                              DropdownMenuItem<Airport>(
-                                                value: value,
-                                                child: Text(value.name),
-                                              ))
-                                      .toList(),
-                                  value: startAirportSelected,
-                                  onChange: (value) =>
-                                      _onSelectedAirport(value!, true),
-                                ),
-                              ],
+                          ...<Map<String, dynamic>>[
+                            {
+                              'header': S.of(context).airportStart,
+                              'airport': startAirportSelected,
+                              'bool': true,
+                            },
+                            {
+                              'header': S.of(context).airportFinish,
+                              'airport': finishAirportSelected,
+                              'bool': false,
+                            },
+                          ].map(
+                            (e) => Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Expanded(
+                                          child: Text(
+                                        e['header'].toString(),
+                                        maxLines: 1,
+                                      )),
+                                      TextButton(
+                                        onPressed: () =>
+                                            _onShowAirportPreviewDialog(
+                                          e['airport'],
+                                        ),
+                                        child: Text(
+                                          S.of(context).preview,
+                                          style: context.titleSmall.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: primaryColor,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(height: 5.0),
+                                  DropdownButtonCustom<Airport?>(
+                                    radius: 10.0,
+                                    items: airports
+                                        .map<DropdownMenuItem<Airport>>(
+                                            (Airport value) =>
+                                                DropdownMenuItem<Airport>(
+                                                  value: value,
+                                                  child: Text(value.name),
+                                                ))
+                                        .toList(),
+                                    value: e['airport'] as Airport,
+                                    onChange: (value) => _onSelectedAirport(
+                                        value!, e['bool'] as bool),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 10.0),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(S.of(context).airportFinish),
-                                const SizedBox(height: 5.0),
-                                DropdownButtonCustom<Airport?>(
-                                  radius: 10.0,
-                                  items: airports
-                                      .map<DropdownMenuItem<Airport>>(
-                                          (Airport value) =>
-                                              DropdownMenuItem<Airport>(
-                                                value: value,
-                                                child: Text(value.name),
-                                              ))
-                                      .toList(),
-                                  value: finishAirportSelected,
-                                  onChange: (value) =>
-                                      _onSelectedAirport(value!, false),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                          )
+                        ]
+                            .expand((element) => [
+                                  element,
+                                  const SizedBox(
+                                    width: 10.0,
+                                  )
+                                ])
+                            .toList()
+                          ..removeLast(),
                       ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,

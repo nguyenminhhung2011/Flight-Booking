@@ -34,7 +34,7 @@ abstract class FlightApi {
   @DELETE('${FlightEndPoint.deleteFlightUrl}/{id}')
   Future<HttpResponse> deleteFlight(@Path("id") String id);
 
-  @PUT('${FlightEndPoint.editFlightUrl}/{id}')
+  @PATCH('${FlightEndPoint.editFlightUrl}/{id}')
   Future<HttpResponse<FlightModel?>> editFlight({
     @Path("id") required String id,
     @Body() required Map<String, dynamic> body,
