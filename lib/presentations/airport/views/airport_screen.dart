@@ -1,13 +1,11 @@
 import 'dart:developer';
 
 import 'package:flight_booking/app_coordinator.dart';
-import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/sort_button.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/presentations/add_edit_airport/views/add_edit_airport_form.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/widgets/flux_table/flux_table_row.dart';
@@ -147,7 +145,9 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
     _bloc.add(AirportEvent.changePageAirportView(page));
   }
 
-  void _onTextChange(String value) {}
+  void _onTextChange(String value) {
+    _bloc.add(AirportEvent.textChange(value));
+  }
 
   @override
   Widget build(BuildContext context) {

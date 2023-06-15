@@ -8,23 +8,26 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/page_response/page_response_entity.dart';
 
+const _filterTextNull = '';
+const _defaultError = 'Error';
+
 @Injectable(as: AirportRepository)
 class AirportRepositoryImpl extends AirportRepository {
   final AirportApi _airportApi;
   AirportRepositoryImpl(this._airportApi);
 
   @override
-  Future<List<Airport>?> getListAirport() async {
+  Future<List<Airport>> getListAirport() async {
     final response = await _airportApi.fetchAirports();
     // 🐼 Dumb code
     if (response.response.statusCode != HttpStatusCode.OK) {
       throw AppException(
         code: response.response.statusCode,
-        message: response.response.statusMessage!,
+        message: response.response.statusMessage ?? _defaultError,
       );
     }
     final result = response.data?.map((e) => e.toEntity()).toList();
-    return result ?? [];
+    return result ?? <Airport>[];
   }
 
   @override
@@ -43,7 +46,7 @@ class AirportRepositoryImpl extends AirportRepository {
     if (response.response.statusCode != HttpStatusCode.CREATED) {
       throw AppException(
         code: response.response.statusCode,
-        message: response.response.statusMessage!,
+        message: response.response.statusMessage ?? _defaultError,
       );
     }
     final result = response.data?.toEntity();
@@ -56,7 +59,7 @@ class AirportRepositoryImpl extends AirportRepository {
     if (response.response.statusCode != HttpStatusCode.NO_CONTENT) {
       throw AppException(
         code: response.response.statusCode,
-        message: response.response.statusMessage!,
+        message: response.response.statusMessage ?? _defaultError,
       );
     }
     return true;
@@ -79,7 +82,7 @@ class AirportRepositoryImpl extends AirportRepository {
     if (response.response.statusCode != HttpStatusCode.OK) {
       throw AppException(
         code: response.response.statusCode,
-        message: response.response.statusMessage!,
+        message: response.response.statusMessage ?? _defaultError,
       );
     }
     final result = response.data?.toEntity();
@@ -92,7 +95,7 @@ class AirportRepositoryImpl extends AirportRepository {
     if (response.response.statusCode != HttpStatusCode.OK) {
       throw AppException(
         code: response.response.statusCode,
-        message: response.response.statusMessage!,
+        message: response.response.statusMessage ?? _defaultError,
       );
     }
     return response.data.toEntity();
@@ -100,11 +103,13 @@ class AirportRepositoryImpl extends AirportRepository {
 
   @override
   Future<PageResponseEntity<Airport>> getListAirportByPage(
-      int cursor, int pageSize) async {
+    int cursor,
+    int pageSize,
+  ) async {
     final response = await _airportApi.getAirportByPage(cursor, pageSize);
     if (response.response.statusCode != HttpStatusCode.OK) {
       throw AppException(
-        message: response.response.statusMessage!,
+        message: response.response.statusMessage ?? _defaultError,
         code: response.response.statusCode,
       );
     }
@@ -116,5 +121,22 @@ class AirportRepositoryImpl extends AirportRepository {
       totalPages: result.totalPages,
       data: result.responseData.map((e) => e.toEntity()).toList(),
     );
+  }
+
+  @override
+  Future<List<Airport>> filterAirport({
+    String? searchText,
+  }) async {
+    final response = await _airportApi.filterAirport(
+      search: searchText ?? _filterTextNull,
+    );
+    if (response.response.statusCode != HttpStatusCode.OK) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage ?? _defaultError,
+      );
+    }
+    final result = response.data?.map((e) => e.toEntity()).toList();
+    return result ?? <Airport>[];
   }
 }

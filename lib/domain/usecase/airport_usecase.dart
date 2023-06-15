@@ -10,7 +10,13 @@ class AirportUsecase {
   AirportUsecase(this._airportRepository);
 
   Future<List<Airport>> fetchAllAirports() async {
-    return await _airportRepository.getListAirport() ?? [];
+    return await _airportRepository.getListAirport();
+  }
+
+  Future<List<Airport>> filterAirports({
+    String? search,
+  }) async {
+    return await _airportRepository.filterAirport(searchText: search);
   }
 
   Future<PageResponseEntity<Airport>> fetchAirportByPage(
