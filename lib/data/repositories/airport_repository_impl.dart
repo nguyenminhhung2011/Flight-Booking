@@ -1,7 +1,6 @@
 import 'package:flight_booking/core/components/network/app_exception.dart';
-import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/data/datasource/remote/airport/airport_api.dart';
-import 'package:flight_booking/data/models/airport/airport_model.dart';
+import 'package:flight_booking/data/models/model_heloer.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/domain/repositories/airport_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -32,15 +31,7 @@ class AirportRepositoryImpl extends AirportRepository {
 
   @override
   Future<Airport?> addNewAirport(Airport airport) async {
-    final airportModel = AirportModel(
-      airport.id,
-      airport.name,
-      airport.image,
-      airport.location,
-      airport.description,
-      timeOfDayToInt(airport.openTime),
-      timeOfDayToInt(airport.closeTime),
-    );
+    final airportModel = ModelHelper.airportConvert(airport);
     final body = airportModel.toJson();
     final response = await _airportApi.addNewAirPorts(body: body);
     if (response.response.statusCode != HttpStatusCode.CREATED) {
@@ -49,8 +40,7 @@ class AirportRepositoryImpl extends AirportRepository {
         message: response.response.statusMessage ?? _defaultError,
       );
     }
-    final result = response.data?.toEntity();
-    return result;
+    return response.data?.toEntity();
   }
 
   @override
@@ -67,15 +57,7 @@ class AirportRepositoryImpl extends AirportRepository {
 
   @override
   Future<Airport?> editAirport(Airport newAirport, int id) async {
-    final airportModel = AirportModel(
-      newAirport.id,
-      newAirport.name,
-      newAirport.image,
-      newAirport.location,
-      newAirport.description,
-      timeOfDayToInt(newAirport.openTime),
-      timeOfDayToInt(newAirport.closeTime),
-    );
+    final airportModel = ModelHelper.airportConvert(newAirport);
     final body = airportModel.toJson();
     final response =
         await _airportApi.editAirport(body: body, id: id.toString());

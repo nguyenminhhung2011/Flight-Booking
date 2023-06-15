@@ -1,6 +1,8 @@
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../domain/entities/airline/airline.dart';
+import '../../../../domain/entities/airport/airport.dart';
 import '../../../../domain/entities/flight/flight.dart';
 import '../airport_fast_view.dart';
 import 'flightIn_airport_wdiget.dart';
@@ -50,35 +52,84 @@ class _AllFlightsInAirportViewState extends State<AllFlightsInAirportView> {
                 child: ListView(
                   children: [
                     for (int i = 0; i < 3; i++)
+                      //🚑 Refactor code
                       FlightInAirportWdiget(
                         width: minWidth,
                         listFlight: [
                           Flight(
-                            id: 'DA-0123',
-                            idStartAirport: 'Ha Noi',
-                            idComeAirport: 'Ho Chi Minh',
+                            id: 0,
+                            arrivalAirport: const Airport(
+                              id: 1,
+                              name: '',
+                              image: '',
+                              location: '',
+                              description: '',
+                              openTime: TimeOfDay(hour: 1, minute: 1),
+                              closeTime: TimeOfDay(hour: 1, minute: 1),
+                            ),
+                            departureAirport: const Airport(
+                              id: 1,
+                              name: '',
+                              image: '',
+                              location: '',
+                              description: '',
+                              openTime: TimeOfDay(hour: 1, minute: 1),
+                              closeTime: TimeOfDay(hour: 1, minute: 1),
+                            ),
                             timeStart: DateTime.now(),
                             timeEnd: DateTime.now(),
-                            noCustomer: 20,
+                            airline: const Airline(id: 0, airlineName: ''),
                           ),
                           if (i < 1)
+                            // 🚑Refactor code
                             Flight(
-                              id: 'DA-0124',
-                              idStartAirport: 'Nha Trang',
-                              idComeAirport: 'Ho Chi Minh',
-                              timeStart: DateTime.now(),
-                              timeEnd: DateTime.now(),
-                              noCustomer: 20,
-                            ),
+                                id: 0,
+                                arrivalAirport: const Airport(
+                                  id: 1,
+                                  name: '',
+                                  image: '',
+                                  location: '',
+                                  description: '',
+                                  openTime: TimeOfDay(hour: 1, minute: 1),
+                                  closeTime: TimeOfDay(hour: 1, minute: 1),
+                                ),
+                                departureAirport: const Airport(
+                                  id: 1,
+                                  name: '',
+                                  image: '',
+                                  location: '',
+                                  description: '',
+                                  openTime: TimeOfDay(hour: 1, minute: 1),
+                                  closeTime: TimeOfDay(hour: 1, minute: 1),
+                                ),
+                                timeStart: DateTime.now(),
+                                timeEnd: DateTime.now(),
+                                airline: const Airline(id: 0, airlineName: '')),
                           if (i < 2)
+                            // 🚑Refactor code
                             Flight(
-                              id: 'DA-0123',
-                              idStartAirport: 'Da Nang',
-                              idComeAirport: 'Ho Chi Minh',
-                              timeStart: DateTime.now(),
-                              timeEnd: DateTime.now(),
-                              noCustomer: 20,
-                            ),
+                                id: 0,
+                                arrivalAirport: const Airport(
+                                  id: 1,
+                                  name: '',
+                                  image: '',
+                                  location: '',
+                                  description: '',
+                                  openTime: TimeOfDay(hour: 1, minute: 1),
+                                  closeTime: TimeOfDay(hour: 1, minute: 1),
+                                ),
+                                departureAirport: const Airport(
+                                  id: 1,
+                                  name: '',
+                                  image: '',
+                                  location: '',
+                                  description: '',
+                                  openTime: TimeOfDay(hour: 1, minute: 1),
+                                  closeTime: TimeOfDay(hour: 1, minute: 1),
+                                ),
+                                timeStart: DateTime.now(),
+                                timeEnd: DateTime.now(),
+                                airline: const Airline(id: 0, airlineName: '')),
                         ],
                         time: DateTime.now().add(Duration(minutes: i * 10)),
                       ),

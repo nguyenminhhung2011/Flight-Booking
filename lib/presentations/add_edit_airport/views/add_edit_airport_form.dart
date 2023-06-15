@@ -364,7 +364,6 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
               ButtonCustom(
                 width: double.infinity,
                 height: 45.0,
-                radius: 5.0,
                 onPress: _onButtonTap,
                 child: loadingButton
                     ? _loadingWidget(context)
