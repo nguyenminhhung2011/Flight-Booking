@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:flight_booking/data/datasource/remote/auth/auth_api.dart';
 import 'package:flight_booking/data/models/base_api.dart';
 import 'package:flight_booking/data/models/data_state.dart';
+import 'package:flight_booking/data/models/user/authenticate_response_model.dart';
 import 'package:flight_booking/data/models/user/user_model.dart';
 import 'package:flight_booking/domain/entities/user/user.dart';
 import 'package:flight_booking/domain/repositories/user_repository.dart';
@@ -15,15 +14,7 @@ class UserRepositoryImpl extends BaseApi implements UserRepository {
   UserRepositoryImpl(this._authApi);
   @override
   Future<User> getUser() async {
-    return User(
-      id: "id",
-      username: "username",
-      password: "password",
-      name: "name",
-      email: "email",
-      phone: "phone",
-      birthday: DateTime.now().subtract(const Duration(days: 365 * 22)),
-    );
+    throw NoSuchMethodError;
   }
 
   @override
@@ -37,7 +28,6 @@ class UserRepositoryImpl extends BaseApi implements UserRepository {
           name: user.name,
           birthday: user.birthday?.millisecondsSinceEpoch ?? 0,
           email: user.email,
-          phone: user.phone,
         );
 
         return userModel.toEntity();
@@ -46,12 +36,18 @@ class UserRepositoryImpl extends BaseApi implements UserRepository {
   }
 
   @override
-  Future<DataState<UserModel?>> login(String username, String password) async {
-    return await getStateOf<UserModel?>(
+  Future<DataState<AuthenticateResponse>> login(
+      String username, String password) async {
+    final response = await getStateOf<AuthenticateResponse>(
       request: () async => await _authApi.login(
-        body: {"username": username, "password": password},
+        body: {
+          "username": username,
+          "password": password,
+        },
       ),
     );
+    print(response.data?.toJson());
+    return response;
   }
 
   @override

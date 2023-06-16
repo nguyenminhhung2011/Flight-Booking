@@ -23,21 +23,23 @@ class AuthenticationBloc
 
   FutureOr<void> _onStarted(
       OnStarted event, Emitter<AuthenticationState> emit) async {
-    final userEntityJson = CommonAppSettingPref.getUserEntity();
-    if (userEntityJson != null) {
-      final user = jsonDecode(userEntityJson);
-      emit(AuthenticationState.authenticated(user: user));
-    }
+    // final userEntityJson = CommonAppSettingPref.getUserEntity();
+    // if (userEntityJson != null) {
+    //   final user = jsonDecode(userEntityJson);
+    //   emit(AuthenticationState.authenticated(user: user));
+    // }
     emit(AuthenticationState.unauthenticated());
   }
 
   FutureOr<void> _onLoginEvent(
       LoginEvent event, Emitter<AuthenticationState> emit) async {
-    final user = await _userUseCase.login(event.username, event.password);
+    final token = await _userUseCase.login(event.username, event.password);
 
-    if (user != null) {
-      return emit(AuthenticationState.authenticated(user: user));
+    if (token != null && token.isNotEmpty) {
+      print(token);
+      return emit(AuthenticationState.authenticated(token: token));
     }
+
     return emit(AuthenticationState.unauthenticated());
   }
 

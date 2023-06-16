@@ -10,7 +10,6 @@ import 'package:flight_booking/core/components/widgets/mobile/custom_template_sc
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:table_calendar/table_calendar.dart';
 
 import '../../../core/components/widgets/mobile/flight_custom.dart';
 import '../../../generated/l10n.dart';

@@ -45,5 +45,8 @@ class UserModel {
         email: email ?? "",
         phone: phone ?? "",
         birthday: DateTime.fromMillisecondsSinceEpoch(birthday ?? 0),
+        address: '',
+        gender: '',
+        identityCard: '',
       );
 }
