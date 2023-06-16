@@ -18,9 +18,11 @@ class UserUseCase {
     return await _userRepository.updateUserInfo(user);
   }
 
-  Future<User?> login(String username, String password) async {
+  Future<String?> login(String username, String password) async {
     final result = await _userRepository.login(username, password);
-    if (result is DataSuccess) {
-    } else {}
+    if (result is DataSuccess && (result.data?.isSuccess ?? false)) {
+      return result.data?.token;
+    }
+    return null;
   }
 }
