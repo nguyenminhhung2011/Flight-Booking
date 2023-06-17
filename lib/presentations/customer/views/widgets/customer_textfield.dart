@@ -9,11 +9,13 @@ class FilterCategory extends StatelessWidget {
     this.enable = true,
     this.controller,
     this.onPress,
+    this.lines = 1,
   });
   final String? title;
   final String hint;
   final IconData iconData;
   final bool enable;
+  final int lines;
   final TextEditingController? controller;
   final Function()? onPress;
 
@@ -29,6 +31,7 @@ class FilterCategory extends StatelessWidget {
               ),
         const SizedBox(height: 5),
         TextFormField(
+          maxLines: lines,
           controller: controller ?? TextEditingController(),
           enabled: enable,
           decoration: InputDecoration(

@@ -237,3 +237,5 @@ String randomString() {
 
   return result;
 }
+
+int randDomNumber(int max) => Random().nextInt(100);

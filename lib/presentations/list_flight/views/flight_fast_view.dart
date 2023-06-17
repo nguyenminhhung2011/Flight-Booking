@@ -1,5 +1,6 @@
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
+import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/flight_details_widget.dart';
 import 'package:flutter/material.dart';
 import '../../../generated/l10n.dart';
@@ -13,13 +14,10 @@ class FlightFastView extends StatelessWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: SizedBox(
-          width: double.infinity,
-          height: 45.0,
-          child: ElevatedButton(
-            onPressed: () {},
-            child: Text(S.of(context).viewDetail),
-          ),
+        child: ButtonCustom(
+          height: 45,
+          onPress: () {},
+          child: Text(S.of(context).viewDetail),
         ),
       ),
       body: Container(

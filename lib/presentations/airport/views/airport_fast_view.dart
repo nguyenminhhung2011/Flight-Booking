@@ -1,10 +1,12 @@
 import 'package:flight_booking/core/components/widgets/card_custom.dart';
 import 'package:flight_booking/core/components/widgets/swiper_custom.dart';
+import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/domain/entities/flight/flight.dart';
 import 'package:flight_booking/presentations/airport/views/wdigets/all_flights_in_airport_view.dart';
 import 'package:flight_booking/presentations/airport/views/wdigets/upcoming_flight_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../domain/entities/airline/airline.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/airport_bloc.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
@@ -141,14 +143,30 @@ class _AirportFastViewState extends State<AirportFastView> {
           ),
           for (int i = 0; i < 6; i++)
             UpcomingFlightWdiget(
+              //🚑Refactor code
               flight: Flight(
-                id: 'DX-3135',
-                idStartAirport: 'Hai Phong',
-                idComeAirport: 'Ha Noi',
-                timeStart: DateTime.now(),
-                timeEnd: DateTime.now(),
-                noCustomer: 100,
-              ),
+                  id: i,
+                  arrivalAirport: const Airport(
+                    id: 1,
+                    name: '',
+                    image: '',
+                    location: '',
+                    description: '',
+                    openTime: TimeOfDay(hour: 1, minute: 1),
+                    closeTime: TimeOfDay(hour: 1, minute: 1),
+                  ),
+                  departureAirport: const Airport(
+                    id: 1,
+                    name: '',
+                    image: '',
+                    location: '',
+                    description: '',
+                    openTime: TimeOfDay(hour: 1, minute: 1),
+                    closeTime: TimeOfDay(hour: 1, minute: 1),
+                  ),
+                  timeStart: DateTime.now(),
+                  timeEnd: DateTime.now(),
+                  airline: const Airline(id: 0, airlineName: '')),
             ),
         ].expand((element) => [element, const SizedBox(height: 5.0)]).toList()
           ..removeLast(),

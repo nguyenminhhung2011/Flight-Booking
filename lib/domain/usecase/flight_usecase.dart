@@ -8,7 +8,7 @@ class FlightsUsecase {
   FlightsUsecase(this._flightRepository);
 
   Future<List<Flight>> fetchAllFlights() async {
-    return await _flightRepository.getListFlight() ?? [];
+    return await _flightRepository.getListFlight();
   }
 
   Future<Flight?> addNewFlight(Flight newFlight) async {
@@ -21,11 +21,16 @@ class FlightsUsecase {
     return null;
   }
 
+  Future<Flight?> getFlightById(String id) async {
+    var result = await _flightRepository.getFlightById(id);
+    return result;
+  }
+
   Future<bool> deleteFlight(String id) async {
     return _flightRepository.deleteFlight(id);
   }
 
-  Future<Flight?> editFlight(Flight newFlight) async {
-    return _flightRepository.editlight(newFlight);
+  Future<Flight?> editFlight(Flight newFlight, String id) async {
+    return _flightRepository.editFlight(newFlight, id);
   }
 }

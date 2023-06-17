@@ -66,7 +66,7 @@ class FlightInAirportWdiget extends StatelessWidget {
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           TextSpan(
-            text: '(${flight.idStartAirport})',
+            text: '(${flight.arrivalAirport.name})',
             style: const TextStyle(
               fontWeight: FontWeight.w400,
               fontSize: 14,

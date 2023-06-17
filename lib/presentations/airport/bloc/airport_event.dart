@@ -12,6 +12,10 @@ class AirportEvent with _$AirportEvent {
   const factory AirportEvent.updateAirportsAfterEdit(Airport airport) =
       _UpdateAirportsAfterEdit;
 
-  const factory AirportEvent.deleteAirport(String id) = _DeleteAirport;
+  const factory AirportEvent.deleteAirport(int id) = _DeleteAirport;
   const factory AirportEvent.loadingComplete() = _LoadingComplete;
+  const factory AirportEvent.changePageAirportView(int page) =
+      _ChangePageAirportView;
+
+  const factory AirportEvent.textChange(String text) = _TextChange;
 }

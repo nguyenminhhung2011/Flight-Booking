@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 String convertTime(int value) {
@@ -58,3 +59,20 @@ String getFlightTime({required DateTime from, required DateTime to}) =>
     "${getDayInWeek(from).toUpperCase()} ${DateFormat().add_MMMMd().format(from)}  ${DateFormat().add_Hm().format(from)}  -  ${getDayInWeek(to).toUpperCase()} ${DateFormat().add_MMMMd().format(to)}  ${DateFormat().add_Hm().format(to)}";
 String getMMMMEEEd(DateTime time) =>
     DateFormat().add_MMMMEEEEd().add_Hm().format(time);
+
+TimeOfDay intToTimeLeft(int? value) {
+  if (value == null) {
+    return const TimeOfDay(hour: 5, minute: 0);
+  }
+  int h, m;
+
+  h = value ~/ 3600;
+
+  m = ((value - h * 3600)) ~/ 60;
+
+  return TimeOfDay(hour: h, minute: m);
+}
+
+int timeOfDayToInt(TimeOfDay time) => time.hour * 3600 + time.minute * 60;
+
+Duration durationBetweenDate(DateTime from, DateTime to) => to.difference(from);

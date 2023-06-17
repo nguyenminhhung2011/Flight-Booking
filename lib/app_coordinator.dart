@@ -1,3 +1,4 @@
+import 'package:flight_booking/core/components/widgets/custom_dialog_error/yes_no_dilog.dart';
 import 'package:flight_booking/presentations/add_edit_airport/bloc/add_edit_airport_bloc.dart';
 import 'package:flight_booking/presentations/add_edit_airport/views/add_edit_airport_form.dart';
 import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart';
@@ -146,6 +147,23 @@ extension AppCoordinator<T> on BuildContext {
     );
   }
 
+  Future<bool> showYesNoDialog(
+      double width, String header, String title) async {
+    final result = await showDialog(
+      context: this,
+      builder: (_) {
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          child: YesNoDialog(header: header, title: title, width: width),
+        );
+      },
+    );
+    if (result is StatusDialog) {
+      return result.isYes;
+    }
+    return false;
+  }
+
   Future<bool> showBookTicketDialog() async {
     final result = await showDialog(
         context: this,
@@ -164,6 +182,10 @@ extension AppCoordinator<T> on BuildContext {
 
   Future<T?> openListPageWithRoute(String route) {
     return Navigator.of(this).pushNamed(route);
+  }
+
+  Future<T?> pushAndRemoveAll(String route) {
+    return Navigator.of(this).pushNamedAndRemoveUntil(route, (route) => false);
   }
 
   Future<T?> openPageWithRouteAndParams(String route, dynamic param) {

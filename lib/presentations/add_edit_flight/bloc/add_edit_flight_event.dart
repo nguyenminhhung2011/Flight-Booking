@@ -11,4 +11,15 @@ class AddEditFlightEvent with _$AddEditFlightEvent {
     required DateTime dateTime,
     required DateTimeEnum enumTime,
   }) = _UpdateDateField;
+  const factory AddEditFlightEvent.fetchAllAirports() = _FetchAllAirports;
+  const factory AddEditFlightEvent.fetchAllAirlines() = _FetchAllAirlines;
+  const factory AddEditFlightEvent.selectedAirport({
+    required Airport airport,
+    required bool isStartAirport,
+  }) = _SelectedAirport;
+  const factory AddEditFlightEvent.buttonTap() = _ButtonTap;
+  const factory AddEditFlightEvent.selectedAirline({required Airline airline}) =
+      _SelectedAirline;
+  const factory AddEditFlightEvent.getFlightById({required String id}) =
+      _GetFlightById;
 }

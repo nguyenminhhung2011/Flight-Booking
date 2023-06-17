@@ -1,11 +1,21 @@
+import 'dart:developer';
+
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/date_time_enum.dart';
+import 'package:flight_booking/core/components/enum/type_form_flight.dart';
+import 'package:flight_booking/core/components/widgets/dialog/airport_preview_dialog.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
+import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
+import 'package:flight_booking/domain/entities/airline/airline.dart';
+import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart';
+import 'package:flight_booking/presentations/list_flight/views/widgets/dot_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
+import '../../../core/components/widgets/mobile/dropdown_button_custom.dart';
 import '../../../core/constant/handle_time.dart';
 import '../../../generated/l10n.dart';
 import '../../customer/views/widgets/customer_textfield.dart';
@@ -24,13 +34,29 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
   void initState() {
     super.initState();
     _bloc.add(const AddEditFlightEvent.onStarted());
+    _bloc.add(const AddEditFlightEvent.fetchAllAirports());
+    _bloc.add(const AddEditFlightEvent.fetchAllAirlines());
   }
 
   void _listenStateChange(_, AddEditFlightState state) {
     state.whenOrNull(addNewFlightSuccess: (data, flight) {
-      context.popArgs(flight);
+      context.popArgs({
+        'flight': flight,
+        'type': TypeFormFlight.add,
+      });
     }, editFlightSuccess: (data, flight) {
-      context.popArgs(flight);
+      context.popArgs({
+        'flight': flight,
+        'type': TypeFormFlight.edit,
+      });
+    }, addNewFlightFailed: (data, error) {
+      log(error);
+    }, editFlightFailed: (data, error) {
+      log(error);
+    }, fetchAirlineFailed: (data, error) {
+      log(error);
+    }, fetchAirportFailed: (data, error) {
+      log(error);
     });
   }
 
@@ -44,6 +70,36 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
     );
   }
 
+  void _onSubmitButton() {
+    _bloc.add(const AddEditFlightEvent.buttonTap());
+  }
+
+  void _onSelectedAirport(Airport airport, bool isStart) {
+    _bloc.add(AddEditFlightEvent.selectedAirport(
+      airport: airport,
+      isStartAirport: isStart,
+    ));
+  }
+
+  void _onSelectedAirline(Airline? airline) {
+    _bloc.add(AddEditFlightEvent.selectedAirline(airline: airline!));
+  }
+
+  void _onShowAirportPreviewDialog(Airport airport) async {
+    await showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: AirportPreviewDialog(airport: airport),
+      ),
+    );
+  }
+
+  bool get _loadButton => _bloc.state
+      .maybeWhen(orElse: () => false, loading: (data, type) => type == 1);
+  bool get _loadGetData => _bloc.state
+      .maybeWhen(orElse: () => false, loading: (data, type) => type == 0);
+
   @override
   Widget build(BuildContext context) {
     final widthDevice = MediaQuery.of(context).size.width;
@@ -51,7 +107,18 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
       listener: _listenStateChange,
       builder: (context, state) {
         final data = state.data;
+        final airports = data.listAirport;
+        final airlines = data.listAirline;
+        final startAirportSelected = data.airportStart;
+        final finishAirportSelected = data.airportEnd;
+        final airlineSelected = data.airline;
+        final primaryColor = Theme.of(context).primaryColor;
+        final flightId = _bloc.flightId;
         return Container(
+          // constraints: BoxConstraints(
+          //   maxHeight: context.heightDevice,
+          //   minHeight: context.heightDevice * 0.6,
+          // ),
           width: Breakpoints.small.isActive(context)
               ? double.infinity
               : widthDevice * 0.5,
@@ -60,106 +127,194 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
             borderRadius: BorderRadius.circular(10.0),
             color: Theme.of(context).cardColor,
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                data.headerText,
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      fontWeight: FontWeight.bold,
+          child: _loadGetData
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Column(
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      data.headerText,
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: FilterCategory(
-                      controller: data.airPortStart,
-                      hint: S.of(context).id,
-                      iconData: Icons.airplane_ticket,
-                    ),
-                  ),
-                  const SizedBox(width: 10.0),
-                  Expanded(
-                    child: FilterCategory(
-                      controller: data.airPortFinish,
-                      hint: S.of(context).name,
-                      iconData: Icons.airplanemode_active,
-                    ),
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: FilterCategory(
-                      title: S.of(context).airportStart,
-                      hint: S.of(context).airportStart,
-                      iconData: Icons.connecting_airports_outlined,
-                    ),
-                  ),
-                  const SizedBox(width: 10.0),
-                  Expanded(
-                    child: FilterCategory(
-                      title: S.of(context).airportFinish,
-                      hint: S.of(context).airportFinish,
-                      iconData: Icons.connecting_airports_outlined,
-                    ),
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: FilterCategory(
-                      controller: TextEditingController(
-                        text:
-                            '${DateFormat().add_yMMMMEEEEd().format(data.timeStart)} / ${getjmFormat(data.timeStart)}',
+                    if (flightId.isNotEmpty) ...[
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(15.0),
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(width: 1.5, color: primaryColor),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              S.of(context).informationBeforeEdit,
+                              style: context.titleMedium.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 10.0),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                DotCustom(color: primaryColor, full: true),
+                                const SizedBox(width: 5.0),
+                                Text('${S.of(context).flight} ${flightId}')
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                      title: S.of(context).dateStart,
-                      hint: S.of(context).dateStart,
-                      iconData: Icons.calendar_month,
-                      onPress: () {
-                        pickDateTime(context, DateTimeEnum.timeStart);
-                      },
-                    ),
-                  ),
-                  const SizedBox(width: 10.0),
-                  Expanded(
-                    child: FilterCategory(
-                      controller: TextEditingController(
-                        text:
-                            '${DateFormat().add_yMMMMEEEEd().format(data.timeEnd)} / ${getjmFormat(data.timeEnd)}',
+                    ],
+                    if (airlines.isNotEmpty) ...<Widget>[
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(S.of(context).airlines),
+                          const SizedBox(height: 5.0),
+                          DropdownButtonCustom<Airline?>(
+                            radius: 10.0,
+                            items: airlines
+                                .map<DropdownMenuItem<Airline>>(
+                                    (Airline value) =>
+                                        DropdownMenuItem<Airline>(
+                                          value: value,
+                                          child: Text(value.airlineName),
+                                        ))
+                                .toList(),
+                            value: airlineSelected,
+                            onChange: _onSelectedAirline,
+                          ),
+                        ],
                       ),
-                      title: S.of(context).dateFinish,
-                      hint: S.of(context).dateFinish,
-                      iconData: Icons.calendar_month,
-                      onPress: () {
-                        pickDateTime(context, DateTimeEnum.timeEnd);
-                      },
+                    ],
+                    if (airports.isNotEmpty)
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ...<Map<String, dynamic>>[
+                            {
+                              'header': S.of(context).airportStart,
+                              'airport': startAirportSelected,
+                              'bool': true,
+                            },
+                            {
+                              'header': S.of(context).airportFinish,
+                              'airport': finishAirportSelected,
+                              'bool': false,
+                            },
+                          ].map(
+                            (e) => Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Expanded(
+                                          child: Text(
+                                        e['header'].toString(),
+                                        maxLines: 1,
+                                      )),
+                                      TextButton(
+                                        onPressed: () =>
+                                            _onShowAirportPreviewDialog(
+                                          e['airport'],
+                                        ),
+                                        child: Text(
+                                          S.of(context).preview,
+                                          style: context.titleSmall.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: primaryColor,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(height: 5.0),
+                                  DropdownButtonCustom<Airport?>(
+                                    radius: 10.0,
+                                    items: airports
+                                        .map<DropdownMenuItem<Airport>>(
+                                            (Airport value) =>
+                                                DropdownMenuItem<Airport>(
+                                                  value: value,
+                                                  child: Text(value.name),
+                                                ))
+                                        .toList(),
+                                    value: e['airport'] as Airport,
+                                    onChange: (value) => _onSelectedAirport(
+                                        value!, e['bool'] as bool),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ]
+                            .expand((element) => [
+                                  element,
+                                  const SizedBox(
+                                    width: 10.0,
+                                  )
+                                ])
+                            .toList()
+                          ..removeLast(),
+                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: FilterCategory(
+                            controller: TextEditingController(
+                              text:
+                                  '${DateFormat().add_yMMMMEEEEd().format(data.timeStart)} / ${getjmFormat(data.timeStart)}',
+                            ),
+                            title: S.of(context).dateStart,
+                            hint: S.of(context).dateStart,
+                            iconData: Icons.calendar_month,
+                            onPress: () {
+                              pickDateTime(context, DateTimeEnum.timeStart);
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 10.0),
+                        Expanded(
+                          child: FilterCategory(
+                            controller: TextEditingController(
+                              text:
+                                  '${DateFormat().add_yMMMMEEEEd().format(data.timeEnd)} / ${getjmFormat(data.timeEnd)}',
+                            ),
+                            title: S.of(context).dateFinish,
+                            hint: S.of(context).dateFinish,
+                            iconData: Icons.calendar_month,
+                            onPress: () {
+                              pickDateTime(context, DateTimeEnum.timeEnd);
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                width: double.infinity,
-                height: 45.0,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(data.headerText),
+                    ButtonCustom(
+                      height: 45.0,
+                      loading: _loadButton,
+                      onPress: _onSubmitButton,
+                      child: Text(data.headerText),
+                    ),
+                  ]
+                      .expand(
+                          (element) => [element, const SizedBox(height: 10.0)])
+                      .toList()
+                    ..removeLast(),
                 ),
-              ),
-            ]
-                .expand((element) => [element, const SizedBox(height: 10.0)])
-                .toList()
-              ..removeLast(),
-          ),
         );
       },
     );

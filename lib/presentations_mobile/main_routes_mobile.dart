@@ -13,6 +13,7 @@ import 'package:flight_booking/presentations_mobile/flight_history_mobile/views/
 import 'package:flight_booking/presentations_mobile/flight_mobile_detail/views/flight_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/hotel_detail_mobile/views/hotel_detail_screen.dart';
+import 'package:flight_booking/presentations_mobile/list_airport_mobile/bloc/airport_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/list_airport_mobile/views/list_airport_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/list_flight_mobile/views/list_flight_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/list_hotel/views/list_hotel_screen.dart';
@@ -84,7 +85,10 @@ class MainRoutesMobile {
       case RoutesMobile.listAirportMobile:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ListAirportMobileScreen(),
+          builder: (_) => BlocProvider<AirportMobileBloc>(
+            create: (_) => injector(),
+            child: const ListAirportMobileScreen(),
+          ),
         );
       case RoutesMobile.airportDetailMobile:
         return MaterialPageRoute(

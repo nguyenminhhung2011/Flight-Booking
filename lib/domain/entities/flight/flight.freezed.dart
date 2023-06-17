@@ -16,12 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Flight {
-  String get id => throw _privateConstructorUsedError;
-  String get idStartAirport => throw _privateConstructorUsedError;
-  String get idComeAirport => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  Airport get arrivalAirport => throw _privateConstructorUsedError;
+  Airport get departureAirport => throw _privateConstructorUsedError;
   DateTime get timeStart => throw _privateConstructorUsedError;
   DateTime get timeEnd => throw _privateConstructorUsedError;
-  int get noCustomer => throw _privateConstructorUsedError;
+  Airline get airline => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FlightCopyWith<Flight> get copyWith => throw _privateConstructorUsedError;
@@ -33,12 +33,16 @@ abstract class $FlightCopyWith<$Res> {
       _$FlightCopyWithImpl<$Res, Flight>;
   @useResult
   $Res call(
-      {String id,
-      String idStartAirport,
-      String idComeAirport,
+      {int id,
+      Airport arrivalAirport,
+      Airport departureAirport,
       DateTime timeStart,
       DateTime timeEnd,
-      int noCustomer});
+      Airline airline});
+
+  $AirportCopyWith<$Res> get arrivalAirport;
+  $AirportCopyWith<$Res> get departureAirport;
+  $AirlineCopyWith<$Res> get airline;
 }
 
 /// @nodoc
@@ -55,25 +59,25 @@ class _$FlightCopyWithImpl<$Res, $Val extends Flight>
   @override
   $Res call({
     Object? id = null,
-    Object? idStartAirport = null,
-    Object? idComeAirport = null,
+    Object? arrivalAirport = null,
+    Object? departureAirport = null,
     Object? timeStart = null,
     Object? timeEnd = null,
-    Object? noCustomer = null,
+    Object? airline = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      idStartAirport: null == idStartAirport
-          ? _value.idStartAirport
-          : idStartAirport // ignore: cast_nullable_to_non_nullable
-              as String,
-      idComeAirport: null == idComeAirport
-          ? _value.idComeAirport
-          : idComeAirport // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
+      arrivalAirport: null == arrivalAirport
+          ? _value.arrivalAirport
+          : arrivalAirport // ignore: cast_nullable_to_non_nullable
+              as Airport,
+      departureAirport: null == departureAirport
+          ? _value.departureAirport
+          : departureAirport // ignore: cast_nullable_to_non_nullable
+              as Airport,
       timeStart: null == timeStart
           ? _value.timeStart
           : timeStart // ignore: cast_nullable_to_non_nullable
@@ -82,11 +86,35 @@ class _$FlightCopyWithImpl<$Res, $Val extends Flight>
           ? _value.timeEnd
           : timeEnd // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      noCustomer: null == noCustomer
-          ? _value.noCustomer
-          : noCustomer // ignore: cast_nullable_to_non_nullable
-              as int,
+      airline: null == airline
+          ? _value.airline
+          : airline // ignore: cast_nullable_to_non_nullable
+              as Airline,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AirportCopyWith<$Res> get arrivalAirport {
+    return $AirportCopyWith<$Res>(_value.arrivalAirport, (value) {
+      return _then(_value.copyWith(arrivalAirport: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AirportCopyWith<$Res> get departureAirport {
+    return $AirportCopyWith<$Res>(_value.departureAirport, (value) {
+      return _then(_value.copyWith(departureAirport: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AirlineCopyWith<$Res> get airline {
+    return $AirlineCopyWith<$Res>(_value.airline, (value) {
+      return _then(_value.copyWith(airline: value) as $Val);
+    });
   }
 }
 
@@ -97,12 +125,19 @@ abstract class _$$_FlightCopyWith<$Res> implements $FlightCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String idStartAirport,
-      String idComeAirport,
+      {int id,
+      Airport arrivalAirport,
+      Airport departureAirport,
       DateTime timeStart,
       DateTime timeEnd,
-      int noCustomer});
+      Airline airline});
+
+  @override
+  $AirportCopyWith<$Res> get arrivalAirport;
+  @override
+  $AirportCopyWith<$Res> get departureAirport;
+  @override
+  $AirlineCopyWith<$Res> get airline;
 }
 
 /// @nodoc
@@ -116,25 +151,25 @@ class __$$_FlightCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? idStartAirport = null,
-    Object? idComeAirport = null,
+    Object? arrivalAirport = null,
+    Object? departureAirport = null,
     Object? timeStart = null,
     Object? timeEnd = null,
-    Object? noCustomer = null,
+    Object? airline = null,
   }) {
     return _then(_$_Flight(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      idStartAirport: null == idStartAirport
-          ? _value.idStartAirport
-          : idStartAirport // ignore: cast_nullable_to_non_nullable
-              as String,
-      idComeAirport: null == idComeAirport
-          ? _value.idComeAirport
-          : idComeAirport // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
+      arrivalAirport: null == arrivalAirport
+          ? _value.arrivalAirport
+          : arrivalAirport // ignore: cast_nullable_to_non_nullable
+              as Airport,
+      departureAirport: null == departureAirport
+          ? _value.departureAirport
+          : departureAirport // ignore: cast_nullable_to_non_nullable
+              as Airport,
       timeStart: null == timeStart
           ? _value.timeStart
           : timeStart // ignore: cast_nullable_to_non_nullable
@@ -143,10 +178,10 @@ class __$$_FlightCopyWithImpl<$Res>
           ? _value.timeEnd
           : timeEnd // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      noCustomer: null == noCustomer
-          ? _value.noCustomer
-          : noCustomer // ignore: cast_nullable_to_non_nullable
-              as int,
+      airline: null == airline
+          ? _value.airline
+          : airline // ignore: cast_nullable_to_non_nullable
+              as Airline,
     ));
   }
 }
@@ -156,28 +191,28 @@ class __$$_FlightCopyWithImpl<$Res>
 class _$_Flight implements _Flight {
   const _$_Flight(
       {required this.id,
-      required this.idStartAirport,
-      required this.idComeAirport,
+      required this.arrivalAirport,
+      required this.departureAirport,
       required this.timeStart,
       required this.timeEnd,
-      required this.noCustomer});
+      required this.airline});
 
   @override
-  final String id;
+  final int id;
   @override
-  final String idStartAirport;
+  final Airport arrivalAirport;
   @override
-  final String idComeAirport;
+  final Airport departureAirport;
   @override
   final DateTime timeStart;
   @override
   final DateTime timeEnd;
   @override
-  final int noCustomer;
+  final Airline airline;
 
   @override
   String toString() {
-    return 'Flight(id: $id, idStartAirport: $idStartAirport, idComeAirport: $idComeAirport, timeStart: $timeStart, timeEnd: $timeEnd, noCustomer: $noCustomer)';
+    return 'Flight(id: $id, arrivalAirport: $arrivalAirport, departureAirport: $departureAirport, timeStart: $timeStart, timeEnd: $timeEnd, airline: $airline)';
   }
 
   @override
@@ -186,20 +221,19 @@ class _$_Flight implements _Flight {
         (other.runtimeType == runtimeType &&
             other is _$_Flight &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.idStartAirport, idStartAirport) ||
-                other.idStartAirport == idStartAirport) &&
-            (identical(other.idComeAirport, idComeAirport) ||
-                other.idComeAirport == idComeAirport) &&
+            (identical(other.arrivalAirport, arrivalAirport) ||
+                other.arrivalAirport == arrivalAirport) &&
+            (identical(other.departureAirport, departureAirport) ||
+                other.departureAirport == departureAirport) &&
             (identical(other.timeStart, timeStart) ||
                 other.timeStart == timeStart) &&
             (identical(other.timeEnd, timeEnd) || other.timeEnd == timeEnd) &&
-            (identical(other.noCustomer, noCustomer) ||
-                other.noCustomer == noCustomer));
+            (identical(other.airline, airline) || other.airline == airline));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, idStartAirport,
-      idComeAirport, timeStart, timeEnd, noCustomer);
+  int get hashCode => Object.hash(runtimeType, id, arrivalAirport,
+      departureAirport, timeStart, timeEnd, airline);
 
   @JsonKey(ignore: true)
   @override
@@ -210,25 +244,25 @@ class _$_Flight implements _Flight {
 
 abstract class _Flight implements Flight {
   const factory _Flight(
-      {required final String id,
-      required final String idStartAirport,
-      required final String idComeAirport,
+      {required final int id,
+      required final Airport arrivalAirport,
+      required final Airport departureAirport,
       required final DateTime timeStart,
       required final DateTime timeEnd,
-      required final int noCustomer}) = _$_Flight;
+      required final Airline airline}) = _$_Flight;
 
   @override
-  String get id;
+  int get id;
   @override
-  String get idStartAirport;
+  Airport get arrivalAirport;
   @override
-  String get idComeAirport;
+  Airport get departureAirport;
   @override
   DateTime get timeStart;
   @override
   DateTime get timeEnd;
   @override
-  int get noCustomer;
+  Airline get airline;
   @override
   @JsonKey(ignore: true)
   _$$_FlightCopyWith<_$_Flight> get copyWith =>
