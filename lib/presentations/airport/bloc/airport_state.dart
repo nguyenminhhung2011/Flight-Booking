@@ -38,6 +38,28 @@ class AirportState with _$AirportState {
     required AirportModelState data,
   }) = _WaitCircularLoading;
 
+  const factory AirportState.updateAirportSuccess({
+    required AirportModelState data,
+  }) = _UpdateAirportSuccess;
+
+  const factory AirportState.changePageAirportSuccess({
+    required AirportModelState data,
+  }) = _ChangePageAirportSuccess;
+
+  const factory AirportState.changePageAirportFailed({
+    required AirportModelState data,
+    required String message,
+  }) = _ChangePageAirportFailed;
+
+  const factory AirportState.searchSuccess({
+    required AirportModelState data,
+  }) = _SearchSuccess;
+
+  const factory AirportState.searchFailed({
+    required AirportModelState data,
+    required String message,
+  }) = _SearchFailed;
+
   bool get isLoading => this is _Loading;
   bool get isWaitCircularLoading => this is _WaitCircularLoading;
 }

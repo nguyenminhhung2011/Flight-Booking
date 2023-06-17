@@ -7,8 +7,10 @@ class AddEditFlightState with _$AddEditFlightState {
   const factory AddEditFlightState.initial(
       {required AddEditFlightModelState data}) = _Initial;
 
-  const factory AddEditFlightState.loading(
-      {required AddEditFlightModelState data}) = _Loading;
+  const factory AddEditFlightState.loading({
+    required AddEditFlightModelState data,
+    required int type,
+  }) = _Loading;
 
   const factory AddEditFlightState.addNewFlightSuccess({
     required AddEditFlightModelState data,
@@ -29,4 +31,31 @@ class AddEditFlightState with _$AddEditFlightState {
     required AddEditFlightModelState data,
     required String message,
   }) = _EditFlightFailed;
+
+  const factory AddEditFlightState.fetchAirportSuccess({
+    required AddEditFlightModelState data,
+  }) = _FetchAirportSuccess;
+
+  const factory AddEditFlightState.fetchAirportFailed({
+    required AddEditFlightModelState data,
+    required String message,
+  }) = _FetchAirportFailed;
+
+  const factory AddEditFlightState.fetchAirlineSuccess({
+    required AddEditFlightModelState data,
+  }) = _FetchAirlineSuccess;
+
+  const factory AddEditFlightState.fetchAirlineFailed({
+    required AddEditFlightModelState data,
+    required String message,
+  }) = _FetchAirlineFailed;
+
+  const factory AddEditFlightState.getFlightByIdSuccess({
+    required AddEditFlightModelState data,
+  }) = _GetFlightByIdSuccess;
+
+  const factory AddEditFlightState.getFlightByIdFailed({
+    required AddEditFlightModelState data,
+    required String message,
+  }) = _GetFlightByIdFailed;
 }

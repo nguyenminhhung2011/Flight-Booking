@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../entities/airport/airport.dart';
+import '../entities/page_response/page_response_entity.dart';
 import '../repositories/airport_repository.dart';
 
 @injectable
@@ -9,23 +10,36 @@ class AirportUsecase {
   AirportUsecase(this._airportRepository);
 
   Future<List<Airport>> fetchAllAirports() async {
-    return await _airportRepository.getListAirport() ?? [];
-    // return [];
+    return await _airportRepository.getListAirport();
+  }
+
+  Future<List<Airport>> filterAirports({
+    String? search,
+  }) async {
+    return await _airportRepository.filterAirport(searchText: search);
+  }
+
+  Future<PageResponseEntity<Airport>> fetchAirportByPage(
+    int cursor,
+    int pageSize,
+  ) async {
+    return await _airportRepository.getListAirportByPage(cursor, pageSize);
   }
 
   Future<Airport?> addNewAirport(Airport newAirport) async {
     var add = await _airportRepository.addNewAirport(newAirport);
-    if (add != null) {
-      return newAirport;
-    }
-    return null;
+    return add;
   }
 
-  Future<bool> deleteAirport(String id) async {
+  Future<bool> deleteAirport(int id) async {
     return _airportRepository.deleteAirport(id);
   }
 
-  Future<Airport?> editAirport(Airport newAirport) async {
-    return _airportRepository.editAirport(newAirport);
+  Future<Airport?> editAirport(Airport newAirport, int id) async {
+    return _airportRepository.editAirport(newAirport, id);
+  }
+
+  Future<Airport?> getAirportById(String id) async {
+    return _airportRepository.getAirportById(id);
   }
 }

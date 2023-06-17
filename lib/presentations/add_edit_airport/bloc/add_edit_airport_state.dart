@@ -7,8 +7,10 @@ class AddEditAirportState with _$AddEditAirportState {
   const factory AddEditAirportState.initial(
       {required AddEditAirportModelState data}) = _Initial;
 
-  const factory AddEditAirportState.loading(
-      {required AddEditAirportModelState data}) = _Loading;
+  const factory AddEditAirportState.loading({
+    required AddEditAirportModelState data,
+    required int groupLoading,
+  }) = _Loading;
 
   const factory AddEditAirportState.addNewAirportSuccess({
     required AddEditAirportModelState data,
@@ -29,6 +31,46 @@ class AddEditAirportState with _$AddEditAirportState {
     required AddEditAirportModelState data,
     required String message,
   }) = _EditAirportFailed;
-  const factory AddEditAirportState.pickImageSuccess(
-      {required AddEditAirportModelState data}) = _PickImageSuccess;
+
+  const factory AddEditAirportState.pickImageSuccess({
+    required AddEditAirportModelState data,
+  }) = _PickImageSuccess;
+
+  const factory AddEditAirportState.fetchPlaceSuccess({
+    required AddEditAirportModelState data,
+  }) = _FetchPlaceSuccess;
+
+  const factory AddEditAirportState.fetchPlaceFailed({
+    required AddEditAirportModelState data,
+    required String message,
+  }) = _FetchPlaceFailed;
+
+  const factory AddEditAirportState.fetchDistrictsSuccess({
+    required AddEditAirportModelState data,
+  }) = _FetchDistrictsSuccess;
+
+  const factory AddEditAirportState.fetchDistrictsFailed({
+    required AddEditAirportModelState data,
+    required String message,
+  }) = _FetchDistrictsFailed;
+
+  const factory AddEditAirportState.fetchWardsSuccess({
+    required AddEditAirportModelState data,
+  }) = _FetchWardsSuccess;
+
+  const factory AddEditAirportState.fetchWardsFailed({
+    required AddEditAirportModelState data,
+    required String message,
+  }) = _FetchWardsFailed;
+
+  const factory AddEditAirportState.getAirportByIdSuccess({
+    required AddEditAirportModelState data,
+  }) = _GetAirportByIdSuccess;
+
+  const factory AddEditAirportState.getAirportByIdFailed({
+    required AddEditAirportModelState data,
+    required String message,
+  }) = _GetAirportByIdFailed;
+
+  bool get isLoading => this is _Loading;
 }

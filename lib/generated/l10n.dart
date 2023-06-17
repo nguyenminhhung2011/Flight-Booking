@@ -3151,6 +3151,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Provinces`
+  String get provinces {
+    return Intl.message(
+      'Provinces',
+      name: 'provinces',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Districts`
+  String get districts {
+    return Intl.message(
+      'Districts',
+      name: 'districts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wards`
+  String get wards {
+    return Intl.message(
+      'Wards',
+      name: 'wards',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get yes {
+    return Intl.message(
+      'Yes',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No`
+  String get no {
+    return Intl.message(
+      'No',
+      name: 'no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Information before edit`
+  String get informationBeforeEdit {
+    return Intl.message(
+      'Information before edit',
+      name: 'informationBeforeEdit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Preview`
+  String get preview {
+    return Intl.message(
+      'Preview',
+      name: 'preview',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

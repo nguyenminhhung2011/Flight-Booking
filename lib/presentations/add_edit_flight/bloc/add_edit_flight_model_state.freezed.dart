@@ -16,12 +16,14 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AddEditFlightModelState {
-  TextEditingController get airPortStart => throw _privateConstructorUsedError;
-  TextEditingController get airPortFinish => throw _privateConstructorUsedError;
+  List<Airport> get listAirport => throw _privateConstructorUsedError;
+  List<Airline> get listAirline => throw _privateConstructorUsedError;
   DateTime get timeStart => throw _privateConstructorUsedError;
   DateTime get timeEnd => throw _privateConstructorUsedError;
   String get headerText => throw _privateConstructorUsedError;
-  int get noCustomer => throw _privateConstructorUsedError;
+  Airport? get airportStart => throw _privateConstructorUsedError;
+  Airport? get airportEnd => throw _privateConstructorUsedError;
+  Airline? get airline => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddEditFlightModelStateCopyWith<AddEditFlightModelState> get copyWith =>
@@ -35,12 +37,18 @@ abstract class $AddEditFlightModelStateCopyWith<$Res> {
       _$AddEditFlightModelStateCopyWithImpl<$Res, AddEditFlightModelState>;
   @useResult
   $Res call(
-      {TextEditingController airPortStart,
-      TextEditingController airPortFinish,
+      {List<Airport> listAirport,
+      List<Airline> listAirline,
       DateTime timeStart,
       DateTime timeEnd,
       String headerText,
-      int noCustomer});
+      Airport? airportStart,
+      Airport? airportEnd,
+      Airline? airline});
+
+  $AirportCopyWith<$Res>? get airportStart;
+  $AirportCopyWith<$Res>? get airportEnd;
+  $AirlineCopyWith<$Res>? get airline;
 }
 
 /// @nodoc
@@ -57,22 +65,24 @@ class _$AddEditFlightModelStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? airPortStart = null,
-    Object? airPortFinish = null,
+    Object? listAirport = null,
+    Object? listAirline = null,
     Object? timeStart = null,
     Object? timeEnd = null,
     Object? headerText = null,
-    Object? noCustomer = null,
+    Object? airportStart = freezed,
+    Object? airportEnd = freezed,
+    Object? airline = freezed,
   }) {
     return _then(_value.copyWith(
-      airPortStart: null == airPortStart
-          ? _value.airPortStart
-          : airPortStart // ignore: cast_nullable_to_non_nullable
-              as TextEditingController,
-      airPortFinish: null == airPortFinish
-          ? _value.airPortFinish
-          : airPortFinish // ignore: cast_nullable_to_non_nullable
-              as TextEditingController,
+      listAirport: null == listAirport
+          ? _value.listAirport
+          : listAirport // ignore: cast_nullable_to_non_nullable
+              as List<Airport>,
+      listAirline: null == listAirline
+          ? _value.listAirline
+          : listAirline // ignore: cast_nullable_to_non_nullable
+              as List<Airline>,
       timeStart: null == timeStart
           ? _value.timeStart
           : timeStart // ignore: cast_nullable_to_non_nullable
@@ -85,11 +95,55 @@ class _$AddEditFlightModelStateCopyWithImpl<$Res,
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
               as String,
-      noCustomer: null == noCustomer
-          ? _value.noCustomer
-          : noCustomer // ignore: cast_nullable_to_non_nullable
-              as int,
+      airportStart: freezed == airportStart
+          ? _value.airportStart
+          : airportStart // ignore: cast_nullable_to_non_nullable
+              as Airport?,
+      airportEnd: freezed == airportEnd
+          ? _value.airportEnd
+          : airportEnd // ignore: cast_nullable_to_non_nullable
+              as Airport?,
+      airline: freezed == airline
+          ? _value.airline
+          : airline // ignore: cast_nullable_to_non_nullable
+              as Airline?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AirportCopyWith<$Res>? get airportStart {
+    if (_value.airportStart == null) {
+      return null;
+    }
+
+    return $AirportCopyWith<$Res>(_value.airportStart!, (value) {
+      return _then(_value.copyWith(airportStart: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AirportCopyWith<$Res>? get airportEnd {
+    if (_value.airportEnd == null) {
+      return null;
+    }
+
+    return $AirportCopyWith<$Res>(_value.airportEnd!, (value) {
+      return _then(_value.copyWith(airportEnd: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AirlineCopyWith<$Res>? get airline {
+    if (_value.airline == null) {
+      return null;
+    }
+
+    return $AirlineCopyWith<$Res>(_value.airline!, (value) {
+      return _then(_value.copyWith(airline: value) as $Val);
+    });
   }
 }
 
@@ -102,12 +156,21 @@ abstract class _$$_AddEditFlightModelStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {TextEditingController airPortStart,
-      TextEditingController airPortFinish,
+      {List<Airport> listAirport,
+      List<Airline> listAirline,
       DateTime timeStart,
       DateTime timeEnd,
       String headerText,
-      int noCustomer});
+      Airport? airportStart,
+      Airport? airportEnd,
+      Airline? airline});
+
+  @override
+  $AirportCopyWith<$Res>? get airportStart;
+  @override
+  $AirportCopyWith<$Res>? get airportEnd;
+  @override
+  $AirlineCopyWith<$Res>? get airline;
 }
 
 /// @nodoc
@@ -122,22 +185,24 @@ class __$$_AddEditFlightModelStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? airPortStart = null,
-    Object? airPortFinish = null,
+    Object? listAirport = null,
+    Object? listAirline = null,
     Object? timeStart = null,
     Object? timeEnd = null,
     Object? headerText = null,
-    Object? noCustomer = null,
+    Object? airportStart = freezed,
+    Object? airportEnd = freezed,
+    Object? airline = freezed,
   }) {
     return _then(_$_AddEditFlightModelState(
-      airPortStart: null == airPortStart
-          ? _value.airPortStart
-          : airPortStart // ignore: cast_nullable_to_non_nullable
-              as TextEditingController,
-      airPortFinish: null == airPortFinish
-          ? _value.airPortFinish
-          : airPortFinish // ignore: cast_nullable_to_non_nullable
-              as TextEditingController,
+      listAirport: null == listAirport
+          ? _value._listAirport
+          : listAirport // ignore: cast_nullable_to_non_nullable
+              as List<Airport>,
+      listAirline: null == listAirline
+          ? _value._listAirline
+          : listAirline // ignore: cast_nullable_to_non_nullable
+              as List<Airline>,
       timeStart: null == timeStart
           ? _value.timeStart
           : timeStart // ignore: cast_nullable_to_non_nullable
@@ -150,10 +215,18 @@ class __$$_AddEditFlightModelStateCopyWithImpl<$Res>
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
               as String,
-      noCustomer: null == noCustomer
-          ? _value.noCustomer
-          : noCustomer // ignore: cast_nullable_to_non_nullable
-              as int,
+      airportStart: freezed == airportStart
+          ? _value.airportStart
+          : airportStart // ignore: cast_nullable_to_non_nullable
+              as Airport?,
+      airportEnd: freezed == airportEnd
+          ? _value.airportEnd
+          : airportEnd // ignore: cast_nullable_to_non_nullable
+              as Airport?,
+      airline: freezed == airline
+          ? _value.airline
+          : airline // ignore: cast_nullable_to_non_nullable
+              as Airline?,
     ));
   }
 }
@@ -162,17 +235,33 @@ class __$$_AddEditFlightModelStateCopyWithImpl<$Res>
 
 class _$_AddEditFlightModelState implements _AddEditFlightModelState {
   const _$_AddEditFlightModelState(
-      {required this.airPortStart,
-      required this.airPortFinish,
+      {required final List<Airport> listAirport,
+      required final List<Airline> listAirline,
       required this.timeStart,
       required this.timeEnd,
       required this.headerText,
-      required this.noCustomer});
+      this.airportStart,
+      this.airportEnd,
+      this.airline})
+      : _listAirport = listAirport,
+        _listAirline = listAirline;
 
+  final List<Airport> _listAirport;
   @override
-  final TextEditingController airPortStart;
+  List<Airport> get listAirport {
+    if (_listAirport is EqualUnmodifiableListView) return _listAirport;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listAirport);
+  }
+
+  final List<Airline> _listAirline;
   @override
-  final TextEditingController airPortFinish;
+  List<Airline> get listAirline {
+    if (_listAirline is EqualUnmodifiableListView) return _listAirline;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listAirline);
+  }
+
   @override
   final DateTime timeStart;
   @override
@@ -180,11 +269,15 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
   @override
   final String headerText;
   @override
-  final int noCustomer;
+  final Airport? airportStart;
+  @override
+  final Airport? airportEnd;
+  @override
+  final Airline? airline;
 
   @override
   String toString() {
-    return 'AddEditFlightModelState(airPortStart: $airPortStart, airPortFinish: $airPortFinish, timeStart: $timeStart, timeEnd: $timeEnd, headerText: $headerText, noCustomer: $noCustomer)';
+    return 'AddEditFlightModelState(listAirport: $listAirport, listAirline: $listAirline, timeStart: $timeStart, timeEnd: $timeEnd, headerText: $headerText, airportStart: $airportStart, airportEnd: $airportEnd, airline: $airline)';
   }
 
   @override
@@ -192,22 +285,33 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddEditFlightModelState &&
-            (identical(other.airPortStart, airPortStart) ||
-                other.airPortStart == airPortStart) &&
-            (identical(other.airPortFinish, airPortFinish) ||
-                other.airPortFinish == airPortFinish) &&
+            const DeepCollectionEquality()
+                .equals(other._listAirport, _listAirport) &&
+            const DeepCollectionEquality()
+                .equals(other._listAirline, _listAirline) &&
             (identical(other.timeStart, timeStart) ||
                 other.timeStart == timeStart) &&
             (identical(other.timeEnd, timeEnd) || other.timeEnd == timeEnd) &&
             (identical(other.headerText, headerText) ||
                 other.headerText == headerText) &&
-            (identical(other.noCustomer, noCustomer) ||
-                other.noCustomer == noCustomer));
+            (identical(other.airportStart, airportStart) ||
+                other.airportStart == airportStart) &&
+            (identical(other.airportEnd, airportEnd) ||
+                other.airportEnd == airportEnd) &&
+            (identical(other.airline, airline) || other.airline == airline));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, airPortStart, airPortFinish,
-      timeStart, timeEnd, headerText, noCustomer);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_listAirport),
+      const DeepCollectionEquality().hash(_listAirline),
+      timeStart,
+      timeEnd,
+      headerText,
+      airportStart,
+      airportEnd,
+      airline);
 
   @JsonKey(ignore: true)
   @override
@@ -220,17 +324,19 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
 
 abstract class _AddEditFlightModelState implements AddEditFlightModelState {
   const factory _AddEditFlightModelState(
-      {required final TextEditingController airPortStart,
-      required final TextEditingController airPortFinish,
+      {required final List<Airport> listAirport,
+      required final List<Airline> listAirline,
       required final DateTime timeStart,
       required final DateTime timeEnd,
       required final String headerText,
-      required final int noCustomer}) = _$_AddEditFlightModelState;
+      final Airport? airportStart,
+      final Airport? airportEnd,
+      final Airline? airline}) = _$_AddEditFlightModelState;
 
   @override
-  TextEditingController get airPortStart;
+  List<Airport> get listAirport;
   @override
-  TextEditingController get airPortFinish;
+  List<Airline> get listAirline;
   @override
   DateTime get timeStart;
   @override
@@ -238,7 +344,11 @@ abstract class _AddEditFlightModelState implements AddEditFlightModelState {
   @override
   String get headerText;
   @override
-  int get noCustomer;
+  Airport? get airportStart;
+  @override
+  Airport? get airportEnd;
+  @override
+  Airline? get airline;
   @override
   @JsonKey(ignore: true)
   _$$_AddEditFlightModelStateCopyWith<_$_AddEditFlightModelState>

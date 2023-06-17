@@ -34,10 +34,9 @@ class AppDelegate {
     return Application(
       navigationKey: GlobalKey<NavigatorState>(),
       providers: [
-        BlocProvider<DashboardBloc>(create: (_) => injector.get()),
-        BlocProvider<CustomerBloc>(create: (_) => injector.get()),
         if (!isMobile) ...[
           BlocProvider<DashboardBloc>(create: (_) => injector.get()),
+          BlocProvider<CustomerBloc>(create: (_) => injector.get()),
           BlocProvider<PaymentBloc>(create: (_) => injector.get()),
           BlocProvider<AuthenticationBloc>(create: (_) => injector.get()),
         ],
@@ -48,7 +47,7 @@ class AppDelegate {
           BlocProvider<SaveBloc>(create: (_) => injector.get()),
         ],
       ],
-      initialRoute: isMobile ? RoutesMobile.splash : Routes.splash,
+      initialRoute: isMobile ? RoutesMobile.splash : Routes.dashboard,
       savedThemeMode: savedThemeMode,
       isMobile: isMobile,
     );
@@ -57,8 +56,7 @@ class AppDelegate {
   Future<void> run(Map<String, dynamic> environment) async {
     final app = await build(environment);
     await Preferences.ensureInitedPreferences();
-    await WidgetsFlutterBinding.ensureInitialized();
-
+    WidgetsFlutterBinding.ensureInitialized();
     runZonedGuarded(
       () => {runApp(app)},
       (error, stack) {

@@ -63,7 +63,7 @@ class UpcomingFlightWdiget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  flight.id,
+                  flight.id.toString(),
                   maxLines: 1,
                   style: Theme.of(context)
                       .textTheme
@@ -79,7 +79,7 @@ class UpcomingFlightWdiget extends StatelessWidget {
                         style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       TextSpan(
-                        text: flight.idComeAirport,
+                        text: flight.arrivalAirport.name,
                         style: const TextStyle(
                           decoration: TextDecoration.underline,
                           fontStyle: FontStyle.italic,

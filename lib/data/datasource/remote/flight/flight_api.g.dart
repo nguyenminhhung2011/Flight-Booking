@@ -19,118 +19,133 @@ class _FlightApi implements FlightApi {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<FlightModel>?>> fetchFlights() async {
+  Future<HttpResponse<List<FlightModel>?>> fetchFlights() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<FlightModel>>>(Options(
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<HttpResponse<List<FlightModel>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'flight/fetch',
+              'api/v1/flight/',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ApiResponse<List<FlightModel>>.fromJson(
-      _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<FlightModel>(
-                  (i) => FlightModel.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
-    );
-    return value;
+    var value = _result.data
+        ?.map((dynamic i) => FlightModel.fromJson(i as Map<String, dynamic>))
+        .toList();
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
   }
 
   @override
-  Future<ApiResponse<FlightModel?>> addNewFlight({required body}) async {
+  Future<HttpResponse<FlightModel?>> getFlightById(id) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
+        _setStreamType<HttpResponse<FlightModel>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/v1/flight/id=${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value =
+        _result.data == null ? null : FlightModel.fromJson(_result.data!);
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
+  }
+
+  @override
+  Future<HttpResponse<FlightModel?>> addNewFlight({required body}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body);
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<FlightModel>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
+        _setStreamType<HttpResponse<FlightModel>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'flight/add',
+              'api/v1/flight/add',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ApiResponse<FlightModel?>.fromJson(
-      _result.data!,
-      (json) => json == null
-          ? null
-          : FlightModel.fromJson(json as Map<String, dynamic>),
-    );
-    return value;
+    final value =
+        _result.data == null ? null : FlightModel.fromJson(_result.data!);
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
   }
 
   @override
-  Future<ApiResponse<bool>> deleteFlight(id) async {
+  Future<HttpResponse<dynamic>> deleteFlight(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponse<bool>>(Options(
+    final _result =
+        await _dio.fetch(_setStreamType<HttpResponse<dynamic>>(Options(
       method: 'DELETE',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'flight/delete/${id}',
+              'api/v1/flight/delete//${id}',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ApiResponse<bool>.fromJson(
-      _result.data!,
-      (json) => json as bool,
-    );
-    return value;
+    final value = _result.data;
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
   }
 
   @override
-  Future<ApiResponse<FlightModel?>> editFlight({required body}) async {
+  Future<HttpResponse<FlightModel?>> editFlight({
+    required id,
+    required body,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body);
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<FlightModel>>(Options(
-      method: 'PUT',
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
+        _setStreamType<HttpResponse<FlightModel>>(Options(
+      method: 'PATCH',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'flight/edit',
+              'api/v1/flight/update//${id}',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ApiResponse<FlightModel?>.fromJson(
-      _result.data!,
-      (json) => json == null
-          ? null
-          : FlightModel.fromJson(json as Map<String, dynamic>),
-    );
-    return value;
+    final value =
+        _result.data == null ? null : FlightModel.fromJson(_result.data!);
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

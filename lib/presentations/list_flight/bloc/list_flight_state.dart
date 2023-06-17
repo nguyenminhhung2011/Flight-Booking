@@ -39,4 +39,8 @@ class ListFlightState with _$ListFlightState {
     required ListFlightModelState data,
     required String message,
   }) = _DeleteFlightFailed;
+
+  const factory ListFlightState.updateFlightSuccess({
+    required ListFlightModelState data,
+  }) = _UpdateFlightSuccess;
 }

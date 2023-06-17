@@ -1,16 +1,20 @@
 import 'package:dio/dio.dart';
 import 'package:flight_booking/data/models/airport/airport_model.dart';
-import 'package:flight_booking/data/models/api_response/api_response.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+
+import '../../../models/page_response.dart';
 
 part 'airport_api.g.dart';
 
 class AirportEndPoint {
-  static const fetchAirportUrl = "airport/fetch";
-  static const editAirportUrl = "airport/edit";
-  static const deleteAirportUrl = "airport/delete";
-  static const addAirportUrl = "airport/add";
+  static const branch = '/api/v1/airport';
+  static const getAirportUrl = "$branch/";
+  static const editAirportUrl = '$branch/update';
+  static const deleteAirportUrl = "$branch/delete";
+  static const addAirportUrl = "$branch/add";
+  static const getAirportByPageUrl = "$branch/page/";
+  static const filterAirportUrl = "$branch/filter/";
 }
 
 @RestApi()
@@ -19,19 +23,36 @@ abstract class AirportApi {
   @factoryMethod
   factory AirportApi(Dio dio) = _AirportApi;
 
-  @GET(AirportEndPoint.fetchAirportUrl)
-  Future<ApiResponse<List<AirportModel>?>> fetchAirports();
+  @GET(AirportEndPoint.getAirportUrl)
+  Future<HttpResponse<List<AirportModel>?>> fetchAirports();
+
+  @GET('${AirportEndPoint.getAirportUrl}id={id}')
+  Future<HttpResponse<AirportModel>> getAirportById(@Path("id") String id);
+
+  @GET(
+      '${AirportEndPoint.getAirportByPageUrl}cursor={cursor}&pageSize={pageSize}')
+  Future<HttpResponse<PageResponse<AirportModel>?>> getAirportByPage(
+    @Path("cursor") int cursor,
+    @Path("pageSize") int pageSize,
+  );
+
+  @GET('${AirportEndPoint.filterAirportUrl}keyword={search}')
+  Future<HttpResponse<List<AirportModel>?>> filterAirport({
+    @Path("search") required String search,
+    @CancelRequest() required CancelToken cancelRequest,
+  });
 
   @POST(AirportEndPoint.addAirportUrl)
-  Future<ApiResponse<AirportModel?>> addNewAirPorts({
+  Future<HttpResponse<AirportModel?>> addNewAirPorts({
     @Body() required Map<String, dynamic> body,
   });
 
   @DELETE('${AirportEndPoint.deleteAirportUrl}/{id}')
-  Future<ApiResponse<bool>> deleteAirport(@Path("id") String id);
+  Future<HttpResponse> deleteAirport(@Path("id") String id);
 
-  @PUT(AirportEndPoint.editAirportUrl)
-  Future<ApiResponse<AirportModel?>> editAirport({
+  @PATCH('${AirportEndPoint.editAirportUrl}/{id}')
+  Future<HttpResponse<AirportModel?>> editAirport({
+    @Path("id") required String id,
     @Body() required Map<String, dynamic> body,
   });
 }

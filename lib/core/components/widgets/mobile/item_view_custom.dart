@@ -557,3 +557,12 @@ class ImageViewStyle {
     this.opacticShadow,
   });
 }
+
+class ImageViewSkelton extends StatelessWidget {
+  const ImageViewSkelton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}

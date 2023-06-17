@@ -155,6 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "detial": MessageLookupByLibrary.simpleMessage("Detail"),
         "direct": MessageLookupByLibrary.simpleMessage("Direct"),
         "directFlight": MessageLookupByLibrary.simpleMessage("Direct Flight "),
+        "districts": MessageLookupByLibrary.simpleMessage("Districts"),
         "donHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account ?"),
         "driver": MessageLookupByLibrary.simpleMessage("Driver"),
@@ -242,6 +243,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "identityNumber":
             MessageLookupByLibrary.simpleMessage("Identity Number"),
         "image": MessageLookupByLibrary.simpleMessage("Image"),
+        "informationBeforeEdit":
+            MessageLookupByLibrary.simpleMessage("Information before edit"),
         "landingFlight": MessageLookupByLibrary.simpleMessage("Landing flight"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lightMode": MessageLookupByLibrary.simpleMessage("LightMode"),
@@ -285,6 +288,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nameData": m5,
         "nameOnCard": MessageLookupByLibrary.simpleMessage("Name on card"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
+        "no": MessageLookupByLibrary.simpleMessage("No"),
         "noCustomer": MessageLookupByLibrary.simpleMessage("No Customer"),
         "noteBeforePayment":
             MessageLookupByLibrary.simpleMessage("Note before payment"),
@@ -344,10 +348,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Premium Economy Class"),
         "premiumEconomyClassTicket": MessageLookupByLibrary.simpleMessage(
             "Premium Economy Class Ticket"),
+        "preview": MessageLookupByLibrary.simpleMessage("Preview"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "priceSummary": MessageLookupByLibrary.simpleMessage("Price Summary"),
         "principleSetting":
             MessageLookupByLibrary.simpleMessage("Principle Setting"),
+        "provinces": MessageLookupByLibrary.simpleMessage("Provinces"),
         "rateYourStay": MessageLookupByLibrary.simpleMessage("Rate your stay"),
         "rePassword": MessageLookupByLibrary.simpleMessage("RePassword"),
         "recomendAirport":
@@ -449,6 +455,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "visited10Of100Countries":
             MessageLookupByLibrary.simpleMessage("Visited 10 of 100 countries"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
+        "wards": MessageLookupByLibrary.simpleMessage("Wards"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "warningsPassenger": MessageLookupByLibrary.simpleMessage(
             "Make sure the passenger name matches the name on the CCCD/ID/Passport/Driver/ License issued by the government.You should avoid mistakes as some airlines allow name changes after booking."),
@@ -456,6 +463,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeoFlightAdmin":
             MessageLookupByLibrary.simpleMessage("Welcome to Flight Admin"),
         "writeReviews": MessageLookupByLibrary.simpleMessage("Write reviews"),
+        "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "youCanTravelToAnyPlaceWithGotour":
             MessageLookupByLibrary.simpleMessage(
                 "You can travel to any place\nwith gotour"),

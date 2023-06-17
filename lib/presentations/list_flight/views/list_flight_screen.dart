@@ -1,4 +1,9 @@
+import 'dart:developer';
+
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/enum/type_form_flight.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
+import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/flight_wdiget_custom.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -43,24 +48,33 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
     _bloc.add(ListFlightEvent.deleteFlight(id));
   }
 
-  void _listenStateChanged(_, ListFlightState state) {
-    state.whenOrNull(
-      selectListFlightSuccess: (data, ticID) {
-        context.startFlightDetai(ticID);
-      },
-      openAddEditFlightFormSuccess: (data, id) {
-        final result = context.openDialogAdDEditFlight(id);
-        if (result is Flight) {
-          if (id == _idNull) {
-            _bloc.add(ListFlightEvent.updateFlightsAfterAdd(result as Flight));
+  void _onUpdateFlightAfterAdd(Flight flight) {
+    _bloc.add(ListFlightEvent.updateFlightsAfterAdd(flight));
+  }
+
+  void _onUpdateFlightAfterEdit(Flight flight) {
+    _bloc.add(ListFlightEvent.updateFlightsAfterEdit(flight));
+  }
+
+  void _listenStateChanged(BuildContext context, ListFlightState state) {
+    state.whenOrNull(selectListFlightSuccess: (data, ticID) {
+      context.startFlightDetai(ticID);
+    }, openAddEditFlightFormSuccess: (data, id) async {
+      Map result = await context.openDialogAdDEditFlight(id);
+      var type = result['type'];
+      var flight = result['flight'];
+      if (flight != null && flight is Flight) {
+        if (type != null && type is TypeFormFlight) {
+          if (type.isEdit) {
+            _onUpdateFlightAfterEdit(flight);
           } else {
-            _bloc.add(
-              ListFlightEvent.updateFlightssAfterEdit(result as Flight),
-            );
+            _onUpdateFlightAfterAdd(flight);
           }
         }
-      },
-    );
+      }
+    }, getFlightsFailed: (data, error) {
+      log(error);
+    });
   }
 
   void openAddEditFlightDialog(String title) {
@@ -97,10 +111,12 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
     return BlocConsumer<ListFlightBloc, ListFlightState>(
       listener: _listenStateChanged,
       builder: (context, state) {
+        final flights = state.data.flights;
         return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          floatingActionButton: ElevatedButton(
-            onPressed: () => openAddEditFlightDialog(''),
+          floatingActionButton: ButtonCustom(
+            enableWidth: false,
+            onPress: () => openAddEditFlightDialog(''),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -117,9 +133,9 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
               ListTile(
                 title: Text(
                   S.of(context).listFlights,
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                  style: context.titleSmall.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                   maxLines: 1,
                 ),
                 trailing: SizedBox(
@@ -128,7 +144,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                     padding: const EdgeInsets.all(10.0),
                     controller: textController,
                     enabled: true,
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: context.titleMedium,
                     onChanged: (value) {},
                     onSubmitted: (value) {},
                     backgroundColor:
@@ -191,9 +207,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                                           ),
                                           Text(
                                             e['title'],
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleSmall,
+                                            style: context.titleSmall,
                                           ),
                                           const Icon(
                                             Icons.keyboard_arrow_down_sharp,
@@ -217,11 +231,16 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                               ),
                             ),
                           ),
-                          for (int i = 0; i < 10; i++)
-                            FlightWdigetCustom(
-                              viewDetail: () => viewDetail(i.toString()),
-                              edit: () => openAddEditFlightDialog(i.toString()),
-                            ),
+                          ...flights
+                              .map(
+                                (e) => FlightWidgetCustom(
+                                  viewDetail: () => viewDetail(''),
+                                  edit: () =>
+                                      openAddEditFlightDialog(e.id.toString()),
+                                  flight: e,
+                                ),
+                              )
+                              .toList()
                         ]
                             .expand((element) =>
                                 [element, const SizedBox(height: 10.0)])
