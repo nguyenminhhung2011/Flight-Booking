@@ -4,6 +4,7 @@ import 'package:flight_booking/data/models/model_heloer.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/flight/flight.dart';
+import '../../domain/entities/page_response/page_response_entity.dart';
 import '../../domain/repositories/flight_repository.dart';
 
 const _flightDefaultError = 'Error';
@@ -77,5 +78,52 @@ class FlightRepositoryImpl extends FlightRepository {
       );
     }
     return response.data?.toEntity();
+  }
+
+  @override
+  Future<PageResponseEntity<Flight>> getFlightsByPage(
+    int cursor,
+    int pageSize,
+  ) async {
+    final response = await _flightApi.getFlightByPage(cursor, pageSize);
+    if (response.response.statusCode != HttpStatusCode.OK) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage ?? _flightDefaultError,
+      );
+    }
+    final result = response.data!;
+
+    return PageResponseEntity<Flight>(
+      currentPage: result.currentPage,
+      pageSize: result.pageSize,
+      totalPages: result.totalPages,
+      data: result.responseData.map((e) => e.toEntity()).toList(),
+    );
+  }
+
+  @override
+  Future<List<Flight>> filterFlight(
+    String locationArrival,
+    String locationDeparture,
+    String airlineName,
+    int cursor,
+    int pageSize,
+  ) async {
+    final response = await _flightApi.filterFlight(
+      cursor: cursor,
+      pageSize: pageSize,
+      locationArrival: locationArrival,
+      locationDeparture: locationDeparture,
+      airlineName: airlineName,
+    );
+    if (response.response.statusCode != HttpStatusCode.OK) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage ?? _flightDefaultError,
+      );
+    }
+    final result = response.data?.map((e) => e.toEntity()).toList();
+    return result ?? <Flight>[];
   }
 }

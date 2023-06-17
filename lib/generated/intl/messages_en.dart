@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "apply": MessageLookupByLibrary.simpleMessage("Apply"),
         "applyNewPassword":
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
+        "arrivalPlace": MessageLookupByLibrary.simpleMessage("Arrival Place"),
         "benefit": MessageLookupByLibrary.simpleMessage("Benefits"),
         "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
         "blackFridayOffer":
@@ -149,6 +150,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "departureDate": MessageLookupByLibrary.simpleMessage("Departure Date"),
         "departureFlight":
             MessageLookupByLibrary.simpleMessage("Departure flight"),
+        "departurePlace":
+            MessageLookupByLibrary.simpleMessage("Departure Place"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "destination": MessageLookupByLibrary.simpleMessage("Destination"),
         "detail": MessageLookupByLibrary.simpleMessage("Detail"),
@@ -288,6 +291,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nameData": m5,
         "nameOnCard": MessageLookupByLibrary.simpleMessage("Name on card"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "noCustomer": MessageLookupByLibrary.simpleMessage("No Customer"),
         "noteBeforePayment":
