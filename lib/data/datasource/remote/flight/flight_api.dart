@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flight_booking/data/models/flight/flight_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+
+import '../../../models/page_response.dart';
 part 'flight_api.g.dart';
 
 class FlightEndPoint {
@@ -25,6 +27,22 @@ abstract class FlightApi {
 
   @GET('${FlightEndPoint.fetchFlightUrl}id={id}')
   Future<HttpResponse<FlightModel?>> getFlightById(@Path("id") String id);
+
+  @GET(
+      '${FlightEndPoint.getFlightByPageUrl}cursor={cursor}&pageSize={pageSize}')
+  Future<HttpResponse<PageResponse<FlightModel>?>> getFlightByPage(
+    @Path("cursor") int cursor,
+    @Path("pageSize") int pageSize,
+  );
+
+  @GET('${FlightEndPoint.filterFlightUrl}cursor={cursor}&pageSize={pageSize}')
+  Future<HttpResponse<List<FlightModel>?>> filterFlight({
+    @Path("cursor") required int cursor,
+    @Path("pageSize") required int pageSize,
+    @Query("locationArrival") required String locationArrival,
+    @Query("locationDeparture") required String locationDeparture,
+    @Query("airlineName") required String airlineName,
+  });
 
   @POST(FlightEndPoint.addFlightUrl)
   Future<HttpResponse<FlightModel?>> addNewFlight({

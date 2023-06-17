@@ -18,5 +18,12 @@ class ListFlightEvent with _$ListFlightEvent {
     Flight flight,
   ) = _UpdateFlightsAfterAdd;
 
-  const factory ListFlightEvent.deleteFlight(String id) = _DeleteFlight;
+  const factory ListFlightEvent.getFlightByPage(int cursor) = _GetFlightByPage;
+
+  const factory ListFlightEvent.deleteFlight(int id) = _DeleteFlight;
+
+  const factory ListFlightEvent.filterFlight() = _FilterFlight;
+
+  const factory ListFlightEvent.fetchPlaces() = _FetchPlaces;
+  const factory ListFlightEvent.fetchAirline() = _FetchAirlines;
 }

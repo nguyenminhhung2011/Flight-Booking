@@ -177,6 +177,8 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
     }
   }
 
+  bool get _isSameAirport => data.airportStart?.id == data.airportEnd?.id;
+
   FutureOr<void> _onDispose(
     _Dispose event,
     Emitter<AddEditFlightState> emit,
@@ -191,6 +193,13 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
       emit(AddEditFlightState.editFlightFailed(
         data: data,
         message: _failedEvent,
+      ));
+      return;
+    }
+    if (_isSameAirport) {
+      emit(AddEditFlightState.editFlightFailed(
+        data: data,
+        message: 'Airports can\'t same',
       ));
       return;
     }
@@ -238,6 +247,12 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
         message: _failedEvent,
       ));
       return;
+    }
+    if (_isSameAirport) {
+      emit(AddEditFlightState.addNewFlightFailed(
+        data: data,
+        message: 'Airports can\'t same',
+      ));
     }
     try {
       final newFlight = Flight(

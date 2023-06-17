@@ -9,7 +9,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/components/widgets/drop_down_button.dart' as customize;
+import '../../../core/components/widgets/mobile/dropdown_button_custom.dart';
+import '../../../core/components/widgets/page_index_view.dart';
+import '../../../data/models/place/place_model.dart';
+import '../../../domain/entities/airline/airline.dart';
 import '../../../domain/entities/flight/flight.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/list_flight_bloc.dart';
@@ -32,7 +35,9 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
   void initState() {
     super.initState();
     _bloc.add(const ListFlightEvent.started());
-    _bloc.add(const ListFlightEvent.getFlights());
+    _bloc.add(const ListFlightEvent.getFlightByPage(0));
+    _bloc.add(const ListFlightEvent.fetchAirline());
+    _bloc.add(const ListFlightEvent.fetchPlaces());
   }
 
   Future<void> initData() async {
@@ -44,8 +49,13 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
     _bloc.add(ListFlightEvent.selectFlight(ticId));
   }
 
-  void deleteFlight(String id) {
-    _bloc.add(ListFlightEvent.deleteFlight(id));
+  void _onDeleteFlight(int id) async {
+    final deleteForm = await context.showYesNoDialog(
+        300, 'Delete this flight?', 'Are you sure delete this flight?');
+
+    if (deleteForm) {
+      _bloc.add(ListFlightEvent.deleteFlight(id));
+    }
   }
 
   void _onUpdateFlightAfterAdd(Flight flight) {
@@ -54,6 +64,14 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
 
   void _onUpdateFlightAfterEdit(Flight flight) {
     _bloc.add(ListFlightEvent.updateFlightsAfterEdit(flight));
+  }
+
+  void _onChangePage(int newPage) {
+    _bloc.add(ListFlightEvent.getFlightByPage(newPage));
+  }
+
+  void _onFilterFlight() {
+    _bloc.add(const ListFlightEvent.filterFlight());
   }
 
   void _listenStateChanged(BuildContext context, ListFlightState state) {
@@ -74,12 +92,17 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
       }
     }, getFlightsFailed: (data, error) {
       log(error);
+    }, deleteFlightFailed: (data, error) {
+      log(error);
     });
   }
 
   void openAddEditFlightDialog(String title) {
     _bloc.add(ListFlightEvent.openAddEditFlightForm(title));
   }
+
+  bool get _loadingGetData =>
+      _bloc.state.maybeWhen(orElse: () => false, loading: (data) => true);
 
   @override
   void dispose() {
@@ -112,6 +135,8 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
       listener: _listenStateChanged,
       builder: (context, state) {
         final flights = state.data.flights;
+        final currentPage = state.data.currentPage;
+        final totalPage = state.data.totalPage;
         return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           floatingActionButton: ButtonCustom(
@@ -181,66 +206,30 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                       ListView(
                         children: [
                           SizedBox(height: heightField / 4.5),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 20.0),
-                            child: SizedBox(
-                              width: double.infinity,
-                              height: 40.0,
-                              child: ListView(
-                                scrollDirection: Axis.horizontal,
-                                children: [
-                                  ...listSearchFlightOptions.map(
-                                    (e) => customize.DropdownButton(
-                                      backgroundColor:
-                                          Theme.of(context).cardColor,
-                                      onPress: () {},
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            padding: const EdgeInsets.all(5.0),
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: e['color'],
-                                            ),
-                                            child: Icon(e['icon'], size: 14.0),
-                                          ),
-                                          Text(
-                                            e['title'],
-                                            style: context.titleSmall,
-                                          ),
-                                          const Icon(
-                                            Icons.keyboard_arrow_down_sharp,
-                                            size: 14,
-                                          ),
-                                        ]
-                                            .expand((element) => [
-                                                  element,
-                                                  const SizedBox(width: 10.0)
-                                                ])
-                                            .toList()
-                                          ..removeLast(),
-                                      ),
-                                    ),
-                                  )
-                                ]
-                                    .expand((element) =>
-                                        [element, const SizedBox(width: 10.0)])
-                                    .toList()
-                                  ..removeLast(),
+                          _categoryField(
+                              listSearchFlightOptions, context, state),
+                          _loadingGetData
+                              ? _loadingFlightField()
+                              : _listFlightField(flights),
+                          const SizedBox(height: 10.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              PageIndexView(
+                                currentPage: currentPage,
+                                totalPage: totalPage,
+                                selected: _onChangePage,
                               ),
-                            ),
+                              const SizedBox(width: 10.0),
+                              TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    S.of(context).next,
+                                    style: context.titleSmall
+                                        .copyWith(fontWeight: FontWeight.bold),
+                                  ))
+                            ],
                           ),
-                          ...flights
-                              .map(
-                                (e) => FlightWidgetCustom(
-                                  viewDetail: () => viewDetail(''),
-                                  edit: () =>
-                                      openAddEditFlightDialog(e.id.toString()),
-                                  flight: e,
-                                ),
-                              )
-                              .toList()
                         ]
                             .expand((element) =>
                                 [element, const SizedBox(height: 10.0)])
@@ -254,6 +243,104 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
           ),
         );
       },
+    );
+  }
+
+  Column _listFlightField(List<Flight> flights) {
+    return Column(
+      children: flights
+          .map(
+            (e) => FlightWidgetCustom(
+              viewDetail: () => viewDetail(''),
+              edit: () => openAddEditFlightDialog(e.id.toString()),
+              delete: () => _onDeleteFlight(e.id),
+              flight: e,
+            ),
+          )
+          .toList()
+          .expand((element) => [element, const SizedBox(height: 10.0)])
+          .toList(),
+    );
+  }
+
+  Column _loadingFlightField() {
+    return Column(
+      children: [for (int i = 0; i < 7; i++) const FlightWidgetCustomSkelton()],
+    );
+  }
+
+  Padding _categoryField(List<Map<String, dynamic>> listSearchFlightOptions,
+      BuildContext context, ListFlightState state) {
+    final airlines = state.data.listAirlines;
+    final airlineSelected = state.data.airlineName;
+    final places = state.data.locations;
+    final locationArrival = state.data.locationArrival;
+    final locationDeparture = state.data.locationDeparture;
+    final cardColor = Theme.of(context).cardColor;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: SizedBox(
+        width: double.infinity,
+        child: Row(
+          children: [
+            Expanded(
+              child: DropdownButtonCustom<String?>(
+                radius: 10.0,
+                color: cardColor,
+                headerText: S.of(context).airlines,
+                items: airlines
+                    .map<DropdownMenuItem<String>>(
+                        (Airline value) => DropdownMenuItem<String>(
+                              value: value.airlineName,
+                              child: Text(value.airlineName),
+                            ))
+                    .toList(),
+                value: airlineSelected,
+                onChange: (va) {},
+              ),
+            ),
+            Expanded(
+              child: DropdownButtonCustom<String?>(
+                radius: 10.0,
+                color: cardColor,
+                headerText: S.of(context).departureDate,
+                items: places
+                    .map<DropdownMenuItem<String>>(
+                        (PlaceModel value) => DropdownMenuItem<String>(
+                              value: value.name,
+                              child: Text(value.name),
+                            ))
+                    .toList(),
+                value: locationDeparture,
+                onChange: (value) {},
+              ),
+            ),
+            Expanded(
+              child: DropdownButtonCustom<String?>(
+                radius: 10.0,
+                color: cardColor,
+                headerText: S.of(context).arrivalPlace,
+                items: places
+                    .map<DropdownMenuItem<String>>(
+                        (PlaceModel value) => DropdownMenuItem<String>(
+                              value: value.name,
+                              child: Text(value.name),
+                            ))
+                    .toList(),
+                value: locationArrival,
+                onChange: (value) {},
+              ),
+            ),
+            ButtonCustom(
+              onPress: _onFilterFlight,
+              width: 55,
+              height: 55,
+              child: const Icon(Icons.filter),
+            )
+          ].expand((element) => [element, const SizedBox(width: 10.0)]).toList()
+            ..removeLast(),
+        ),
+      ),
     );
   }
 }

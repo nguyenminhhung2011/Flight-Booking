@@ -17,6 +17,13 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ListFlightModelState {
   List<Flight> get flights => throw _privateConstructorUsedError;
+  int get currentPage => throw _privateConstructorUsedError;
+  int get totalPage => throw _privateConstructorUsedError;
+  String get locationArrival => throw _privateConstructorUsedError;
+  String get locationDeparture => throw _privateConstructorUsedError;
+  String get airlineName => throw _privateConstructorUsedError;
+  List<Airline> get listAirlines => throw _privateConstructorUsedError;
+  List<PlaceModel> get locations => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ListFlightModelStateCopyWith<ListFlightModelState> get copyWith =>
@@ -29,7 +36,15 @@ abstract class $ListFlightModelStateCopyWith<$Res> {
           $Res Function(ListFlightModelState) then) =
       _$ListFlightModelStateCopyWithImpl<$Res, ListFlightModelState>;
   @useResult
-  $Res call({List<Flight> flights});
+  $Res call(
+      {List<Flight> flights,
+      int currentPage,
+      int totalPage,
+      String locationArrival,
+      String locationDeparture,
+      String airlineName,
+      List<Airline> listAirlines,
+      List<PlaceModel> locations});
 }
 
 /// @nodoc
@@ -47,12 +62,47 @@ class _$ListFlightModelStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? flights = null,
+    Object? currentPage = null,
+    Object? totalPage = null,
+    Object? locationArrival = null,
+    Object? locationDeparture = null,
+    Object? airlineName = null,
+    Object? listAirlines = null,
+    Object? locations = null,
   }) {
     return _then(_value.copyWith(
       flights: null == flights
           ? _value.flights
           : flights // ignore: cast_nullable_to_non_nullable
               as List<Flight>,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPage: null == totalPage
+          ? _value.totalPage
+          : totalPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      locationArrival: null == locationArrival
+          ? _value.locationArrival
+          : locationArrival // ignore: cast_nullable_to_non_nullable
+              as String,
+      locationDeparture: null == locationDeparture
+          ? _value.locationDeparture
+          : locationDeparture // ignore: cast_nullable_to_non_nullable
+              as String,
+      airlineName: null == airlineName
+          ? _value.airlineName
+          : airlineName // ignore: cast_nullable_to_non_nullable
+              as String,
+      listAirlines: null == listAirlines
+          ? _value.listAirlines
+          : listAirlines // ignore: cast_nullable_to_non_nullable
+              as List<Airline>,
+      locations: null == locations
+          ? _value.locations
+          : locations // ignore: cast_nullable_to_non_nullable
+              as List<PlaceModel>,
     ) as $Val);
   }
 }
@@ -65,7 +115,15 @@ abstract class _$$_ListFlightModelStateCopyWith<$Res>
       __$$_ListFlightModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Flight> flights});
+  $Res call(
+      {List<Flight> flights,
+      int currentPage,
+      int totalPage,
+      String locationArrival,
+      String locationDeparture,
+      String airlineName,
+      List<Airline> listAirlines,
+      List<PlaceModel> locations});
 }
 
 /// @nodoc
@@ -80,12 +138,47 @@ class __$$_ListFlightModelStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? flights = null,
+    Object? currentPage = null,
+    Object? totalPage = null,
+    Object? locationArrival = null,
+    Object? locationDeparture = null,
+    Object? airlineName = null,
+    Object? listAirlines = null,
+    Object? locations = null,
   }) {
     return _then(_$_ListFlightModelState(
       flights: null == flights
           ? _value._flights
           : flights // ignore: cast_nullable_to_non_nullable
               as List<Flight>,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPage: null == totalPage
+          ? _value.totalPage
+          : totalPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      locationArrival: null == locationArrival
+          ? _value.locationArrival
+          : locationArrival // ignore: cast_nullable_to_non_nullable
+              as String,
+      locationDeparture: null == locationDeparture
+          ? _value.locationDeparture
+          : locationDeparture // ignore: cast_nullable_to_non_nullable
+              as String,
+      airlineName: null == airlineName
+          ? _value.airlineName
+          : airlineName // ignore: cast_nullable_to_non_nullable
+              as String,
+      listAirlines: null == listAirlines
+          ? _value._listAirlines
+          : listAirlines // ignore: cast_nullable_to_non_nullable
+              as List<Airline>,
+      locations: null == locations
+          ? _value._locations
+          : locations // ignore: cast_nullable_to_non_nullable
+              as List<PlaceModel>,
     ));
   }
 }
@@ -93,8 +186,18 @@ class __$$_ListFlightModelStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ListFlightModelState implements _ListFlightModelState {
-  const _$_ListFlightModelState({required final List<Flight> flights})
-      : _flights = flights;
+  const _$_ListFlightModelState(
+      {required final List<Flight> flights,
+      required this.currentPage,
+      required this.totalPage,
+      required this.locationArrival,
+      required this.locationDeparture,
+      required this.airlineName,
+      required final List<Airline> listAirlines,
+      required final List<PlaceModel> locations})
+      : _flights = flights,
+        _listAirlines = listAirlines,
+        _locations = locations;
 
   final List<Flight> _flights;
   @override
@@ -105,8 +208,34 @@ class _$_ListFlightModelState implements _ListFlightModelState {
   }
 
   @override
+  final int currentPage;
+  @override
+  final int totalPage;
+  @override
+  final String locationArrival;
+  @override
+  final String locationDeparture;
+  @override
+  final String airlineName;
+  final List<Airline> _listAirlines;
+  @override
+  List<Airline> get listAirlines {
+    if (_listAirlines is EqualUnmodifiableListView) return _listAirlines;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listAirlines);
+  }
+
+  final List<PlaceModel> _locations;
+  @override
+  List<PlaceModel> get locations {
+    if (_locations is EqualUnmodifiableListView) return _locations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_locations);
+  }
+
+  @override
   String toString() {
-    return 'ListFlightModelState(flights: $flights)';
+    return 'ListFlightModelState(flights: $flights, currentPage: $currentPage, totalPage: $totalPage, locationArrival: $locationArrival, locationDeparture: $locationDeparture, airlineName: $airlineName, listAirlines: $listAirlines, locations: $locations)';
   }
 
   @override
@@ -114,12 +243,34 @@ class _$_ListFlightModelState implements _ListFlightModelState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListFlightModelState &&
-            const DeepCollectionEquality().equals(other._flights, _flights));
+            const DeepCollectionEquality().equals(other._flights, _flights) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.totalPage, totalPage) ||
+                other.totalPage == totalPage) &&
+            (identical(other.locationArrival, locationArrival) ||
+                other.locationArrival == locationArrival) &&
+            (identical(other.locationDeparture, locationDeparture) ||
+                other.locationDeparture == locationDeparture) &&
+            (identical(other.airlineName, airlineName) ||
+                other.airlineName == airlineName) &&
+            const DeepCollectionEquality()
+                .equals(other._listAirlines, _listAirlines) &&
+            const DeepCollectionEquality()
+                .equals(other._locations, _locations));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_flights));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_flights),
+      currentPage,
+      totalPage,
+      locationArrival,
+      locationDeparture,
+      airlineName,
+      const DeepCollectionEquality().hash(_listAirlines),
+      const DeepCollectionEquality().hash(_locations));
 
   @JsonKey(ignore: true)
   @override
@@ -130,11 +281,32 @@ class _$_ListFlightModelState implements _ListFlightModelState {
 }
 
 abstract class _ListFlightModelState implements ListFlightModelState {
-  const factory _ListFlightModelState({required final List<Flight> flights}) =
-      _$_ListFlightModelState;
+  const factory _ListFlightModelState(
+      {required final List<Flight> flights,
+      required final int currentPage,
+      required final int totalPage,
+      required final String locationArrival,
+      required final String locationDeparture,
+      required final String airlineName,
+      required final List<Airline> listAirlines,
+      required final List<PlaceModel> locations}) = _$_ListFlightModelState;
 
   @override
   List<Flight> get flights;
+  @override
+  int get currentPage;
+  @override
+  int get totalPage;
+  @override
+  String get locationArrival;
+  @override
+  String get locationDeparture;
+  @override
+  String get airlineName;
+  @override
+  List<Airline> get listAirlines;
+  @override
+  List<PlaceModel> get locations;
   @override
   @JsonKey(ignore: true)
   _$$_ListFlightModelStateCopyWith<_$_ListFlightModelState> get copyWith =>

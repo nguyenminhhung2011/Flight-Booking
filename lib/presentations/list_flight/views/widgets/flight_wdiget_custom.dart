@@ -6,6 +6,7 @@ import 'package:flight_booking/presentations/list_flight/views/widgets/rich_text
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 
+import '../../../../core/components/widgets/mobile/skeleton_custom.dart';
 import '../../../../domain/entities/flight/flight.dart';
 import '../../../../generated/l10n.dart';
 import '../../../dashboard/views/dashboard_screen.dart';
@@ -15,11 +16,13 @@ class FlightWidgetCustom extends StatelessWidget {
   final Flight flight;
   final Function() viewDetail;
   final Function() edit;
+  final Function() delete;
   const FlightWidgetCustom({
     super.key,
     required this.viewDetail,
     required this.edit,
     required this.flight,
+    required this.delete,
   });
 
   @override
@@ -86,38 +89,35 @@ class FlightWidgetCustom extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    S.of(context).startFrom,
-                    style: context.titleSmall.copyWith(
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                  ButtonCustom(
+                    onPress: viewDetail,
+                    height: 45,
+                    radius: 5.0,
+                    borderColor: Theme.of(context).primaryColor,
+                    color: Theme.of(context).cardColor,
+                    child: Text(S.of(context).viewDetail),
                   ),
-                  const RichTextCustom(
-                    firstText: '\$200,000',
-                    secondText: ' /pax',
-                  ),
-                  const SizedBox(height: 20.0),
+                  const SizedBox(height: 10.0),
                   SizedBox(
                     height: 35.0,
                     width: double.infinity,
                     child: Row(
                       children: [
                         Expanded(
-                            flex: 3,
                             child: ButtonCustom(
-                              height: 45,
-                              onPress: viewDetail,
-                              child: Text(S.of(context).viewDetail),
-                            )),
+                          height: 45,
+                          onPress: edit,
+                          radius: 5.0,
+                          child: Text(S.of(context).edit),
+                        )),
                         const SizedBox(width: 5.0),
                         Expanded(
-                          flex: 1,
                           child: ButtonCustom(
                             height: 45,
-                            onPress: edit,
-                            child: const Center(
-                              child: Icon(Icons.edit, size: 12),
-                            ),
+                            onPress: delete,
+                            radius: 5.0,
+                            color: Colors.red,
+                            child: Text(S.of(context).delete),
                           ),
                         ),
                       ],
@@ -293,6 +293,96 @@ class FlightWidgetCustom extends StatelessWidget {
         ),
       ].expand((element) => [element, const SizedBox(height: 5.0)]).toList()
         ..removeLast(),
+    );
+  }
+}
+
+class FlightWidgetCustomSkelton extends StatelessWidget {
+  const FlightWidgetCustomSkelton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final checkAdaptive = Breakpoints.large.isActive(context);
+    return ClipPath(
+      clipper: DolDurmaClipper(right: 200, holeRadius: 20),
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          color: Theme.of(context).cardColor,
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: AdaptiveLayoutRowCol(
+                child: [
+                  checkAdaptive
+                      ? SkeletonContainer.rounded(
+                          width: 100,
+                          height: 100,
+                          borderRadius: BorderRadius.circular(10.0),
+                        )
+                      : Row(
+                          children: [
+                            SkeletonContainer.rounded(
+                              width: 16,
+                              height: 16,
+                              borderRadius: BorderRadius.circular(50.0),
+                            ),
+                            const SizedBox(width: 10.0),
+                            Expanded(
+                              child: SkeletonContainer.rounded(
+                                width: double.infinity,
+                                height: 19,
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                            ),
+                          ],
+                        ),
+                  SizedBox(width: checkAdaptive ? 20.0 : 0.0),
+                  checkAdaptive
+                      ? Expanded(
+                          child: _dataField(),
+                        )
+                      : _dataField(),
+                ],
+              ),
+            ),
+            const SizedBox(width: 10.0),
+            SkeletonContainer.rounded(
+              width: 165,
+              height: 100,
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _dataField() {
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ...[1, 3, 1]
+                .map(
+                  (e) => Expanded(
+                    flex: e,
+                    child: SkeletonContainer.rounded(
+                      width: double.infinity,
+                      height: 100,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                )
+                .expand((element) => [element, const SizedBox(width: 10.0)])
+          ],
+        ),
+      ],
     );
   }
 }

@@ -9,6 +9,7 @@ class ButtonCustom extends StatelessWidget {
   final Function() onPress;
   final bool enableWidth;
   final bool loading;
+  final Color? borderColor;
   const ButtonCustom({
     super.key,
     this.color,
@@ -17,6 +18,7 @@ class ButtonCustom extends StatelessWidget {
     this.height,
     this.enableWidth = true,
     this.loading = false,
+    this.borderColor,
     required this.child,
     required this.onPress,
   });
@@ -37,7 +39,9 @@ class ButtonCustom extends StatelessWidget {
               borderRadius: BorderRadius.all(
                 Radius.circular(radius ?? 10.0),
               ),
-              side: BorderSide(color: color ?? Theme.of(context).primaryColor),
+              side: BorderSide(
+                  color:
+                      borderColor ?? color ?? Theme.of(context).primaryColor),
             ),
           ),
         ),

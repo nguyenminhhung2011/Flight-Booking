@@ -32,6 +32,7 @@ class SkeletonContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SkeletonAnimation(
+        borderRadius: borderRadius,
         //gradientColor: Colors.orange,
         //shimmerColor: Colors.red,
         //curve: Curves.easeInQuad,

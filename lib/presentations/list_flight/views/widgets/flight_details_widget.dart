@@ -1,3 +1,4 @@
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class FlightDetailsWidget extends StatelessWidget {
@@ -15,53 +16,58 @@ class FlightDetailsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle titleStyle =
-        Theme.of(context).textTheme.titleMedium!.copyWith(color: Colors.grey);
+    final TextStyle titleStyle = context.titleMedium
+        .copyWith(color: Colors.grey, overflow: TextOverflow.ellipsis);
 
-    final TextStyle? descStyle = Theme.of(context).textTheme.titleMedium;
+    final TextStyle descStyle =
+        context.titleMedium.copyWith(overflow: TextOverflow.ellipsis);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                firstTitle,
-                maxLines: 1,
-                style: titleStyle,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 4.0),
-                child: Text(
-                  firstDesc,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  firstTitle,
                   maxLines: 1,
-                  style: descStyle,
+                  style: titleStyle,
                 ),
-              )
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 4.0),
+                  child: Text(
+                    firstDesc,
+                    maxLines: 1,
+                    style: descStyle,
+                  ),
+                )
+              ],
+            ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                secondTitle,
-                maxLines: 1,
-                style: titleStyle,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 4.0),
-                child: Text(
-                  secondDesc,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  secondTitle,
                   maxLines: 1,
-                  style: descStyle,
+                  style: titleStyle,
                 ),
-              )
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 4.0),
+                  child: Text(
+                    secondDesc,
+                    maxLines: 1,
+                    style: descStyle,
+                  ),
+                )
+              ],
+            ),
           ),
         ],
       ),
