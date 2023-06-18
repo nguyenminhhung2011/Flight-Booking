@@ -6,7 +6,7 @@ import '../entities/user/user.dart';
 abstract class UserRepository {
   Future<DataState<AuthenticateResponse>> login(
       String username, String password);
-  Future<void> logout();
+  Future<bool> logout();
   Future<User> getUser();
   Future<User> updateUserInfo(User user);
 }

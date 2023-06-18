@@ -1,10 +1,12 @@
-import 'dart:convert';
-
-import 'package:flight_booking/domain/entities/user/user.dart';
+// ignore_for_file: depend_on_referenced_packages
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
 class CommonAppSettingPref {
+  static const String _accessToken = "_accessToken";
+  static const String _refreshToken = "_refreshToken";
+  static const String _expiredTime = "_expiredTime";
+
   static const String _language = "language";
   static const String _theme = "theme";
   static const String _darkOption = "darkOption";
@@ -48,6 +50,30 @@ class CommonAppSettingPref {
 
   static Future<bool> setDomainBranch(String value) {
     return Preferences.setString(_branch, value);
+  }
+
+  static Future<bool> setAccessToken(String value) {
+    return Preferences.setString(_accessToken, value);
+  }
+
+  static String getAccessToken() {
+    return Preferences.getString(_accessToken) ?? '';
+  }
+
+  static Future<bool> setRefreshToken(String value) {
+    return Preferences.setString(_refreshToken, value);
+  }
+
+  static String getRefreshToken() {
+    return Preferences.getString(_refreshToken) ?? '';
+  }
+
+  static Future<bool> setExpiredTime(int value) {
+    return Preferences.setInt(_expiredTime, value);
+  }
+
+  static int getExpiredTime() {
+    return Preferences.getInt(_expiredTime);
   }
 
   static String getDomainBranch() {
@@ -128,6 +154,24 @@ class CommonAppSettingPref {
     return Preferences.getString(_userEntity);
   }
 
+  static void removeAllAuthData() {
+    Preferences.remove(_accessToken);
+    Preferences.remove(_refreshToken);
+    Preferences.remove(_expiredTime);
+  }
+
+  static void removeAccessToken() {
+    Preferences.remove(_accessToken);
+  }
+
+  static void removeRefreshToken() {
+    Preferences.remove(_refreshToken);
+  }
+
+  static void removeExpiredTime() {
+    Preferences.remove(_expiredTime);
+  }
+
   CommonAppSettingPref._();
 }
 
@@ -140,6 +184,11 @@ class Preferences {
 
   static bool getBool(String key, [bool def = false]) {
     final value = instance.getBool(key);
+    return value ?? def;
+  }
+
+  static int getInt(String key, [int def = -1]) {
+    final value = instance.getInt(key);
     return value ?? def;
   }
 

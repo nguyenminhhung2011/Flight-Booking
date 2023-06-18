@@ -39,18 +39,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
     try {
       final user = await _userRepository.login(event.email, event.password);
-      if (user == null) {
-        emit(AuthState.loginFailed(data: data, message: 'Can\'t login'));
-        return;
-      }
-      final saveUser = await CommonAppSettingPref.setUserId(user.data!.id);
-      if (!saveUser) {
-        emit(AuthState.loginFailed(
-          data: data,
-          message: 'Can\'t save user to local',
-        ));
-        return;
-      }
+      // if (user == null) {
+      //   emit(AuthState.loginFailed(data: data, message: 'Can\'t login'));
+      //   return;
+      // }
+      // final saveUser = await CommonAppSettingPref.setUserId(user.data!.id);
+      // if (!saveUser) {
+      //   emit(AuthState.loginFailed(
+      //     data: data,
+      //     message: 'Can\'t save user to local',
+      //   ));
+      //   return;
+      // }
       emit(AuthState.loginSuccess(data: data));
     } catch (exception) {
       emit(AuthState.loginFailed(data: data, message: exception.toString()));
