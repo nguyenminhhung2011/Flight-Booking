@@ -60,9 +60,8 @@ class TokenInterceptor implements Interceptor {
       try {
         final response = await injector.get<AuthApi>().refreshToken();
         if (response.response.statusCode == HttpStatus.ok &&
-            response.data is AuthenticateResponse &&
-            (response.data as AuthenticateResponse).isSuccess) {
-          final responseData = response.data as AuthenticateResponse;
+            response.data.isSuccess) {
+          final responseData = response.data;
           options.headers["Authorization"] =
               "Bearer ${responseData.accessToken}";
           await CommonAppSettingPref.setAccessToken(responseData.accessToken);

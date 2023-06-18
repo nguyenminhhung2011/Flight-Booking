@@ -59,12 +59,18 @@ class UserRepositoryImpl extends BaseApi implements UserRepository {
 
   @override
   Future<bool> logout() async {
-    return true;
+    try {
+      final response = await _authApi.logout();
 
-    final response = await _authApi.logout();
-
-    if (response.response.statusCode == HttpStatus.ok) {
-      return true;
+      if (response.response.statusCode == HttpStatus.ok) {
+        if (response.data.isSuccess) {
+          return true;
+        }
+      }
+    } catch (e) {
+      print("Logout error: $e");
     }
+
+    return false;
   }
 }
