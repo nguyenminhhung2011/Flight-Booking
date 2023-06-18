@@ -189,8 +189,10 @@ _i1.GetIt init(
         gh<_i36.AirportUsecase>(),
         gh<_i32.AirlineUsecase>(),
       ));
-  gh.factory<_i50.AirportBloc>(
-      () => _i50.AirportBloc(gh<_i36.AirportUsecase>()));
+  gh.factory<_i50.AirportBloc>(() => _i50.AirportBloc(
+        gh<_i36.AirportUsecase>(),
+        gh<_i17.FlightsUsecase>(),
+      ));
   gh.factory<_i51.AirportMobileBloc>(
       () => _i51.AirportMobileBloc(gh<_i36.AirportUsecase>()));
   gh.factory<_i52.AuthBloc>(() => _i52.AuthBloc(gh<_i44.UserRepository>()));
