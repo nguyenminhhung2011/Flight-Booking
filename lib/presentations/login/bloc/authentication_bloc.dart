@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flight_booking/core/components/utils/preferences.dart';
+import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/domain/entities/user/user.dart';
 import 'package:flight_booking/domain/usecase/user_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,10 +33,11 @@ class AuthenticationBloc
 
   FutureOr<void> _onLoginEvent(
       LoginEvent event, Emitter<AuthenticationState> emit) async {
+    emit(state.copyWith(status: AuthenticationStatus.checking));
+
     final token = await _userUseCase.login(event.username, event.password);
 
     if (token != null && token.isNotEmpty) {
-      print(token);
       return emit(AuthenticationState.authenticated(token: token));
     }
 
@@ -44,5 +45,14 @@ class AuthenticationBloc
   }
 
   FutureOr<void> _onLogoutEvent(
-      LogoutEvent event, Emitter<AuthenticationState> emit) {}
+      LogoutEvent event, Emitter<AuthenticationState> emit) async {
+    emit(state.copyWith(status: AuthenticationStatus.checking));
+
+    final result = await _userUseCase.logout();
+    print("_onLogoutEvent: $result");
+    if (result) {
+      CommonAppSettingPref.removeAllAuthData();
+      emit(state.copyWith(status: AuthenticationStatus.unauthenticated));
+    }
+  }
 }

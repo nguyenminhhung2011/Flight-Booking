@@ -22,7 +22,9 @@ AuthenticateResponse _$AuthenticateResponseFromJson(Map<String, dynamic> json) {
 mixin _$AuthenticateResponse {
   String get message => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
-  String get token => throw _privateConstructorUsedError;
+  String get accessToken => throw _privateConstructorUsedError;
+  String get refreshToken => throw _privateConstructorUsedError;
+  int get expiredTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +38,12 @@ abstract class $AuthenticateResponseCopyWith<$Res> {
           $Res Function(AuthenticateResponse) then) =
       _$AuthenticateResponseCopyWithImpl<$Res, AuthenticateResponse>;
   @useResult
-  $Res call({String message, bool isSuccess, String token});
+  $Res call(
+      {String message,
+      bool isSuccess,
+      String accessToken,
+      String refreshToken,
+      int expiredTime});
 }
 
 /// @nodoc
@@ -55,7 +62,9 @@ class _$AuthenticateResponseCopyWithImpl<$Res,
   $Res call({
     Object? message = null,
     Object? isSuccess = null,
-    Object? token = null,
+    Object? accessToken = null,
+    Object? refreshToken = null,
+    Object? expiredTime = null,
   }) {
     return _then(_value.copyWith(
       message: null == message
@@ -66,10 +75,18 @@ class _$AuthenticateResponseCopyWithImpl<$Res,
           ? _value.isSuccess
           : isSuccess // ignore: cast_nullable_to_non_nullable
               as bool,
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
+      accessToken: null == accessToken
+          ? _value.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
               as String,
+      refreshToken: null == refreshToken
+          ? _value.refreshToken
+          : refreshToken // ignore: cast_nullable_to_non_nullable
+              as String,
+      expiredTime: null == expiredTime
+          ? _value.expiredTime
+          : expiredTime // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -82,7 +99,12 @@ abstract class _$$_AuthenticateResponseCopyWith<$Res>
       __$$_AuthenticateResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String message, bool isSuccess, String token});
+  $Res call(
+      {String message,
+      bool isSuccess,
+      String accessToken,
+      String refreshToken,
+      int expiredTime});
 }
 
 /// @nodoc
@@ -98,7 +120,9 @@ class __$$_AuthenticateResponseCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
     Object? isSuccess = null,
-    Object? token = null,
+    Object? accessToken = null,
+    Object? refreshToken = null,
+    Object? expiredTime = null,
   }) {
     return _then(_$_AuthenticateResponse(
       message: null == message
@@ -109,10 +133,18 @@ class __$$_AuthenticateResponseCopyWithImpl<$Res>
           ? _value.isSuccess
           : isSuccess // ignore: cast_nullable_to_non_nullable
               as bool,
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
+      accessToken: null == accessToken
+          ? _value.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
               as String,
+      refreshToken: null == refreshToken
+          ? _value.refreshToken
+          : refreshToken // ignore: cast_nullable_to_non_nullable
+              as String,
+      expiredTime: null == expiredTime
+          ? _value.expiredTime
+          : expiredTime // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -121,7 +153,11 @@ class __$$_AuthenticateResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AuthenticateResponse implements _AuthenticateResponse {
   const _$_AuthenticateResponse(
-      {this.message = "", this.isSuccess = false, this.token = ""});
+      {this.message = "",
+      this.isSuccess = false,
+      this.accessToken = "",
+      this.refreshToken = "",
+      this.expiredTime = 0});
 
   factory _$_AuthenticateResponse.fromJson(Map<String, dynamic> json) =>
       _$$_AuthenticateResponseFromJson(json);
@@ -134,11 +170,17 @@ class _$_AuthenticateResponse implements _AuthenticateResponse {
   final bool isSuccess;
   @override
   @JsonKey()
-  final String token;
+  final String accessToken;
+  @override
+  @JsonKey()
+  final String refreshToken;
+  @override
+  @JsonKey()
+  final int expiredTime;
 
   @override
   String toString() {
-    return 'AuthenticateResponse(message: $message, isSuccess: $isSuccess, token: $token)';
+    return 'AuthenticateResponse(message: $message, isSuccess: $isSuccess, accessToken: $accessToken, refreshToken: $refreshToken, expiredTime: $expiredTime)';
   }
 
   @override
@@ -149,12 +191,18 @@ class _$_AuthenticateResponse implements _AuthenticateResponse {
             (identical(other.message, message) || other.message == message) &&
             (identical(other.isSuccess, isSuccess) ||
                 other.isSuccess == isSuccess) &&
-            (identical(other.token, token) || other.token == token));
+            (identical(other.accessToken, accessToken) ||
+                other.accessToken == accessToken) &&
+            (identical(other.refreshToken, refreshToken) ||
+                other.refreshToken == refreshToken) &&
+            (identical(other.expiredTime, expiredTime) ||
+                other.expiredTime == expiredTime));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, message, isSuccess, token);
+  int get hashCode => Object.hash(
+      runtimeType, message, isSuccess, accessToken, refreshToken, expiredTime);
 
   @JsonKey(ignore: true)
   @override
@@ -175,7 +223,9 @@ abstract class _AuthenticateResponse implements AuthenticateResponse {
   const factory _AuthenticateResponse(
       {final String message,
       final bool isSuccess,
-      final String token}) = _$_AuthenticateResponse;
+      final String accessToken,
+      final String refreshToken,
+      final int expiredTime}) = _$_AuthenticateResponse;
 
   factory _AuthenticateResponse.fromJson(Map<String, dynamic> json) =
       _$_AuthenticateResponse.fromJson;
@@ -185,7 +235,11 @@ abstract class _AuthenticateResponse implements AuthenticateResponse {
   @override
   bool get isSuccess;
   @override
-  String get token;
+  String get accessToken;
+  @override
+  String get refreshToken;
+  @override
+  int get expiredTime;
   @override
   @JsonKey(ignore: true)
   _$$_AuthenticateResponseCopyWith<_$_AuthenticateResponse> get copyWith =>

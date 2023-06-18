@@ -1,3 +1,10 @@
+import 'dart:convert';
+import 'dart:io';
+import 'dart:js_interop';
+import 'dart:math';
+
+import 'package:dio/dio.dart';
+import 'package:flight_booking/core/components/utils/preferences.dart';
 import 'package:flight_booking/data/datasource/remote/auth/auth_api.dart';
 import 'package:flight_booking/data/models/base_api.dart';
 import 'package:flight_booking/data/models/data_state.dart';
@@ -51,8 +58,13 @@ class UserRepositoryImpl extends BaseApi implements UserRepository {
   }
 
   @override
-  Future<void> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
+  Future<bool> logout() async {
+    return true;
+
+    final response = await _authApi.logout();
+
+    if (response.response.statusCode == HttpStatus.ok) {
+      return true;
+    }
   }
 }

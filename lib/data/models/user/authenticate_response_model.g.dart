@@ -11,7 +11,9 @@ _$_AuthenticateResponse _$$_AuthenticateResponseFromJson(
     _$_AuthenticateResponse(
       message: json['message'] as String? ?? "",
       isSuccess: json['isSuccess'] as bool? ?? false,
-      token: json['token'] as String? ?? "",
+      accessToken: json['accessToken'] as String? ?? "",
+      refreshToken: json['refreshToken'] as String? ?? "",
+      expiredTime: json['expiredTime'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$$_AuthenticateResponseToJson(
@@ -19,5 +21,7 @@ Map<String, dynamic> _$$_AuthenticateResponseToJson(
     <String, dynamic>{
       'message': instance.message,
       'isSuccess': instance.isSuccess,
-      'token': instance.token,
+      'accessToken': instance.accessToken,
+      'refreshToken': instance.refreshToken,
+      'expiredTime': instance.expiredTime,
     };

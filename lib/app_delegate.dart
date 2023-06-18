@@ -47,7 +47,7 @@ class AppDelegate {
           BlocProvider<SaveBloc>(create: (_) => injector.get()),
         ],
       ],
-      initialRoute: isMobile ? RoutesMobile.splash : Routes.dashboard,
+      initialRoute: isMobile ? RoutesMobile.splash : Routes.splash,
       savedThemeMode: savedThemeMode,
       isMobile: isMobile,
     );
@@ -55,7 +55,9 @@ class AppDelegate {
 
   Future<void> run(Map<String, dynamic> environment) async {
     final app = await build(environment);
+
     await Preferences.ensureInitedPreferences();
+
     WidgetsFlutterBinding.ensureInitialized();
     runZonedGuarded(
       () => {runApp(app)},

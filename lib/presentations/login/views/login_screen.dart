@@ -1,5 +1,6 @@
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
+import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/presentations/login/bloc/authentication_bloc.dart';
 import 'package:flight_booking/presentations/login/views/widgets/forget_password_form.dart';
 import 'package:flutter/material.dart';
@@ -14,68 +15,70 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthenticationBloc, AuthenticationState>(
-      listener: (context, state) {
-        if (state.status == AuthenticationStatus.authenticated) {
-          context.openDashboardPage();
-        }
-      },
-      child: Scaffold(
+    return BlocConsumer<AuthenticationBloc, AuthenticationState>(
+        listener: (context, state) async {
+      if (state.status == AuthenticationStatus.authenticated) {
+        await context.openDashboardPage();
+      }
+    }, builder: (context, state) {
+      return Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        body: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.25,
-            vertical: MediaQuery.of(context).size.height * 0.15,
-          ),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage(
-                Theme.of(context).brightness == Brightness.light
-                    ? ImageConst.loginBackground
-                    : ImageConst.loginBackgroundDark,
+        body: state.status == AuthenticationStatus.checking
+            ? const LoadingIndicator()
+            : Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.25,
+                  vertical: MediaQuery.of(context).size.height * 0.15,
+                ),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(
+                      Theme.of(context).brightness == Brightness.light
+                          ? ImageConst.loginBackground
+                          : ImageConst.loginBackgroundDark,
+                    ),
+                  ),
+                ),
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                    vertical: MediaQuery.of(context).size.height * 0.05,
+                  ),
+                  // width: loginFormWidth,
+                  // height: loginFormHeight,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: PageView(
+                    controller: pageController,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: [
+                      LoginForm(
+                        // loginFormWidth: loginFormWidth,
+                        navigateToForgetPassword: () async {
+                          await pageController.nextPage(
+                            duration: const Duration(milliseconds: 200),
+                            curve: Curves.bounceIn,
+                          );
+                        },
+                      ),
+                      ForgetPasswordForm(
+                        comebackToLoginForm: () async {
+                          await pageController.previousPage(
+                            duration: const Duration(milliseconds: 200),
+                            curve: Curves.bounceIn,
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ),
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.05,
-              vertical: MediaQuery.of(context).size.height * 0.05,
-            ),
-            // width: loginFormWidth,
-            // height: loginFormHeight,
-            decoration: BoxDecoration(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: PageView(
-              controller: pageController,
-              physics: const NeverScrollableScrollPhysics(),
-              children: [
-                LoginForm(
-                  // loginFormWidth: loginFormWidth,
-                  navigateToForgetPassword: () async {
-                    await pageController.nextPage(
-                      duration: const Duration(milliseconds: 200),
-                      curve: Curves.bounceIn,
-                    );
-                  },
-                ),
-                ForgetPasswordForm(
-                  comebackToLoginForm: () async {
-                    await pageController.previousPage(
-                      duration: const Duration(milliseconds: 200),
-                      curve: Curves.bounceIn,
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+      );
+    });
   }
 }
 
