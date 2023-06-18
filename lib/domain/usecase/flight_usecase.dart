@@ -20,6 +20,21 @@ class FlightsUsecase {
     return await _flightRepository.getFlightsByPage(cursor, pageSize);
   }
 
+  Future<PageResponseEntity<Flight>> getFlightByCategory({
+    String? locationArrival,
+    String? locationDeparture,
+    String? airlineName,
+    int? cursor,
+    int? pageSize,
+  }) async =>
+      await _flightRepository.getFlightByCategory(
+        locationArrival: locationArrival,
+        locationDeparture: locationDeparture,
+        airlineName: airlineName,
+        cursor: cursor,
+        pageSize: pageSize,
+      );
+
   Future<List<Flight>> filterFlight(
     String locationArrival,
     String locationDeparture,

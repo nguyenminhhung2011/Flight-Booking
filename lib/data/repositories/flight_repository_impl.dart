@@ -8,6 +8,8 @@ import '../../domain/entities/page_response/page_response_entity.dart';
 import '../../domain/repositories/flight_repository.dart';
 
 const _flightDefaultError = 'Error';
+const _constPageSize = 10;
+const _defaultCursor = 0;
 
 @Injectable(as: FlightRepository)
 class FlightRepositoryImpl extends FlightRepository {
@@ -125,5 +127,38 @@ class FlightRepositoryImpl extends FlightRepository {
     }
     final result = response.data?.map((e) => e.toEntity()).toList();
     return result ?? <Flight>[];
+  }
+
+  @override
+  Future<PageResponseEntity<Flight>> getFlightByCategory({
+    String? locationArrival,
+    String? locationDeparture,
+    String? airlineName,
+    String? searchText,
+    int? cursor,
+    int? pageSize,
+  }) async {
+    bool locationArrivalCheck = locationArrival?.isNotEmpty ?? false;
+    bool locationDepartureCheck = locationDeparture?.isNotEmpty ?? false;
+    bool airlineNameCheck = airlineName?.isNotEmpty ?? false;
+    if (!locationDepartureCheck || !locationArrivalCheck || !airlineNameCheck) {
+      return await getFlightsByPage(
+        cursor ?? _defaultCursor,
+        pageSize ?? _constPageSize,
+      );
+    }
+    final result = await filterFlight(
+      locationArrival ?? '',
+      locationDeparture ?? '',
+      airlineName ?? '',
+      cursor ?? _defaultCursor,
+      pageSize ?? _constPageSize,
+    );
+    return PageResponseEntity(
+      currentPage: cursor ?? 0,
+      pageSize: pageSize ?? 10,
+      totalPages: 2,
+      data: result,
+    );
   }
 }

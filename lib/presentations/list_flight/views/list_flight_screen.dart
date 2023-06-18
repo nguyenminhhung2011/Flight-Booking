@@ -17,8 +17,6 @@ import '../../../domain/entities/flight/flight.dart';
 import '../../../generated/l10n.dart';
 import '../bloc/list_flight_bloc.dart';
 
-const _idNull = '';
-
 class ListFlightScreen extends StatefulWidget {
   const ListFlightScreen({super.key});
 
@@ -70,9 +68,23 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
     _bloc.add(ListFlightEvent.getFlightByPage(newPage));
   }
 
-  void _onFilterFlight() {
-    _bloc.add(const ListFlightEvent.filterFlight());
+  void _onFilterFlight(
+    String airline,
+    String locationArrival,
+    String locationDeparture,
+  ) {
+    _bloc.add(ListFlightEvent.filterFlight(
+      airline: airline,
+      locationArrival: locationArrival,
+      locationDeparture: locationDeparture,
+    ));
   }
+
+  void _onRefreshItemDisplay() {
+    _bloc.add(const ListFlightEvent.refreshItem());
+  }
+
+  // void _onSelected
 
   void _listenStateChanged(BuildContext context, ListFlightState state) {
     state.whenOrNull(selectListFlightSuccess: (data, ticID) {
@@ -136,7 +148,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
       builder: (context, state) {
         final flights = state.data.flights;
         final currentPage = state.data.currentPage;
-        final totalPage = state.data.totalPage;
+        // final totalPage = state.data.totalPage;
         return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           floatingActionButton: ButtonCustom(
@@ -215,14 +227,25 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              PageIndexView(
-                                currentPage: currentPage,
-                                totalPage: totalPage,
-                                selected: _onChangePage,
+                              TextButton(
+                                  onPressed: () =>
+                                      _onChangePage(currentPage - 1),
+                                  child: Text(
+                                    S.of(context).previous,
+                                    style: context.titleSmall
+                                        .copyWith(fontWeight: FontWeight.bold),
+                                  )),
+                              const SizedBox(width: 10.0),
+                              Text(
+                                (currentPage + 1).toString(),
+                                style: context.titleMedium.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                               const SizedBox(width: 10.0),
                               TextButton(
-                                  onPressed: () {},
+                                  onPressed: () =>
+                                      _onChangePage(currentPage + 1),
                                   child: Text(
                                     S.of(context).next,
                                     style: context.titleSmall
@@ -282,6 +305,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
       child: SizedBox(
         width: double.infinity,
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               child: DropdownButtonCustom<String?>(
@@ -296,7 +320,11 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                             ))
                     .toList(),
                 value: airlineSelected,
-                onChange: (va) {},
+                onChange: (val) => _onFilterFlight(
+                  val ?? '',
+                  locationArrival,
+                  locationDeparture,
+                ),
               ),
             ),
             Expanded(
@@ -312,7 +340,11 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                             ))
                     .toList(),
                 value: locationDeparture,
-                onChange: (value) {},
+                onChange: (value) => _onFilterFlight(
+                  airlineSelected,
+                  locationArrival,
+                  value ?? '',
+                ),
               ),
             ),
             Expanded(
@@ -328,14 +360,27 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                             ))
                     .toList(),
                 value: locationArrival,
-                onChange: (value) {},
+                onChange: (value) => _onFilterFlight(
+                  airlineSelected,
+                  value ?? '',
+                  locationDeparture,
+                ),
               ),
             ),
-            ButtonCustom(
-              onPress: _onFilterFlight,
-              width: 55,
-              height: 55,
-              child: const Icon(Icons.filter),
+            Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Theme.of(context).primaryColor,
+              ),
+              child: IconButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    Theme.of(context).primaryColor,
+                  ),
+                ),
+                onPressed: _onRefreshItemDisplay,
+                icon: const Icon(Icons.refresh),
+              ),
             )
           ].expand((element) => [element, const SizedBox(width: 10.0)]).toList()
             ..removeLast(),

@@ -353,6 +353,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "premiumEconomyClassTicket": MessageLookupByLibrary.simpleMessage(
             "Premium Economy Class Ticket"),
         "preview": MessageLookupByLibrary.simpleMessage("Preview"),
+        "previous": MessageLookupByLibrary.simpleMessage("Previous"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "priceSummary": MessageLookupByLibrary.simpleMessage("Price Summary"),
         "principleSetting":

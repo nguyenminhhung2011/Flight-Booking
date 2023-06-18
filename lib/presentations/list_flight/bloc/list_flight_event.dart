@@ -22,8 +22,21 @@ class ListFlightEvent with _$ListFlightEvent {
 
   const factory ListFlightEvent.deleteFlight(int id) = _DeleteFlight;
 
-  const factory ListFlightEvent.filterFlight() = _FilterFlight;
+  const factory ListFlightEvent.filterFlight({
+    required String airline,
+    required String locationArrival,
+    required String locationDeparture,
+  }) = _FilterFlight;
 
   const factory ListFlightEvent.fetchPlaces() = _FetchPlaces;
   const factory ListFlightEvent.fetchAirline() = _FetchAirlines;
+  const factory ListFlightEvent.selectedAirlines({required String airline}) =
+      _SelectedAirline;
+
+  const factory ListFlightEvent.selectedPlaceAirport({
+    required String place,
+    required bool isDeparture,
+  }) = _SelectedPlaceAirport;
+
+  const factory ListFlightEvent.refreshItem() = _RefreshItem;
 }

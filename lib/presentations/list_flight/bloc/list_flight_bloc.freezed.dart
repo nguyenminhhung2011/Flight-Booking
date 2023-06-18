@@ -26,9 +26,15 @@ mixin _$ListFlightEvent {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,9 +47,14 @@ mixin _$ListFlightEvent {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,9 +67,14 @@ mixin _$ListFlightEvent {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,6 +94,9 @@ mixin _$ListFlightEvent {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +112,9 @@ mixin _$ListFlightEvent {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -108,6 +130,9 @@ mixin _$ListFlightEvent {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -176,9 +201,15 @@ class _$_Started implements _Started {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return started();
   }
@@ -194,9 +225,14 @@ class _$_Started implements _Started {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return started?.call();
   }
@@ -212,9 +248,14 @@ class _$_Started implements _Started {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -240,6 +281,9 @@ class _$_Started implements _Started {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return started(this);
   }
@@ -258,6 +302,9 @@ class _$_Started implements _Started {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return started?.call(this);
   }
@@ -276,6 +323,9 @@ class _$_Started implements _Started {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -362,9 +412,15 @@ class _$_SelectFlight implements _SelectFlight {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return selectFlight(flightID);
   }
@@ -380,9 +436,14 @@ class _$_SelectFlight implements _SelectFlight {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return selectFlight?.call(flightID);
   }
@@ -398,9 +459,14 @@ class _$_SelectFlight implements _SelectFlight {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (selectFlight != null) {
@@ -426,6 +492,9 @@ class _$_SelectFlight implements _SelectFlight {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return selectFlight(this);
   }
@@ -444,6 +513,9 @@ class _$_SelectFlight implements _SelectFlight {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return selectFlight?.call(this);
   }
@@ -462,6 +534,9 @@ class _$_SelectFlight implements _SelectFlight {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (selectFlight != null) {
@@ -526,9 +601,15 @@ class _$_GetFlights implements _GetFlights {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return getFlights();
   }
@@ -544,9 +625,14 @@ class _$_GetFlights implements _GetFlights {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return getFlights?.call();
   }
@@ -562,9 +648,14 @@ class _$_GetFlights implements _GetFlights {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (getFlights != null) {
@@ -590,6 +681,9 @@ class _$_GetFlights implements _GetFlights {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return getFlights(this);
   }
@@ -608,6 +702,9 @@ class _$_GetFlights implements _GetFlights {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return getFlights?.call(this);
   }
@@ -626,6 +723,9 @@ class _$_GetFlights implements _GetFlights {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (getFlights != null) {
@@ -712,9 +812,15 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return openAddEditFlightForm(id);
   }
@@ -730,9 +836,14 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return openAddEditFlightForm?.call(id);
   }
@@ -748,9 +859,14 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (openAddEditFlightForm != null) {
@@ -776,6 +892,9 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return openAddEditFlightForm(this);
   }
@@ -794,6 +913,9 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return openAddEditFlightForm?.call(this);
   }
@@ -812,6 +934,9 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (openAddEditFlightForm != null) {
@@ -914,9 +1039,15 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return updateFlightsAfterEdit(flight);
   }
@@ -932,9 +1063,14 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return updateFlightsAfterEdit?.call(flight);
   }
@@ -950,9 +1086,14 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (updateFlightsAfterEdit != null) {
@@ -978,6 +1119,9 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return updateFlightsAfterEdit(this);
   }
@@ -996,6 +1140,9 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return updateFlightsAfterEdit?.call(this);
   }
@@ -1014,6 +1161,9 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (updateFlightsAfterEdit != null) {
@@ -1116,9 +1266,15 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return updateFlightsAfterAdd(flight);
   }
@@ -1134,9 +1290,14 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return updateFlightsAfterAdd?.call(flight);
   }
@@ -1152,9 +1313,14 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (updateFlightsAfterAdd != null) {
@@ -1180,6 +1346,9 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return updateFlightsAfterAdd(this);
   }
@@ -1198,6 +1367,9 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return updateFlightsAfterAdd?.call(this);
   }
@@ -1216,6 +1388,9 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (updateFlightsAfterAdd != null) {
@@ -1307,9 +1482,15 @@ class _$_GetFlightByPage implements _GetFlightByPage {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return getFlightByPage(cursor);
   }
@@ -1325,9 +1506,14 @@ class _$_GetFlightByPage implements _GetFlightByPage {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return getFlightByPage?.call(cursor);
   }
@@ -1343,9 +1529,14 @@ class _$_GetFlightByPage implements _GetFlightByPage {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (getFlightByPage != null) {
@@ -1371,6 +1562,9 @@ class _$_GetFlightByPage implements _GetFlightByPage {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return getFlightByPage(this);
   }
@@ -1389,6 +1583,9 @@ class _$_GetFlightByPage implements _GetFlightByPage {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return getFlightByPage?.call(this);
   }
@@ -1407,6 +1604,9 @@ class _$_GetFlightByPage implements _GetFlightByPage {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (getFlightByPage != null) {
@@ -1497,9 +1697,15 @@ class _$_DeleteFlight implements _DeleteFlight {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return deleteFlight(id);
   }
@@ -1515,9 +1721,14 @@ class _$_DeleteFlight implements _DeleteFlight {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return deleteFlight?.call(id);
   }
@@ -1533,9 +1744,14 @@ class _$_DeleteFlight implements _DeleteFlight {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (deleteFlight != null) {
@@ -1561,6 +1777,9 @@ class _$_DeleteFlight implements _DeleteFlight {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return deleteFlight(this);
   }
@@ -1579,6 +1798,9 @@ class _$_DeleteFlight implements _DeleteFlight {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return deleteFlight?.call(this);
   }
@@ -1597,6 +1819,9 @@ class _$_DeleteFlight implements _DeleteFlight {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (deleteFlight != null) {
@@ -1620,6 +1845,8 @@ abstract class _$$_FilterFlightCopyWith<$Res> {
   factory _$$_FilterFlightCopyWith(
           _$_FilterFlight value, $Res Function(_$_FilterFlight) then) =
       __$$_FilterFlightCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String airline, String locationArrival, String locationDeparture});
 }
 
 /// @nodoc
@@ -1629,26 +1856,72 @@ class __$$_FilterFlightCopyWithImpl<$Res>
   __$$_FilterFlightCopyWithImpl(
       _$_FilterFlight _value, $Res Function(_$_FilterFlight) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? airline = null,
+    Object? locationArrival = null,
+    Object? locationDeparture = null,
+  }) {
+    return _then(_$_FilterFlight(
+      airline: null == airline
+          ? _value.airline
+          : airline // ignore: cast_nullable_to_non_nullable
+              as String,
+      locationArrival: null == locationArrival
+          ? _value.locationArrival
+          : locationArrival // ignore: cast_nullable_to_non_nullable
+              as String,
+      locationDeparture: null == locationDeparture
+          ? _value.locationDeparture
+          : locationDeparture // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_FilterFlight implements _FilterFlight {
-  const _$_FilterFlight();
+  const _$_FilterFlight(
+      {required this.airline,
+      required this.locationArrival,
+      required this.locationDeparture});
+
+  @override
+  final String airline;
+  @override
+  final String locationArrival;
+  @override
+  final String locationDeparture;
 
   @override
   String toString() {
-    return 'ListFlightEvent.filterFlight()';
+    return 'ListFlightEvent.filterFlight(airline: $airline, locationArrival: $locationArrival, locationDeparture: $locationDeparture)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FilterFlight);
+        (other.runtimeType == runtimeType &&
+            other is _$_FilterFlight &&
+            (identical(other.airline, airline) || other.airline == airline) &&
+            (identical(other.locationArrival, locationArrival) ||
+                other.locationArrival == locationArrival) &&
+            (identical(other.locationDeparture, locationDeparture) ||
+                other.locationDeparture == locationDeparture));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, airline, locationArrival, locationDeparture);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FilterFlightCopyWith<_$_FilterFlight> get copyWith =>
+      __$$_FilterFlightCopyWithImpl<_$_FilterFlight>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1661,11 +1934,17 @@ class _$_FilterFlight implements _FilterFlight {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
-    return filterFlight();
+    return filterFlight(airline, locationArrival, locationDeparture);
   }
 
   @override
@@ -1679,11 +1958,16 @@ class _$_FilterFlight implements _FilterFlight {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
-    return filterFlight?.call();
+    return filterFlight?.call(airline, locationArrival, locationDeparture);
   }
 
   @override
@@ -1697,13 +1981,18 @@ class _$_FilterFlight implements _FilterFlight {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (filterFlight != null) {
-      return filterFlight();
+      return filterFlight(airline, locationArrival, locationDeparture);
     }
     return orElse();
   }
@@ -1725,6 +2014,9 @@ class _$_FilterFlight implements _FilterFlight {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return filterFlight(this);
   }
@@ -1743,6 +2035,9 @@ class _$_FilterFlight implements _FilterFlight {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return filterFlight?.call(this);
   }
@@ -1761,6 +2056,9 @@ class _$_FilterFlight implements _FilterFlight {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (filterFlight != null) {
@@ -1771,7 +2069,17 @@ class _$_FilterFlight implements _FilterFlight {
 }
 
 abstract class _FilterFlight implements ListFlightEvent {
-  const factory _FilterFlight() = _$_FilterFlight;
+  const factory _FilterFlight(
+      {required final String airline,
+      required final String locationArrival,
+      required final String locationDeparture}) = _$_FilterFlight;
+
+  String get airline;
+  String get locationArrival;
+  String get locationDeparture;
+  @JsonKey(ignore: true)
+  _$$_FilterFlightCopyWith<_$_FilterFlight> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1820,9 +2128,15 @@ class _$_FetchPlaces implements _FetchPlaces {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return fetchPlaces();
   }
@@ -1838,9 +2152,14 @@ class _$_FetchPlaces implements _FetchPlaces {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return fetchPlaces?.call();
   }
@@ -1856,9 +2175,14 @@ class _$_FetchPlaces implements _FetchPlaces {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (fetchPlaces != null) {
@@ -1884,6 +2208,9 @@ class _$_FetchPlaces implements _FetchPlaces {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return fetchPlaces(this);
   }
@@ -1902,6 +2229,9 @@ class _$_FetchPlaces implements _FetchPlaces {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return fetchPlaces?.call(this);
   }
@@ -1920,6 +2250,9 @@ class _$_FetchPlaces implements _FetchPlaces {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (fetchPlaces != null) {
@@ -1979,9 +2312,15 @@ class _$_FetchAirlines implements _FetchAirlines {
     required TResult Function(Flight flight) updateFlightsAfterAdd,
     required TResult Function(int cursor) getFlightByPage,
     required TResult Function(int id) deleteFlight,
-    required TResult Function() filterFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
     required TResult Function() fetchPlaces,
     required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return fetchAirline();
   }
@@ -1997,9 +2336,14 @@ class _$_FetchAirlines implements _FetchAirlines {
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
     TResult? Function(int cursor)? getFlightByPage,
     TResult? Function(int id)? deleteFlight,
-    TResult? Function()? filterFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult? Function()? fetchPlaces,
     TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return fetchAirline?.call();
   }
@@ -2015,9 +2359,14 @@ class _$_FetchAirlines implements _FetchAirlines {
     TResult Function(Flight flight)? updateFlightsAfterAdd,
     TResult Function(int cursor)? getFlightByPage,
     TResult Function(int id)? deleteFlight,
-    TResult Function()? filterFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
     TResult Function()? fetchPlaces,
     TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (fetchAirline != null) {
@@ -2043,6 +2392,9 @@ class _$_FetchAirlines implements _FetchAirlines {
     required TResult Function(_FilterFlight value) filterFlight,
     required TResult Function(_FetchPlaces value) fetchPlaces,
     required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return fetchAirline(this);
   }
@@ -2061,6 +2413,9 @@ class _$_FetchAirlines implements _FetchAirlines {
     TResult? Function(_FilterFlight value)? filterFlight,
     TResult? Function(_FetchPlaces value)? fetchPlaces,
     TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return fetchAirline?.call(this);
   }
@@ -2079,6 +2434,9 @@ class _$_FetchAirlines implements _FetchAirlines {
     TResult Function(_FilterFlight value)? filterFlight,
     TResult Function(_FetchPlaces value)? fetchPlaces,
     TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (fetchAirline != null) {
@@ -2090,6 +2448,635 @@ class _$_FetchAirlines implements _FetchAirlines {
 
 abstract class _FetchAirlines implements ListFlightEvent {
   const factory _FetchAirlines() = _$_FetchAirlines;
+}
+
+/// @nodoc
+abstract class _$$_SelectedAirlineCopyWith<$Res> {
+  factory _$$_SelectedAirlineCopyWith(
+          _$_SelectedAirline value, $Res Function(_$_SelectedAirline) then) =
+      __$$_SelectedAirlineCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String airline});
+}
+
+/// @nodoc
+class __$$_SelectedAirlineCopyWithImpl<$Res>
+    extends _$ListFlightEventCopyWithImpl<$Res, _$_SelectedAirline>
+    implements _$$_SelectedAirlineCopyWith<$Res> {
+  __$$_SelectedAirlineCopyWithImpl(
+      _$_SelectedAirline _value, $Res Function(_$_SelectedAirline) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? airline = null,
+  }) {
+    return _then(_$_SelectedAirline(
+      airline: null == airline
+          ? _value.airline
+          : airline // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedAirline implements _SelectedAirline {
+  const _$_SelectedAirline({required this.airline});
+
+  @override
+  final String airline;
+
+  @override
+  String toString() {
+    return 'ListFlightEvent.selectedAirlines(airline: $airline)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedAirline &&
+            (identical(other.airline, airline) || other.airline == airline));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, airline);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedAirlineCopyWith<_$_SelectedAirline> get copyWith =>
+      __$$_SelectedAirlineCopyWithImpl<_$_SelectedAirline>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String flightID) selectFlight,
+    required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
+    required TResult Function(Flight flight) updateFlightsAfterEdit,
+    required TResult Function(Flight flight) updateFlightsAfterAdd,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
+  }) {
+    return selectedAirlines(airline);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String flightID)? selectFlight,
+    TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
+    TResult? Function(Flight flight)? updateFlightsAfterEdit,
+    TResult? Function(Flight flight)? updateFlightsAfterAdd,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
+  }) {
+    return selectedAirlines?.call(airline);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String flightID)? selectFlight,
+    TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
+    TResult Function(Flight flight)? updateFlightsAfterEdit,
+    TResult Function(Flight flight)? updateFlightsAfterAdd,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (selectedAirlines != null) {
+      return selectedAirlines(airline);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectFlight value) selectFlight,
+    required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
+    required TResult Function(_UpdateFlightsAfterEdit value)
+        updateFlightsAfterEdit,
+    required TResult Function(_UpdateFlightsAfterAdd value)
+        updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
+    required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
+  }) {
+    return selectedAirlines(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectFlight value)? selectFlight,
+    TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
+    TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
+  }) {
+    return selectedAirlines?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectFlight value)? selectFlight,
+    TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
+    TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (selectedAirlines != null) {
+      return selectedAirlines(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedAirline implements ListFlightEvent {
+  const factory _SelectedAirline({required final String airline}) =
+      _$_SelectedAirline;
+
+  String get airline;
+  @JsonKey(ignore: true)
+  _$$_SelectedAirlineCopyWith<_$_SelectedAirline> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedPlaceAirportCopyWith<$Res> {
+  factory _$$_SelectedPlaceAirportCopyWith(_$_SelectedPlaceAirport value,
+          $Res Function(_$_SelectedPlaceAirport) then) =
+      __$$_SelectedPlaceAirportCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String place, bool isDeparture});
+}
+
+/// @nodoc
+class __$$_SelectedPlaceAirportCopyWithImpl<$Res>
+    extends _$ListFlightEventCopyWithImpl<$Res, _$_SelectedPlaceAirport>
+    implements _$$_SelectedPlaceAirportCopyWith<$Res> {
+  __$$_SelectedPlaceAirportCopyWithImpl(_$_SelectedPlaceAirport _value,
+      $Res Function(_$_SelectedPlaceAirport) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? place = null,
+    Object? isDeparture = null,
+  }) {
+    return _then(_$_SelectedPlaceAirport(
+      place: null == place
+          ? _value.place
+          : place // ignore: cast_nullable_to_non_nullable
+              as String,
+      isDeparture: null == isDeparture
+          ? _value.isDeparture
+          : isDeparture // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedPlaceAirport implements _SelectedPlaceAirport {
+  const _$_SelectedPlaceAirport(
+      {required this.place, required this.isDeparture});
+
+  @override
+  final String place;
+  @override
+  final bool isDeparture;
+
+  @override
+  String toString() {
+    return 'ListFlightEvent.selectedPlaceAirport(place: $place, isDeparture: $isDeparture)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedPlaceAirport &&
+            (identical(other.place, place) || other.place == place) &&
+            (identical(other.isDeparture, isDeparture) ||
+                other.isDeparture == isDeparture));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, place, isDeparture);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedPlaceAirportCopyWith<_$_SelectedPlaceAirport> get copyWith =>
+      __$$_SelectedPlaceAirportCopyWithImpl<_$_SelectedPlaceAirport>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String flightID) selectFlight,
+    required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
+    required TResult Function(Flight flight) updateFlightsAfterEdit,
+    required TResult Function(Flight flight) updateFlightsAfterAdd,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
+  }) {
+    return selectedPlaceAirport(place, isDeparture);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String flightID)? selectFlight,
+    TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
+    TResult? Function(Flight flight)? updateFlightsAfterEdit,
+    TResult? Function(Flight flight)? updateFlightsAfterAdd,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
+  }) {
+    return selectedPlaceAirport?.call(place, isDeparture);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String flightID)? selectFlight,
+    TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
+    TResult Function(Flight flight)? updateFlightsAfterEdit,
+    TResult Function(Flight flight)? updateFlightsAfterAdd,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (selectedPlaceAirport != null) {
+      return selectedPlaceAirport(place, isDeparture);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectFlight value) selectFlight,
+    required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
+    required TResult Function(_UpdateFlightsAfterEdit value)
+        updateFlightsAfterEdit,
+    required TResult Function(_UpdateFlightsAfterAdd value)
+        updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
+    required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
+  }) {
+    return selectedPlaceAirport(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectFlight value)? selectFlight,
+    TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
+    TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
+  }) {
+    return selectedPlaceAirport?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectFlight value)? selectFlight,
+    TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
+    TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (selectedPlaceAirport != null) {
+      return selectedPlaceAirport(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedPlaceAirport implements ListFlightEvent {
+  const factory _SelectedPlaceAirport(
+      {required final String place,
+      required final bool isDeparture}) = _$_SelectedPlaceAirport;
+
+  String get place;
+  bool get isDeparture;
+  @JsonKey(ignore: true)
+  _$$_SelectedPlaceAirportCopyWith<_$_SelectedPlaceAirport> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RefreshItemCopyWith<$Res> {
+  factory _$$_RefreshItemCopyWith(
+          _$_RefreshItem value, $Res Function(_$_RefreshItem) then) =
+      __$$_RefreshItemCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RefreshItemCopyWithImpl<$Res>
+    extends _$ListFlightEventCopyWithImpl<$Res, _$_RefreshItem>
+    implements _$$_RefreshItemCopyWith<$Res> {
+  __$$_RefreshItemCopyWithImpl(
+      _$_RefreshItem _value, $Res Function(_$_RefreshItem) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_RefreshItem implements _RefreshItem {
+  const _$_RefreshItem();
+
+  @override
+  String toString() {
+    return 'ListFlightEvent.refreshItem()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_RefreshItem);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String flightID) selectFlight,
+    required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
+    required TResult Function(Flight flight) updateFlightsAfterEdit,
+    required TResult Function(Flight flight) updateFlightsAfterAdd,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
+  }) {
+    return refreshItem();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String flightID)? selectFlight,
+    TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
+    TResult? Function(Flight flight)? updateFlightsAfterEdit,
+    TResult? Function(Flight flight)? updateFlightsAfterAdd,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
+  }) {
+    return refreshItem?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String flightID)? selectFlight,
+    TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
+    TResult Function(Flight flight)? updateFlightsAfterEdit,
+    TResult Function(Flight flight)? updateFlightsAfterAdd,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (refreshItem != null) {
+      return refreshItem();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectFlight value) selectFlight,
+    required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
+    required TResult Function(_UpdateFlightsAfterEdit value)
+        updateFlightsAfterEdit,
+    required TResult Function(_UpdateFlightsAfterAdd value)
+        updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
+    required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
+  }) {
+    return refreshItem(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectFlight value)? selectFlight,
+    TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
+    TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
+  }) {
+    return refreshItem?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectFlight value)? selectFlight,
+    TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
+    TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (refreshItem != null) {
+      return refreshItem(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RefreshItem implements ListFlightEvent {
+  const factory _RefreshItem() = _$_RefreshItem;
 }
 
 /// @nodoc
