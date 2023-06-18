@@ -130,9 +130,11 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _UpdateFlightsAfterAdd event,
     Emitter<ListFlightState> emit,
   ) {
-    emit(ListFlightState.updateFlightSuccess(
-      data: data.copyWith(flights: [event.flight, ...data.flights]),
-    ));
+    if (data.flights.length < _pageSize) {
+      emit(ListFlightState.updateFlightSuccess(
+        data: data.copyWith(flights: [event.flight, ...data.flights]),
+      ));
+    }
   }
 
   FutureOr<void> _onUpdateFlightAfterEdit(

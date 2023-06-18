@@ -1,17 +1,20 @@
 import 'package:dotted_decoration/dotted_decoration.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../domain/entities/airline/airline.dart';
-import '../../../../domain/entities/airport/airport.dart';
 import '../../../../domain/entities/flight/flight.dart';
 import '../airport_fast_view.dart';
 import 'flightIn_airport_wdiget.dart';
 
 class AllFlightsInAirportView extends StatefulWidget {
   final AirportViewEnum view;
+  final List<Flight> flights;
+  final String header;
   const AllFlightsInAirportView({
     super.key,
     required this.view,
+    required this.flights,
+    required this.header,
   });
 
   @override
@@ -37,7 +40,7 @@ class _AllFlightsInAirportViewState extends State<AllFlightsInAirportView> {
               double minWidth = constraints.minWidth - 20;
               return Container(
                 width: double.infinity,
-                height: 360,
+                height: 380,
                 padding: const EdgeInsets.all(10.0),
                 margin: const EdgeInsets.only(left: 10.0),
                 decoration: BoxDecoration(
@@ -51,88 +54,19 @@ class _AllFlightsInAirportViewState extends State<AllFlightsInAirportView> {
                     color: Theme.of(context).cardColor),
                 child: ListView(
                   children: [
-                    for (int i = 0; i < 3; i++)
-                      //🚑 Refactor code
-                      FlightInAirportWdiget(
-                        width: minWidth,
-                        listFlight: [
-                          Flight(
-                            id: 0,
-                            arrivalAirport: const Airport(
-                              id: 1,
-                              name: '',
-                              image: '',
-                              location: '',
-                              description: '',
-                              openTime: TimeOfDay(hour: 1, minute: 1),
-                              closeTime: TimeOfDay(hour: 1, minute: 1),
-                            ),
-                            departureAirport: const Airport(
-                              id: 1,
-                              name: '',
-                              image: '',
-                              location: '',
-                              description: '',
-                              openTime: TimeOfDay(hour: 1, minute: 1),
-                              closeTime: TimeOfDay(hour: 1, minute: 1),
-                            ),
-                            timeStart: DateTime.now(),
-                            timeEnd: DateTime.now(),
-                            airline: const Airline(id: 0, airlineName: ''),
-                          ),
-                          if (i < 1)
-                            // 🚑Refactor code
-                            Flight(
-                                id: 0,
-                                arrivalAirport: const Airport(
-                                  id: 1,
-                                  name: '',
-                                  image: '',
-                                  location: '',
-                                  description: '',
-                                  openTime: TimeOfDay(hour: 1, minute: 1),
-                                  closeTime: TimeOfDay(hour: 1, minute: 1),
-                                ),
-                                departureAirport: const Airport(
-                                  id: 1,
-                                  name: '',
-                                  image: '',
-                                  location: '',
-                                  description: '',
-                                  openTime: TimeOfDay(hour: 1, minute: 1),
-                                  closeTime: TimeOfDay(hour: 1, minute: 1),
-                                ),
-                                timeStart: DateTime.now(),
-                                timeEnd: DateTime.now(),
-                                airline: const Airline(id: 0, airlineName: '')),
-                          if (i < 2)
-                            // 🚑Refactor code
-                            Flight(
-                                id: 0,
-                                arrivalAirport: const Airport(
-                                  id: 1,
-                                  name: '',
-                                  image: '',
-                                  location: '',
-                                  description: '',
-                                  openTime: TimeOfDay(hour: 1, minute: 1),
-                                  closeTime: TimeOfDay(hour: 1, minute: 1),
-                                ),
-                                departureAirport: const Airport(
-                                  id: 1,
-                                  name: '',
-                                  image: '',
-                                  location: '',
-                                  description: '',
-                                  openTime: TimeOfDay(hour: 1, minute: 1),
-                                  closeTime: TimeOfDay(hour: 1, minute: 1),
-                                ),
-                                timeStart: DateTime.now(),
-                                timeEnd: DateTime.now(),
-                                airline: const Airline(id: 0, airlineName: '')),
-                        ],
-                        time: DateTime.now().add(Duration(minutes: i * 10)),
+                    //🚑 Refactor code
+                    Text(
+                      widget.header,
+                      style: context.titleMedium.copyWith(
+                        fontWeight: FontWeight.w500,
                       ),
+                    ),
+                    const SizedBox(height: 10.0),
+                    FlightInAirportWdiget(
+                      width: minWidth,
+                      listFlight: widget.flights,
+                      time: DateTime.now(),
+                    ),
                   ],
                 ),
               );
