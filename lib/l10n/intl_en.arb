@@ -319,5 +319,9 @@
     "yes": "Yes",
     "no": "No",
     "informationBeforeEdit": "Information before edit",
-    "preview": "Preview"
+    "preview": "Preview",
+    "next": "Next",
+    "previous": "Previous",
+    "arrivalPlace": "Arrival Place",
+    "departurePlace": "Departure Place"
 }

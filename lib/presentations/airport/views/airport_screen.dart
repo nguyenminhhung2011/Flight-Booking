@@ -25,7 +25,7 @@ class AirportScreen extends StatefulWidget {
 }
 
 class _AirportScreenState extends State<AirportScreen> {
-  late final textController;
+  late final textController = TextEditingController();
 
   AirportBloc get _bloc => BlocProvider.of<AirportBloc>(context);
 
@@ -34,7 +34,6 @@ class _AirportScreenState extends State<AirportScreen> {
     super.initState();
     _bloc.add(const AirportEvent.onStarted());
     _bloc.add(const AirportEvent.changePageAirportView(0));
-    textController = TextEditingController();
   }
 
   void _onUpdateAirportsAfterAdd(Airport airport, int lengths) {
@@ -155,7 +154,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 15.0),
+          const SizedBox(height: 24.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Row(

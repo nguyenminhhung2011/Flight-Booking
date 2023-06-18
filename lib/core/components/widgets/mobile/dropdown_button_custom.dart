@@ -1,3 +1,4 @@
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class DropdownButtonCustom<T> extends StatelessWidget {
@@ -10,6 +11,7 @@ class DropdownButtonCustom<T> extends StatelessWidget {
   final List<DropdownMenuItem<T>> items;
   final T value;
   final Function(T?) onChange;
+  final String? headerText;
   const DropdownButtonCustom({
     super.key,
     this.width,
@@ -18,6 +20,7 @@ class DropdownButtonCustom<T> extends StatelessWidget {
     this.color,
     this.padding,
     this.borderColor,
+    this.headerText,
     required this.items,
     required this.value,
     required this.onChange,
@@ -38,7 +41,12 @@ class DropdownButtonCustom<T> extends StatelessWidget {
       ),
       child: DropdownButtonFormField<T>(
         borderRadius: BorderRadius.circular(10),
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
+          labelText: headerText,
+          labelStyle: context.titleMedium.copyWith(
+            fontWeight: FontWeight.w600,
+            color: Theme.of(context).primaryColor,
+          ),
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
         ),

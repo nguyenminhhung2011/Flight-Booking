@@ -2,6 +2,8 @@ import 'package:flight_booking/domain/entities/flight/flight.dart';
 import 'package:flight_booking/domain/repositories/flight_repository.dart';
 import 'package:injectable/injectable.dart';
 
+import '../entities/page_response/page_response_entity.dart';
+
 @injectable
 class FlightsUsecase {
   final FlightRepository _flightRepository;
@@ -9,6 +11,44 @@ class FlightsUsecase {
 
   Future<List<Flight>> fetchAllFlights() async {
     return await _flightRepository.getListFlight();
+  }
+
+  Future<PageResponseEntity<Flight>> getFlightsByPage(
+    int cursor,
+    int pageSize,
+  ) async {
+    return await _flightRepository.getFlightsByPage(cursor, pageSize);
+  }
+
+  Future<PageResponseEntity<Flight>> getFlightByCategory({
+    String? locationArrival,
+    String? locationDeparture,
+    String? airlineName,
+    int? cursor,
+    int? pageSize,
+  }) async =>
+      await _flightRepository.getFlightByCategory(
+        locationArrival: locationArrival,
+        locationDeparture: locationDeparture,
+        airlineName: airlineName,
+        cursor: cursor,
+        pageSize: pageSize,
+      );
+
+  Future<List<Flight>> filterFlight(
+    String locationArrival,
+    String locationDeparture,
+    String airlineName,
+    int cursor,
+    int pageSize,
+  ) async {
+    return await _flightRepository.filterFlight(
+      locationArrival,
+      locationDeparture,
+      airlineName,
+      cursor,
+      pageSize,
+    );
   }
 
   Future<Flight?> addNewFlight(Flight newFlight) async {
