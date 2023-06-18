@@ -2,10 +2,12 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flight_booking/core/components/network/app_exception.dart';
+import 'package:flight_booking/domain/entities/page_response/page_response_entity.dart';
 import 'package:flight_booking/domain/usecase/flight_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../core/components/enum/type_page.dart';
 import '../../../core/services/place/place_service.dart';
 import '../../../data/models/place/place_model.dart';
 import '../../../domain/entities/airline/airline.dart';
@@ -44,6 +46,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
               locationArrival: _locationNull,
               locationDeparture: _locationNull,
               airlineName: _locationNull,
+              typePage: TypePage.normalPage,
             ),
           ),
         ) {
@@ -58,6 +61,9 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     on<_FilterFlight>(_onFilterFlight);
     on<_FetchAirlines>(_onFetchAirlines);
     on<_FetchPlaces>(_onFetchPlaces);
+    on<_SelectedAirline>(_onSelectedAirline);
+    on<_SelectedPlaceAirport>(_onSelectedPlaceAirport);
+    on<_RefreshItem>(_onRefreshItem);
   }
 
   //get Flights
@@ -185,18 +191,32 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
           data: data,
           message: 'Current page is max',
         ));
+        return;
       }
     }
     try {
-      final response =
-          await _flightsUsecase.getFlightsByPage(event.cursor, _pageSize);
+      final PageResponseEntity<Flight> response;
+      if (data.typePage.isNormalPage) {
+        response = await _flightsUsecase.getFlightByCategory(
+          cursor: event.cursor,
+          pageSize: _pageSize,
+        );
+      } else {
+        response = await _flightsUsecase.getFlightByCategory(
+          locationArrival: data.locationArrival,
+          locationDeparture: data.locationDeparture,
+          airlineName: data.airlineName,
+          cursor: event.cursor,
+          pageSize: _pageSize,
+        );
+      }
       if (response.data.isEmpty) {
         emit(ListFlightState.getFlightPageFFailed(
           data: data,
           message: 'Can\'t fetch flight',
         ));
       }
-      emit(ListFlightState.deleteFlightSuccess(
+      emit(ListFlightState.getFlightByPageSuccess(
         data: data.copyWith(
           flights: response.data as List<Flight>,
           currentPage: event.cursor,
@@ -223,18 +243,22 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     emit(ListFlightState.loading(
         data: data.copyWith(
       currentPage: 0,
+      locationArrival: event.locationArrival,
+      locationDeparture: event.locationDeparture,
+      airlineName: event.airline,
+      typePage: TypePage.categoryPage,
     )));
     try {
-      final response = await _flightsUsecase.filterFlight(
-        data.locationArrival,
-        data.locationDeparture,
-        data.airlineName,
-        data.currentPage,
-        _pageSize,
+      final response = await _flightsUsecase.getFlightByCategory(
+        locationArrival: data.locationArrival,
+        locationDeparture: data.locationDeparture,
+        airlineName: data.airlineName,
+        cursor: data.currentPage,
+        pageSize: _pageSize,
       );
       emit(ListFlightState.filterFlightSuccess(
           data: data.copyWith(
-        flights: response,
+        flights: response.data as List<Flight>,
       )));
     } on AppException catch (e) {
       emit(ListFlightState.filterFlightFailed(
@@ -302,5 +326,34 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
         message: e.toString(),
       ));
     }
+  }
+
+  FutureOr<void> _onSelectedAirline(
+    _SelectedAirline event,
+    Emitter<ListFlightState> emit,
+  ) {
+    emit(state.copyWith(
+        data: data.copyWith(
+      airlineName: event.airline,
+    )));
+  }
+
+  FutureOr<void> _onSelectedPlaceAirport(
+    _SelectedPlaceAirport event,
+    Emitter<ListFlightState> emit,
+  ) {}
+
+  FutureOr<void> _onRefreshItem(
+    _RefreshItem event,
+    Emitter<ListFlightState> emit,
+  ) {
+    emit(
+      state.copyWith(
+        data: data.copyWith(
+          typePage: TypePage.normalPage,
+        ),
+      ),
+    );
+    add(const _GetFlightByPage(0));
   }
 }

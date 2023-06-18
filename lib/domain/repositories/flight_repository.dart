@@ -10,6 +10,16 @@ abstract class FlightRepository {
     int cursor,
     int pageSize,
   );
+
+  Future<PageResponseEntity<Flight>> getFlightByCategory({
+    String? locationArrival,
+    String? locationDeparture,
+    String? airlineName,
+    String? searchText,
+    int? cursor,
+    int? pageSize,
+  });
+
   Future<PageResponseEntity<Flight>> getFlightsByPage(int cursor, int pageSize);
   Future<Flight?> addNewFlight(Flight flight);
 

@@ -3232,6 +3232,16 @@ class S {
     );
   }
 
+  /// `Previous`
+  String get previous {
+    return Intl.message(
+      'Previous',
+      name: 'previous',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Arrival Place`
   String get arrivalPlace {
     return Intl.message(
