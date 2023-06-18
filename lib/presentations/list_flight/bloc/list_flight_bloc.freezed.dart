@@ -24,7 +24,17 @@ mixin _$ListFlightEvent {
     required TResult Function(String id) openAddEditFlightForm,
     required TResult Function(Flight flight) updateFlightsAfterEdit,
     required TResult Function(Flight flight) updateFlightsAfterAdd,
-    required TResult Function(String id) deleteFlight,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,7 +45,16 @@ mixin _$ListFlightEvent {
     TResult? Function(String id)? openAddEditFlightForm,
     TResult? Function(Flight flight)? updateFlightsAfterEdit,
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
-    TResult? Function(String id)? deleteFlight,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,7 +65,16 @@ mixin _$ListFlightEvent {
     TResult Function(String id)? openAddEditFlightForm,
     TResult Function(Flight flight)? updateFlightsAfterEdit,
     TResult Function(Flight flight)? updateFlightsAfterAdd,
-    TResult Function(String id)? deleteFlight,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +89,14 @@ mixin _$ListFlightEvent {
         updateFlightsAfterEdit,
     required TResult Function(_UpdateFlightsAfterAdd value)
         updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
     required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,7 +107,14 @@ mixin _$ListFlightEvent {
     TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
     TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,7 +125,14 @@ mixin _$ListFlightEvent {
     TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
     TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,7 +199,17 @@ class _$_Started implements _Started {
     required TResult Function(String id) openAddEditFlightForm,
     required TResult Function(Flight flight) updateFlightsAfterEdit,
     required TResult Function(Flight flight) updateFlightsAfterAdd,
-    required TResult Function(String id) deleteFlight,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return started();
   }
@@ -164,7 +223,16 @@ class _$_Started implements _Started {
     TResult? Function(String id)? openAddEditFlightForm,
     TResult? Function(Flight flight)? updateFlightsAfterEdit,
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
-    TResult? Function(String id)? deleteFlight,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return started?.call();
   }
@@ -178,7 +246,16 @@ class _$_Started implements _Started {
     TResult Function(String id)? openAddEditFlightForm,
     TResult Function(Flight flight)? updateFlightsAfterEdit,
     TResult Function(Flight flight)? updateFlightsAfterAdd,
-    TResult Function(String id)? deleteFlight,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -199,7 +276,14 @@ class _$_Started implements _Started {
         updateFlightsAfterEdit,
     required TResult Function(_UpdateFlightsAfterAdd value)
         updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
     required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return started(this);
   }
@@ -213,7 +297,14 @@ class _$_Started implements _Started {
     TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
     TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return started?.call(this);
   }
@@ -227,7 +318,14 @@ class _$_Started implements _Started {
     TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
     TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -312,7 +410,17 @@ class _$_SelectFlight implements _SelectFlight {
     required TResult Function(String id) openAddEditFlightForm,
     required TResult Function(Flight flight) updateFlightsAfterEdit,
     required TResult Function(Flight flight) updateFlightsAfterAdd,
-    required TResult Function(String id) deleteFlight,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return selectFlight(flightID);
   }
@@ -326,7 +434,16 @@ class _$_SelectFlight implements _SelectFlight {
     TResult? Function(String id)? openAddEditFlightForm,
     TResult? Function(Flight flight)? updateFlightsAfterEdit,
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
-    TResult? Function(String id)? deleteFlight,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return selectFlight?.call(flightID);
   }
@@ -340,7 +457,16 @@ class _$_SelectFlight implements _SelectFlight {
     TResult Function(String id)? openAddEditFlightForm,
     TResult Function(Flight flight)? updateFlightsAfterEdit,
     TResult Function(Flight flight)? updateFlightsAfterAdd,
-    TResult Function(String id)? deleteFlight,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (selectFlight != null) {
@@ -361,7 +487,14 @@ class _$_SelectFlight implements _SelectFlight {
         updateFlightsAfterEdit,
     required TResult Function(_UpdateFlightsAfterAdd value)
         updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
     required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return selectFlight(this);
   }
@@ -375,7 +508,14 @@ class _$_SelectFlight implements _SelectFlight {
     TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
     TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return selectFlight?.call(this);
   }
@@ -389,7 +529,14 @@ class _$_SelectFlight implements _SelectFlight {
     TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
     TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (selectFlight != null) {
@@ -452,7 +599,17 @@ class _$_GetFlights implements _GetFlights {
     required TResult Function(String id) openAddEditFlightForm,
     required TResult Function(Flight flight) updateFlightsAfterEdit,
     required TResult Function(Flight flight) updateFlightsAfterAdd,
-    required TResult Function(String id) deleteFlight,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return getFlights();
   }
@@ -466,7 +623,16 @@ class _$_GetFlights implements _GetFlights {
     TResult? Function(String id)? openAddEditFlightForm,
     TResult? Function(Flight flight)? updateFlightsAfterEdit,
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
-    TResult? Function(String id)? deleteFlight,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return getFlights?.call();
   }
@@ -480,7 +646,16 @@ class _$_GetFlights implements _GetFlights {
     TResult Function(String id)? openAddEditFlightForm,
     TResult Function(Flight flight)? updateFlightsAfterEdit,
     TResult Function(Flight flight)? updateFlightsAfterAdd,
-    TResult Function(String id)? deleteFlight,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (getFlights != null) {
@@ -501,7 +676,14 @@ class _$_GetFlights implements _GetFlights {
         updateFlightsAfterEdit,
     required TResult Function(_UpdateFlightsAfterAdd value)
         updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
     required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return getFlights(this);
   }
@@ -515,7 +697,14 @@ class _$_GetFlights implements _GetFlights {
     TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
     TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return getFlights?.call(this);
   }
@@ -529,7 +718,14 @@ class _$_GetFlights implements _GetFlights {
     TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
     TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (getFlights != null) {
@@ -614,7 +810,17 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
     required TResult Function(String id) openAddEditFlightForm,
     required TResult Function(Flight flight) updateFlightsAfterEdit,
     required TResult Function(Flight flight) updateFlightsAfterAdd,
-    required TResult Function(String id) deleteFlight,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return openAddEditFlightForm(id);
   }
@@ -628,7 +834,16 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
     TResult? Function(String id)? openAddEditFlightForm,
     TResult? Function(Flight flight)? updateFlightsAfterEdit,
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
-    TResult? Function(String id)? deleteFlight,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return openAddEditFlightForm?.call(id);
   }
@@ -642,7 +857,16 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
     TResult Function(String id)? openAddEditFlightForm,
     TResult Function(Flight flight)? updateFlightsAfterEdit,
     TResult Function(Flight flight)? updateFlightsAfterAdd,
-    TResult Function(String id)? deleteFlight,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (openAddEditFlightForm != null) {
@@ -663,7 +887,14 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
         updateFlightsAfterEdit,
     required TResult Function(_UpdateFlightsAfterAdd value)
         updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
     required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return openAddEditFlightForm(this);
   }
@@ -677,7 +908,14 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
     TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
     TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return openAddEditFlightForm?.call(this);
   }
@@ -691,7 +929,14 @@ class _$_OpenAddEditFlightForm implements _OpenAddEditFlightForm {
     TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
     TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (openAddEditFlightForm != null) {
@@ -792,7 +1037,17 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
     required TResult Function(String id) openAddEditFlightForm,
     required TResult Function(Flight flight) updateFlightsAfterEdit,
     required TResult Function(Flight flight) updateFlightsAfterAdd,
-    required TResult Function(String id) deleteFlight,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return updateFlightsAfterEdit(flight);
   }
@@ -806,7 +1061,16 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
     TResult? Function(String id)? openAddEditFlightForm,
     TResult? Function(Flight flight)? updateFlightsAfterEdit,
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
-    TResult? Function(String id)? deleteFlight,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return updateFlightsAfterEdit?.call(flight);
   }
@@ -820,7 +1084,16 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
     TResult Function(String id)? openAddEditFlightForm,
     TResult Function(Flight flight)? updateFlightsAfterEdit,
     TResult Function(Flight flight)? updateFlightsAfterAdd,
-    TResult Function(String id)? deleteFlight,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (updateFlightsAfterEdit != null) {
@@ -841,7 +1114,14 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
         updateFlightsAfterEdit,
     required TResult Function(_UpdateFlightsAfterAdd value)
         updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
     required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return updateFlightsAfterEdit(this);
   }
@@ -855,7 +1135,14 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
     TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
     TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return updateFlightsAfterEdit?.call(this);
   }
@@ -869,7 +1156,14 @@ class _$_UpdateFlightsAfterEdit implements _UpdateFlightsAfterEdit {
     TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
     TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (updateFlightsAfterEdit != null) {
@@ -970,7 +1264,17 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     required TResult Function(String id) openAddEditFlightForm,
     required TResult Function(Flight flight) updateFlightsAfterEdit,
     required TResult Function(Flight flight) updateFlightsAfterAdd,
-    required TResult Function(String id) deleteFlight,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return updateFlightsAfterAdd(flight);
   }
@@ -984,7 +1288,16 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     TResult? Function(String id)? openAddEditFlightForm,
     TResult? Function(Flight flight)? updateFlightsAfterEdit,
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
-    TResult? Function(String id)? deleteFlight,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return updateFlightsAfterAdd?.call(flight);
   }
@@ -998,7 +1311,16 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     TResult Function(String id)? openAddEditFlightForm,
     TResult Function(Flight flight)? updateFlightsAfterEdit,
     TResult Function(Flight flight)? updateFlightsAfterAdd,
-    TResult Function(String id)? deleteFlight,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (updateFlightsAfterAdd != null) {
@@ -1019,7 +1341,14 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
         updateFlightsAfterEdit,
     required TResult Function(_UpdateFlightsAfterAdd value)
         updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
     required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return updateFlightsAfterAdd(this);
   }
@@ -1033,7 +1362,14 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
     TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return updateFlightsAfterAdd?.call(this);
   }
@@ -1047,7 +1383,14 @@ class _$_UpdateFlightsAfterAdd implements _UpdateFlightsAfterAdd {
     TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
     TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (updateFlightsAfterAdd != null) {
@@ -1068,12 +1411,227 @@ abstract class _UpdateFlightsAfterAdd implements ListFlightEvent {
 }
 
 /// @nodoc
+abstract class _$$_GetFlightByPageCopyWith<$Res> {
+  factory _$$_GetFlightByPageCopyWith(
+          _$_GetFlightByPage value, $Res Function(_$_GetFlightByPage) then) =
+      __$$_GetFlightByPageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int cursor});
+}
+
+/// @nodoc
+class __$$_GetFlightByPageCopyWithImpl<$Res>
+    extends _$ListFlightEventCopyWithImpl<$Res, _$_GetFlightByPage>
+    implements _$$_GetFlightByPageCopyWith<$Res> {
+  __$$_GetFlightByPageCopyWithImpl(
+      _$_GetFlightByPage _value, $Res Function(_$_GetFlightByPage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cursor = null,
+  }) {
+    return _then(_$_GetFlightByPage(
+      null == cursor
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetFlightByPage implements _GetFlightByPage {
+  const _$_GetFlightByPage(this.cursor);
+
+  @override
+  final int cursor;
+
+  @override
+  String toString() {
+    return 'ListFlightEvent.getFlightByPage(cursor: $cursor)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetFlightByPage &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, cursor);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetFlightByPageCopyWith<_$_GetFlightByPage> get copyWith =>
+      __$$_GetFlightByPageCopyWithImpl<_$_GetFlightByPage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String flightID) selectFlight,
+    required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
+    required TResult Function(Flight flight) updateFlightsAfterEdit,
+    required TResult Function(Flight flight) updateFlightsAfterAdd,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
+  }) {
+    return getFlightByPage(cursor);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String flightID)? selectFlight,
+    TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
+    TResult? Function(Flight flight)? updateFlightsAfterEdit,
+    TResult? Function(Flight flight)? updateFlightsAfterAdd,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
+  }) {
+    return getFlightByPage?.call(cursor);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String flightID)? selectFlight,
+    TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
+    TResult Function(Flight flight)? updateFlightsAfterEdit,
+    TResult Function(Flight flight)? updateFlightsAfterAdd,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (getFlightByPage != null) {
+      return getFlightByPage(cursor);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectFlight value) selectFlight,
+    required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
+    required TResult Function(_UpdateFlightsAfterEdit value)
+        updateFlightsAfterEdit,
+    required TResult Function(_UpdateFlightsAfterAdd value)
+        updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
+    required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
+  }) {
+    return getFlightByPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectFlight value)? selectFlight,
+    TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
+    TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
+  }) {
+    return getFlightByPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectFlight value)? selectFlight,
+    TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
+    TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (getFlightByPage != null) {
+      return getFlightByPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetFlightByPage implements ListFlightEvent {
+  const factory _GetFlightByPage(final int cursor) = _$_GetFlightByPage;
+
+  int get cursor;
+  @JsonKey(ignore: true)
+  _$$_GetFlightByPageCopyWith<_$_GetFlightByPage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$_DeleteFlightCopyWith<$Res> {
   factory _$$_DeleteFlightCopyWith(
           _$_DeleteFlight value, $Res Function(_$_DeleteFlight) then) =
       __$$_DeleteFlightCopyWithImpl<$Res>;
   @useResult
-  $Res call({String id});
+  $Res call({int id});
 }
 
 /// @nodoc
@@ -1093,7 +1651,7 @@ class __$$_DeleteFlightCopyWithImpl<$Res>
       null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -1104,7 +1662,7 @@ class _$_DeleteFlight implements _DeleteFlight {
   const _$_DeleteFlight(this.id);
 
   @override
-  final String id;
+  final int id;
 
   @override
   String toString() {
@@ -1137,7 +1695,17 @@ class _$_DeleteFlight implements _DeleteFlight {
     required TResult Function(String id) openAddEditFlightForm,
     required TResult Function(Flight flight) updateFlightsAfterEdit,
     required TResult Function(Flight flight) updateFlightsAfterAdd,
-    required TResult Function(String id) deleteFlight,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
   }) {
     return deleteFlight(id);
   }
@@ -1151,7 +1719,16 @@ class _$_DeleteFlight implements _DeleteFlight {
     TResult? Function(String id)? openAddEditFlightForm,
     TResult? Function(Flight flight)? updateFlightsAfterEdit,
     TResult? Function(Flight flight)? updateFlightsAfterAdd,
-    TResult? Function(String id)? deleteFlight,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
   }) {
     return deleteFlight?.call(id);
   }
@@ -1165,7 +1742,16 @@ class _$_DeleteFlight implements _DeleteFlight {
     TResult Function(String id)? openAddEditFlightForm,
     TResult Function(Flight flight)? updateFlightsAfterEdit,
     TResult Function(Flight flight)? updateFlightsAfterAdd,
-    TResult Function(String id)? deleteFlight,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
     required TResult orElse(),
   }) {
     if (deleteFlight != null) {
@@ -1186,7 +1772,14 @@ class _$_DeleteFlight implements _DeleteFlight {
         updateFlightsAfterEdit,
     required TResult Function(_UpdateFlightsAfterAdd value)
         updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
     required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
   }) {
     return deleteFlight(this);
   }
@@ -1200,7 +1793,14 @@ class _$_DeleteFlight implements _DeleteFlight {
     TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
     TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
   }) {
     return deleteFlight?.call(this);
   }
@@ -1214,7 +1814,14 @@ class _$_DeleteFlight implements _DeleteFlight {
     TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
     TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
     TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
     TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
     required TResult orElse(),
   }) {
     if (deleteFlight != null) {
@@ -1225,12 +1832,1251 @@ class _$_DeleteFlight implements _DeleteFlight {
 }
 
 abstract class _DeleteFlight implements ListFlightEvent {
-  const factory _DeleteFlight(final String id) = _$_DeleteFlight;
+  const factory _DeleteFlight(final int id) = _$_DeleteFlight;
 
-  String get id;
+  int get id;
   @JsonKey(ignore: true)
   _$$_DeleteFlightCopyWith<_$_DeleteFlight> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FilterFlightCopyWith<$Res> {
+  factory _$$_FilterFlightCopyWith(
+          _$_FilterFlight value, $Res Function(_$_FilterFlight) then) =
+      __$$_FilterFlightCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String airline, String locationArrival, String locationDeparture});
+}
+
+/// @nodoc
+class __$$_FilterFlightCopyWithImpl<$Res>
+    extends _$ListFlightEventCopyWithImpl<$Res, _$_FilterFlight>
+    implements _$$_FilterFlightCopyWith<$Res> {
+  __$$_FilterFlightCopyWithImpl(
+      _$_FilterFlight _value, $Res Function(_$_FilterFlight) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? airline = null,
+    Object? locationArrival = null,
+    Object? locationDeparture = null,
+  }) {
+    return _then(_$_FilterFlight(
+      airline: null == airline
+          ? _value.airline
+          : airline // ignore: cast_nullable_to_non_nullable
+              as String,
+      locationArrival: null == locationArrival
+          ? _value.locationArrival
+          : locationArrival // ignore: cast_nullable_to_non_nullable
+              as String,
+      locationDeparture: null == locationDeparture
+          ? _value.locationDeparture
+          : locationDeparture // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FilterFlight implements _FilterFlight {
+  const _$_FilterFlight(
+      {required this.airline,
+      required this.locationArrival,
+      required this.locationDeparture});
+
+  @override
+  final String airline;
+  @override
+  final String locationArrival;
+  @override
+  final String locationDeparture;
+
+  @override
+  String toString() {
+    return 'ListFlightEvent.filterFlight(airline: $airline, locationArrival: $locationArrival, locationDeparture: $locationDeparture)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FilterFlight &&
+            (identical(other.airline, airline) || other.airline == airline) &&
+            (identical(other.locationArrival, locationArrival) ||
+                other.locationArrival == locationArrival) &&
+            (identical(other.locationDeparture, locationDeparture) ||
+                other.locationDeparture == locationDeparture));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, airline, locationArrival, locationDeparture);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FilterFlightCopyWith<_$_FilterFlight> get copyWith =>
+      __$$_FilterFlightCopyWithImpl<_$_FilterFlight>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String flightID) selectFlight,
+    required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
+    required TResult Function(Flight flight) updateFlightsAfterEdit,
+    required TResult Function(Flight flight) updateFlightsAfterAdd,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
+  }) {
+    return filterFlight(airline, locationArrival, locationDeparture);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String flightID)? selectFlight,
+    TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
+    TResult? Function(Flight flight)? updateFlightsAfterEdit,
+    TResult? Function(Flight flight)? updateFlightsAfterAdd,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
+  }) {
+    return filterFlight?.call(airline, locationArrival, locationDeparture);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String flightID)? selectFlight,
+    TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
+    TResult Function(Flight flight)? updateFlightsAfterEdit,
+    TResult Function(Flight flight)? updateFlightsAfterAdd,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (filterFlight != null) {
+      return filterFlight(airline, locationArrival, locationDeparture);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectFlight value) selectFlight,
+    required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
+    required TResult Function(_UpdateFlightsAfterEdit value)
+        updateFlightsAfterEdit,
+    required TResult Function(_UpdateFlightsAfterAdd value)
+        updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
+    required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
+  }) {
+    return filterFlight(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectFlight value)? selectFlight,
+    TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
+    TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
+  }) {
+    return filterFlight?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectFlight value)? selectFlight,
+    TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
+    TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (filterFlight != null) {
+      return filterFlight(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FilterFlight implements ListFlightEvent {
+  const factory _FilterFlight(
+      {required final String airline,
+      required final String locationArrival,
+      required final String locationDeparture}) = _$_FilterFlight;
+
+  String get airline;
+  String get locationArrival;
+  String get locationDeparture;
+  @JsonKey(ignore: true)
+  _$$_FilterFlightCopyWith<_$_FilterFlight> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FetchPlacesCopyWith<$Res> {
+  factory _$$_FetchPlacesCopyWith(
+          _$_FetchPlaces value, $Res Function(_$_FetchPlaces) then) =
+      __$$_FetchPlacesCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FetchPlacesCopyWithImpl<$Res>
+    extends _$ListFlightEventCopyWithImpl<$Res, _$_FetchPlaces>
+    implements _$$_FetchPlacesCopyWith<$Res> {
+  __$$_FetchPlacesCopyWithImpl(
+      _$_FetchPlaces _value, $Res Function(_$_FetchPlaces) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_FetchPlaces implements _FetchPlaces {
+  const _$_FetchPlaces();
+
+  @override
+  String toString() {
+    return 'ListFlightEvent.fetchPlaces()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_FetchPlaces);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String flightID) selectFlight,
+    required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
+    required TResult Function(Flight flight) updateFlightsAfterEdit,
+    required TResult Function(Flight flight) updateFlightsAfterAdd,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
+  }) {
+    return fetchPlaces();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String flightID)? selectFlight,
+    TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
+    TResult? Function(Flight flight)? updateFlightsAfterEdit,
+    TResult? Function(Flight flight)? updateFlightsAfterAdd,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
+  }) {
+    return fetchPlaces?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String flightID)? selectFlight,
+    TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
+    TResult Function(Flight flight)? updateFlightsAfterEdit,
+    TResult Function(Flight flight)? updateFlightsAfterAdd,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (fetchPlaces != null) {
+      return fetchPlaces();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectFlight value) selectFlight,
+    required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
+    required TResult Function(_UpdateFlightsAfterEdit value)
+        updateFlightsAfterEdit,
+    required TResult Function(_UpdateFlightsAfterAdd value)
+        updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
+    required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
+  }) {
+    return fetchPlaces(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectFlight value)? selectFlight,
+    TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
+    TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
+  }) {
+    return fetchPlaces?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectFlight value)? selectFlight,
+    TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
+    TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (fetchPlaces != null) {
+      return fetchPlaces(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchPlaces implements ListFlightEvent {
+  const factory _FetchPlaces() = _$_FetchPlaces;
+}
+
+/// @nodoc
+abstract class _$$_FetchAirlinesCopyWith<$Res> {
+  factory _$$_FetchAirlinesCopyWith(
+          _$_FetchAirlines value, $Res Function(_$_FetchAirlines) then) =
+      __$$_FetchAirlinesCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FetchAirlinesCopyWithImpl<$Res>
+    extends _$ListFlightEventCopyWithImpl<$Res, _$_FetchAirlines>
+    implements _$$_FetchAirlinesCopyWith<$Res> {
+  __$$_FetchAirlinesCopyWithImpl(
+      _$_FetchAirlines _value, $Res Function(_$_FetchAirlines) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_FetchAirlines implements _FetchAirlines {
+  const _$_FetchAirlines();
+
+  @override
+  String toString() {
+    return 'ListFlightEvent.fetchAirline()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_FetchAirlines);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String flightID) selectFlight,
+    required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
+    required TResult Function(Flight flight) updateFlightsAfterEdit,
+    required TResult Function(Flight flight) updateFlightsAfterAdd,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
+  }) {
+    return fetchAirline();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String flightID)? selectFlight,
+    TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
+    TResult? Function(Flight flight)? updateFlightsAfterEdit,
+    TResult? Function(Flight flight)? updateFlightsAfterAdd,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
+  }) {
+    return fetchAirline?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String flightID)? selectFlight,
+    TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
+    TResult Function(Flight flight)? updateFlightsAfterEdit,
+    TResult Function(Flight flight)? updateFlightsAfterAdd,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (fetchAirline != null) {
+      return fetchAirline();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectFlight value) selectFlight,
+    required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
+    required TResult Function(_UpdateFlightsAfterEdit value)
+        updateFlightsAfterEdit,
+    required TResult Function(_UpdateFlightsAfterAdd value)
+        updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
+    required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
+  }) {
+    return fetchAirline(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectFlight value)? selectFlight,
+    TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
+    TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
+  }) {
+    return fetchAirline?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectFlight value)? selectFlight,
+    TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
+    TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (fetchAirline != null) {
+      return fetchAirline(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchAirlines implements ListFlightEvent {
+  const factory _FetchAirlines() = _$_FetchAirlines;
+}
+
+/// @nodoc
+abstract class _$$_SelectedAirlineCopyWith<$Res> {
+  factory _$$_SelectedAirlineCopyWith(
+          _$_SelectedAirline value, $Res Function(_$_SelectedAirline) then) =
+      __$$_SelectedAirlineCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String airline});
+}
+
+/// @nodoc
+class __$$_SelectedAirlineCopyWithImpl<$Res>
+    extends _$ListFlightEventCopyWithImpl<$Res, _$_SelectedAirline>
+    implements _$$_SelectedAirlineCopyWith<$Res> {
+  __$$_SelectedAirlineCopyWithImpl(
+      _$_SelectedAirline _value, $Res Function(_$_SelectedAirline) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? airline = null,
+  }) {
+    return _then(_$_SelectedAirline(
+      airline: null == airline
+          ? _value.airline
+          : airline // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedAirline implements _SelectedAirline {
+  const _$_SelectedAirline({required this.airline});
+
+  @override
+  final String airline;
+
+  @override
+  String toString() {
+    return 'ListFlightEvent.selectedAirlines(airline: $airline)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedAirline &&
+            (identical(other.airline, airline) || other.airline == airline));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, airline);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedAirlineCopyWith<_$_SelectedAirline> get copyWith =>
+      __$$_SelectedAirlineCopyWithImpl<_$_SelectedAirline>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String flightID) selectFlight,
+    required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
+    required TResult Function(Flight flight) updateFlightsAfterEdit,
+    required TResult Function(Flight flight) updateFlightsAfterAdd,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
+  }) {
+    return selectedAirlines(airline);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String flightID)? selectFlight,
+    TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
+    TResult? Function(Flight flight)? updateFlightsAfterEdit,
+    TResult? Function(Flight flight)? updateFlightsAfterAdd,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
+  }) {
+    return selectedAirlines?.call(airline);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String flightID)? selectFlight,
+    TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
+    TResult Function(Flight flight)? updateFlightsAfterEdit,
+    TResult Function(Flight flight)? updateFlightsAfterAdd,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (selectedAirlines != null) {
+      return selectedAirlines(airline);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectFlight value) selectFlight,
+    required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
+    required TResult Function(_UpdateFlightsAfterEdit value)
+        updateFlightsAfterEdit,
+    required TResult Function(_UpdateFlightsAfterAdd value)
+        updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
+    required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
+  }) {
+    return selectedAirlines(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectFlight value)? selectFlight,
+    TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
+    TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
+  }) {
+    return selectedAirlines?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectFlight value)? selectFlight,
+    TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
+    TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (selectedAirlines != null) {
+      return selectedAirlines(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedAirline implements ListFlightEvent {
+  const factory _SelectedAirline({required final String airline}) =
+      _$_SelectedAirline;
+
+  String get airline;
+  @JsonKey(ignore: true)
+  _$$_SelectedAirlineCopyWith<_$_SelectedAirline> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedPlaceAirportCopyWith<$Res> {
+  factory _$$_SelectedPlaceAirportCopyWith(_$_SelectedPlaceAirport value,
+          $Res Function(_$_SelectedPlaceAirport) then) =
+      __$$_SelectedPlaceAirportCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String place, bool isDeparture});
+}
+
+/// @nodoc
+class __$$_SelectedPlaceAirportCopyWithImpl<$Res>
+    extends _$ListFlightEventCopyWithImpl<$Res, _$_SelectedPlaceAirport>
+    implements _$$_SelectedPlaceAirportCopyWith<$Res> {
+  __$$_SelectedPlaceAirportCopyWithImpl(_$_SelectedPlaceAirport _value,
+      $Res Function(_$_SelectedPlaceAirport) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? place = null,
+    Object? isDeparture = null,
+  }) {
+    return _then(_$_SelectedPlaceAirport(
+      place: null == place
+          ? _value.place
+          : place // ignore: cast_nullable_to_non_nullable
+              as String,
+      isDeparture: null == isDeparture
+          ? _value.isDeparture
+          : isDeparture // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedPlaceAirport implements _SelectedPlaceAirport {
+  const _$_SelectedPlaceAirport(
+      {required this.place, required this.isDeparture});
+
+  @override
+  final String place;
+  @override
+  final bool isDeparture;
+
+  @override
+  String toString() {
+    return 'ListFlightEvent.selectedPlaceAirport(place: $place, isDeparture: $isDeparture)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedPlaceAirport &&
+            (identical(other.place, place) || other.place == place) &&
+            (identical(other.isDeparture, isDeparture) ||
+                other.isDeparture == isDeparture));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, place, isDeparture);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedPlaceAirportCopyWith<_$_SelectedPlaceAirport> get copyWith =>
+      __$$_SelectedPlaceAirportCopyWithImpl<_$_SelectedPlaceAirport>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String flightID) selectFlight,
+    required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
+    required TResult Function(Flight flight) updateFlightsAfterEdit,
+    required TResult Function(Flight flight) updateFlightsAfterAdd,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
+  }) {
+    return selectedPlaceAirport(place, isDeparture);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String flightID)? selectFlight,
+    TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
+    TResult? Function(Flight flight)? updateFlightsAfterEdit,
+    TResult? Function(Flight flight)? updateFlightsAfterAdd,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
+  }) {
+    return selectedPlaceAirport?.call(place, isDeparture);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String flightID)? selectFlight,
+    TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
+    TResult Function(Flight flight)? updateFlightsAfterEdit,
+    TResult Function(Flight flight)? updateFlightsAfterAdd,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (selectedPlaceAirport != null) {
+      return selectedPlaceAirport(place, isDeparture);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectFlight value) selectFlight,
+    required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
+    required TResult Function(_UpdateFlightsAfterEdit value)
+        updateFlightsAfterEdit,
+    required TResult Function(_UpdateFlightsAfterAdd value)
+        updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
+    required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
+  }) {
+    return selectedPlaceAirport(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectFlight value)? selectFlight,
+    TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
+    TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
+  }) {
+    return selectedPlaceAirport?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectFlight value)? selectFlight,
+    TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
+    TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (selectedPlaceAirport != null) {
+      return selectedPlaceAirport(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedPlaceAirport implements ListFlightEvent {
+  const factory _SelectedPlaceAirport(
+      {required final String place,
+      required final bool isDeparture}) = _$_SelectedPlaceAirport;
+
+  String get place;
+  bool get isDeparture;
+  @JsonKey(ignore: true)
+  _$$_SelectedPlaceAirportCopyWith<_$_SelectedPlaceAirport> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RefreshItemCopyWith<$Res> {
+  factory _$$_RefreshItemCopyWith(
+          _$_RefreshItem value, $Res Function(_$_RefreshItem) then) =
+      __$$_RefreshItemCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RefreshItemCopyWithImpl<$Res>
+    extends _$ListFlightEventCopyWithImpl<$Res, _$_RefreshItem>
+    implements _$$_RefreshItemCopyWith<$Res> {
+  __$$_RefreshItemCopyWithImpl(
+      _$_RefreshItem _value, $Res Function(_$_RefreshItem) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_RefreshItem implements _RefreshItem {
+  const _$_RefreshItem();
+
+  @override
+  String toString() {
+    return 'ListFlightEvent.refreshItem()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_RefreshItem);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String flightID) selectFlight,
+    required TResult Function() getFlights,
+    required TResult Function(String id) openAddEditFlightForm,
+    required TResult Function(Flight flight) updateFlightsAfterEdit,
+    required TResult Function(Flight flight) updateFlightsAfterAdd,
+    required TResult Function(int cursor) getFlightByPage,
+    required TResult Function(int id) deleteFlight,
+    required TResult Function(
+            String airline, String locationArrival, String locationDeparture)
+        filterFlight,
+    required TResult Function() fetchPlaces,
+    required TResult Function() fetchAirline,
+    required TResult Function(String airline) selectedAirlines,
+    required TResult Function(String place, bool isDeparture)
+        selectedPlaceAirport,
+    required TResult Function() refreshItem,
+  }) {
+    return refreshItem();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String flightID)? selectFlight,
+    TResult? Function()? getFlights,
+    TResult? Function(String id)? openAddEditFlightForm,
+    TResult? Function(Flight flight)? updateFlightsAfterEdit,
+    TResult? Function(Flight flight)? updateFlightsAfterAdd,
+    TResult? Function(int cursor)? getFlightByPage,
+    TResult? Function(int id)? deleteFlight,
+    TResult? Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult? Function()? fetchPlaces,
+    TResult? Function()? fetchAirline,
+    TResult? Function(String airline)? selectedAirlines,
+    TResult? Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult? Function()? refreshItem,
+  }) {
+    return refreshItem?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String flightID)? selectFlight,
+    TResult Function()? getFlights,
+    TResult Function(String id)? openAddEditFlightForm,
+    TResult Function(Flight flight)? updateFlightsAfterEdit,
+    TResult Function(Flight flight)? updateFlightsAfterAdd,
+    TResult Function(int cursor)? getFlightByPage,
+    TResult Function(int id)? deleteFlight,
+    TResult Function(
+            String airline, String locationArrival, String locationDeparture)?
+        filterFlight,
+    TResult Function()? fetchPlaces,
+    TResult Function()? fetchAirline,
+    TResult Function(String airline)? selectedAirlines,
+    TResult Function(String place, bool isDeparture)? selectedPlaceAirport,
+    TResult Function()? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (refreshItem != null) {
+      return refreshItem();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectFlight value) selectFlight,
+    required TResult Function(_GetFlights value) getFlights,
+    required TResult Function(_OpenAddEditFlightForm value)
+        openAddEditFlightForm,
+    required TResult Function(_UpdateFlightsAfterEdit value)
+        updateFlightsAfterEdit,
+    required TResult Function(_UpdateFlightsAfterAdd value)
+        updateFlightsAfterAdd,
+    required TResult Function(_GetFlightByPage value) getFlightByPage,
+    required TResult Function(_DeleteFlight value) deleteFlight,
+    required TResult Function(_FilterFlight value) filterFlight,
+    required TResult Function(_FetchPlaces value) fetchPlaces,
+    required TResult Function(_FetchAirlines value) fetchAirline,
+    required TResult Function(_SelectedAirline value) selectedAirlines,
+    required TResult Function(_SelectedPlaceAirport value) selectedPlaceAirport,
+    required TResult Function(_RefreshItem value) refreshItem,
+  }) {
+    return refreshItem(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectFlight value)? selectFlight,
+    TResult? Function(_GetFlights value)? getFlights,
+    TResult? Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult? Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult? Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult? Function(_GetFlightByPage value)? getFlightByPage,
+    TResult? Function(_DeleteFlight value)? deleteFlight,
+    TResult? Function(_FilterFlight value)? filterFlight,
+    TResult? Function(_FetchPlaces value)? fetchPlaces,
+    TResult? Function(_FetchAirlines value)? fetchAirline,
+    TResult? Function(_SelectedAirline value)? selectedAirlines,
+    TResult? Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult? Function(_RefreshItem value)? refreshItem,
+  }) {
+    return refreshItem?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectFlight value)? selectFlight,
+    TResult Function(_GetFlights value)? getFlights,
+    TResult Function(_OpenAddEditFlightForm value)? openAddEditFlightForm,
+    TResult Function(_UpdateFlightsAfterEdit value)? updateFlightsAfterEdit,
+    TResult Function(_UpdateFlightsAfterAdd value)? updateFlightsAfterAdd,
+    TResult Function(_GetFlightByPage value)? getFlightByPage,
+    TResult Function(_DeleteFlight value)? deleteFlight,
+    TResult Function(_FilterFlight value)? filterFlight,
+    TResult Function(_FetchPlaces value)? fetchPlaces,
+    TResult Function(_FetchAirlines value)? fetchAirline,
+    TResult Function(_SelectedAirline value)? selectedAirlines,
+    TResult Function(_SelectedPlaceAirport value)? selectedPlaceAirport,
+    TResult Function(_RefreshItem value)? refreshItem,
+    required TResult orElse(),
+  }) {
+    if (refreshItem != null) {
+      return refreshItem(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RefreshItem implements ListFlightEvent {
+  const factory _RefreshItem() = _$_RefreshItem;
 }
 
 /// @nodoc
@@ -1253,6 +3099,18 @@ mixin _$ListFlightState {
     required TResult Function(ListFlightModelState data, String message)
         deleteFlightFailed,
     required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1272,6 +3130,18 @@ mixin _$ListFlightState {
     TResult? Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1291,6 +3161,18 @@ mixin _$ListFlightState {
     TResult Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1309,6 +3191,16 @@ mixin _$ListFlightState {
     required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
     required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
     required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1324,6 +3216,14 @@ mixin _$ListFlightState {
     TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1339,6 +3239,14 @@ mixin _$ListFlightState {
     TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1474,6 +3382,18 @@ class _$_Initial extends _Initial {
     required TResult Function(ListFlightModelState data, String message)
         deleteFlightFailed,
     required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
   }) {
     return initial(data);
   }
@@ -1496,6 +3416,18 @@ class _$_Initial extends _Initial {
     TResult? Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
   }) {
     return initial?.call(data);
   }
@@ -1518,6 +3450,18 @@ class _$_Initial extends _Initial {
     TResult Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1542,6 +3486,16 @@ class _$_Initial extends _Initial {
     required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
     required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
     required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
   }) {
     return initial(this);
   }
@@ -1560,6 +3514,14 @@ class _$_Initial extends _Initial {
     TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
   }) {
     return initial?.call(this);
   }
@@ -1578,6 +3540,14 @@ class _$_Initial extends _Initial {
     TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1683,6 +3653,18 @@ class _$_Loading extends _Loading {
     required TResult Function(ListFlightModelState data, String message)
         deleteFlightFailed,
     required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
   }) {
     return loading(data);
   }
@@ -1705,6 +3687,18 @@ class _$_Loading extends _Loading {
     TResult? Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
   }) {
     return loading?.call(data);
   }
@@ -1727,6 +3721,18 @@ class _$_Loading extends _Loading {
     TResult Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1751,6 +3757,16 @@ class _$_Loading extends _Loading {
     required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
     required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
     required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
   }) {
     return loading(this);
   }
@@ -1769,6 +3785,14 @@ class _$_Loading extends _Loading {
     TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
   }) {
     return loading?.call(this);
   }
@@ -1787,6 +3811,14 @@ class _$_Loading extends _Loading {
     TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1905,6 +3937,18 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
     required TResult Function(ListFlightModelState data, String message)
         deleteFlightFailed,
     required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
   }) {
     return selectListFlightSuccess(data, flightId);
   }
@@ -1927,6 +3971,18 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
     TResult? Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
   }) {
     return selectListFlightSuccess?.call(data, flightId);
   }
@@ -1949,6 +4005,18 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
     TResult Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (selectListFlightSuccess != null) {
@@ -1973,6 +4041,16 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
     required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
     required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
     required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
   }) {
     return selectListFlightSuccess(this);
   }
@@ -1991,6 +4069,14 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
     TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
   }) {
     return selectListFlightSuccess?.call(this);
   }
@@ -2009,6 +4095,14 @@ class _$_SelectListFlightSuccess extends _SelectListFlightSuccess {
     TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (selectListFlightSuccess != null) {
@@ -2127,6 +4221,18 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
     required TResult Function(ListFlightModelState data, String message)
         deleteFlightFailed,
     required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
   }) {
     return selectListFlightFailed(data, message);
   }
@@ -2149,6 +4255,18 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
     TResult? Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
   }) {
     return selectListFlightFailed?.call(data, message);
   }
@@ -2171,6 +4289,18 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
     TResult Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (selectListFlightFailed != null) {
@@ -2195,6 +4325,16 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
     required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
     required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
     required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
   }) {
     return selectListFlightFailed(this);
   }
@@ -2213,6 +4353,14 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
     TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
   }) {
     return selectListFlightFailed?.call(this);
   }
@@ -2231,6 +4379,14 @@ class _$_SelectListFlightFailed extends _SelectListFlightFailed {
     TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (selectListFlightFailed != null) {
@@ -2340,6 +4496,18 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
     required TResult Function(ListFlightModelState data, String message)
         deleteFlightFailed,
     required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
   }) {
     return getFlightsSuccess(data);
   }
@@ -2362,6 +4530,18 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
     TResult? Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
   }) {
     return getFlightsSuccess?.call(data);
   }
@@ -2384,6 +4564,18 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
     TResult Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (getFlightsSuccess != null) {
@@ -2408,6 +4600,16 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
     required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
     required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
     required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
   }) {
     return getFlightsSuccess(this);
   }
@@ -2426,6 +4628,14 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
     TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
   }) {
     return getFlightsSuccess?.call(this);
   }
@@ -2444,6 +4654,14 @@ class _$_GetFlightsSuccess extends _GetFlightsSuccess {
     TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (getFlightsSuccess != null) {
@@ -2559,6 +4777,18 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
     required TResult Function(ListFlightModelState data, String message)
         deleteFlightFailed,
     required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
   }) {
     return getFlightsFailed(data, message);
   }
@@ -2581,6 +4811,18 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
     TResult? Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
   }) {
     return getFlightsFailed?.call(data, message);
   }
@@ -2603,6 +4845,18 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
     TResult Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (getFlightsFailed != null) {
@@ -2627,6 +4881,16 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
     required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
     required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
     required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
   }) {
     return getFlightsFailed(this);
   }
@@ -2645,6 +4909,14 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
     TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
   }) {
     return getFlightsFailed?.call(this);
   }
@@ -2663,6 +4935,14 @@ class _$_GetFlightsFailed extends _GetFlightsFailed {
     TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (getFlightsFailed != null) {
@@ -2785,6 +5065,18 @@ class _$_OpenAddEditFlightFormSuccess extends _OpenAddEditFlightFormSuccess {
     required TResult Function(ListFlightModelState data, String message)
         deleteFlightFailed,
     required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
   }) {
     return openAddEditFlightFormSuccess(data, flightId);
   }
@@ -2807,6 +5099,18 @@ class _$_OpenAddEditFlightFormSuccess extends _OpenAddEditFlightFormSuccess {
     TResult? Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
   }) {
     return openAddEditFlightFormSuccess?.call(data, flightId);
   }
@@ -2829,6 +5133,18 @@ class _$_OpenAddEditFlightFormSuccess extends _OpenAddEditFlightFormSuccess {
     TResult Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (openAddEditFlightFormSuccess != null) {
@@ -2853,6 +5169,16 @@ class _$_OpenAddEditFlightFormSuccess extends _OpenAddEditFlightFormSuccess {
     required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
     required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
     required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
   }) {
     return openAddEditFlightFormSuccess(this);
   }
@@ -2871,6 +5197,14 @@ class _$_OpenAddEditFlightFormSuccess extends _OpenAddEditFlightFormSuccess {
     TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
   }) {
     return openAddEditFlightFormSuccess?.call(this);
   }
@@ -2889,6 +5223,14 @@ class _$_OpenAddEditFlightFormSuccess extends _OpenAddEditFlightFormSuccess {
     TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (openAddEditFlightFormSuccess != null) {
@@ -2998,6 +5340,18 @@ class _$_DeleteFlightSuccess extends _DeleteFlightSuccess {
     required TResult Function(ListFlightModelState data, String message)
         deleteFlightFailed,
     required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
   }) {
     return deleteFlightSuccess(data);
   }
@@ -3020,6 +5374,18 @@ class _$_DeleteFlightSuccess extends _DeleteFlightSuccess {
     TResult? Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
   }) {
     return deleteFlightSuccess?.call(data);
   }
@@ -3042,6 +5408,18 @@ class _$_DeleteFlightSuccess extends _DeleteFlightSuccess {
     TResult Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (deleteFlightSuccess != null) {
@@ -3066,6 +5444,16 @@ class _$_DeleteFlightSuccess extends _DeleteFlightSuccess {
     required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
     required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
     required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
   }) {
     return deleteFlightSuccess(this);
   }
@@ -3084,6 +5472,14 @@ class _$_DeleteFlightSuccess extends _DeleteFlightSuccess {
     TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
   }) {
     return deleteFlightSuccess?.call(this);
   }
@@ -3102,6 +5498,14 @@ class _$_DeleteFlightSuccess extends _DeleteFlightSuccess {
     TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (deleteFlightSuccess != null) {
@@ -3218,6 +5622,18 @@ class _$_DeleteFlightFailed extends _DeleteFlightFailed {
     required TResult Function(ListFlightModelState data, String message)
         deleteFlightFailed,
     required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
   }) {
     return deleteFlightFailed(data, message);
   }
@@ -3240,6 +5656,18 @@ class _$_DeleteFlightFailed extends _DeleteFlightFailed {
     TResult? Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
   }) {
     return deleteFlightFailed?.call(data, message);
   }
@@ -3262,6 +5690,18 @@ class _$_DeleteFlightFailed extends _DeleteFlightFailed {
     TResult Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (deleteFlightFailed != null) {
@@ -3286,6 +5726,16 @@ class _$_DeleteFlightFailed extends _DeleteFlightFailed {
     required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
     required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
     required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
   }) {
     return deleteFlightFailed(this);
   }
@@ -3304,6 +5754,14 @@ class _$_DeleteFlightFailed extends _DeleteFlightFailed {
     TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
   }) {
     return deleteFlightFailed?.call(this);
   }
@@ -3322,6 +5780,14 @@ class _$_DeleteFlightFailed extends _DeleteFlightFailed {
     TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (deleteFlightFailed != null) {
@@ -3431,6 +5897,18 @@ class _$_UpdateFlightSuccess extends _UpdateFlightSuccess {
     required TResult Function(ListFlightModelState data, String message)
         deleteFlightFailed,
     required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
   }) {
     return updateFlightSuccess(data);
   }
@@ -3453,6 +5931,18 @@ class _$_UpdateFlightSuccess extends _UpdateFlightSuccess {
     TResult? Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
   }) {
     return updateFlightSuccess?.call(data);
   }
@@ -3475,6 +5965,18 @@ class _$_UpdateFlightSuccess extends _UpdateFlightSuccess {
     TResult Function(ListFlightModelState data, String message)?
         deleteFlightFailed,
     TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (updateFlightSuccess != null) {
@@ -3499,6 +6001,16 @@ class _$_UpdateFlightSuccess extends _UpdateFlightSuccess {
     required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
     required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
     required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
   }) {
     return updateFlightSuccess(this);
   }
@@ -3517,6 +6029,14 @@ class _$_UpdateFlightSuccess extends _UpdateFlightSuccess {
     TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
   }) {
     return updateFlightSuccess?.call(this);
   }
@@ -3535,6 +6055,14 @@ class _$_UpdateFlightSuccess extends _UpdateFlightSuccess {
     TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
     TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
     TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
     required TResult orElse(),
   }) {
     if (updateFlightSuccess != null) {
@@ -3554,5 +6082,2232 @@ abstract class _UpdateFlightSuccess extends ListFlightState {
   @override
   @JsonKey(ignore: true)
   _$$_UpdateFlightSuccessCopyWith<_$_UpdateFlightSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetFlightByPageSuccessCopyWith<$Res>
+    implements $ListFlightStateCopyWith<$Res> {
+  factory _$$_GetFlightByPageSuccessCopyWith(_$_GetFlightByPageSuccess value,
+          $Res Function(_$_GetFlightByPageSuccess) then) =
+      __$$_GetFlightByPageSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ListFlightModelState data});
+
+  @override
+  $ListFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetFlightByPageSuccessCopyWithImpl<$Res>
+    extends _$ListFlightStateCopyWithImpl<$Res, _$_GetFlightByPageSuccess>
+    implements _$$_GetFlightByPageSuccessCopyWith<$Res> {
+  __$$_GetFlightByPageSuccessCopyWithImpl(_$_GetFlightByPageSuccess _value,
+      $Res Function(_$_GetFlightByPageSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_GetFlightByPageSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ListFlightModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetFlightByPageSuccess extends _GetFlightByPageSuccess {
+  const _$_GetFlightByPageSuccess({required this.data}) : super._();
+
+  @override
+  final ListFlightModelState data;
+
+  @override
+  String toString() {
+    return 'ListFlightState.getFlightByPageSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetFlightByPageSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetFlightByPageSuccessCopyWith<_$_GetFlightByPageSuccess> get copyWith =>
+      __$$_GetFlightByPageSuccessCopyWithImpl<_$_GetFlightByPageSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ListFlightModelState data) initial,
+    required TResult Function(ListFlightModelState data) loading,
+    required TResult Function(ListFlightModelState data, String flightId)
+        selectListFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        selectListFlightFailed,
+    required TResult Function(ListFlightModelState data) getFlightsSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
+    required TResult Function(ListFlightModelState data) deleteFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        deleteFlightFailed,
+    required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
+  }) {
+    return getFlightByPageSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ListFlightModelState data)? initial,
+    TResult? Function(ListFlightModelState data)? loading,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult? Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+  }) {
+    return getFlightByPageSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ListFlightModelState data)? initial,
+    TResult Function(ListFlightModelState data)? loading,
+    TResult Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (getFlightByPageSuccess != null) {
+      return getFlightByPageSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectListFlightSuccess value)
+        selectListFlightSuccess,
+    required TResult Function(_SelectListFlightFailed value)
+        selectListFlightFailed,
+    required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
+    required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
+    required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
+    required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
+    required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+  }) {
+    return getFlightByPageSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+  }) {
+    return getFlightByPageSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (getFlightByPageSuccess != null) {
+      return getFlightByPageSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetFlightByPageSuccess extends ListFlightState {
+  const factory _GetFlightByPageSuccess(
+      {required final ListFlightModelState data}) = _$_GetFlightByPageSuccess;
+  const _GetFlightByPageSuccess._() : super._();
+
+  @override
+  ListFlightModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetFlightByPageSuccessCopyWith<_$_GetFlightByPageSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetFlightByPageFailedCopyWith<$Res>
+    implements $ListFlightStateCopyWith<$Res> {
+  factory _$$_GetFlightByPageFailedCopyWith(_$_GetFlightByPageFailed value,
+          $Res Function(_$_GetFlightByPageFailed) then) =
+      __$$_GetFlightByPageFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ListFlightModelState data, String message});
+
+  @override
+  $ListFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetFlightByPageFailedCopyWithImpl<$Res>
+    extends _$ListFlightStateCopyWithImpl<$Res, _$_GetFlightByPageFailed>
+    implements _$$_GetFlightByPageFailedCopyWith<$Res> {
+  __$$_GetFlightByPageFailedCopyWithImpl(_$_GetFlightByPageFailed _value,
+      $Res Function(_$_GetFlightByPageFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_GetFlightByPageFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ListFlightModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetFlightByPageFailed extends _GetFlightByPageFailed {
+  const _$_GetFlightByPageFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final ListFlightModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ListFlightState.getFlightPageFFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetFlightByPageFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetFlightByPageFailedCopyWith<_$_GetFlightByPageFailed> get copyWith =>
+      __$$_GetFlightByPageFailedCopyWithImpl<_$_GetFlightByPageFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ListFlightModelState data) initial,
+    required TResult Function(ListFlightModelState data) loading,
+    required TResult Function(ListFlightModelState data, String flightId)
+        selectListFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        selectListFlightFailed,
+    required TResult Function(ListFlightModelState data) getFlightsSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
+    required TResult Function(ListFlightModelState data) deleteFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        deleteFlightFailed,
+    required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
+  }) {
+    return getFlightPageFFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ListFlightModelState data)? initial,
+    TResult? Function(ListFlightModelState data)? loading,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult? Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+  }) {
+    return getFlightPageFFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ListFlightModelState data)? initial,
+    TResult Function(ListFlightModelState data)? loading,
+    TResult Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (getFlightPageFFailed != null) {
+      return getFlightPageFFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectListFlightSuccess value)
+        selectListFlightSuccess,
+    required TResult Function(_SelectListFlightFailed value)
+        selectListFlightFailed,
+    required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
+    required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
+    required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
+    required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
+    required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+  }) {
+    return getFlightPageFFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+  }) {
+    return getFlightPageFFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (getFlightPageFFailed != null) {
+      return getFlightPageFFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetFlightByPageFailed extends ListFlightState {
+  const factory _GetFlightByPageFailed(
+      {required final ListFlightModelState data,
+      required final String message}) = _$_GetFlightByPageFailed;
+  const _GetFlightByPageFailed._() : super._();
+
+  @override
+  ListFlightModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetFlightByPageFailedCopyWith<_$_GetFlightByPageFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FilterFlightSuccessCopyWith<$Res>
+    implements $ListFlightStateCopyWith<$Res> {
+  factory _$$_FilterFlightSuccessCopyWith(_$_FilterFlightSuccess value,
+          $Res Function(_$_FilterFlightSuccess) then) =
+      __$$_FilterFlightSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ListFlightModelState data});
+
+  @override
+  $ListFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_FilterFlightSuccessCopyWithImpl<$Res>
+    extends _$ListFlightStateCopyWithImpl<$Res, _$_FilterFlightSuccess>
+    implements _$$_FilterFlightSuccessCopyWith<$Res> {
+  __$$_FilterFlightSuccessCopyWithImpl(_$_FilterFlightSuccess _value,
+      $Res Function(_$_FilterFlightSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_FilterFlightSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ListFlightModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FilterFlightSuccess extends _FilterFlightSuccess {
+  const _$_FilterFlightSuccess({required this.data}) : super._();
+
+  @override
+  final ListFlightModelState data;
+
+  @override
+  String toString() {
+    return 'ListFlightState.filterFlightSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FilterFlightSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FilterFlightSuccessCopyWith<_$_FilterFlightSuccess> get copyWith =>
+      __$$_FilterFlightSuccessCopyWithImpl<_$_FilterFlightSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ListFlightModelState data) initial,
+    required TResult Function(ListFlightModelState data) loading,
+    required TResult Function(ListFlightModelState data, String flightId)
+        selectListFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        selectListFlightFailed,
+    required TResult Function(ListFlightModelState data) getFlightsSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
+    required TResult Function(ListFlightModelState data) deleteFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        deleteFlightFailed,
+    required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
+  }) {
+    return filterFlightSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ListFlightModelState data)? initial,
+    TResult? Function(ListFlightModelState data)? loading,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult? Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+  }) {
+    return filterFlightSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ListFlightModelState data)? initial,
+    TResult Function(ListFlightModelState data)? loading,
+    TResult Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (filterFlightSuccess != null) {
+      return filterFlightSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectListFlightSuccess value)
+        selectListFlightSuccess,
+    required TResult Function(_SelectListFlightFailed value)
+        selectListFlightFailed,
+    required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
+    required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
+    required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
+    required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
+    required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+  }) {
+    return filterFlightSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+  }) {
+    return filterFlightSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (filterFlightSuccess != null) {
+      return filterFlightSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FilterFlightSuccess extends ListFlightState {
+  const factory _FilterFlightSuccess(
+      {required final ListFlightModelState data}) = _$_FilterFlightSuccess;
+  const _FilterFlightSuccess._() : super._();
+
+  @override
+  ListFlightModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_FilterFlightSuccessCopyWith<_$_FilterFlightSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FilterFlightFailedCopyWith<$Res>
+    implements $ListFlightStateCopyWith<$Res> {
+  factory _$$_FilterFlightFailedCopyWith(_$_FilterFlightFailed value,
+          $Res Function(_$_FilterFlightFailed) then) =
+      __$$_FilterFlightFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ListFlightModelState data, String message});
+
+  @override
+  $ListFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_FilterFlightFailedCopyWithImpl<$Res>
+    extends _$ListFlightStateCopyWithImpl<$Res, _$_FilterFlightFailed>
+    implements _$$_FilterFlightFailedCopyWith<$Res> {
+  __$$_FilterFlightFailedCopyWithImpl(
+      _$_FilterFlightFailed _value, $Res Function(_$_FilterFlightFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_FilterFlightFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ListFlightModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FilterFlightFailed extends _FilterFlightFailed {
+  const _$_FilterFlightFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final ListFlightModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ListFlightState.filterFlightFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FilterFlightFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FilterFlightFailedCopyWith<_$_FilterFlightFailed> get copyWith =>
+      __$$_FilterFlightFailedCopyWithImpl<_$_FilterFlightFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ListFlightModelState data) initial,
+    required TResult Function(ListFlightModelState data) loading,
+    required TResult Function(ListFlightModelState data, String flightId)
+        selectListFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        selectListFlightFailed,
+    required TResult Function(ListFlightModelState data) getFlightsSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
+    required TResult Function(ListFlightModelState data) deleteFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        deleteFlightFailed,
+    required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
+  }) {
+    return filterFlightFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ListFlightModelState data)? initial,
+    TResult? Function(ListFlightModelState data)? loading,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult? Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+  }) {
+    return filterFlightFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ListFlightModelState data)? initial,
+    TResult Function(ListFlightModelState data)? loading,
+    TResult Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (filterFlightFailed != null) {
+      return filterFlightFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectListFlightSuccess value)
+        selectListFlightSuccess,
+    required TResult Function(_SelectListFlightFailed value)
+        selectListFlightFailed,
+    required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
+    required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
+    required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
+    required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
+    required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+  }) {
+    return filterFlightFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+  }) {
+    return filterFlightFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (filterFlightFailed != null) {
+      return filterFlightFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FilterFlightFailed extends ListFlightState {
+  const factory _FilterFlightFailed(
+      {required final ListFlightModelState data,
+      required final String message}) = _$_FilterFlightFailed;
+  const _FilterFlightFailed._() : super._();
+
+  @override
+  ListFlightModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_FilterFlightFailedCopyWith<_$_FilterFlightFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FetchPlaceSuccessCopyWith<$Res>
+    implements $ListFlightStateCopyWith<$Res> {
+  factory _$$_FetchPlaceSuccessCopyWith(_$_FetchPlaceSuccess value,
+          $Res Function(_$_FetchPlaceSuccess) then) =
+      __$$_FetchPlaceSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ListFlightModelState data});
+
+  @override
+  $ListFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_FetchPlaceSuccessCopyWithImpl<$Res>
+    extends _$ListFlightStateCopyWithImpl<$Res, _$_FetchPlaceSuccess>
+    implements _$$_FetchPlaceSuccessCopyWith<$Res> {
+  __$$_FetchPlaceSuccessCopyWithImpl(
+      _$_FetchPlaceSuccess _value, $Res Function(_$_FetchPlaceSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_FetchPlaceSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ListFlightModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FetchPlaceSuccess extends _FetchPlaceSuccess {
+  const _$_FetchPlaceSuccess({required this.data}) : super._();
+
+  @override
+  final ListFlightModelState data;
+
+  @override
+  String toString() {
+    return 'ListFlightState.fetchPlaceSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchPlaceSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FetchPlaceSuccessCopyWith<_$_FetchPlaceSuccess> get copyWith =>
+      __$$_FetchPlaceSuccessCopyWithImpl<_$_FetchPlaceSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ListFlightModelState data) initial,
+    required TResult Function(ListFlightModelState data) loading,
+    required TResult Function(ListFlightModelState data, String flightId)
+        selectListFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        selectListFlightFailed,
+    required TResult Function(ListFlightModelState data) getFlightsSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
+    required TResult Function(ListFlightModelState data) deleteFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        deleteFlightFailed,
+    required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
+  }) {
+    return fetchPlaceSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ListFlightModelState data)? initial,
+    TResult? Function(ListFlightModelState data)? loading,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult? Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+  }) {
+    return fetchPlaceSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ListFlightModelState data)? initial,
+    TResult Function(ListFlightModelState data)? loading,
+    TResult Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (fetchPlaceSuccess != null) {
+      return fetchPlaceSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectListFlightSuccess value)
+        selectListFlightSuccess,
+    required TResult Function(_SelectListFlightFailed value)
+        selectListFlightFailed,
+    required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
+    required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
+    required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
+    required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
+    required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+  }) {
+    return fetchPlaceSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+  }) {
+    return fetchPlaceSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (fetchPlaceSuccess != null) {
+      return fetchPlaceSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchPlaceSuccess extends ListFlightState {
+  const factory _FetchPlaceSuccess({required final ListFlightModelState data}) =
+      _$_FetchPlaceSuccess;
+  const _FetchPlaceSuccess._() : super._();
+
+  @override
+  ListFlightModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_FetchPlaceSuccessCopyWith<_$_FetchPlaceSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FetchPlaceFailedCopyWith<$Res>
+    implements $ListFlightStateCopyWith<$Res> {
+  factory _$$_FetchPlaceFailedCopyWith(
+          _$_FetchPlaceFailed value, $Res Function(_$_FetchPlaceFailed) then) =
+      __$$_FetchPlaceFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ListFlightModelState data, String message});
+
+  @override
+  $ListFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_FetchPlaceFailedCopyWithImpl<$Res>
+    extends _$ListFlightStateCopyWithImpl<$Res, _$_FetchPlaceFailed>
+    implements _$$_FetchPlaceFailedCopyWith<$Res> {
+  __$$_FetchPlaceFailedCopyWithImpl(
+      _$_FetchPlaceFailed _value, $Res Function(_$_FetchPlaceFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_FetchPlaceFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ListFlightModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FetchPlaceFailed extends _FetchPlaceFailed {
+  const _$_FetchPlaceFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final ListFlightModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ListFlightState.fetchPlaceFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchPlaceFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FetchPlaceFailedCopyWith<_$_FetchPlaceFailed> get copyWith =>
+      __$$_FetchPlaceFailedCopyWithImpl<_$_FetchPlaceFailed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ListFlightModelState data) initial,
+    required TResult Function(ListFlightModelState data) loading,
+    required TResult Function(ListFlightModelState data, String flightId)
+        selectListFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        selectListFlightFailed,
+    required TResult Function(ListFlightModelState data) getFlightsSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
+    required TResult Function(ListFlightModelState data) deleteFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        deleteFlightFailed,
+    required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
+  }) {
+    return fetchPlaceFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ListFlightModelState data)? initial,
+    TResult? Function(ListFlightModelState data)? loading,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult? Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+  }) {
+    return fetchPlaceFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ListFlightModelState data)? initial,
+    TResult Function(ListFlightModelState data)? loading,
+    TResult Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (fetchPlaceFailed != null) {
+      return fetchPlaceFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectListFlightSuccess value)
+        selectListFlightSuccess,
+    required TResult Function(_SelectListFlightFailed value)
+        selectListFlightFailed,
+    required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
+    required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
+    required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
+    required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
+    required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+  }) {
+    return fetchPlaceFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+  }) {
+    return fetchPlaceFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (fetchPlaceFailed != null) {
+      return fetchPlaceFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchPlaceFailed extends ListFlightState {
+  const factory _FetchPlaceFailed(
+      {required final ListFlightModelState data,
+      required final String message}) = _$_FetchPlaceFailed;
+  const _FetchPlaceFailed._() : super._();
+
+  @override
+  ListFlightModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_FetchPlaceFailedCopyWith<_$_FetchPlaceFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FetchAirlineSuccessCopyWith<$Res>
+    implements $ListFlightStateCopyWith<$Res> {
+  factory _$$_FetchAirlineSuccessCopyWith(_$_FetchAirlineSuccess value,
+          $Res Function(_$_FetchAirlineSuccess) then) =
+      __$$_FetchAirlineSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ListFlightModelState data});
+
+  @override
+  $ListFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_FetchAirlineSuccessCopyWithImpl<$Res>
+    extends _$ListFlightStateCopyWithImpl<$Res, _$_FetchAirlineSuccess>
+    implements _$$_FetchAirlineSuccessCopyWith<$Res> {
+  __$$_FetchAirlineSuccessCopyWithImpl(_$_FetchAirlineSuccess _value,
+      $Res Function(_$_FetchAirlineSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_FetchAirlineSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ListFlightModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FetchAirlineSuccess extends _FetchAirlineSuccess {
+  const _$_FetchAirlineSuccess({required this.data}) : super._();
+
+  @override
+  final ListFlightModelState data;
+
+  @override
+  String toString() {
+    return 'ListFlightState.fetchAirlineSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchAirlineSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FetchAirlineSuccessCopyWith<_$_FetchAirlineSuccess> get copyWith =>
+      __$$_FetchAirlineSuccessCopyWithImpl<_$_FetchAirlineSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ListFlightModelState data) initial,
+    required TResult Function(ListFlightModelState data) loading,
+    required TResult Function(ListFlightModelState data, String flightId)
+        selectListFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        selectListFlightFailed,
+    required TResult Function(ListFlightModelState data) getFlightsSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
+    required TResult Function(ListFlightModelState data) deleteFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        deleteFlightFailed,
+    required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
+  }) {
+    return fetchAirlineSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ListFlightModelState data)? initial,
+    TResult? Function(ListFlightModelState data)? loading,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult? Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+  }) {
+    return fetchAirlineSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ListFlightModelState data)? initial,
+    TResult Function(ListFlightModelState data)? loading,
+    TResult Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (fetchAirlineSuccess != null) {
+      return fetchAirlineSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectListFlightSuccess value)
+        selectListFlightSuccess,
+    required TResult Function(_SelectListFlightFailed value)
+        selectListFlightFailed,
+    required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
+    required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
+    required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
+    required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
+    required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+  }) {
+    return fetchAirlineSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+  }) {
+    return fetchAirlineSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (fetchAirlineSuccess != null) {
+      return fetchAirlineSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchAirlineSuccess extends ListFlightState {
+  const factory _FetchAirlineSuccess(
+      {required final ListFlightModelState data}) = _$_FetchAirlineSuccess;
+  const _FetchAirlineSuccess._() : super._();
+
+  @override
+  ListFlightModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_FetchAirlineSuccessCopyWith<_$_FetchAirlineSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FetchAirlineFailedCopyWith<$Res>
+    implements $ListFlightStateCopyWith<$Res> {
+  factory _$$_FetchAirlineFailedCopyWith(_$_FetchAirlineFailed value,
+          $Res Function(_$_FetchAirlineFailed) then) =
+      __$$_FetchAirlineFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ListFlightModelState data, String message});
+
+  @override
+  $ListFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_FetchAirlineFailedCopyWithImpl<$Res>
+    extends _$ListFlightStateCopyWithImpl<$Res, _$_FetchAirlineFailed>
+    implements _$$_FetchAirlineFailedCopyWith<$Res> {
+  __$$_FetchAirlineFailedCopyWithImpl(
+      _$_FetchAirlineFailed _value, $Res Function(_$_FetchAirlineFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_FetchAirlineFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ListFlightModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FetchAirlineFailed extends _FetchAirlineFailed {
+  const _$_FetchAirlineFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final ListFlightModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ListFlightState.fetchAirlineFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchAirlineFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FetchAirlineFailedCopyWith<_$_FetchAirlineFailed> get copyWith =>
+      __$$_FetchAirlineFailedCopyWithImpl<_$_FetchAirlineFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ListFlightModelState data) initial,
+    required TResult Function(ListFlightModelState data) loading,
+    required TResult Function(ListFlightModelState data, String flightId)
+        selectListFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        selectListFlightFailed,
+    required TResult Function(ListFlightModelState data) getFlightsSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightsFailed,
+    required TResult Function(ListFlightModelState data, String flightId)
+        openAddEditFlightFormSuccess,
+    required TResult Function(ListFlightModelState data) deleteFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        deleteFlightFailed,
+    required TResult Function(ListFlightModelState data) updateFlightSuccess,
+    required TResult Function(ListFlightModelState data) getFlightByPageSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        getFlightPageFFailed,
+    required TResult Function(ListFlightModelState data) filterFlightSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        filterFlightFailed,
+    required TResult Function(ListFlightModelState data) fetchPlaceSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchPlaceFailed,
+    required TResult Function(ListFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(ListFlightModelState data, String message)
+        fetchAirlineFailed,
+  }) {
+    return fetchAirlineFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ListFlightModelState data)? initial,
+    TResult? Function(ListFlightModelState data)? loading,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult? Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult? Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult? Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult? Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult? Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult? Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult? Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+  }) {
+    return fetchAirlineFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ListFlightModelState data)? initial,
+    TResult Function(ListFlightModelState data)? loading,
+    TResult Function(ListFlightModelState data, String flightId)?
+        selectListFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        selectListFlightFailed,
+    TResult Function(ListFlightModelState data)? getFlightsSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightsFailed,
+    TResult Function(ListFlightModelState data, String flightId)?
+        openAddEditFlightFormSuccess,
+    TResult Function(ListFlightModelState data)? deleteFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        deleteFlightFailed,
+    TResult Function(ListFlightModelState data)? updateFlightSuccess,
+    TResult Function(ListFlightModelState data)? getFlightByPageSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        getFlightPageFFailed,
+    TResult Function(ListFlightModelState data)? filterFlightSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        filterFlightFailed,
+    TResult Function(ListFlightModelState data)? fetchPlaceSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchPlaceFailed,
+    TResult Function(ListFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(ListFlightModelState data, String message)?
+        fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (fetchAirlineFailed != null) {
+      return fetchAirlineFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_SelectListFlightSuccess value)
+        selectListFlightSuccess,
+    required TResult Function(_SelectListFlightFailed value)
+        selectListFlightFailed,
+    required TResult Function(_GetFlightsSuccess value) getFlightsSuccess,
+    required TResult Function(_GetFlightsFailed value) getFlightsFailed,
+    required TResult Function(_OpenAddEditFlightFormSuccess value)
+        openAddEditFlightFormSuccess,
+    required TResult Function(_DeleteFlightSuccess value) deleteFlightSuccess,
+    required TResult Function(_DeleteFlightFailed value) deleteFlightFailed,
+    required TResult Function(_UpdateFlightSuccess value) updateFlightSuccess,
+    required TResult Function(_GetFlightByPageSuccess value)
+        getFlightByPageSuccess,
+    required TResult Function(_GetFlightByPageFailed value)
+        getFlightPageFFailed,
+    required TResult Function(_FilterFlightSuccess value) filterFlightSuccess,
+    required TResult Function(_FilterFlightFailed value) filterFlightFailed,
+    required TResult Function(_FetchPlaceSuccess value) fetchPlaceSuccess,
+    required TResult Function(_FetchPlaceFailed value) fetchPlaceFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+  }) {
+    return fetchAirlineFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult? Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult? Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult? Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult? Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult? Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult? Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult? Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult? Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult? Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult? Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult? Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult? Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult? Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+  }) {
+    return fetchAirlineFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_SelectListFlightSuccess value)? selectListFlightSuccess,
+    TResult Function(_SelectListFlightFailed value)? selectListFlightFailed,
+    TResult Function(_GetFlightsSuccess value)? getFlightsSuccess,
+    TResult Function(_GetFlightsFailed value)? getFlightsFailed,
+    TResult Function(_OpenAddEditFlightFormSuccess value)?
+        openAddEditFlightFormSuccess,
+    TResult Function(_DeleteFlightSuccess value)? deleteFlightSuccess,
+    TResult Function(_DeleteFlightFailed value)? deleteFlightFailed,
+    TResult Function(_UpdateFlightSuccess value)? updateFlightSuccess,
+    TResult Function(_GetFlightByPageSuccess value)? getFlightByPageSuccess,
+    TResult Function(_GetFlightByPageFailed value)? getFlightPageFFailed,
+    TResult Function(_FilterFlightSuccess value)? filterFlightSuccess,
+    TResult Function(_FilterFlightFailed value)? filterFlightFailed,
+    TResult Function(_FetchPlaceSuccess value)? fetchPlaceSuccess,
+    TResult Function(_FetchPlaceFailed value)? fetchPlaceFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    required TResult orElse(),
+  }) {
+    if (fetchAirlineFailed != null) {
+      return fetchAirlineFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchAirlineFailed extends ListFlightState {
+  const factory _FetchAirlineFailed(
+      {required final ListFlightModelState data,
+      required final String message}) = _$_FetchAirlineFailed;
+  const _FetchAirlineFailed._() : super._();
+
+  @override
+  ListFlightModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_FetchAirlineFailedCopyWith<_$_FetchAirlineFailed> get copyWith =>
       throw _privateConstructorUsedError;
 }

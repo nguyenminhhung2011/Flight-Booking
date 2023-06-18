@@ -43,4 +43,39 @@ class ListFlightState with _$ListFlightState {
   const factory ListFlightState.updateFlightSuccess({
     required ListFlightModelState data,
   }) = _UpdateFlightSuccess;
+
+  const factory ListFlightState.getFlightByPageSuccess({
+    required ListFlightModelState data,
+  }) = _GetFlightByPageSuccess;
+
+  const factory ListFlightState.getFlightPageFFailed({
+    required ListFlightModelState data,
+    required String message,
+  }) = _GetFlightByPageFailed;
+
+  const factory ListFlightState.filterFlightSuccess({
+    required ListFlightModelState data,
+  }) = _FilterFlightSuccess;
+
+  const factory ListFlightState.filterFlightFailed({
+    required ListFlightModelState data,
+    required String message,
+  }) = _FilterFlightFailed;
+
+  const factory ListFlightState.fetchPlaceSuccess({
+    required ListFlightModelState data,
+  }) = _FetchPlaceSuccess;
+
+  const factory ListFlightState.fetchPlaceFailed({
+    required ListFlightModelState data,
+    required String message,
+  }) = _FetchPlaceFailed;
+  const factory ListFlightState.fetchAirlineSuccess({
+    required ListFlightModelState data,
+  }) = _FetchAirlineSuccess;
+
+  const factory ListFlightState.fetchAirlineFailed({
+    required ListFlightModelState data,
+    required String message,
+  }) = _FetchAirlineFailed;
 }

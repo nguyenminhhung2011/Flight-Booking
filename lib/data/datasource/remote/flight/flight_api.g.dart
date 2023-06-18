@@ -70,6 +70,74 @@ class _FlightApi implements FlightApi {
   }
 
   @override
+  Future<HttpResponse<PageResponse<FlightModel>?>> getFlightByPage(
+    cursor,
+    pageSize,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
+        _setStreamType<HttpResponse<PageResponse<FlightModel>>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/v1/flight/page/cursor=${cursor}&pageSize=${pageSize}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data == null
+        ? null
+        : PageResponse<FlightModel>.fromJson(
+            _result.data!,
+            (json) => FlightModel.fromJson(json as Map<String, dynamic>),
+          );
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
+  }
+
+  @override
+  Future<HttpResponse<List<FlightModel>?>> filterFlight({
+    required cursor,
+    required pageSize,
+    required locationArrival,
+    required locationDeparture,
+    required airlineName,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'locationArrival': locationArrival,
+      r'locationDeparture': locationDeparture,
+      r'airlineName': airlineName,
+    };
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<HttpResponse<List<FlightModel>>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/v1/flight/filter/cursor=${cursor}&pageSize=${pageSize}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data
+        ?.map((dynamic i) => FlightModel.fromJson(i as Map<String, dynamic>))
+        .toList();
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
+  }
+
+  @override
   Future<HttpResponse<FlightModel?>> addNewFlight({required body}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

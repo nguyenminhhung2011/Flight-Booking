@@ -3221,6 +3221,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Next`
+  String get next {
+    return Intl.message(
+      'Next',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Previous`
+  String get previous {
+    return Intl.message(
+      'Previous',
+      name: 'previous',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arrival Place`
+  String get arrivalPlace {
+    return Intl.message(
+      'Arrival Place',
+      name: 'arrivalPlace',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Departure Place`
+  String get departurePlace {
+    return Intl.message(
+      'Departure Place',
+      name: 'departurePlace',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
