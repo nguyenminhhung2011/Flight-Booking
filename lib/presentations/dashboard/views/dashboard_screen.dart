@@ -234,37 +234,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             trailing: Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 15.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
+                              child: Row(
                                 children: [
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        data.isDarkTheme
-                                            ? Icons.dark_mode
-                                            : Icons.light_mode,
-                                      ),
-                                      Expanded(
-                                        child: Text(
-                                          ' ${data.isDarkTheme ? S.of(context).darkMode : S.of(context).lightMode}',
-                                        ),
-                                      ),
-                                      Switch(
-                                        value: data.isDarkTheme,
-                                        onChanged: _onChangeTheme,
-                                      )
-                                    ],
+                                  Icon(
+                                    data.isDarkTheme
+                                        ? Icons.dark_mode
+                                        : Icons.light_mode,
                                   ),
-                                  IconButton(
-                                    onPressed: () {
-                                      context
-                                          .read<AuthenticationBloc>()
-                                          .add(LogoutEvent());
-                                    },
-                                    icon: Icon(Icons.logout,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .error),
+                                  Expanded(
+                                    child: Text(
+                                      ' ${data.isDarkTheme ? S.of(context).darkMode : S.of(context).lightMode}',
+                                    ),
+                                  ),
+                                  Switch(
+                                    value: data.isDarkTheme,
+                                    onChanged: _onChangeTheme,
                                   )
                                 ],
                               ),

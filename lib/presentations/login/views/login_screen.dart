@@ -23,67 +23,69 @@ class LoginScreen extends StatelessWidget {
     }, builder: (context, state) {
       return Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        body: state.status == AuthenticationStatus.checking
-            ? const LoadingIndicator()
-            : Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.of(context).size.width * 0.25,
-                  vertical: MediaQuery.of(context).size.height * 0.15,
-                ),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(
-                      Theme.of(context).brightness == Brightness.light
-                          ? ImageConst.loginBackground
-                          : ImageConst.loginBackgroundDark,
-                    ),
-                  ),
-                ),
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.05,
-                    vertical: MediaQuery.of(context).size.height * 0.05,
-                  ),
-                  // width: loginFormWidth,
-                  // height: loginFormHeight,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).scaffoldBackgroundColor,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: PageView(
-                    controller: pageController,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      LoginForm(
-                        // loginFormWidth: loginFormWidth,
-                        navigateToForgetPassword: () async {
-                          await pageController.nextPage(
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.bounceIn,
-                          );
-                        },
-                      ),
-                      ForgetPasswordForm(
-                        comebackToLoginForm: () async {
-                          await pageController.previousPage(
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.bounceIn,
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ),
+        body: Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.25,
+            vertical: MediaQuery.of(context).size.height * 0.15,
+          ),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                Theme.of(context).brightness == Brightness.light
+                    ? ImageConst.loginBackground
+                    : ImageConst.loginBackgroundDark,
               ),
+            ),
+          ),
+          child: Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.05,
+              vertical: MediaQuery.of(context).size.height * 0.05,
+            ),
+            // width: loginFormWidth,
+            // height: loginFormHeight,
+            decoration: BoxDecoration(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: PageView(
+              controller: pageController,
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
+                LoginForm(
+                  authenticationState: state,
+                  navigateToForgetPassword: () async {
+                    await pageController.nextPage(
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.bounceIn,
+                    );
+                  },
+                ),
+                ForgetPasswordForm(
+                  comebackToLoginForm: () async {
+                    await pageController.previousPage(
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.bounceIn,
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
       );
     });
   }
 }
 
 class LoginForm extends StatelessWidget {
-  LoginForm({super.key, required this.navigateToForgetPassword});
+  LoginForm({
+    super.key,
+    required this.navigateToForgetPassword,
+    required this.authenticationState,
+  });
 
   // final double loginFormWidth;
   final ValueNotifier<bool> isLoading = ValueNotifier(false);
@@ -92,6 +94,7 @@ class LoginForm extends StatelessWidget {
   final Function() navigateToForgetPassword;
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final AuthenticationState authenticationState;
 
   @override
   Widget build(BuildContext context) {
@@ -213,7 +216,7 @@ class LoginForm extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.center,
-            child: ElevatedButton(
+            child: TextButton.icon(
               onPressed: () {
                 context.read<AuthenticationBloc>().add(LoginEvent(
                     username: usernameController.text,
@@ -227,23 +230,24 @@ class LoginForm extends StatelessWidget {
                   borderRadius: CommonAppUIConfig.primaryRadiusBorder,
                 ),
               ),
-              child: ValueListenableBuilder<bool>(
-                valueListenable: isLoading,
-                builder: (context, isLoadingValue, child) => !(isLoadingValue)
-                    ? Text(
-                        S.of(context).logIn,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      )
-                    : const Center(
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                        ),
-                      ),
+              label: Text(
+                S.of(context).logIn,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
+              icon: authenticationState.status == AuthenticationStatus.checking
+                  ? LoadingIndicator(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      radius: 10,
+                      strokeWidth: 1,
+                    )
+                  : Icon(
+                      Icons.login,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
             ),
           ),
           Wrap(

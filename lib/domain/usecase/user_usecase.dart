@@ -26,10 +26,6 @@ class UserUseCase {
     if (result is DataSuccess &&
         result.data != null &&
         result.data!.isSuccess) {
-      print(result.data!.expiredTime);
-      print(result.data!.accessToken);
-      print(result.data!.refreshToken);
-
       await CommonAppSettingPref.setExpiredTime(result.data!.expiredTime);
       await CommonAppSettingPref.setAccessToken(result.data!.accessToken);
       await CommonAppSettingPref.setRefreshToken(result.data!.refreshToken);
