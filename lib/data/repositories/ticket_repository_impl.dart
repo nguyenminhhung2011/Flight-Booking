@@ -19,19 +19,20 @@ class TicketRepositoryImpl extends TicketRepository {
 
   @override
   Future<Ticket?> addNewTicket(Ticket ticket) async {
-    final ticketModel = TicketModel()
-      ..id = ticket.id
-      ..idCustomer = ticket.idCustomer
-      ..idFlight = ticket.idFlight
-      ..price = ticket.price
-      ..timeBought = ticket.timeBought.millisecondsSinceEpoch;
-    final body = ticketModel.toJson();
-    final response = await _ticketApi.addNewTickets(body: body);
-    final data = response.data?.toEntity;
-    if (data == null) {
-      return null;
-    }
-    return data;
+    // final ticketModel = TicketModel()
+    //   ..id = ticket.id
+    //   ..idCustomer = ticket.idCustomer
+    //   ..idFlight = ticket.idFlight
+    //   ..price = ticket.price
+    //   ..timeBought = ticket.timeBought.millisecondsSinceEpoch;
+    // final body = ticketModel.toJson();
+    // final response = await _ticketApi.addNewTickets(body: body);
+    // final data = response.data?.toEntity;
+    // if (data == null) {
+    //   return null;
+    // }
+    // return data;
+    return null;
   }
 
   @override
@@ -42,18 +43,19 @@ class TicketRepositoryImpl extends TicketRepository {
 
   @override
   Future<Ticket?> editTicket(Ticket newTicket) async {
-    final ticketModel = TicketModel()
-      ..id = newTicket.id
-      ..idCustomer = newTicket.idCustomer
-      ..idFlight = newTicket.idFlight
-      ..price = newTicket.price
-      ..timeBought = newTicket.timeBought.millisecondsSinceEpoch;
-    final body = ticketModel.toJson();
-    final response = await _ticketApi.editTicket(body: body);
-    final data = response.data?.toEntity;
-    if (data == null) {
-      return null;
-    }
-    return data;
+    // final ticketModel = TicketModel()
+    //   ..id = newTicket.id
+    //   ..idCustomer = newTicket.idCustomer
+    //   ..idFlight = newTicket.idFlight
+    //   ..price = newTicket.price
+    //   ..timeBought = newTicket.timeBought.millisecondsSinceEpoch;
+    // final body = ticketModel.toJson();
+    // final response = await _ticketApi.editTicket(body: body);
+    // final data = response.data?.toEntity;
+    // if (data == null) {
+    //   return null;
+    // }
+    // return data;
+    return null;
   }
 }

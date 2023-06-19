@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:collection/collection.dart';
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
+import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
+import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/presentations/flight_detail/bloc/flight_detail_bloc.dart';
 import 'package:flight_booking/presentations/flight_detail/bloc/flight_detail_model_state.dart';
 import 'package:flight_booking/presentations/flight_detail/views/widgets/chair_button.dart';
@@ -15,8 +19,8 @@ import 'package:flight_booking/presentations/list_flight/views/widgets/rich_text
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 
+import '../../../domain/entities/flight/flight.dart';
 import '../../../generated/l10n.dart';
 import '../../list_flight/views/widgets/dot_custom.dart';
 
@@ -29,10 +33,15 @@ class FlightDetailScreen extends StatefulWidget {
 
 class _FlightDetailScreenState extends State<FlightDetailScreen> {
   FlightDetailBloc get _bloc => BlocProvider.of<FlightDetailBloc>(context);
+  FlightDetailState get _state => _bloc.state;
+  FlightDetailModelState get _data => _state.data;
+  Flight? get _flight => _data.flight;
+  String get _locationDeparture => _flight?.departureAirport.location ?? '';
+  String get _locationArrival => _flight?.arrivalAirport.location ?? '';
   @override
   void initState() {
     super.initState();
-    _bloc.add(const FlightDetailEvent.started());
+    _bloc.add(const FlightDetailEvent.getFlightById());
   }
 
   void _changeItemView(ItemViewEnum itemView) {
@@ -43,8 +52,12 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
     _bloc.add(const FlightDetailEvent.showMoreInformation());
   }
 
-  void _listenStateChanged(_, state) {
-    state.whenOrNull();
+  void _listenStateChanged(_, FlightDetailState state) {
+    state.whenOrNull(getFlightByIdSuccess: (data) {
+      _bloc.add(const FlightDetailEvent.started());
+    }, getFlightByIdFailed: (data, error) {
+      log(error);
+    });
   }
 
   void _showDialogSelectScott() async {
@@ -56,7 +69,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> chairCharacyer = ['A', 'B', 'C', 'D'];
+    final List<String> chairCharacter = ['A', 'B', 'C', 'D'];
     return BlocConsumer<FlightDetailBloc, FlightDetailState>(
       listener: _listenStateChanged,
       builder: (context, state) {
@@ -73,7 +86,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
             children: [
               _main(context, state.data),
               Breakpoints.large.isActive(context)
-                  ? _sup(context, chairCharacyer, state.data.animation)
+                  ? _sup(context, chairCharacter, state.data.animation)
                   : const SizedBox(),
             ],
           ),
@@ -83,7 +96,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   }
 
   Container _sup(
-      BuildContext context, List<String> chairCharacyer, double animation) {
+      BuildContext context, List<String> chairCharacter, double animation) {
     return Container(
       padding: const EdgeInsets.all(10.0),
       margin: const EdgeInsets.only(top: 10.0, right: 10.0, bottom: 10.0),
@@ -123,8 +136,8 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                     children: [
                       for (int t = 0; t < 6; t++)
                         ChairButton(
-                          chairCharacyer: chairCharacyer,
-                          text: '${chairCharacyer[i]} $t',
+                          chairCharacyer: chairCharacter,
+                          text: '${chairCharacter[i]} $t',
                           check: (i + t) % 3 == 0,
                           onPress: _showDialogSelectScott,
                         ),
@@ -207,7 +220,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                 )
               ],
             ),
-            _informationOfFlight(context, data.showMoreInfor),
+            _informationOfFlight(context),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -289,7 +302,19 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
     );
   }
 
-  AnimatedContainer _informationOfFlight(BuildContext context, bool show) {
+  Widget _informationOfFlight(BuildContext context) {
+    if (_state.loadingGetFlight) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+
+    if (_flight == null) {
+      return const SizedBox();
+    }
+    final durationTime = durationBetweenDate(
+        _flight?.timeStart ?? DateTime.now(),
+        _flight?.timeEnd ?? DateTime.now());
     return AnimatedContainer(
       duration: const Duration(seconds: 1),
       padding: const EdgeInsets.all(15.0),
@@ -315,7 +340,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                 color: Theme.of(context).primaryColor,
               ),
               Text(
-                ' VietAir',
+                ' ${_flight?.airline.airlineName}',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -329,7 +354,16 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                _timePlace(context, '23:20', 'SGB'),
+                _timePlace(
+                  context,
+                  getjmFormat(_flight?.timeStart ?? DateTime.now()),
+                  _locationDeparture.substring(
+                    0,
+                    !_locationDeparture.contains(',')
+                        ? _locationDeparture.length
+                        : _locationDeparture.indexOf(','),
+                  ),
+                ),
                 SizedBox(
                   width: 300,
                   child: Column(
@@ -337,7 +371,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        '6h 20m',
+                        '${durationTime.inHours}h ${durationTime.inMinutes}m',
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!
@@ -369,7 +403,16 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                     ],
                   ),
                 ),
-                _timePlace(context, '6:40', 'HNO'),
+                _timePlace(
+                  context,
+                  getjmFormat(_flight?.timeEnd ?? DateTime.now()),
+                  _locationArrival.substring(
+                    0,
+                    !_locationArrival.contains(',')
+                        ? _locationArrival.length
+                        : _locationArrival.indexOf(','),
+                  ),
+                ),
               ]
                   .expand((element) => [element, const SizedBox(width: 10.0)])
                   .toList()
@@ -377,22 +420,29 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
             ),
           ),
           const SizedBox(height: 10.0),
-          ElevatedButton(
-            onPressed: _showMoreInformation,
+          ButtonCustom(
+            enableWidth: false,
+            onPress: _showMoreInformation,
+            radius: 5,
             child: Text(
-              show
+              _data.showMoreInfor
                   ? S.of(context).hideInformation
                   : S.of(context).showMoreInformation,
             ),
           ),
           const SizedBox(height: 10.0),
-          show ? _moreInformationField(context) : const SizedBox(),
+          _data.showMoreInfor
+              ? _moreInformationField(context)
+              : const SizedBox(),
         ],
       ),
     );
   }
 
   SizedBox _moreInformationField(BuildContext context) {
+    final durationTime = durationBetweenDate(
+        _flight?.timeStart ?? DateTime.now(),
+        _flight?.timeEnd ?? DateTime.now());
     return SizedBox(
       width: double.infinity,
       height: 300.0,
@@ -403,10 +453,9 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               RichTextCustom(
-                firstText: '23:20 ',
-                secondText: DateFormat().add_yMd().format(
-                      DateTime.now(),
-                    ),
+                firstText: getjmFormat(_flight?.timeStart ?? DateTime.now()),
+                secondText:
+                    ' ${getYmdFormat(_flight?.timeStart ?? DateTime.now())}',
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               Row(
@@ -417,7 +466,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                     size: 15.0,
                   ),
                   Text(
-                    '6h 20m',
+                    '${durationTime.inHours}h ${durationTime.inMinutes}m',
                     style: Theme.of(context)
                         .textTheme
                         .titleSmall!
@@ -426,14 +475,11 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                 ],
               ),
               RichTextCustom(
-                firstText: '6:40 ',
-                secondText: DateFormat().add_yMd().format(
-                      DateTime.now().add(
-                        const Duration(days: 1),
-                      ),
-                    ),
+                firstText: getjmFormat(_flight?.timeEnd ?? DateTime.now()),
+                secondText:
+                    ' ${getYmdFormat(_flight?.timeEnd ?? DateTime.now())}',
                 style: Theme.of(context).textTheme.titleSmall,
-              )
+              ),
             ],
           ),
           Column(
@@ -460,14 +506,14 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 RichTextCustom(
-                  firstText: 'TP HCM (SGN) ',
-                  secondText: 'Sân bay Tân Sơn Nhất',
+                  firstText: '${_flight?.departureAirport.name ?? ''} ',
+                  secondText: _locationDeparture,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 _gridEmployeeView(),
                 RichTextCustom(
-                  firstText: 'Tokyo (NRT) ',
-                  secondText: 'Sân bay quốc tế Narita',
+                  firstText: '${_flight?.arrivalAirport.name ?? ''} ',
+                  secondText: _locationArrival,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ],
@@ -481,7 +527,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   Expanded _gridEmployeeView() {
     return Expanded(
         child: LayoutBuilder(
-      builder: (context, constrants) => Container(
+      builder: (context, constraints) => Container(
         width: double.infinity,
         padding: const EdgeInsets.all(15.0),
         margin: const EdgeInsets.symmetric(
@@ -561,7 +607,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
         ),
         const SizedBox(height: 5.0),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 2.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
           decoration: BoxDecoration(
             color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(10.0),

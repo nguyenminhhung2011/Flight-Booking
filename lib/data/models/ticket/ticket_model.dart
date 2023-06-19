@@ -1,19 +1,31 @@
+import 'package:flight_booking/data/models/ticket/ticket_information_model.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'ticket_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class TicketModel {
-  @JsonKey(name: 'Id')
+  @JsonKey(name: 'id')
   late String id;
-  @JsonKey(name: 'IdFlight')
-  late String idFlight;
-  @JsonKey(name: 'IdCustomer')
-  late String idCustomer;
-  @JsonKey(name: 'TimeBought')
-  late int timeBought;
-  @JsonKey(name: 'Price')
-  late double price;
+  @JsonKey(name: 'name')
+  late String name;
+  @JsonKey(name: 'gender')
+  late String gender;
+  @JsonKey(name: 'phoneNumber')
+  late String phoneNumber;
+  @JsonKey(name: 'emailAddress')
+  late String emailAddress;
+  @JsonKey(name: 'luggage')
+  late int luggage;
+  @JsonKey(name: 'sheet')
+  late int sheet;
+  @JsonKey(name: 'dateBorn')
+  late DateTime dateBorn;
+  @JsonKey(name: 'timeBought')
+  late DateTime timeBought;
+  @JsonKey(name: 'ticketInformation')
+  late TicketInformationModel ticketInformation;
 
   TicketModel();
 
@@ -23,9 +35,14 @@ class TicketModel {
 
   Ticket get toEntity => Ticket(
         id: id,
-        idCustomer: idCustomer,
-        idFlight: idFlight,
-        timeBought: DateTime.fromMillisecondsSinceEpoch(timeBought),
-        price: price,
+        name: name,
+        gender: gender,
+        phoneNumber: phoneNumber,
+        emailAddress: emailAddress,
+        luggage: luggage,
+        dateBorn: dateBorn,
+        timeBought: timeBought,
+        sheet: sheet,
+        ticketInformation: ticketInformation.toEntity,
       );
 }

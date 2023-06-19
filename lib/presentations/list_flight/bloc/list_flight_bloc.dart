@@ -115,7 +115,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
       emit(
         ListFlightState.selectListFlightSuccess(
           data: state.data,
-          flightId: '',
+          flightId: event.flightID,
         ),
       );
     } catch (e) {
