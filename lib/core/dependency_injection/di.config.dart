@@ -23,61 +23,63 @@ import '../../data/repositories/airport_repository_impl.dart' as _i34;
 import '../../data/repositories/customer_repository_impl.dart' as _i7;
 import '../../data/repositories/flight_repository_impl.dart' as _i15;
 import '../../data/repositories/ticket_repository_impl.dart' as _i26;
-import '../../data/repositories/user_repository_impl.dart' as _i45;
+import '../../data/repositories/user_repository_impl.dart' as _i46;
 import '../../domain/repositories/airline_repository.dart' as _i29;
 import '../../domain/repositories/airport_repository.dart' as _i33;
 import '../../domain/repositories/customer_repository.dart' as _i6;
 import '../../domain/repositories/flight_repository.dart' as _i14;
 import '../../domain/repositories/ticket_repository.dart' as _i25;
-import '../../domain/repositories/user_repository.dart' as _i44;
+import '../../domain/repositories/user_repository.dart' as _i45;
 import '../../domain/usecase/airline_usecase.dart' as _i31;
 import '../../domain/usecase/airport_usecase.dart' as _i35;
 import '../../domain/usecase/customer_usecase.dart' as _i8;
 import '../../domain/usecase/flight_usecase.dart' as _i16;
 import '../../domain/usecase/ticket_usecase.dart' as _i27;
-import '../../domain/usecase/user_usecase.dart' as _i46;
+import '../../domain/usecase/user_usecase.dart' as _i47;
 import '../../presentations/add_edit_airport/bloc/add_edit_airport_bloc.dart'
-    as _i48;
-import '../../presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart'
     as _i49;
-import '../../presentations/airport/bloc/airport_bloc.dart' as _i50;
+import '../../presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart'
+    as _i50;
+import '../../presentations/airport/bloc/airport_bloc.dart' as _i51;
 import '../../presentations/customer/bloc/customer_bloc.dart' as _i37;
 import '../../presentations/customer_detail/bloc/customer_detail_bloc.dart'
     as _i5;
 import '../../presentations/dashboard/bloc/dashboard_bloc.dart' as _i9;
 import '../../presentations/flight_detail/bloc/flight_detail_bloc.dart' as _i38;
-import '../../presentations/list_flight/bloc/list_flight_bloc.dart' as _i39;
-import '../../presentations/list_ticket/bloc/list_ticket_bloc.dart' as _i40;
-import '../../presentations/login/bloc/authentication_bloc.dart' as _i53;
+import '../../presentations/handle_config_airport/blocs/handle_config_airport_bloc.dart'
+    as _i39;
+import '../../presentations/list_flight/bloc/list_flight_bloc.dart' as _i40;
+import '../../presentations/list_ticket/bloc/list_ticket_bloc.dart' as _i41;
+import '../../presentations/login/bloc/authentication_bloc.dart' as _i54;
 import '../../presentations/payment_detail/bloc/payment_detail_bloc.dart'
     as _i19;
 import '../../presentations/payment_management/bloc/payment_bloc.dart' as _i18;
 import '../../presentations/settings/bloc/accout/account_setting_bloc.dart'
-    as _i47;
+    as _i48;
 import '../../presentations/settings/bloc/general/general_setting_bloc.dart'
-    as _i54;
+    as _i55;
 import '../../presentations/settings/bloc/setting_bloc.dart' as _i23;
 import '../../presentations_mobile/airport_detail_mobile/bloc/airport_detail_mobile_bloc.dart'
     as _i3;
-import '../../presentations_mobile/auth/bloc/auth_bloc.dart' as _i52;
+import '../../presentations_mobile/auth/bloc/auth_bloc.dart' as _i53;
 import '../../presentations_mobile/dashboard_mobile/bloc/dashboard_mobile_bloc.dart'
     as _i10;
 import '../../presentations_mobile/flight_history_detail/bloc/flight_history_detail_bloc.dart'
     as _i13;
 import '../../presentations_mobile/list_airport_mobile/bloc/airport_mobile_bloc.dart'
-    as _i51;
+    as _i52;
 import '../../presentations_mobile/save/bloc/save_bloc.dart' as _i21;
 import '../../presentations_mobile/search_mobile/bloc/search_mobile_bloc.dart'
-    as _i41;
+    as _i42;
 import '../../presentations_mobile/select_scott_mobile/bloc/select_scott_bloc.dart'
     as _i22;
 import '../../presentations_mobile/ticket_mobile/bloc/tic_mobile_bloc.dart'
-    as _i43;
-import '../components/enum/search_enum.dart' as _i42;
+    as _i44;
+import '../components/enum/search_enum.dart' as _i43;
 import '../services/cloundinary_service.dart' as _i4;
 import '../services/image_pic_service.dart' as _i17;
 import '../services/place/place_service.dart' as _i20;
-import 'modules/data_source_module.dart' as _i55;
+import 'modules/data_source_module.dart' as _i56;
 
 const String _prod = 'prod';
 
@@ -151,63 +153,72 @@ _i1.GetIt init(
         flightId,
         gh<_i16.FlightsUsecase>(),
       ));
-  gh.factory<_i39.ListFlightBloc>(() => _i39.ListFlightBloc(
+  gh.factoryParam<_i39.HandleConfigAirportBloc, int, dynamic>((
+    airportId,
+    _,
+  ) =>
+      _i39.HandleConfigAirportBloc(
+        airportId,
+        gh<_i35.AirportUsecase>(),
+        gh<_i16.FlightsUsecase>(),
+      ));
+  gh.factory<_i40.ListFlightBloc>(() => _i40.ListFlightBloc(
         gh<_i16.FlightsUsecase>(),
         gh<_i20.PlaceService>(),
         gh<_i31.AirlineUsecase>(),
       ));
-  gh.factory<_i40.ListTicketBloc>(
-      () => _i40.ListTicketBloc(gh<_i27.TicketUsecase>()));
-  gh.factoryParam<_i41.SearchMobileBloc, _i42.SearchEnum?, dynamic>((
+  gh.factory<_i41.ListTicketBloc>(
+      () => _i41.ListTicketBloc(gh<_i27.TicketUsecase>()));
+  gh.factoryParam<_i42.SearchMobileBloc, _i43.SearchEnum?, dynamic>((
     searchType,
     _,
   ) =>
-      _i41.SearchMobileBloc(
+      _i42.SearchMobileBloc(
         searchType,
         gh<_i35.AirportUsecase>(),
         gh<_i16.FlightsUsecase>(),
       ));
-  gh.factory<_i43.TicMobileBloc>(
-      () => _i43.TicMobileBloc(gh<_i27.TicketUsecase>()));
-  gh.factory<_i44.UserRepository>(
-      () => _i45.UserRepositoryImpl(gh<_i36.AuthApi>()));
-  gh.factory<_i46.UserUseCase>(
-      () => _i46.UserUseCase(gh<_i44.UserRepository>()));
-  gh.factory<_i47.AccountSettingBloc>(
-      () => _i47.AccountSettingBloc(gh<_i46.UserUseCase>()));
-  gh.factoryParam<_i48.AddEditAirportBloc, String, dynamic>((
+  gh.factory<_i44.TicMobileBloc>(
+      () => _i44.TicMobileBloc(gh<_i27.TicketUsecase>()));
+  gh.factory<_i45.UserRepository>(
+      () => _i46.UserRepositoryImpl(gh<_i36.AuthApi>()));
+  gh.factory<_i47.UserUseCase>(
+      () => _i47.UserUseCase(gh<_i45.UserRepository>()));
+  gh.factory<_i48.AccountSettingBloc>(
+      () => _i48.AccountSettingBloc(gh<_i47.UserUseCase>()));
+  gh.factoryParam<_i49.AddEditAirportBloc, String, dynamic>((
     airportId,
     _,
   ) =>
-      _i48.AddEditAirportBloc(
+      _i49.AddEditAirportBloc(
         airportId,
         gh<_i35.AirportUsecase>(),
         gh<_i4.CloundinaryService>(),
         gh<_i17.ImagePicService>(),
         gh<_i20.PlaceService>(),
       ));
-  gh.factoryParam<_i49.AddEditFlightBloc, String, dynamic>((
+  gh.factoryParam<_i50.AddEditFlightBloc, String, dynamic>((
     flightId,
     _,
   ) =>
-      _i49.AddEditFlightBloc(
+      _i50.AddEditFlightBloc(
         flightId,
         gh<_i16.FlightsUsecase>(),
         gh<_i35.AirportUsecase>(),
         gh<_i31.AirlineUsecase>(),
       ));
-  gh.factory<_i50.AirportBloc>(() => _i50.AirportBloc(
+  gh.factory<_i51.AirportBloc>(() => _i51.AirportBloc(
         gh<_i35.AirportUsecase>(),
         gh<_i16.FlightsUsecase>(),
       ));
-  gh.factory<_i51.AirportMobileBloc>(
-      () => _i51.AirportMobileBloc(gh<_i35.AirportUsecase>()));
-  gh.factory<_i52.AuthBloc>(() => _i52.AuthBloc(gh<_i44.UserRepository>()));
-  gh.factory<_i53.AuthenticationBloc>(
-      () => _i53.AuthenticationBloc(gh<_i46.UserUseCase>()));
-  gh.factory<_i54.GeneralSettingBloc>(
-      () => _i54.GeneralSettingBloc(gh<_i46.UserUseCase>()));
+  gh.factory<_i52.AirportMobileBloc>(
+      () => _i52.AirportMobileBloc(gh<_i35.AirportUsecase>()));
+  gh.factory<_i53.AuthBloc>(() => _i53.AuthBloc(gh<_i45.UserRepository>()));
+  gh.factory<_i54.AuthenticationBloc>(
+      () => _i54.AuthenticationBloc(gh<_i47.UserUseCase>()));
+  gh.factory<_i55.GeneralSettingBloc>(
+      () => _i55.GeneralSettingBloc(gh<_i47.UserUseCase>()));
   return getIt;
 }
 
-class _$DataSourceModule extends _i55.DataSourceModule {}
+class _$DataSourceModule extends _i56.DataSourceModule {}
