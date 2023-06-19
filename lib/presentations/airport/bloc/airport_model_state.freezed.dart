@@ -17,6 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AirportModelState {
   List<Airport> get airports => throw _privateConstructorUsedError;
+  Map<String, List<Flight>> get flightDepartures =>
+      throw _privateConstructorUsedError;
+  Map<String, List<Flight>> get flightArrival =>
+      throw _privateConstructorUsedError;
+  Airport? get airportView => throw _privateConstructorUsedError;
   int get pageView => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
   int get totalPage => throw _privateConstructorUsedError;
@@ -33,7 +38,15 @@ abstract class $AirportModelStateCopyWith<$Res> {
       _$AirportModelStateCopyWithImpl<$Res, AirportModelState>;
   @useResult
   $Res call(
-      {List<Airport> airports, int pageView, int currentPage, int totalPage});
+      {List<Airport> airports,
+      Map<String, List<Flight>> flightDepartures,
+      Map<String, List<Flight>> flightArrival,
+      Airport? airportView,
+      int pageView,
+      int currentPage,
+      int totalPage});
+
+  $AirportCopyWith<$Res>? get airportView;
 }
 
 /// @nodoc
@@ -50,6 +63,9 @@ class _$AirportModelStateCopyWithImpl<$Res, $Val extends AirportModelState>
   @override
   $Res call({
     Object? airports = null,
+    Object? flightDepartures = null,
+    Object? flightArrival = null,
+    Object? airportView = freezed,
     Object? pageView = null,
     Object? currentPage = null,
     Object? totalPage = null,
@@ -59,6 +75,18 @@ class _$AirportModelStateCopyWithImpl<$Res, $Val extends AirportModelState>
           ? _value.airports
           : airports // ignore: cast_nullable_to_non_nullable
               as List<Airport>,
+      flightDepartures: null == flightDepartures
+          ? _value.flightDepartures
+          : flightDepartures // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<Flight>>,
+      flightArrival: null == flightArrival
+          ? _value.flightArrival
+          : flightArrival // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<Flight>>,
+      airportView: freezed == airportView
+          ? _value.airportView
+          : airportView // ignore: cast_nullable_to_non_nullable
+              as Airport?,
       pageView: null == pageView
           ? _value.pageView
           : pageView // ignore: cast_nullable_to_non_nullable
@@ -73,6 +101,18 @@ class _$AirportModelStateCopyWithImpl<$Res, $Val extends AirportModelState>
               as int,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AirportCopyWith<$Res>? get airportView {
+    if (_value.airportView == null) {
+      return null;
+    }
+
+    return $AirportCopyWith<$Res>(_value.airportView!, (value) {
+      return _then(_value.copyWith(airportView: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -84,7 +124,16 @@ abstract class _$$_AirportModelStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Airport> airports, int pageView, int currentPage, int totalPage});
+      {List<Airport> airports,
+      Map<String, List<Flight>> flightDepartures,
+      Map<String, List<Flight>> flightArrival,
+      Airport? airportView,
+      int pageView,
+      int currentPage,
+      int totalPage});
+
+  @override
+  $AirportCopyWith<$Res>? get airportView;
 }
 
 /// @nodoc
@@ -99,6 +148,9 @@ class __$$_AirportModelStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? airports = null,
+    Object? flightDepartures = null,
+    Object? flightArrival = null,
+    Object? airportView = freezed,
     Object? pageView = null,
     Object? currentPage = null,
     Object? totalPage = null,
@@ -108,6 +160,18 @@ class __$$_AirportModelStateCopyWithImpl<$Res>
           ? _value._airports
           : airports // ignore: cast_nullable_to_non_nullable
               as List<Airport>,
+      flightDepartures: null == flightDepartures
+          ? _value._flightDepartures
+          : flightDepartures // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<Flight>>,
+      flightArrival: null == flightArrival
+          ? _value._flightArrival
+          : flightArrival // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<Flight>>,
+      airportView: freezed == airportView
+          ? _value.airportView
+          : airportView // ignore: cast_nullable_to_non_nullable
+              as Airport?,
       pageView: null == pageView
           ? _value.pageView
           : pageView // ignore: cast_nullable_to_non_nullable
@@ -129,10 +193,15 @@ class __$$_AirportModelStateCopyWithImpl<$Res>
 class _$_AirportModelState implements _AirportModelState {
   const _$_AirportModelState(
       {required final List<Airport> airports,
+      required final Map<String, List<Flight>> flightDepartures,
+      required final Map<String, List<Flight>> flightArrival,
+      this.airportView,
       required this.pageView,
       required this.currentPage,
       required this.totalPage})
-      : _airports = airports;
+      : _airports = airports,
+        _flightDepartures = flightDepartures,
+        _flightArrival = flightArrival;
 
   final List<Airport> _airports;
   @override
@@ -142,6 +211,24 @@ class _$_AirportModelState implements _AirportModelState {
     return EqualUnmodifiableListView(_airports);
   }
 
+  final Map<String, List<Flight>> _flightDepartures;
+  @override
+  Map<String, List<Flight>> get flightDepartures {
+    if (_flightDepartures is EqualUnmodifiableMapView) return _flightDepartures;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_flightDepartures);
+  }
+
+  final Map<String, List<Flight>> _flightArrival;
+  @override
+  Map<String, List<Flight>> get flightArrival {
+    if (_flightArrival is EqualUnmodifiableMapView) return _flightArrival;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_flightArrival);
+  }
+
+  @override
+  final Airport? airportView;
   @override
   final int pageView;
   @override
@@ -151,7 +238,7 @@ class _$_AirportModelState implements _AirportModelState {
 
   @override
   String toString() {
-    return 'AirportModelState(airports: $airports, pageView: $pageView, currentPage: $currentPage, totalPage: $totalPage)';
+    return 'AirportModelState(airports: $airports, flightDepartures: $flightDepartures, flightArrival: $flightArrival, airportView: $airportView, pageView: $pageView, currentPage: $currentPage, totalPage: $totalPage)';
   }
 
   @override
@@ -160,6 +247,12 @@ class _$_AirportModelState implements _AirportModelState {
         (other.runtimeType == runtimeType &&
             other is _$_AirportModelState &&
             const DeepCollectionEquality().equals(other._airports, _airports) &&
+            const DeepCollectionEquality()
+                .equals(other._flightDepartures, _flightDepartures) &&
+            const DeepCollectionEquality()
+                .equals(other._flightArrival, _flightArrival) &&
+            (identical(other.airportView, airportView) ||
+                other.airportView == airportView) &&
             (identical(other.pageView, pageView) ||
                 other.pageView == pageView) &&
             (identical(other.currentPage, currentPage) ||
@@ -172,6 +265,9 @@ class _$_AirportModelState implements _AirportModelState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_airports),
+      const DeepCollectionEquality().hash(_flightDepartures),
+      const DeepCollectionEquality().hash(_flightArrival),
+      airportView,
       pageView,
       currentPage,
       totalPage);
@@ -187,12 +283,21 @@ class _$_AirportModelState implements _AirportModelState {
 abstract class _AirportModelState implements AirportModelState {
   const factory _AirportModelState(
       {required final List<Airport> airports,
+      required final Map<String, List<Flight>> flightDepartures,
+      required final Map<String, List<Flight>> flightArrival,
+      final Airport? airportView,
       required final int pageView,
       required final int currentPage,
       required final int totalPage}) = _$_AirportModelState;
 
   @override
   List<Airport> get airports;
+  @override
+  Map<String, List<Flight>> get flightDepartures;
+  @override
+  Map<String, List<Flight>> get flightArrival;
+  @override
+  Airport? get airportView;
   @override
   int get pageView;
   @override

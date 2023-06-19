@@ -48,6 +48,11 @@ class _AirportScreenState extends State<AirportScreen> {
     _bloc.add(AirportEvent.updateAirportsAfterEdit(airport));
   }
 
+  void _fetchAllAirport(int id) {
+    _bloc.add(AirportEvent.getFlightArrival(id));
+    _bloc.add(AirportEvent.getFlightDepartures(id));
+  }
+
   void _listenStateChange(BuildContext context, AirportState state) {
     state.whenOrNull(
       openAddEditAirportSuccess: (data, id) async {
@@ -70,6 +75,27 @@ class _AirportScreenState extends State<AirportScreen> {
             _bloc.add(AirportEvent.changePageAirportView(data.currentPage - 1));
           }
         }
+      },
+      changePageAirportSuccess: (data) {
+        if (data.airportView != null) {
+          _fetchAllAirport(data.airportView!.id);
+        }
+      },
+      getAirportByIDSuccess: (data) {
+        if (data.airportView != null) {
+          _fetchAllAirport(data.airportView!.id);
+        }
+      },
+      searchSuccess: (data) {
+        if (data.airportView != null) {
+          _fetchAllAirport(data.airportView!.id);
+        }
+      },
+      searchFailed: (data, error) {
+        log(error);
+      },
+      getAirportByIDFailed: (data, error) {
+        log(error);
       },
       fetchAirportsFailed: (data, error) {
         log(error);
@@ -148,6 +174,10 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
     _bloc.add(AirportEvent.textChange(value));
   }
 
+  void _onSelectedAirport(int id) {
+    _bloc.add(AirportEvent.getAirportById(id));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -208,8 +238,9 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
           Expanded(
             flex: 1,
             child: FluxTicketTable<Airport>(
-              loading: widget.state.isLoading,
+              loading: widget.state.isLoadingGetItems,
               padding: const EdgeInsets.all(10),
+              onTap: (index) => _onSelectedAirport(_airports[index].id),
               titleRow: FluxTableRow(
                 margin: const EdgeInsets.symmetric(vertical: 5.0),
                 padding:
