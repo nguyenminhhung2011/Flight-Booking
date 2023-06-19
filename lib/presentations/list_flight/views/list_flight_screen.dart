@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/widgets/mobile/dropdown_button_custom.dart';
-import '../../../core/components/widgets/page_index_view.dart';
 import '../../../data/models/place/place_model.dart';
 import '../../../domain/entities/airline/airline.dart';
 import '../../../domain/entities/flight/flight.dart';
@@ -277,6 +276,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
               viewDetail: () => viewDetail(''),
               edit: () => openAddEditFlightDialog(e.id.toString()),
               delete: () => _onDeleteFlight(e.id),
+              selected: () {},
               flight: e,
             ),
           )

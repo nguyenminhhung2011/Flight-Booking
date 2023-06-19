@@ -3252,6 +3252,36 @@ class S {
     );
   }
 
+  /// `Arrival Flight`
+  String get arrivalFlight {
+    return Intl.message(
+      'Arrival Flight',
+      name: 'arrivalFlight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `From`
+  String get from {
+    return Intl.message(
+      'From',
+      name: 'from',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Empty`
+  String get empty {
+    return Intl.message(
+      'Empty',
+      name: 'empty',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Departure Place`
   String get departurePlace {
     return Intl.message(

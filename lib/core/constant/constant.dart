@@ -193,6 +193,14 @@ List<Map<String, dynamic>> mockDataReviews = [
     'rating': 5,
   },
 ];
+List<String> headerAirport = [
+  'Id',
+  'Name',
+  'Description',
+  'Location',
+  'Open Time',
+  'Close Time'
+];
 
 int fakeNumberChairiInFlight = 28;
 int fakeRowChair = 7;

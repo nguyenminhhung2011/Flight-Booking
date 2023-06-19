@@ -19,6 +19,7 @@ class AirportState with _$AirportState {
 
   const factory AirportState.loading({
     required AirportModelState data,
+    required int loadingField,
   }) = _Loading;
 
   const factory AirportState.openAddEditAirportSuccess({
@@ -60,6 +61,34 @@ class AirportState with _$AirportState {
     required String message,
   }) = _SearchFailed;
 
+  const factory AirportState.getAirportByIDSuccess({
+    required AirportModelState data,
+  }) = _GetAirportByIdSuccess;
+  const factory AirportState.getAirportByIDFailed({
+    required AirportModelState data,
+    required String message,
+  }) = _GetAirportByIdFailed;
+
+  const factory AirportState.getFlightDepartureSuccess({
+    required AirportModelState data,
+  }) = _GetFlightDepartureSuccess;
+  const factory AirportState.getFlightDepartureFailed({
+    required AirportModelState data,
+    required String message,
+  }) = _GetFlightDepartureFailed;
+
+  const factory AirportState.getFlightArrivalSuccess({
+    required AirportModelState data,
+  }) = _GetFlightArrivalSuccess;
+
+  const factory AirportState.getFlightArrivalFailed({
+    required AirportModelState data,
+    required String message,
+  }) = _GetFlightArrivalFailed;
+
+  bool get isLoadingGetItems => maybeWhen(
+      orElse: () => false, loading: (data, typeField) => typeField == 0);
   bool get isLoading => this is _Loading;
+
   bool get isWaitCircularLoading => this is _WaitCircularLoading;
 }
