@@ -86,6 +86,14 @@ class _AirportScreenState extends State<AirportScreen> {
           _fetchAllAirport(data.airportView!.id);
         }
       },
+      searchSuccess: (data) {
+        if (data.airportView != null) {
+          _fetchAllAirport(data.airportView!.id);
+        }
+      },
+      searchFailed: (data, error) {
+        log(error);
+      },
       getAirportByIDFailed: (data, error) {
         log(error);
       },
@@ -230,10 +238,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
           Expanded(
             flex: 1,
             child: FluxTicketTable<Airport>(
-              loading: widget.state.maybeWhen(
-                orElse: () => false,
-                loading: (data, loadingField) => loadingField == 0,
-              ),
+              loading: widget.state.isLoadingGetItems,
               padding: const EdgeInsets.all(10),
               onTap: (index) => _onSelectedAirport(_airports[index].id),
               titleRow: FluxTableRow(

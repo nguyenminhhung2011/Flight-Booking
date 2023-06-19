@@ -175,6 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailPhoneDetail":
             MessageLookupByLibrary.simpleMessage("Email and Phone Details"),
         "employee": MessageLookupByLibrary.simpleMessage("Employee"),
+        "empty": MessageLookupByLibrary.simpleMessage("Empty"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "enterCurrentPassword":
             MessageLookupByLibrary.simpleMessage("Enter your current Password"),
@@ -228,6 +229,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "flightType": MessageLookupByLibrary.simpleMessage("Flight Type"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "from": MessageLookupByLibrary.simpleMessage("From"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "gate": MessageLookupByLibrary.simpleMessage("Gate"),

@@ -324,5 +324,7 @@
     "previous": "Previous",
     "arrivalPlace": "Arrival Place",
     "arrivalFlight": "Arrival Flight",
+    "from": "From",
+    "empty": "Empty",
     "departurePlace": "Departure Place"
 }

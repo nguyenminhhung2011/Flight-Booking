@@ -9,17 +9,16 @@ import 'package:flight_booking/presentations/airport/views/wdigets/all_flights_i
 import 'package:flight_booking/presentations/airport/views/wdigets/upcoming_flight_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../domain/entities/airline/airline.dart';
 import '../../../generated/l10n.dart';
 import '../../list_flight/views/widgets/dot_custom.dart';
 import '../bloc/airport_bloc.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
 enum AirportViewEnum {
-  airportStart,
-  airportEnd;
+  departure,
+  arrival;
 
-  bool get isAirportStart => this == AirportViewEnum.airportStart;
+  bool get isDeparture => this == AirportViewEnum.departure;
 }
 
 class AirportFastView extends StatefulWidget {
@@ -34,8 +33,9 @@ class _AirportFastViewState extends State<AirportFastView> {
   PageController pageController =
       PageController(initialPage: 0, keepPage: true);
   AirportBloc get _bloc => context.read<AirportBloc>();
-  List<Flight> get _flightsDeparture => _bloc.data.flightDepartures;
-  List<Flight> get _flightsArrival => _bloc.data.flightArrival;
+  Map<String, List<Flight>> get _flightsDeparture =>
+      _bloc.data.flightDepartures;
+  Map<String, List<Flight>> get _flightsArrival => _bloc.data.flightArrival;
   Airport? get _airportPreview => _bloc.data.airportView;
 
   void onButtonTape(int index) {
@@ -72,166 +72,168 @@ class _AirportFastViewState extends State<AirportFastView> {
           )
         ],
       ),
-      child: ListView(
-        children: [
-          const SizedBox(height: 10.0),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
-            child: Text(
-              S.of(context).airportOverview,
-              maxLines: 1,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-          ),
-          if (_airportPreview != null)
-            ...<String>[
-              _airportPreview!.id.toString(),
-              _airportPreview!.name,
-              _airportPreview!.description,
-              _airportPreview!.location,
-              '${_airportPreview!.openTime.hour}h :${_airportPreview!.openTime.minute}m',
-              '${_airportPreview!.closeTime.hour}h :${_airportPreview!.closeTime.minute}m'
-            ]
-                .mapIndexed<Widget>(
-                  (index, e) => Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 15.0, vertical: 5.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        DotCustom(
-                          color: Theme.of(context).primaryColor,
-                          full: true,
-                          radius: 5.0,
-                        ),
-                        const SizedBox(width: 10.0),
-                        Expanded(
-                          child: Text(
-                            headerAirport[index],
-                            style: context.titleSmall.copyWith(
-                                fontWeight: FontWeight.w300,
-                                color: Theme.of(context).hintColor),
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(
-                            e,
-                            textAlign: TextAlign.end,
-                            style: context.titleMedium
-                                .copyWith(fontWeight: FontWeight.w500),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                )
-                .toList(),
-          SwiperCustom(
-            height: 260,
-            itemCount: 10,
-            autoPlay: true,
-            spacingItem: 10.0,
-            itemBuilder: (index) => const CardCustom(
-              margin: EdgeInsets.all(0.0),
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                    'https://www.travelandleisure.com/thmb/qUyMl5D6VbtM9hxxtBlFMAY5cCU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/portland-international-airport-00-USAIRPORTSWB21-35b7a73d8c0c4a86a9f9e5b27a7c3bbe.jpg'),
-              )),
-            ),
-            swiperLayout: SwiperLayout.DEFAULT,
-          ),
-          SizedBox(
-            width: double.infinity,
-            height: 400,
-            child: PageView.builder(
-              controller: pageController,
-              itemCount: 2,
-              itemBuilder: (context, index) => [
-                AllFlightsInAirportView(
-                  view: AirportViewEnum.airportStart,
-                  flights: _flightsDeparture,
-                  header: S.of(context).departureFlight,
-                ),
-                AllFlightsInAirportView(
-                  view: AirportViewEnum.airportEnd,
-                  flights: _flightsArrival,
-                  header: S.of(context).arrivalFlight,
-                ),
-              ][index],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: widget.state.isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : ListView(
               children: [
-                SizedBox(
-                  height: 10,
-                  width: 200,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 2,
-                    itemBuilder: (context, index) => buildIndicator(
-                        widget.state.data.pageView == index,
-                        MediaQuery.of(context).size),
+              const SizedBox(height: 10.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 15.0, vertical: 10.0),
+                child: Text(
+                  S.of(context).airportOverview,
+                  maxLines: 1,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ),
+              if (_airportPreview != null)
+                Container(
+                  padding: const EdgeInsets.all(10.0),
+                  margin: const EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Theme.of(context).cardColor,
+                    border: Border.all(
+                        width: 1, color: Theme.of(context).primaryColor),
+                  ),
+                  child: Column(
+                    children: [
+                      ...<String>[
+                        _airportPreview!.id.toString(),
+                        _airportPreview!.name,
+                        _airportPreview!.description,
+                        _airportPreview!.location,
+                        '${_airportPreview!.openTime.hour}h :${_airportPreview!.openTime.minute}m',
+                        '${_airportPreview!.closeTime.hour}h :${_airportPreview!.closeTime.minute}m'
+                      ]
+                          .mapIndexed<Widget>(
+                            (index, e) => Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 15.0, vertical: 5.0),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  DotCustom(
+                                    color: Theme.of(context).primaryColor,
+                                    full: true,
+                                    radius: 5.0,
+                                  ),
+                                  const SizedBox(width: 5.0),
+                                  Text(
+                                    headerAirport[index],
+                                    style: context.titleSmall.copyWith(
+                                        fontWeight: FontWeight.w300,
+                                        color: Theme.of(context).hintColor),
+                                  ),
+                                  const SizedBox(width: 10.0),
+                                  Expanded(
+                                    child: Text(
+                                      e,
+                                      textAlign: TextAlign.end,
+                                      style: context.titleMedium.copyWith(
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                          .toList(),
+                    ],
                   ),
                 ),
-                IconButton(
-                  onPressed: pageViewChange,
-                  icon: Icon(
-                    Icons.change_circle,
-                    size: 18,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: Text(
-              S.of(context).commingFlights,
-              maxLines: 1,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-          ),
-          for (int i = 0; i < 6; i++)
-            UpcomingFlightWdiget(
-              //🚑Refactor code
-              flight: Flight(
-                  id: i,
-                  arrivalAirport: const Airport(
-                    id: 1,
-                    name: '',
-                    image: '',
-                    location: '',
-                    description: '',
-                    openTime: TimeOfDay(hour: 1, minute: 1),
-                    closeTime: TimeOfDay(hour: 1, minute: 1),
-                  ),
-                  departureAirport: const Airport(
-                    id: 1,
-                    name: '',
-                    image: '',
-                    location: '',
-                    description: '',
-                    openTime: TimeOfDay(hour: 1, minute: 1),
-                    closeTime: TimeOfDay(hour: 1, minute: 1),
-                  ),
-                  timeStart: DateTime.now(),
-                  timeEnd: DateTime.now(),
-                  airline: const Airline(id: 0, airlineName: '')),
-            ),
-        ].expand((element) => [element, const SizedBox(height: 5.0)]).toList()
-          ..removeLast(),
-      ),
+              SwiperCustom(
+                height: 260,
+                itemCount: 10,
+                autoPlay: true,
+                spacingItem: 10.0,
+                itemBuilder: (index) => const CardCustom(
+                  margin: EdgeInsets.all(0.0),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        'https://www.travelandleisure.com/thmb/qUyMl5D6VbtM9hxxtBlFMAY5cCU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/portland-international-airport-00-USAIRPORTSWB21-35b7a73d8c0c4a86a9f9e5b27a7c3bbe.jpg'),
+                  )),
+                ),
+                swiperLayout: SwiperLayout.DEFAULT,
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 400,
+                child: PageView.builder(
+                  controller: pageController,
+                  itemCount: 2,
+                  itemBuilder: (context, index) => [
+                    AllFlightsInAirportView(
+                      view: AirportViewEnum.departure,
+                      flights: _flightsDeparture,
+                      header: S.of(context).departureFlight,
+                    ),
+                    AllFlightsInAirportView(
+                      view: AirportViewEnum.arrival,
+                      flights: _flightsArrival,
+                      header: S.of(context).arrivalFlight,
+                    ),
+                  ][index],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      height: 10,
+                      width: 200,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 2,
+                        itemBuilder: (context, index) => buildIndicator(
+                            widget.state.data.pageView == index,
+                            MediaQuery.of(context).size),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: pageViewChange,
+                      icon: Icon(
+                        Icons.change_circle,
+                        size: 18,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text(
+                  'Coming ${S.of(context).departureFlight}',
+                  maxLines: 1,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ),
+              ..._flightsDeparture.entries
+                  .map((e) => SizedBox(
+                        child: Column(children: [
+                          ...e.value.map(
+                            (item) => (item.timeStart.isAfter(DateTime.now()))
+                                ? UpcomingFlightWdiget(flight: item)
+                                : const SizedBox(),
+                          )
+                        ]),
+                      ))
+                  .toList(),
+              const SizedBox(height: 10.0)
+            ]
+                  .expand((element) => [element, const SizedBox(height: 5.0)])
+                  .toList()),
     );
   }
 

@@ -3,12 +3,13 @@ import 'package:flight_booking/core/components/widgets/extension/context_extensi
 import 'package:flutter/material.dart';
 
 import '../../../../domain/entities/flight/flight.dart';
+import '../../../../generated/l10n.dart';
 import '../airport_fast_view.dart';
 import 'flightIn_airport_wdiget.dart';
 
 class AllFlightsInAirportView extends StatefulWidget {
   final AirportViewEnum view;
-  final List<Flight> flights;
+  final Map<String, List<Flight>> flights;
   final String header;
   const AllFlightsInAirportView({
     super.key,
@@ -33,7 +34,7 @@ class _AllFlightsInAirportViewState extends State<AllFlightsInAirportView> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        if (!widget.view.isAirportStart) _divider(),
+        if (!widget.view.isDeparture) _divider(),
         Expanded(
           child: LayoutBuilder(
             builder: (context, constraints) {
@@ -62,18 +63,39 @@ class _AllFlightsInAirportViewState extends State<AllFlightsInAirportView> {
                       ),
                     ),
                     const SizedBox(height: 10.0),
-                    FlightInAirportWdiget(
-                      width: minWidth,
-                      listFlight: widget.flights,
-                      time: DateTime.now(),
-                    ),
+                    if (widget.flights.isNotEmpty) ...[
+                      ...widget.flights.entries
+                          .map(
+                            (entry) => FlightInAirportWidget(
+                              width: minWidth,
+                              listFlight: entry.value,
+                              time: entry.key,
+                            ),
+                          )
+                          .toList(),
+                    ] else
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.search_off,
+                              color: Theme.of(context).hintColor),
+                          const SizedBox(height: 5.0),
+                          Text(
+                            S.of(context).empty,
+                            style: context.titleMedium.copyWith(
+                                fontWeight: FontWeight.w500,
+                                color: Theme.of(context).hintColor),
+                          )
+                        ],
+                      ),
                   ],
                 ),
               );
             },
           ),
         ),
-        if (widget.view.isAirportStart) _divider()
+        if (widget.view.isDeparture) _divider()
       ],
     );
   }
