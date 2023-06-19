@@ -6,4 +6,5 @@ class FlightDetailEvent with _$FlightDetailEvent {
   const factory FlightDetailEvent.changeTypeView(ItemViewEnum view) =
       _ChangeTypeView;
   const factory FlightDetailEvent.showMoreInformation() = _showMoreInformation;
+  const factory FlightDetailEvent.getFlightById() = _GetFlightById;
 }

@@ -48,10 +48,13 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return BlocProvider<FlightDetailBloc>(
-              create: (context) => injector(),
-              child: const FlightDetailScreen(),
-            );
+            if (settings.arguments is int) {
+              return BlocProvider<FlightDetailBloc>(
+                create: (context) => injector(param1: settings.arguments),
+                child: const FlightDetailScreen(),
+              );
+            }
+            return const SizedBox();
           },
         );
 

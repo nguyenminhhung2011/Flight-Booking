@@ -4,7 +4,7 @@ part of 'list_flight_bloc.dart';
 class ListFlightEvent with _$ListFlightEvent {
   const factory ListFlightEvent.started() = _Started;
 
-  const factory ListFlightEvent.selectFlight(String flightID) = _SelectFlight;
+  const factory ListFlightEvent.selectFlight(int flightID) = _SelectFlight;
 
   const factory ListFlightEvent.getFlights() = _GetFlights;
 
