@@ -12,7 +12,7 @@ class ListFlightState with _$ListFlightState {
 
   const factory ListFlightState.selectListFlightSuccess({
     required ListFlightModelState data,
-    required String flightId,
+    required int flightId,
   }) = _SelectListFlightSuccess;
 
   const factory ListFlightState.selectListFlightFailed({
