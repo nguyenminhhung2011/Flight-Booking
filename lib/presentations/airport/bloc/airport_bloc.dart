@@ -5,6 +5,7 @@ import 'package:flight_booking/core/components/network/app_exception.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../core/constant/handle_time.dart';
 import '../../../domain/entities/airport/airport.dart';
 import '../../../domain/entities/flight/flight.dart';
 import '../../../domain/usecase/airport_usecase.dart';
@@ -35,8 +36,8 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
             pageView: 0,
             currentPage: 0,
             totalPage: 0,
-            flightArrival: <Flight>[],
-            flightDepartures: <Flight>[],
+            flightArrival: {},
+            flightDepartures: {},
           ),
         )) {
     on<_Started>(_onStarted);
@@ -210,11 +211,14 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     }
     try {
       final airports = await _airportUsecase.filterAirports(search: event.text);
+      final airportView = (airports.isNotEmpty) ? airports.first : null;
+
       if (airports.isNotEmpty) {
         emit(AirportState.searchSuccess(
             data: data.copyWith(
           airports: airports,
           currentPage: 0,
+          airportView: airportView,
         )));
       }
       return;
@@ -223,6 +227,18 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
     } catch (e) {
       emit(AirportState.searchFailed(data: data, message: e.toString()));
     }
+  }
+
+  Map<String, List<Flight>> _generate(List<Flight> flights, bool isDeparture) {
+    Map<String, List<Flight>> result = {};
+    for (var item in flights) {
+      var date = isDeparture ? item.timeStart : item.timeEnd;
+      var key = getYmdFormat(date);
+
+      result.putIfAbsent(key, () => <Flight>[]);
+      result[key]?.add(item);
+    }
+    return result;
   }
 
   FutureOr<void> _onGetFlightDeparture(
@@ -234,7 +250,7 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
       final flights = await _flightUsecase.getFlightByDepartureId(event.id);
       emit(AirportState.getFlightDepartureSuccess(
           data: data.copyWith(
-        flightDepartures: flights,
+        flightDepartures: _generate(flights, true),
       )));
     } on AppException catch (e) {
       emit(AirportState.getFlightDepartureFailed(
@@ -258,7 +274,7 @@ class AirportBloc extends Bloc<AirportEvent, AirportState> {
       final flights = await _flightUsecase.getFlightByArrivalId(event.id);
       emit(AirportState.getFlightArrivalSuccess(
           data: data.copyWith(
-        flightArrival: flights,
+        flightArrival: _generate(flights, false),
       )));
     } on AppException catch (e) {
       emit(AirportState.getFlightArrivalFailed(

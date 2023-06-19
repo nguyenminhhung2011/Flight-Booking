@@ -86,6 +86,9 @@ class AirportState with _$AirportState {
     required String message,
   }) = _GetFlightArrivalFailed;
 
+  bool get isLoadingGetItems => maybeWhen(
+      orElse: () => false, loading: (data, typeField) => typeField == 0);
   bool get isLoading => this is _Loading;
+
   bool get isWaitCircularLoading => this is _WaitCircularLoading;
 }

@@ -17,8 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AirportModelState {
   List<Airport> get airports => throw _privateConstructorUsedError;
-  List<Flight> get flightDepartures => throw _privateConstructorUsedError;
-  List<Flight> get flightArrival => throw _privateConstructorUsedError;
+  Map<String, List<Flight>> get flightDepartures =>
+      throw _privateConstructorUsedError;
+  Map<String, List<Flight>> get flightArrival =>
+      throw _privateConstructorUsedError;
   Airport? get airportView => throw _privateConstructorUsedError;
   int get pageView => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
@@ -37,8 +39,8 @@ abstract class $AirportModelStateCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Airport> airports,
-      List<Flight> flightDepartures,
-      List<Flight> flightArrival,
+      Map<String, List<Flight>> flightDepartures,
+      Map<String, List<Flight>> flightArrival,
       Airport? airportView,
       int pageView,
       int currentPage,
@@ -76,11 +78,11 @@ class _$AirportModelStateCopyWithImpl<$Res, $Val extends AirportModelState>
       flightDepartures: null == flightDepartures
           ? _value.flightDepartures
           : flightDepartures // ignore: cast_nullable_to_non_nullable
-              as List<Flight>,
+              as Map<String, List<Flight>>,
       flightArrival: null == flightArrival
           ? _value.flightArrival
           : flightArrival // ignore: cast_nullable_to_non_nullable
-              as List<Flight>,
+              as Map<String, List<Flight>>,
       airportView: freezed == airportView
           ? _value.airportView
           : airportView // ignore: cast_nullable_to_non_nullable
@@ -123,8 +125,8 @@ abstract class _$$_AirportModelStateCopyWith<$Res>
   @useResult
   $Res call(
       {List<Airport> airports,
-      List<Flight> flightDepartures,
-      List<Flight> flightArrival,
+      Map<String, List<Flight>> flightDepartures,
+      Map<String, List<Flight>> flightArrival,
       Airport? airportView,
       int pageView,
       int currentPage,
@@ -161,11 +163,11 @@ class __$$_AirportModelStateCopyWithImpl<$Res>
       flightDepartures: null == flightDepartures
           ? _value._flightDepartures
           : flightDepartures // ignore: cast_nullable_to_non_nullable
-              as List<Flight>,
+              as Map<String, List<Flight>>,
       flightArrival: null == flightArrival
           ? _value._flightArrival
           : flightArrival // ignore: cast_nullable_to_non_nullable
-              as List<Flight>,
+              as Map<String, List<Flight>>,
       airportView: freezed == airportView
           ? _value.airportView
           : airportView // ignore: cast_nullable_to_non_nullable
@@ -191,8 +193,8 @@ class __$$_AirportModelStateCopyWithImpl<$Res>
 class _$_AirportModelState implements _AirportModelState {
   const _$_AirportModelState(
       {required final List<Airport> airports,
-      required final List<Flight> flightDepartures,
-      required final List<Flight> flightArrival,
+      required final Map<String, List<Flight>> flightDepartures,
+      required final Map<String, List<Flight>> flightArrival,
       this.airportView,
       required this.pageView,
       required this.currentPage,
@@ -209,21 +211,20 @@ class _$_AirportModelState implements _AirportModelState {
     return EqualUnmodifiableListView(_airports);
   }
 
-  final List<Flight> _flightDepartures;
+  final Map<String, List<Flight>> _flightDepartures;
   @override
-  List<Flight> get flightDepartures {
-    if (_flightDepartures is EqualUnmodifiableListView)
-      return _flightDepartures;
+  Map<String, List<Flight>> get flightDepartures {
+    if (_flightDepartures is EqualUnmodifiableMapView) return _flightDepartures;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_flightDepartures);
+    return EqualUnmodifiableMapView(_flightDepartures);
   }
 
-  final List<Flight> _flightArrival;
+  final Map<String, List<Flight>> _flightArrival;
   @override
-  List<Flight> get flightArrival {
-    if (_flightArrival is EqualUnmodifiableListView) return _flightArrival;
+  Map<String, List<Flight>> get flightArrival {
+    if (_flightArrival is EqualUnmodifiableMapView) return _flightArrival;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_flightArrival);
+    return EqualUnmodifiableMapView(_flightArrival);
   }
 
   @override
@@ -282,8 +283,8 @@ class _$_AirportModelState implements _AirportModelState {
 abstract class _AirportModelState implements AirportModelState {
   const factory _AirportModelState(
       {required final List<Airport> airports,
-      required final List<Flight> flightDepartures,
-      required final List<Flight> flightArrival,
+      required final Map<String, List<Flight>> flightDepartures,
+      required final Map<String, List<Flight>> flightArrival,
       final Airport? airportView,
       required final int pageView,
       required final int currentPage,
@@ -292,9 +293,9 @@ abstract class _AirportModelState implements AirportModelState {
   @override
   List<Airport> get airports;
   @override
-  List<Flight> get flightDepartures;
+  Map<String, List<Flight>> get flightDepartures;
   @override
-  List<Flight> get flightArrival;
+  Map<String, List<Flight>> get flightArrival;
   @override
   Airport? get airportView;
   @override

@@ -9,8 +9,8 @@ part 'airport_model_state.freezed.dart';
 class AirportModelState with _$AirportModelState {
   const factory AirportModelState({
     required List<Airport> airports,
-    required List<Flight> flightDepartures,
-    required List<Flight> flightArrival,
+    required Map<String, List<Flight>> flightDepartures,
+    required Map<String, List<Flight>> flightArrival,
     Airport? airportView,
     required int pageView,
     required int currentPage,
