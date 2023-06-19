@@ -315,8 +315,6 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
           timeStart: result.timeStart,
           timeEnd: result.timeEnd,
           airline: result.airline,
-          airportStart: result.departureAirport,
-          airportEnd: result.arrivalAirport,
           headerText: S.current.editAirport,
         ),
       ));
