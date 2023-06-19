@@ -41,7 +41,6 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   @override
   void initState() {
     super.initState();
-    _bloc.add(const FlightDetailEvent.started());
     _bloc.add(const FlightDetailEvent.getFlightById());
   }
 
@@ -54,7 +53,9 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   }
 
   void _listenStateChanged(_, FlightDetailState state) {
-    state.whenOrNull(getFlightByIdFailed: (data, error) {
+    state.whenOrNull(getFlightByIdSuccess: (data) {
+      _bloc.add(const FlightDetailEvent.started());
+    }, getFlightByIdFailed: (data, error) {
       log(error);
     });
   }
@@ -357,7 +358,11 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                   context,
                   getjmFormat(_flight?.timeStart ?? DateTime.now()),
                   _locationDeparture.substring(
-                      0, _locationDeparture.indexOf(',')),
+                    0,
+                    !_locationDeparture.contains(',')
+                        ? _locationDeparture.length
+                        : _locationDeparture.indexOf(','),
+                  ),
                 ),
                 SizedBox(
                   width: 300,
@@ -401,7 +406,12 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                 _timePlace(
                   context,
                   getjmFormat(_flight?.timeEnd ?? DateTime.now()),
-                  _locationArrival.substring(0, _locationArrival.indexOf(',')),
+                  _locationArrival.substring(
+                    0,
+                    !_locationArrival.contains(',')
+                        ? _locationArrival.length
+                        : _locationArrival.indexOf(','),
+                  ),
                 ),
               ]
                   .expand((element) => [element, const SizedBox(width: 10.0)])
@@ -517,7 +527,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   Expanded _gridEmployeeView() {
     return Expanded(
         child: LayoutBuilder(
-      builder: (context, constrants) => Container(
+      builder: (context, constraints) => Container(
         width: double.infinity,
         padding: const EdgeInsets.all(15.0),
         margin: const EdgeInsets.symmetric(

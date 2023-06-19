@@ -101,6 +101,8 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
           }
         }
       }
+    }, getFlightPageFFailed: (data, error) {
+      log(error);
     }, getFlightsFailed: (data, error) {
       log(error);
     }, deleteFlightFailed: (data, error) {
