@@ -18,8 +18,8 @@ class TicketModel {
   late String emailAddress;
   @JsonKey(name: 'luggage')
   late int luggage;
-  @JsonKey(name: 'sheet')
-  late int sheet;
+  @JsonKey(name: 'seat')
+  late int seat;
   @JsonKey(name: 'dateBorn')
   late DateTime dateBorn;
   @JsonKey(name: 'timeBought')
@@ -42,7 +42,7 @@ class TicketModel {
         luggage: luggage,
         dateBorn: dateBorn,
         timeBought: timeBought,
-        sheet: sheet,
+        seat: seat,
         ticketInformation: ticketInformation.toEntity,
       );
 }
