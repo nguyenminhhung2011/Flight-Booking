@@ -13,7 +13,7 @@ TicketModel _$TicketModelFromJson(Map<String, dynamic> json) => TicketModel()
   ..phoneNumber = json['phoneNumber'] as String
   ..emailAddress = json['emailAddress'] as String
   ..luggage = json['luggage'] as int
-  ..sheet = json['sheet'] as int
+  ..seat = json['seat'] as int
   ..dateBorn = DateTime.parse(json['dateBorn'] as String)
   ..timeBought = DateTime.parse(json['timeBought'] as String)
   ..ticketInformation = TicketInformationModel.fromJson(
@@ -27,7 +27,7 @@ Map<String, dynamic> _$TicketModelToJson(TicketModel instance) =>
       'phoneNumber': instance.phoneNumber,
       'emailAddress': instance.emailAddress,
       'luggage': instance.luggage,
-      'sheet': instance.sheet,
+      'seat': instance.seat,
       'dateBorn': instance.dateBorn.toIso8601String(),
       'timeBought': instance.timeBought.toIso8601String(),
       'ticketInformation': instance.ticketInformation.toJson(),

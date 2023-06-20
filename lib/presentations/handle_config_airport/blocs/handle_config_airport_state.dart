@@ -19,6 +19,7 @@ class HandleConfigAirportState with _$HandleConfigAirportState {
 
   const factory HandleConfigAirportState.loading({
     required HandleConfigAirportModelState data,
+    required int loadingField,
   }) = _Loading;
 
   const factory HandleConfigAirportState.getFlightConfigsSuccess({
@@ -48,5 +49,8 @@ class HandleConfigAirportState with _$HandleConfigAirportState {
     required String message,
   }) = _UpdateFlightConfigFailed;
 
-  bool get isLoading => this is _Loading;
+  bool get loadingGetData => maybeWhen(
+      orElse: () => false, loading: (data, loadingField) => loadingField == 0);
+  bool get loadingUpdate => maybeWhen(
+      orElse: () => false, loading: (data, loadingField) => loadingField == 1);
 }

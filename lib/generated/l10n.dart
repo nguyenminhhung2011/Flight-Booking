@@ -3282,6 +3282,26 @@ class S {
     );
   }
 
+  /// `cancel`
+  String get cancel {
+    return Intl.message(
+      'cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flights Config`
+  String get flightsConfig {
+    return Intl.message(
+      'Flights Config',
+      name: 'flightsConfig',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Departure Place`
   String get departurePlace {
     return Intl.message(

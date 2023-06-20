@@ -9,6 +9,8 @@ class HandleConfigAirportModelState with _$HandleConfigAirportModelState {
   const factory HandleConfigAirportModelState({
     required List<Flight> flightConfigs,
     required List<Airport> airports,
+    Flight? flightSelected,
     Airport? airportSelected,
+    Airport? airport,
   }) = _HandleConfigAirportModelState;
 }

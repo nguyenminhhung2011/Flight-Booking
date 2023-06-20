@@ -21,7 +21,7 @@ mixin _$Ticket {
   String get gender => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
   String get emailAddress => throw _privateConstructorUsedError;
-  int get sheet => throw _privateConstructorUsedError;
+  int get seat => throw _privateConstructorUsedError;
   int get luggage => throw _privateConstructorUsedError;
   DateTime get dateBorn => throw _privateConstructorUsedError;
   DateTime get timeBought => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $TicketCopyWith<$Res> {
       String gender,
       String phoneNumber,
       String emailAddress,
-      int sheet,
+      int seat,
       int luggage,
       DateTime dateBorn,
       DateTime timeBought,
@@ -69,7 +69,7 @@ class _$TicketCopyWithImpl<$Res, $Val extends Ticket>
     Object? gender = null,
     Object? phoneNumber = null,
     Object? emailAddress = null,
-    Object? sheet = null,
+    Object? seat = null,
     Object? luggage = null,
     Object? dateBorn = null,
     Object? timeBought = null,
@@ -96,9 +96,9 @@ class _$TicketCopyWithImpl<$Res, $Val extends Ticket>
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      sheet: null == sheet
-          ? _value.sheet
-          : sheet // ignore: cast_nullable_to_non_nullable
+      seat: null == seat
+          ? _value.seat
+          : seat // ignore: cast_nullable_to_non_nullable
               as int,
       luggage: null == luggage
           ? _value.luggage
@@ -140,7 +140,7 @@ abstract class _$$_TicketCopyWith<$Res> implements $TicketCopyWith<$Res> {
       String gender,
       String phoneNumber,
       String emailAddress,
-      int sheet,
+      int seat,
       int luggage,
       DateTime dateBorn,
       DateTime timeBought,
@@ -165,7 +165,7 @@ class __$$_TicketCopyWithImpl<$Res>
     Object? gender = null,
     Object? phoneNumber = null,
     Object? emailAddress = null,
-    Object? sheet = null,
+    Object? seat = null,
     Object? luggage = null,
     Object? dateBorn = null,
     Object? timeBought = null,
@@ -192,9 +192,9 @@ class __$$_TicketCopyWithImpl<$Res>
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      sheet: null == sheet
-          ? _value.sheet
-          : sheet // ignore: cast_nullable_to_non_nullable
+      seat: null == seat
+          ? _value.seat
+          : seat // ignore: cast_nullable_to_non_nullable
               as int,
       luggage: null == luggage
           ? _value.luggage
@@ -225,7 +225,7 @@ class _$_Ticket implements _Ticket {
       required this.gender,
       required this.phoneNumber,
       required this.emailAddress,
-      required this.sheet,
+      required this.seat,
       required this.luggage,
       required this.dateBorn,
       required this.timeBought,
@@ -242,7 +242,7 @@ class _$_Ticket implements _Ticket {
   @override
   final String emailAddress;
   @override
-  final int sheet;
+  final int seat;
   @override
   final int luggage;
   @override
@@ -254,7 +254,7 @@ class _$_Ticket implements _Ticket {
 
   @override
   String toString() {
-    return 'Ticket(id: $id, name: $name, gender: $gender, phoneNumber: $phoneNumber, emailAddress: $emailAddress, sheet: $sheet, luggage: $luggage, dateBorn: $dateBorn, timeBought: $timeBought, ticketInformation: $ticketInformation)';
+    return 'Ticket(id: $id, name: $name, gender: $gender, phoneNumber: $phoneNumber, emailAddress: $emailAddress, seat: $seat, luggage: $luggage, dateBorn: $dateBorn, timeBought: $timeBought, ticketInformation: $ticketInformation)';
   }
 
   @override
@@ -269,7 +269,7 @@ class _$_Ticket implements _Ticket {
                 other.phoneNumber == phoneNumber) &&
             (identical(other.emailAddress, emailAddress) ||
                 other.emailAddress == emailAddress) &&
-            (identical(other.sheet, sheet) || other.sheet == sheet) &&
+            (identical(other.seat, seat) || other.seat == seat) &&
             (identical(other.luggage, luggage) || other.luggage == luggage) &&
             (identical(other.dateBorn, dateBorn) ||
                 other.dateBorn == dateBorn) &&
@@ -281,7 +281,7 @@ class _$_Ticket implements _Ticket {
 
   @override
   int get hashCode => Object.hash(runtimeType, id, name, gender, phoneNumber,
-      emailAddress, sheet, luggage, dateBorn, timeBought, ticketInformation);
+      emailAddress, seat, luggage, dateBorn, timeBought, ticketInformation);
 
   @JsonKey(ignore: true)
   @override
@@ -297,7 +297,7 @@ abstract class _Ticket implements Ticket {
       required final String gender,
       required final String phoneNumber,
       required final String emailAddress,
-      required final int sheet,
+      required final int seat,
       required final int luggage,
       required final DateTime dateBorn,
       required final DateTime timeBought,
@@ -314,7 +314,7 @@ abstract class _Ticket implements Ticket {
   @override
   String get emailAddress;
   @override
-  int get sheet;
+  int get seat;
   @override
   int get luggage;
   @override
