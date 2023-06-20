@@ -5,6 +5,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/components/network/app_exception.dart';
+import '../../../domain/entities/airport/airport.dart';
+import '../../../domain/entities/flight/flight.dart';
 import '../../../domain/usecase/airport_usecase.dart';
 import '../../../domain/usecase/flight_usecase.dart';
 import 'handle_config_airport_model_state.dart';
@@ -41,6 +43,8 @@ class HandleConfigAirportBloc
     on<_GetAllAirport>(_onGetAllAirport);
     on<_GetFlightConfigs>(_onGetFlightConfigs);
     on<_UpdateFlightConfigs>(_onUpdateFlightConfigs);
+    on<_SelectedAirport>(_onSelectedAirport);
+    on<_SelectedFlight>(_onSelectedFlight);
   }
 
   FutureOr<void> _onStarted(
@@ -52,7 +56,7 @@ class HandleConfigAirportBloc
     _GetAirportById event,
     Emitter<HandleConfigAirportState> emit,
   ) async {
-    emit(HandleConfigAirportState.loading(data: data));
+    emit(HandleConfigAirportState.loading(data: data, loadingField: 0));
     try {
       final result =
           await _airportUsecase.getAirportById(_airportId.toString());
@@ -65,7 +69,7 @@ class HandleConfigAirportBloc
       }
       emit(HandleConfigAirportState.getAirportByIdSuccess(
         data: data.copyWith(
-          airportSelected: result,
+          airport: result,
         ),
       ));
     } on AppException catch (error) {
@@ -85,11 +89,14 @@ class HandleConfigAirportBloc
     _GetAllAirport event,
     Emitter<HandleConfigAirportState> emit,
   ) async {
-    emit(HandleConfigAirportState.loading(data: data));
+    emit(HandleConfigAirportState.loading(data: data, loadingField: 0));
     try {
       final airports = await _airportUsecase.fetchAllAirports();
       emit(HandleConfigAirportState.getAirportsSuccess(
-        data: state.data.copyWith(airports: airports),
+        data: state.data.copyWith(
+          airports: airports,
+          airportSelected: airports.first,
+        ),
       ));
     } on AppException catch (e) {
       emit(HandleConfigAirportState.getAirportsFailed(
@@ -104,13 +111,14 @@ class HandleConfigAirportBloc
     _GetFlightConfigs event,
     Emitter<HandleConfigAirportState> emit,
   ) async {
-    emit(HandleConfigAirportState.loading(data: data));
+    emit(HandleConfigAirportState.loading(data: data, loadingField: 0));
     try {
-      final airport = await _flightUsecase.getFlightByAirportId(_airportId);
+      final flight = await _flightUsecase.getFlightByAirportId(_airportId);
       emit(
         HandleConfigAirportState.getFlightConfigsSuccess(
             data: data.copyWith(
-          flightConfigs: airport,
+          flightConfigs: flight,
+          flightSelected: (flight.isNotEmpty) ? flight.first : null,
         )),
       );
     } on AppException catch (e) {
@@ -130,8 +138,40 @@ class HandleConfigAirportBloc
     _UpdateFlightConfigs event,
     Emitter<HandleConfigAirportState> emit,
   ) async {
-    emit(HandleConfigAirportState.loading(data: data));
-    try {} on AppException catch (e) {
+    emit(HandleConfigAirportState.loading(data: data, loadingField: 1));
+    try {
+      if (data.flightSelected == null || data.airportSelected == null) {
+        return emit(HandleConfigAirportState.updateFlightConfigFailed(
+          data: data,
+          message: 'Flight selected',
+        ));
+      }
+      final newFlight = data.flightSelected?.copyWith(
+        departureAirport: data.flightSelected!.departureAirport.id == _airportId
+            ? data.airportSelected!
+            : data.flightSelected!.departureAirport,
+        arrivalAirport: data.flightSelected!.arrivalAirport.id == _airportId
+            ? data.airportSelected!
+            : data.flightSelected!.arrivalAirport,
+      );
+      final edit =
+          await _flightUsecase.editFlight(newFlight!, newFlight.id.toString());
+      if (edit == null) {
+        return emit(HandleConfigAirportState.updateFlightConfigFailed(
+          data: data,
+          message: 'Can\'t update this flight ',
+        ));
+      }
+      return emit(HandleConfigAirportState.updateFlightConfigSuccess(
+        data: data.copyWith(
+            flightConfigs: data.flightConfigs.map((e) {
+          if (e.id == edit.id) {
+            return edit;
+          }
+          return e;
+        }).toList()),
+      ));
+    } on AppException catch (e) {
       emit(HandleConfigAirportState.updateFlightConfigFailed(
         data: data,
         message: e.toString(),
@@ -142,5 +182,27 @@ class HandleConfigAirportBloc
         message: e.toString(),
       ));
     }
+  }
+
+  FutureOr<void> _onSelectedAirport(
+    _SelectedAirport event,
+    Emitter<HandleConfigAirportState> emit,
+  ) {
+    emit(state.copyWith(
+      data: data.copyWith(
+        airportSelected: event.airport,
+      ),
+    ));
+  }
+
+  FutureOr<void> _onSelectedFlight(
+    _SelectedFlight event,
+    Emitter<HandleConfigAirportState> emit,
+  ) {
+    emit(state.copyWith(
+      data: data.copyWith(
+        flightSelected: event.flight,
+      ),
+    ));
   }
 }
