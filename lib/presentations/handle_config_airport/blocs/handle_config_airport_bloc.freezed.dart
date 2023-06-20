@@ -25,7 +25,9 @@ mixin _$HandleConfigAirportState {
     required TResult Function(
             HandleConfigAirportModelState data, String message)
         getAirportByIdFailed,
-    required TResult Function(HandleConfigAirportModelState data) loading,
+    required TResult Function(
+            HandleConfigAirportModelState data, int loadingField)
+        loading,
     required TResult Function(HandleConfigAirportModelState data)
         getFlightConfigsSuccess,
     required TResult Function(
@@ -50,7 +52,8 @@ mixin _$HandleConfigAirportState {
         getAirportByIdSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult? Function(HandleConfigAirportModelState data)? loading,
+    TResult? Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult? Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
@@ -70,7 +73,8 @@ mixin _$HandleConfigAirportState {
     TResult Function(HandleConfigAirportModelState data)? getAirportByIdSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult Function(HandleConfigAirportModelState data)? loading,
+    TResult Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
@@ -260,7 +264,9 @@ class _$_Initial extends _Initial {
     required TResult Function(
             HandleConfigAirportModelState data, String message)
         getAirportByIdFailed,
-    required TResult Function(HandleConfigAirportModelState data) loading,
+    required TResult Function(
+            HandleConfigAirportModelState data, int loadingField)
+        loading,
     required TResult Function(HandleConfigAirportModelState data)
         getFlightConfigsSuccess,
     required TResult Function(
@@ -288,7 +294,8 @@ class _$_Initial extends _Initial {
         getAirportByIdSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult? Function(HandleConfigAirportModelState data)? loading,
+    TResult? Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult? Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
@@ -311,7 +318,8 @@ class _$_Initial extends _Initial {
     TResult Function(HandleConfigAirportModelState data)? getAirportByIdSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult Function(HandleConfigAirportModelState data)? loading,
+    TResult Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
@@ -485,7 +493,9 @@ class _$_GetAirportByIduccess extends _GetAirportByIduccess {
     required TResult Function(
             HandleConfigAirportModelState data, String message)
         getAirportByIdFailed,
-    required TResult Function(HandleConfigAirportModelState data) loading,
+    required TResult Function(
+            HandleConfigAirportModelState data, int loadingField)
+        loading,
     required TResult Function(HandleConfigAirportModelState data)
         getFlightConfigsSuccess,
     required TResult Function(
@@ -513,7 +523,8 @@ class _$_GetAirportByIduccess extends _GetAirportByIduccess {
         getAirportByIdSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult? Function(HandleConfigAirportModelState data)? loading,
+    TResult? Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult? Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
@@ -536,7 +547,8 @@ class _$_GetAirportByIduccess extends _GetAirportByIduccess {
     TResult Function(HandleConfigAirportModelState data)? getAirportByIdSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult Function(HandleConfigAirportModelState data)? loading,
+    TResult Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
@@ -720,7 +732,9 @@ class _$_GetAirportByIdFailed extends _GetAirportByIdFailed {
     required TResult Function(
             HandleConfigAirportModelState data, String message)
         getAirportByIdFailed,
-    required TResult Function(HandleConfigAirportModelState data) loading,
+    required TResult Function(
+            HandleConfigAirportModelState data, int loadingField)
+        loading,
     required TResult Function(HandleConfigAirportModelState data)
         getFlightConfigsSuccess,
     required TResult Function(
@@ -748,7 +762,8 @@ class _$_GetAirportByIdFailed extends _GetAirportByIdFailed {
         getAirportByIdSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult? Function(HandleConfigAirportModelState data)? loading,
+    TResult? Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult? Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
@@ -771,7 +786,8 @@ class _$_GetAirportByIdFailed extends _GetAirportByIdFailed {
     TResult Function(HandleConfigAirportModelState data)? getAirportByIdSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult Function(HandleConfigAirportModelState data)? loading,
+    TResult Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
@@ -878,7 +894,7 @@ abstract class _$$_LoadingCopyWith<$Res>
       __$$_LoadingCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({HandleConfigAirportModelState data});
+  $Res call({HandleConfigAirportModelState data, int loadingField});
 
   @override
   $HandleConfigAirportModelStateCopyWith<$Res> get data;
@@ -895,12 +911,17 @@ class __$$_LoadingCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? loadingField = null,
   }) {
     return _then(_$_Loading(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as HandleConfigAirportModelState,
+      loadingField: null == loadingField
+          ? _value.loadingField
+          : loadingField // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -908,14 +929,17 @@ class __$$_LoadingCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loading extends _Loading {
-  const _$_Loading({required this.data}) : super._();
+  const _$_Loading({required this.data, required this.loadingField})
+      : super._();
 
   @override
   final HandleConfigAirportModelState data;
+  @override
+  final int loadingField;
 
   @override
   String toString() {
-    return 'HandleConfigAirportState.loading(data: $data)';
+    return 'HandleConfigAirportState.loading(data: $data, loadingField: $loadingField)';
   }
 
   @override
@@ -923,11 +947,13 @@ class _$_Loading extends _Loading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loading &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.loadingField, loadingField) ||
+                other.loadingField == loadingField));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, loadingField);
 
   @JsonKey(ignore: true)
   @override
@@ -944,7 +970,9 @@ class _$_Loading extends _Loading {
     required TResult Function(
             HandleConfigAirportModelState data, String message)
         getAirportByIdFailed,
-    required TResult Function(HandleConfigAirportModelState data) loading,
+    required TResult Function(
+            HandleConfigAirportModelState data, int loadingField)
+        loading,
     required TResult Function(HandleConfigAirportModelState data)
         getFlightConfigsSuccess,
     required TResult Function(
@@ -961,7 +989,7 @@ class _$_Loading extends _Loading {
             HandleConfigAirportModelState data, String message)
         updateFlightConfigFailed,
   }) {
-    return loading(data);
+    return loading(data, loadingField);
   }
 
   @override
@@ -972,7 +1000,8 @@ class _$_Loading extends _Loading {
         getAirportByIdSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult? Function(HandleConfigAirportModelState data)? loading,
+    TResult? Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult? Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
@@ -985,7 +1014,7 @@ class _$_Loading extends _Loading {
     TResult? Function(HandleConfigAirportModelState data, String message)?
         updateFlightConfigFailed,
   }) {
-    return loading?.call(data);
+    return loading?.call(data, loadingField);
   }
 
   @override
@@ -995,7 +1024,8 @@ class _$_Loading extends _Loading {
     TResult Function(HandleConfigAirportModelState data)? getAirportByIdSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult Function(HandleConfigAirportModelState data)? loading,
+    TResult Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
@@ -1010,7 +1040,7 @@ class _$_Loading extends _Loading {
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading(data);
+      return loading(data, loadingField);
     }
     return orElse();
   }
@@ -1080,12 +1110,14 @@ class _$_Loading extends _Loading {
 }
 
 abstract class _Loading extends HandleConfigAirportState {
-  const factory _Loading({required final HandleConfigAirportModelState data}) =
-      _$_Loading;
+  const factory _Loading(
+      {required final HandleConfigAirportModelState data,
+      required final int loadingField}) = _$_Loading;
   const _Loading._() : super._();
 
   @override
   HandleConfigAirportModelState get data;
+  int get loadingField;
   @override
   @JsonKey(ignore: true)
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
@@ -1170,7 +1202,9 @@ class _$_GetFlightConfigsSuccess extends _GetFlightConfigsSuccess {
     required TResult Function(
             HandleConfigAirportModelState data, String message)
         getAirportByIdFailed,
-    required TResult Function(HandleConfigAirportModelState data) loading,
+    required TResult Function(
+            HandleConfigAirportModelState data, int loadingField)
+        loading,
     required TResult Function(HandleConfigAirportModelState data)
         getFlightConfigsSuccess,
     required TResult Function(
@@ -1198,7 +1232,8 @@ class _$_GetFlightConfigsSuccess extends _GetFlightConfigsSuccess {
         getAirportByIdSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult? Function(HandleConfigAirportModelState data)? loading,
+    TResult? Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult? Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
@@ -1221,7 +1256,8 @@ class _$_GetFlightConfigsSuccess extends _GetFlightConfigsSuccess {
     TResult Function(HandleConfigAirportModelState data)? getAirportByIdSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult Function(HandleConfigAirportModelState data)? loading,
+    TResult Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
@@ -1405,7 +1441,9 @@ class _$_GetFlightConfigsFailed extends _GetFlightConfigsFailed {
     required TResult Function(
             HandleConfigAirportModelState data, String message)
         getAirportByIdFailed,
-    required TResult Function(HandleConfigAirportModelState data) loading,
+    required TResult Function(
+            HandleConfigAirportModelState data, int loadingField)
+        loading,
     required TResult Function(HandleConfigAirportModelState data)
         getFlightConfigsSuccess,
     required TResult Function(
@@ -1433,7 +1471,8 @@ class _$_GetFlightConfigsFailed extends _GetFlightConfigsFailed {
         getAirportByIdSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult? Function(HandleConfigAirportModelState data)? loading,
+    TResult? Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult? Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
@@ -1456,7 +1495,8 @@ class _$_GetFlightConfigsFailed extends _GetFlightConfigsFailed {
     TResult Function(HandleConfigAirportModelState data)? getAirportByIdSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult Function(HandleConfigAirportModelState data)? loading,
+    TResult Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
@@ -1631,7 +1671,9 @@ class _$_GetAirportsSuccess extends _GetAirportsSuccess {
     required TResult Function(
             HandleConfigAirportModelState data, String message)
         getAirportByIdFailed,
-    required TResult Function(HandleConfigAirportModelState data) loading,
+    required TResult Function(
+            HandleConfigAirportModelState data, int loadingField)
+        loading,
     required TResult Function(HandleConfigAirportModelState data)
         getFlightConfigsSuccess,
     required TResult Function(
@@ -1659,7 +1701,8 @@ class _$_GetAirportsSuccess extends _GetAirportsSuccess {
         getAirportByIdSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult? Function(HandleConfigAirportModelState data)? loading,
+    TResult? Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult? Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
@@ -1682,7 +1725,8 @@ class _$_GetAirportsSuccess extends _GetAirportsSuccess {
     TResult Function(HandleConfigAirportModelState data)? getAirportByIdSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult Function(HandleConfigAirportModelState data)? loading,
+    TResult Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
@@ -1865,7 +1909,9 @@ class _$_GetAirportsFailed extends _GetAirportsFailed {
     required TResult Function(
             HandleConfigAirportModelState data, String message)
         getAirportByIdFailed,
-    required TResult Function(HandleConfigAirportModelState data) loading,
+    required TResult Function(
+            HandleConfigAirportModelState data, int loadingField)
+        loading,
     required TResult Function(HandleConfigAirportModelState data)
         getFlightConfigsSuccess,
     required TResult Function(
@@ -1893,7 +1939,8 @@ class _$_GetAirportsFailed extends _GetAirportsFailed {
         getAirportByIdSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult? Function(HandleConfigAirportModelState data)? loading,
+    TResult? Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult? Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
@@ -1916,7 +1963,8 @@ class _$_GetAirportsFailed extends _GetAirportsFailed {
     TResult Function(HandleConfigAirportModelState data)? getAirportByIdSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult Function(HandleConfigAirportModelState data)? loading,
+    TResult Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
@@ -2094,7 +2142,9 @@ class _$_UpdateFlightConfigSuccess extends _UpdateFlightConfigSuccess {
     required TResult Function(
             HandleConfigAirportModelState data, String message)
         getAirportByIdFailed,
-    required TResult Function(HandleConfigAirportModelState data) loading,
+    required TResult Function(
+            HandleConfigAirportModelState data, int loadingField)
+        loading,
     required TResult Function(HandleConfigAirportModelState data)
         getFlightConfigsSuccess,
     required TResult Function(
@@ -2122,7 +2172,8 @@ class _$_UpdateFlightConfigSuccess extends _UpdateFlightConfigSuccess {
         getAirportByIdSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult? Function(HandleConfigAirportModelState data)? loading,
+    TResult? Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult? Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
@@ -2145,7 +2196,8 @@ class _$_UpdateFlightConfigSuccess extends _UpdateFlightConfigSuccess {
     TResult Function(HandleConfigAirportModelState data)? getAirportByIdSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult Function(HandleConfigAirportModelState data)? loading,
+    TResult Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
@@ -2330,7 +2382,9 @@ class _$_UpdateFlightConfigFailed extends _UpdateFlightConfigFailed {
     required TResult Function(
             HandleConfigAirportModelState data, String message)
         getAirportByIdFailed,
-    required TResult Function(HandleConfigAirportModelState data) loading,
+    required TResult Function(
+            HandleConfigAirportModelState data, int loadingField)
+        loading,
     required TResult Function(HandleConfigAirportModelState data)
         getFlightConfigsSuccess,
     required TResult Function(
@@ -2358,7 +2412,8 @@ class _$_UpdateFlightConfigFailed extends _UpdateFlightConfigFailed {
         getAirportByIdSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult? Function(HandleConfigAirportModelState data)? loading,
+    TResult? Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult? Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult? Function(HandleConfigAirportModelState data, String message)?
@@ -2381,7 +2436,8 @@ class _$_UpdateFlightConfigFailed extends _UpdateFlightConfigFailed {
     TResult Function(HandleConfigAirportModelState data)? getAirportByIdSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
         getAirportByIdFailed,
-    TResult Function(HandleConfigAirportModelState data)? loading,
+    TResult Function(HandleConfigAirportModelState data, int loadingField)?
+        loading,
     TResult Function(HandleConfigAirportModelState data)?
         getFlightConfigsSuccess,
     TResult Function(HandleConfigAirportModelState data, String message)?
@@ -2489,6 +2545,8 @@ mixin _$HandleConfigAirportEvent {
     required TResult Function() getAllAirport,
     required TResult Function() getFlightConfigs,
     required TResult Function() updateFlightConfigs,
+    required TResult Function(Airport? airport) selectedAirport,
+    required TResult Function(Flight? flight) selectedFlight,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2498,6 +2556,8 @@ mixin _$HandleConfigAirportEvent {
     TResult? Function()? getAllAirport,
     TResult? Function()? getFlightConfigs,
     TResult? Function()? updateFlightConfigs,
+    TResult? Function(Airport? airport)? selectedAirport,
+    TResult? Function(Flight? flight)? selectedFlight,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2507,6 +2567,8 @@ mixin _$HandleConfigAirportEvent {
     TResult Function()? getAllAirport,
     TResult Function()? getFlightConfigs,
     TResult Function()? updateFlightConfigs,
+    TResult Function(Airport? airport)? selectedAirport,
+    TResult Function(Flight? flight)? selectedFlight,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -2517,6 +2579,8 @@ mixin _$HandleConfigAirportEvent {
     required TResult Function(_GetAllAirport value) getAllAirport,
     required TResult Function(_GetFlightConfigs value) getFlightConfigs,
     required TResult Function(_UpdateFlightConfigs value) updateFlightConfigs,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_SelectedFlight value) selectedFlight,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2526,6 +2590,8 @@ mixin _$HandleConfigAirportEvent {
     TResult? Function(_GetAllAirport value)? getAllAirport,
     TResult? Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult? Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_SelectedFlight value)? selectedFlight,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2535,6 +2601,8 @@ mixin _$HandleConfigAirportEvent {
     TResult Function(_GetAllAirport value)? getAllAirport,
     TResult Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_SelectedFlight value)? selectedFlight,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -2601,6 +2669,8 @@ class _$_Started implements _Started {
     required TResult Function() getAllAirport,
     required TResult Function() getFlightConfigs,
     required TResult Function() updateFlightConfigs,
+    required TResult Function(Airport? airport) selectedAirport,
+    required TResult Function(Flight? flight) selectedFlight,
   }) {
     return onStarted();
   }
@@ -2613,6 +2683,8 @@ class _$_Started implements _Started {
     TResult? Function()? getAllAirport,
     TResult? Function()? getFlightConfigs,
     TResult? Function()? updateFlightConfigs,
+    TResult? Function(Airport? airport)? selectedAirport,
+    TResult? Function(Flight? flight)? selectedFlight,
   }) {
     return onStarted?.call();
   }
@@ -2625,6 +2697,8 @@ class _$_Started implements _Started {
     TResult Function()? getAllAirport,
     TResult Function()? getFlightConfigs,
     TResult Function()? updateFlightConfigs,
+    TResult Function(Airport? airport)? selectedAirport,
+    TResult Function(Flight? flight)? selectedFlight,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -2641,6 +2715,8 @@ class _$_Started implements _Started {
     required TResult Function(_GetAllAirport value) getAllAirport,
     required TResult Function(_GetFlightConfigs value) getFlightConfigs,
     required TResult Function(_UpdateFlightConfigs value) updateFlightConfigs,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_SelectedFlight value) selectedFlight,
   }) {
     return onStarted(this);
   }
@@ -2653,6 +2729,8 @@ class _$_Started implements _Started {
     TResult? Function(_GetAllAirport value)? getAllAirport,
     TResult? Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult? Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_SelectedFlight value)? selectedFlight,
   }) {
     return onStarted?.call(this);
   }
@@ -2665,6 +2743,8 @@ class _$_Started implements _Started {
     TResult Function(_GetAllAirport value)? getAllAirport,
     TResult Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_SelectedFlight value)? selectedFlight,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -2721,6 +2801,8 @@ class _$_GetAirportById implements _GetAirportById {
     required TResult Function() getAllAirport,
     required TResult Function() getFlightConfigs,
     required TResult Function() updateFlightConfigs,
+    required TResult Function(Airport? airport) selectedAirport,
+    required TResult Function(Flight? flight) selectedFlight,
   }) {
     return getAirportById();
   }
@@ -2733,6 +2815,8 @@ class _$_GetAirportById implements _GetAirportById {
     TResult? Function()? getAllAirport,
     TResult? Function()? getFlightConfigs,
     TResult? Function()? updateFlightConfigs,
+    TResult? Function(Airport? airport)? selectedAirport,
+    TResult? Function(Flight? flight)? selectedFlight,
   }) {
     return getAirportById?.call();
   }
@@ -2745,6 +2829,8 @@ class _$_GetAirportById implements _GetAirportById {
     TResult Function()? getAllAirport,
     TResult Function()? getFlightConfigs,
     TResult Function()? updateFlightConfigs,
+    TResult Function(Airport? airport)? selectedAirport,
+    TResult Function(Flight? flight)? selectedFlight,
     required TResult orElse(),
   }) {
     if (getAirportById != null) {
@@ -2761,6 +2847,8 @@ class _$_GetAirportById implements _GetAirportById {
     required TResult Function(_GetAllAirport value) getAllAirport,
     required TResult Function(_GetFlightConfigs value) getFlightConfigs,
     required TResult Function(_UpdateFlightConfigs value) updateFlightConfigs,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_SelectedFlight value) selectedFlight,
   }) {
     return getAirportById(this);
   }
@@ -2773,6 +2861,8 @@ class _$_GetAirportById implements _GetAirportById {
     TResult? Function(_GetAllAirport value)? getAllAirport,
     TResult? Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult? Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_SelectedFlight value)? selectedFlight,
   }) {
     return getAirportById?.call(this);
   }
@@ -2785,6 +2875,8 @@ class _$_GetAirportById implements _GetAirportById {
     TResult Function(_GetAllAirport value)? getAllAirport,
     TResult Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_SelectedFlight value)? selectedFlight,
     required TResult orElse(),
   }) {
     if (getAirportById != null) {
@@ -2841,6 +2933,8 @@ class _$_GetAllAirport implements _GetAllAirport {
     required TResult Function() getAllAirport,
     required TResult Function() getFlightConfigs,
     required TResult Function() updateFlightConfigs,
+    required TResult Function(Airport? airport) selectedAirport,
+    required TResult Function(Flight? flight) selectedFlight,
   }) {
     return getAllAirport();
   }
@@ -2853,6 +2947,8 @@ class _$_GetAllAirport implements _GetAllAirport {
     TResult? Function()? getAllAirport,
     TResult? Function()? getFlightConfigs,
     TResult? Function()? updateFlightConfigs,
+    TResult? Function(Airport? airport)? selectedAirport,
+    TResult? Function(Flight? flight)? selectedFlight,
   }) {
     return getAllAirport?.call();
   }
@@ -2865,6 +2961,8 @@ class _$_GetAllAirport implements _GetAllAirport {
     TResult Function()? getAllAirport,
     TResult Function()? getFlightConfigs,
     TResult Function()? updateFlightConfigs,
+    TResult Function(Airport? airport)? selectedAirport,
+    TResult Function(Flight? flight)? selectedFlight,
     required TResult orElse(),
   }) {
     if (getAllAirport != null) {
@@ -2881,6 +2979,8 @@ class _$_GetAllAirport implements _GetAllAirport {
     required TResult Function(_GetAllAirport value) getAllAirport,
     required TResult Function(_GetFlightConfigs value) getFlightConfigs,
     required TResult Function(_UpdateFlightConfigs value) updateFlightConfigs,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_SelectedFlight value) selectedFlight,
   }) {
     return getAllAirport(this);
   }
@@ -2893,6 +2993,8 @@ class _$_GetAllAirport implements _GetAllAirport {
     TResult? Function(_GetAllAirport value)? getAllAirport,
     TResult? Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult? Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_SelectedFlight value)? selectedFlight,
   }) {
     return getAllAirport?.call(this);
   }
@@ -2905,6 +3007,8 @@ class _$_GetAllAirport implements _GetAllAirport {
     TResult Function(_GetAllAirport value)? getAllAirport,
     TResult Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_SelectedFlight value)? selectedFlight,
     required TResult orElse(),
   }) {
     if (getAllAirport != null) {
@@ -2961,6 +3065,8 @@ class _$_GetFlightConfigs implements _GetFlightConfigs {
     required TResult Function() getAllAirport,
     required TResult Function() getFlightConfigs,
     required TResult Function() updateFlightConfigs,
+    required TResult Function(Airport? airport) selectedAirport,
+    required TResult Function(Flight? flight) selectedFlight,
   }) {
     return getFlightConfigs();
   }
@@ -2973,6 +3079,8 @@ class _$_GetFlightConfigs implements _GetFlightConfigs {
     TResult? Function()? getAllAirport,
     TResult? Function()? getFlightConfigs,
     TResult? Function()? updateFlightConfigs,
+    TResult? Function(Airport? airport)? selectedAirport,
+    TResult? Function(Flight? flight)? selectedFlight,
   }) {
     return getFlightConfigs?.call();
   }
@@ -2985,6 +3093,8 @@ class _$_GetFlightConfigs implements _GetFlightConfigs {
     TResult Function()? getAllAirport,
     TResult Function()? getFlightConfigs,
     TResult Function()? updateFlightConfigs,
+    TResult Function(Airport? airport)? selectedAirport,
+    TResult Function(Flight? flight)? selectedFlight,
     required TResult orElse(),
   }) {
     if (getFlightConfigs != null) {
@@ -3001,6 +3111,8 @@ class _$_GetFlightConfigs implements _GetFlightConfigs {
     required TResult Function(_GetAllAirport value) getAllAirport,
     required TResult Function(_GetFlightConfigs value) getFlightConfigs,
     required TResult Function(_UpdateFlightConfigs value) updateFlightConfigs,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_SelectedFlight value) selectedFlight,
   }) {
     return getFlightConfigs(this);
   }
@@ -3013,6 +3125,8 @@ class _$_GetFlightConfigs implements _GetFlightConfigs {
     TResult? Function(_GetAllAirport value)? getAllAirport,
     TResult? Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult? Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_SelectedFlight value)? selectedFlight,
   }) {
     return getFlightConfigs?.call(this);
   }
@@ -3025,6 +3139,8 @@ class _$_GetFlightConfigs implements _GetFlightConfigs {
     TResult Function(_GetAllAirport value)? getAllAirport,
     TResult Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_SelectedFlight value)? selectedFlight,
     required TResult orElse(),
   }) {
     if (getFlightConfigs != null) {
@@ -3081,6 +3197,8 @@ class _$_UpdateFlightConfigs implements _UpdateFlightConfigs {
     required TResult Function() getAllAirport,
     required TResult Function() getFlightConfigs,
     required TResult Function() updateFlightConfigs,
+    required TResult Function(Airport? airport) selectedAirport,
+    required TResult Function(Flight? flight) selectedFlight,
   }) {
     return updateFlightConfigs();
   }
@@ -3093,6 +3211,8 @@ class _$_UpdateFlightConfigs implements _UpdateFlightConfigs {
     TResult? Function()? getAllAirport,
     TResult? Function()? getFlightConfigs,
     TResult? Function()? updateFlightConfigs,
+    TResult? Function(Airport? airport)? selectedAirport,
+    TResult? Function(Flight? flight)? selectedFlight,
   }) {
     return updateFlightConfigs?.call();
   }
@@ -3105,6 +3225,8 @@ class _$_UpdateFlightConfigs implements _UpdateFlightConfigs {
     TResult Function()? getAllAirport,
     TResult Function()? getFlightConfigs,
     TResult Function()? updateFlightConfigs,
+    TResult Function(Airport? airport)? selectedAirport,
+    TResult Function(Flight? flight)? selectedFlight,
     required TResult orElse(),
   }) {
     if (updateFlightConfigs != null) {
@@ -3121,6 +3243,8 @@ class _$_UpdateFlightConfigs implements _UpdateFlightConfigs {
     required TResult Function(_GetAllAirport value) getAllAirport,
     required TResult Function(_GetFlightConfigs value) getFlightConfigs,
     required TResult Function(_UpdateFlightConfigs value) updateFlightConfigs,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_SelectedFlight value) selectedFlight,
   }) {
     return updateFlightConfigs(this);
   }
@@ -3133,6 +3257,8 @@ class _$_UpdateFlightConfigs implements _UpdateFlightConfigs {
     TResult? Function(_GetAllAirport value)? getAllAirport,
     TResult? Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult? Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_SelectedFlight value)? selectedFlight,
   }) {
     return updateFlightConfigs?.call(this);
   }
@@ -3145,6 +3271,8 @@ class _$_UpdateFlightConfigs implements _UpdateFlightConfigs {
     TResult Function(_GetAllAirport value)? getAllAirport,
     TResult Function(_GetFlightConfigs value)? getFlightConfigs,
     TResult Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_SelectedFlight value)? selectedFlight,
     required TResult orElse(),
   }) {
     if (updateFlightConfigs != null) {
@@ -3156,4 +3284,358 @@ class _$_UpdateFlightConfigs implements _UpdateFlightConfigs {
 
 abstract class _UpdateFlightConfigs implements HandleConfigAirportEvent {
   const factory _UpdateFlightConfigs() = _$_UpdateFlightConfigs;
+}
+
+/// @nodoc
+abstract class _$$_SelectedAirportCopyWith<$Res> {
+  factory _$$_SelectedAirportCopyWith(
+          _$_SelectedAirport value, $Res Function(_$_SelectedAirport) then) =
+      __$$_SelectedAirportCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Airport? airport});
+
+  $AirportCopyWith<$Res>? get airport;
+}
+
+/// @nodoc
+class __$$_SelectedAirportCopyWithImpl<$Res>
+    extends _$HandleConfigAirportEventCopyWithImpl<$Res, _$_SelectedAirport>
+    implements _$$_SelectedAirportCopyWith<$Res> {
+  __$$_SelectedAirportCopyWithImpl(
+      _$_SelectedAirport _value, $Res Function(_$_SelectedAirport) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? airport = freezed,
+  }) {
+    return _then(_$_SelectedAirport(
+      freezed == airport
+          ? _value.airport
+          : airport // ignore: cast_nullable_to_non_nullable
+              as Airport?,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AirportCopyWith<$Res>? get airport {
+    if (_value.airport == null) {
+      return null;
+    }
+
+    return $AirportCopyWith<$Res>(_value.airport!, (value) {
+      return _then(_value.copyWith(airport: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedAirport implements _SelectedAirport {
+  const _$_SelectedAirport(this.airport);
+
+  @override
+  final Airport? airport;
+
+  @override
+  String toString() {
+    return 'HandleConfigAirportEvent.selectedAirport(airport: $airport)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedAirport &&
+            (identical(other.airport, airport) || other.airport == airport));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, airport);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedAirportCopyWith<_$_SelectedAirport> get copyWith =>
+      __$$_SelectedAirportCopyWithImpl<_$_SelectedAirport>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() getAirportById,
+    required TResult Function() getAllAirport,
+    required TResult Function() getFlightConfigs,
+    required TResult Function() updateFlightConfigs,
+    required TResult Function(Airport? airport) selectedAirport,
+    required TResult Function(Flight? flight) selectedFlight,
+  }) {
+    return selectedAirport(airport);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? getAirportById,
+    TResult? Function()? getAllAirport,
+    TResult? Function()? getFlightConfigs,
+    TResult? Function()? updateFlightConfigs,
+    TResult? Function(Airport? airport)? selectedAirport,
+    TResult? Function(Flight? flight)? selectedFlight,
+  }) {
+    return selectedAirport?.call(airport);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? getAirportById,
+    TResult Function()? getAllAirport,
+    TResult Function()? getFlightConfigs,
+    TResult Function()? updateFlightConfigs,
+    TResult Function(Airport? airport)? selectedAirport,
+    TResult Function(Flight? flight)? selectedFlight,
+    required TResult orElse(),
+  }) {
+    if (selectedAirport != null) {
+      return selectedAirport(airport);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_GetAllAirport value) getAllAirport,
+    required TResult Function(_GetFlightConfigs value) getFlightConfigs,
+    required TResult Function(_UpdateFlightConfigs value) updateFlightConfigs,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_SelectedFlight value) selectedFlight,
+  }) {
+    return selectedAirport(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_GetAllAirport value)? getAllAirport,
+    TResult? Function(_GetFlightConfigs value)? getFlightConfigs,
+    TResult? Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_SelectedFlight value)? selectedFlight,
+  }) {
+    return selectedAirport?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_GetAllAirport value)? getAllAirport,
+    TResult Function(_GetFlightConfigs value)? getFlightConfigs,
+    TResult Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_SelectedFlight value)? selectedFlight,
+    required TResult orElse(),
+  }) {
+    if (selectedAirport != null) {
+      return selectedAirport(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedAirport implements HandleConfigAirportEvent {
+  const factory _SelectedAirport(final Airport? airport) = _$_SelectedAirport;
+
+  Airport? get airport;
+  @JsonKey(ignore: true)
+  _$$_SelectedAirportCopyWith<_$_SelectedAirport> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedFlightCopyWith<$Res> {
+  factory _$$_SelectedFlightCopyWith(
+          _$_SelectedFlight value, $Res Function(_$_SelectedFlight) then) =
+      __$$_SelectedFlightCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Flight? flight});
+
+  $FlightCopyWith<$Res>? get flight;
+}
+
+/// @nodoc
+class __$$_SelectedFlightCopyWithImpl<$Res>
+    extends _$HandleConfigAirportEventCopyWithImpl<$Res, _$_SelectedFlight>
+    implements _$$_SelectedFlightCopyWith<$Res> {
+  __$$_SelectedFlightCopyWithImpl(
+      _$_SelectedFlight _value, $Res Function(_$_SelectedFlight) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? flight = freezed,
+  }) {
+    return _then(_$_SelectedFlight(
+      freezed == flight
+          ? _value.flight
+          : flight // ignore: cast_nullable_to_non_nullable
+              as Flight?,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FlightCopyWith<$Res>? get flight {
+    if (_value.flight == null) {
+      return null;
+    }
+
+    return $FlightCopyWith<$Res>(_value.flight!, (value) {
+      return _then(_value.copyWith(flight: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedFlight implements _SelectedFlight {
+  const _$_SelectedFlight(this.flight);
+
+  @override
+  final Flight? flight;
+
+  @override
+  String toString() {
+    return 'HandleConfigAirportEvent.selectedFlight(flight: $flight)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedFlight &&
+            (identical(other.flight, flight) || other.flight == flight));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, flight);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedFlightCopyWith<_$_SelectedFlight> get copyWith =>
+      __$$_SelectedFlightCopyWithImpl<_$_SelectedFlight>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() getAirportById,
+    required TResult Function() getAllAirport,
+    required TResult Function() getFlightConfigs,
+    required TResult Function() updateFlightConfigs,
+    required TResult Function(Airport? airport) selectedAirport,
+    required TResult Function(Flight? flight) selectedFlight,
+  }) {
+    return selectedFlight(flight);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? getAirportById,
+    TResult? Function()? getAllAirport,
+    TResult? Function()? getFlightConfigs,
+    TResult? Function()? updateFlightConfigs,
+    TResult? Function(Airport? airport)? selectedAirport,
+    TResult? Function(Flight? flight)? selectedFlight,
+  }) {
+    return selectedFlight?.call(flight);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? getAirportById,
+    TResult Function()? getAllAirport,
+    TResult Function()? getFlightConfigs,
+    TResult Function()? updateFlightConfigs,
+    TResult Function(Airport? airport)? selectedAirport,
+    TResult Function(Flight? flight)? selectedFlight,
+    required TResult orElse(),
+  }) {
+    if (selectedFlight != null) {
+      return selectedFlight(flight);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_GetAirportById value) getAirportById,
+    required TResult Function(_GetAllAirport value) getAllAirport,
+    required TResult Function(_GetFlightConfigs value) getFlightConfigs,
+    required TResult Function(_UpdateFlightConfigs value) updateFlightConfigs,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_SelectedFlight value) selectedFlight,
+  }) {
+    return selectedFlight(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_GetAirportById value)? getAirportById,
+    TResult? Function(_GetAllAirport value)? getAllAirport,
+    TResult? Function(_GetFlightConfigs value)? getFlightConfigs,
+    TResult? Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_SelectedFlight value)? selectedFlight,
+  }) {
+    return selectedFlight?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_GetAirportById value)? getAirportById,
+    TResult Function(_GetAllAirport value)? getAllAirport,
+    TResult Function(_GetFlightConfigs value)? getFlightConfigs,
+    TResult Function(_UpdateFlightConfigs value)? updateFlightConfigs,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_SelectedFlight value)? selectedFlight,
+    required TResult orElse(),
+  }) {
+    if (selectedFlight != null) {
+      return selectedFlight(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedFlight implements HandleConfigAirportEvent {
+  const factory _SelectedFlight(final Flight? flight) = _$_SelectedFlight;
+
+  Flight? get flight;
+  @JsonKey(ignore: true)
+  _$$_SelectedFlightCopyWith<_$_SelectedFlight> get copyWith =>
+      throw _privateConstructorUsedError;
 }

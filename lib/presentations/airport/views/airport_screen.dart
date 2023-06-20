@@ -156,11 +156,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
   }
 
   void deleteAirport(int id) async {
-    final deleteForm = await context.showYesNoDialog(
-      300,
-      'Delete airport',
-      'Are you sure delete this airport?',
-    );
+    final deleteForm = await context.showDeleteConfigAirportDialog(id);
     if (deleteForm) {
       _bloc.add(AirportEvent.deleteAirport(id));
     }

@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HandleConfigAirportModelState {
   List<Flight> get flightConfigs => throw _privateConstructorUsedError;
   List<Airport> get airports => throw _privateConstructorUsedError;
+  Flight? get flightSelected => throw _privateConstructorUsedError;
   Airport? get airportSelected => throw _privateConstructorUsedError;
+  Airport? get airport => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HandleConfigAirportModelStateCopyWith<HandleConfigAirportModelState>
@@ -36,9 +38,13 @@ abstract class $HandleConfigAirportModelStateCopyWith<$Res> {
   $Res call(
       {List<Flight> flightConfigs,
       List<Airport> airports,
-      Airport? airportSelected});
+      Flight? flightSelected,
+      Airport? airportSelected,
+      Airport? airport});
 
+  $FlightCopyWith<$Res>? get flightSelected;
   $AirportCopyWith<$Res>? get airportSelected;
+  $AirportCopyWith<$Res>? get airport;
 }
 
 /// @nodoc
@@ -57,7 +63,9 @@ class _$HandleConfigAirportModelStateCopyWithImpl<$Res,
   $Res call({
     Object? flightConfigs = null,
     Object? airports = null,
+    Object? flightSelected = freezed,
     Object? airportSelected = freezed,
+    Object? airport = freezed,
   }) {
     return _then(_value.copyWith(
       flightConfigs: null == flightConfigs
@@ -68,11 +76,31 @@ class _$HandleConfigAirportModelStateCopyWithImpl<$Res,
           ? _value.airports
           : airports // ignore: cast_nullable_to_non_nullable
               as List<Airport>,
+      flightSelected: freezed == flightSelected
+          ? _value.flightSelected
+          : flightSelected // ignore: cast_nullable_to_non_nullable
+              as Flight?,
       airportSelected: freezed == airportSelected
           ? _value.airportSelected
           : airportSelected // ignore: cast_nullable_to_non_nullable
               as Airport?,
+      airport: freezed == airport
+          ? _value.airport
+          : airport // ignore: cast_nullable_to_non_nullable
+              as Airport?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FlightCopyWith<$Res>? get flightSelected {
+    if (_value.flightSelected == null) {
+      return null;
+    }
+
+    return $FlightCopyWith<$Res>(_value.flightSelected!, (value) {
+      return _then(_value.copyWith(flightSelected: value) as $Val);
+    });
   }
 
   @override
@@ -84,6 +112,18 @@ class _$HandleConfigAirportModelStateCopyWithImpl<$Res,
 
     return $AirportCopyWith<$Res>(_value.airportSelected!, (value) {
       return _then(_value.copyWith(airportSelected: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AirportCopyWith<$Res>? get airport {
+    if (_value.airport == null) {
+      return null;
+    }
+
+    return $AirportCopyWith<$Res>(_value.airport!, (value) {
+      return _then(_value.copyWith(airport: value) as $Val);
     });
   }
 }
@@ -100,10 +140,16 @@ abstract class _$$_HandleConfigAirportModelStateCopyWith<$Res>
   $Res call(
       {List<Flight> flightConfigs,
       List<Airport> airports,
-      Airport? airportSelected});
+      Flight? flightSelected,
+      Airport? airportSelected,
+      Airport? airport});
 
   @override
+  $FlightCopyWith<$Res>? get flightSelected;
+  @override
   $AirportCopyWith<$Res>? get airportSelected;
+  @override
+  $AirportCopyWith<$Res>? get airport;
 }
 
 /// @nodoc
@@ -121,7 +167,9 @@ class __$$_HandleConfigAirportModelStateCopyWithImpl<$Res>
   $Res call({
     Object? flightConfigs = null,
     Object? airports = null,
+    Object? flightSelected = freezed,
     Object? airportSelected = freezed,
+    Object? airport = freezed,
   }) {
     return _then(_$_HandleConfigAirportModelState(
       flightConfigs: null == flightConfigs
@@ -132,9 +180,17 @@ class __$$_HandleConfigAirportModelStateCopyWithImpl<$Res>
           ? _value._airports
           : airports // ignore: cast_nullable_to_non_nullable
               as List<Airport>,
+      flightSelected: freezed == flightSelected
+          ? _value.flightSelected
+          : flightSelected // ignore: cast_nullable_to_non_nullable
+              as Flight?,
       airportSelected: freezed == airportSelected
           ? _value.airportSelected
           : airportSelected // ignore: cast_nullable_to_non_nullable
+              as Airport?,
+      airport: freezed == airport
+          ? _value.airport
+          : airport // ignore: cast_nullable_to_non_nullable
               as Airport?,
     ));
   }
@@ -147,7 +203,9 @@ class _$_HandleConfigAirportModelState
   const _$_HandleConfigAirportModelState(
       {required final List<Flight> flightConfigs,
       required final List<Airport> airports,
-      this.airportSelected})
+      this.flightSelected,
+      this.airportSelected,
+      this.airport})
       : _flightConfigs = flightConfigs,
         _airports = airports;
 
@@ -168,11 +226,15 @@ class _$_HandleConfigAirportModelState
   }
 
   @override
+  final Flight? flightSelected;
+  @override
   final Airport? airportSelected;
+  @override
+  final Airport? airport;
 
   @override
   String toString() {
-    return 'HandleConfigAirportModelState(flightConfigs: $flightConfigs, airports: $airports, airportSelected: $airportSelected)';
+    return 'HandleConfigAirportModelState(flightConfigs: $flightConfigs, airports: $airports, flightSelected: $flightSelected, airportSelected: $airportSelected, airport: $airport)';
   }
 
   @override
@@ -183,8 +245,11 @@ class _$_HandleConfigAirportModelState
             const DeepCollectionEquality()
                 .equals(other._flightConfigs, _flightConfigs) &&
             const DeepCollectionEquality().equals(other._airports, _airports) &&
+            (identical(other.flightSelected, flightSelected) ||
+                other.flightSelected == flightSelected) &&
             (identical(other.airportSelected, airportSelected) ||
-                other.airportSelected == airportSelected));
+                other.airportSelected == airportSelected) &&
+            (identical(other.airport, airport) || other.airport == airport));
   }
 
   @override
@@ -192,7 +257,9 @@ class _$_HandleConfigAirportModelState
       runtimeType,
       const DeepCollectionEquality().hash(_flightConfigs),
       const DeepCollectionEquality().hash(_airports),
-      airportSelected);
+      flightSelected,
+      airportSelected,
+      airport);
 
   @JsonKey(ignore: true)
   @override
@@ -207,14 +274,20 @@ abstract class _HandleConfigAirportModelState
   const factory _HandleConfigAirportModelState(
       {required final List<Flight> flightConfigs,
       required final List<Airport> airports,
-      final Airport? airportSelected}) = _$_HandleConfigAirportModelState;
+      final Flight? flightSelected,
+      final Airport? airportSelected,
+      final Airport? airport}) = _$_HandleConfigAirportModelState;
 
   @override
   List<Flight> get flightConfigs;
   @override
   List<Airport> get airports;
   @override
+  Flight? get flightSelected;
+  @override
   Airport? get airportSelected;
+  @override
+  Airport? get airport;
   @override
   @JsonKey(ignore: true)
   _$$_HandleConfigAirportModelStateCopyWith<_$_HandleConfigAirportModelState>

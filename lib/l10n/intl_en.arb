@@ -326,5 +326,7 @@
     "arrivalFlight": "Arrival Flight",
     "from": "From",
     "empty": "Empty",
+    "cancel": "cancel",
+    "flightsConfig": "Flights Config",
     "departurePlace": "Departure Place"
 }
