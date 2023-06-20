@@ -1,4 +1,5 @@
 import 'package:flight_booking/data/models/airport/airport_model.dart';
+import 'package:flight_booking/data/models/model_heloer.dart';
 import 'package:flight_booking/domain/entities/flight/flight.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -10,9 +11,9 @@ class FlightModel {
   @JsonKey(name: 'id')
   final int id;
   @JsonKey(name: 'arrivalAirport')
-  final AirportModel arrivalAirport;
+  final AirportModel? arrivalAirport;
   @JsonKey(name: 'departureAirport')
-  final AirportModel departureAirport;
+  final AirportModel? departureAirport;
   @JsonKey(name: 'departureTime')
   final DateTime timeStart;
   @JsonKey(name: 'arrivalTime')
@@ -35,8 +36,10 @@ class FlightModel {
 
   Flight toEntity() => Flight(
         id: id,
-        arrivalAirport: arrivalAirport.toEntity(),
-        departureAirport: departureAirport.toEntity(),
+        arrivalAirport:
+            arrivalAirport?.toEntity() ?? ModelHelper.defaultAirport,
+        departureAirport:
+            departureAirport?.toEntity() ?? ModelHelper.defaultAirport,
         timeStart: timeStart.add(const Duration(hours: 7)),
         timeEnd: timeEnd.add(const Duration(hours: 7)),
         airline: airline.toEntity(),

@@ -1,15 +1,17 @@
 // ignore_for_file: file_names
 
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../domain/entities/flight/flight.dart';
+import '../../../../generated/l10n.dart';
 
-class FlightInAirportWdiget extends StatelessWidget {
+class FlightInAirportWidget extends StatelessWidget {
   final double? width;
   final List<Flight> listFlight;
-  final DateTime time;
-  const FlightInAirportWdiget({
+  final String time;
+  const FlightInAirportWidget({
     super.key,
     this.width,
     required this.listFlight,
@@ -30,7 +32,7 @@ class FlightInAirportWdiget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            getjmFormat(time),
+            time,
             style: Theme.of(context)
                 .textTheme
                 .titleSmall!
@@ -57,23 +59,26 @@ class FlightInAirportWdiget extends StatelessWidget {
     return RichText(
       maxLines: 1,
       text: TextSpan(
-        style: Theme.of(context).textTheme.titleMedium!.copyWith(
-              color: Colors.white,
-            ),
+        style: context.titleMedium.copyWith(color: Colors.white),
         children: [
           TextSpan(
-            text: '${flight.id} ',
+            text: '${S.of(context).flight} ${flight.id} ',
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           TextSpan(
             text: '(${flight.arrivalAirport.name})',
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.w400,
-              fontSize: 14,
+              fontSize: context.titleSmall.fontSize,
               fontStyle: FontStyle.italic,
               decoration: TextDecoration.underline,
             ),
           ),
+          TextSpan(
+            text:
+                ' ${getjmFormat(flight.timeStart)} - ${getjmFormat(flight.timeEnd)}',
+            style: context.titleSmall.copyWith(fontSize: 12),
+          )
         ],
       ),
     );

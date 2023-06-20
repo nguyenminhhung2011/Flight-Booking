@@ -67,6 +67,7 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
       data.airportStart == null ||
       data.airportEnd == null;
 
+  bool get _isSameAirport => data.airportStart?.id == data.airportEnd?.id;
   String get flightId => _flightId;
 
   FutureOr<void> _onStarted(
@@ -176,8 +177,6 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
       ));
     }
   }
-
-  bool get _isSameAirport => data.airportStart?.id == data.airportEnd?.id;
 
   FutureOr<void> _onDispose(
     _Dispose event,
@@ -315,8 +314,6 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
           timeStart: result.timeStart,
           timeEnd: result.timeEnd,
           airline: result.airline,
-          airportStart: result.departureAirport,
-          airportEnd: result.arrivalAirport,
           headerText: S.current.editAirport,
         ),
       ));

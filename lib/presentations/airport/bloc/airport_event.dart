@@ -18,4 +18,8 @@ class AirportEvent with _$AirportEvent {
       _ChangePageAirportView;
 
   const factory AirportEvent.textChange(String text) = _TextChange;
+  const factory AirportEvent.selectedAirport(int id) = _SelectedAirport;
+  const factory AirportEvent.getAirportById(int id) = _GetAirportById;
+  const factory AirportEvent.getFlightDepartures(int id) = _GetFlightDepartures;
+  const factory AirportEvent.getFlightArrival(int id) = _GetFlightArrival;
 }

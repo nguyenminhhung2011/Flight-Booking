@@ -20,7 +20,7 @@ extension AppCoordinator<T> on BuildContext {
 
   void startSelectedBottomBarItem(int view) {}
 
-  Future<T?> startFlightDetai(String ticId) {
+  Future<T?> startFlightDetail(int ticId) {
     return Navigator.of(this).pushNamed(Routes.flightDetail, arguments: ticId);
   }
 
