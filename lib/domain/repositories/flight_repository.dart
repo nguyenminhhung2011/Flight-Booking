@@ -22,6 +22,7 @@ abstract class FlightRepository {
 
   Future<List<Flight>> getFlightByArrivalId(int id);
   Future<List<Flight>> getFlightByDepartureId(int id);
+  Future<List<Flight>> getFlightByAirportId(int id);
 
   Future<PageResponseEntity<Flight>> getFlightsByPage(int cursor, int pageSize);
   Future<Flight?> addNewFlight(Flight flight);

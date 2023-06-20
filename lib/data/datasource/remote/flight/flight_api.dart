@@ -48,6 +48,10 @@ abstract class FlightApi {
   Future<HttpResponse<List<FlightModel>?>> getFlightByDepartureId({
     @Path("id") required int id,
   });
+  @GET('${FlightEndPoint.fetchFlightUrl}airport={id}')
+  Future<HttpResponse<List<FlightModel>?>> getFlightByAirportId({
+    @Path("id") required int id,
+  });
 
   @GET('${FlightEndPoint.fetchFlightUrl}arrivalId={id}')
   Future<HttpResponse<List<FlightModel>?>> getFlightByArrivalId({

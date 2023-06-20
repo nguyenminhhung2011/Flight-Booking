@@ -104,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "businessClassTicket":
             MessageLookupByLibrary.simpleMessage("Business Class Ticket"),
         "cabinCrew": MessageLookupByLibrary.simpleMessage("Cabin crew"),
+        "cancel": MessageLookupByLibrary.simpleMessage("cancel"),
         "chair": MessageLookupByLibrary.simpleMessage("Chair"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
@@ -227,6 +228,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "flightTickets": MessageLookupByLibrary.simpleMessage("Flight tickets"),
         "flightTime": MessageLookupByLibrary.simpleMessage("Flight Time"),
         "flightType": MessageLookupByLibrary.simpleMessage("Flight Type"),
+        "flightsConfig": MessageLookupByLibrary.simpleMessage("Flights Config"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "from": MessageLookupByLibrary.simpleMessage("From"),

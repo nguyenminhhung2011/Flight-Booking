@@ -66,6 +66,8 @@ class FlightsUsecase {
 
   Future<List<Flight>> getFlightByArrivalId(int id) async =>
       await _flightRepository.getFlightByArrivalId(id);
+  Future<List<Flight>> getFlightByAirportId(int id) async =>
+      await _flightRepository.getFlightByAirportId(id);
 
   Future<Flight?> getFlightById(String id) async {
     var result = await _flightRepository.getFlightById(id);
