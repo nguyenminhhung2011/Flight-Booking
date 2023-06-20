@@ -72,7 +72,6 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
         ));
         return;
       }
-      print(result);
       emit(FlightDetailState.getFlightByIdSuccess(
         data: data.copyWith(
           flight: result,
