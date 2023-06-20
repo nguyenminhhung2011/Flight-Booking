@@ -44,6 +44,20 @@ abstract class FlightApi {
     @Query("airlineName") required String airlineName,
   });
 
+  @GET('${FlightEndPoint.fetchFlightUrl}departureId={id}')
+  Future<HttpResponse<List<FlightModel>?>> getFlightByDepartureId({
+    @Path("id") required int id,
+  });
+  @GET('${FlightEndPoint.fetchFlightUrl}airport={id}')
+  Future<HttpResponse<List<FlightModel>?>> getFlightByAirportId({
+    @Path("id") required int id,
+  });
+
+  @GET('${FlightEndPoint.fetchFlightUrl}arrivalId={id}')
+  Future<HttpResponse<List<FlightModel>?>> getFlightByArrivalId({
+    @Path("id") required int id,
+  });
+
   @POST(FlightEndPoint.addFlightUrl)
   Future<HttpResponse<FlightModel?>> addNewFlight({
     @Body() required Map<String, dynamic> body,

@@ -17,10 +17,15 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Ticket {
   String get id => throw _privateConstructorUsedError;
-  String get idCustomer => throw _privateConstructorUsedError;
-  String get idFlight => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get gender => throw _privateConstructorUsedError;
+  String get phoneNumber => throw _privateConstructorUsedError;
+  String get emailAddress => throw _privateConstructorUsedError;
+  int get sheet => throw _privateConstructorUsedError;
+  int get luggage => throw _privateConstructorUsedError;
+  DateTime get dateBorn => throw _privateConstructorUsedError;
   DateTime get timeBought => throw _privateConstructorUsedError;
-  double get price => throw _privateConstructorUsedError;
+  TicketInformation get ticketInformation => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TicketCopyWith<Ticket> get copyWith => throw _privateConstructorUsedError;
@@ -33,10 +38,17 @@ abstract class $TicketCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String idCustomer,
-      String idFlight,
+      String name,
+      String gender,
+      String phoneNumber,
+      String emailAddress,
+      int sheet,
+      int luggage,
+      DateTime dateBorn,
       DateTime timeBought,
-      double price});
+      TicketInformation ticketInformation});
+
+  $TicketInformationCopyWith<$Res> get ticketInformation;
 }
 
 /// @nodoc
@@ -53,33 +65,66 @@ class _$TicketCopyWithImpl<$Res, $Val extends Ticket>
   @override
   $Res call({
     Object? id = null,
-    Object? idCustomer = null,
-    Object? idFlight = null,
+    Object? name = null,
+    Object? gender = null,
+    Object? phoneNumber = null,
+    Object? emailAddress = null,
+    Object? sheet = null,
+    Object? luggage = null,
+    Object? dateBorn = null,
     Object? timeBought = null,
-    Object? price = null,
+    Object? ticketInformation = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      idCustomer: null == idCustomer
-          ? _value.idCustomer
-          : idCustomer // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      idFlight: null == idFlight
-          ? _value.idFlight
-          : idFlight // ignore: cast_nullable_to_non_nullable
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String,
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      emailAddress: null == emailAddress
+          ? _value.emailAddress
+          : emailAddress // ignore: cast_nullable_to_non_nullable
+              as String,
+      sheet: null == sheet
+          ? _value.sheet
+          : sheet // ignore: cast_nullable_to_non_nullable
+              as int,
+      luggage: null == luggage
+          ? _value.luggage
+          : luggage // ignore: cast_nullable_to_non_nullable
+              as int,
+      dateBorn: null == dateBorn
+          ? _value.dateBorn
+          : dateBorn // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       timeBought: null == timeBought
           ? _value.timeBought
           : timeBought // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double,
+      ticketInformation: null == ticketInformation
+          ? _value.ticketInformation
+          : ticketInformation // ignore: cast_nullable_to_non_nullable
+              as TicketInformation,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TicketInformationCopyWith<$Res> get ticketInformation {
+    return $TicketInformationCopyWith<$Res>(_value.ticketInformation, (value) {
+      return _then(_value.copyWith(ticketInformation: value) as $Val);
+    });
   }
 }
 
@@ -91,10 +136,18 @@ abstract class _$$_TicketCopyWith<$Res> implements $TicketCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String idCustomer,
-      String idFlight,
+      String name,
+      String gender,
+      String phoneNumber,
+      String emailAddress,
+      int sheet,
+      int luggage,
+      DateTime dateBorn,
       DateTime timeBought,
-      double price});
+      TicketInformation ticketInformation});
+
+  @override
+  $TicketInformationCopyWith<$Res> get ticketInformation;
 }
 
 /// @nodoc
@@ -108,32 +161,57 @@ class __$$_TicketCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? idCustomer = null,
-    Object? idFlight = null,
+    Object? name = null,
+    Object? gender = null,
+    Object? phoneNumber = null,
+    Object? emailAddress = null,
+    Object? sheet = null,
+    Object? luggage = null,
+    Object? dateBorn = null,
     Object? timeBought = null,
-    Object? price = null,
+    Object? ticketInformation = null,
   }) {
     return _then(_$_Ticket(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      idCustomer: null == idCustomer
-          ? _value.idCustomer
-          : idCustomer // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      idFlight: null == idFlight
-          ? _value.idFlight
-          : idFlight // ignore: cast_nullable_to_non_nullable
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String,
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      emailAddress: null == emailAddress
+          ? _value.emailAddress
+          : emailAddress // ignore: cast_nullable_to_non_nullable
+              as String,
+      sheet: null == sheet
+          ? _value.sheet
+          : sheet // ignore: cast_nullable_to_non_nullable
+              as int,
+      luggage: null == luggage
+          ? _value.luggage
+          : luggage // ignore: cast_nullable_to_non_nullable
+              as int,
+      dateBorn: null == dateBorn
+          ? _value.dateBorn
+          : dateBorn // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       timeBought: null == timeBought
           ? _value.timeBought
           : timeBought // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double,
+      ticketInformation: null == ticketInformation
+          ? _value.ticketInformation
+          : ticketInformation // ignore: cast_nullable_to_non_nullable
+              as TicketInformation,
     ));
   }
 }
@@ -143,25 +221,40 @@ class __$$_TicketCopyWithImpl<$Res>
 class _$_Ticket implements _Ticket {
   const _$_Ticket(
       {required this.id,
-      required this.idCustomer,
-      required this.idFlight,
+      required this.name,
+      required this.gender,
+      required this.phoneNumber,
+      required this.emailAddress,
+      required this.sheet,
+      required this.luggage,
+      required this.dateBorn,
       required this.timeBought,
-      required this.price});
+      required this.ticketInformation});
 
   @override
   final String id;
   @override
-  final String idCustomer;
+  final String name;
   @override
-  final String idFlight;
+  final String gender;
+  @override
+  final String phoneNumber;
+  @override
+  final String emailAddress;
+  @override
+  final int sheet;
+  @override
+  final int luggage;
+  @override
+  final DateTime dateBorn;
   @override
   final DateTime timeBought;
   @override
-  final double price;
+  final TicketInformation ticketInformation;
 
   @override
   String toString() {
-    return 'Ticket(id: $id, idCustomer: $idCustomer, idFlight: $idFlight, timeBought: $timeBought, price: $price)';
+    return 'Ticket(id: $id, name: $name, gender: $gender, phoneNumber: $phoneNumber, emailAddress: $emailAddress, sheet: $sheet, luggage: $luggage, dateBorn: $dateBorn, timeBought: $timeBought, ticketInformation: $ticketInformation)';
   }
 
   @override
@@ -170,18 +263,25 @@ class _$_Ticket implements _Ticket {
         (other.runtimeType == runtimeType &&
             other is _$_Ticket &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.idCustomer, idCustomer) ||
-                other.idCustomer == idCustomer) &&
-            (identical(other.idFlight, idFlight) ||
-                other.idFlight == idFlight) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.emailAddress, emailAddress) ||
+                other.emailAddress == emailAddress) &&
+            (identical(other.sheet, sheet) || other.sheet == sheet) &&
+            (identical(other.luggage, luggage) || other.luggage == luggage) &&
+            (identical(other.dateBorn, dateBorn) ||
+                other.dateBorn == dateBorn) &&
             (identical(other.timeBought, timeBought) ||
                 other.timeBought == timeBought) &&
-            (identical(other.price, price) || other.price == price));
+            (identical(other.ticketInformation, ticketInformation) ||
+                other.ticketInformation == ticketInformation));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, idCustomer, idFlight, timeBought, price);
+  int get hashCode => Object.hash(runtimeType, id, name, gender, phoneNumber,
+      emailAddress, sheet, luggage, dateBorn, timeBought, ticketInformation);
 
   @JsonKey(ignore: true)
   @override
@@ -193,21 +293,36 @@ class _$_Ticket implements _Ticket {
 abstract class _Ticket implements Ticket {
   const factory _Ticket(
       {required final String id,
-      required final String idCustomer,
-      required final String idFlight,
+      required final String name,
+      required final String gender,
+      required final String phoneNumber,
+      required final String emailAddress,
+      required final int sheet,
+      required final int luggage,
+      required final DateTime dateBorn,
       required final DateTime timeBought,
-      required final double price}) = _$_Ticket;
+      required final TicketInformation ticketInformation}) = _$_Ticket;
 
   @override
   String get id;
   @override
-  String get idCustomer;
+  String get name;
   @override
-  String get idFlight;
+  String get gender;
+  @override
+  String get phoneNumber;
+  @override
+  String get emailAddress;
+  @override
+  int get sheet;
+  @override
+  int get luggage;
+  @override
+  DateTime get dateBorn;
   @override
   DateTime get timeBought;
   @override
-  double get price;
+  TicketInformation get ticketInformation;
   @override
   @JsonKey(ignore: true)
   _$$_TicketCopyWith<_$_Ticket> get copyWith =>

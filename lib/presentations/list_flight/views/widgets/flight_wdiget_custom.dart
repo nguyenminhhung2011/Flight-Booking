@@ -17,116 +17,121 @@ class FlightWidgetCustom extends StatelessWidget {
   final Function() viewDetail;
   final Function() edit;
   final Function() delete;
+  final Function() selected;
   const FlightWidgetCustom({
     super.key,
     required this.viewDetail,
     required this.edit,
     required this.flight,
     required this.delete,
+    required this.selected,
   });
 
   @override
   Widget build(BuildContext context) {
     final checkAdaptive = Breakpoints.large.isActive(context);
-    return ClipPath(
-      clipper: DolDurmaClipper(right: 200, holeRadius: 20),
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20.0),
-        padding: const EdgeInsets.all(15),
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          color: Theme.of(context).cardColor,
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: AdaptiveLayoutRowCol(
-                child: [
-                  checkAdaptive
-                      ? SizedBox(
-                          width: 100,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
+    return InkWell(
+      onTap: selected,
+      child: ClipPath(
+        clipper: DolDurmaClipper(right: 200, holeRadius: 20),
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.all(15),
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            color: Theme.of(context).cardColor,
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: AdaptiveLayoutRowCol(
+                  child: [
+                    checkAdaptive
+                        ? SizedBox(
+                            width: 100,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                _airPIcon(context, 16.0),
+                                const SizedBox(height: 10.0),
+                                Text(
+                                  flight.airline.airlineName,
+                                  maxLines: 1,
+                                  style: context.titleMedium.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        : Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              _airPIcon(context, 16.0),
-                              const SizedBox(height: 10.0),
+                              _airPIcon(context, 12.0),
+                              const SizedBox(width: 10.0),
                               Text(
                                 flight.airline.airlineName,
                                 maxLines: 1,
-                                style: context.titleMedium.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
+                                style: context.titleSmall,
                               )
                             ],
                           ),
-                        )
-                      : Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            _airPIcon(context, 12.0),
-                            const SizedBox(width: 10.0),
-                            Text(
-                              flight.airline.airlineName,
-                              maxLines: 1,
-                              style: context.titleSmall,
-                            )
-                          ],
-                        ),
-                  checkAdaptive ? _dotVertical() : const SizedBox(),
-                  checkAdaptive
-                      ? Expanded(
-                          child: _dataField(context),
-                        )
-                      : _dataField(context),
-                ],
+                    checkAdaptive ? _dotVertical() : const SizedBox(),
+                    checkAdaptive
+                        ? Expanded(
+                            child: _dataField(context),
+                          )
+                        : _dataField(context),
+                  ],
+                ),
               ),
-            ),
-            _dotVertical(),
-            SizedBox(
-              width: 165,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ButtonCustom(
-                    onPress: viewDetail,
-                    height: 45,
-                    radius: 5.0,
-                    borderColor: Theme.of(context).primaryColor,
-                    color: Theme.of(context).cardColor,
-                    child: Text(S.of(context).viewDetail),
-                  ),
-                  const SizedBox(height: 10.0),
-                  SizedBox(
-                    height: 35.0,
-                    width: double.infinity,
-                    child: Row(
-                      children: [
-                        Expanded(
-                            child: ButtonCustom(
-                          height: 45,
-                          onPress: edit,
-                          radius: 5.0,
-                          child: Text(S.of(context).edit),
-                        )),
-                        const SizedBox(width: 5.0),
-                        Expanded(
-                          child: ButtonCustom(
-                            height: 45,
-                            onPress: delete,
-                            radius: 5.0,
-                            color: Colors.red,
-                            child: Text(S.of(context).delete),
-                          ),
-                        ),
-                      ],
+              _dotVertical(),
+              SizedBox(
+                width: 165,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ButtonCustom(
+                      onPress: viewDetail,
+                      height: 45,
+                      radius: 5.0,
+                      borderColor: Theme.of(context).primaryColor,
+                      color: Theme.of(context).cardColor,
+                      child: Text(S.of(context).viewDetail),
                     ),
-                  )
-                ],
+                    const SizedBox(height: 10.0),
+                    SizedBox(
+                      height: 35.0,
+                      width: double.infinity,
+                      child: Row(
+                        children: [
+                          Expanded(
+                              child: ButtonCustom(
+                            height: 45,
+                            onPress: edit,
+                            radius: 5.0,
+                            child: Text(S.of(context).edit),
+                          )),
+                          const SizedBox(width: 5.0),
+                          Expanded(
+                            child: ButtonCustom(
+                              height: 45,
+                              onPress: delete,
+                              radius: 5.0,
+                              color: Colors.red,
+                              child: Text(S.of(context).delete),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

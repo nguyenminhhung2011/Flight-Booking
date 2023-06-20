@@ -19,6 +19,7 @@ mixin _$FlightDetailModelState {
   double get animation => throw _privateConstructorUsedError;
   ItemViewEnum get itemView => throw _privateConstructorUsedError;
   bool get showMoreInfor => throw _privateConstructorUsedError;
+  Flight? get flight => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FlightDetailModelStateCopyWith<FlightDetailModelState> get copyWith =>
@@ -31,7 +32,13 @@ abstract class $FlightDetailModelStateCopyWith<$Res> {
           $Res Function(FlightDetailModelState) then) =
       _$FlightDetailModelStateCopyWithImpl<$Res, FlightDetailModelState>;
   @useResult
-  $Res call({double animation, ItemViewEnum itemView, bool showMoreInfor});
+  $Res call(
+      {double animation,
+      ItemViewEnum itemView,
+      bool showMoreInfor,
+      Flight? flight});
+
+  $FlightCopyWith<$Res>? get flight;
 }
 
 /// @nodoc
@@ -51,6 +58,7 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
     Object? animation = null,
     Object? itemView = null,
     Object? showMoreInfor = null,
+    Object? flight = freezed,
   }) {
     return _then(_value.copyWith(
       animation: null == animation
@@ -65,7 +73,23 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
           ? _value.showMoreInfor
           : showMoreInfor // ignore: cast_nullable_to_non_nullable
               as bool,
+      flight: freezed == flight
+          ? _value.flight
+          : flight // ignore: cast_nullable_to_non_nullable
+              as Flight?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FlightCopyWith<$Res>? get flight {
+    if (_value.flight == null) {
+      return null;
+    }
+
+    return $FlightCopyWith<$Res>(_value.flight!, (value) {
+      return _then(_value.copyWith(flight: value) as $Val);
+    });
   }
 }
 
@@ -77,7 +101,14 @@ abstract class _$$_FlightDetailModelStateCopyWith<$Res>
       __$$_FlightDetailModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double animation, ItemViewEnum itemView, bool showMoreInfor});
+  $Res call(
+      {double animation,
+      ItemViewEnum itemView,
+      bool showMoreInfor,
+      Flight? flight});
+
+  @override
+  $FlightCopyWith<$Res>? get flight;
 }
 
 /// @nodoc
@@ -95,6 +126,7 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
     Object? animation = null,
     Object? itemView = null,
     Object? showMoreInfor = null,
+    Object? flight = freezed,
   }) {
     return _then(_$_FlightDetailModelState(
       animation: null == animation
@@ -109,6 +141,10 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
           ? _value.showMoreInfor
           : showMoreInfor // ignore: cast_nullable_to_non_nullable
               as bool,
+      flight: freezed == flight
+          ? _value.flight
+          : flight // ignore: cast_nullable_to_non_nullable
+              as Flight?,
     ));
   }
 }
@@ -119,7 +155,8 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
   const _$_FlightDetailModelState(
       {required this.animation,
       required this.itemView,
-      required this.showMoreInfor});
+      required this.showMoreInfor,
+      this.flight});
 
   @override
   final double animation;
@@ -127,10 +164,12 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
   final ItemViewEnum itemView;
   @override
   final bool showMoreInfor;
+  @override
+  final Flight? flight;
 
   @override
   String toString() {
-    return 'FlightDetailModelState(animation: $animation, itemView: $itemView, showMoreInfor: $showMoreInfor)';
+    return 'FlightDetailModelState(animation: $animation, itemView: $itemView, showMoreInfor: $showMoreInfor, flight: $flight)';
   }
 
   @override
@@ -143,12 +182,13 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
             (identical(other.itemView, itemView) ||
                 other.itemView == itemView) &&
             (identical(other.showMoreInfor, showMoreInfor) ||
-                other.showMoreInfor == showMoreInfor));
+                other.showMoreInfor == showMoreInfor) &&
+            (identical(other.flight, flight) || other.flight == flight));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, animation, itemView, showMoreInfor);
+      Object.hash(runtimeType, animation, itemView, showMoreInfor, flight);
 
   @JsonKey(ignore: true)
   @override
@@ -162,7 +202,8 @@ abstract class _FlightDetailModelState implements FlightDetailModelState {
   const factory _FlightDetailModelState(
       {required final double animation,
       required final ItemViewEnum itemView,
-      required final bool showMoreInfor}) = _$_FlightDetailModelState;
+      required final bool showMoreInfor,
+      final Flight? flight}) = _$_FlightDetailModelState;
 
   @override
   double get animation;
@@ -170,6 +211,8 @@ abstract class _FlightDetailModelState implements FlightDetailModelState {
   ItemViewEnum get itemView;
   @override
   bool get showMoreInfor;
+  @override
+  Flight? get flight;
   @override
   @JsonKey(ignore: true)
   _$$_FlightDetailModelStateCopyWith<_$_FlightDetailModelState> get copyWith =>

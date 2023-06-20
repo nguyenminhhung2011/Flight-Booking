@@ -1,17 +1,21 @@
 import 'package:dotted_decoration/dotted_decoration.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../domain/entities/airline/airline.dart';
-import '../../../../domain/entities/airport/airport.dart';
 import '../../../../domain/entities/flight/flight.dart';
+import '../../../../generated/l10n.dart';
 import '../airport_fast_view.dart';
 import 'flightIn_airport_wdiget.dart';
 
 class AllFlightsInAirportView extends StatefulWidget {
   final AirportViewEnum view;
+  final Map<String, List<Flight>> flights;
+  final String header;
   const AllFlightsInAirportView({
     super.key,
     required this.view,
+    required this.flights,
+    required this.header,
   });
 
   @override
@@ -30,14 +34,14 @@ class _AllFlightsInAirportViewState extends State<AllFlightsInAirportView> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        if (!widget.view.isAirportStart) _divider(),
+        if (!widget.view.isDeparture) _divider(),
         Expanded(
           child: LayoutBuilder(
             builder: (context, constraints) {
               double minWidth = constraints.minWidth - 20;
               return Container(
                 width: double.infinity,
-                height: 360,
+                height: 380,
                 padding: const EdgeInsets.all(10.0),
                 margin: const EdgeInsets.only(left: 10.0),
                 decoration: BoxDecoration(
@@ -51,87 +55,39 @@ class _AllFlightsInAirportViewState extends State<AllFlightsInAirportView> {
                     color: Theme.of(context).cardColor),
                 child: ListView(
                   children: [
-                    for (int i = 0; i < 3; i++)
-                      //🚑 Refactor code
-                      FlightInAirportWdiget(
-                        width: minWidth,
-                        listFlight: [
-                          Flight(
-                            id: 0,
-                            arrivalAirport: const Airport(
-                              id: 1,
-                              name: '',
-                              image: '',
-                              location: '',
-                              description: '',
-                              openTime: TimeOfDay(hour: 1, minute: 1),
-                              closeTime: TimeOfDay(hour: 1, minute: 1),
+                    //🚑 Refactor code
+                    Text(
+                      widget.header,
+                      style: context.titleMedium.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 10.0),
+                    if (widget.flights.isNotEmpty) ...[
+                      ...widget.flights.entries
+                          .map(
+                            (entry) => FlightInAirportWidget(
+                              width: minWidth,
+                              listFlight: entry.value,
+                              time: entry.key,
                             ),
-                            departureAirport: const Airport(
-                              id: 1,
-                              name: '',
-                              image: '',
-                              location: '',
-                              description: '',
-                              openTime: TimeOfDay(hour: 1, minute: 1),
-                              closeTime: TimeOfDay(hour: 1, minute: 1),
-                            ),
-                            timeStart: DateTime.now(),
-                            timeEnd: DateTime.now(),
-                            airline: const Airline(id: 0, airlineName: ''),
-                          ),
-                          if (i < 1)
-                            // 🚑Refactor code
-                            Flight(
-                                id: 0,
-                                arrivalAirport: const Airport(
-                                  id: 1,
-                                  name: '',
-                                  image: '',
-                                  location: '',
-                                  description: '',
-                                  openTime: TimeOfDay(hour: 1, minute: 1),
-                                  closeTime: TimeOfDay(hour: 1, minute: 1),
-                                ),
-                                departureAirport: const Airport(
-                                  id: 1,
-                                  name: '',
-                                  image: '',
-                                  location: '',
-                                  description: '',
-                                  openTime: TimeOfDay(hour: 1, minute: 1),
-                                  closeTime: TimeOfDay(hour: 1, minute: 1),
-                                ),
-                                timeStart: DateTime.now(),
-                                timeEnd: DateTime.now(),
-                                airline: const Airline(id: 0, airlineName: '')),
-                          if (i < 2)
-                            // 🚑Refactor code
-                            Flight(
-                                id: 0,
-                                arrivalAirport: const Airport(
-                                  id: 1,
-                                  name: '',
-                                  image: '',
-                                  location: '',
-                                  description: '',
-                                  openTime: TimeOfDay(hour: 1, minute: 1),
-                                  closeTime: TimeOfDay(hour: 1, minute: 1),
-                                ),
-                                departureAirport: const Airport(
-                                  id: 1,
-                                  name: '',
-                                  image: '',
-                                  location: '',
-                                  description: '',
-                                  openTime: TimeOfDay(hour: 1, minute: 1),
-                                  closeTime: TimeOfDay(hour: 1, minute: 1),
-                                ),
-                                timeStart: DateTime.now(),
-                                timeEnd: DateTime.now(),
-                                airline: const Airline(id: 0, airlineName: '')),
+                          )
+                          .toList(),
+                    ] else
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.search_off,
+                              color: Theme.of(context).hintColor),
+                          const SizedBox(height: 5.0),
+                          Text(
+                            S.of(context).empty,
+                            style: context.titleMedium.copyWith(
+                                fontWeight: FontWeight.w500,
+                                color: Theme.of(context).hintColor),
+                          )
                         ],
-                        time: DateTime.now().add(Duration(minutes: i * 10)),
                       ),
                   ],
                 ),
@@ -139,7 +95,7 @@ class _AllFlightsInAirportViewState extends State<AllFlightsInAirportView> {
             },
           ),
         ),
-        if (widget.view.isAirportStart) _divider()
+        if (widget.view.isDeparture) _divider()
       ],
     );
   }

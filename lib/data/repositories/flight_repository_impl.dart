@@ -161,4 +161,43 @@ class FlightRepositoryImpl extends FlightRepository {
       data: result,
     );
   }
+
+  @override
+  Future<List<Flight>> getFlightByArrivalId(int id) async {
+    final response = await _flightApi.getFlightByArrivalId(id: id);
+    if (response.response.statusCode != HttpStatusCode.OK) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage!,
+      );
+    }
+    final result = response.data?.map((e) => e.toEntity()).toList();
+    return result ?? <Flight>[];
+  }
+
+  @override
+  Future<List<Flight>> getFlightByDepartureId(int id) async {
+    final response = await _flightApi.getFlightByDepartureId(id: id);
+    if (response.response.statusCode != HttpStatusCode.OK) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage!,
+      );
+    }
+    final result = response.data?.map((e) => e.toEntity()).toList();
+    return result ?? <Flight>[];
+  }
+
+  @override
+  Future<List<Flight>> getFlightByAirportId(int id) async {
+    final response = await _flightApi.getFlightByAirportId(id: id);
+    if (response.response.statusCode != HttpStatusCode.OK) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage!,
+      );
+    }
+    final result = response.data?.map((e) => e.toEntity()).toList();
+    return result ?? <Flight>[];
+  }
 }

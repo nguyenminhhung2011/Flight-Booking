@@ -14,6 +14,8 @@ class UpcomingFlightWdiget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final headerStyle = TextStyle(
+        fontWeight: FontWeight.w400, color: Theme.of(context).hintColor);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(10.0),
@@ -62,24 +64,14 @@ class UpcomingFlightWdiget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  flight.id.toString(),
-                  maxLines: 1,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(fontWeight: FontWeight.bold),
-                ),
                 RichText(
                   text: TextSpan(
                     style: Theme.of(context).textTheme.titleSmall,
                     children: [
                       TextSpan(
-                        text: '${S.of(context).to} ',
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
+                          text: '${S.of(context).from} ', style: headerStyle),
                       TextSpan(
-                        text: flight.arrivalAirport.name,
+                        text: flight.departureAirport.location,
                         style: const TextStyle(
                           decoration: TextDecoration.underline,
                           fontStyle: FontStyle.italic,
@@ -93,9 +85,24 @@ class UpcomingFlightWdiget extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleSmall,
                     children: [
                       TextSpan(
-                        text: '${S.of(context).customer} ',
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
+                          text: '${S.of(context).to} ', style: headerStyle),
+                      TextSpan(
+                        text: flight.arrivalAirport.location,
+                        style: const TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                RichText(
+                  text: TextSpan(
+                    style: Theme.of(context).textTheme.titleSmall,
+                    children: [
+                      TextSpan(
+                          text: '${S.of(context).customer} ',
+                          style: headerStyle),
                       const TextSpan(
                         text: '30/100',
                         style: TextStyle(
@@ -106,13 +113,16 @@ class UpcomingFlightWdiget extends StatelessWidget {
                     ],
                   ),
                 )
-              ],
+              ]
+                  .expand((element) => [element, const SizedBox(height: 5.0)])
+                  .toList()
+                ..removeLast(),
             ),
           ),
           Align(
             alignment: Alignment.topRight,
             child: Text(
-              'B7',
+              'F ${flight.id}',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                   fontWeight: FontWeight.bold,
                   color: CommonColor.secondaryColor),

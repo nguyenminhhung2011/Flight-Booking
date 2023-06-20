@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/widgets/mobile/dropdown_button_custom.dart';
-import '../../../core/components/widgets/page_index_view.dart';
 import '../../../data/models/place/place_model.dart';
 import '../../../domain/entities/airline/airline.dart';
 import '../../../domain/entities/flight/flight.dart';
@@ -43,7 +42,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
     await Future.delayed(const Duration(seconds: 5));
   }
 
-  void viewDetail(String ticId) {
+  void viewDetail(int ticId) {
     _bloc.add(ListFlightEvent.selectFlight(ticId));
   }
 
@@ -88,7 +87,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
 
   void _listenStateChanged(BuildContext context, ListFlightState state) {
     state.whenOrNull(selectListFlightSuccess: (data, ticID) {
-      context.startFlightDetai(ticID);
+      context.startFlightDetail(ticID);
     }, openAddEditFlightFormSuccess: (data, id) async {
       Map result = await context.openDialogAdDEditFlight(id);
       var type = result['type'];
@@ -102,6 +101,8 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
           }
         }
       }
+    }, getFlightPageFFailed: (data, error) {
+      log(error);
     }, getFlightsFailed: (data, error) {
       log(error);
     }, deleteFlightFailed: (data, error) {
@@ -274,9 +275,10 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
       children: flights
           .map(
             (e) => FlightWidgetCustom(
-              viewDetail: () => viewDetail(''),
+              viewDetail: () => viewDetail(e.id),
               edit: () => openAddEditFlightDialog(e.id.toString()),
               delete: () => _onDeleteFlight(e.id),
+              selected: () {},
               flight: e,
             ),
           )
