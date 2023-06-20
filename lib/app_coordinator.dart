@@ -124,11 +124,17 @@ extension AppCoordinator<T> on BuildContext {
   }
 
   Future<T?> openDashboardPage() {
-    return Navigator.of(this).pushNamed(Routes.dashboard);
+    return Navigator.of(this)
+        .pushNamedAndRemoveUntil(Routes.dashboard, (route) => false);
   }
 
   Future<T?> openCustomerDetailPage() {
     return Navigator.of(this).pushNamed(Routes.customerDetail);
+  }
+
+  Future<T?> moveToLoginPage() {
+    return Navigator.of(this)
+        .pushNamedAndRemoveUntil(Routes.login, (route) => false);
   }
 
   Future<T?> showPositionDialog(positonClic, position, type, String ticId) {

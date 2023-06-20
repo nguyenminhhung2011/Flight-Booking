@@ -1,4 +1,6 @@
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
+import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/presentations/login/bloc/authentication_bloc.dart';
 import 'package:flight_booking/presentations/login/views/widgets/forget_password_form.dart';
 import 'package:flutter/material.dart';
@@ -13,71 +15,76 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final loginFormWidth = MediaQuery.of(context).size.width * 0.4;
-    // final loginFormHeight = MediaQuery.of(context).size.height * 0.55;
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.25,
-          vertical: MediaQuery.of(context).size.height * 0.15,
-        ),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(
-              Theme.of(context).brightness == Brightness.light
-                  ? ImageConst.loginBackground
-                  : ImageConst.loginBackgroundDark,
+    return BlocConsumer<AuthenticationBloc, AuthenticationState>(
+        listener: (context, state) async {
+      if (state.status == AuthenticationStatus.authenticated) {
+        await context.openDashboardPage();
+      }
+    }, builder: (context, state) {
+      return Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        body: Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.25,
+            vertical: MediaQuery.of(context).size.height * 0.15,
+          ),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                Theme.of(context).brightness == Brightness.light
+                    ? ImageConst.loginBackground
+                    : ImageConst.loginBackgroundDark,
+              ),
+            ),
+          ),
+          child: Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.05,
+              vertical: MediaQuery.of(context).size.height * 0.05,
+            ),
+            // width: loginFormWidth,
+            // height: loginFormHeight,
+            decoration: BoxDecoration(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: PageView(
+              controller: pageController,
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
+                LoginForm(
+                  authenticationState: state,
+                  navigateToForgetPassword: () async {
+                    await pageController.nextPage(
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.bounceIn,
+                    );
+                  },
+                ),
+                ForgetPasswordForm(
+                  comebackToLoginForm: () async {
+                    await pageController.previousPage(
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.bounceIn,
+                    );
+                  },
+                ),
+              ],
             ),
           ),
         ),
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.05,
-            vertical: MediaQuery.of(context).size.height * 0.05,
-          ),
-          // width: loginFormWidth,
-          // height: loginFormHeight,
-          decoration: BoxDecoration(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: PageView(
-            controller: pageController,
-            physics: const NeverScrollableScrollPhysics(),
-            children: [
-              LoginForm(
-                // loginFormWidth: loginFormWidth,
-                navigateToForgetPassword: () async {
-                  await pageController.nextPage(
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.bounceIn,
-                  );
-                },
-              ),
-              ForgetPasswordForm(
-                comebackToLoginForm: () async {
-                  await pageController.previousPage(
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.bounceIn,
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+      );
+    });
   }
 }
 
 class LoginForm extends StatelessWidget {
   LoginForm({
     super.key,
-    // required this.loginFormWidth,
     required this.navigateToForgetPassword,
+    required this.authenticationState,
   });
 
   // final double loginFormWidth;
@@ -87,6 +94,7 @@ class LoginForm extends StatelessWidget {
   final Function() navigateToForgetPassword;
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final AuthenticationState authenticationState;
 
   @override
   Widget build(BuildContext context) {
@@ -97,64 +105,12 @@ class LoginForm extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            S.of(context).logIn,
+            "Flight Booking",
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           Text(
             S.of(context).pleaseLogin,
             style: Theme.of(context).textTheme.titleLarge,
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 15),
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: CommonAppUIConfig.primaryRadiusBorder,
-                ),
-                foregroundColor: Theme.of(context).hintColor,
-                backgroundColor: Theme.of(context).primaryColor,
-                side: const BorderSide(color: Colors.blueGrey, width: 0.4),
-              ),
-              onPressed: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image(
-                    image: AssetImage(ImageConst.googleIconLogin),
-                    fit: BoxFit.cover,
-                    filterQuality: FilterQuality.high,
-                    height: 30,
-                    width: 30,
-                  ),
-                  const SizedBox(width: 10),
-                  Text(
-                    S.of(context).loginWithGoogle,
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  )
-                ],
-              ),
-            ),
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: Divider(
-                    color: Colors.grey[350], thickness: 1.5, endIndent: 5),
-              ),
-              Text(
-                S.of(context).or,
-                style: const TextStyle(color: Colors.grey),
-              ),
-              Expanded(
-                child: Divider(
-                  indent: 5,
-                  color: Colors.grey[350],
-                  thickness: 1.5,
-                ),
-              ),
-            ],
           ),
           TextFormField(
             controller: usernameController,
@@ -260,7 +216,7 @@ class LoginForm extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.center,
-            child: ElevatedButton(
+            child: TextButton.icon(
               onPressed: () {
                 context.read<AuthenticationBloc>().add(LoginEvent(
                     username: usernameController.text,
@@ -274,23 +230,24 @@ class LoginForm extends StatelessWidget {
                   borderRadius: CommonAppUIConfig.primaryRadiusBorder,
                 ),
               ),
-              child: ValueListenableBuilder<bool>(
-                valueListenable: isLoading,
-                builder: (context, isLoadingValue, child) => !(isLoadingValue)
-                    ? Text(
-                        S.of(context).logIn,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      )
-                    : const Center(
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                        ),
-                      ),
+              label: Text(
+                S.of(context).logIn,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
+              icon: authenticationState.status == AuthenticationStatus.checking
+                  ? LoadingIndicator(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      radius: 10,
+                      strokeWidth: 1,
+                    )
+                  : Icon(
+                      Icons.login,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
             ),
           ),
           Wrap(
