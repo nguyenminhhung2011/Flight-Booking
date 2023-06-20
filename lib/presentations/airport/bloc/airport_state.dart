@@ -64,6 +64,7 @@ class AirportState with _$AirportState {
   const factory AirportState.getAirportByIDSuccess({
     required AirportModelState data,
   }) = _GetAirportByIdSuccess;
+
   const factory AirportState.getAirportByIDFailed({
     required AirportModelState data,
     required String message,
@@ -72,6 +73,7 @@ class AirportState with _$AirportState {
   const factory AirportState.getFlightDepartureSuccess({
     required AirportModelState data,
   }) = _GetFlightDepartureSuccess;
+
   const factory AirportState.getFlightDepartureFailed({
     required AirportModelState data,
     required String message,
