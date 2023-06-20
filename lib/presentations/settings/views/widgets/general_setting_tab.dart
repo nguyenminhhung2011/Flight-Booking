@@ -450,7 +450,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                               Expanded(
                                 child: CustomerTextField(
                                   controller:
-                                      TextEditingController(text: user.phone),
+                                      TextEditingController(text: user.email),
                                   isDense: true,
                                   prefixWidget: Icon(
                                     Icons.phone,

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flight_booking/core/components/utils/preferences.dart';
+import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/domain/entities/user/user.dart';
 import 'package:flight_booking/domain/usecase/user_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,24 +23,48 @@ class AuthenticationBloc
 
   FutureOr<void> _onStarted(
       OnStarted event, Emitter<AuthenticationState> emit) async {
-    final userEntityJson = CommonAppSettingPref.getUserEntity();
-    if (userEntityJson != null) {
-      final user = jsonDecode(userEntityJson);
-      emit(AuthenticationState.authenticated(user: user));
+    emit(state.copyWith(status: AuthenticationStatus.checking));
+
+    String accessToken = CommonAppSettingPref.getAccessToken();
+    String refreshToken = CommonAppSettingPref.getRefreshToken();
+    int expiredTime = CommonAppSettingPref.getExpiredTime();
+
+    if (accessToken.isNotEmpty ||
+        refreshToken.isNotEmpty ||
+        expiredTime != -1) {
+      final expiredTimeParsed =
+          DateTime.fromMillisecondsSinceEpoch(expiredTime);
+      final isExpired = DateTime.now().isAfter(expiredTimeParsed);
+
+      if (!isExpired) {
+        return emit(AuthenticationState.authenticated(token: accessToken));
+      }
     }
-    emit(AuthenticationState.unauthenticated());
+
+    return emit(AuthenticationState.unauthenticated());
   }
 
   FutureOr<void> _onLoginEvent(
       LoginEvent event, Emitter<AuthenticationState> emit) async {
-    final user = await _userUseCase.login(event.username, event.password);
+    emit(state.copyWith(status: AuthenticationStatus.checking));
 
-    if (user != null) {
-      return emit(AuthenticationState.authenticated(user: user));
+    final token = await _userUseCase.login(event.username, event.password);
+
+    if (token != null && token.isNotEmpty) {
+      return emit(AuthenticationState.authenticated(token: token));
     }
+
     return emit(AuthenticationState.unauthenticated());
   }
 
   FutureOr<void> _onLogoutEvent(
-      LogoutEvent event, Emitter<AuthenticationState> emit) {}
+      LogoutEvent event, Emitter<AuthenticationState> emit) async {
+    emit(state.copyWith(status: AuthenticationStatus.checking));
+
+    final result = await _userUseCase.logout();
+    if (result) {
+      CommonAppSettingPref.removeAllAuthData();
+      emit(state.copyWith(status: AuthenticationStatus.unauthenticated));
+    }
+  }
 }
