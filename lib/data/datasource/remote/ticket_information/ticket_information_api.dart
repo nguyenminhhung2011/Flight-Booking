@@ -4,16 +4,16 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../../models/ticket/ticket_information_model.dart';
-import '../../../models/ticket/ticket_model.dart';
 
 part 'ticket_information_api.g.dart';
 
 class TicketInformationEndPoint {
-  static const branch = '/api/v1/';
-  static const fetchTicketInformationUrl = "ticketInformation/fetch";
-  static const editTicketInformationUrl = "ticketInformation/edit";
-  static const deleteTicketInformationUrl = "ticketInformation/delete";
-  static const addTicketInformationUrl = "ticketInformation/add";
+  static const branch = '/api/v1/ticketInformation';
+  static const fetchTicketInformationUrl = "$branch/fetch";
+  static const editTicketInformationUrl = "$branch/edit";
+  static const deleteTicketInformationUrl = "$branch/delete";
+  static const addTicketInformationUrl = "$branch/add";
+  static const getTicInformationByFlight = "$branch/flight=";
 }
 
 @RestApi()
@@ -24,6 +24,10 @@ abstract class TicketInformationApi {
 
   @GET(TicketInformationEndPoint.fetchTicketInformationUrl)
   Future<ApiResponse<List<TicketInformationModel>?>> fetchTicketInformation();
+
+  @GET('${TicketInformationEndPoint.getTicInformationByFlight}{id}')
+  Future<HttpResponse<List<TicketInformationModel>?>> getTicInformationByFlight(
+      {@Path("id") required int flightId});
 
   @POST(TicketInformationEndPoint.addTicketInformationUrl)
   Future<ApiResponse<TicketInformationModel?>> addNewTicketInformation({

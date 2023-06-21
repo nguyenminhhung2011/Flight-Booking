@@ -1,15 +1,15 @@
+import 'package:flight_booking/domain/entities/ticket/ticket_information_id.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../flight/flight.dart';
 part 'ticket_information.freezed.dart';
 
 @freezed
 class TicketInformation with _$TicketInformation {
   const factory TicketInformation({
-    required int id,
-    required Flight flight,
+    required TicketInformationId id,
     required int quantity,
     required double price,
-    required int ticketType,
+    required int seatPosition,
+    required String seatHeader,
   }) = _TicketInformation;
 }

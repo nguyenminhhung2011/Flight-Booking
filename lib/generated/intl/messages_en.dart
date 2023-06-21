@@ -104,7 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "businessClassTicket":
             MessageLookupByLibrary.simpleMessage("Business Class Ticket"),
         "cabinCrew": MessageLookupByLibrary.simpleMessage("Cabin crew"),
-        "cancel": MessageLookupByLibrary.simpleMessage("cancel"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "chair": MessageLookupByLibrary.simpleMessage("Chair"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
@@ -160,6 +160,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "detial": MessageLookupByLibrary.simpleMessage("Detail"),
         "direct": MessageLookupByLibrary.simpleMessage("Direct"),
         "directFlight": MessageLookupByLibrary.simpleMessage("Direct Flight "),
+        "disable": MessageLookupByLibrary.simpleMessage("disable"),
         "districts": MessageLookupByLibrary.simpleMessage("Districts"),
         "donHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account ?"),
@@ -177,6 +178,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Email and Phone Details"),
         "employee": MessageLookupByLibrary.simpleMessage("Employee"),
         "empty": MessageLookupByLibrary.simpleMessage("Empty"),
+        "enable": MessageLookupByLibrary.simpleMessage("enable"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "enterCurrentPassword":
             MessageLookupByLibrary.simpleMessage("Enter your current Password"),
@@ -364,6 +366,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "principleSetting":
             MessageLookupByLibrary.simpleMessage("Principle Setting"),
         "provinces": MessageLookupByLibrary.simpleMessage("Provinces"),
+        "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "rateYourStay": MessageLookupByLibrary.simpleMessage("Rate your stay"),
         "rePassword": MessageLookupByLibrary.simpleMessage("RePassword"),
         "recomendAirport":
@@ -421,6 +424,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisWillDisplay": MessageLookupByLibrary.simpleMessage(
             "This will be display on your profile"),
         "ticket": MessageLookupByLibrary.simpleMessage("Ticket"),
+        "ticketCategoryDetail":
+            MessageLookupByLibrary.simpleMessage("Ticket Category Detail"),
         "ticketNumber":
             MessageLookupByLibrary.simpleMessage("Number of Ticket"),
         "ticketTierStatistic":

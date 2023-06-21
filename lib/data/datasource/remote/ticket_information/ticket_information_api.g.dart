@@ -33,7 +33,7 @@ class _TicketInformationApi implements TicketInformationApi {
     )
             .compose(
               _dio.options,
-              'ticketInformation/fetch',
+              '/api/v1/ticketInformation/fetch',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -48,6 +48,34 @@ class _TicketInformationApi implements TicketInformationApi {
           : List.empty(),
     );
     return value;
+  }
+
+  @override
+  Future<HttpResponse<List<TicketInformationModel>?>> getTicInformationByFlight(
+      {required flightId}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<HttpResponse<List<TicketInformationModel>>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/v1/ticketInformation/flight=${flightId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data
+        ?.map((dynamic i) =>
+            TicketInformationModel.fromJson(i as Map<String, dynamic>))
+        .toList();
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
   }
 
   @override
@@ -66,7 +94,7 @@ class _TicketInformationApi implements TicketInformationApi {
     )
             .compose(
               _dio.options,
-              'ticketInformation/add',
+              '/api/v1/ticketInformation/add',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -94,7 +122,7 @@ class _TicketInformationApi implements TicketInformationApi {
     )
             .compose(
               _dio.options,
-              'ticketInformation/delete/${id}',
+              '/api/v1/ticketInformation/delete/${id}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -122,7 +150,7 @@ class _TicketInformationApi implements TicketInformationApi {
     )
             .compose(
               _dio.options,
-              'ticketInformation/edit',
+              '/api/v1/ticketInformation/edit',
               queryParameters: queryParameters,
               data: _data,
             )

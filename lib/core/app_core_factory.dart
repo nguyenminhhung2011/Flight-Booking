@@ -6,7 +6,6 @@ import 'package:dio/io.dart';
 import 'package:flight_booking/core/components/utils/preferences.dart';
 import 'package:flight_booking/core/dependency_injection/di.dart';
 import 'package:flight_booking/data/datasource/remote/auth/auth_api.dart';
-import 'package:flight_booking/data/models/user/authenticate_response_model.dart';
 import 'package:flutter/foundation.dart';
 
 class AppCoreFactory {
@@ -67,6 +66,7 @@ class TokenInterceptor implements Interceptor {
           await CommonAppSettingPref.setAccessToken(responseData.accessToken);
           await CommonAppSettingPref.setRefreshToken(responseData.refreshToken);
           await CommonAppSettingPref.setExpiredTime(responseData.expiredTime);
+          // return handler.next(options);
         } else {
           log("Logging out");
         }
