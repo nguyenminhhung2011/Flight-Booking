@@ -416,22 +416,22 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
         event.flight.id,
       );
       if (!response) {
-        emit(AddEditFlightState.editFlightFailed(
+        emit(AddEditFlightState.addTicInformationFailed(
           data: data,
           message: 'Failed ',
         ));
       }
-      emit(AddEditFlightState.addNewFlightSuccess(
+      emit(AddEditFlightState.addTicInformationSuccess(
         data: data,
         flight: event.flight,
       ));
     } on AppException catch (e) {
-      emit(AddEditFlightState.editFlightFailed(
+      emit(AddEditFlightState.addTicInformationFailed(
         data: data,
         message: e.toString(),
       ));
     } catch (e) {
-      emit(AddEditFlightState.editFlightFailed(
+      emit(AddEditFlightState.addTicInformationFailed(
         data: data,
         message: e.toString(),
       ));
