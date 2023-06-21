@@ -4,8 +4,10 @@ abstract class TicketInformationRepository {
   Future<List<TicketInformation>?> getListTicketInformation();
   Future<List<TicketInformation>?> getListTicketInformationByFlightId(int id);
 
-  Future<TicketInformation?> addNewTicketInformation(
-      TicketInformation ticketInformation);
+  Future<bool> addGroupTicketInformation(
+    List<TicketInformation> groupData,
+    int flight,
+  );
 
   Future<bool> deleteTicketInformation(String id);
 

@@ -8,13 +8,13 @@ part of 'ticket_information_model.dart';
 
 TicketInformationModel _$TicketInformationModelFromJson(
         Map<String, dynamic> json) =>
-    TicketInformationModel()
-      ..id =
-          TicketInformationModelId.fromJson(json['id'] as Map<String, dynamic>)
-      ..quantity = json['quantity'] as int
-      ..price = (json['price'] as num).toDouble()
-      ..seatPosition = json['seatPosition'] as int
-      ..seatHeader = json['seatHeader'] as String;
+    TicketInformationModel(
+      TicketInformationModelId.fromJson(json['id'] as Map<String, dynamic>),
+      json['quantity'] as int,
+      (json['price'] as num).toDouble(),
+      json['seatPosition'] as int,
+      json['seatHeader'] as String,
+    );
 
 Map<String, dynamic> _$TicketInformationModelToJson(
         TicketInformationModel instance) =>

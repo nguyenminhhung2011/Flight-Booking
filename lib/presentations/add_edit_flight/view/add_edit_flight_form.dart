@@ -10,6 +10,7 @@ import 'package:flight_booking/core/components/widgets/extension/context_extensi
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/domain/entities/airline/airline.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
+import 'package:flight_booking/domain/entities/ticket/ticket_information.dart';
 import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/dot_custom.dart';
 import 'package:flight_booking/presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
@@ -34,6 +35,10 @@ class AddEditFlightForm extends StatefulWidget {
 class _AddEditFlightFormState extends State<AddEditFlightForm> {
   final TextEditingController _priceController = TextEditingController();
   final TextEditingController _quantityController = TextEditingController();
+  final ValueNotifier<String> _seatHeader =
+      ValueNotifier<String>(seatHeader.first);
+  final ValueNotifier<int> _seatPosition = ValueNotifier<int>(0);
+
   Map<int, TicTypeEnum> ticSeatIndex = {
     0: TicTypeEnum.none,
     1: TicTypeEnum.none,
@@ -42,12 +47,18 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
   };
 
   AddEditFlightBloc get _bloc => BlocProvider.of<AddEditFlightBloc>(context);
-
-  String get _headerSeat => _bloc.data.headerSeat;
+  List<TicketInformation> get _listTicInformation =>
+      _bloc.data.listTicInformation;
+  TicketInformation get _currentTicInformation =>
+      _listTicInformation[_bloc.data.ticInformationDisplayIndex];
 
   @override
   void initState() {
     super.initState();
+    if (_bloc.flightId.isEmpty) {
+      _onChangeTicInformationIndexView(0);
+      _onUpdateTicInformation();
+    }
     _bloc.add(const AddEditFlightEvent.onStarted());
     _bloc.add(const AddEditFlightEvent.fetchAllAirports());
     _bloc.add(const AddEditFlightEvent.fetchAllAirlines());
@@ -62,15 +73,26 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
 
   void _listenStateChange(_, AddEditFlightState state) {
     state.whenOrNull(addNewFlightSuccess: (data, flight) {
-      context.popArgs({
-        'flight': flight,
-        'type': TypeFormFlight.add,
-      });
+      _bloc.add(AddEditFlightEvent.addTicInformation(flight: flight));
     }, editFlightSuccess: (data, flight) {
       context.popArgs({
         'flight': flight,
         'type': TypeFormFlight.edit,
       });
+    }, addTicInformationSuccess: (data, flight) {
+      context.popArgs({
+        'flight': flight,
+        'type': TypeFormFlight.add,
+      });
+    }, changeTicInformationViewSuccess: (data) {
+      _priceController.text = _currentTicInformation.price.toString();
+      _quantityController.text = _currentTicInformation.quantity.toString();
+      _seatHeader.value = _currentTicInformation.seatHeader;
+      _seatPosition.value = _currentTicInformation.seatPosition == -1
+          ? 0
+          : _currentTicInformation.seatPosition;
+    }, addTicInformationFailed: (data, error) {
+      log(error);
     }, addNewFlightFailed: (data, error) {
       log(error);
     }, editFlightFailed: (data, error) {
@@ -115,6 +137,27 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
         child: AirportPreviewDialog(airport: airport),
       ),
     );
+  }
+
+  void _onChangeTicInformationIndexView(int index) {
+    _bloc.add(AddEditFlightEvent.changeTicInformationView(newIndex: index));
+  }
+
+  void _onUpdateTicInformation() async {
+    _bloc.add(AddEditFlightEvent.updateTicInformation(
+      newSeatHeader: _seatHeader.value,
+      quantity: int.parse(_quantityController.text),
+      price: double.parse(_priceController.text),
+      newSeatPosition: _seatPosition.value,
+    ));
+  }
+
+  void _onChangeSeatHeader(String newHeader) {
+    _seatHeader.value = newHeader;
+  }
+
+  void _onChangeSeatPosition(int newPosition) {
+    _seatPosition.value = newPosition;
   }
 
   bool get _loadButton => _bloc.state
@@ -362,9 +405,19 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
   }
 
   Column _informationField(BuildContext context) {
+    final currentTicType =
+        TicTypeEnum.fromInt(_currentTicInformation.id.ticketType);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text(
+          currentTicType.displayValue,
+          style: context.titleMedium.copyWith(
+            fontWeight: FontWeight.bold,
+            color: currentTicType.colorType,
+          ),
+        ),
+        const SizedBox(height: 10.0),
         Row(
           children: [
             Expanded(
@@ -387,22 +440,46 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
         const SizedBox(height: 10.0),
         Row(
           children: [
-            const Expanded(child: SizedBox()),
+            Expanded(
+              child: ValueListenableBuilder<int>(
+                valueListenable: _seatPosition,
+                builder: (context, seatPosition, child) {
+                  return DropdownButtonCustom<int?>(
+                    radius: 10.0,
+                    items: [0, 1, 2, 3]
+                        .map<DropdownMenuItem<int>>(
+                            (int value) => DropdownMenuItem<int>(
+                                  value: value,
+                                  child: Text(value.toString()),
+                                ))
+                        .toList(),
+                    value: seatPosition,
+                    onChange: (value) => _onChangeSeatPosition(value ?? 0),
+                  );
+                },
+              ),
+            ),
             const SizedBox(width: 10.0),
             Expanded(
-              child: DropdownButtonCustom<String?>(
-                radius: 10.0,
-                items: seatHeader
-                    .map<DropdownMenuItem<String>>(
-                        (String value) => DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            ))
-                    .toList(),
-                value: _headerSeat,
-                onChange: (value) {},
+              child: ValueListenableBuilder<String>(
+                valueListenable: _seatHeader,
+                builder: (context, currentSeatHeader, child) {
+                  return DropdownButtonCustom<String?>(
+                    radius: 10.0,
+                    items: seatHeader
+                        .map<DropdownMenuItem<String>>(
+                            (String value) => DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                ))
+                        .toList(),
+                    value: currentSeatHeader,
+                    onChange: (value) =>
+                        _onChangeSeatHeader(value ?? seatHeader.first),
+                  );
+                },
               ),
-            )
+            ),
           ],
         ),
         const SizedBox(height: 10.0),
@@ -410,7 +487,7 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             ButtonCustom(
-              onPress: () {},
+              onPress: _onUpdateTicInformation,
               enableWidth: false,
               radius: 5.0,
               child: Text(S.of(context).enable),
@@ -513,9 +590,9 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
           TicTypeEnum.economyClass,
           TicTypeEnum.firstClass,
           TicTypeEnum.premiumEconomyClass,
-        ].map(
-          (e) => InkWell(
-            onTap: () {},
+        ].mapIndexed(
+          (index, e) => InkWell(
+            onTap: () => _onChangeTicInformationIndexView(index),
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(

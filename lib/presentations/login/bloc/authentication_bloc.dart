@@ -1,8 +1,5 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:flight_booking/core/components/utils/preferences.dart';
-import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
-import 'package:flight_booking/domain/entities/user/user.dart';
 import 'package:flight_booking/domain/usecase/user_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';

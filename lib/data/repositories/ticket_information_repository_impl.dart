@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flight_booking/core/components/network/app_exception.dart';
+import 'package:flight_booking/data/models/model_heloer.dart';
+import 'package:flight_booking/data/models/ticket/ticket_information_model.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket_information.dart';
 import 'package:injectable/injectable.dart';
 
@@ -13,10 +15,27 @@ class TicketInformationRepositoryImpl extends TicketInformationRepository {
   TicketInformationRepositoryImpl(this._ticketInformationApi);
 
   @override
-  Future<TicketInformation?> addNewTicketInformation(
-    TicketInformation ticketInformation,
-  ) {
-    throw UnimplementedError();
+  Future<bool> addGroupTicketInformation(
+    List<TicketInformation> groupData,
+    int flight,
+  ) async {
+    var listGroupDataModel = <TicketInformationModel>[];
+    for (var element in groupData) {
+      listGroupDataModel.add(ModelHelper.ticInformationCovert(element));
+    }
+    final body = {
+      'flightId': flight,
+      'ticketInformation': listGroupDataModel.map((e) => e.toJson()).toList(),
+    };
+    final response =
+        await _ticketInformationApi.addGroupTicInformation(body: body);
+    if (response.response.statusCode != HttpStatus.ok) {
+      throw AppException(
+        message: response.response.statusMessage!,
+        code: response.response.statusCode,
+      );
+    }
+    return true;
   }
 
   @override

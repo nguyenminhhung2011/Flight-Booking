@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:collection/collection.dart';
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
@@ -16,11 +15,13 @@ import 'package:flight_booking/presentations/flight_detail/views/widgets/icon_bu
 import 'package:flight_booking/presentations/flight_detail/views/widgets/tic_column.dart';
 import 'package:flight_booking/presentations/flight_detail/views/widgets/tic_column_list_view.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/rich_text_custom.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/flight/flight.dart';
+import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../generated/l10n.dart';
 import '../../list_flight/views/widgets/dot_custom.dart';
 
@@ -35,6 +36,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   FlightDetailBloc get _bloc => BlocProvider.of<FlightDetailBloc>(context);
   FlightDetailState get _state => _bloc.state;
   FlightDetailModelState get _data => _state.data;
+  List<TicketInformation> get _ticInformation => _data.ticInformation;
   Flight? get _flight => _data.flight;
   String get _locationDeparture => _flight?.departureAirport.location ?? '';
   String get _locationArrival => _flight?.arrivalAirport.location ?? '';
@@ -131,48 +133,36 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
               color: Theme.of(context).primaryColor,
             ),
           ),
-          _shadowBox(
-            context,
-            Row(
-              children: [
-                for (int i = 0; i < 4; i++)
-                  Column(
-                    children: [
-                      for (int t = 0; t < 6; t++)
-                        ChairButton(
-                          chairCharacter: chairCharacter,
-                          text: '${chairCharacter[i]} $t',
-                          check: (i + t) % 3 == 0,
-                          onPress: _showDialogSelectScott,
+          if (_ticInformation.isNotEmpty)
+            _shadowBox(
+              context,
+              Column(
+                children: [
+                  ..._ticInformation
+                      .map(
+                        (e) => Wrap(
+                          children: [
+                            for (int i = 0; i < e.quantity; i++)
+                              ChairButton(
+                                chairCharacter: chairCharacter,
+                                text: '${e.seatHeader}$i',
+                                check: true,
+                                onPress: () {},
+                              )
+                          ],
                         ),
-                    ],
-                  ),
-              ]
-                  .expandIndexed(
-                    (index, element) => [
-                      element,
-                      index == 1
-                          ? Expanded(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 400,
-                                    decoration: DottedDecoration(
-                                      color: Theme.of(context).dividerColor,
-                                      shape: Shape.line,
-                                      linePosition: LinePosition.left,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          : const SizedBox()
-                    ],
-                  )
-                  .toList(),
+                      )
+                      .expand((element) => [
+                            element,
+                            const SizedBox(height: 5.0),
+                            const DividerCustomWithAirplane(),
+                            const SizedBox(height: 5.0)
+                          ])
+                      .toList()
+                    ..removeLast(),
+                ],
+              ),
             ),
-          ),
         ].expand((element) => [element, const SizedBox(height: 10.0)]).toList(),
       ),
     );
