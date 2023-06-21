@@ -53,9 +53,24 @@ class AddEditFlightState with _$AddEditFlightState {
   const factory AddEditFlightState.getFlightByIdSuccess({
     required AddEditFlightModelState data,
   }) = _GetFlightByIdSuccess;
+  const factory AddEditFlightState.changeTicInformationViewSuccess({
+    required AddEditFlightModelState data,
+  }) = _ChangeTicInformationViewSuccess;
+  const factory AddEditFlightState.updateTicInformationSuccess({
+    required AddEditFlightModelState data,
+  }) = _UpdateTicInformationSuccess;
 
   const factory AddEditFlightState.getFlightByIdFailed({
     required AddEditFlightModelState data,
     required String message,
   }) = _GetFlightByIdFailed;
+  const factory AddEditFlightState.addTicInformationSuccess({
+    required AddEditFlightModelState data,
+    required Flight flight,
+  }) = _AddTicInformationSuccess;
+
+  const factory AddEditFlightState.addTicInformationFailed({
+    required AddEditFlightModelState data,
+    required String message,
+  }) = _AddTicInformationFailed;
 }

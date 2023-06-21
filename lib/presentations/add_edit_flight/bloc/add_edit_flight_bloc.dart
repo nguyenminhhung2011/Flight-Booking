@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:collection/collection.dart';
 import 'package:flight_booking/core/components/enum/date_time_enum.dart';
 import 'package:flight_booking/core/components/network/app_exception.dart';
 import 'package:flight_booking/domain/entities/airline/airline.dart';
@@ -11,10 +12,15 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../core/components/enum/tic_type_enum.dart';
 import '../../../core/constant/constant.dart';
+import '../../../data/models/model_heloer.dart';
 import '../../../domain/entities/airport/airport.dart';
+import '../../../domain/entities/ticket/ticket_information.dart';
+import '../../../domain/entities/ticket/ticket_information_id.dart';
 import '../../../domain/usecase/airline_usecase.dart';
 import '../../../domain/usecase/flight_usecase.dart';
+import '../../../domain/usecase/tic_information_usecase.dart';
 import '../../../generated/l10n.dart';
 
 part 'add_edit_flight_event.dart';
@@ -23,6 +29,7 @@ part 'add_edit_flight_bloc.freezed.dart';
 
 const _idNull = '';
 const _failedEvent = 'Failed';
+const _defaultSeat = -1;
 
 @injectable
 class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
@@ -30,6 +37,7 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
   final FlightsUsecase _flightsUsecase;
   final AirportUsecase _airportUsecase;
   final AirlineUsecase _airlineUsecase;
+  final TicketInformationUsecase _ticketInformationUsecase;
 
   AddEditFlightModelState get data => state.data;
 
@@ -38,16 +46,35 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
     this._flightsUsecase,
     this._airportUsecase,
     this._airlineUsecase,
+    this._ticketInformationUsecase,
   )   : _flightId = flightId,
         super(
           AddEditFlightState.initial(
             data: AddEditFlightModelState(
               timeEnd: DateTime.now(),
               timeStart: DateTime.now(),
+              listTicInformation: [
+                TicTypeEnum.businessClass,
+                TicTypeEnum.economyClass,
+                TicTypeEnum.firstClass,
+                TicTypeEnum.premiumEconomyClass,
+              ]
+                  .mapIndexed<TicketInformation>(
+                      (index, e) => TicketInformation(
+                            id: TicketInformationId(
+                              flight: ModelHelper.defaultFlight,
+                              ticketType: e.toInteger,
+                            ),
+                            quantity: 0,
+                            price: 0,
+                            seatPosition: index,
+                            seatHeader: seatHeader.first,
+                          ))
+                  .toList(),
+              ticInformationDisplayIndex: 0,
               headerText: S.current.addNewFlight,
               listAirline: <Airline>[],
               listAirport: <Airport>[],
-              headerSeat: seatHeader.first,
             ),
           ),
         ) {
@@ -62,6 +89,9 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
     on<_SelectedAirport>(_onSelectAirport);
     on<_ButtonTap>(_onButtonTap);
     on<_GetFlightById>(_onGetFlightById);
+    on<_AddTicInformation>(_onAddTicInformation);
+    on<_UpdateTicInformation>(_onUpdateTicInformation);
+    on<_ChangeTicInformationView>(_onChangeTicInformationView);
   }
 
   bool get _isDataNull =>
@@ -327,6 +357,82 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
     } catch (e) {
       emit(AddEditFlightState.getFlightByIdFailed(
         data: state.data,
+        message: e.toString(),
+      ));
+    }
+  }
+
+  FutureOr<void> _onUpdateTicInformation(
+    _UpdateTicInformation event,
+    Emitter<AddEditFlightState> emit,
+  ) {
+    final currentTicInformation =
+        data.listTicInformation[data.ticInformationDisplayIndex];
+    final newTicInformation = currentTicInformation.copyWith(
+      seatHeader: event.newSeatHeader,
+      seatPosition: event.newSeatPosition ?? currentTicInformation.seatPosition,
+      price: event.price,
+      quantity: event.quantity,
+    );
+    emit(AddEditFlightState.updateTicInformationSuccess(
+        data: data.copyWith(
+            listTicInformation: data.listTicInformation.mapIndexed((index, e) {
+      if (data.ticInformationDisplayIndex == index) {
+        return newTicInformation;
+      }
+      return e;
+    }).toList())));
+  }
+
+  FutureOr<void> _onChangeTicInformationView(
+    _ChangeTicInformationView event,
+    Emitter<AddEditFlightState> emit,
+  ) {
+    emit(AddEditFlightState.changeTicInformationViewSuccess(
+        data: data.copyWith(
+      ticInformationDisplayIndex: event.newIndex,
+    )));
+  }
+
+  FutureOr<void> _onAddTicInformation(
+    _AddTicInformation event,
+    Emitter<AddEditFlightState> emit,
+  ) async {
+    emit(
+      AddEditFlightState.loading(
+          data: data.copyWith(
+              listTicInformation: data.listTicInformation
+                  .map<TicketInformation>(
+                    (e) => e.copyWith(id: e.id.copyWith(flight: event.flight)),
+                  )
+                  .toList()),
+          type: 1),
+    );
+    try {
+      final response = await _ticketInformationUsecase.addTicInformation(
+        data.listTicInformation
+            .where((element) => element.seatPosition != _defaultSeat)
+            .toList(),
+        event.flight.id,
+      );
+      if (!response) {
+        emit(AddEditFlightState.editFlightFailed(
+          data: data,
+          message: 'Failed ',
+        ));
+      }
+      emit(AddEditFlightState.addNewFlightSuccess(
+        data: data,
+        flight: event.flight,
+      ));
+    } on AppException catch (e) {
+      emit(AddEditFlightState.editFlightFailed(
+        data: data,
+        message: e.toString(),
+      ));
+    } catch (e) {
+      emit(AddEditFlightState.editFlightFailed(
+        data: data,
         message: e.toString(),
       ));
     }

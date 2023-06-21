@@ -219,6 +219,7 @@ _i1.GetIt init(
         gh<_i16.FlightsUsecase>(),
         gh<_i39.AirportUsecase>(),
         gh<_i35.AirlineUsecase>(),
+        gh<_i28.TicketInformationUsecase>(),
       ));
   gh.factory<_i55.AirportBloc>(() => _i55.AirportBloc(
         gh<_i39.AirportUsecase>(),

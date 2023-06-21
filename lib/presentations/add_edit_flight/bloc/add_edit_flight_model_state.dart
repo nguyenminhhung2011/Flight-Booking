@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/entities/airline/airline.dart';
 import '../../../domain/entities/airport/airport.dart';
+import '../../../domain/entities/ticket/ticket_information.dart';
 
 part 'add_edit_flight_model_state.freezed.dart';
 
@@ -13,7 +14,8 @@ class AddEditFlightModelState with _$AddEditFlightModelState {
     required DateTime timeStart,
     required DateTime timeEnd,
     required String headerText,
-    required String headerSeat,
+    required List<TicketInformation> listTicInformation,
+    required int ticInformationDisplayIndex,
     Airport? airportStart,
     Airport? airportEnd,
     Airline? airline,

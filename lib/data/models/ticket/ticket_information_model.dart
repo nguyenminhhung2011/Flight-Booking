@@ -18,7 +18,13 @@ class TicketInformationModel {
   @JsonKey(name: 'seatHeader')
   late String seatHeader;
 
-  TicketInformationModel();
+  TicketInformationModel(
+    this.id,
+    this.quantity,
+    this.price,
+    this.seatPosition,
+    this.seatHeader,
+  );
 
   Map<String, dynamic> toJson() => _$TicketInformationModelToJson(this);
   factory TicketInformationModel.fromJson(Map<String, dynamic> json) =>

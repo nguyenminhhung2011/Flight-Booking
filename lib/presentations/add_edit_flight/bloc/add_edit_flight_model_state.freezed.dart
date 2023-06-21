@@ -21,7 +21,9 @@ mixin _$AddEditFlightModelState {
   DateTime get timeStart => throw _privateConstructorUsedError;
   DateTime get timeEnd => throw _privateConstructorUsedError;
   String get headerText => throw _privateConstructorUsedError;
-  String get headerSeat => throw _privateConstructorUsedError;
+  List<TicketInformation> get listTicInformation =>
+      throw _privateConstructorUsedError;
+  int get ticInformationDisplayIndex => throw _privateConstructorUsedError;
   Airport? get airportStart => throw _privateConstructorUsedError;
   Airport? get airportEnd => throw _privateConstructorUsedError;
   Airline? get airline => throw _privateConstructorUsedError;
@@ -43,7 +45,8 @@ abstract class $AddEditFlightModelStateCopyWith<$Res> {
       DateTime timeStart,
       DateTime timeEnd,
       String headerText,
-      String headerSeat,
+      List<TicketInformation> listTicInformation,
+      int ticInformationDisplayIndex,
       Airport? airportStart,
       Airport? airportEnd,
       Airline? airline});
@@ -72,7 +75,8 @@ class _$AddEditFlightModelStateCopyWithImpl<$Res,
     Object? timeStart = null,
     Object? timeEnd = null,
     Object? headerText = null,
-    Object? headerSeat = null,
+    Object? listTicInformation = null,
+    Object? ticInformationDisplayIndex = null,
     Object? airportStart = freezed,
     Object? airportEnd = freezed,
     Object? airline = freezed,
@@ -98,10 +102,14 @@ class _$AddEditFlightModelStateCopyWithImpl<$Res,
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
               as String,
-      headerSeat: null == headerSeat
-          ? _value.headerSeat
-          : headerSeat // ignore: cast_nullable_to_non_nullable
-              as String,
+      listTicInformation: null == listTicInformation
+          ? _value.listTicInformation
+          : listTicInformation // ignore: cast_nullable_to_non_nullable
+              as List<TicketInformation>,
+      ticInformationDisplayIndex: null == ticInformationDisplayIndex
+          ? _value.ticInformationDisplayIndex
+          : ticInformationDisplayIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       airportStart: freezed == airportStart
           ? _value.airportStart
           : airportStart // ignore: cast_nullable_to_non_nullable
@@ -168,7 +176,8 @@ abstract class _$$_AddEditFlightModelStateCopyWith<$Res>
       DateTime timeStart,
       DateTime timeEnd,
       String headerText,
-      String headerSeat,
+      List<TicketInformation> listTicInformation,
+      int ticInformationDisplayIndex,
       Airport? airportStart,
       Airport? airportEnd,
       Airline? airline});
@@ -198,7 +207,8 @@ class __$$_AddEditFlightModelStateCopyWithImpl<$Res>
     Object? timeStart = null,
     Object? timeEnd = null,
     Object? headerText = null,
-    Object? headerSeat = null,
+    Object? listTicInformation = null,
+    Object? ticInformationDisplayIndex = null,
     Object? airportStart = freezed,
     Object? airportEnd = freezed,
     Object? airline = freezed,
@@ -224,10 +234,14 @@ class __$$_AddEditFlightModelStateCopyWithImpl<$Res>
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
               as String,
-      headerSeat: null == headerSeat
-          ? _value.headerSeat
-          : headerSeat // ignore: cast_nullable_to_non_nullable
-              as String,
+      listTicInformation: null == listTicInformation
+          ? _value._listTicInformation
+          : listTicInformation // ignore: cast_nullable_to_non_nullable
+              as List<TicketInformation>,
+      ticInformationDisplayIndex: null == ticInformationDisplayIndex
+          ? _value.ticInformationDisplayIndex
+          : ticInformationDisplayIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       airportStart: freezed == airportStart
           ? _value.airportStart
           : airportStart // ignore: cast_nullable_to_non_nullable
@@ -253,12 +267,14 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
       required this.timeStart,
       required this.timeEnd,
       required this.headerText,
-      required this.headerSeat,
+      required final List<TicketInformation> listTicInformation,
+      required this.ticInformationDisplayIndex,
       this.airportStart,
       this.airportEnd,
       this.airline})
       : _listAirport = listAirport,
-        _listAirline = listAirline;
+        _listAirline = listAirline,
+        _listTicInformation = listTicInformation;
 
   final List<Airport> _listAirport;
   @override
@@ -282,8 +298,17 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
   final DateTime timeEnd;
   @override
   final String headerText;
+  final List<TicketInformation> _listTicInformation;
   @override
-  final String headerSeat;
+  List<TicketInformation> get listTicInformation {
+    if (_listTicInformation is EqualUnmodifiableListView)
+      return _listTicInformation;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listTicInformation);
+  }
+
+  @override
+  final int ticInformationDisplayIndex;
   @override
   final Airport? airportStart;
   @override
@@ -293,7 +318,7 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
 
   @override
   String toString() {
-    return 'AddEditFlightModelState(listAirport: $listAirport, listAirline: $listAirline, timeStart: $timeStart, timeEnd: $timeEnd, headerText: $headerText, headerSeat: $headerSeat, airportStart: $airportStart, airportEnd: $airportEnd, airline: $airline)';
+    return 'AddEditFlightModelState(listAirport: $listAirport, listAirline: $listAirline, timeStart: $timeStart, timeEnd: $timeEnd, headerText: $headerText, listTicInformation: $listTicInformation, ticInformationDisplayIndex: $ticInformationDisplayIndex, airportStart: $airportStart, airportEnd: $airportEnd, airline: $airline)';
   }
 
   @override
@@ -310,8 +335,12 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
             (identical(other.timeEnd, timeEnd) || other.timeEnd == timeEnd) &&
             (identical(other.headerText, headerText) ||
                 other.headerText == headerText) &&
-            (identical(other.headerSeat, headerSeat) ||
-                other.headerSeat == headerSeat) &&
+            const DeepCollectionEquality()
+                .equals(other._listTicInformation, _listTicInformation) &&
+            (identical(other.ticInformationDisplayIndex,
+                    ticInformationDisplayIndex) ||
+                other.ticInformationDisplayIndex ==
+                    ticInformationDisplayIndex) &&
             (identical(other.airportStart, airportStart) ||
                 other.airportStart == airportStart) &&
             (identical(other.airportEnd, airportEnd) ||
@@ -327,7 +356,8 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
       timeStart,
       timeEnd,
       headerText,
-      headerSeat,
+      const DeepCollectionEquality().hash(_listTicInformation),
+      ticInformationDisplayIndex,
       airportStart,
       airportEnd,
       airline);
@@ -348,7 +378,8 @@ abstract class _AddEditFlightModelState implements AddEditFlightModelState {
       required final DateTime timeStart,
       required final DateTime timeEnd,
       required final String headerText,
-      required final String headerSeat,
+      required final List<TicketInformation> listTicInformation,
+      required final int ticInformationDisplayIndex,
       final Airport? airportStart,
       final Airport? airportEnd,
       final Airline? airline}) = _$_AddEditFlightModelState;
@@ -364,7 +395,9 @@ abstract class _AddEditFlightModelState implements AddEditFlightModelState {
   @override
   String get headerText;
   @override
-  String get headerSeat;
+  List<TicketInformation> get listTicInformation;
+  @override
+  int get ticInformationDisplayIndex;
   @override
   Airport? get airportStart;
   @override

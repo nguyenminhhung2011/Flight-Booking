@@ -30,7 +30,7 @@ abstract class TicketInformationApi {
       {@Path("id") required int flightId});
 
   @POST(TicketInformationEndPoint.addTicketInformationUrl)
-  Future<ApiResponse<TicketInformationModel?>> addNewTicketInformation({
+  Future<HttpResponse> addGroupTicInformation({
     @Body() required Map<String, dynamic> body,
   });
 

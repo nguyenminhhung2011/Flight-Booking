@@ -105,6 +105,7 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
     try {
       final result =
           await _ticketInformationUsecase.getTicketByFlight(_flightId);
+      result.sort((a, b) => a.seatPosition.compareTo(b.seatPosition));
       emit(FlightDetailState.getTicInformationSuccess(
           data: data.copyWith(
         ticInformation: result,
