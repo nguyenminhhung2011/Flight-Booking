@@ -29,7 +29,7 @@ class TicColumnListView extends StatelessWidget {
           child: Row(
             children: [
               DotCustom(
-                color: ticType.colorType,
+                color: ticType.colorType!,
                 full: true,
               ),
               Text(
@@ -45,7 +45,7 @@ class TicColumnListView extends StatelessWidget {
         const SizedBox(height: 10.0),
         Column(
           children: [
-            for (int i = 0; i < count; i++) TicItem2(color: ticType.colorType),
+            for (int i = 0; i < count; i++) TicItem2(color: ticType.colorType!),
           ]
               .expand((element) => [element, const Divider(thickness: 0.5)])
               .toList(),

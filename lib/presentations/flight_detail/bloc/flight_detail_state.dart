@@ -19,6 +19,14 @@ class FlightDetailState with _$FlightDetailState {
     required FlightDetailModelState data,
     required String message,
   }) = _GetFlightByIdFailed;
+  const factory FlightDetailState.getTicInformationSuccess({
+    required FlightDetailModelState data,
+  }) = _GetTicInformationSuccess;
+
+  const factory FlightDetailState.getTicInformationFailed({
+    required FlightDetailModelState data,
+    required String message,
+  }) = _GetTicInformationFailed;
 
   bool get loadingGetFlight => maybeWhen(
       orElse: () => false, loading: (data, loadingField) => loadingField == 0);

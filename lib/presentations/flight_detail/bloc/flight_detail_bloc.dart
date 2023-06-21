@@ -3,10 +3,13 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/domain/usecase/flight_usecase.dart';
+import 'package:flight_booking/domain/usecase/tic_information_usecase.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/components/network/app_exception.dart';
+import '../../../domain/entities/ticket/ticket_information.dart';
 import 'flight_detail_model_state.dart';
 
 part 'flight_detail_event.dart';
@@ -18,9 +21,11 @@ part 'flight_detail_bloc.freezed.dart';
 class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
   final int _flightId;
   final FlightsUsecase _flightsUsecase;
+  final TicketInformationUsecase _ticketInformationUsecase;
   FlightDetailBloc(
     @factoryParam int flightId,
     this._flightsUsecase,
+    this._ticketInformationUsecase,
   )   : _flightId = flightId,
         super(
           const FlightDetailState.initial(
@@ -28,6 +33,7 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
               animation: 1000.0,
               itemView: ItemViewEnum.gridView,
               showMoreInfor: false,
+              ticInformation: <TicketInformation>[],
             ),
           ),
         ) {
@@ -35,6 +41,7 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
     on<_ChangeTypeView>(_onChangeTypeView);
     on<_showMoreInformation>(_onShowMoreInformation);
     on<_GetFlightById>(_onGetFlightById);
+    on<_GetTicInformation>(_onGetTicInformation);
   }
 
   FlightDetailModelState get data => state.data;
@@ -72,7 +79,6 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
         ));
         return;
       }
-      print(result);
       emit(FlightDetailState.getFlightByIdSuccess(
         data: data.copyWith(
           flight: result,
@@ -86,6 +92,31 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
     } catch (e) {
       emit(FlightDetailState.getFlightByIdFailed(
         data: state.data,
+        message: e.toString(),
+      ));
+    }
+  }
+
+  FutureOr<void> _onGetTicInformation(
+    _GetTicInformation event,
+    Emitter<FlightDetailState> emit,
+  ) async {
+    emit(FlightDetailState.loading(data: data, loadingField: 1));
+    try {
+      final result =
+          await _ticketInformationUsecase.getTicketByFlight(_flightId);
+      emit(FlightDetailState.getTicInformationSuccess(
+          data: data.copyWith(
+        ticInformation: result,
+      )));
+    } on AppException catch (e) {
+      emit(FlightDetailState.getTicInformationFailed(
+        data: data,
+        message: e.toString(),
+      ));
+    } catch (e) {
+      emit(FlightDetailState.getTicInformationFailed(
+        data: data,
         message: e.toString(),
       ));
     }

@@ -54,8 +54,12 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
 
   void _listenStateChanged(_, FlightDetailState state) {
     state.whenOrNull(getFlightByIdSuccess: (data) {
+      _bloc.add(const FlightDetailEvent.getTicInformation());
+    }, getTicInformationSuccess: (data) {
       _bloc.add(const FlightDetailEvent.started());
     }, getFlightByIdFailed: (data, error) {
+      log(error);
+    }, getTicInformationFailed: (data, error) {
       log(error);
     });
   }
@@ -136,7 +140,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                     children: [
                       for (int t = 0; t < 6; t++)
                         ChairButton(
-                          chairCharacyer: chairCharacter,
+                          chairCharacter: chairCharacter,
                           text: '${chairCharacter[i]} $t',
                           check: (i + t) % 3 == 0,
                           onPress: _showDialogSelectScott,

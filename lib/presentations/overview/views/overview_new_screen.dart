@@ -103,7 +103,7 @@ class _OverviewNewScreenState extends State<OverviewNewScreen> {
               Expanded(
                 flex: 5,
                 child: LayoutBuilder(
-                  builder: (context, cosntraints) => SizedBox(
+                  builder: (context, constraints) => SizedBox(
                     height: 350,
                     width: double.infinity,
                     child: Stack(
@@ -179,8 +179,8 @@ class _OverviewNewScreenState extends State<OverviewNewScreen> {
                             child: Image.asset(
                               'assets/images/air.png',
                               fit: BoxFit.fill,
-                              width: cosntraints.maxWidth * 0.45,
-                              height: cosntraints.maxWidth * 0.4,
+                              width: constraints.maxWidth * 0.45,
+                              height: constraints.maxWidth * 0.4,
                             ),
                           ),
                         )

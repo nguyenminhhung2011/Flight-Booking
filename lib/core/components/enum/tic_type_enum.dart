@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 enum TicTypeEnum {
+  none,
   economyClass,
   premiumEconomyClass,
   businessClass,
@@ -10,13 +11,15 @@ enum TicTypeEnum {
         TicTypeEnum.economyClass => "Economy Class",
         TicTypeEnum.premiumEconomyClass => "Premium Class",
         TicTypeEnum.businessClass => "Business Class",
-        _ => "First Class"
+        TicTypeEnum.firstClass => "First Class",
+        _ => "None"
       };
 
-  Color get colorType => switch (this) {
+  Color? get colorType => switch (this) {
         TicTypeEnum.economyClass => Colors.blue,
         TicTypeEnum.premiumEconomyClass => Colors.green,
         TicTypeEnum.businessClass => Colors.red,
-        _ => Colors.yellow,
+        TicTypeEnum.firstClass => Colors.yellow,
+        _ => null,
       };
 }

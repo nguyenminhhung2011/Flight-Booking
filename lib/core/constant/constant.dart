@@ -167,6 +167,21 @@ List<Map<String, dynamic>> mocPayment = [
   {'icon': ImageConst.visaIcon, 'title': 'Visa'},
   {'icon': ImageConst.masterIcon, 'title': 'Mastero'},
 ];
+
+List<String> seatHeader = [
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'L',
+  'M',
+  'N',
+  'I',
+];
 List<Map<String, dynamic>> mockDataReviews = [
   {
     'reviews':
