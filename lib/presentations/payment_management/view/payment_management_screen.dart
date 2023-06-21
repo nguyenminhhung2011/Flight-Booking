@@ -1,18 +1,25 @@
 import 'dart:math';
+import 'package:collection/collection.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/enum/action_enum.dart';
+import 'package:flight_booking/core/components/enum/date_time_enum.dart';
 import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flight_booking/core/components/enum/payment_type.dart';
+import 'package:flight_booking/core/components/widgets/card_custom.dart';
 import 'package:flight_booking/core/components/widgets/custom_row_column.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_ticket_table.dart';
+import 'package:flight_booking/core/components/widgets/mobile/category_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/sort_button.dart';
+import 'package:flight_booking/core/components/widgets/mobile/text_field_custom.dart';
 import 'package:flight_booking/core/components/widgets/payment_status_utils.dart';
 import 'package:flight_booking/core/components/widgets/range_date_picker_custom.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
+import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
+import 'package:flight_booking/domain/entities/customer/customer.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/payment_bloc.dart';
@@ -20,7 +27,10 @@ import 'package:flight_booking/presentations/payment/view/widgets/payment_method
 import 'package:flight_booking/presentations/payment/view/widgets/payment_statistic_component.dart';
 import 'package:flight_booking/presentations/payment/view/widgets/payment_status_statistic_component.dart';
 import 'package:flight_booking/presentations/payment/view/widgets/ticket_tier_statistic_component.dart';
+import 'package:flight_booking/presentations/payment_management/view/widgets/add_edit_payment_dialog.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/custom_textfield.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_detail/views/widgets/customer_information_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -347,6 +357,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                     ),
                   ),
                   PopupMenuItem<ActionEnum>(
+                    value: ActionEnum.edit,
                     child: Text(
                       ActionEnum.edit.name,
                       style: context.bodyMedium,
@@ -359,9 +370,16 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                     ),
                   ),
                 ],
-                onSelected: (value) {
+                onSelected: (value) async {
                   if (value == ActionEnum.detail) {
                     context.openPaymentDetailPage();
+                  } else if (value == ActionEnum.edit) {
+                    await showDialog(
+                      context: context,
+                      builder: (_) {
+                        return const EditPaymentDialog();
+                      },
+                    );
                   }
                 },
                 icon: const Icon(Icons.more_vert),

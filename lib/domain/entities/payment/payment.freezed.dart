@@ -17,12 +17,12 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Payment {
   String get id => throw _privateConstructorUsedError;
-  String get customerId => throw _privateConstructorUsedError;
-  String get flightId => throw _privateConstructorUsedError;
-  String get paymentMethod => throw _privateConstructorUsedError;
-  double get amount => throw _privateConstructorUsedError;
-  DateTime get creDate => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
+  int get createDate => throw _privateConstructorUsedError;
+  PaymentType get paymentType => throw _privateConstructorUsedError;
+  PaymentStatus get paymentStatus => throw _privateConstructorUsedError;
+  double get total => throw _privateConstructorUsedError;
+  Customer get customer => throw _privateConstructorUsedError;
+  List<Ticket> get tickets => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PaymentCopyWith<Payment> get copyWith => throw _privateConstructorUsedError;
@@ -35,12 +35,14 @@ abstract class $PaymentCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String customerId,
-      String flightId,
-      String paymentMethod,
-      double amount,
-      DateTime creDate,
-      String status});
+      int createDate,
+      PaymentType paymentType,
+      PaymentStatus paymentStatus,
+      double total,
+      Customer customer,
+      List<Ticket> tickets});
+
+  $CustomerCopyWith<$Res> get customer;
 }
 
 /// @nodoc
@@ -57,43 +59,51 @@ class _$PaymentCopyWithImpl<$Res, $Val extends Payment>
   @override
   $Res call({
     Object? id = null,
-    Object? customerId = null,
-    Object? flightId = null,
-    Object? paymentMethod = null,
-    Object? amount = null,
-    Object? creDate = null,
-    Object? status = null,
+    Object? createDate = null,
+    Object? paymentType = null,
+    Object? paymentStatus = null,
+    Object? total = null,
+    Object? customer = null,
+    Object? tickets = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      customerId: null == customerId
-          ? _value.customerId
-          : customerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      flightId: null == flightId
-          ? _value.flightId
-          : flightId // ignore: cast_nullable_to_non_nullable
-              as String,
-      paymentMethod: null == paymentMethod
-          ? _value.paymentMethod
-          : paymentMethod // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
+      createDate: null == createDate
+          ? _value.createDate
+          : createDate // ignore: cast_nullable_to_non_nullable
+              as int,
+      paymentType: null == paymentType
+          ? _value.paymentType
+          : paymentType // ignore: cast_nullable_to_non_nullable
+              as PaymentType,
+      paymentStatus: null == paymentStatus
+          ? _value.paymentStatus
+          : paymentStatus // ignore: cast_nullable_to_non_nullable
+              as PaymentStatus,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as double,
-      creDate: null == creDate
-          ? _value.creDate
-          : creDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
+      customer: null == customer
+          ? _value.customer
+          : customer // ignore: cast_nullable_to_non_nullable
+              as Customer,
+      tickets: null == tickets
+          ? _value.tickets
+          : tickets // ignore: cast_nullable_to_non_nullable
+              as List<Ticket>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CustomerCopyWith<$Res> get customer {
+    return $CustomerCopyWith<$Res>(_value.customer, (value) {
+      return _then(_value.copyWith(customer: value) as $Val);
+    });
   }
 }
 
@@ -106,12 +116,15 @@ abstract class _$$_PaymentCopyWith<$Res> implements $PaymentCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String customerId,
-      String flightId,
-      String paymentMethod,
-      double amount,
-      DateTime creDate,
-      String status});
+      int createDate,
+      PaymentType paymentType,
+      PaymentStatus paymentStatus,
+      double total,
+      Customer customer,
+      List<Ticket> tickets});
+
+  @override
+  $CustomerCopyWith<$Res> get customer;
 }
 
 /// @nodoc
@@ -125,42 +138,42 @@ class __$$_PaymentCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? customerId = null,
-    Object? flightId = null,
-    Object? paymentMethod = null,
-    Object? amount = null,
-    Object? creDate = null,
-    Object? status = null,
+    Object? createDate = null,
+    Object? paymentType = null,
+    Object? paymentStatus = null,
+    Object? total = null,
+    Object? customer = null,
+    Object? tickets = null,
   }) {
     return _then(_$_Payment(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      customerId: null == customerId
-          ? _value.customerId
-          : customerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      flightId: null == flightId
-          ? _value.flightId
-          : flightId // ignore: cast_nullable_to_non_nullable
-              as String,
-      paymentMethod: null == paymentMethod
-          ? _value.paymentMethod
-          : paymentMethod // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
+      createDate: null == createDate
+          ? _value.createDate
+          : createDate // ignore: cast_nullable_to_non_nullable
+              as int,
+      paymentType: null == paymentType
+          ? _value.paymentType
+          : paymentType // ignore: cast_nullable_to_non_nullable
+              as PaymentType,
+      paymentStatus: null == paymentStatus
+          ? _value.paymentStatus
+          : paymentStatus // ignore: cast_nullable_to_non_nullable
+              as PaymentStatus,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as double,
-      creDate: null == creDate
-          ? _value.creDate
-          : creDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
+      customer: null == customer
+          ? _value.customer
+          : customer // ignore: cast_nullable_to_non_nullable
+              as Customer,
+      tickets: null == tickets
+          ? _value._tickets
+          : tickets // ignore: cast_nullable_to_non_nullable
+              as List<Ticket>,
     ));
   }
 }
@@ -170,31 +183,37 @@ class __$$_PaymentCopyWithImpl<$Res>
 class _$_Payment implements _Payment {
   const _$_Payment(
       {required this.id,
-      required this.customerId,
-      required this.flightId,
-      required this.paymentMethod,
-      required this.amount,
-      required this.creDate,
-      required this.status});
+      required this.createDate,
+      required this.paymentType,
+      required this.paymentStatus,
+      required this.total,
+      required this.customer,
+      required final List<Ticket> tickets})
+      : _tickets = tickets;
 
   @override
   final String id;
   @override
-  final String customerId;
+  final int createDate;
   @override
-  final String flightId;
+  final PaymentType paymentType;
   @override
-  final String paymentMethod;
+  final PaymentStatus paymentStatus;
   @override
-  final double amount;
+  final double total;
   @override
-  final DateTime creDate;
+  final Customer customer;
+  final List<Ticket> _tickets;
   @override
-  final String status;
+  List<Ticket> get tickets {
+    if (_tickets is EqualUnmodifiableListView) return _tickets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tickets);
+  }
 
   @override
   String toString() {
-    return 'Payment(id: $id, customerId: $customerId, flightId: $flightId, paymentMethod: $paymentMethod, amount: $amount, creDate: $creDate, status: $status)';
+    return 'Payment(id: $id, createDate: $createDate, paymentType: $paymentType, paymentStatus: $paymentStatus, total: $total, customer: $customer, tickets: $tickets)';
   }
 
   @override
@@ -203,20 +222,28 @@ class _$_Payment implements _Payment {
         (other.runtimeType == runtimeType &&
             other is _$_Payment &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.customerId, customerId) ||
-                other.customerId == customerId) &&
-            (identical(other.flightId, flightId) ||
-                other.flightId == flightId) &&
-            (identical(other.paymentMethod, paymentMethod) ||
-                other.paymentMethod == paymentMethod) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.creDate, creDate) || other.creDate == creDate) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.createDate, createDate) ||
+                other.createDate == createDate) &&
+            (identical(other.paymentType, paymentType) ||
+                other.paymentType == paymentType) &&
+            (identical(other.paymentStatus, paymentStatus) ||
+                other.paymentStatus == paymentStatus) &&
+            (identical(other.total, total) || other.total == total) &&
+            (identical(other.customer, customer) ||
+                other.customer == customer) &&
+            const DeepCollectionEquality().equals(other._tickets, _tickets));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, customerId, flightId,
-      paymentMethod, amount, creDate, status);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      createDate,
+      paymentType,
+      paymentStatus,
+      total,
+      customer,
+      const DeepCollectionEquality().hash(_tickets));
 
   @JsonKey(ignore: true)
   @override
@@ -228,27 +255,27 @@ class _$_Payment implements _Payment {
 abstract class _Payment implements Payment {
   const factory _Payment(
       {required final String id,
-      required final String customerId,
-      required final String flightId,
-      required final String paymentMethod,
-      required final double amount,
-      required final DateTime creDate,
-      required final String status}) = _$_Payment;
+      required final int createDate,
+      required final PaymentType paymentType,
+      required final PaymentStatus paymentStatus,
+      required final double total,
+      required final Customer customer,
+      required final List<Ticket> tickets}) = _$_Payment;
 
   @override
   String get id;
   @override
-  String get customerId;
+  int get createDate;
   @override
-  String get flightId;
+  PaymentType get paymentType;
   @override
-  String get paymentMethod;
+  PaymentStatus get paymentStatus;
   @override
-  double get amount;
+  double get total;
   @override
-  DateTime get creDate;
+  Customer get customer;
   @override
-  String get status;
+  List<Ticket> get tickets;
   @override
   @JsonKey(ignore: true)
   _$$_PaymentCopyWith<_$_Payment> get copyWith =>

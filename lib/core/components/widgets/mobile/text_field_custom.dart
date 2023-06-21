@@ -36,6 +36,8 @@ class TextFieldCustom extends StatefulWidget {
   final TextStyle? underTextStyle;
   final Function()? prefixPress;
   final TextFieldType type;
+  final Function()? onTap;
+
   const TextFieldCustom({
     super.key,
     this.headerText,
@@ -66,6 +68,7 @@ class TextFieldCustom extends StatefulWidget {
     this.color,
     this.underText,
     this.underTextStyle,
+    this.onTap,
   });
 
   @override
@@ -133,6 +136,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
                     ],
                     Expanded(
                       child: TextFormField(
+                        onTap: widget.onTap,
                         obscureText: isShowPass,
                         controller: widget.controller,
                         keyboardType: (widget.isNumberInputType ||
@@ -186,6 +190,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
           SizedBox(
             width: double.infinity,
             child: TextFormField(
+              onTap: widget.onTap,
               maxLines: widget.maxLines ?? 1,
               keyboardType:
                   (widget.isNumberInputType || widget.isPhoneNumberField)
