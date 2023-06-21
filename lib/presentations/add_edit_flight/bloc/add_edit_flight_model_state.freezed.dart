@@ -21,6 +21,7 @@ mixin _$AddEditFlightModelState {
   DateTime get timeStart => throw _privateConstructorUsedError;
   DateTime get timeEnd => throw _privateConstructorUsedError;
   String get headerText => throw _privateConstructorUsedError;
+  String get headerSeat => throw _privateConstructorUsedError;
   Airport? get airportStart => throw _privateConstructorUsedError;
   Airport? get airportEnd => throw _privateConstructorUsedError;
   Airline? get airline => throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ abstract class $AddEditFlightModelStateCopyWith<$Res> {
       DateTime timeStart,
       DateTime timeEnd,
       String headerText,
+      String headerSeat,
       Airport? airportStart,
       Airport? airportEnd,
       Airline? airline});
@@ -70,6 +72,7 @@ class _$AddEditFlightModelStateCopyWithImpl<$Res,
     Object? timeStart = null,
     Object? timeEnd = null,
     Object? headerText = null,
+    Object? headerSeat = null,
     Object? airportStart = freezed,
     Object? airportEnd = freezed,
     Object? airline = freezed,
@@ -94,6 +97,10 @@ class _$AddEditFlightModelStateCopyWithImpl<$Res,
       headerText: null == headerText
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
+              as String,
+      headerSeat: null == headerSeat
+          ? _value.headerSeat
+          : headerSeat // ignore: cast_nullable_to_non_nullable
               as String,
       airportStart: freezed == airportStart
           ? _value.airportStart
@@ -161,6 +168,7 @@ abstract class _$$_AddEditFlightModelStateCopyWith<$Res>
       DateTime timeStart,
       DateTime timeEnd,
       String headerText,
+      String headerSeat,
       Airport? airportStart,
       Airport? airportEnd,
       Airline? airline});
@@ -190,6 +198,7 @@ class __$$_AddEditFlightModelStateCopyWithImpl<$Res>
     Object? timeStart = null,
     Object? timeEnd = null,
     Object? headerText = null,
+    Object? headerSeat = null,
     Object? airportStart = freezed,
     Object? airportEnd = freezed,
     Object? airline = freezed,
@@ -214,6 +223,10 @@ class __$$_AddEditFlightModelStateCopyWithImpl<$Res>
       headerText: null == headerText
           ? _value.headerText
           : headerText // ignore: cast_nullable_to_non_nullable
+              as String,
+      headerSeat: null == headerSeat
+          ? _value.headerSeat
+          : headerSeat // ignore: cast_nullable_to_non_nullable
               as String,
       airportStart: freezed == airportStart
           ? _value.airportStart
@@ -240,6 +253,7 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
       required this.timeStart,
       required this.timeEnd,
       required this.headerText,
+      required this.headerSeat,
       this.airportStart,
       this.airportEnd,
       this.airline})
@@ -269,6 +283,8 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
   @override
   final String headerText;
   @override
+  final String headerSeat;
+  @override
   final Airport? airportStart;
   @override
   final Airport? airportEnd;
@@ -277,7 +293,7 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
 
   @override
   String toString() {
-    return 'AddEditFlightModelState(listAirport: $listAirport, listAirline: $listAirline, timeStart: $timeStart, timeEnd: $timeEnd, headerText: $headerText, airportStart: $airportStart, airportEnd: $airportEnd, airline: $airline)';
+    return 'AddEditFlightModelState(listAirport: $listAirport, listAirline: $listAirline, timeStart: $timeStart, timeEnd: $timeEnd, headerText: $headerText, headerSeat: $headerSeat, airportStart: $airportStart, airportEnd: $airportEnd, airline: $airline)';
   }
 
   @override
@@ -294,6 +310,8 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
             (identical(other.timeEnd, timeEnd) || other.timeEnd == timeEnd) &&
             (identical(other.headerText, headerText) ||
                 other.headerText == headerText) &&
+            (identical(other.headerSeat, headerSeat) ||
+                other.headerSeat == headerSeat) &&
             (identical(other.airportStart, airportStart) ||
                 other.airportStart == airportStart) &&
             (identical(other.airportEnd, airportEnd) ||
@@ -309,6 +327,7 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
       timeStart,
       timeEnd,
       headerText,
+      headerSeat,
       airportStart,
       airportEnd,
       airline);
@@ -329,6 +348,7 @@ abstract class _AddEditFlightModelState implements AddEditFlightModelState {
       required final DateTime timeStart,
       required final DateTime timeEnd,
       required final String headerText,
+      required final String headerSeat,
       final Airport? airportStart,
       final Airport? airportEnd,
       final Airline? airline}) = _$_AddEditFlightModelState;
@@ -343,6 +363,8 @@ abstract class _AddEditFlightModelState implements AddEditFlightModelState {
   DateTime get timeEnd;
   @override
   String get headerText;
+  @override
+  String get headerSeat;
   @override
   Airport? get airportStart;
   @override

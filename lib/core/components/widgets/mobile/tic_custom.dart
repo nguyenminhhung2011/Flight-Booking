@@ -136,7 +136,7 @@ class TicItem extends StatelessWidget {
                               .copyWith(fontWeight: FontWeight.bold),
                         ),
                       ),
-                      DotCustom(color: item.type.colorType, full: true)
+                      DotCustom(color: item.type.colorType!, full: true)
                     ],
                   ),
                   _lineRow(context),

@@ -191,10 +191,10 @@ class TicItemColorView extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        color: ticType.colorType.withOpacity(0.2),
+        color: ticType.colorType!.withOpacity(0.2),
         border: Border.all(
           width: 1,
-          color: ticType.colorType,
+          color: ticType.colorType!,
         ),
       ),
       child: Row(
