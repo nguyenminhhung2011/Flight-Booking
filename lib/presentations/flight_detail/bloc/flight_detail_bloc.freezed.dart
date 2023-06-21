@@ -22,6 +22,7 @@ mixin _$FlightDetailEvent {
     required TResult Function(ItemViewEnum view) changeTypeView,
     required TResult Function() showMoreInformation,
     required TResult Function() getFlightById,
+    required TResult Function() getTicInformation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$FlightDetailEvent {
     TResult? Function(ItemViewEnum view)? changeTypeView,
     TResult? Function()? showMoreInformation,
     TResult? Function()? getFlightById,
+    TResult? Function()? getTicInformation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$FlightDetailEvent {
     TResult Function(ItemViewEnum view)? changeTypeView,
     TResult Function()? showMoreInformation,
     TResult Function()? getFlightById,
+    TResult Function()? getTicInformation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$FlightDetailEvent {
     required TResult Function(_ChangeTypeView value) changeTypeView,
     required TResult Function(_showMoreInformation value) showMoreInformation,
     required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_GetTicInformation value) getTicInformation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$FlightDetailEvent {
     TResult? Function(_ChangeTypeView value)? changeTypeView,
     TResult? Function(_showMoreInformation value)? showMoreInformation,
     TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$FlightDetailEvent {
     TResult Function(_ChangeTypeView value)? changeTypeView,
     TResult Function(_showMoreInformation value)? showMoreInformation,
     TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +133,7 @@ class _$_Started implements _Started {
     required TResult Function(ItemViewEnum view) changeTypeView,
     required TResult Function() showMoreInformation,
     required TResult Function() getFlightById,
+    required TResult Function() getTicInformation,
   }) {
     return started();
   }
@@ -138,6 +145,7 @@ class _$_Started implements _Started {
     TResult? Function(ItemViewEnum view)? changeTypeView,
     TResult? Function()? showMoreInformation,
     TResult? Function()? getFlightById,
+    TResult? Function()? getTicInformation,
   }) {
     return started?.call();
   }
@@ -149,6 +157,7 @@ class _$_Started implements _Started {
     TResult Function(ItemViewEnum view)? changeTypeView,
     TResult Function()? showMoreInformation,
     TResult Function()? getFlightById,
+    TResult Function()? getTicInformation,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -164,6 +173,7 @@ class _$_Started implements _Started {
     required TResult Function(_ChangeTypeView value) changeTypeView,
     required TResult Function(_showMoreInformation value) showMoreInformation,
     required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_GetTicInformation value) getTicInformation,
   }) {
     return started(this);
   }
@@ -175,6 +185,7 @@ class _$_Started implements _Started {
     TResult? Function(_ChangeTypeView value)? changeTypeView,
     TResult? Function(_showMoreInformation value)? showMoreInformation,
     TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
   }) {
     return started?.call(this);
   }
@@ -186,6 +197,7 @@ class _$_Started implements _Started {
     TResult Function(_ChangeTypeView value)? changeTypeView,
     TResult Function(_showMoreInformation value)? showMoreInformation,
     TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -267,6 +279,7 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     required TResult Function(ItemViewEnum view) changeTypeView,
     required TResult Function() showMoreInformation,
     required TResult Function() getFlightById,
+    required TResult Function() getTicInformation,
   }) {
     return changeTypeView(view);
   }
@@ -278,6 +291,7 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     TResult? Function(ItemViewEnum view)? changeTypeView,
     TResult? Function()? showMoreInformation,
     TResult? Function()? getFlightById,
+    TResult? Function()? getTicInformation,
   }) {
     return changeTypeView?.call(view);
   }
@@ -289,6 +303,7 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     TResult Function(ItemViewEnum view)? changeTypeView,
     TResult Function()? showMoreInformation,
     TResult Function()? getFlightById,
+    TResult Function()? getTicInformation,
     required TResult orElse(),
   }) {
     if (changeTypeView != null) {
@@ -304,6 +319,7 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     required TResult Function(_ChangeTypeView value) changeTypeView,
     required TResult Function(_showMoreInformation value) showMoreInformation,
     required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_GetTicInformation value) getTicInformation,
   }) {
     return changeTypeView(this);
   }
@@ -315,6 +331,7 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     TResult? Function(_ChangeTypeView value)? changeTypeView,
     TResult? Function(_showMoreInformation value)? showMoreInformation,
     TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
   }) {
     return changeTypeView?.call(this);
   }
@@ -326,6 +343,7 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     TResult Function(_ChangeTypeView value)? changeTypeView,
     TResult Function(_showMoreInformation value)? showMoreInformation,
     TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     required TResult orElse(),
   }) {
     if (changeTypeView != null) {
@@ -386,6 +404,7 @@ class _$_showMoreInformation implements _showMoreInformation {
     required TResult Function(ItemViewEnum view) changeTypeView,
     required TResult Function() showMoreInformation,
     required TResult Function() getFlightById,
+    required TResult Function() getTicInformation,
   }) {
     return showMoreInformation();
   }
@@ -397,6 +416,7 @@ class _$_showMoreInformation implements _showMoreInformation {
     TResult? Function(ItemViewEnum view)? changeTypeView,
     TResult? Function()? showMoreInformation,
     TResult? Function()? getFlightById,
+    TResult? Function()? getTicInformation,
   }) {
     return showMoreInformation?.call();
   }
@@ -408,6 +428,7 @@ class _$_showMoreInformation implements _showMoreInformation {
     TResult Function(ItemViewEnum view)? changeTypeView,
     TResult Function()? showMoreInformation,
     TResult Function()? getFlightById,
+    TResult Function()? getTicInformation,
     required TResult orElse(),
   }) {
     if (showMoreInformation != null) {
@@ -423,6 +444,7 @@ class _$_showMoreInformation implements _showMoreInformation {
     required TResult Function(_ChangeTypeView value) changeTypeView,
     required TResult Function(_showMoreInformation value) showMoreInformation,
     required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_GetTicInformation value) getTicInformation,
   }) {
     return showMoreInformation(this);
   }
@@ -434,6 +456,7 @@ class _$_showMoreInformation implements _showMoreInformation {
     TResult? Function(_ChangeTypeView value)? changeTypeView,
     TResult? Function(_showMoreInformation value)? showMoreInformation,
     TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
   }) {
     return showMoreInformation?.call(this);
   }
@@ -445,6 +468,7 @@ class _$_showMoreInformation implements _showMoreInformation {
     TResult Function(_ChangeTypeView value)? changeTypeView,
     TResult Function(_showMoreInformation value)? showMoreInformation,
     TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     required TResult orElse(),
   }) {
     if (showMoreInformation != null) {
@@ -500,6 +524,7 @@ class _$_GetFlightById implements _GetFlightById {
     required TResult Function(ItemViewEnum view) changeTypeView,
     required TResult Function() showMoreInformation,
     required TResult Function() getFlightById,
+    required TResult Function() getTicInformation,
   }) {
     return getFlightById();
   }
@@ -511,6 +536,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult? Function(ItemViewEnum view)? changeTypeView,
     TResult? Function()? showMoreInformation,
     TResult? Function()? getFlightById,
+    TResult? Function()? getTicInformation,
   }) {
     return getFlightById?.call();
   }
@@ -522,6 +548,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult Function(ItemViewEnum view)? changeTypeView,
     TResult Function()? showMoreInformation,
     TResult Function()? getFlightById,
+    TResult Function()? getTicInformation,
     required TResult orElse(),
   }) {
     if (getFlightById != null) {
@@ -537,6 +564,7 @@ class _$_GetFlightById implements _GetFlightById {
     required TResult Function(_ChangeTypeView value) changeTypeView,
     required TResult Function(_showMoreInformation value) showMoreInformation,
     required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_GetTicInformation value) getTicInformation,
   }) {
     return getFlightById(this);
   }
@@ -548,6 +576,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult? Function(_ChangeTypeView value)? changeTypeView,
     TResult? Function(_showMoreInformation value)? showMoreInformation,
     TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
   }) {
     return getFlightById?.call(this);
   }
@@ -559,6 +588,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult Function(_ChangeTypeView value)? changeTypeView,
     TResult Function(_showMoreInformation value)? showMoreInformation,
     TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     required TResult orElse(),
   }) {
     if (getFlightById != null) {
@@ -573,6 +603,126 @@ abstract class _GetFlightById implements FlightDetailEvent {
 }
 
 /// @nodoc
+abstract class _$$_GetTicInformationCopyWith<$Res> {
+  factory _$$_GetTicInformationCopyWith(_$_GetTicInformation value,
+          $Res Function(_$_GetTicInformation) then) =
+      __$$_GetTicInformationCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetTicInformationCopyWithImpl<$Res>
+    extends _$FlightDetailEventCopyWithImpl<$Res, _$_GetTicInformation>
+    implements _$$_GetTicInformationCopyWith<$Res> {
+  __$$_GetTicInformationCopyWithImpl(
+      _$_GetTicInformation _value, $Res Function(_$_GetTicInformation) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetTicInformation implements _GetTicInformation {
+  const _$_GetTicInformation();
+
+  @override
+  String toString() {
+    return 'FlightDetailEvent.getTicInformation()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetTicInformation);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(ItemViewEnum view) changeTypeView,
+    required TResult Function() showMoreInformation,
+    required TResult Function() getFlightById,
+    required TResult Function() getTicInformation,
+  }) {
+    return getTicInformation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(ItemViewEnum view)? changeTypeView,
+    TResult? Function()? showMoreInformation,
+    TResult? Function()? getFlightById,
+    TResult? Function()? getTicInformation,
+  }) {
+    return getTicInformation?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(ItemViewEnum view)? changeTypeView,
+    TResult Function()? showMoreInformation,
+    TResult Function()? getFlightById,
+    TResult Function()? getTicInformation,
+    required TResult orElse(),
+  }) {
+    if (getTicInformation != null) {
+      return getTicInformation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangeTypeView value) changeTypeView,
+    required TResult Function(_showMoreInformation value) showMoreInformation,
+    required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_GetTicInformation value) getTicInformation,
+  }) {
+    return getTicInformation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeTypeView value)? changeTypeView,
+    TResult? Function(_showMoreInformation value)? showMoreInformation,
+    TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
+  }) {
+    return getTicInformation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangeTypeView value)? changeTypeView,
+    TResult Function(_showMoreInformation value)? showMoreInformation,
+    TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_GetTicInformation value)? getTicInformation,
+    required TResult orElse(),
+  }) {
+    if (getTicInformation != null) {
+      return getTicInformation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTicInformation implements FlightDetailEvent {
+  const factory _GetTicInformation() = _$_GetTicInformation;
+}
+
+/// @nodoc
 mixin _$FlightDetailState {
   FlightDetailModelState get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -583,6 +733,10 @@ mixin _$FlightDetailState {
     required TResult Function(FlightDetailModelState data) getFlightByIdSuccess,
     required TResult Function(FlightDetailModelState data, String message)
         getFlightByIdFailed,
+    required TResult Function(FlightDetailModelState data)
+        getTicInformationSuccess,
+    required TResult Function(FlightDetailModelState data, String message)
+        getTicInformationFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -592,6 +746,9 @@ mixin _$FlightDetailState {
     TResult? Function(FlightDetailModelState data)? getFlightByIdSuccess,
     TResult? Function(FlightDetailModelState data, String message)?
         getFlightByIdFailed,
+    TResult? Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult? Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -601,6 +758,9 @@ mixin _$FlightDetailState {
     TResult Function(FlightDetailModelState data)? getFlightByIdSuccess,
     TResult Function(FlightDetailModelState data, String message)?
         getFlightByIdFailed,
+    TResult Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -610,6 +770,10 @@ mixin _$FlightDetailState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -618,6 +782,9 @@ mixin _$FlightDetailState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -626,6 +793,8 @@ mixin _$FlightDetailState {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -752,6 +921,10 @@ class _$_Initial extends _Initial {
     required TResult Function(FlightDetailModelState data) getFlightByIdSuccess,
     required TResult Function(FlightDetailModelState data, String message)
         getFlightByIdFailed,
+    required TResult Function(FlightDetailModelState data)
+        getTicInformationSuccess,
+    required TResult Function(FlightDetailModelState data, String message)
+        getTicInformationFailed,
   }) {
     return initial(data);
   }
@@ -764,6 +937,9 @@ class _$_Initial extends _Initial {
     TResult? Function(FlightDetailModelState data)? getFlightByIdSuccess,
     TResult? Function(FlightDetailModelState data, String message)?
         getFlightByIdFailed,
+    TResult? Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult? Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
   }) {
     return initial?.call(data);
   }
@@ -776,6 +952,9 @@ class _$_Initial extends _Initial {
     TResult Function(FlightDetailModelState data)? getFlightByIdSuccess,
     TResult Function(FlightDetailModelState data, String message)?
         getFlightByIdFailed,
+    TResult Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -791,6 +970,10 @@ class _$_Initial extends _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
   }) {
     return initial(this);
   }
@@ -802,6 +985,9 @@ class _$_Initial extends _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
   }) {
     return initial?.call(this);
   }
@@ -813,6 +999,8 @@ class _$_Initial extends _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -919,6 +1107,10 @@ class _$_Loading extends _Loading {
     required TResult Function(FlightDetailModelState data) getFlightByIdSuccess,
     required TResult Function(FlightDetailModelState data, String message)
         getFlightByIdFailed,
+    required TResult Function(FlightDetailModelState data)
+        getTicInformationSuccess,
+    required TResult Function(FlightDetailModelState data, String message)
+        getTicInformationFailed,
   }) {
     return loading(data, loadingField);
   }
@@ -931,6 +1123,9 @@ class _$_Loading extends _Loading {
     TResult? Function(FlightDetailModelState data)? getFlightByIdSuccess,
     TResult? Function(FlightDetailModelState data, String message)?
         getFlightByIdFailed,
+    TResult? Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult? Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
   }) {
     return loading?.call(data, loadingField);
   }
@@ -943,6 +1138,9 @@ class _$_Loading extends _Loading {
     TResult Function(FlightDetailModelState data)? getFlightByIdSuccess,
     TResult Function(FlightDetailModelState data, String message)?
         getFlightByIdFailed,
+    TResult Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -958,6 +1156,10 @@ class _$_Loading extends _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
   }) {
     return loading(this);
   }
@@ -969,6 +1171,9 @@ class _$_Loading extends _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
   }) {
     return loading?.call(this);
   }
@@ -980,6 +1185,8 @@ class _$_Loading extends _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1080,6 +1287,10 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     required TResult Function(FlightDetailModelState data) getFlightByIdSuccess,
     required TResult Function(FlightDetailModelState data, String message)
         getFlightByIdFailed,
+    required TResult Function(FlightDetailModelState data)
+        getTicInformationSuccess,
+    required TResult Function(FlightDetailModelState data, String message)
+        getTicInformationFailed,
   }) {
     return getFlightByIdSuccess(data);
   }
@@ -1092,6 +1303,9 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult? Function(FlightDetailModelState data)? getFlightByIdSuccess,
     TResult? Function(FlightDetailModelState data, String message)?
         getFlightByIdFailed,
+    TResult? Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult? Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
   }) {
     return getFlightByIdSuccess?.call(data);
   }
@@ -1104,6 +1318,9 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult Function(FlightDetailModelState data)? getFlightByIdSuccess,
     TResult Function(FlightDetailModelState data, String message)?
         getFlightByIdFailed,
+    TResult Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
     required TResult orElse(),
   }) {
     if (getFlightByIdSuccess != null) {
@@ -1119,6 +1336,10 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
   }) {
     return getFlightByIdSuccess(this);
   }
@@ -1130,6 +1351,9 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
   }) {
     return getFlightByIdSuccess?.call(this);
   }
@@ -1141,6 +1365,8 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     required TResult orElse(),
   }) {
     if (getFlightByIdSuccess != null) {
@@ -1248,6 +1474,10 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     required TResult Function(FlightDetailModelState data) getFlightByIdSuccess,
     required TResult Function(FlightDetailModelState data, String message)
         getFlightByIdFailed,
+    required TResult Function(FlightDetailModelState data)
+        getTicInformationSuccess,
+    required TResult Function(FlightDetailModelState data, String message)
+        getTicInformationFailed,
   }) {
     return getFlightByIdFailed(data, message);
   }
@@ -1260,6 +1490,9 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult? Function(FlightDetailModelState data)? getFlightByIdSuccess,
     TResult? Function(FlightDetailModelState data, String message)?
         getFlightByIdFailed,
+    TResult? Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult? Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
   }) {
     return getFlightByIdFailed?.call(data, message);
   }
@@ -1272,6 +1505,9 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult Function(FlightDetailModelState data)? getFlightByIdSuccess,
     TResult Function(FlightDetailModelState data, String message)?
         getFlightByIdFailed,
+    TResult Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
     required TResult orElse(),
   }) {
     if (getFlightByIdFailed != null) {
@@ -1287,6 +1523,10 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
   }) {
     return getFlightByIdFailed(this);
   }
@@ -1298,6 +1538,9 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
   }) {
     return getFlightByIdFailed?.call(this);
   }
@@ -1309,6 +1552,8 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     required TResult orElse(),
   }) {
     if (getFlightByIdFailed != null) {
@@ -1331,4 +1576,374 @@ abstract class _GetFlightByIdFailed extends FlightDetailState {
   @JsonKey(ignore: true)
   _$$_GetFlightByIdFailedCopyWith<_$_GetFlightByIdFailed> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetTicInformationSuccessCopyWith<$Res>
+    implements $FlightDetailStateCopyWith<$Res> {
+  factory _$$_GetTicInformationSuccessCopyWith(
+          _$_GetTicInformationSuccess value,
+          $Res Function(_$_GetTicInformationSuccess) then) =
+      __$$_GetTicInformationSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FlightDetailModelState data});
+
+  @override
+  $FlightDetailModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetTicInformationSuccessCopyWithImpl<$Res>
+    extends _$FlightDetailStateCopyWithImpl<$Res, _$_GetTicInformationSuccess>
+    implements _$$_GetTicInformationSuccessCopyWith<$Res> {
+  __$$_GetTicInformationSuccessCopyWithImpl(_$_GetTicInformationSuccess _value,
+      $Res Function(_$_GetTicInformationSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_GetTicInformationSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FlightDetailModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
+  const _$_GetTicInformationSuccess({required this.data}) : super._();
+
+  @override
+  final FlightDetailModelState data;
+
+  @override
+  String toString() {
+    return 'FlightDetailState.getTicInformationSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetTicInformationSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetTicInformationSuccessCopyWith<_$_GetTicInformationSuccess>
+      get copyWith => __$$_GetTicInformationSuccessCopyWithImpl<
+          _$_GetTicInformationSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FlightDetailModelState data) initial,
+    required TResult Function(FlightDetailModelState data, int loadingField)
+        loading,
+    required TResult Function(FlightDetailModelState data) getFlightByIdSuccess,
+    required TResult Function(FlightDetailModelState data, String message)
+        getFlightByIdFailed,
+    required TResult Function(FlightDetailModelState data)
+        getTicInformationSuccess,
+    required TResult Function(FlightDetailModelState data, String message)
+        getTicInformationFailed,
+  }) {
+    return getTicInformationSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FlightDetailModelState data)? initial,
+    TResult? Function(FlightDetailModelState data, int loadingField)? loading,
+    TResult? Function(FlightDetailModelState data)? getFlightByIdSuccess,
+    TResult? Function(FlightDetailModelState data, String message)?
+        getFlightByIdFailed,
+    TResult? Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult? Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
+  }) {
+    return getTicInformationSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FlightDetailModelState data)? initial,
+    TResult Function(FlightDetailModelState data, int loadingField)? loading,
+    TResult Function(FlightDetailModelState data)? getFlightByIdSuccess,
+    TResult Function(FlightDetailModelState data, String message)?
+        getFlightByIdFailed,
+    TResult Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (getTicInformationSuccess != null) {
+      return getTicInformationSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
+    required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
+  }) {
+    return getTicInformationSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+  }) {
+    return getTicInformationSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (getTicInformationSuccess != null) {
+      return getTicInformationSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTicInformationSuccess extends FlightDetailState {
+  const factory _GetTicInformationSuccess(
+          {required final FlightDetailModelState data}) =
+      _$_GetTicInformationSuccess;
+  const _GetTicInformationSuccess._() : super._();
+
+  @override
+  FlightDetailModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetTicInformationSuccessCopyWith<_$_GetTicInformationSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetTicInformationFailedCopyWith<$Res>
+    implements $FlightDetailStateCopyWith<$Res> {
+  factory _$$_GetTicInformationFailedCopyWith(_$_GetTicInformationFailed value,
+          $Res Function(_$_GetTicInformationFailed) then) =
+      __$$_GetTicInformationFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FlightDetailModelState data, String message});
+
+  @override
+  $FlightDetailModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetTicInformationFailedCopyWithImpl<$Res>
+    extends _$FlightDetailStateCopyWithImpl<$Res, _$_GetTicInformationFailed>
+    implements _$$_GetTicInformationFailedCopyWith<$Res> {
+  __$$_GetTicInformationFailedCopyWithImpl(_$_GetTicInformationFailed _value,
+      $Res Function(_$_GetTicInformationFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_GetTicInformationFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FlightDetailModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetTicInformationFailed extends _GetTicInformationFailed {
+  const _$_GetTicInformationFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final FlightDetailModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'FlightDetailState.getTicInformationFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetTicInformationFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetTicInformationFailedCopyWith<_$_GetTicInformationFailed>
+      get copyWith =>
+          __$$_GetTicInformationFailedCopyWithImpl<_$_GetTicInformationFailed>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FlightDetailModelState data) initial,
+    required TResult Function(FlightDetailModelState data, int loadingField)
+        loading,
+    required TResult Function(FlightDetailModelState data) getFlightByIdSuccess,
+    required TResult Function(FlightDetailModelState data, String message)
+        getFlightByIdFailed,
+    required TResult Function(FlightDetailModelState data)
+        getTicInformationSuccess,
+    required TResult Function(FlightDetailModelState data, String message)
+        getTicInformationFailed,
+  }) {
+    return getTicInformationFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FlightDetailModelState data)? initial,
+    TResult? Function(FlightDetailModelState data, int loadingField)? loading,
+    TResult? Function(FlightDetailModelState data)? getFlightByIdSuccess,
+    TResult? Function(FlightDetailModelState data, String message)?
+        getFlightByIdFailed,
+    TResult? Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult? Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
+  }) {
+    return getTicInformationFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FlightDetailModelState data)? initial,
+    TResult Function(FlightDetailModelState data, int loadingField)? loading,
+    TResult Function(FlightDetailModelState data)? getFlightByIdSuccess,
+    TResult Function(FlightDetailModelState data, String message)?
+        getFlightByIdFailed,
+    TResult Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (getTicInformationFailed != null) {
+      return getTicInformationFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
+    required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
+  }) {
+    return getTicInformationFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+  }) {
+    return getTicInformationFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (getTicInformationFailed != null) {
+      return getTicInformationFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTicInformationFailed extends FlightDetailState {
+  const factory _GetTicInformationFailed(
+      {required final FlightDetailModelState data,
+      required final String message}) = _$_GetTicInformationFailed;
+  const _GetTicInformationFailed._() : super._();
+
+  @override
+  FlightDetailModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetTicInformationFailedCopyWith<_$_GetTicInformationFailed>
+      get copyWith => throw _privateConstructorUsedError;
 }

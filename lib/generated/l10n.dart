@@ -3282,11 +3282,41 @@ class S {
     );
   }
 
-  /// `cancel`
+  /// `Cancel`
   String get cancel {
     return Intl.message(
-      'cancel',
+      'Cancel',
       name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `enable`
+  String get enable {
+    return Intl.message(
+      'enable',
+      name: 'enable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `disable`
+  String get disable {
+    return Intl.message(
+      'disable',
+      name: 'disable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ticket Category Detail`
+  String get ticketCategoryDetail {
+    return Intl.message(
+      'Ticket Category Detail',
+      name: 'ticketCategoryDetail',
       desc: '',
       args: [],
     );
@@ -3297,6 +3327,16 @@ class S {
     return Intl.message(
       'Flights Config',
       name: 'flightsConfig',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quantity`
+  String get quantity {
+    return Intl.message(
+      'Quantity',
+      name: 'quantity',
       desc: '',
       args: [],
     );

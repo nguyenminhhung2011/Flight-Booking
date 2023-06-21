@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class ChairButton extends StatelessWidget {
   const ChairButton({
     super.key,
-    required this.chairCharacyer,
+    required this.chairCharacter,
     required this.text,
     required this.check,
     required this.onPress,
   });
 
   final Function() onPress;
-  final List<String> chairCharacyer;
+  final List<String> chairCharacter;
   final String text;
   final bool check;
 

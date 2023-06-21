@@ -39,11 +39,13 @@ class DotCustom extends StatelessWidget {
   final Color color;
   final bool full;
   final double? radius;
+  final double? padding;
   const DotCustom({
     super.key,
+    this.radius,
+    this.padding,
     required this.color,
     required this.full,
-    this.radius,
   });
 
   @override
@@ -51,6 +53,7 @@ class DotCustom extends StatelessWidget {
     return Container(
       height: radius ?? 10.0,
       width: radius ?? 10.0,
+      padding: EdgeInsets.all(padding ?? 0.0),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: full ? color : Colors.transparent,

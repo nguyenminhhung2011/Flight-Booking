@@ -144,7 +144,7 @@ class _TicMobileScreenState extends State<TicMobileScreen> {
                                         child: Row(
                                           children: [
                                             DotCustom(
-                                              color: value.colorType,
+                                              color: value.colorType!,
                                               full: false,
                                             ),
                                             Text(' ${value.displayValue}')

@@ -19,6 +19,8 @@ mixin _$FlightDetailModelState {
   double get animation => throw _privateConstructorUsedError;
   ItemViewEnum get itemView => throw _privateConstructorUsedError;
   bool get showMoreInfor => throw _privateConstructorUsedError;
+  List<TicketInformation> get ticInformation =>
+      throw _privateConstructorUsedError;
   Flight? get flight => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -36,6 +38,7 @@ abstract class $FlightDetailModelStateCopyWith<$Res> {
       {double animation,
       ItemViewEnum itemView,
       bool showMoreInfor,
+      List<TicketInformation> ticInformation,
       Flight? flight});
 
   $FlightCopyWith<$Res>? get flight;
@@ -58,6 +61,7 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
     Object? animation = null,
     Object? itemView = null,
     Object? showMoreInfor = null,
+    Object? ticInformation = null,
     Object? flight = freezed,
   }) {
     return _then(_value.copyWith(
@@ -73,6 +77,10 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
           ? _value.showMoreInfor
           : showMoreInfor // ignore: cast_nullable_to_non_nullable
               as bool,
+      ticInformation: null == ticInformation
+          ? _value.ticInformation
+          : ticInformation // ignore: cast_nullable_to_non_nullable
+              as List<TicketInformation>,
       flight: freezed == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
@@ -105,6 +113,7 @@ abstract class _$$_FlightDetailModelStateCopyWith<$Res>
       {double animation,
       ItemViewEnum itemView,
       bool showMoreInfor,
+      List<TicketInformation> ticInformation,
       Flight? flight});
 
   @override
@@ -126,6 +135,7 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
     Object? animation = null,
     Object? itemView = null,
     Object? showMoreInfor = null,
+    Object? ticInformation = null,
     Object? flight = freezed,
   }) {
     return _then(_$_FlightDetailModelState(
@@ -141,6 +151,10 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
           ? _value.showMoreInfor
           : showMoreInfor // ignore: cast_nullable_to_non_nullable
               as bool,
+      ticInformation: null == ticInformation
+          ? _value._ticInformation
+          : ticInformation // ignore: cast_nullable_to_non_nullable
+              as List<TicketInformation>,
       flight: freezed == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
@@ -156,7 +170,9 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
       {required this.animation,
       required this.itemView,
       required this.showMoreInfor,
-      this.flight});
+      required final List<TicketInformation> ticInformation,
+      this.flight})
+      : _ticInformation = ticInformation;
 
   @override
   final double animation;
@@ -164,12 +180,20 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
   final ItemViewEnum itemView;
   @override
   final bool showMoreInfor;
+  final List<TicketInformation> _ticInformation;
+  @override
+  List<TicketInformation> get ticInformation {
+    if (_ticInformation is EqualUnmodifiableListView) return _ticInformation;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_ticInformation);
+  }
+
   @override
   final Flight? flight;
 
   @override
   String toString() {
-    return 'FlightDetailModelState(animation: $animation, itemView: $itemView, showMoreInfor: $showMoreInfor, flight: $flight)';
+    return 'FlightDetailModelState(animation: $animation, itemView: $itemView, showMoreInfor: $showMoreInfor, ticInformation: $ticInformation, flight: $flight)';
   }
 
   @override
@@ -183,12 +207,19 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
                 other.itemView == itemView) &&
             (identical(other.showMoreInfor, showMoreInfor) ||
                 other.showMoreInfor == showMoreInfor) &&
+            const DeepCollectionEquality()
+                .equals(other._ticInformation, _ticInformation) &&
             (identical(other.flight, flight) || other.flight == flight));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, animation, itemView, showMoreInfor, flight);
+  int get hashCode => Object.hash(
+      runtimeType,
+      animation,
+      itemView,
+      showMoreInfor,
+      const DeepCollectionEquality().hash(_ticInformation),
+      flight);
 
   @JsonKey(ignore: true)
   @override
@@ -203,6 +234,7 @@ abstract class _FlightDetailModelState implements FlightDetailModelState {
       {required final double animation,
       required final ItemViewEnum itemView,
       required final bool showMoreInfor,
+      required final List<TicketInformation> ticInformation,
       final Flight? flight}) = _$_FlightDetailModelState;
 
   @override
@@ -211,6 +243,8 @@ abstract class _FlightDetailModelState implements FlightDetailModelState {
   ItemViewEnum get itemView;
   @override
   bool get showMoreInfor;
+  @override
+  List<TicketInformation> get ticInformation;
   @override
   Flight? get flight;
   @override

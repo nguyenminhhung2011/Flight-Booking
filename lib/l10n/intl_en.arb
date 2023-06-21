@@ -326,7 +326,11 @@
     "arrivalFlight": "Arrival Flight",
     "from": "From",
     "empty": "Empty",
-    "cancel": "cancel",
+    "cancel": "Cancel",
+    "enable": "enable",
+    "disable": "disable",
+    "ticketCategoryDetail": "Ticket Category Detail",
     "flightsConfig": "Flights Config",
+    "quantity": "Quantity",
     "departurePlace": "Departure Place"
 }

@@ -13,6 +13,7 @@ class AddEditFlightModelState with _$AddEditFlightModelState {
     required DateTime timeStart,
     required DateTime timeEnd,
     required String headerText,
+    required String headerSeat,
     Airport? airportStart,
     Airport? airportEnd,
     Airline? airline,

@@ -65,7 +65,7 @@ class PositionDialog extends StatelessWidget {
                   Row(
                     children: [
                       DotCustom(
-                        color: type.colorType,
+                        color: type.colorType!,
                         full: true,
                       ),
                       Text(' ${type.displayValue}'),

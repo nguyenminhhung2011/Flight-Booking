@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../core/constant/constant.dart';
 import '../../../domain/entities/airport/airport.dart';
 import '../../../domain/usecase/airline_usecase.dart';
 import '../../../domain/usecase/flight_usecase.dart';
@@ -46,6 +47,7 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
               headerText: S.current.addNewFlight,
               listAirline: <Airline>[],
               listAirport: <Airport>[],
+              headerSeat: seatHeader.first,
             ),
           ),
         ) {

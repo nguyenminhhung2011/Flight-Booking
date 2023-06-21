@@ -7,4 +7,5 @@ class FlightDetailEvent with _$FlightDetailEvent {
       _ChangeTypeView;
   const factory FlightDetailEvent.showMoreInformation() = _showMoreInformation;
   const factory FlightDetailEvent.getFlightById() = _GetFlightById;
+  const factory FlightDetailEvent.getTicInformation() = _GetTicInformation;
 }
