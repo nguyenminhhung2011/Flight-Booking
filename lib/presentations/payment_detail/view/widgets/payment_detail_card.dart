@@ -45,7 +45,7 @@ class PaymentDetailCard extends StatelessWidget {
       leading: Image.asset(
         "images/avatar.jpg",
         width: 50,
-        filterQuality: FilterQuality.high,
+        filterQuality: FilterQuality.low,
         fit: BoxFit.contain,
       ),
       title: Text(
@@ -164,8 +164,11 @@ class PaymentDetailCard extends StatelessWidget {
                       ?.copyWith(fontWeight: FontWeight.bold),
                 ),
                 const Divider(height: 30, thickness: 1.5),
-                _buildDataFieldDisplay(context,
-                    fieldName: "Payment Id", data: "0123456789"),
+                _buildDataFieldDisplay(
+                  context,
+                  fieldName: "Payment Id",
+                  data: "0123456789",
+                ),
                 const SizedBox(height: 10),
                 _buildDataFieldDisplay(
                   context,

@@ -92,30 +92,28 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
                 actions: [
                   TextButton.icon(
-                      onPressed: () {
-                        context.read<AuthenticationBloc>().add(LogoutEvent());
-                      },
-                      icon: authenticationState.status ==
-                              AuthenticationStatus.checking
-                          ? LoadingIndicator(
-                              color: Theme.of(context).colorScheme.onBackground,
-                              radius: 10,
-                              strokeWidth: 1.5,
-                            )
-                          : Icon(
-                              Icons.logout,
-                              color: Theme.of(context).colorScheme.onBackground,
-                              size: 25,
-                            ),
-                      label: Text(
-                        "Logout",
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium
-                            ?.copyWith(
-                              color: Theme.of(context).colorScheme.onBackground,
-                            ),
-                      ))
+                    onPressed: () {
+                      context.read<AuthenticationBloc>().add(LogoutEvent());
+                    },
+                    icon: authenticationState.status ==
+                            AuthenticationStatus.checking
+                        ? LoadingIndicator(
+                            color: Theme.of(context).colorScheme.onBackground,
+                            radius: 10,
+                            strokeWidth: 1.5,
+                          )
+                        : Icon(
+                            Icons.logout,
+                            color: Theme.of(context).colorScheme.onBackground,
+                            size: 25,
+                          ),
+                    label: Text(
+                      "Logout",
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            color: Theme.of(context).colorScheme.onBackground,
+                          ),
+                    ),
+                  )
                 ],
               ),
               body: SafeArea(

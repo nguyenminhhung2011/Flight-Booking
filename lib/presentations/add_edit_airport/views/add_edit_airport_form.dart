@@ -103,10 +103,10 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
         },
         fetchDistrictsSuccess: (data) {
           if (data.districts.isNotEmpty) {
-            _bloc.add(AddEditAirportEvent.fetchWards(
-              code: data.districts[0].code,
-              districtsIndex: 0,
-            ));
+            _bloc.add(
+              AddEditAirportEvent.fetchWards(
+                  code: data.districts[0].code, districtsIndex: 0),
+            );
           }
         },
         fetchWardsSuccess: (data) {},
@@ -326,6 +326,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
               ],
               if (state.isLoading && !loadingButton) _loadingWidget(context),
               const SizedBox(height: 10.0),
+
               Text(
                 S.of(context).pickImage,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
