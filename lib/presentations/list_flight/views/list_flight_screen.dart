@@ -67,6 +67,10 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
     _bloc.add(ListFlightEvent.getFlightByPage(newPage));
   }
 
+  void _onSelectedFlight(int flightId) {
+    _bloc.add(ListFlightEvent.getFlightById(id: flightId));
+  }
+
   void _onFilterFlight(
     String airline,
     String locationArrival,
@@ -81,6 +85,10 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
 
   void _onRefreshItemDisplay() {
     _bloc.add(const ListFlightEvent.refreshItem());
+  }
+
+  void openAddEditFlightDialog(String title) {
+    _bloc.add(ListFlightEvent.openAddEditFlightForm(title));
   }
 
   // void _onSelected
@@ -101,6 +109,16 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
           }
         }
       }
+    }, getFlightsSuccess: (data) {
+      if (_bloc.data.flights.isNotEmpty) {
+        _onSelectedFlight(_bloc.data.flights.first.id);
+      }
+    }, getFlightByIdSuccess: (data, flightId) {
+      _bloc.add(ListFlightEvent.getTicInformationByFlightId(id: flightId));
+    }, getFlightByIdFailed: (data, error) {
+      log(error);
+    }, getTicInformationByFlightIdFailed: (data, error) {
+      log(error);
     }, getFlightPageFFailed: (data, error) {
       log(error);
     }, getFlightsFailed: (data, error) {
@@ -109,13 +127,6 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
       log(error);
     });
   }
-
-  void openAddEditFlightDialog(String title) {
-    _bloc.add(ListFlightEvent.openAddEditFlightForm(title));
-  }
-
-  bool get _loadingGetData =>
-      _bloc.state.maybeWhen(orElse: () => false, loading: (data) => true);
 
   @override
   void dispose() {
@@ -127,23 +138,6 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
   Widget build(BuildContext context) {
     final widthField = MediaQuery.of(context).size.width;
     final heightField = MediaQuery.of(context).size.height;
-    List<Map<String, dynamic>> listSearchFlightOptions = [
-      {
-        'title': S.of(context).times,
-        'icon': Icons.timelapse_outlined,
-        'color': Colors.blue
-      },
-      {
-        'title': S.of(context).price,
-        'icon': Icons.attach_money_outlined,
-        'color': Colors.orange,
-      },
-      {
-        'title': S.of(context).more,
-        'icon': Icons.filter,
-        'color': Colors.purple,
-      },
-    ];
     return BlocConsumer<ListFlightBloc, ListFlightState>(
       listener: _listenStateChanged,
       builder: (context, state) {
@@ -219,9 +213,8 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
                       ListView(
                         children: [
                           SizedBox(height: heightField / 4.5),
-                          _categoryField(
-                              listSearchFlightOptions, context, state),
-                          _loadingGetData
+                          _categoryField(context, state),
+                          state.loadingMainField
                               ? _loadingFlightField()
                               : _listFlightField(flights),
                           const SizedBox(height: 10.0),
@@ -278,7 +271,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
               viewDetail: () => viewDetail(e.id),
               edit: () => openAddEditFlightDialog(e.id.toString()),
               delete: () => _onDeleteFlight(e.id),
-              selected: () {},
+              selected: () => _onSelectedFlight(e.id),
               flight: e,
             ),
           )
@@ -294,8 +287,7 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
     );
   }
 
-  Padding _categoryField(List<Map<String, dynamic>> listSearchFlightOptions,
-      BuildContext context, ListFlightState state) {
+  Padding _categoryField(BuildContext context, ListFlightState state) {
     final airlines = state.data.listAirlines;
     final airlineSelected = state.data.airlineName;
     final places = state.data.locations;

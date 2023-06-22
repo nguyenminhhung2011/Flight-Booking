@@ -18,7 +18,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../generated/l10n.dart';
 import '../../airport/bloc/airport_bloc.dart';
 import '../../customer/views/widgets/customer_detail_card.dart';
-import '../../list_flight/bloc/list_flight_bloc.dart';
 import '../../list_flight/views/flight_fast_view.dart';
 import '../../list_flight/views/list_flight_screen.dart';
 import '../../list_ticket/views/list_ticket_screen.dart';
@@ -80,14 +79,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       'body_ratio': 0.7,
     },
     {
-      'body': BlocProvider<ListFlightBloc>(
-        create: (context) => injector(),
-        child: const ListFlightScreen(),
-      ),
-      'secondBody': BlocProvider<ListFlightBloc>(
-        create: (context) => injector(),
-        child: const FlightFastView(),
-      ),
+      'body': const ListFlightScreen(),
+      'secondBody': const FlightFastView(),
       'body_ratio': 0.7,
     },
     {
