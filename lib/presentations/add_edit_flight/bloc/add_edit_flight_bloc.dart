@@ -68,7 +68,7 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
                             quantity: 0,
                             price: 0,
                             seatPosition: index,
-                            seatHeader: seatHeader.first,
+                            seatHeader: seatHeader[index],
                           ))
                   .toList(),
               ticInformationDisplayIndex: 0,

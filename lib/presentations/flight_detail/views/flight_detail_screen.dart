@@ -5,7 +5,9 @@ import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
+import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
+import 'package:flight_booking/domain/entities/seat_selected/seat_selected.dart';
 import 'package:flight_booking/presentations/flight_detail/bloc/flight_detail_bloc.dart';
 import 'package:flight_booking/presentations/flight_detail/bloc/flight_detail_model_state.dart';
 import 'package:flight_booking/presentations/flight_detail/views/widgets/chair_button.dart';
@@ -37,6 +39,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   FlightDetailState get _state => _bloc.state;
   FlightDetailModelState get _data => _state.data;
   List<TicketInformation> get _ticInformation => _data.ticInformation;
+  List<SeatSelected> get _seatsSelected => _data.chairsSelected;
   Flight? get _flight => _data.flight;
   String get _locationDeparture => _flight?.departureAirport.location ?? '';
   String get _locationArrival => _flight?.arrivalAirport.location ?? '';
@@ -54,6 +57,13 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
     _bloc.add(const FlightDetailEvent.showMoreInformation());
   }
 
+  void _onSelectedSeat(int seatIndex, TicketInformation tic) {
+    _bloc.add(FlightDetailEvent.selectedSeat(
+      ticInformation: tic,
+      seatIndex: seatIndex,
+    ));
+  }
+
   void _listenStateChanged(_, FlightDetailState state) {
     state.whenOrNull(getFlightByIdSuccess: (data) {
       _bloc.add(const FlightDetailEvent.getTicInformation());
@@ -67,7 +77,11 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   }
 
   void _showDialogSelectScott() async {
-    final show = await context.showBookTicketDialog();
+    if (_seatsSelected.isEmpty) {
+      return;
+    }
+    final show =
+        await context.showBookTicketDialog(_seatsSelected, _bloc.flightId);
     if (show) {
       //do something
     }
@@ -75,7 +89,6 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> chairCharacter = ['A', 'B', 'C', 'D'];
     return BlocConsumer<FlightDetailBloc, FlightDetailState>(
       listener: _listenStateChanged,
       builder: (context, state) {
@@ -92,7 +105,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
             children: [
               _main(context, state.data),
               Breakpoints.large.isActive(context)
-                  ? _sup(context, chairCharacter, state.data.animation)
+                  ? _sup(context, state.data.animation)
                   : const SizedBox(),
             ],
           ),
@@ -101,8 +114,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
     );
   }
 
-  Container _sup(
-      BuildContext context, List<String> chairCharacter, double animation) {
+  Container _sup(BuildContext context, double animation) {
     return Container(
       padding: const EdgeInsets.all(10.0),
       margin: const EdgeInsets.only(top: 10.0, right: 10.0, bottom: 10.0),
@@ -144,10 +156,11 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                           children: [
                             for (int i = 0; i < e.quantity; i++)
                               ChairButton(
-                                chairCharacter: chairCharacter,
                                 text: '${e.seatHeader}$i',
-                                check: true,
-                                onPress: () {},
+                                check: _seatsSelected
+                                    .map((item) => convertToSeatString(item))
+                                    .contains('${e.seatHeader}$i'),
+                                onPress: () => _onSelectedSeat(i, e),
                               )
                           ],
                         ),
@@ -163,6 +176,11 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                 ],
               ),
             ),
+          ButtonCustom(
+            onPress: _showDialogSelectScott,
+            height: 45.0,
+            child: Text(S.of(context).bookingTime),
+          )
         ].expand((element) => [element, const SizedBox(height: 10.0)]).toList(),
       ),
     );

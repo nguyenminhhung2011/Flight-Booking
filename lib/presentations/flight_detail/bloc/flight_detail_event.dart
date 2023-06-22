@@ -8,4 +8,8 @@ class FlightDetailEvent with _$FlightDetailEvent {
   const factory FlightDetailEvent.showMoreInformation() = _showMoreInformation;
   const factory FlightDetailEvent.getFlightById() = _GetFlightById;
   const factory FlightDetailEvent.getTicInformation() = _GetTicInformation;
+  const factory FlightDetailEvent.selectedSeat({
+    required TicketInformation ticInformation,
+    required int seatIndex,
+  }) = _SelectedSeat;
 }

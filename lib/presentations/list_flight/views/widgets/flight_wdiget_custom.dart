@@ -99,7 +99,9 @@ class FlightWidgetCustom extends StatelessWidget {
                       radius: 5.0,
                       borderColor: Theme.of(context).primaryColor,
                       color: Theme.of(context).cardColor,
-                      child: Text(S.of(context).viewDetail),
+                      child: Text(
+                        S.of(context).bookingTime,
+                      ),
                     ),
                     const SizedBox(height: 10.0),
                     SizedBox(

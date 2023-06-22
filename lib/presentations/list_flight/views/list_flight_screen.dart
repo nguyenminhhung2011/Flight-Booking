@@ -109,6 +109,10 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
           }
         }
       }
+    }, getFlightByPageSuccess: (data) {
+      if (_bloc.data.flights.isNotEmpty) {
+        _onSelectedFlight(_bloc.data.flights.first.id);
+      }
     }, getFlightsSuccess: (data) {
       if (_bloc.data.flights.isNotEmpty) {
         _onSelectedFlight(_bloc.data.flights.first.id);

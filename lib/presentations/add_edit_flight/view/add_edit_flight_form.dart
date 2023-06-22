@@ -567,6 +567,14 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
                           )
                         ],
                       ),
+                      child: Center(
+                        child: Text(
+                          index.toString(),
+                          style: context.titleMedium.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),

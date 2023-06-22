@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 class ChairButton extends StatelessWidget {
   const ChairButton({
     super.key,
-    required this.chairCharacter,
     required this.text,
     required this.check,
     required this.onPress,
   });
 
   final Function() onPress;
-  final List<String> chairCharacter;
+
   final String text;
   final bool check;
 
@@ -24,8 +23,8 @@ class ChairButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
           color: check
-              ? Theme.of(context).hoverColor
-              : Theme.of(context).primaryColor,
+              ? Theme.of(context).primaryColor
+              : Theme.of(context).hoverColor,
         ),
         child: Text(
           text,
