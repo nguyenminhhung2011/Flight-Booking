@@ -19,7 +19,7 @@ TicketInformationModel _$TicketInformationModelFromJson(
 Map<String, dynamic> _$TicketInformationModelToJson(
         TicketInformationModel instance) =>
     <String, dynamic>{
-      'id': instance.id.toJson(),
+      'id': instance.id,
       'quantity': instance.quantity,
       'price': instance.price,
       'seatPosition': instance.seatPosition,

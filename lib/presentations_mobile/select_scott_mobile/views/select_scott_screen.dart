@@ -78,7 +78,7 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
         customer: Customer(
       id: randomString(),
       name: _nameController.text,
-      identityNum: _identityController.text,
+      identifyNum: _identityController.text,
       phoneNumber: _phoneNumberController.text,
       email: _emailController.text,
       gender: _gender.value,
@@ -313,7 +313,7 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
                         InformationColumnItem(
                             context: context,
                             header: S.of(context).identityNumber,
-                            title: customers[selectedIndex].identityNum,
+                            title: customers[selectedIndex].identifyNum,
                             isStart: false),
                       ]
                           .expand((element) => [Expanded(child: element)])

@@ -1,9 +1,7 @@
 import 'dart:math';
 
-import 'package:flight_booking/core/components/enum/action_enum.dart';
 import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
-import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_ticket_table.dart';
 import 'package:flight_booking/core/components/widgets/payment_status_utils.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
@@ -12,10 +10,13 @@ import 'package:flight_booking/presentations/payment_detail/view/widgets/flight_
 import 'package:flight_booking/presentations/payment_detail/view/widgets/payment_detail_card.dart';
 import 'package:flight_booking/presentations/payment_detail/view/widgets/payment_info_card.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
+import 'package:intl/intl.dart';
+
+import '../../../core/components/enum/action_enum.dart';
+import '../../../core/components/widgets/flux_table/flux_table_row.dart';
+import '../../../generated/l10n.dart';
 
 class PaymentDetailScreen extends StatelessWidget {
   PaymentDetailScreen({super.key});
@@ -62,18 +63,7 @@ class PaymentDetailScreen extends StatelessWidget {
         borderRadius: CommonAppUIConfig.primaryRadiusBorder,
         border: Border.all(color: Theme.of(context).dividerColor, width: 1),
       ),
-      data: [
-        // for (int i = 0; i < 30; i++)
-        //   Payment(
-        //     id: "id$i",
-        //     customerId: "customerId$i",
-        //     flightId: "flightId$i",
-        //     paymentMethod: "paymentMethod$i",
-        //     amount: (i + 1) * 5.9,
-        //     creDate: DateTime.now().add(Duration(seconds: i)),
-        //     status: "status $i",
-        //   )
-      ],
+      data: [],
       rowBuilder: (data) {
         return FluxTableRow(
           rowDecoration: BoxDecoration(
@@ -121,14 +111,15 @@ class PaymentDetailScreen extends StatelessWidget {
           },
           rowData: [
             FlexRowTableData<String>(flex: 2, data: data.id),
-            // FlexRowTableData<String>(flex: 2, data: data.customerId),
-            // FlexRowTableData<String>(flex: 2, data: data.flightId),
-            // FlexRowTableData<String>(flex: 2, data: data.paymentMethod),
-            // FlexRowTableData<String>(flex: 2, data: data.amount.toString()),
-            // FlexRowTableData<String>(
-            //     flex: 2,
-            //     data:
-            //         DateFormat().add_MMMMEEEEd().add_Hm().format(data.creDate)),
+            FlexRowTableData<String>(flex: 2, data: data.customer?.id),
+            FlexRowTableData<String>(flex: 2, data: data.paymentType.name),
+            FlexRowTableData<String>(flex: 2, data: data.total.toString()),
+            FlexRowTableData<String>(
+              flex: 2,
+              data: DateFormat().add_MMMMEEEEd().add_Hm().format(
+                    DateTime.fromMillisecondsSinceEpoch(data.createDate),
+                  ),
+            ),
             FlexRowTableData<PaymentStatus>(flex: 2, data: getRandomStatus()),
             FlexRowTableData<String>(flex: 1),
           ],
@@ -152,7 +143,6 @@ class PaymentDetailScreen extends StatelessWidget {
         rowData: [
           FlexRowTableData<String>(flex: 2, data: S.of(context).id),
           FlexRowTableData<String>(flex: 2, data: S.of(context).customerId),
-          FlexRowTableData<String>(flex: 2, data: S.of(context).flightId),
           FlexRowTableData<String>(flex: 2, data: S.of(context).paymentMethod),
           FlexRowTableData<String>(flex: 2, data: S.of(context).amount),
           FlexRowTableData<String>(flex: 2, data: S.of(context).creDate),

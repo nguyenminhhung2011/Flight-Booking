@@ -154,7 +154,7 @@ class _FlightHistoryDetailScreenState extends State<FlightHistoryDetailScreen> {
               name: 'Nguyen Minh Hung',
               phoneNumber: '09435385835',
               email: 'hungnguyen.201102a@gmail.com',
-              identityNum: '3242342384',
+              identifyNum: '3242342384',
               gender: 'Male',
               birthday: DateTime.now(),
             ),

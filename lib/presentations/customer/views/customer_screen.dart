@@ -243,7 +243,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                                 alignment: Alignment.center,
                               ),
                               FlexRowTableData<String>(
-                                  flex: 3, data: data.identityNum),
+                                  flex: 3, data: data.identifyNum),
                               FlexRowTableData<String>(
                                   flex: 3, data: data.phoneNumber),
                               FlexRowTableData<String>(

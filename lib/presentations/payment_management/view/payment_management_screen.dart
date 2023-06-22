@@ -27,6 +27,7 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/enum/tic_type_enum.dart';
+import '../../../domain/entities/customer/customer.dart';
 
 enum PaymentFilterMethod {
   calendarMethod,
@@ -313,17 +314,17 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
   Widget _buildPaymentTable(BuildContext context) {
     return FluxTicketTable<Payment>(
       data: [
-        // for (int i = 0; i < 30; i++)
-        // Payment(
-        //   id: S.of(context).idData(i),
-        //   customerId: S.of(context).customerID(i),
-        //   flightId: S.of(context).flightIdParams(i),
-        //   paymentMethod: S.of(context).paymentMethodParams(i),
-        //   amount: (i + 1) * 5.9,
-        //   creDate: DateTime.now().add(Duration(seconds: i)),
-        //   status: S.of(context).statusParams(i),
-        // )
-        // Payment(id: id, createDate: createDate, paymentType: paymentType, paymentStatus: paymentStatus, total: total, customer: customer, tickets: tickets)
+        for (int i = 0; i < 30; i++)
+          Payment(
+            id: S.of(context).idData(i),
+            customer: Customer.empty,
+            paymentType: PaymentType.card,
+            total: (i + 1) * 5.9,
+            createDate:
+                DateTime.now().add(Duration(seconds: i)).millisecondsSinceEpoch,
+            paymentStatus: PaymentStatus.pending,
+            tickets: [],
+          )
       ],
       rowBuilder: (data) {
         return FluxTableRow(
@@ -335,10 +336,10 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
           ),
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           itemBuilder: (data, int columnIndex) {
-            if (columnIndex == 6) {
+            if (columnIndex == 5) {
               return _buildPaymentStatusComponent(context, data);
             }
-            if (columnIndex == 7) {
+            if (columnIndex == 6) {
               return PopupMenuButton<ActionEnum>(
                 itemBuilder: (context) => [
                   PopupMenuItem<ActionEnum>(
@@ -369,7 +370,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                     await showDialog(
                       context: context,
                       builder: (_) {
-                        return const EditPaymentDialog();
+                        return const EditPaymentDialog(id: 3);
                       },
                     );
                   }
@@ -383,13 +384,15 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
             );
           },
           rowData: [
-            // FlexRowTableData<String>(flex: 2, data: data.id),
-            // FlexRowTableData<String>(flex: 2, data: data.customerId),
-            // FlexRowTableData<String>(flex: 2, data: data.flightId),
-            // FlexRowTableData<String>(flex: 2, data: data.paymentMethod),
-            // FlexRowTableData<String>(flex: 2, data: data.amount.toString()),
-            // FlexRowTableData<String>(flex: 2, data: getMMMMEEEd(data.creDate)),
-            FlexRowTableData<PaymentStatus>(flex: 2, data: getRandomStatus()),
+            FlexRowTableData<String>(flex: 2, data: data.id),
+            FlexRowTableData<String>(flex: 2, data: data.customer?.id ?? ""),
+            FlexRowTableData<PaymentType>(flex: 2, data: data.paymentType),
+            FlexRowTableData<String>(flex: 2, data: data.total.toString()),
+            FlexRowTableData<String>(
+                flex: 2,
+                data: getMMMMEEEd(
+                    DateTime.fromMillisecondsSinceEpoch(data.createDate))),
+            FlexRowTableData<PaymentStatus>(flex: 2, data: data.paymentStatus),
             FlexRowTableData<String>(flex: 1),
           ],
         );
@@ -411,8 +414,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
         },
         rowData: [
           FlexRowTableData<String>(flex: 2, data: S.of(context).id),
-          FlexRowTableData<String>(flex: 2, data: S.of(context).customerId),
-          FlexRowTableData<String>(flex: 2, data: S.of(context).flightId),
+          FlexRowTableData<String>(flex: 2, data: "Customer Name"),
           FlexRowTableData<String>(flex: 2, data: S.of(context).paymentMethod),
           FlexRowTableData<String>(flex: 2, data: S.of(context).amount),
           FlexRowTableData<String>(flex: 2, data: S.of(context).creDate),
