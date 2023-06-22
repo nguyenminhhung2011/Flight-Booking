@@ -12,7 +12,9 @@ import '../../../core/services/place/place_service.dart';
 import '../../../data/models/place/place_model.dart';
 import '../../../domain/entities/airline/airline.dart';
 import '../../../domain/entities/flight/flight.dart';
+import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../domain/usecase/airline_usecase.dart';
+import '../../../domain/usecase/tic_information_usecase.dart';
 import 'list_flight_model_state.dart';
 
 part 'list_flight_event.dart';
@@ -28,6 +30,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
   final FlightsUsecase _flightsUsecase;
   final AirlineUsecase _airlineUsecase;
   final PlaceService _placeService;
+  final TicketInformationUsecase _ticketInformationUsecase;
 
   ListFlightModelState get data => state.data;
 
@@ -35,19 +38,20 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     this._flightsUsecase,
     this._placeService,
     this._airlineUsecase,
+    this._ticketInformationUsecase,
   ) : super(
           const ListFlightState.initial(
             data: ListFlightModelState(
-              flights: <Flight>[],
-              currentPage: 0,
-              totalPage: 0,
-              listAirlines: <Airline>[],
-              locations: <PlaceModel>[],
-              locationArrival: _locationNull,
-              locationDeparture: _locationNull,
-              airlineName: _locationNull,
-              typePage: TypePage.normalPage,
-            ),
+                flights: <Flight>[],
+                currentPage: 0,
+                totalPage: 0,
+                listAirlines: <Airline>[],
+                locations: <PlaceModel>[],
+                locationArrival: _locationNull,
+                locationDeparture: _locationNull,
+                airlineName: _locationNull,
+                typePage: TypePage.normalPage,
+                ticketInformation: <TicketInformation>[]),
           ),
         ) {
     on<_SelectFlight>(_onSelectFlight);
@@ -64,6 +68,8 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     on<_SelectedAirline>(_onSelectedAirline);
     on<_SelectedPlaceAirport>(_onSelectedPlaceAirport);
     on<_RefreshItem>(_onRefreshItem);
+    on<_GetFlightById>(_onGetFlightById);
+    on<_GetTicInformationByFlightId>(_onGetTicInformationByFlightId);
   }
 
   //get Flights
@@ -76,7 +82,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _OpenAddEditFlightForm event,
     Emitter<ListFlightState> emit,
   ) async {
-    emit(ListFlightState.loading(data: state.data));
+    emit(ListFlightState.loading(data: state.data, loadingField: 0));
     emit(
       ListFlightState.openAddEditFlightFormSuccess(
         data: state.data,
@@ -89,7 +95,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _GetFlights event,
     Emitter<ListFlightState> emit,
   ) async {
-    emit(ListFlightState.loading(data: state.data));
+    emit(ListFlightState.loading(data: state.data, loadingField: 0));
     try {
       final flights = await _flightsUsecase.fetchAllFlights();
       emit(ListFlightState.getFlightsSuccess(
@@ -109,7 +115,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _SelectFlight event,
     Emitter<ListFlightState> emit,
   ) {
-    emit(ListFlightState.loading(data: state.data));
+    emit(ListFlightState.loading(data: state.data, loadingField: 0));
 
     try {
       emit(
@@ -158,7 +164,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _DeleteFlight event,
     Emitter<ListFlightState> emit,
   ) async {
-    emit(ListFlightState.loading(data: data));
+    emit(ListFlightState.loading(data: data, loadingField: 0));
     try {
       final delete = await _flightsUsecase.deleteFlight(event.id.toString());
       if (!delete) {
@@ -186,7 +192,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _GetFlightByPage event,
     Emitter<ListFlightState> emit,
   ) async {
-    emit(ListFlightState.loading(data: data));
+    emit(ListFlightState.loading(data: data, loadingField: 0));
     if (event.cursor != 0) {
       if (event.cursor >= data.totalPage || event.cursor < 0) {
         emit(ListFlightState.getFlightPageFFailed(
@@ -244,12 +250,13 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
   ) async {
     emit(ListFlightState.loading(
         data: data.copyWith(
-      currentPage: 0,
-      locationArrival: event.locationArrival,
-      locationDeparture: event.locationDeparture,
-      airlineName: event.airline,
-      typePage: TypePage.categoryPage,
-    )));
+          currentPage: 0,
+          locationArrival: event.locationArrival,
+          locationDeparture: event.locationDeparture,
+          airlineName: event.airline,
+          typePage: TypePage.categoryPage,
+        ),
+        loadingField: 0));
     try {
       final response = await _flightsUsecase.getFlightByCategory(
         locationArrival: data.locationArrival,
@@ -279,7 +286,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _FetchAirlines event,
     Emitter<ListFlightState> emit,
   ) async {
-    emit(ListFlightState.loading(data: data));
+    emit(ListFlightState.loading(data: data, loadingField: 0));
     try {
       final provinces = await _placeService.getProvinces();
       if (provinces.isEmpty) {
@@ -307,7 +314,7 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _FetchPlaces event,
     Emitter<ListFlightState> emit,
   ) async {
-    emit(ListFlightState.loading(data: data));
+    emit(ListFlightState.loading(data: data, loadingField: 0));
     try {
       final result = await _airlineUsecase.fetchAllAirlines();
       final airline = result.isNotEmpty ? result.first : null;
@@ -344,6 +351,64 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
     _SelectedPlaceAirport event,
     Emitter<ListFlightState> emit,
   ) {}
+
+  FutureOr<void> _onGetFlightById(
+    _GetFlightById event,
+    Emitter<ListFlightState> emit,
+  ) async {
+    emit(ListFlightState.loading(data: data, loadingField: 1));
+    try {
+      final response = await _flightsUsecase.getFlightById(event.id.toString());
+      if (response == null) {
+        return emit(ListFlightState.getFlightByIdFailed(
+          data: data,
+          message: 'Can\'t get flight by id',
+        ));
+      }
+      return emit(ListFlightState.getFlightByIdSuccess(
+        data: data.copyWith(
+          flightSelected: response,
+        ),
+        flightId: response.id,
+      ));
+    } on AppException catch (e) {
+      emit(ListFlightState.getFlightByIdFailed(
+        data: data,
+        message: e.toString(),
+      ));
+    } catch (e) {
+      emit(ListFlightState.getFlightByIdFailed(
+        data: data,
+        message: e.toString(),
+      ));
+    }
+  }
+
+  FutureOr<void> _onGetTicInformationByFlightId(
+    _GetTicInformationByFlightId event,
+    Emitter<ListFlightState> emit,
+  ) async {
+    emit(ListFlightState.loading(data: data, loadingField: 1));
+    try {
+      final response =
+          await _ticketInformationUsecase.getTicketByFlight(event.id);
+      return emit(ListFlightState.getTicInformationByFlightIdSuccess(
+        data: data.copyWith(
+          ticketInformation: response,
+        ),
+      ));
+    } on AppException catch (e) {
+      emit(ListFlightState.getTicInformationByFlightIdFailed(
+        data: data,
+        message: e.toString(),
+      ));
+    } catch (e) {
+      emit(ListFlightState.getTicInformationByFlightIdFailed(
+        data: data,
+        message: e.toString(),
+      ));
+    }
+  }
 
   FutureOr<void> _onRefreshItem(
     _RefreshItem event,
