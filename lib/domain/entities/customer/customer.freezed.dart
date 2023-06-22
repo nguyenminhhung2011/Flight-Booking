@@ -14,16 +14,21 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Customer _$CustomerFromJson(Map<String, dynamic> json) {
+  return _Customer.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Customer {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get identityNum => throw _privateConstructorUsedError;
+  String get identifyNum => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   DateTime get birthday => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CustomerCopyWith<Customer> get copyWith =>
       throw _privateConstructorUsedError;
@@ -39,7 +44,7 @@ abstract class $CustomerCopyWith<$Res> {
       String name,
       String phoneNumber,
       String email,
-      String identityNum,
+      String identifyNum,
       String gender,
       DateTime birthday});
 }
@@ -61,7 +66,7 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
     Object? name = null,
     Object? phoneNumber = null,
     Object? email = null,
-    Object? identityNum = null,
+    Object? identifyNum = null,
     Object? gender = null,
     Object? birthday = null,
   }) {
@@ -82,9 +87,9 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      identityNum: null == identityNum
-          ? _value.identityNum
-          : identityNum // ignore: cast_nullable_to_non_nullable
+      identifyNum: null == identifyNum
+          ? _value.identifyNum
+          : identifyNum // ignore: cast_nullable_to_non_nullable
               as String,
       gender: null == gender
           ? _value.gender
@@ -110,7 +115,7 @@ abstract class _$$_CustomerCopyWith<$Res> implements $CustomerCopyWith<$Res> {
       String name,
       String phoneNumber,
       String email,
-      String identityNum,
+      String identifyNum,
       String gender,
       DateTime birthday});
 }
@@ -130,7 +135,7 @@ class __$$_CustomerCopyWithImpl<$Res>
     Object? name = null,
     Object? phoneNumber = null,
     Object? email = null,
-    Object? identityNum = null,
+    Object? identifyNum = null,
     Object? gender = null,
     Object? birthday = null,
   }) {
@@ -151,9 +156,9 @@ class __$$_CustomerCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      identityNum: null == identityNum
-          ? _value.identityNum
-          : identityNum // ignore: cast_nullable_to_non_nullable
+      identifyNum: null == identifyNum
+          ? _value.identifyNum
+          : identifyNum // ignore: cast_nullable_to_non_nullable
               as String,
       gender: null == gender
           ? _value.gender
@@ -168,16 +173,19 @@ class __$$_CustomerCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Customer implements _Customer {
   const _$_Customer(
       {required this.id,
       required this.name,
       required this.phoneNumber,
       required this.email,
-      required this.identityNum,
+      required this.identifyNum,
       required this.gender,
       required this.birthday});
+
+  factory _$_Customer.fromJson(Map<String, dynamic> json) =>
+      _$$_CustomerFromJson(json);
 
   @override
   final String id;
@@ -188,7 +196,7 @@ class _$_Customer implements _Customer {
   @override
   final String email;
   @override
-  final String identityNum;
+  final String identifyNum;
   @override
   final String gender;
   @override
@@ -196,7 +204,7 @@ class _$_Customer implements _Customer {
 
   @override
   String toString() {
-    return 'Customer(id: $id, name: $name, phoneNumber: $phoneNumber, email: $email, identityNum: $identityNum, gender: $gender, birthday: $birthday)';
+    return 'Customer(id: $id, name: $name, phoneNumber: $phoneNumber, email: $email, identifyNum: $identifyNum, gender: $gender, birthday: $birthday)';
   }
 
   @override
@@ -209,22 +217,30 @@ class _$_Customer implements _Customer {
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.identityNum, identityNum) ||
-                other.identityNum == identityNum) &&
+            (identical(other.identifyNum, identifyNum) ||
+                other.identifyNum == identifyNum) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.birthday, birthday) ||
                 other.birthday == birthday));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, name, phoneNumber, email, identityNum, gender, birthday);
+      runtimeType, id, name, phoneNumber, email, identifyNum, gender, birthday);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_CustomerCopyWith<_$_Customer> get copyWith =>
       __$$_CustomerCopyWithImpl<_$_Customer>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CustomerToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Customer implements Customer {
@@ -233,9 +249,11 @@ abstract class _Customer implements Customer {
       required final String name,
       required final String phoneNumber,
       required final String email,
-      required final String identityNum,
+      required final String identifyNum,
       required final String gender,
       required final DateTime birthday}) = _$_Customer;
+
+  factory _Customer.fromJson(Map<String, dynamic> json) = _$_Customer.fromJson;
 
   @override
   String get id;
@@ -246,7 +264,7 @@ abstract class _Customer implements Customer {
   @override
   String get email;
   @override
-  String get identityNum;
+  String get identifyNum;
   @override
   String get gender;
   @override

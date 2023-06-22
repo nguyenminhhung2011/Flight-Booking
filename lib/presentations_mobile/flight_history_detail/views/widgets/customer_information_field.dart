@@ -39,7 +39,7 @@ class CustomerInformationField extends StatelessWidget {
             _leftFiled(context, S.of(context).dateBorn,
                 getYmdFormat(customer.birthday)),
             _rightField(
-                context, S.of(context).identityNumber, customer.identityNum),
+                context, S.of(context).identityNumber, customer.identifyNum),
           ].expand((element) => [Expanded(child: element)]).toList(),
         ),
         Row(

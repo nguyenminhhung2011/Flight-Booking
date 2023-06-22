@@ -7,34 +7,27 @@ part of 'ticket_model.dart';
 // **************************************************************************
 
 TicketModel _$TicketModelFromJson(Map<String, dynamic> json) => TicketModel()
-  ..id = json['id'] as String
+  ..id = json['id'] as int
   ..name = json['name'] as String
   ..gender = json['gender'] as String
-  ..phoneNumber = json['phone_number'] as String
-  ..emailAddress = json['email_address'] as String
-  ..luggage = json['luggage'] as int
-  ..seat = json['seat'] as int
+  ..phoneNumber = json['phoneNumber'] as String
+  ..emailAddress = json['emailAddress'] as String
+  ..luggage = (json['luggage'] as num).toDouble()
+  ..seat = json['seat'] as String
   ..type = json['type'] as int
-  ..dateBorn = DateTime.parse(json['dateBorn'] as String)
-  ..timeBought = DateTime.parse(json['time_bought'] as String)
-  ..ticketInformation = TicketInformationModel.fromJson(
-      json['ticket_information'] as Map<String, dynamic>)
-  ..flight = FlightModel.fromJson(json['flight'] as Map<String, dynamic>)
-  ..payment = PaymentModel.fromJson(json['payment'] as Map<String, dynamic>);
+  ..dateBorn = json['birthday'] as int
+  ..timeBought = json['timeBought'] as int;
 
 Map<String, dynamic> _$TicketModelToJson(TicketModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'gender': instance.gender,
-      'phone_number': instance.phoneNumber,
-      'email_address': instance.emailAddress,
+      'phoneNumber': instance.phoneNumber,
+      'emailAddress': instance.emailAddress,
       'luggage': instance.luggage,
       'seat': instance.seat,
       'type': instance.type,
-      'dateBorn': instance.dateBorn.toIso8601String(),
-      'time_bought': instance.timeBought.toIso8601String(),
-      'ticket_information': instance.ticketInformation.toJson(),
-      'flight': instance.flight.toJson(),
-      'payment': instance.payment.toJson(),
+      'birthday': instance.dateBorn,
+      'timeBought': instance.timeBought,
     };

@@ -6,10 +6,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'ticket_model.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: false)
 class TicketModel {
   @JsonKey(name: 'id')
-  late String id;
+  late int id;
 
   @JsonKey(name: 'name')
   late String name;
@@ -17,35 +17,26 @@ class TicketModel {
   @JsonKey(name: 'gender')
   late String gender;
 
-  @JsonKey(name: 'phone_number')
+  @JsonKey(name: 'phoneNumber')
   late String phoneNumber;
 
-  @JsonKey(name: 'email_address')
+  @JsonKey(name: 'emailAddress')
   late String emailAddress;
 
   @JsonKey(name: 'luggage')
-  late int luggage;
+  late double luggage;
 
   @JsonKey(name: 'seat')
-  late int seat;
+  late String seat;
 
   @JsonKey(name: "type")
   late int type;
 
-  @JsonKey(name: 'dateBorn')
-  late DateTime dateBorn;
+  @JsonKey(name: 'birthday')
+  late int dateBorn;
 
-  @JsonKey(name: 'time_bought')
-  late DateTime timeBought;
-
-  @JsonKey(name: 'ticket_information')
-  late TicketInformationModel ticketInformation;
-
-  @JsonKey(name: 'flight')
-  late FlightModel flight;
-
-  @JsonKey(name: "payment")
-  late PaymentModel payment;
+  @JsonKey(name: 'timeBought')
+  late int timeBought;
 
   TicketModel();
 
@@ -55,18 +46,15 @@ class TicketModel {
       _$TicketModelFromJson(json);
 
   Ticket get toEntity => Ticket(
-        id: id,
+        id: id.toString(),
         name: name,
         gender: gender,
         phoneNumber: phoneNumber,
         emailAddress: emailAddress,
         luggage: luggage,
-        dateBorn: dateBorn,
+        dateBorn: DateTime.fromMillisecondsSinceEpoch(dateBorn),
         type: type,
-        timeBought: timeBought,
+        timeBought: DateTime.fromMillisecondsSinceEpoch(timeBought),
         seat: seat,
-        ticketInformation: ticketInformation.toEntity,
-        flight: flight.toEntity(),
-        payment: payment.toEntity,
       );
 }

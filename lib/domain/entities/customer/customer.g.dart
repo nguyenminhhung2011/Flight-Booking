@@ -1,29 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'customer_model.dart';
+part of 'customer.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CustomerModel _$CustomerModelFromJson(Map<String, dynamic> json) =>
-    CustomerModel(
-      id: json['id'] as int,
+_$_Customer _$$_CustomerFromJson(Map<String, dynamic> json) => _$_Customer(
+      id: json['id'] as String,
       name: json['name'] as String,
-      identifyNum: json['identifyNum'] as String,
-      phoneNumber: json['phone'] as String,
+      phoneNumber: json['phoneNumber'] as String,
       email: json['email'] as String,
+      identifyNum: json['identifyNum'] as String,
       gender: json['gender'] as String,
-      birthday: json['birthday'] as int,
+      birthday: DateTime.parse(json['birthday'] as String),
     );
 
-Map<String, dynamic> _$CustomerModelToJson(CustomerModel instance) =>
+Map<String, dynamic> _$$_CustomerToJson(_$_Customer instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'identifyNum': instance.identifyNum,
-      'phone': instance.phoneNumber,
+      'phoneNumber': instance.phoneNumber,
       'email': instance.email,
+      'identifyNum': instance.identifyNum,
       'gender': instance.gender,
-      'birthday': instance.birthday,
+      'birthday': instance.birthday.toIso8601String(),
     };

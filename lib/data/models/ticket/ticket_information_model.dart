@@ -5,7 +5,7 @@ import '../../../domain/entities/ticket/ticket_information.dart';
 
 part 'ticket_information_model.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: false)
 class TicketInformationModel {
   @JsonKey(name: 'id')
   late TicketInformationModelId id;
