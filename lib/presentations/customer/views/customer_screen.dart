@@ -65,7 +65,10 @@ class _CustomerScreenState extends State<CustomerScreen> {
   }
 
   void _onShowAddEditCustomerForm(int customerId) async {
-    Map result = await context.openShowAddEditCustomer(customerId);
+    Map? result = await context.openShowAddEditCustomer(customerId);
+    if (result == null) {
+      return;
+    }
     var type = result['type'];
     var customer = result['customer'];
     if (customer != null && customer is Customer) {
