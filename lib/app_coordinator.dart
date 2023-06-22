@@ -56,8 +56,8 @@ extension AppCoordinator<T> on BuildContext {
     );
   }
 
-  Future<T?> openShowAddEditCustomer(int customerId) async {
-    return await showDialog(
+  Future<T?> openShowAddEditCustomer(int customerId) {
+    return showDialog(
       context: this,
       builder: (_) => BlocProvider<AddCustomerBloc>(
         create: (context) => injector(param1: customerId),
