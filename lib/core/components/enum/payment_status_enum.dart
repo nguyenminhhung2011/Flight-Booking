@@ -6,4 +6,21 @@ enum PaymentStatus {
 
   final String name;
   const PaymentStatus(this.name);
+
+  static PaymentStatus getByName(String text) {
+    final value = text.toLowerCase();
+
+    switch (value) {
+      case 'succeeded':
+        return PaymentStatus.declined;
+      case 'pending':
+        return PaymentStatus.pending;
+      case 'create':
+        return PaymentStatus.create;
+      case 'declined':
+        return PaymentStatus.declined;
+      default:
+        return PaymentStatus.pending;
+    }
+  }
 }

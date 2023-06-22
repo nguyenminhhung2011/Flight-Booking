@@ -41,7 +41,7 @@ class CustomerDetailScreen extends StatelessWidget {
             id: S.of(context).idData(i),
             name: S.of(context).nameData(i),
             email: S.of(context).email,
-            identityNum: S.of(context).identityNum,
+            identifyNum: S.of(context).identityNum,
             phoneNumber: S.of(context).phoneNumber,
             gender: S.of(context).gender,
             birthday: DateTime.now(),
@@ -101,7 +101,7 @@ class CustomerDetailScreen extends StatelessWidget {
               data: data.email,
               alignment: Alignment.center,
             ),
-            FlexRowTableData<String>(flex: 3, data: data.identityNum),
+            FlexRowTableData<String>(flex: 3, data: data.identifyNum),
             FlexRowTableData<String>(flex: 3, data: data.phoneNumber),
             FlexRowTableData<String>(
                 flex: 2, data: getYmdFormat(data.birthday)),

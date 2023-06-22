@@ -20,7 +20,7 @@ class AppCoreFactory {
       ),
     )
       ..interceptors.add(TokenInterceptor())
-      ..interceptors.add(LogInterceptor());
+      ..interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
     if (!kIsWeb) {
       (dio.httpClientAdapter as IOHttpClientAdapter).onHttpClientCreate =
           (HttpClient client) {

@@ -6,7 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../airline/airline_model.dart';
 part 'flight_model.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: false)
 class FlightModel {
   @JsonKey(name: 'id')
   final int id;

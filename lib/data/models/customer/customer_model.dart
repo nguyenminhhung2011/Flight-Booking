@@ -4,15 +4,15 @@ import '../../../domain/entities/customer/customer.dart';
 
 part 'customer_model.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: false)
 class CustomerModel {
   @JsonKey(name: "id")
-  final String id;
+  final int id;
   @JsonKey(name: "name")
   final String name;
-  @JsonKey(name: "identityNum")
-  final String identityNum;
-  @JsonKey(name: "phoneNumber")
+  @JsonKey(name: "identifyNum")
+  final String identifyNum;
+  @JsonKey(name: "phone")
   final String phoneNumber;
   @JsonKey(name: "email")
   final String email;
@@ -24,7 +24,7 @@ class CustomerModel {
   CustomerModel({
     required this.id,
     required this.name,
-    required this.identityNum,
+    required this.identifyNum,
     required this.phoneNumber,
     required this.email,
     required this.gender,
@@ -37,9 +37,9 @@ class CustomerModel {
       _$CustomerModelFromJson(json);
 
   Customer toEntity() => Customer(
-        id: id,
+        id: id.toString(),
         name: name,
-        identityNum: identityNum,
+        identifyNum: identifyNum,
         phoneNumber: phoneNumber,
         email: email,
         gender: gender,

@@ -9,10 +9,10 @@ class CustomerRepositoryImpl implements CustomerRepository {
   final Map<String, CustomerModel> customerMap = {
     for (int i = 0; i < 50; i++)
       "id$i": CustomerModel(
-        id: "id$i",
+        id: i,
         name: "name$i",
         email: "email$i",
-        identityNum: "identityNum$i",
+        identifyNum: "identityNum$i",
         phoneNumber: "phoneNumber$i",
         gender: "gender$i",
         birthday: 1656546452,
@@ -40,9 +40,9 @@ class CustomerRepositoryImpl implements CustomerRepository {
           .update(
             customer.id,
             (value) => value = CustomerModel(
-              id: customer.id,
+              id: int.parse(customer.id),
               name: customer.name,
-              identityNum: customer.identityNum,
+              identifyNum: customer.identifyNum,
               phoneNumber: customer.phoneNumber,
               email: customer.email,
               gender: customer.gender,
