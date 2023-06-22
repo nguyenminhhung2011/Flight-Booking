@@ -28,6 +28,10 @@ class FlightDetailState with _$FlightDetailState {
     required String message,
   }) = _GetTicInformationFailed;
 
+  const factory FlightDetailState.selectedSeatSuccess({
+    required FlightDetailModelState data,
+  }) = _SelectedSeatSuccess;
+
   bool get loadingGetFlight => maybeWhen(
       orElse: () => false, loading: (data, loadingField) => loadingField == 0);
 }

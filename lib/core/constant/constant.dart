@@ -9,6 +9,7 @@ import 'package:flight_booking/presentations_mobile/save/views/save_mobile_scree
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../domain/entities/seat_selected/seat_selected.dart';
 import '../../generated/l10n.dart';
 
 List<String> weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -262,3 +263,6 @@ String randomString() {
 }
 
 int randDomNumber(int max) => Random().nextInt(100);
+
+String convertToSeatString(SeatSelected seat) =>
+    '${seat.ticInformation.seatHeader}${seat.seatIndex}';

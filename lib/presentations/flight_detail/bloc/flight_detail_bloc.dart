@@ -2,13 +2,14 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
+import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/domain/usecase/flight_usecase.dart';
 import 'package:flight_booking/domain/usecase/tic_information_usecase.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/components/network/app_exception.dart';
+import '../../../domain/entities/seat_selected/seat_selected.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import 'flight_detail_model_state.dart';
 
@@ -34,6 +35,7 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
               itemView: ItemViewEnum.gridView,
               showMoreInfor: false,
               ticInformation: <TicketInformation>[],
+              chairsSelected: <SeatSelected>[],
             ),
           ),
         ) {
@@ -42,9 +44,11 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
     on<_showMoreInformation>(_onShowMoreInformation);
     on<_GetFlightById>(_onGetFlightById);
     on<_GetTicInformation>(_onGetTicInformation);
+    on<_SelectedSeat>(_onSelectedSeat);
   }
 
   FlightDetailModelState get data => state.data;
+  int get flightId => _flightId;
 
   FutureOr<void> _onStarted(
     _Started event,
@@ -120,6 +124,35 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
         data: data,
         message: e.toString(),
       ));
+    }
+  }
+
+  FutureOr<void> _onSelectedSeat(
+    _SelectedSeat event,
+    Emitter<FlightDetailState> emit,
+  ) {
+    final newSeat = SeatSelected(
+        seatIndex: event.seatIndex, ticInformation: event.ticInformation);
+    final checkFound = data.chairsSelected
+        .map((e) => convertToSeatString(e))
+        .contains(convertToSeatString(newSeat));
+    if (checkFound) {
+      emit(FlightDetailState.selectedSeatSuccess(
+          data: data.copyWith(
+        chairsSelected: data.chairsSelected
+            .where(
+              (element) =>
+                  element.seatIndex != newSeat.seatIndex ||
+                  element.ticInformation.id.ticketType !=
+                      newSeat.ticInformation.id.ticketType,
+            )
+            .toList(),
+      )));
+    } else {
+      emit(FlightDetailState.selectedSeatSuccess(
+          data: data.copyWith(
+        chairsSelected: [...data.chairsSelected, newSeat],
+      )));
     }
   }
 }
