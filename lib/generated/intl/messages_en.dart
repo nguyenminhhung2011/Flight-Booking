@@ -171,6 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Economy Class Ticket"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "editAirport": MessageLookupByLibrary.simpleMessage("Edit Airport"),
+        "editCustomer": MessageLookupByLibrary.simpleMessage("Edit Customer"),
         "editFlight": MessageLookupByLibrary.simpleMessage("Edit Flight"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailAddress": MessageLookupByLibrary.simpleMessage("Email Address"),

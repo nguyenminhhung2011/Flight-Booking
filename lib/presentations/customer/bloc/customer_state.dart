@@ -49,13 +49,14 @@ class CustomerState with _$CustomerState {
     required String message,
   }) = _OpenCustomerAddEditPage;
 
+  const factory CustomerState.updateCustomerSuccess({
+    required CustomerModelState data,
+  }) = _UpdateCustomerSuccess;
+
   bool get isLoading => this is _Loading;
 
-  Customer get customer {
-    if (this is _SelectCustomerSuccess) {
-      return (this as _SelectCustomerSuccess).customer;
-    } else {
-      return Customer.empty;
-    }
-  }
+  Customer get customer => maybeWhen(
+        orElse: () => Customer.empty,
+        selectCustomerSuccess: (data, customer) => customer,
+      );
 }

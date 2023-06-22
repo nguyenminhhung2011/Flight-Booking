@@ -1,4 +1,6 @@
 import 'package:flight_booking/core/components/widgets/custom_dialog_error/yes_no_dilog.dart';
+import 'package:flight_booking/presentations/add_customer/bloc/add_customer_bloc.dart';
+import 'package:flight_booking/presentations/add_customer/views/add_customer_screen.dart';
 import 'package:flight_booking/presentations/add_edit_airport/bloc/add_edit_airport_bloc.dart';
 import 'package:flight_booking/presentations/add_edit_airport/views/add_edit_airport_form.dart';
 import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart';
@@ -49,6 +51,19 @@ extension AppCoordinator<T> on BuildContext {
         child: const Dialog(
           backgroundColor: Colors.transparent,
           child: AddEditAirportForm(),
+        ),
+      ),
+    );
+  }
+
+  Future<T?> openShowAddEditCustomer(int customerId) async {
+    return await showDialog(
+      context: this,
+      builder: (_) => BlocProvider<AddCustomerBloc>(
+        create: (context) => injector(param1: customerId),
+        child: const Dialog(
+          backgroundColor: Colors.transparent,
+          child: AddCustomerScreen(),
         ),
       ),
     );
