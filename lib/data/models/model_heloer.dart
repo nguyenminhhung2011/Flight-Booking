@@ -6,9 +6,11 @@ import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/airline/airline.dart';
+import '../../domain/entities/customer/customer.dart';
 import '../../domain/entities/flight/flight.dart';
 import '../../domain/entities/ticket/ticket_information.dart';
 import 'airline/airline_model.dart';
+import 'customer/customer_model.dart';
 import 'flight/flight_model.dart';
 
 class ModelHelper {
@@ -47,6 +49,16 @@ class ModelHelper {
         ticketInformation.price,
         ticketInformation.seatPosition,
         ticketInformation.seatHeader,
+      );
+
+  static CustomerModel customerConvert(Customer customer) => CustomerModel(
+        id: customer.id,
+        name: customer.name,
+        identifyNum: customer.identifyNum,
+        phoneNumber: customer.phoneNumber,
+        email: customer.email,
+        gender: customer.gender,
+        birthday: customer.birthday.millisecondsSinceEpoch,
       );
 
   static Airport defaultAirport = Airport(

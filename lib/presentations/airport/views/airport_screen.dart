@@ -234,6 +234,13 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
           Expanded(
             flex: 1,
             child: FluxTicketTable<Airport>(
+              tableDecoration: BoxDecoration(
+                border: Border.all(
+                  width: 1,
+                  color: Theme.of(context).primaryColor,
+                ),
+                borderRadius: BorderRadius.circular(5.0),
+              ),
               loading: widget.state.isLoadingGetItems,
               padding: const EdgeInsets.all(10),
               onTap: (index) => _onSelectedAirport(_airports[index].id),
@@ -241,8 +248,10 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                 margin: const EdgeInsets.symmetric(vertical: 5.0),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                rowDecoration:
-                    BoxDecoration(color: Theme.of(context).primaryColor),
+                rowDecoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
                 itemBuilder: (data, index) {
                   return Text(
                     data.toString(),

@@ -12,4 +12,15 @@ class AddCustomerEvent with _$AddCustomerEvent {
     required String identifyNum,
     required DateTime dob,
   }) = _AddCustomer;
+
+  const factory AddCustomerEvent.editCustomer({
+    required String name,
+    required String email,
+    required String phoneNumber,
+    required String gender,
+    required String identifyNum,
+    required DateTime dob,
+  }) = _EditCustomer;
+
+  const factory AddCustomerEvent.getCustomerById() = _GetCustomerById;
 }

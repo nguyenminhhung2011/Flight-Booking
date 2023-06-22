@@ -385,7 +385,8 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
           },
           rowData: [
             FlexRowTableData<String>(flex: 2, data: data.id),
-            FlexRowTableData<String>(flex: 2, data: data.customer?.id ?? ""),
+            FlexRowTableData<String>(
+                flex: 2, data: data.customer?.id.toString() ?? ""),
             FlexRowTableData<PaymentType>(flex: 2, data: data.paymentType),
             FlexRowTableData<String>(flex: 2, data: data.total.toString()),
             FlexRowTableData<String>(

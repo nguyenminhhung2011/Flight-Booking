@@ -3342,6 +3342,16 @@ class S {
     );
   }
 
+  /// `Edit Customer`
+  String get editCustomer {
+    return Intl.message(
+      'Edit Customer',
+      name: 'editCustomer',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Departure Place`
   String get departurePlace {
     return Intl.message(

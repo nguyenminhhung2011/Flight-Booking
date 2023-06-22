@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
+import 'package:flight_booking/core/components/widgets/form_add_edit_information.dart';
 import 'package:flight_booking/core/components/widgets/mobile/header_custom.dart';
 import 'package:flight_booking/presentations/dialog_book_ticket/bloc/book_ticket_bloc.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/dot_custom.dart';
@@ -232,41 +233,13 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
               ],
             ),
           ),
-          ...<Map<String, dynamic>>[
-            {
-              'headerText': S.of(context).name,
-              'hint': S.of(context).enterYourEmail,
-              'controller': _nameController,
-            },
-            {
-              'headerText': S.of(context).emailAddress,
-              'hint': S.of(context).enterYourEmail,
-              'controller': _emailController,
-            },
-            {
-              'headerText': S.of(context).phoneNumber,
-              'hint': S.of(context).enterYourPhoneNumber,
-              'controller': _phoneNumberController,
-            },
-            {
-              'headerText': S.of(context).identityNumber,
-              'hint': 'xxx-xxxxxx-xxxxxx',
-              'controller': _identityController,
-            },
-          ].map(
-            (e) => TextFieldCustom(
-              paddingLeft: _hMarginCard,
-              paddingRight: _hMarginCard,
-              headerText: e['headerText'].toString(),
-              hintText: e['hint'].toString(),
-              headerTextStyle: headerTextStyle,
-              hintStyle: headerTextStyle,
-              controller: e['controller'] as TextEditingController,
-              textStyle: headerTextStyle.copyWith(
-                fontWeight: FontWeight.w600,
-                color: fontColorByCard,
-              ),
-            ),
+          FormAddEditInformation(
+            leftPadding: _hMarginCard,
+            rightPadding: _hMarginCard,
+            nameController: _nameController,
+            emailController: _emailController,
+            phoneNumberController: _phoneNumberController,
+            identityController: _identityController,
           ),
           ValueListenableBuilder(
             valueListenable: _dateBorn,

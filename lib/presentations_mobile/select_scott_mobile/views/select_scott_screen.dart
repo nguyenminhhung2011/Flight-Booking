@@ -76,7 +76,7 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
   void _onAddNewCustomer() {
     _bloc.add(SelectScottEvent.addNewCustomer(
         customer: Customer(
-      id: randomString(),
+      id: randDomNumber(100),
       name: _nameController.text,
       identifyNum: _identityController.text,
       phoneNumber: _phoneNumberController.text,

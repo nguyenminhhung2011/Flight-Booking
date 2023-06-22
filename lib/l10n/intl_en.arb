@@ -332,5 +332,6 @@
     "ticketCategoryDetail": "Ticket Category Detail",
     "flightsConfig": "Flights Config",
     "quantity": "Quantity",
+    "editCustomer": "Edit Customer",
     "departurePlace": "Departure Place"
 }

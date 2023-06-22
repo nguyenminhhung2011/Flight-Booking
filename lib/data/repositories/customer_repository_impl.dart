@@ -1,68 +1,83 @@
-import 'package:flight_booking/data/models/customer/customer_model.dart';
+import 'dart:io';
+
+import 'package:flight_booking/core/components/network/app_exception.dart';
+import 'package:flight_booking/data/models/model_heloer.dart';
 import 'package:flight_booking/domain/entities/customer/customer.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/repositories/customer_repository.dart';
+import '../datasource/remote/customer/customer_api.dart';
+
+const _defaultError = 'Error';
 
 @Injectable(as: CustomerRepository)
 class CustomerRepositoryImpl implements CustomerRepository {
-  final Map<String, CustomerModel> customerMap = {
-    for (int i = 0; i < 50; i++)
-      "id$i": CustomerModel(
-        id: i,
-        name: "name$i",
-        email: "email$i",
-        identifyNum: "identityNum$i",
-        phoneNumber: "phoneNumber$i",
-        gender: "gender$i",
-        birthday: 1656546452,
-      ),
-  };
+  final CustomerApi _customerApi;
+  CustomerRepositoryImpl(this._customerApi);
 
   @override
-  Future<Customer?> addNewCustomer(Customer customer) {
-    throw UnimplementedError();
+  Future<Customer?> addNewCustomer(Customer customer) async {
+    final airportModel = ModelHelper.customerConvert(customer);
+    final body = airportModel.toJson();
+    final response = await _customerApi.addNewCustomers(body: body);
+    if (response.response.statusCode != HttpStatus.ok) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage ?? _defaultError,
+      );
+    }
+    return response.data?.toEntity();
   }
 
   @override
   Future<bool> deleteCustomer(String id) async {
-    return await Future<bool>(
-      () {
-        return customerMap.remove(id) == null;
-      },
-    );
+    final response = await _customerApi.deleteCustomer(id.toString());
+    if (response.response.statusCode != HttpStatus.ok) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage ?? _defaultError,
+      );
+    }
+    return true;
   }
 
   @override
-  Future<Customer> editCustomer(Customer customer) {
-    return Future(() {
-      return customerMap
-          .update(
-            customer.id,
-            (value) => value = CustomerModel(
-              id: int.parse(customer.id),
-              name: customer.name,
-              identifyNum: customer.identifyNum,
-              phoneNumber: customer.phoneNumber,
-              email: customer.email,
-              gender: customer.gender,
-              birthday: 12315645612,
-            ),
-          )
-          .toEntity();
-    });
+  Future<Customer?> editCustomer(Customer customer, int id) async {
+    final customerModel = ModelHelper.customerConvert(customer);
+    final body = customerModel.toJson();
+    final response = await _customerApi.editCustomer(body: body);
+    if (response.response.statusCode != HttpStatus.ok) {
+      throw AppException(
+        message: response.response.statusMessage!,
+        code: response.response.statusCode,
+      );
+    }
+    final result = response.data?.toEntity();
+    return result;
   }
 
   @override
   Future<List<Customer>> getAllCustomers() async {
-    return await Future<List<Customer>>.delayed(
-      const Duration(seconds: 3),
-      () => customerMap.values.map((e) => e.toEntity()).toList(),
-    );
+    final response = await _customerApi.fetchCustomers();
+    if (response.response.statusCode != HttpStatus.ok) {
+      throw AppException(
+        message: response.response.statusMessage!,
+        code: response.response.statusCode,
+      );
+    }
+    final result = response.data?.map((e) => e.toEntity()).toList();
+    return result ?? <Customer>[];
   }
 
   @override
   Future<Customer?> getCustomerById(String id) async {
-    return await Future(() => customerMap[id]?.toEntity());
+    final response = await _customerApi.getCustomerById(id);
+    if (response.response.statusCode != HttpStatus.ok) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage ?? _defaultError,
+      );
+    }
+    return response.data.toEntity();
   }
 }
