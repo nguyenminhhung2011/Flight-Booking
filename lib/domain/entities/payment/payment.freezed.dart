@@ -21,7 +21,7 @@ mixin _$Payment {
   PaymentType get paymentType => throw _privateConstructorUsedError;
   PaymentStatus get paymentStatus => throw _privateConstructorUsedError;
   double get total => throw _privateConstructorUsedError;
-  Customer get customer => throw _privateConstructorUsedError;
+  Customer? get customer => throw _privateConstructorUsedError;
   List<Ticket> get tickets => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -39,10 +39,10 @@ abstract class $PaymentCopyWith<$Res> {
       PaymentType paymentType,
       PaymentStatus paymentStatus,
       double total,
-      Customer customer,
+      Customer? customer,
       List<Ticket> tickets});
 
-  $CustomerCopyWith<$Res> get customer;
+  $CustomerCopyWith<$Res>? get customer;
 }
 
 /// @nodoc
@@ -63,7 +63,7 @@ class _$PaymentCopyWithImpl<$Res, $Val extends Payment>
     Object? paymentType = null,
     Object? paymentStatus = null,
     Object? total = null,
-    Object? customer = null,
+    Object? customer = freezed,
     Object? tickets = null,
   }) {
     return _then(_value.copyWith(
@@ -87,10 +87,10 @@ class _$PaymentCopyWithImpl<$Res, $Val extends Payment>
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as double,
-      customer: null == customer
+      customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as Customer,
+              as Customer?,
       tickets: null == tickets
           ? _value.tickets
           : tickets // ignore: cast_nullable_to_non_nullable
@@ -100,8 +100,12 @@ class _$PaymentCopyWithImpl<$Res, $Val extends Payment>
 
   @override
   @pragma('vm:prefer-inline')
-  $CustomerCopyWith<$Res> get customer {
-    return $CustomerCopyWith<$Res>(_value.customer, (value) {
+  $CustomerCopyWith<$Res>? get customer {
+    if (_value.customer == null) {
+      return null;
+    }
+
+    return $CustomerCopyWith<$Res>(_value.customer!, (value) {
       return _then(_value.copyWith(customer: value) as $Val);
     });
   }
@@ -120,11 +124,11 @@ abstract class _$$_PaymentCopyWith<$Res> implements $PaymentCopyWith<$Res> {
       PaymentType paymentType,
       PaymentStatus paymentStatus,
       double total,
-      Customer customer,
+      Customer? customer,
       List<Ticket> tickets});
 
   @override
-  $CustomerCopyWith<$Res> get customer;
+  $CustomerCopyWith<$Res>? get customer;
 }
 
 /// @nodoc
@@ -142,7 +146,7 @@ class __$$_PaymentCopyWithImpl<$Res>
     Object? paymentType = null,
     Object? paymentStatus = null,
     Object? total = null,
-    Object? customer = null,
+    Object? customer = freezed,
     Object? tickets = null,
   }) {
     return _then(_$_Payment(
@@ -166,10 +170,10 @@ class __$$_PaymentCopyWithImpl<$Res>
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as double,
-      customer: null == customer
+      customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as Customer,
+              as Customer?,
       tickets: null == tickets
           ? _value._tickets
           : tickets // ignore: cast_nullable_to_non_nullable
@@ -182,29 +186,36 @@ class __$$_PaymentCopyWithImpl<$Res>
 
 class _$_Payment implements _Payment {
   const _$_Payment(
-      {required this.id,
-      required this.createDate,
-      required this.paymentType,
-      required this.paymentStatus,
-      required this.total,
-      required this.customer,
-      required final List<Ticket> tickets})
+      {this.id = "",
+      this.createDate = 0,
+      this.paymentType = PaymentType.cash,
+      this.paymentStatus = PaymentStatus.create,
+      this.total = 0,
+      this.customer = null,
+      final List<Ticket> tickets = const []})
       : _tickets = tickets;
 
   @override
+  @JsonKey()
   final String id;
   @override
+  @JsonKey()
   final int createDate;
   @override
+  @JsonKey()
   final PaymentType paymentType;
   @override
+  @JsonKey()
   final PaymentStatus paymentStatus;
   @override
+  @JsonKey()
   final double total;
   @override
-  final Customer customer;
+  @JsonKey()
+  final Customer? customer;
   final List<Ticket> _tickets;
   @override
+  @JsonKey()
   List<Ticket> get tickets {
     if (_tickets is EqualUnmodifiableListView) return _tickets;
     // ignore: implicit_dynamic_type
@@ -254,13 +265,13 @@ class _$_Payment implements _Payment {
 
 abstract class _Payment implements Payment {
   const factory _Payment(
-      {required final String id,
-      required final int createDate,
-      required final PaymentType paymentType,
-      required final PaymentStatus paymentStatus,
-      required final double total,
-      required final Customer customer,
-      required final List<Ticket> tickets}) = _$_Payment;
+      {final String id,
+      final int createDate,
+      final PaymentType paymentType,
+      final PaymentStatus paymentStatus,
+      final double total,
+      final Customer? customer,
+      final List<Ticket> tickets}) = _$_Payment;
 
   @override
   String get id;
@@ -273,7 +284,7 @@ abstract class _Payment implements Payment {
   @override
   double get total;
   @override
-  Customer get customer;
+  Customer? get customer;
   @override
   List<Ticket> get tickets;
   @override

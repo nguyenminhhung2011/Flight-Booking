@@ -14,11 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Airline _$AirlineFromJson(Map<String, dynamic> json) {
+  return _Airline.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Airline {
   int get id => throw _privateConstructorUsedError;
   String get airlineName => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AirlineCopyWith<Airline> get copyWith => throw _privateConstructorUsedError;
 }
@@ -97,9 +102,12 @@ class __$$_AirlineCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Airline implements _Airline {
   const _$_Airline({required this.id, required this.airlineName});
+
+  factory _$_Airline.fromJson(Map<String, dynamic> json) =>
+      _$$_AirlineFromJson(json);
 
   @override
   final int id;
@@ -121,6 +129,7 @@ class _$_Airline implements _Airline {
                 other.airlineName == airlineName));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, airlineName);
 
@@ -129,11 +138,20 @@ class _$_Airline implements _Airline {
   @pragma('vm:prefer-inline')
   _$$_AirlineCopyWith<_$_Airline> get copyWith =>
       __$$_AirlineCopyWithImpl<_$_Airline>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AirlineToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Airline implements Airline {
   const factory _Airline(
       {required final int id, required final String airlineName}) = _$_Airline;
+
+  factory _Airline.fromJson(Map<String, dynamic> json) = _$_Airline.fromJson;
 
   @override
   int get id;

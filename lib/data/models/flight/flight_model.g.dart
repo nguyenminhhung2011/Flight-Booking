@@ -24,9 +24,9 @@ FlightModel _$FlightModelFromJson(Map<String, dynamic> json) => FlightModel(
 Map<String, dynamic> _$FlightModelToJson(FlightModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'arrivalAirport': instance.arrivalAirport?.toJson(),
-      'departureAirport': instance.departureAirport?.toJson(),
+      'arrivalAirport': instance.arrivalAirport,
+      'departureAirport': instance.departureAirport,
       'departureTime': instance.timeStart.toIso8601String(),
       'arrivalTime': instance.timeEnd.toIso8601String(),
-      'airline': instance.airline.toJson(),
+      'airline': instance.airline,
     };

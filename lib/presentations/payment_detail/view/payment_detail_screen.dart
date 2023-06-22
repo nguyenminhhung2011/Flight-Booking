@@ -62,18 +62,7 @@ class PaymentDetailScreen extends StatelessWidget {
         borderRadius: CommonAppUIConfig.primaryRadiusBorder,
         border: Border.all(color: Theme.of(context).dividerColor, width: 1),
       ),
-      data: [
-        for (int i = 0; i < 30; i++)
-          Payment(
-            id: "id$i",
-            customerId: "customerId$i",
-            flightId: "flightId$i",
-            paymentMethod: "paymentMethod$i",
-            amount: (i + 1) * 5.9,
-            creDate: DateTime.now().add(Duration(seconds: i)),
-            status: "status $i",
-          )
-      ],
+      data: [],
       rowBuilder: (data) {
         return FluxTableRow(
           rowDecoration: BoxDecoration(
@@ -121,14 +110,15 @@ class PaymentDetailScreen extends StatelessWidget {
           },
           rowData: [
             FlexRowTableData<String>(flex: 2, data: data.id),
-            FlexRowTableData<String>(flex: 2, data: data.customerId),
-            FlexRowTableData<String>(flex: 2, data: data.flightId),
-            FlexRowTableData<String>(flex: 2, data: data.paymentMethod),
-            FlexRowTableData<String>(flex: 2, data: data.amount.toString()),
+            FlexRowTableData<String>(flex: 2, data: data.customer?.id),
+            FlexRowTableData<String>(flex: 2, data: data.paymentType.name),
+            FlexRowTableData<String>(flex: 2, data: data.total.toString()),
             FlexRowTableData<String>(
-                flex: 2,
-                data:
-                    DateFormat().add_MMMMEEEEd().add_Hm().format(data.creDate)),
+              flex: 2,
+              data: DateFormat().add_MMMMEEEEd().add_Hm().format(
+                    DateTime.fromMillisecondsSinceEpoch(data.createDate),
+                  ),
+            ),
             FlexRowTableData<PaymentStatus>(flex: 2, data: getRandomStatus()),
             FlexRowTableData<String>(flex: 1),
           ],
@@ -152,7 +142,6 @@ class PaymentDetailScreen extends StatelessWidget {
         rowData: [
           FlexRowTableData<String>(flex: 2, data: S.of(context).id),
           FlexRowTableData<String>(flex: 2, data: S.of(context).customerId),
-          FlexRowTableData<String>(flex: 2, data: S.of(context).flightId),
           FlexRowTableData<String>(flex: 2, data: S.of(context).paymentMethod),
           FlexRowTableData<String>(flex: 2, data: S.of(context).amount),
           FlexRowTableData<String>(flex: 2, data: S.of(context).creDate),

@@ -9,12 +9,12 @@ part 'payment.freezed.dart';
 @freezed
 class Payment with _$Payment {
   const factory Payment({
-    required String id,
-    required int createDate,
-    required PaymentType paymentType,
-    required PaymentStatus paymentStatus,
-    required double total,
-    required Customer customer,
-    required List<Ticket> tickets,
+    @Default("") String id,
+    @Default(0) int createDate,
+    @Default(PaymentType.cash) PaymentType paymentType,
+    @Default(PaymentStatus.create) PaymentStatus paymentStatus,
+    @Default(0) double total,
+    @Default(null) Customer? customer,
+    @Default([]) List<Ticket> tickets,
   }) = _Payment;
 }
