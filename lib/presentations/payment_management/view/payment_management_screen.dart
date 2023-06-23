@@ -9,6 +9,7 @@ import 'package:flight_booking/core/components/widgets/extension/context_extensi
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_ticket_table.dart';
 import 'package:flight_booking/core/components/widgets/mobile/sort_button.dart';
+import 'package:flight_booking/core/components/widgets/page_index_view.dart';
 import 'package:flight_booking/core/components/widgets/payment_status_utils.dart';
 import 'package:flight_booking/core/components/widgets/range_date_picker_custom.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
@@ -46,6 +47,12 @@ class PaymentManagementScreen extends StatefulWidget {
 class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
   PaymentBloc get _paymentBLoc => BlocProvider.of(context);
 
+  @override
+  void initState() {
+    _paymentBLoc.add(const PaymentEvent.fetchPaymentData());
+    super.initState();
+  }
+
   void _stateChangeListener(BuildContext context, PaymentState state) {
     state.whenOrNull(
       initial: (data) {},
@@ -76,7 +83,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
   }) {
     return switch (filter) {
       PaymentFilterMethod.paymentMethod => DropdownButton<PaymentType>(
-          value: PaymentType.all,
+          value: PaymentType.unknown,
           items: [
             DropdownMenuItem(
               value: PaymentType.card,
@@ -87,8 +94,8 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
               child: Text(PaymentType.cash.name, style: context.bodyMedium),
             ),
             DropdownMenuItem(
-              value: PaymentType.all,
-              child: Text(PaymentType.all.name, style: context.bodyMedium),
+              value: PaymentType.unknown,
+              child: Text(PaymentType.unknown.name, style: context.bodyMedium),
             ),
           ],
           onChanged: _filterPayment,
@@ -135,29 +142,48 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                       ),
                     ),
                     _divider(context),
-                    _buildStatisticRow(context),
+                    _buildStatisticRow(state),
                     _divider(context),
                     CustomRowColumn(
                       isRow: Breakpoints.large.isActive(context),
                       children: <FlexItemRowColumData>[
                         FlexItemRowColumData(
                           flex: 2,
-                          data: const PaymentStatusStatisticComponent(),
+                          data: PaymentStatusStatisticComponent(
+                            paymentStatusData: state.data.statusData,
+                          ),
                         ),
                         FlexItemRowColumData(
                           flex: 2,
-                          data: const PaymentMethodStatisticComponent(),
+                          data: PaymentMethodStatisticComponent(
+                              revenue: state.data.revenue),
                         ),
                         FlexItemRowColumData(
                           flex: 3,
                           data: TicketTierStatisticComponent(
                             datas: [
-                              PieData(tit: TicTypeEnum.businessClass, data: 12),
-                              PieData(tit: TicTypeEnum.economyClass, data: 20),
-                              PieData(tit: TicTypeEnum.firstClass, data: 20),
+                              PieData(
+                                tit: TicTypeEnum.businessClass,
+                                data: (state.data.ticketTierData.business /
+                                        state.data.ticketTierData.getSum) *
+                                    100,
+                              ),
+                              PieData(
+                                  tit: TicTypeEnum.economyClass,
+                                  data: (state.data.ticketTierData.economy /
+                                          state.data.ticketTierData.getSum) *
+                                      100),
+                              PieData(
+                                  tit: TicTypeEnum.firstClass,
+                                  data: (state.data.ticketTierData.first /
+                                          state.data.ticketTierData.getSum) *
+                                      100),
                               PieData(
                                 tit: TicTypeEnum.premiumEconomyClass,
-                                data: 30,
+                                data:
+                                    (state.data.ticketTierData.premiumEconomy /
+                                            state.data.ticketTierData.getSum) *
+                                        100,
                               ),
                             ],
                           ),
@@ -214,7 +240,12 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                     const SizedBox(height: 20),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.6,
-                      child: _buildPaymentTable(context),
+                      child: _buildPaymentTable(state.data.payments),
+                    ),
+                    PageIndexView(
+                      currentPage: 1,
+                      totalPage: 10,
+                      selected: (p0) {},
                     ),
                   ],
                 ),
@@ -234,25 +265,29 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
     );
   }
 
-  Widget _buildStatisticRow(BuildContext context) {
+  Widget _buildStatisticRow(PaymentState state) {
     return CustomRowColumn(
         isRow: Breakpoints.large.isActive(context),
         children: <Map<String, dynamic>>[
           {
             'title': S.of(context).totalPaymentsToday,
             'image': ImageConst.totalPayment,
+            "data": state.data.totalData.totalPaymentToday,
           },
           {
             'title': S.of(context).totalCustomersToday,
             'image': ImageConst.totalCustomer,
+            "data": state.data.totalData.totalCustomerToday,
           },
           {
             'title': S.of(context).totalFlightsToday,
             'image': ImageConst.totalFlight,
+            "data": state.data.totalData.totalFlightToday,
           },
           {
             'title': S.of(context).totalPassengerToday,
             'image': ImageConst.totalPassenger,
+            "data": state.data.totalData.totalPassengerToday,
           },
         ]
             .map(
@@ -260,16 +295,14 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                 data: PaymentStatisticComponent(
                   title: e['title'],
                   imageAssets: e['image'],
+                  data: e["data"],
                 ),
               ),
             )
             .toList());
   }
 
-  Widget _buildPaymentStatusComponent(
-    BuildContext context,
-    PaymentStatus status,
-  ) {
+  Widget _buildPaymentStatusComponent(PaymentStatus status) {
     return Container(
       width: 150,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
@@ -311,21 +344,9 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
     return status.elementAt(Random().nextInt(4));
   }
 
-  Widget _buildPaymentTable(BuildContext context) {
+  Widget _buildPaymentTable(List<Payment> payments) {
     return FluxTicketTable<Payment>(
-      data: [
-        for (int i = 0; i < 30; i++)
-          Payment(
-            id: S.of(context).idData(i),
-            customer: Customer.empty,
-            paymentType: PaymentType.card,
-            total: (i + 1) * 5.9,
-            createDate:
-                DateTime.now().add(Duration(seconds: i)).millisecondsSinceEpoch,
-            paymentStatus: PaymentStatus.pending,
-            tickets: [],
-          )
-      ],
+      data: payments,
       rowBuilder: (data) {
         return FluxTableRow(
           rowDecoration: BoxDecoration(
@@ -337,7 +358,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           itemBuilder: (data, int columnIndex) {
             if (columnIndex == 5) {
-              return _buildPaymentStatusComponent(context, data);
+              return _buildPaymentStatusComponent(data);
             }
             if (columnIndex == 6) {
               return PopupMenuButton<ActionEnum>(
@@ -365,7 +386,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                 ],
                 onSelected: (value) async {
                   if (value == ActionEnum.detail) {
-                    context.openPaymentDetailPage();
+                    await context.openPaymentDetailPage();
                   } else if (value == ActionEnum.edit) {
                     await showDialog(
                       context: context,
@@ -385,13 +406,12 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
           },
           rowData: [
             FlexRowTableData<String>(flex: 2, data: data.id),
-            FlexRowTableData<String>(
-                flex: 2, data: data.customer?.id.toString() ?? ""),
-            FlexRowTableData<PaymentType>(flex: 2, data: data.paymentType),
+            FlexRowTableData<String>(flex: 2, data: data.customer?.name ?? ""),
+            FlexRowTableData<String>(flex: 2, data: data.paymentType.name),
             FlexRowTableData<String>(flex: 2, data: data.total.toString()),
             FlexRowTableData<String>(
                 flex: 2,
-                data: getMMMMEEEd(
+                data: getYmdHmFormat(
                     DateTime.fromMillisecondsSinceEpoch(data.createDate))),
             FlexRowTableData<PaymentStatus>(flex: 2, data: data.paymentStatus),
             FlexRowTableData<String>(flex: 1),

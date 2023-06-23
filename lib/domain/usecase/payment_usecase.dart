@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:flight_booking/data/datasource/remote/payment/payment_api.dart';
 import 'package:flight_booking/data/models/payment/payment_success_response.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
+import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/payment_model_state_data.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
@@ -46,4 +45,9 @@ class PaymentUseCase {
 
   Future<Payment?> getLatestPaymentOfCustomer(int customerId) async =>
       (await _paymentApi.getLatestPaymentOfCustomer(customerId)).data?.toEntity;
+
+  Future<PaymentModelStateData> fetchPaymentManagementPage() async {
+    final response = (await _paymentApi.fetchPaymentManagementPage());
+    return response.data.toEntity;
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:flight_booking/core/components/widgets/payment_status_utils.dart';
+import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/payment_status_state_data.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/components/enum/payment_status_enum.dart';
@@ -7,7 +8,9 @@ import '../../../../generated/l10n.dart';
 
 class PaymentStatusStatisticComponent extends StatelessWidget {
   final double? height;
-  const PaymentStatusStatisticComponent({super.key, this.height});
+  final PaymentStatusStateData paymentStatusData;
+  const PaymentStatusStatisticComponent(
+      {super.key, this.height, required this.paymentStatusData});
 
   Widget _buildStatusStatisticItem(BuildContext context, PaymentStatus status) {
     return ListTile(

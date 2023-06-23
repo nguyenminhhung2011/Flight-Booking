@@ -16,10 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PaymentStatusStateData {
-  String get create => throw _privateConstructorUsedError;
-  String get declined => throw _privateConstructorUsedError;
-  String get pending => throw _privateConstructorUsedError;
-  String get succeeded => throw _privateConstructorUsedError;
+  int get create => throw _privateConstructorUsedError;
+  int get declined => throw _privateConstructorUsedError;
+  int get pending => throw _privateConstructorUsedError;
+  int get succeeded => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PaymentStatusStateDataCopyWith<PaymentStatusStateData> get copyWith =>
@@ -32,7 +32,7 @@ abstract class $PaymentStatusStateDataCopyWith<$Res> {
           $Res Function(PaymentStatusStateData) then) =
       _$PaymentStatusStateDataCopyWithImpl<$Res, PaymentStatusStateData>;
   @useResult
-  $Res call({String create, String declined, String pending, String succeeded});
+  $Res call({int create, int declined, int pending, int succeeded});
 }
 
 /// @nodoc
@@ -58,19 +58,19 @@ class _$PaymentStatusStateDataCopyWithImpl<$Res,
       create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       declined: null == declined
           ? _value.declined
           : declined // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       pending: null == pending
           ? _value.pending
           : pending // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       succeeded: null == succeeded
           ? _value.succeeded
           : succeeded // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ) as $Val);
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$_PaymentStatusStateDataCopyWith<$Res>
       __$$_PaymentStatusStateDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String create, String declined, String pending, String succeeded});
+  $Res call({int create, int declined, int pending, int succeeded});
 }
 
 /// @nodoc
@@ -107,19 +107,19 @@ class __$$_PaymentStatusStateDataCopyWithImpl<$Res>
       create: null == create
           ? _value.create
           : create // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       declined: null == declined
           ? _value.declined
           : declined // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       pending: null == pending
           ? _value.pending
           : pending // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       succeeded: null == succeeded
           ? _value.succeeded
           : succeeded // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -128,23 +128,23 @@ class __$$_PaymentStatusStateDataCopyWithImpl<$Res>
 
 class _$_PaymentStatusStateData implements _PaymentStatusStateData {
   const _$_PaymentStatusStateData(
-      {this.create = "",
-      this.declined = "",
-      this.pending = "",
-      this.succeeded = ""});
+      {this.create = 0,
+      this.declined = 0,
+      this.pending = 0,
+      this.succeeded = 0});
 
   @override
   @JsonKey()
-  final String create;
+  final int create;
   @override
   @JsonKey()
-  final String declined;
+  final int declined;
   @override
   @JsonKey()
-  final String pending;
+  final int pending;
   @override
   @JsonKey()
-  final String succeeded;
+  final int succeeded;
 
   @override
   String toString() {
@@ -178,19 +178,19 @@ class _$_PaymentStatusStateData implements _PaymentStatusStateData {
 
 abstract class _PaymentStatusStateData implements PaymentStatusStateData {
   const factory _PaymentStatusStateData(
-      {final String create,
-      final String declined,
-      final String pending,
-      final String succeeded}) = _$_PaymentStatusStateData;
+      {final int create,
+      final int declined,
+      final int pending,
+      final int succeeded}) = _$_PaymentStatusStateData;
 
   @override
-  String get create;
+  int get create;
   @override
-  String get declined;
+  int get declined;
   @override
-  String get pending;
+  int get pending;
   @override
-  String get succeeded;
+  int get succeeded;
   @override
   @JsonKey(ignore: true)
   _$$_PaymentStatusStateDataCopyWith<_$_PaymentStatusStateData> get copyWith =>
