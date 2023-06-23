@@ -32,4 +32,9 @@ class PaymentState with _$PaymentState {
   const factory PaymentState.fetchListPaymentDataSuccess({
     required final PaymentModelStateData data,
   }) = _FetchListPaymentDataSuccess;
+
+  const factory PaymentState.paymentDataFailedState({
+    required final PaymentModelStateData data,
+    required final String message,
+  }) = _PaymentDataFailedState;
 }

@@ -1,6 +1,3 @@
-import 'package:flight_booking/data/models/flight/flight_model.dart';
-import 'package:flight_booking/data/models/payment/payment_model.dart';
-import 'package:flight_booking/data/models/ticket/ticket_information_model.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -55,6 +52,6 @@ class TicketModel {
         dateBorn: DateTime.fromMillisecondsSinceEpoch(dateBorn),
         type: type,
         timeBought: DateTime.fromMillisecondsSinceEpoch(timeBought),
-        seat: seat,
+        seat: seat.toString(),
       );
 }

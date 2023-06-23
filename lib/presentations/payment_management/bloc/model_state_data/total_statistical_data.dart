@@ -4,9 +4,9 @@ part "total_statistical_data.freezed.dart";
 @freezed
 class TotalStatisticalData with _$TotalStatisticalData {
   const factory TotalStatisticalData({
-    @Default("") final String totalPaymentToday,
-    @Default("") final String totalCustomerToday,
-    @Default("") final String totalFlightToday,
-    @Default("") final String totalPassengerToday,
+    @Default(0) final int totalPaymentToday,
+    @Default(0) final int totalCustomerToday,
+    @Default(0) final int totalFlightToday,
+    @Default(0) final int totalPassengerToday,
   }) = _TotalStatisticalData;
 }

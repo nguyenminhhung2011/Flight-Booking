@@ -810,6 +810,8 @@ mixin _$PaymentState {
         openPaymentDetailSuccess,
     required TResult Function(PaymentModelStateData data)
         fetchListPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data, String message)
+        paymentDataFailedState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -820,6 +822,8 @@ mixin _$PaymentState {
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult? Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -830,6 +834,8 @@ mixin _$PaymentState {
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -844,6 +850,8 @@ mixin _$PaymentState {
         openPaymentDetailSuccess,
     required TResult Function(_FetchListPaymentDataSuccess value)
         fetchListPaymentDataSuccess,
+    required TResult Function(_PaymentDataFailedState value)
+        paymentDataFailedState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -856,6 +864,7 @@ mixin _$PaymentState {
         openPaymentDetailSuccess,
     TResult? Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult? Function(_PaymentDataFailedState value)? paymentDataFailedState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -867,6 +876,7 @@ mixin _$PaymentState {
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
     TResult Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult Function(_PaymentDataFailedState value)? paymentDataFailedState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1003,6 +1013,8 @@ class _$_Initial implements _Initial {
         openPaymentDetailSuccess,
     required TResult Function(PaymentModelStateData data)
         fetchListPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data, String message)
+        paymentDataFailedState,
   }) {
     return initial(data);
   }
@@ -1016,6 +1028,8 @@ class _$_Initial implements _Initial {
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult? Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
   }) {
     return initial?.call(data);
   }
@@ -1029,6 +1043,8 @@ class _$_Initial implements _Initial {
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1049,6 +1065,8 @@ class _$_Initial implements _Initial {
         openPaymentDetailSuccess,
     required TResult Function(_FetchListPaymentDataSuccess value)
         fetchListPaymentDataSuccess,
+    required TResult Function(_PaymentDataFailedState value)
+        paymentDataFailedState,
   }) {
     return initial(this);
   }
@@ -1064,6 +1082,7 @@ class _$_Initial implements _Initial {
         openPaymentDetailSuccess,
     TResult? Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult? Function(_PaymentDataFailedState value)? paymentDataFailedState,
   }) {
     return initial?.call(this);
   }
@@ -1078,6 +1097,7 @@ class _$_Initial implements _Initial {
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
     TResult Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult Function(_PaymentDataFailedState value)? paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1175,6 +1195,8 @@ class _$_Loading implements _Loading {
         openPaymentDetailSuccess,
     required TResult Function(PaymentModelStateData data)
         fetchListPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data, String message)
+        paymentDataFailedState,
   }) {
     return loading(data);
   }
@@ -1188,6 +1210,8 @@ class _$_Loading implements _Loading {
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult? Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
   }) {
     return loading?.call(data);
   }
@@ -1201,6 +1225,8 @@ class _$_Loading implements _Loading {
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1221,6 +1247,8 @@ class _$_Loading implements _Loading {
         openPaymentDetailSuccess,
     required TResult Function(_FetchListPaymentDataSuccess value)
         fetchListPaymentDataSuccess,
+    required TResult Function(_PaymentDataFailedState value)
+        paymentDataFailedState,
   }) {
     return loading(this);
   }
@@ -1236,6 +1264,7 @@ class _$_Loading implements _Loading {
         openPaymentDetailSuccess,
     TResult? Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult? Function(_PaymentDataFailedState value)? paymentDataFailedState,
   }) {
     return loading?.call(this);
   }
@@ -1250,6 +1279,7 @@ class _$_Loading implements _Loading {
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
     TResult Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult Function(_PaymentDataFailedState value)? paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1351,6 +1381,8 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
         openPaymentDetailSuccess,
     required TResult Function(PaymentModelStateData data)
         fetchListPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data, String message)
+        paymentDataFailedState,
   }) {
     return fetchPaymentDataSuccess(data);
   }
@@ -1364,6 +1396,8 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult? Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
   }) {
     return fetchPaymentDataSuccess?.call(data);
   }
@@ -1377,6 +1411,8 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (fetchPaymentDataSuccess != null) {
@@ -1397,6 +1433,8 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
         openPaymentDetailSuccess,
     required TResult Function(_FetchListPaymentDataSuccess value)
         fetchListPaymentDataSuccess,
+    required TResult Function(_PaymentDataFailedState value)
+        paymentDataFailedState,
   }) {
     return fetchPaymentDataSuccess(this);
   }
@@ -1412,6 +1450,7 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
         openPaymentDetailSuccess,
     TResult? Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult? Function(_PaymentDataFailedState value)? paymentDataFailedState,
   }) {
     return fetchPaymentDataSuccess?.call(this);
   }
@@ -1426,6 +1465,7 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
     TResult Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult Function(_PaymentDataFailedState value)? paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (fetchPaymentDataSuccess != null) {
@@ -1526,6 +1566,8 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
         openPaymentDetailSuccess,
     required TResult Function(PaymentModelStateData data)
         fetchListPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data, String message)
+        paymentDataFailedState,
   }) {
     return deletePaymentSuccess(data);
   }
@@ -1539,6 +1581,8 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult? Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
   }) {
     return deletePaymentSuccess?.call(data);
   }
@@ -1552,6 +1596,8 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (deletePaymentSuccess != null) {
@@ -1572,6 +1618,8 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
         openPaymentDetailSuccess,
     required TResult Function(_FetchListPaymentDataSuccess value)
         fetchListPaymentDataSuccess,
+    required TResult Function(_PaymentDataFailedState value)
+        paymentDataFailedState,
   }) {
     return deletePaymentSuccess(this);
   }
@@ -1587,6 +1635,7 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
         openPaymentDetailSuccess,
     TResult? Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult? Function(_PaymentDataFailedState value)? paymentDataFailedState,
   }) {
     return deletePaymentSuccess?.call(this);
   }
@@ -1601,6 +1650,7 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
     TResult Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult Function(_PaymentDataFailedState value)? paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (deletePaymentSuccess != null) {
@@ -1702,6 +1752,8 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
         openPaymentDetailSuccess,
     required TResult Function(PaymentModelStateData data)
         fetchListPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data, String message)
+        paymentDataFailedState,
   }) {
     return openPaymentDetailSuccess(data);
   }
@@ -1715,6 +1767,8 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult? Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
   }) {
     return openPaymentDetailSuccess?.call(data);
   }
@@ -1728,6 +1782,8 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (openPaymentDetailSuccess != null) {
@@ -1748,6 +1804,8 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
         openPaymentDetailSuccess,
     required TResult Function(_FetchListPaymentDataSuccess value)
         fetchListPaymentDataSuccess,
+    required TResult Function(_PaymentDataFailedState value)
+        paymentDataFailedState,
   }) {
     return openPaymentDetailSuccess(this);
   }
@@ -1763,6 +1821,7 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
         openPaymentDetailSuccess,
     TResult? Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult? Function(_PaymentDataFailedState value)? paymentDataFailedState,
   }) {
     return openPaymentDetailSuccess?.call(this);
   }
@@ -1777,6 +1836,7 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
     TResult Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult Function(_PaymentDataFailedState value)? paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (openPaymentDetailSuccess != null) {
@@ -1880,6 +1940,8 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
         openPaymentDetailSuccess,
     required TResult Function(PaymentModelStateData data)
         fetchListPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data, String message)
+        paymentDataFailedState,
   }) {
     return fetchListPaymentDataSuccess(data);
   }
@@ -1893,6 +1955,8 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult? Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
   }) {
     return fetchListPaymentDataSuccess?.call(data);
   }
@@ -1906,6 +1970,8 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
     TResult Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (fetchListPaymentDataSuccess != null) {
@@ -1926,6 +1992,8 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
         openPaymentDetailSuccess,
     required TResult Function(_FetchListPaymentDataSuccess value)
         fetchListPaymentDataSuccess,
+    required TResult Function(_PaymentDataFailedState value)
+        paymentDataFailedState,
   }) {
     return fetchListPaymentDataSuccess(this);
   }
@@ -1941,6 +2009,7 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
         openPaymentDetailSuccess,
     TResult? Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult? Function(_PaymentDataFailedState value)? paymentDataFailedState,
   }) {
     return fetchListPaymentDataSuccess?.call(this);
   }
@@ -1955,6 +2024,7 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
     TResult Function(_FetchListPaymentDataSuccess value)?
         fetchListPaymentDataSuccess,
+    TResult Function(_PaymentDataFailedState value)? paymentDataFailedState,
     required TResult orElse(),
   }) {
     if (fetchListPaymentDataSuccess != null) {
@@ -1975,4 +2045,199 @@ abstract class _FetchListPaymentDataSuccess implements PaymentState {
   @JsonKey(ignore: true)
   _$$_FetchListPaymentDataSuccessCopyWith<_$_FetchListPaymentDataSuccess>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_PaymentDataFailedStateCopyWith<$Res>
+    implements $PaymentStateCopyWith<$Res> {
+  factory _$$_PaymentDataFailedStateCopyWith(_$_PaymentDataFailedState value,
+          $Res Function(_$_PaymentDataFailedState) then) =
+      __$$_PaymentDataFailedStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PaymentModelStateData data, String message});
+
+  @override
+  $PaymentModelStateDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_PaymentDataFailedStateCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res, _$_PaymentDataFailedState>
+    implements _$$_PaymentDataFailedStateCopyWith<$Res> {
+  __$$_PaymentDataFailedStateCopyWithImpl(_$_PaymentDataFailedState _value,
+      $Res Function(_$_PaymentDataFailedState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_PaymentDataFailedState(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as PaymentModelStateData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PaymentDataFailedState implements _PaymentDataFailedState {
+  const _$_PaymentDataFailedState({required this.data, required this.message});
+
+  @override
+  final PaymentModelStateData data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'PaymentState.paymentDataFailedState(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PaymentDataFailedState &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PaymentDataFailedStateCopyWith<_$_PaymentDataFailedState> get copyWith =>
+      __$$_PaymentDataFailedStateCopyWithImpl<_$_PaymentDataFailedState>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PaymentModelStateData data) initial,
+    required TResult Function(PaymentModelStateData data) loading,
+    required TResult Function(PaymentModelStateData data)
+        fetchPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data) deletePaymentSuccess,
+    required TResult Function(PaymentModelStateData data)
+        openPaymentDetailSuccess,
+    required TResult Function(PaymentModelStateData data)
+        fetchListPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data, String message)
+        paymentDataFailedState,
+  }) {
+    return paymentDataFailedState(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentModelStateData data)? initial,
+    TResult? Function(PaymentModelStateData data)? loading,
+    TResult? Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
+    TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
+    TResult? Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
+  }) {
+    return paymentDataFailedState?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentModelStateData data)? initial,
+    TResult Function(PaymentModelStateData data)? loading,
+    TResult Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
+    TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
+    TResult Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
+    required TResult orElse(),
+  }) {
+    if (paymentDataFailedState != null) {
+      return paymentDataFailedState(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchPaymentDataSuccess value)
+        fetchPaymentDataSuccess,
+    required TResult Function(_DeletePaymentSuccess value) deletePaymentSuccess,
+    required TResult Function(_OpenPaymentDetailSuccess value)
+        openPaymentDetailSuccess,
+    required TResult Function(_FetchListPaymentDataSuccess value)
+        fetchListPaymentDataSuccess,
+    required TResult Function(_PaymentDataFailedState value)
+        paymentDataFailedState,
+  }) {
+    return paymentDataFailedState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
+    TResult? Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
+    TResult? Function(_OpenPaymentDetailSuccess value)?
+        openPaymentDetailSuccess,
+    TResult? Function(_FetchListPaymentDataSuccess value)?
+        fetchListPaymentDataSuccess,
+    TResult? Function(_PaymentDataFailedState value)? paymentDataFailedState,
+  }) {
+    return paymentDataFailedState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
+    TResult Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
+    TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
+    TResult Function(_FetchListPaymentDataSuccess value)?
+        fetchListPaymentDataSuccess,
+    TResult Function(_PaymentDataFailedState value)? paymentDataFailedState,
+    required TResult orElse(),
+  }) {
+    if (paymentDataFailedState != null) {
+      return paymentDataFailedState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PaymentDataFailedState implements PaymentState {
+  const factory _PaymentDataFailedState(
+      {required final PaymentModelStateData data,
+      required final String message}) = _$_PaymentDataFailedState;
+
+  @override
+  PaymentModelStateData get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PaymentDataFailedStateCopyWith<_$_PaymentDataFailedState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

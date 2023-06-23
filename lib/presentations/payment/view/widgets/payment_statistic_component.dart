@@ -6,9 +6,11 @@ class PaymentStatisticComponent extends StatelessWidget {
     super.key,
     required this.title,
     required this.imageAssets,
+    required this.data,
   });
 
   final String title;
+  final int data;
   final String imageAssets;
 
   @override
@@ -50,7 +52,7 @@ class PaymentStatisticComponent extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    "352",
+                    data.toString(),
                     textAlign: TextAlign.start,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontWeight: FontWeight.bold,

@@ -16,10 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Revenue {
-  String get amount => throw _privateConstructorUsedError;
-  String get cardPercent => throw _privateConstructorUsedError;
-  String get cashPercent => throw _privateConstructorUsedError;
-  String get otherPercent => throw _privateConstructorUsedError;
+  double get amount => throw _privateConstructorUsedError;
+  double get cardPercent => throw _privateConstructorUsedError;
+  double get cashPercent => throw _privateConstructorUsedError;
+  double get otherPercent => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RevenueCopyWith<Revenue> get copyWith => throw _privateConstructorUsedError;
@@ -31,10 +31,10 @@ abstract class $RevenueCopyWith<$Res> {
       _$RevenueCopyWithImpl<$Res, Revenue>;
   @useResult
   $Res call(
-      {String amount,
-      String cardPercent,
-      String cashPercent,
-      String otherPercent});
+      {double amount,
+      double cardPercent,
+      double cashPercent,
+      double otherPercent});
 }
 
 /// @nodoc
@@ -59,19 +59,19 @@ class _$RevenueCopyWithImpl<$Res, $Val extends Revenue>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       cardPercent: null == cardPercent
           ? _value.cardPercent
           : cardPercent // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       cashPercent: null == cashPercent
           ? _value.cashPercent
           : cashPercent // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       otherPercent: null == otherPercent
           ? _value.otherPercent
           : otherPercent // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
     ) as $Val);
   }
 }
@@ -84,10 +84,10 @@ abstract class _$$_RevenueCopyWith<$Res> implements $RevenueCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String amount,
-      String cardPercent,
-      String cashPercent,
-      String otherPercent});
+      {double amount,
+      double cardPercent,
+      double cashPercent,
+      double otherPercent});
 }
 
 /// @nodoc
@@ -109,19 +109,19 @@ class __$$_RevenueCopyWithImpl<$Res>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       cardPercent: null == cardPercent
           ? _value.cardPercent
           : cardPercent // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       cashPercent: null == cashPercent
           ? _value.cashPercent
           : cashPercent // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       otherPercent: null == otherPercent
           ? _value.otherPercent
           : otherPercent // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
     ));
   }
 }
@@ -130,23 +130,23 @@ class __$$_RevenueCopyWithImpl<$Res>
 
 class _$_Revenue implements _Revenue {
   const _$_Revenue(
-      {this.amount = "",
-      this.cardPercent = "",
-      this.cashPercent = "",
-      this.otherPercent = ""});
+      {this.amount = 0.0,
+      this.cardPercent = 0.0,
+      this.cashPercent = 0.0,
+      this.otherPercent = 0.0});
 
   @override
   @JsonKey()
-  final String amount;
+  final double amount;
   @override
   @JsonKey()
-  final String cardPercent;
+  final double cardPercent;
   @override
   @JsonKey()
-  final String cashPercent;
+  final double cashPercent;
   @override
   @JsonKey()
-  final String otherPercent;
+  final double otherPercent;
 
   @override
   String toString() {
@@ -180,19 +180,19 @@ class _$_Revenue implements _Revenue {
 
 abstract class _Revenue implements Revenue {
   const factory _Revenue(
-      {final String amount,
-      final String cardPercent,
-      final String cashPercent,
-      final String otherPercent}) = _$_Revenue;
+      {final double amount,
+      final double cardPercent,
+      final double cashPercent,
+      final double otherPercent}) = _$_Revenue;
 
   @override
-  String get amount;
+  double get amount;
   @override
-  String get cardPercent;
+  double get cardPercent;
   @override
-  String get cashPercent;
+  double get cashPercent;
   @override
-  String get otherPercent;
+  double get otherPercent;
   @override
   @JsonKey(ignore: true)
   _$$_RevenueCopyWith<_$_Revenue> get copyWith =>
