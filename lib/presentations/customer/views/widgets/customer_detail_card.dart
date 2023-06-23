@@ -76,6 +76,7 @@ class _CustomerTicketInformationCardState
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 10.0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
@@ -86,7 +87,8 @@ class _CustomerTicketInformationCardState
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 10, vertical: 10.0),
               constraints: const BoxConstraints(maxHeight: 350),
               child: const FlightDataCustomerScreen(),
             ),

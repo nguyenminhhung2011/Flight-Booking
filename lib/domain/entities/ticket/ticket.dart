@@ -9,7 +9,7 @@ class Ticket with _$Ticket {
     required String gender,
     required String phoneNumber,
     required String emailAddress,
-    required String seat,
+    required int seat,
     required int type,
     required double luggage,
     required DateTime dateBorn,

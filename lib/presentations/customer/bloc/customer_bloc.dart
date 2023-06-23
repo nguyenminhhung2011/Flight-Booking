@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/customer/customer.dart';
 import '../../../domain/usecase/customer_usecase.dart';
+import '../../../domain/usecase/payment_usecase.dart';
 
 part 'customer_event.dart';
 
@@ -18,10 +19,13 @@ part 'customer_bloc.freezed.dart';
 @injectable
 class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   final CustomerUseCase customerUseCase;
+  final PaymentUseCase paymentUseCase;
   CustomerModelState get data => state.data;
 
-  CustomerBloc(this.customerUseCase)
-      : super(
+  CustomerBloc(
+    this.customerUseCase,
+    this.paymentUseCase,
+  ) : super(
           const CustomerState.initial(
               data: CustomerModelState(
             customers: <Customer>[],
@@ -36,6 +40,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
     on<_EditCustomer>(_onEditCustomer);
     on<_AddCustomer>(_onAddCustomer);
     on<_UpdateCustomers>(_onUpdateCustomers);
+    on<_GetLatestPaymentOfCustomer>(_onGetPaymentOfCustomer);
   }
 
   FutureOr<void> _onStarted(_OnStarted event, Emitter<CustomerState> emit) {}
@@ -46,8 +51,8 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
     if (result != null) {
       emit(
         _SelectCustomerSuccess(
-          data: state.data.copyWith(
-            customers: state.data.customers,
+          data: data.copyWith(
+            customers: data.customers,
             currentIndex: event.index,
           ),
           customer: result,
@@ -55,8 +60,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
       );
     } else {
       emit(
-        _SelectCustomerFailed(
-            data: state.data, message: "Get Customer Data Failed"),
+        _SelectCustomerFailed(data: data, message: "Get Customer Data Failed"),
       );
     }
   }
@@ -65,7 +69,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
     _FetchCustomerData event,
     Emitter<CustomerState> emit,
   ) async {
-    emit(_Loading(data: state.data));
+    emit(_Loading(data: data, loadingField: 0));
 
     try {
       final response = await customerUseCase.fetchAllCustomer();
@@ -82,14 +86,14 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
 
   FutureOr<void> _onOpenCustomerDetail(
       _OpenCustomerDetail event, Emitter<CustomerState> emit) async {
-    emit(_Loading(data: state.data));
+    emit(_Loading(data: data, loadingField: 0));
 
     final result = await customerUseCase.getCustomerById(event.customerId);
 
     if (result == null) {
     } else {
       emit(_OpenCustomerDetailSuccess(
-        data: state.data,
+        data: data,
         customer: result,
       ));
     }
@@ -102,11 +106,11 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
     _DeleteCustomer event,
     Emitter<CustomerState> emit,
   ) async {
-    emit(CustomerState.loading(data: data));
+    emit(_Loading(data: data, loadingField: 0));
     try {
       final response = await customerUseCase.deleteCustomer(event.id);
       if (response) {
-        return emit(CustomerState.deleteCustomerSuccess(
+        return emit(_DeleteCustomerSuccess(
           data: data.copyWith(
             customers: data.customers
                 .where((element) => element.id != event.id)
@@ -115,12 +119,12 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
         ));
       }
     } on AppException catch (e) {
-      emit(CustomerState.deleteCustomerFailed(
+      emit(_DeleteCustomerFailed(
         data: data,
         message: e.toString(),
       ));
     } catch (e) {
-      emit(CustomerState.deleteCustomerFailed(
+      emit(_DeleteCustomerFailed(
         data: data,
         message: e.toString(),
       ));
@@ -140,7 +144,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
     Emitter<CustomerState> emit,
   ) {
     if (event.isEdit) {
-      emit(CustomerState.updateCustomerSuccess(
+      emit(_UpdateCustomerSuccess(
           data: data.copyWith(
         customers: data.customers.map((e) {
           if (e.id == event.customer.id) {
@@ -150,10 +154,36 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
         }).toList(),
       )));
     } else {
-      emit(CustomerState.updateCustomerSuccess(
+      emit(_UpdateCustomerSuccess(
           data: data.copyWith(
         customers: [...data.customers, event.customer],
       )));
+    }
+  }
+
+  FutureOr<void> _onGetPaymentOfCustomer(
+    _GetLatestPaymentOfCustomer event,
+    Emitter<CustomerState> emit,
+  ) async {
+    emit(_Loading(data: data, loadingField: 1));
+    try {
+      final response =
+          await paymentUseCase.getLatestPaymentOfCustomer(event.customerId);
+      if (response == null) {
+        return emit(_GetPaymentOfCustomerFailed(
+          data: data,
+          message: 'Can\'t get latest payment',
+        ));
+      }
+      return emit(_GetPaymentOfCustomerSuccess(
+          data: data.copyWith(
+        paymentSelected: response,
+      )));
+    } catch (e) {
+      emit(_GetPaymentOfCustomerFailed(
+        data: data,
+        message: e.toString(),
+      ));
     }
   }
 }

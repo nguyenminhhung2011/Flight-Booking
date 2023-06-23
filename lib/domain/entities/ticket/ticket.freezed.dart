@@ -21,7 +21,7 @@ mixin _$Ticket {
   String get gender => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
   String get emailAddress => throw _privateConstructorUsedError;
-  String get seat => throw _privateConstructorUsedError;
+  int get seat => throw _privateConstructorUsedError;
   int get type => throw _privateConstructorUsedError;
   double get luggage => throw _privateConstructorUsedError;
   DateTime get dateBorn => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $TicketCopyWith<$Res> {
       String gender,
       String phoneNumber,
       String emailAddress,
-      String seat,
+      int seat,
       int type,
       double luggage,
       DateTime dateBorn,
@@ -97,7 +97,7 @@ class _$TicketCopyWithImpl<$Res, $Val extends Ticket>
       seat: null == seat
           ? _value.seat
           : seat // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -130,7 +130,7 @@ abstract class _$$_TicketCopyWith<$Res> implements $TicketCopyWith<$Res> {
       String gender,
       String phoneNumber,
       String emailAddress,
-      String seat,
+      int seat,
       int type,
       double luggage,
       DateTime dateBorn,
@@ -182,7 +182,7 @@ class __$$_TicketCopyWithImpl<$Res>
       seat: null == seat
           ? _value.seat
           : seat // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -229,7 +229,7 @@ class _$_Ticket implements _Ticket {
   @override
   final String emailAddress;
   @override
-  final String seat;
+  final int seat;
   @override
   final int type;
   @override
@@ -283,7 +283,7 @@ abstract class _Ticket implements Ticket {
       required final String gender,
       required final String phoneNumber,
       required final String emailAddress,
-      required final String seat,
+      required final int seat,
       required final int type,
       required final double luggage,
       required final DateTime dateBorn,
@@ -300,7 +300,7 @@ abstract class _Ticket implements Ticket {
   @override
   String get emailAddress;
   @override
-  String get seat;
+  int get seat;
   @override
   int get type;
   @override

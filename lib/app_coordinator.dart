@@ -11,8 +11,11 @@ import 'package:flight_booking/presentations/handle_config_airport/blocs/handle_
 import 'package:flight_booking/presentations/handle_config_airport/view/handle_confg_airport_form.dart';
 import 'package:flight_booking/presentations/list_ticket/views/widgets/position_dialog.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
+import 'package:flight_booking/presentations/selected_customer/notifier/selected_customer_notidier.dart';
+import 'package:flight_booking/presentations/selected_customer/views/selected_customer_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 import 'core/components/widgets/range_date_picker_custom.dart';
 import 'core/dependency_injection/di.dart';
@@ -65,6 +68,17 @@ extension AppCoordinator<T> on BuildContext {
           backgroundColor: Colors.transparent,
           child: AddCustomerScreen(),
         ),
+      ),
+    );
+  }
+
+  Future<T?> showSelectedCustomer() {
+    return showDialog(
+      context: this,
+      builder: (context) => ChangeNotifierProvider<SelectedCustomerNotifier>(
+        create: (_) => injector.get(),
+        child: const Dialog(
+            backgroundColor: Colors.transparent, child: SelectedCustomerForm()),
       ),
     );
   }

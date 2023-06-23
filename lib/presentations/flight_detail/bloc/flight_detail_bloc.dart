@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
-import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/domain/usecase/flight_usecase.dart';
 import 'package:flight_booking/domain/usecase/tic_information_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/components/network/app_exception.dart';
+import '../../../domain/entities/customer/customer.dart';
 import '../../../domain/entities/seat_selected/seat_selected.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import 'flight_detail_model_state.dart';
@@ -45,6 +45,7 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
     on<_GetFlightById>(_onGetFlightById);
     on<_GetTicInformation>(_onGetTicInformation);
     on<_SelectedSeat>(_onSelectedSeat);
+    on<_UpdateCustomerSelected>(_onUpdateCustomer);
   }
 
   FlightDetailModelState get data => state.data;
@@ -130,29 +131,15 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
   FutureOr<void> _onSelectedSeat(
     _SelectedSeat event,
     Emitter<FlightDetailState> emit,
+  ) {}
+
+  FutureOr<void> _onUpdateCustomer(
+    _UpdateCustomerSelected event,
+    Emitter<FlightDetailState> emit,
   ) {
-    final newSeat = SeatSelected(
-        seatIndex: event.seatIndex, ticInformation: event.ticInformation);
-    final checkFound = data.chairsSelected
-        .map((e) => convertToSeatString(e))
-        .contains(convertToSeatString(newSeat));
-    if (checkFound) {
-      emit(FlightDetailState.selectedSeatSuccess(
-          data: data.copyWith(
-        chairsSelected: data.chairsSelected
-            .where(
-              (element) =>
-                  element.seatIndex != newSeat.seatIndex ||
-                  element.ticInformation.id.ticketType !=
-                      newSeat.ticInformation.id.ticketType,
-            )
-            .toList(),
-      )));
-    } else {
-      emit(FlightDetailState.selectedSeatSuccess(
-          data: data.copyWith(
-        chairsSelected: [...data.chairsSelected, newSeat],
-      )));
-    }
+    emit(_UpdateCustomerSuccess(
+        data: data.copyWith(
+      customerSelected: event.customer,
+    )));
   }
 }

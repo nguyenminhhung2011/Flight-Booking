@@ -11,6 +11,7 @@ part 'payment_api.g.dart';
 class PaymentApiEndpoint {
   static const branch = '/api/v1/payment';
   static const getAllPayment = "$branch/all";
+  static const getLatestPaymentOfCustomer = "$branch/getLatest";
   static const getPaymentByPage = "$branch/";
   static const getPaymentSearchList = "$branch/search";
   static const filterPayment = "$branch/search";
@@ -36,6 +37,16 @@ abstract class PaymentApi {
   Future<HttpResponse<List<PaymentModel>>> getPaymentByPage(
     @Path('page') int page,
     @Path('perPage') int perPage,
+  );
+
+  @GET("${PaymentApiEndpoint.getAllPayment}/customer={customerId}")
+  Future<HttpResponse<List<PaymentModel>>> getAllPaymentByCustomerId(
+    @Path('customerId') int customerId,
+  );
+
+  @GET(PaymentApiEndpoint.getLatestPaymentOfCustomer)
+  Future<HttpResponse<PaymentModel?>> getLatestPaymentOfCustomer(
+    @Query("id") int customerId,
   );
 
   @PUT(PaymentApiEndpoint.updatePayment)

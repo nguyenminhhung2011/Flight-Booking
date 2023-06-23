@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:flight_booking/core/components/network/app_exception.dart';
 import 'package:flight_booking/data/models/model_heloer.dart';
 import 'package:flight_booking/domain/entities/customer/customer.dart';
@@ -79,5 +80,19 @@ class CustomerRepositoryImpl implements CustomerRepository {
       );
     }
     return response.data.toEntity();
+  }
+
+  @override
+  Future<List<Customer>> searchCustomer(String text) async {
+    final response = await _customerApi.searchCustomer(
+        search: text, cancelRequest: CancelToken());
+    if (response.response.statusCode != HttpStatus.ok) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage ?? _defaultError,
+      );
+    }
+    final result = response.data?.map((e) => e.toEntity()).toList();
+    return result ?? <Customer>[];
   }
 }

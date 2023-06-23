@@ -15,6 +15,7 @@ class CustomerEndPoint {
   static const addCustomerUrl = "$branch/add";
   static const getCustomerByPageUrl = "$branch/page/";
   static const filterCustomerUrl = "$branch/filter/";
+  static const searchCustomerUrl = "$branch/search/";
 }
 
 @RestApi()
@@ -36,9 +37,9 @@ abstract class CustomerApi {
     @Path("pageSize") int pageSize,
   );
 
-  @GET('${CustomerEndPoint.filterCustomerUrl}keyword={search}')
-  Future<HttpResponse<List<CustomerModel>?>> filterCustomer({
-    @Path("search") required String search,
+  @GET('${CustomerEndPoint.searchCustomerUrl}{keyword}')
+  Future<HttpResponse<List<CustomerModel>?>> searchCustomer({
+    @Path("keyword") required String search,
     @CancelRequest() required CancelToken cancelRequest,
   });
 

@@ -19,4 +19,7 @@ class CustomerEvent with _$CustomerEvent {
     required bool isEdit,
     required Customer customer,
   }) = _UpdateCustomers;
+  const factory CustomerEvent.getLatestPaymentOfCustomer({
+    required int customerId,
+  }) = _GetLatestPaymentOfCustomer;
 }

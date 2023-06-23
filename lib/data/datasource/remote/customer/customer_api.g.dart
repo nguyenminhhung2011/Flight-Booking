@@ -101,7 +101,7 @@ class _CustomerApi implements CustomerApi {
   }
 
   @override
-  Future<HttpResponse<List<CustomerModel>?>> filterCustomer({
+  Future<HttpResponse<List<CustomerModel>?>> searchCustomer({
     required search,
     required cancelRequest,
   }) async {
@@ -117,7 +117,7 @@ class _CustomerApi implements CustomerApi {
     )
             .compose(
               _dio.options,
-              '/api/v1/customer/filter/keyword=${search}',
+              '/api/v1/customer/search/${search}',
               queryParameters: queryParameters,
               data: _data,
               cancelToken: cancelRequest,

@@ -19,7 +19,7 @@ class PaymentUseCase {
   Future<Payment> getPaymentById(int id) async {
     final result = (await _paymentApi.getPaymentById(id));
 
-    return result.data?.toEntity ?? Payment();
+    return result.data?.toEntity ?? const Payment();
   }
 
   Future<List<Payment>> getPaymentByPage(int page, int perPage) async {
@@ -43,4 +43,7 @@ class PaymentUseCase {
   Future<PaymentSuccessResponse> deletePayment(int id) async {
     return (await _paymentApi.deletePayment(id)).data;
   }
+
+  Future<Payment?> getLatestPaymentOfCustomer(int customerId) async =>
+      (await _paymentApi.getLatestPaymentOfCustomer(customerId)).data?.toEntity;
 }
