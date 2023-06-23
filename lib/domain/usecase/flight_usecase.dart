@@ -55,7 +55,7 @@ class FlightsUsecase {
     var add = await _flightRepository.addNewFlight(newFlight);
 
     if (add != null) {
-      return newFlight;
+      return add;
     }
 
     return null;

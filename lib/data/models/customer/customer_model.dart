@@ -37,7 +37,7 @@ class CustomerModel {
       _$CustomerModelFromJson(json);
 
   Customer toEntity() => Customer(
-        id: id.toString(),
+        id: id,
         name: name,
         identifyNum: identifyNum,
         phoneNumber: phoneNumber,

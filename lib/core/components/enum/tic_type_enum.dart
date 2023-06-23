@@ -22,4 +22,18 @@ enum TicTypeEnum {
         TicTypeEnum.firstClass => Colors.yellow,
         _ => null,
       };
+  static TicTypeEnum fromInt(int typeInteger) => switch (typeInteger) {
+        0 => TicTypeEnum.economyClass,
+        1 => TicTypeEnum.premiumEconomyClass,
+        2 => TicTypeEnum.businessClass,
+        3 => TicTypeEnum.firstClass,
+        _ => TicTypeEnum.none
+      };
+
+  int get toInteger => switch (this) {
+        TicTypeEnum.economyClass => 0,
+        TicTypeEnum.premiumEconomyClass => 1,
+        TicTypeEnum.businessClass => 2,
+        _ => 3,
+      };
 }

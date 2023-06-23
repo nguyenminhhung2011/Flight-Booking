@@ -4,11 +4,12 @@ import 'package:bloc/bloc.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/domain/usecase/flight_usecase.dart';
 import 'package:flight_booking/domain/usecase/tic_information_usecase.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/components/network/app_exception.dart';
+import '../../../domain/entities/customer/customer.dart';
+import '../../../domain/entities/seat_selected/seat_selected.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import 'flight_detail_model_state.dart';
 
@@ -34,6 +35,7 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
               itemView: ItemViewEnum.gridView,
               showMoreInfor: false,
               ticInformation: <TicketInformation>[],
+              chairsSelected: <SeatSelected>[],
             ),
           ),
         ) {
@@ -42,9 +44,12 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
     on<_showMoreInformation>(_onShowMoreInformation);
     on<_GetFlightById>(_onGetFlightById);
     on<_GetTicInformation>(_onGetTicInformation);
+    on<_SelectedSeat>(_onSelectedSeat);
+    on<_UpdateCustomerSelected>(_onUpdateCustomer);
   }
 
   FlightDetailModelState get data => state.data;
+  int get flightId => _flightId;
 
   FutureOr<void> _onStarted(
     _Started event,
@@ -105,6 +110,7 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
     try {
       final result =
           await _ticketInformationUsecase.getTicketByFlight(_flightId);
+      result.sort((a, b) => a.seatPosition.compareTo(b.seatPosition));
       emit(FlightDetailState.getTicInformationSuccess(
           data: data.copyWith(
         ticInformation: result,
@@ -120,5 +126,20 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
         message: e.toString(),
       ));
     }
+  }
+
+  FutureOr<void> _onSelectedSeat(
+    _SelectedSeat event,
+    Emitter<FlightDetailState> emit,
+  ) {}
+
+  FutureOr<void> _onUpdateCustomer(
+    _UpdateCustomerSelected event,
+    Emitter<FlightDetailState> emit,
+  ) {
+    emit(_UpdateCustomerSuccess(
+        data: data.copyWith(
+      customerSelected: event.customer,
+    )));
   }
 }

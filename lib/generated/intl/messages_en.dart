@@ -171,6 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Economy Class Ticket"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "editAirport": MessageLookupByLibrary.simpleMessage("Edit Airport"),
+        "editCustomer": MessageLookupByLibrary.simpleMessage("Edit Customer"),
         "editFlight": MessageLookupByLibrary.simpleMessage("Edit Flight"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailAddress": MessageLookupByLibrary.simpleMessage("Email Address"),
@@ -399,6 +400,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectPaymentMethod":
             MessageLookupByLibrary.simpleMessage("Select payment method"),
         "selectScott": MessageLookupByLibrary.simpleMessage("Select Scott"),
+        "selectedCustomer":
+            MessageLookupByLibrary.simpleMessage("Selected Customer"),
         "sentVerificationEmail":
             MessageLookupByLibrary.simpleMessage("Sent Verification Email"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),

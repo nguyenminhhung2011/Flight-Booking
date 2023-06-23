@@ -8,6 +8,7 @@ class ListFlightState with _$ListFlightState {
   }) = _Initial;
   const factory ListFlightState.loading({
     required ListFlightModelState data,
+    required int loadingField,
   }) = _Loading;
 
   const factory ListFlightState.selectListFlightSuccess({
@@ -78,4 +79,26 @@ class ListFlightState with _$ListFlightState {
     required ListFlightModelState data,
     required String message,
   }) = _FetchAirlineFailed;
+
+  const factory ListFlightState.getFlightByIdSuccess({
+    required ListFlightModelState data,
+    required int flightId,
+  }) = _GetFlightByIdSuccess;
+  const factory ListFlightState.getFlightByIdFailed({
+    required ListFlightModelState data,
+    required String message,
+  }) = _GetFlightByIdFailed;
+
+  const factory ListFlightState.getTicInformationByFlightIdSuccess({
+    required ListFlightModelState data,
+  }) = _GetTicInformationByFlightIdSuccess;
+  const factory ListFlightState.getTicInformationByFlightIdFailed({
+    required ListFlightModelState data,
+    required String message,
+  }) = _GetTicInformationByFlightIdFailed;
+
+  bool get loadingMainField => maybeWhen(
+      orElse: () => false, loading: (data, loadingField) => loadingField == 0);
+  bool get loadingSubField => maybeWhen(
+      orElse: () => false, loading: (data, loadingField) => loadingField == 1);
 }

@@ -311,7 +311,7 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                         (ticket) => CustomerInformationField(
                                           isBorder: true,
                                           customer: Customer(
-                                            id: ticket.id,
+                                            id: int.parse(ticket.id),
                                             name: ticket.name,
                                             phoneNumber: ticket.phoneNumber,
                                             email: ticket.emailAddress,

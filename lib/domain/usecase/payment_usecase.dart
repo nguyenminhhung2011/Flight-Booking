@@ -43,6 +43,9 @@ class PaymentUseCase {
     return (await _paymentApi.deletePayment(id)).data;
   }
 
+  Future<Payment?> getLatestPaymentOfCustomer(int customerId) async =>
+      (await _paymentApi.getLatestPaymentOfCustomer(customerId)).data?.toEntity;
+
   Future<PaymentModelStateData> fetchPaymentManagementPage() async {
     final response = (await _paymentApi.fetchPaymentManagementPage());
     return response.data.toEntity;

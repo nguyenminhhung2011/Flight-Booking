@@ -5,7 +5,7 @@ part 'customer.g.dart';
 @freezed
 class Customer with _$Customer {
   const factory Customer({
-    required String id,
+    required int id,
     required String name,
     required String phoneNumber,
     required String email,
@@ -18,7 +18,7 @@ class Customer with _$Customer {
       _$CustomerFromJson(json);
 
   static final Customer empty = Customer(
-    id: "id",
+    id: 0,
     name: "name",
     identifyNum: "identityNum",
     phoneNumber: " phoneNumber",

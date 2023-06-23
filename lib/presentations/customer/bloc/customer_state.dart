@@ -6,8 +6,10 @@ class CustomerState with _$CustomerState {
   const factory CustomerState.initial({required CustomerModelState data}) =
       _Initial;
 
-  const factory CustomerState.loading({required CustomerModelState data}) =
-      _Loading;
+  const factory CustomerState.loading({
+    required CustomerModelState data,
+    required int loadingField,
+  }) = _Loading;
 
   const factory CustomerState.fetchCustomerDataSuccess({
     required CustomerModelState data,
@@ -43,19 +45,29 @@ class CustomerState with _$CustomerState {
   const factory CustomerState.deleteCustomerFailed(
       {required CustomerModelState data,
       required String message}) = _DeleteCustomerFailed;
+  const factory CustomerState.getPaymentOfCustomerSuccess(
+      {required CustomerModelState data}) = _GetPaymentOfCustomerSuccess;
+
+  const factory CustomerState.getPaymentOfCustomerFailed(
+      {required CustomerModelState data,
+      required String message}) = _GetPaymentOfCustomerFailed;
 
   const factory CustomerState.openCustomerAddEditPage({
     required CustomerModelState data,
     required String message,
   }) = _OpenCustomerAddEditPage;
 
-  bool get isLoading => this is _Loading;
+  const factory CustomerState.updateCustomerSuccess({
+    required CustomerModelState data,
+  }) = _UpdateCustomerSuccess;
 
-  Customer get customer {
-    if (this is _SelectCustomerSuccess) {
-      return (this as _SelectCustomerSuccess).customer;
-    } else {
-      return Customer.empty;
-    }
-  }
+  bool get isLoadingGetData => maybeWhen(
+      orElse: () => false, loading: (data, loadingField) => loadingField == 0);
+  bool get isLoadingGetPayment => maybeWhen(
+      orElse: () => false, loading: (data, loadingField) => loadingField == 1);
+
+  Customer get customer => maybeWhen(
+        orElse: () => Customer.empty,
+        selectCustomerSuccess: (data, customer) => customer,
+      );
 }

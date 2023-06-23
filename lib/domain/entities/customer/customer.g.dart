@@ -7,7 +7,7 @@ part of 'customer.dart';
 // **************************************************************************
 
 _$_Customer _$$_CustomerFromJson(Map<String, dynamic> json) => _$_Customer(
-      id: json['id'] as String,
+      id: json['id'] as int,
       name: json['name'] as String,
       phoneNumber: json['phoneNumber'] as String,
       email: json['email'] as String,

@@ -3342,6 +3342,26 @@ class S {
     );
   }
 
+  /// `Edit Customer`
+  String get editCustomer {
+    return Intl.message(
+      'Edit Customer',
+      name: 'editCustomer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Selected Customer`
+  String get selectedCustomer {
+    return Intl.message(
+      'Selected Customer',
+      name: 'selectedCustomer',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Departure Place`
   String get departurePlace {
     return Intl.message(

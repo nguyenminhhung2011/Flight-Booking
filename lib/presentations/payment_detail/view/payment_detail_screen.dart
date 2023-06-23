@@ -1,9 +1,7 @@
 import 'dart:math';
 
-import 'package:flight_booking/core/components/enum/action_enum.dart';
 import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
-import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_ticket_table.dart';
 import 'package:flight_booking/core/components/widgets/payment_status_utils.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
@@ -12,10 +10,13 @@ import 'package:flight_booking/presentations/payment_detail/view/widgets/flight_
 import 'package:flight_booking/presentations/payment_detail/view/widgets/payment_detail_card.dart';
 import 'package:flight_booking/presentations/payment_detail/view/widgets/payment_info_card.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
+import 'package:intl/intl.dart';
+
+import '../../../core/components/enum/action_enum.dart';
+import '../../../core/components/widgets/flux_table/flux_table_row.dart';
+import '../../../generated/l10n.dart';
 
 class PaymentDetailScreen extends StatelessWidget {
   PaymentDetailScreen({super.key});
@@ -110,7 +111,8 @@ class PaymentDetailScreen extends StatelessWidget {
           },
           rowData: [
             FlexRowTableData<String>(flex: 2, data: data.id),
-            FlexRowTableData<String>(flex: 2, data: data.customer?.id),
+            FlexRowTableData<String>(
+                flex: 2, data: data.customer?.id.toString()),
             FlexRowTableData<String>(flex: 2, data: data.customer?.name),
             FlexRowTableData<String>(flex: 2, data: data.paymentType.name),
             FlexRowTableData<String>(flex: 2, data: data.total.toString()),

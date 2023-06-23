@@ -41,7 +41,7 @@ class _HomeMobileScreenState extends State<HomeMobileScreen> {
           IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
           const Spacer(),
           const AvatarWidget(
-            imageUrl: ImageConst.avatarDefaulte,
+            imageUrl: ImageConst.avatarDefaults,
             width: 40,
           ),
           const SizedBox(width: 10.0),

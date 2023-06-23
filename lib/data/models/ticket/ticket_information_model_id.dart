@@ -11,7 +11,10 @@ class TicketInformationModelId {
   @JsonKey(name: 'flight')
   late FlightModel flight;
 
-  TicketInformationModelId();
+  TicketInformationModelId(
+    this.ticketType,
+    this.flight,
+  );
 
   Map<String, dynamic> toJson() => _$TicketInformationModelIdToJson(this);
   factory TicketInformationModelId.fromJson(Map<String, dynamic> json) =>

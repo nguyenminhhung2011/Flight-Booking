@@ -150,7 +150,7 @@ class _FlightHistoryDetailScreenState extends State<FlightHistoryDetailScreen> {
           ),
           CustomerInformationField(
             customer: Customer(
-              id: randomString(),
+              id: 0,
               name: 'Nguyen Minh Hung',
               phoneNumber: '09435385835',
               email: 'hungnguyen.201102a@gmail.com',
