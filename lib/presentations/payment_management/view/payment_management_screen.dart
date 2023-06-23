@@ -15,6 +15,7 @@ import 'package:flight_booking/core/components/widgets/range_date_picker_custom.
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
+import 'package:flight_booking/domain/entities/payment/payment_item.dart';
 import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/payment_bloc.dart';
 import 'package:flight_booking/presentations/payment/view/widgets/payment_method_statistic_component.dart';
@@ -344,8 +345,8 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
     return status.elementAt(Random().nextInt(4));
   }
 
-  Widget _buildPaymentTable(List<Payment> payments) {
-    return FluxTicketTable<Payment>(
+  Widget _buildPaymentTable(List<PaymentItem> payments) {
+    return FluxTicketTable<PaymentItem>(
       data: payments,
       rowBuilder: (data) {
         return FluxTableRow(

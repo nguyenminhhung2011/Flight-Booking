@@ -10,7 +10,7 @@ PaymentManagementPageModel _$PaymentManagementPageModelFromJson(
         Map<String, dynamic> json) =>
     PaymentManagementPageModel(
       payments: (json['payments'] as List<dynamic>)
-          .map((e) => PaymentModel.fromJson(e as Map<String, dynamic>))
+          .map((e) => PaymentLight.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalData: TotalStatisticalDataModel.fromJson(
           json['totalData'] as Map<String, dynamic>),
