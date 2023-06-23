@@ -5,11 +5,10 @@ part 'ticket_information.freezed.dart';
 
 @freezed
 class TicketInformation with _$TicketInformation {
-  const factory TicketInformation({
-    required TicketInformationId id,
-    required int quantity,
-    required double price,
-    required int seatPosition,
-    required String seatHeader,
-  }) = _TicketInformation;
+  const factory TicketInformation(
+      {required TicketInformationId id,
+      required int quantity,
+      required double price,
+      required int seatPosition,
+      required String seatHeader}) = _TicketInformation;
 }

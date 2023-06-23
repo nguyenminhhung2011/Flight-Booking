@@ -20,11 +20,11 @@ part 'flight_detail_bloc.freezed.dart';
 @injectable
 class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
   final int _flightId;
-  final FlightsUsecase _flightsUsecase;
+  final FlightsUsecase _flightsUnease;
   final TicketInformationUsecase _ticketInformationUsecase;
   FlightDetailBloc(
     @factoryParam int flightId,
-    this._flightsUsecase,
+    this._flightsUnease,
     this._ticketInformationUsecase,
   )   : _flightId = flightId,
         super(
@@ -71,7 +71,7 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
   ) async {
     emit(FlightDetailState.loading(data: data, loadingField: 0));
     try {
-      final result = await _flightsUsecase.getFlightById(_flightId.toString());
+      final result = await _flightsUnease.getFlightById(_flightId.toString());
       if (result == null) {
         emit(FlightDetailState.getFlightByIdFailed(
           data: state.data,

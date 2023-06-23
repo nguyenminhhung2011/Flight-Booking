@@ -16,10 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TicketTierData {
-  String get economy => throw _privateConstructorUsedError;
-  String get premiumEconomy => throw _privateConstructorUsedError;
-  String get business => throw _privateConstructorUsedError;
-  String get first => throw _privateConstructorUsedError;
+  int get economy => throw _privateConstructorUsedError;
+  int get premiumEconomy => throw _privateConstructorUsedError;
+  int get business => throw _privateConstructorUsedError;
+  int get first => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TicketTierDataCopyWith<TicketTierData> get copyWith =>
@@ -32,8 +32,7 @@ abstract class $TicketTierDataCopyWith<$Res> {
           TicketTierData value, $Res Function(TicketTierData) then) =
       _$TicketTierDataCopyWithImpl<$Res, TicketTierData>;
   @useResult
-  $Res call(
-      {String economy, String premiumEconomy, String business, String first});
+  $Res call({int economy, int premiumEconomy, int business, int first});
 }
 
 /// @nodoc
@@ -58,19 +57,19 @@ class _$TicketTierDataCopyWithImpl<$Res, $Val extends TicketTierData>
       economy: null == economy
           ? _value.economy
           : economy // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       premiumEconomy: null == premiumEconomy
           ? _value.premiumEconomy
           : premiumEconomy // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       business: null == business
           ? _value.business
           : business // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       first: null == first
           ? _value.first
           : first // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ) as $Val);
   }
 }
@@ -83,8 +82,7 @@ abstract class _$$_TicketTierDataCopyWith<$Res>
       __$$_TicketTierDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String economy, String premiumEconomy, String business, String first});
+  $Res call({int economy, int premiumEconomy, int business, int first});
 }
 
 /// @nodoc
@@ -107,44 +105,45 @@ class __$$_TicketTierDataCopyWithImpl<$Res>
       economy: null == economy
           ? _value.economy
           : economy // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       premiumEconomy: null == premiumEconomy
           ? _value.premiumEconomy
           : premiumEconomy // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       business: null == business
           ? _value.business
           : business // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       first: null == first
           ? _value.first
           : first // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_TicketTierData implements _TicketTierData {
+class _$_TicketTierData extends _TicketTierData {
   const _$_TicketTierData(
-      {this.economy = "",
-      this.premiumEconomy = "",
-      this.business = "",
-      this.first = ""});
+      {this.economy = 0,
+      this.premiumEconomy = 0,
+      this.business = 0,
+      this.first = 0})
+      : super._();
 
   @override
   @JsonKey()
-  final String economy;
+  final int economy;
   @override
   @JsonKey()
-  final String premiumEconomy;
+  final int premiumEconomy;
   @override
   @JsonKey()
-  final String business;
+  final int business;
   @override
   @JsonKey()
-  final String first;
+  final int first;
 
   @override
   String toString() {
@@ -175,21 +174,22 @@ class _$_TicketTierData implements _TicketTierData {
       __$$_TicketTierDataCopyWithImpl<_$_TicketTierData>(this, _$identity);
 }
 
-abstract class _TicketTierData implements TicketTierData {
+abstract class _TicketTierData extends TicketTierData {
   const factory _TicketTierData(
-      {final String economy,
-      final String premiumEconomy,
-      final String business,
-      final String first}) = _$_TicketTierData;
+      {final int economy,
+      final int premiumEconomy,
+      final int business,
+      final int first}) = _$_TicketTierData;
+  const _TicketTierData._() : super._();
 
   @override
-  String get economy;
+  int get economy;
   @override
-  String get premiumEconomy;
+  int get premiumEconomy;
   @override
-  String get business;
+  int get business;
   @override
-  String get first;
+  int get first;
   @override
   @JsonKey(ignore: true)
   _$$_TicketTierDataCopyWith<_$_TicketTierData> get copyWith =>

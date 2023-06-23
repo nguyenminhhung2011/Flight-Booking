@@ -16,10 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TotalStatisticalData {
-  String get totalPaymentToday => throw _privateConstructorUsedError;
-  String get totalCustomerToday => throw _privateConstructorUsedError;
-  String get totalFlightToday => throw _privateConstructorUsedError;
-  String get totalPassengerToday => throw _privateConstructorUsedError;
+  int get totalPaymentToday => throw _privateConstructorUsedError;
+  int get totalCustomerToday => throw _privateConstructorUsedError;
+  int get totalFlightToday => throw _privateConstructorUsedError;
+  int get totalPassengerToday => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TotalStatisticalDataCopyWith<TotalStatisticalData> get copyWith =>
@@ -33,10 +33,10 @@ abstract class $TotalStatisticalDataCopyWith<$Res> {
       _$TotalStatisticalDataCopyWithImpl<$Res, TotalStatisticalData>;
   @useResult
   $Res call(
-      {String totalPaymentToday,
-      String totalCustomerToday,
-      String totalFlightToday,
-      String totalPassengerToday});
+      {int totalPaymentToday,
+      int totalCustomerToday,
+      int totalFlightToday,
+      int totalPassengerToday});
 }
 
 /// @nodoc
@@ -62,19 +62,19 @@ class _$TotalStatisticalDataCopyWithImpl<$Res,
       totalPaymentToday: null == totalPaymentToday
           ? _value.totalPaymentToday
           : totalPaymentToday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       totalCustomerToday: null == totalCustomerToday
           ? _value.totalCustomerToday
           : totalCustomerToday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       totalFlightToday: null == totalFlightToday
           ? _value.totalFlightToday
           : totalFlightToday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       totalPassengerToday: null == totalPassengerToday
           ? _value.totalPassengerToday
           : totalPassengerToday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ) as $Val);
   }
 }
@@ -88,10 +88,10 @@ abstract class _$$_TotalStatisticalDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String totalPaymentToday,
-      String totalCustomerToday,
-      String totalFlightToday,
-      String totalPassengerToday});
+      {int totalPaymentToday,
+      int totalCustomerToday,
+      int totalFlightToday,
+      int totalPassengerToday});
 }
 
 /// @nodoc
@@ -114,19 +114,19 @@ class __$$_TotalStatisticalDataCopyWithImpl<$Res>
       totalPaymentToday: null == totalPaymentToday
           ? _value.totalPaymentToday
           : totalPaymentToday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       totalCustomerToday: null == totalCustomerToday
           ? _value.totalCustomerToday
           : totalCustomerToday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       totalFlightToday: null == totalFlightToday
           ? _value.totalFlightToday
           : totalFlightToday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       totalPassengerToday: null == totalPassengerToday
           ? _value.totalPassengerToday
           : totalPassengerToday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -135,23 +135,23 @@ class __$$_TotalStatisticalDataCopyWithImpl<$Res>
 
 class _$_TotalStatisticalData implements _TotalStatisticalData {
   const _$_TotalStatisticalData(
-      {this.totalPaymentToday = "",
-      this.totalCustomerToday = "",
-      this.totalFlightToday = "",
-      this.totalPassengerToday = ""});
+      {this.totalPaymentToday = 0,
+      this.totalCustomerToday = 0,
+      this.totalFlightToday = 0,
+      this.totalPassengerToday = 0});
 
   @override
   @JsonKey()
-  final String totalPaymentToday;
+  final int totalPaymentToday;
   @override
   @JsonKey()
-  final String totalCustomerToday;
+  final int totalCustomerToday;
   @override
   @JsonKey()
-  final String totalFlightToday;
+  final int totalFlightToday;
   @override
   @JsonKey()
-  final String totalPassengerToday;
+  final int totalPassengerToday;
 
   @override
   String toString() {
@@ -187,19 +187,19 @@ class _$_TotalStatisticalData implements _TotalStatisticalData {
 
 abstract class _TotalStatisticalData implements TotalStatisticalData {
   const factory _TotalStatisticalData(
-      {final String totalPaymentToday,
-      final String totalCustomerToday,
-      final String totalFlightToday,
-      final String totalPassengerToday}) = _$_TotalStatisticalData;
+      {final int totalPaymentToday,
+      final int totalCustomerToday,
+      final int totalFlightToday,
+      final int totalPassengerToday}) = _$_TotalStatisticalData;
 
   @override
-  String get totalPaymentToday;
+  int get totalPaymentToday;
   @override
-  String get totalCustomerToday;
+  int get totalCustomerToday;
   @override
-  String get totalFlightToday;
+  int get totalFlightToday;
   @override
-  String get totalPassengerToday;
+  int get totalPassengerToday;
   @override
   @JsonKey(ignore: true)
   _$$_TotalStatisticalDataCopyWith<_$_TotalStatisticalData> get copyWith =>

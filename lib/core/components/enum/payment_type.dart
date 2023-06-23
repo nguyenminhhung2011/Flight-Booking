@@ -1,7 +1,7 @@
 enum PaymentType {
   card,
   cash,
-  all;
+  unknown;
 
   static PaymentType getByName(String text) {
     final value = text.toLowerCase();
@@ -11,10 +11,10 @@ enum PaymentType {
         return PaymentType.card;
       case "cash":
         return PaymentType.cash;
-      case "all":
-        return PaymentType.all;
+      case "unknown":
+        return PaymentType.unknown;
       default:
-        return PaymentType.cash;
+        return PaymentType.unknown;
     }
   }
 }
