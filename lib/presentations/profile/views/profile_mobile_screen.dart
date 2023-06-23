@@ -100,7 +100,7 @@ class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
                         const AvatarWidget(
                           height: 70.0,
                           width: 70.0,
-                          imageUrl: ImageConst.avatarDefaulte,
+                          imageUrl: ImageConst.avatarDefaults,
                         ),
                         const SizedBox(width: 10.0),
                         Expanded(

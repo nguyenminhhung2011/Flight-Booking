@@ -7,6 +7,9 @@ class AddEditFlightEvent with _$AddEditFlightEvent {
   const factory AddEditFlightEvent.editFlight({required String id}) =
       _EditFlight;
   const factory AddEditFlightEvent.addNewFlight() = _AddNewFlight;
+  const factory AddEditFlightEvent.addTicInformation({
+    required Flight flight,
+  }) = _AddTicInformation;
   const factory AddEditFlightEvent.updateDateField({
     required DateTime dateTime,
     required DateTimeEnum enumTime,
@@ -22,4 +25,14 @@ class AddEditFlightEvent with _$AddEditFlightEvent {
       _SelectedAirline;
   const factory AddEditFlightEvent.getFlightById({required String id}) =
       _GetFlightById;
+  const factory AddEditFlightEvent.updateTicInformation({
+    required String newSeatHeader,
+    required int quantity,
+    required double price,
+    int? newSeatPosition,
+  }) = _UpdateTicInformation;
+
+  const factory AddEditFlightEvent.changeTicInformationView({
+    required int newIndex,
+  }) = _ChangeTicInformationView;
 }

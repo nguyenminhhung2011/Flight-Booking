@@ -8,9 +8,10 @@ part of 'ticket_information_model_id.dart';
 
 TicketInformationModelId _$TicketInformationModelIdFromJson(
         Map<String, dynamic> json) =>
-    TicketInformationModelId()
-      ..ticketType = json['ticketType'] as int
-      ..flight = FlightModel.fromJson(json['flight'] as Map<String, dynamic>);
+    TicketInformationModelId(
+      json['ticketType'] as int,
+      FlightModel.fromJson(json['flight'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$TicketInformationModelIdToJson(
         TicketInformationModelId instance) =>

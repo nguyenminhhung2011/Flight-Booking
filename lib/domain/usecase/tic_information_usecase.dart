@@ -5,12 +5,20 @@ import '../repositories/ticket_information_repository.dart';
 
 @injectable
 class TicketInformationUsecase {
-  final TicketInformationRepository _listTicketInformationRepository;
-  TicketInformationUsecase(this._listTicketInformationRepository);
+  final TicketInformationRepository _ticketInformationRepository;
+  TicketInformationUsecase(this._ticketInformationRepository);
 
-  Future<List<TicketInformation>> getTicketByFlight(int id) async {
-    return await _listTicketInformationRepository
-            .getListTicketInformationByFlightId(id) ??
-        [];
-  }
+  Future<List<TicketInformation>> getTicketByFlight(int id) async =>
+      await _ticketInformationRepository
+          .getListTicketInformationByFlightId(id) ??
+      [];
+
+  Future<bool> addTicInformation(
+    List<TicketInformation> groupData,
+    int flight,
+  ) async =>
+      _ticketInformationRepository.addGroupTicketInformation(
+        groupData,
+        flight,
+      );
 }

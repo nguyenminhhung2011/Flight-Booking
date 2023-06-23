@@ -38,7 +38,7 @@ class CustomerDetailScreen extends StatelessWidget {
       data: [
         for (int i = 0; i < 50; i++)
           Customer(
-            id: S.of(context).idData(i),
+            id: i,
             name: S.of(context).nameData(i),
             email: S.of(context).email,
             identifyNum: S.of(context).identityNum,
@@ -93,7 +93,7 @@ class CustomerDetailScreen extends StatelessWidget {
             return Text(data.toString());
           },
           rowData: [
-            FlexRowTableData<String>(flex: 2, data: data.id),
+            FlexRowTableData<String>(flex: 2, data: data.id.toString()),
             FlexRowTableData<String>(flex: 2, data: data.name),
             FlexRowTableData<String>(flex: 2, data: data.gender),
             FlexRowTableData<String>(

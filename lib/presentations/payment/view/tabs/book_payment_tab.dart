@@ -247,7 +247,7 @@ class _BookPaymentTabState extends State<BookPaymentTab> {
                       CustomerInformationField(
                         isBorder: true,
                         customer: Customer(
-                          id: randomString(),
+                          id: randDomNumber(10),
                           name: 'Nguyen Minh Hung',
                           phoneNumber: '09435385835',
                           email: 'hungnguyen.201102a@gmail.com',

@@ -7,11 +7,19 @@ class CustomerEvent with _$CustomerEvent {
       _OpenCustomerDetail;
   const factory CustomerEvent.selectCustomer(
       {required String id, required int index}) = _SelectCustomer;
-  const factory CustomerEvent.searchCustomer(
+  const factory CustomerEvent.searchCustomers(
       {String? id, String? name, String? identify}) = _SearchCustomer;
   const factory CustomerEvent.fetchCustomerData() = _FetchCustomerData;
-  const factory CustomerEvent.deleteCustomer({required String id}) =
+  const factory CustomerEvent.deleteCustomer({required int id}) =
       _DeleteCustomer;
   const factory CustomerEvent.editCustomer({required String id}) =
       _EditCustomer;
+  const factory CustomerEvent.addCustomer() = _AddCustomer;
+  const factory CustomerEvent.updateCustomers({
+    required bool isEdit,
+    required Customer customer,
+  }) = _UpdateCustomers;
+  const factory CustomerEvent.getLatestPaymentOfCustomer({
+    required int customerId,
+  }) = _GetLatestPaymentOfCustomer;
 }

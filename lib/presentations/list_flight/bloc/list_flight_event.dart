@@ -39,4 +39,8 @@ class ListFlightEvent with _$ListFlightEvent {
   }) = _SelectedPlaceAirport;
 
   const factory ListFlightEvent.refreshItem() = _RefreshItem;
+  const factory ListFlightEvent.getFlightById({required int id}) =
+      _GetFlightById;
+  const factory ListFlightEvent.getTicInformationByFlightId({required int id}) =
+      _GetTicInformationByFlightId;
 }

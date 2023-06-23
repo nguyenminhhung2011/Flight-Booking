@@ -25,6 +25,9 @@ mixin _$ListFlightModelState {
   List<Airline> get listAirlines => throw _privateConstructorUsedError;
   List<PlaceModel> get locations => throw _privateConstructorUsedError;
   TypePage get typePage => throw _privateConstructorUsedError;
+  List<TicketInformation> get ticketInformation =>
+      throw _privateConstructorUsedError;
+  Flight? get flightSelected => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ListFlightModelStateCopyWith<ListFlightModelState> get copyWith =>
@@ -46,7 +49,11 @@ abstract class $ListFlightModelStateCopyWith<$Res> {
       String airlineName,
       List<Airline> listAirlines,
       List<PlaceModel> locations,
-      TypePage typePage});
+      TypePage typePage,
+      List<TicketInformation> ticketInformation,
+      Flight? flightSelected});
+
+  $FlightCopyWith<$Res>? get flightSelected;
 }
 
 /// @nodoc
@@ -72,6 +79,8 @@ class _$ListFlightModelStateCopyWithImpl<$Res,
     Object? listAirlines = null,
     Object? locations = null,
     Object? typePage = null,
+    Object? ticketInformation = null,
+    Object? flightSelected = freezed,
   }) {
     return _then(_value.copyWith(
       flights: null == flights
@@ -110,7 +119,27 @@ class _$ListFlightModelStateCopyWithImpl<$Res,
           ? _value.typePage
           : typePage // ignore: cast_nullable_to_non_nullable
               as TypePage,
+      ticketInformation: null == ticketInformation
+          ? _value.ticketInformation
+          : ticketInformation // ignore: cast_nullable_to_non_nullable
+              as List<TicketInformation>,
+      flightSelected: freezed == flightSelected
+          ? _value.flightSelected
+          : flightSelected // ignore: cast_nullable_to_non_nullable
+              as Flight?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FlightCopyWith<$Res>? get flightSelected {
+    if (_value.flightSelected == null) {
+      return null;
+    }
+
+    return $FlightCopyWith<$Res>(_value.flightSelected!, (value) {
+      return _then(_value.copyWith(flightSelected: value) as $Val);
+    });
   }
 }
 
@@ -131,7 +160,12 @@ abstract class _$$_ListFlightModelStateCopyWith<$Res>
       String airlineName,
       List<Airline> listAirlines,
       List<PlaceModel> locations,
-      TypePage typePage});
+      TypePage typePage,
+      List<TicketInformation> ticketInformation,
+      Flight? flightSelected});
+
+  @override
+  $FlightCopyWith<$Res>? get flightSelected;
 }
 
 /// @nodoc
@@ -154,6 +188,8 @@ class __$$_ListFlightModelStateCopyWithImpl<$Res>
     Object? listAirlines = null,
     Object? locations = null,
     Object? typePage = null,
+    Object? ticketInformation = null,
+    Object? flightSelected = freezed,
   }) {
     return _then(_$_ListFlightModelState(
       flights: null == flights
@@ -192,6 +228,14 @@ class __$$_ListFlightModelStateCopyWithImpl<$Res>
           ? _value.typePage
           : typePage // ignore: cast_nullable_to_non_nullable
               as TypePage,
+      ticketInformation: null == ticketInformation
+          ? _value._ticketInformation
+          : ticketInformation // ignore: cast_nullable_to_non_nullable
+              as List<TicketInformation>,
+      flightSelected: freezed == flightSelected
+          ? _value.flightSelected
+          : flightSelected // ignore: cast_nullable_to_non_nullable
+              as Flight?,
     ));
   }
 }
@@ -208,10 +252,13 @@ class _$_ListFlightModelState implements _ListFlightModelState {
       required this.airlineName,
       required final List<Airline> listAirlines,
       required final List<PlaceModel> locations,
-      required this.typePage})
+      required this.typePage,
+      required final List<TicketInformation> ticketInformation,
+      this.flightSelected})
       : _flights = flights,
         _listAirlines = listAirlines,
-        _locations = locations;
+        _locations = locations,
+        _ticketInformation = ticketInformation;
 
   final List<Flight> _flights;
   @override
@@ -249,10 +296,21 @@ class _$_ListFlightModelState implements _ListFlightModelState {
 
   @override
   final TypePage typePage;
+  final List<TicketInformation> _ticketInformation;
+  @override
+  List<TicketInformation> get ticketInformation {
+    if (_ticketInformation is EqualUnmodifiableListView)
+      return _ticketInformation;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_ticketInformation);
+  }
+
+  @override
+  final Flight? flightSelected;
 
   @override
   String toString() {
-    return 'ListFlightModelState(flights: $flights, currentPage: $currentPage, totalPage: $totalPage, locationArrival: $locationArrival, locationDeparture: $locationDeparture, airlineName: $airlineName, listAirlines: $listAirlines, locations: $locations, typePage: $typePage)';
+    return 'ListFlightModelState(flights: $flights, currentPage: $currentPage, totalPage: $totalPage, locationArrival: $locationArrival, locationDeparture: $locationDeparture, airlineName: $airlineName, listAirlines: $listAirlines, locations: $locations, typePage: $typePage, ticketInformation: $ticketInformation, flightSelected: $flightSelected)';
   }
 
   @override
@@ -276,7 +334,11 @@ class _$_ListFlightModelState implements _ListFlightModelState {
             const DeepCollectionEquality()
                 .equals(other._locations, _locations) &&
             (identical(other.typePage, typePage) ||
-                other.typePage == typePage));
+                other.typePage == typePage) &&
+            const DeepCollectionEquality()
+                .equals(other._ticketInformation, _ticketInformation) &&
+            (identical(other.flightSelected, flightSelected) ||
+                other.flightSelected == flightSelected));
   }
 
   @override
@@ -290,7 +352,9 @@ class _$_ListFlightModelState implements _ListFlightModelState {
       airlineName,
       const DeepCollectionEquality().hash(_listAirlines),
       const DeepCollectionEquality().hash(_locations),
-      typePage);
+      typePage,
+      const DeepCollectionEquality().hash(_ticketInformation),
+      flightSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -310,7 +374,9 @@ abstract class _ListFlightModelState implements ListFlightModelState {
       required final String airlineName,
       required final List<Airline> listAirlines,
       required final List<PlaceModel> locations,
-      required final TypePage typePage}) = _$_ListFlightModelState;
+      required final TypePage typePage,
+      required final List<TicketInformation> ticketInformation,
+      final Flight? flightSelected}) = _$_ListFlightModelState;
 
   @override
   List<Flight> get flights;
@@ -330,6 +396,10 @@ abstract class _ListFlightModelState implements ListFlightModelState {
   List<PlaceModel> get locations;
   @override
   TypePage get typePage;
+  @override
+  List<TicketInformation> get ticketInformation;
+  @override
+  Flight? get flightSelected;
   @override
   @JsonKey(ignore: true)
   _$$_ListFlightModelStateCopyWith<_$_ListFlightModelState> get copyWith =>

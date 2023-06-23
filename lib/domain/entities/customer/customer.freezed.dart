@@ -20,7 +20,7 @@ Customer _$CustomerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Customer {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $CustomerCopyWith<$Res> {
       _$CustomerCopyWithImpl<$Res, Customer>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       String phoneNumber,
       String email,
@@ -74,7 +74,7 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -111,7 +111,7 @@ abstract class _$$_CustomerCopyWith<$Res> implements $CustomerCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       String phoneNumber,
       String email,
@@ -143,7 +143,7 @@ class __$$_CustomerCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -188,7 +188,7 @@ class _$_Customer implements _Customer {
       _$$_CustomerFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
@@ -245,7 +245,7 @@ class _$_Customer implements _Customer {
 
 abstract class _Customer implements Customer {
   const factory _Customer(
-      {required final String id,
+      {required final int id,
       required final String name,
       required final String phoneNumber,
       required final String email,
@@ -256,7 +256,7 @@ abstract class _Customer implements Customer {
   factory _Customer.fromJson(Map<String, dynamic> json) = _$_Customer.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override

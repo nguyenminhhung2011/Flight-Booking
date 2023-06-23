@@ -4,6 +4,7 @@ import '../../../core/components/enum/type_page.dart';
 import '../../../data/models/place/place_model.dart';
 import '../../../domain/entities/airline/airline.dart';
 import '../../../domain/entities/flight/flight.dart';
+import '../../../domain/entities/ticket/ticket_information.dart';
 
 part 'list_flight_model_state.freezed.dart';
 
@@ -19,5 +20,7 @@ class ListFlightModelState with _$ListFlightModelState {
     required List<Airline> listAirlines,
     required List<PlaceModel> locations,
     required TypePage typePage,
+    required List<TicketInformation> ticketInformation,
+    Flight? flightSelected,
   }) = _ListFlightModelState;
 }

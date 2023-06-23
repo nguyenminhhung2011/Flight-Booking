@@ -1,18 +1,25 @@
 import 'package:flight_booking/core/components/widgets/custom_dialog_error/yes_no_dilog.dart';
+import 'package:flight_booking/presentations/add_customer/bloc/add_customer_bloc.dart';
+import 'package:flight_booking/presentations/add_customer/views/add_customer_screen.dart';
 import 'package:flight_booking/presentations/add_edit_airport/bloc/add_edit_airport_bloc.dart';
 import 'package:flight_booking/presentations/add_edit_airport/views/add_edit_airport_form.dart';
 import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart';
 import 'package:flight_booking/presentations/add_edit_flight/view/add_edit_flight_form.dart';
+import 'package:flight_booking/presentations/dialog_book_ticket/bloc/book_ticket_bloc.dart';
 import 'package:flight_booking/presentations/dialog_book_ticket/views/dialog_book_ticket_screen.dart';
 import 'package:flight_booking/presentations/handle_config_airport/blocs/handle_config_airport_bloc.dart';
 import 'package:flight_booking/presentations/handle_config_airport/view/handle_confg_airport_form.dart';
 import 'package:flight_booking/presentations/list_ticket/views/widgets/position_dialog.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
+import 'package:flight_booking/presentations/selected_customer/notifier/selected_customer_notidier.dart';
+import 'package:flight_booking/presentations/selected_customer/views/selected_customer_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 import 'core/components/widgets/range_date_picker_custom.dart';
 import 'core/dependency_injection/di.dart';
+import 'domain/entities/seat_selected/seat_selected.dart';
 
 final _timeNow = DateTime.now();
 
@@ -48,6 +55,30 @@ extension AppCoordinator<T> on BuildContext {
           backgroundColor: Colors.transparent,
           child: AddEditAirportForm(),
         ),
+      ),
+    );
+  }
+
+  Future<T?> openShowAddEditCustomer(int customerId) {
+    return showDialog(
+      context: this,
+      builder: (_) => BlocProvider<AddCustomerBloc>(
+        create: (context) => injector(param1: customerId),
+        child: const Dialog(
+          backgroundColor: Colors.transparent,
+          child: AddCustomerScreen(),
+        ),
+      ),
+    );
+  }
+
+  Future<T?> showSelectedCustomer() {
+    return showDialog(
+      context: this,
+      builder: (context) => ChangeNotifierProvider<SelectedCustomerNotifier>(
+        create: (_) => injector.get(),
+        child: const Dialog(
+            backgroundColor: Colors.transparent, child: SelectedCustomerForm()),
       ),
     );
   }
@@ -191,19 +222,20 @@ extension AppCoordinator<T> on BuildContext {
     return false;
   }
 
-  Future<bool> showBookTicketDialog() async {
-    final result = await showDialog(
-        context: this,
-        builder: (context) {
-          return const Dialog(
+  Future<bool> showBookTicketDialog(
+      List<SeatSelected> seats, int flightId) async {
+    await showDialog(
+      context: this,
+      builder: (context) {
+        return BlocProvider<BTBloc>(
+          create: (context) => injector(param1: seats, param2: flightId),
+          child: const Dialog(
             backgroundColor: Colors.transparent,
             child: DialogBookTicket(),
-          );
-        });
-    if (result != null) {
-      // do something
-      return true;
-    }
+          ),
+        );
+      },
+    );
     return false;
   }
 
