@@ -57,11 +57,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
     //   selectedIcon: Icon(Icons.airplane_ticket),
     //   label: Text('Ticket'),
     // ),
-    NavigationRailDestination(
-      icon: Icon(Icons.personal_injury_rounded),
-      selectedIcon: Icon(Icons.personal_injury_rounded),
-      label: Text('Employee'),
-    ),
+    // NavigationRailDestination(
+    //   icon: Icon(Icons.personal_injury_rounded),
+    //   selectedIcon: Icon(Icons.personal_injury_rounded),
+    //   label: Text('Employee'),
+    // ),
     NavigationRailDestination(
       icon: Icon(Icons.payment),
       selectedIcon: Icon(Icons.payment),
@@ -111,14 +111,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
     //   'secondBody': null,
     //   'body_ratio': 0.7,
     // },
-    {
-      'body': BlocProvider<ListTicketBloc>(
-        create: (context) => injector(),
-        child: const ListTicketScreen(),
-      ),
-      'secondBody': null,
-      'body_ratio': 0.7,
-    },
+    // {
+    //   'body': BlocProvider<ListTicketBloc>(
+    //     create: (context) => injector(),
+    //     child: const ListTicketScreen(),
+    //   ),
+    //   'secondBody': null,
+    //   'body_ratio': 0.7,
+    // },
     {
       'body': const PaymentManagementScreen(),
       'secondBody': null,
@@ -326,12 +326,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               //   selectedIcon: Icon(Icons.airplane_ticket),
                               //   label: 'Ticket',
                               // ),
-                              NavigationDestination(
-                                icon: Icon(Icons.personal_injury_rounded),
-                                selectedIcon:
-                                    Icon(Icons.personal_injury_rounded),
-                                label: 'Employee',
-                              ),
+                              // NavigationDestination(
+                              //   icon: Icon(Icons.personal_injury_rounded),
+                              //   selectedIcon:
+                              //       Icon(Icons.personal_injury_rounded),
+                              //   label: 'Employee',
+                              // ),
                               NavigationDestination(
                                 icon: Icon(Icons.settings),
                                 selectedIcon: Icon(Icons.settings),

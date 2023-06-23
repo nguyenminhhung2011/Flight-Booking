@@ -1,3 +1,4 @@
+import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/revenue.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/config/common_ui_config.dart';
@@ -5,7 +6,9 @@ import '../../../../generated/l10n.dart';
 
 class PaymentMethodStatisticComponent extends StatelessWidget {
   final double? height;
-  const PaymentMethodStatisticComponent({super.key, this.height});
+  final Revenue revenue;
+  const PaymentMethodStatisticComponent(
+      {super.key, this.height, required this.revenue});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,7 @@ class PaymentMethodStatisticComponent extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
                 Text(
-                  "\$473.85",
+                  revenue.amount.toString(),
                   style: Theme.of(context)
                       .textTheme
                       .titleLarge
@@ -84,24 +87,24 @@ class PaymentMethodStatisticComponent extends StatelessWidget {
                     Expanded(
                       child: _buildAnnotateComponent(
                         context,
-                        percent: 15,
-                        title: "Test",
+                        percent: (revenue.cardPercent).toInt() * 100,
+                        title: "Card",
                         color: Colors.red,
                       ),
                     ),
                     Expanded(
                       child: _buildAnnotateComponent(
                         context,
-                        percent: 15,
-                        title: "Test",
+                        percent: (revenue.cashPercent).toInt() * 100,
+                        title: "Cash",
                         color: Colors.orange,
                       ),
                     ),
                     Expanded(
                       child: _buildAnnotateComponent(
                         context,
-                        percent: 15,
-                        title: "Test",
+                        percent: (revenue.otherPercent).toInt() * 100,
+                        title: "Other",
                         color: Colors.blue,
                       ),
                     ),

@@ -111,6 +111,7 @@ class PaymentDetailScreen extends StatelessWidget {
           rowData: [
             FlexRowTableData<String>(flex: 2, data: data.id),
             FlexRowTableData<String>(flex: 2, data: data.customer?.id),
+            FlexRowTableData<String>(flex: 2, data: data.customer?.name),
             FlexRowTableData<String>(flex: 2, data: data.paymentType.name),
             FlexRowTableData<String>(flex: 2, data: data.total.toString()),
             FlexRowTableData<String>(

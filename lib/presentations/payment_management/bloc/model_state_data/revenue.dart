@@ -5,9 +5,9 @@ part 'revenue.freezed.dart';
 @freezed
 class Revenue with _$Revenue {
   const factory Revenue({
-    @Default("") final String amount,
-    @Default("") final String cardPercent,
-    @Default("") final String cashPercent,
-    @Default("") final String otherPercent,
+    @Default(0.0) final double amount,
+    @Default(0.0) final double cardPercent,
+    @Default(0.0) final double cashPercent,
+    @Default(0.0) final double otherPercent,
   }) = _Revenue;
 }
