@@ -8,6 +8,7 @@ import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/domain/entities/seat_selected/seat_selected.dart';
+import 'package:flight_booking/presentations/customer/views/widgets/customer_detail_card.dart';
 import 'package:flight_booking/presentations/flight_detail/bloc/flight_detail_bloc.dart';
 import 'package:flight_booking/presentations/flight_detail/bloc/flight_detail_model_state.dart';
 import 'package:flight_booking/presentations/flight_detail/views/widgets/chair_button.dart';
@@ -22,6 +23,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../domain/entities/customer/customer.dart';
 import '../../../domain/entities/flight/flight.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../generated/l10n.dart';
@@ -64,6 +66,13 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
     ));
   }
 
+  void _onShowSelectedCustomer() async {
+    final result = await context.showSelectedCustomer();
+    if (result != null && result is Customer) {
+      _bloc.add(FlightDetailEvent.updateCustomerSelected(customer: result));
+    }
+  }
+
   void _listenStateChanged(_, FlightDetailState state) {
     state.whenOrNull(getFlightByIdSuccess: (data) {
       _bloc.add(const FlightDetailEvent.getTicInformation());
@@ -77,9 +86,6 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   }
 
   void _showDialogSelectScott() async {
-    if (_seatsSelected.isEmpty) {
-      return;
-    }
     final show =
         await context.showBookTicketDialog(_seatsSelected, _bloc.flightId);
     if (show) {

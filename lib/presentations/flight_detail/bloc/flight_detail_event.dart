@@ -12,4 +12,7 @@ class FlightDetailEvent with _$FlightDetailEvent {
     required TicketInformation ticInformation,
     required int seatIndex,
   }) = _SelectedSeat;
+
+  const factory FlightDetailEvent.updateCustomerSelected({Customer? customer}) =
+      _UpdateCustomerSelected;
 }

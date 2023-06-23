@@ -1,4 +1,5 @@
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
@@ -33,13 +34,16 @@ class _CustomerScreenState extends State<CustomerScreen> {
   void _stateChangeListener(BuildContext context, CustomerState state) {
     state.whenOrNull(
       initial: (data) {},
-      loading: (data) {},
       openCustomerDetailSuccess: (data, customer) {
         context.openCustomerDetailPage();
       },
       openCustomerAddEditPage: (data, message) {},
       openCustomerDetailFailed: (data, message) {},
-      selectCustomerSuccess: (data, customer) {},
+      selectCustomerSuccess: (data, customer) {
+        _customerBloc.add(CustomerEvent.getLatestPaymentOfCustomer(
+          customerId: customer.id,
+        ));
+      },
       selectCustomerFailed: (data, message) {},
       deleteCustomerSuccess: (data) {},
       deleteCustomerFailed: (data, message) {},
@@ -139,7 +143,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
               Expanded(
                 flex: 1,
                 child: FluxTicketTable<Customer>(
-                  loading: customerState.isLoading,
+                  loading: customerState.isLoadingGetData,
                   tableDecoration: BoxDecoration(
                     border: Border.all(
                       width: 1,
@@ -217,7 +221,13 @@ class _CustomerScreenState extends State<CustomerScreen> {
                                 child: const Icon(Icons.person),
                               ),
                               const SizedBox(width: 5),
-                              if (itemData != null) Text(itemData as String),
+                              if (itemData != null)
+                                Text(
+                                  itemData as String,
+                                  style: context.titleMedium.copyWith(
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
                             ],
                           );
                         }
@@ -262,7 +272,10 @@ class _CustomerScreenState extends State<CustomerScreen> {
                             },
                           );
                         }
-                        return Text(itemData.toString());
+                        return Text(
+                          itemData.toString(),
+                          overflow: TextOverflow.ellipsis,
+                        );
                       },
                       rowData: [
                         FlexRowTableData<String>(

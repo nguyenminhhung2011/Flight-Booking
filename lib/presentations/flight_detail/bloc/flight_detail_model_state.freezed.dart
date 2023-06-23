@@ -23,6 +23,7 @@ mixin _$FlightDetailModelState {
   List<SeatSelected> get chairsSelected => throw _privateConstructorUsedError;
   List<TicketInformation> get ticInformation =>
       throw _privateConstructorUsedError;
+  Customer? get customerSelected => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FlightDetailModelStateCopyWith<FlightDetailModelState> get copyWith =>
@@ -41,9 +42,11 @@ abstract class $FlightDetailModelStateCopyWith<$Res> {
       bool showMoreInfor,
       ItemViewEnum itemView,
       List<SeatSelected> chairsSelected,
-      List<TicketInformation> ticInformation});
+      List<TicketInformation> ticInformation,
+      Customer? customerSelected});
 
   $FlightCopyWith<$Res>? get flight;
+  $CustomerCopyWith<$Res>? get customerSelected;
 }
 
 /// @nodoc
@@ -66,6 +69,7 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
     Object? itemView = null,
     Object? chairsSelected = null,
     Object? ticInformation = null,
+    Object? customerSelected = freezed,
   }) {
     return _then(_value.copyWith(
       flight: freezed == flight
@@ -92,6 +96,10 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
           ? _value.ticInformation
           : ticInformation // ignore: cast_nullable_to_non_nullable
               as List<TicketInformation>,
+      customerSelected: freezed == customerSelected
+          ? _value.customerSelected
+          : customerSelected // ignore: cast_nullable_to_non_nullable
+              as Customer?,
     ) as $Val);
   }
 
@@ -104,6 +112,18 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
 
     return $FlightCopyWith<$Res>(_value.flight!, (value) {
       return _then(_value.copyWith(flight: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CustomerCopyWith<$Res>? get customerSelected {
+    if (_value.customerSelected == null) {
+      return null;
+    }
+
+    return $CustomerCopyWith<$Res>(_value.customerSelected!, (value) {
+      return _then(_value.copyWith(customerSelected: value) as $Val);
     });
   }
 }
@@ -122,10 +142,13 @@ abstract class _$$_FlightDetailModelStateCopyWith<$Res>
       bool showMoreInfor,
       ItemViewEnum itemView,
       List<SeatSelected> chairsSelected,
-      List<TicketInformation> ticInformation});
+      List<TicketInformation> ticInformation,
+      Customer? customerSelected});
 
   @override
   $FlightCopyWith<$Res>? get flight;
+  @override
+  $CustomerCopyWith<$Res>? get customerSelected;
 }
 
 /// @nodoc
@@ -146,6 +169,7 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
     Object? itemView = null,
     Object? chairsSelected = null,
     Object? ticInformation = null,
+    Object? customerSelected = freezed,
   }) {
     return _then(_$_FlightDetailModelState(
       flight: freezed == flight
@@ -172,6 +196,10 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
           ? _value._ticInformation
           : ticInformation // ignore: cast_nullable_to_non_nullable
               as List<TicketInformation>,
+      customerSelected: freezed == customerSelected
+          ? _value.customerSelected
+          : customerSelected // ignore: cast_nullable_to_non_nullable
+              as Customer?,
     ));
   }
 }
@@ -185,7 +213,8 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
       required this.showMoreInfor,
       required this.itemView,
       required final List<SeatSelected> chairsSelected,
-      required final List<TicketInformation> ticInformation})
+      required final List<TicketInformation> ticInformation,
+      this.customerSelected})
       : _chairsSelected = chairsSelected,
         _ticInformation = ticInformation;
 
@@ -214,8 +243,11 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
   }
 
   @override
+  final Customer? customerSelected;
+
+  @override
   String toString() {
-    return 'FlightDetailModelState(flight: $flight, animation: $animation, showMoreInfor: $showMoreInfor, itemView: $itemView, chairsSelected: $chairsSelected, ticInformation: $ticInformation)';
+    return 'FlightDetailModelState(flight: $flight, animation: $animation, showMoreInfor: $showMoreInfor, itemView: $itemView, chairsSelected: $chairsSelected, ticInformation: $ticInformation, customerSelected: $customerSelected)';
   }
 
   @override
@@ -233,7 +265,9 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
             const DeepCollectionEquality()
                 .equals(other._chairsSelected, _chairsSelected) &&
             const DeepCollectionEquality()
-                .equals(other._ticInformation, _ticInformation));
+                .equals(other._ticInformation, _ticInformation) &&
+            (identical(other.customerSelected, customerSelected) ||
+                other.customerSelected == customerSelected));
   }
 
   @override
@@ -244,7 +278,8 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
       showMoreInfor,
       itemView,
       const DeepCollectionEquality().hash(_chairsSelected),
-      const DeepCollectionEquality().hash(_ticInformation));
+      const DeepCollectionEquality().hash(_ticInformation),
+      customerSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -256,13 +291,13 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
 
 abstract class _FlightDetailModelState implements FlightDetailModelState {
   const factory _FlightDetailModelState(
-          {final Flight? flight,
-          required final double animation,
-          required final bool showMoreInfor,
-          required final ItemViewEnum itemView,
-          required final List<SeatSelected> chairsSelected,
-          required final List<TicketInformation> ticInformation}) =
-      _$_FlightDetailModelState;
+      {final Flight? flight,
+      required final double animation,
+      required final bool showMoreInfor,
+      required final ItemViewEnum itemView,
+      required final List<SeatSelected> chairsSelected,
+      required final List<TicketInformation> ticInformation,
+      final Customer? customerSelected}) = _$_FlightDetailModelState;
 
   @override
   Flight? get flight;
@@ -276,6 +311,8 @@ abstract class _FlightDetailModelState implements FlightDetailModelState {
   List<SeatSelected> get chairsSelected;
   @override
   List<TicketInformation> get ticInformation;
+  @override
+  Customer? get customerSelected;
   @override
   @JsonKey(ignore: true)
   _$$_FlightDetailModelStateCopyWith<_$_FlightDetailModelState> get copyWith =>

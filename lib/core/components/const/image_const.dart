@@ -9,7 +9,7 @@ class ImageConst {
   static const String splash = 'assets/images/splash2.png';
 
   //net
-  static const String avatarDefaulte =
+  static const String avatarDefaults =
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5PswchnAfXt36TBzmZmDdJuUBB5iffttNidZ9mrb4&s';
   static const String imageDe =
       'https://toigingiuvedep.vn/wp-content/uploads/2020/12/hinh-anh-phong-canh-thien-nhien-dep-nhat-the-gioi.jpg';

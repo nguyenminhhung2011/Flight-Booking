@@ -400,6 +400,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectPaymentMethod":
             MessageLookupByLibrary.simpleMessage("Select payment method"),
         "selectScott": MessageLookupByLibrary.simpleMessage("Select Scott"),
+        "selectedCustomer":
+            MessageLookupByLibrary.simpleMessage("Selected Customer"),
         "sentVerificationEmail":
             MessageLookupByLibrary.simpleMessage("Sent Verification Email"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),

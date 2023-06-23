@@ -10,4 +10,6 @@ abstract class CustomerRepository {
   Future<bool> deleteCustomer(String id);
 
   Future<Customer?> editCustomer(Customer customer, int id);
+
+  Future<List<Customer>> searchCustomer(String text);
 }

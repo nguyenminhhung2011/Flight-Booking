@@ -3352,6 +3352,16 @@ class S {
     );
   }
 
+  /// `Selected Customer`
+  String get selectedCustomer {
+    return Intl.message(
+      'Selected Customer',
+      name: 'selectedCustomer',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Departure Place`
   String get departurePlace {
     return Intl.message(

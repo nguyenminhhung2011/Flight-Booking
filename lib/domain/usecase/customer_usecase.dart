@@ -12,6 +12,9 @@ class CustomerUseCase {
     return await _customerRepository.getAllCustomers();
   }
 
+  Future<List<Customer>> searchCustomer(String text) async =>
+      await _customerRepository.searchCustomer(text);
+
   Future<Customer?> getCustomerById(String id) async {
     return _customerRepository.getCustomerById(id);
   }

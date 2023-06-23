@@ -25,6 +25,7 @@ mixin _$FlightDetailEvent {
     required TResult Function() getTicInformation,
     required TResult Function(TicketInformation ticInformation, int seatIndex)
         selectedSeat,
+    required TResult Function(Customer? customer) updateCustomerSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$FlightDetailEvent {
     TResult? Function()? getTicInformation,
     TResult? Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult? Function(Customer? customer)? updateCustomerSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$FlightDetailEvent {
     TResult Function()? getTicInformation,
     TResult Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult Function(Customer? customer)? updateCustomerSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +61,8 @@ mixin _$FlightDetailEvent {
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_SelectedSeat value) selectedSeat,
+    required TResult Function(_UpdateCustomerSelected value)
+        updateCustomerSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +73,7 @@ mixin _$FlightDetailEvent {
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_SelectedSeat value)? selectedSeat,
+    TResult? Function(_UpdateCustomerSelected value)? updateCustomerSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +84,7 @@ mixin _$FlightDetailEvent {
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_SelectedSeat value)? selectedSeat,
+    TResult Function(_UpdateCustomerSelected value)? updateCustomerSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -145,6 +152,7 @@ class _$_Started implements _Started {
     required TResult Function() getTicInformation,
     required TResult Function(TicketInformation ticInformation, int seatIndex)
         selectedSeat,
+    required TResult Function(Customer? customer) updateCustomerSelected,
   }) {
     return started();
   }
@@ -159,6 +167,7 @@ class _$_Started implements _Started {
     TResult? Function()? getTicInformation,
     TResult? Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult? Function(Customer? customer)? updateCustomerSelected,
   }) {
     return started?.call();
   }
@@ -173,6 +182,7 @@ class _$_Started implements _Started {
     TResult Function()? getTicInformation,
     TResult Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult Function(Customer? customer)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -190,6 +200,8 @@ class _$_Started implements _Started {
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_SelectedSeat value) selectedSeat,
+    required TResult Function(_UpdateCustomerSelected value)
+        updateCustomerSelected,
   }) {
     return started(this);
   }
@@ -203,6 +215,7 @@ class _$_Started implements _Started {
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_SelectedSeat value)? selectedSeat,
+    TResult? Function(_UpdateCustomerSelected value)? updateCustomerSelected,
   }) {
     return started?.call(this);
   }
@@ -216,6 +229,7 @@ class _$_Started implements _Started {
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_SelectedSeat value)? selectedSeat,
+    TResult Function(_UpdateCustomerSelected value)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -300,6 +314,7 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     required TResult Function() getTicInformation,
     required TResult Function(TicketInformation ticInformation, int seatIndex)
         selectedSeat,
+    required TResult Function(Customer? customer) updateCustomerSelected,
   }) {
     return changeTypeView(view);
   }
@@ -314,6 +329,7 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     TResult? Function()? getTicInformation,
     TResult? Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult? Function(Customer? customer)? updateCustomerSelected,
   }) {
     return changeTypeView?.call(view);
   }
@@ -328,6 +344,7 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     TResult Function()? getTicInformation,
     TResult Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult Function(Customer? customer)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (changeTypeView != null) {
@@ -345,6 +362,8 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_SelectedSeat value) selectedSeat,
+    required TResult Function(_UpdateCustomerSelected value)
+        updateCustomerSelected,
   }) {
     return changeTypeView(this);
   }
@@ -358,6 +377,7 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_SelectedSeat value)? selectedSeat,
+    TResult? Function(_UpdateCustomerSelected value)? updateCustomerSelected,
   }) {
     return changeTypeView?.call(this);
   }
@@ -371,6 +391,7 @@ class _$_ChangeTypeView implements _ChangeTypeView {
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_SelectedSeat value)? selectedSeat,
+    TResult Function(_UpdateCustomerSelected value)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (changeTypeView != null) {
@@ -434,6 +455,7 @@ class _$_showMoreInformation implements _showMoreInformation {
     required TResult Function() getTicInformation,
     required TResult Function(TicketInformation ticInformation, int seatIndex)
         selectedSeat,
+    required TResult Function(Customer? customer) updateCustomerSelected,
   }) {
     return showMoreInformation();
   }
@@ -448,6 +470,7 @@ class _$_showMoreInformation implements _showMoreInformation {
     TResult? Function()? getTicInformation,
     TResult? Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult? Function(Customer? customer)? updateCustomerSelected,
   }) {
     return showMoreInformation?.call();
   }
@@ -462,6 +485,7 @@ class _$_showMoreInformation implements _showMoreInformation {
     TResult Function()? getTicInformation,
     TResult Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult Function(Customer? customer)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (showMoreInformation != null) {
@@ -479,6 +503,8 @@ class _$_showMoreInformation implements _showMoreInformation {
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_SelectedSeat value) selectedSeat,
+    required TResult Function(_UpdateCustomerSelected value)
+        updateCustomerSelected,
   }) {
     return showMoreInformation(this);
   }
@@ -492,6 +518,7 @@ class _$_showMoreInformation implements _showMoreInformation {
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_SelectedSeat value)? selectedSeat,
+    TResult? Function(_UpdateCustomerSelected value)? updateCustomerSelected,
   }) {
     return showMoreInformation?.call(this);
   }
@@ -505,6 +532,7 @@ class _$_showMoreInformation implements _showMoreInformation {
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_SelectedSeat value)? selectedSeat,
+    TResult Function(_UpdateCustomerSelected value)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (showMoreInformation != null) {
@@ -563,6 +591,7 @@ class _$_GetFlightById implements _GetFlightById {
     required TResult Function() getTicInformation,
     required TResult Function(TicketInformation ticInformation, int seatIndex)
         selectedSeat,
+    required TResult Function(Customer? customer) updateCustomerSelected,
   }) {
     return getFlightById();
   }
@@ -577,6 +606,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult? Function()? getTicInformation,
     TResult? Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult? Function(Customer? customer)? updateCustomerSelected,
   }) {
     return getFlightById?.call();
   }
@@ -591,6 +621,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult Function()? getTicInformation,
     TResult Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult Function(Customer? customer)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (getFlightById != null) {
@@ -608,6 +639,8 @@ class _$_GetFlightById implements _GetFlightById {
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_SelectedSeat value) selectedSeat,
+    required TResult Function(_UpdateCustomerSelected value)
+        updateCustomerSelected,
   }) {
     return getFlightById(this);
   }
@@ -621,6 +654,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_SelectedSeat value)? selectedSeat,
+    TResult? Function(_UpdateCustomerSelected value)? updateCustomerSelected,
   }) {
     return getFlightById?.call(this);
   }
@@ -634,6 +668,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_SelectedSeat value)? selectedSeat,
+    TResult Function(_UpdateCustomerSelected value)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (getFlightById != null) {
@@ -692,6 +727,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     required TResult Function() getTicInformation,
     required TResult Function(TicketInformation ticInformation, int seatIndex)
         selectedSeat,
+    required TResult Function(Customer? customer) updateCustomerSelected,
   }) {
     return getTicInformation();
   }
@@ -706,6 +742,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult? Function()? getTicInformation,
     TResult? Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult? Function(Customer? customer)? updateCustomerSelected,
   }) {
     return getTicInformation?.call();
   }
@@ -720,6 +757,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult Function()? getTicInformation,
     TResult Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult Function(Customer? customer)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (getTicInformation != null) {
@@ -737,6 +775,8 @@ class _$_GetTicInformation implements _GetTicInformation {
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_SelectedSeat value) selectedSeat,
+    required TResult Function(_UpdateCustomerSelected value)
+        updateCustomerSelected,
   }) {
     return getTicInformation(this);
   }
@@ -750,6 +790,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_SelectedSeat value)? selectedSeat,
+    TResult? Function(_UpdateCustomerSelected value)? updateCustomerSelected,
   }) {
     return getTicInformation?.call(this);
   }
@@ -763,6 +804,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_SelectedSeat value)? selectedSeat,
+    TResult Function(_UpdateCustomerSelected value)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (getTicInformation != null) {
@@ -868,6 +910,7 @@ class _$_SelectedSeat implements _SelectedSeat {
     required TResult Function() getTicInformation,
     required TResult Function(TicketInformation ticInformation, int seatIndex)
         selectedSeat,
+    required TResult Function(Customer? customer) updateCustomerSelected,
   }) {
     return selectedSeat(ticInformation, seatIndex);
   }
@@ -882,6 +925,7 @@ class _$_SelectedSeat implements _SelectedSeat {
     TResult? Function()? getTicInformation,
     TResult? Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult? Function(Customer? customer)? updateCustomerSelected,
   }) {
     return selectedSeat?.call(ticInformation, seatIndex);
   }
@@ -896,6 +940,7 @@ class _$_SelectedSeat implements _SelectedSeat {
     TResult Function()? getTicInformation,
     TResult Function(TicketInformation ticInformation, int seatIndex)?
         selectedSeat,
+    TResult Function(Customer? customer)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (selectedSeat != null) {
@@ -913,6 +958,8 @@ class _$_SelectedSeat implements _SelectedSeat {
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_SelectedSeat value) selectedSeat,
+    required TResult Function(_UpdateCustomerSelected value)
+        updateCustomerSelected,
   }) {
     return selectedSeat(this);
   }
@@ -926,6 +973,7 @@ class _$_SelectedSeat implements _SelectedSeat {
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_SelectedSeat value)? selectedSeat,
+    TResult? Function(_UpdateCustomerSelected value)? updateCustomerSelected,
   }) {
     return selectedSeat?.call(this);
   }
@@ -939,6 +987,7 @@ class _$_SelectedSeat implements _SelectedSeat {
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_SelectedSeat value)? selectedSeat,
+    TResult Function(_UpdateCustomerSelected value)? updateCustomerSelected,
     required TResult orElse(),
   }) {
     if (selectedSeat != null) {
@@ -961,6 +1010,190 @@ abstract class _SelectedSeat implements FlightDetailEvent {
 }
 
 /// @nodoc
+abstract class _$$_UpdateCustomerSelectedCopyWith<$Res> {
+  factory _$$_UpdateCustomerSelectedCopyWith(_$_UpdateCustomerSelected value,
+          $Res Function(_$_UpdateCustomerSelected) then) =
+      __$$_UpdateCustomerSelectedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Customer? customer});
+
+  $CustomerCopyWith<$Res>? get customer;
+}
+
+/// @nodoc
+class __$$_UpdateCustomerSelectedCopyWithImpl<$Res>
+    extends _$FlightDetailEventCopyWithImpl<$Res, _$_UpdateCustomerSelected>
+    implements _$$_UpdateCustomerSelectedCopyWith<$Res> {
+  __$$_UpdateCustomerSelectedCopyWithImpl(_$_UpdateCustomerSelected _value,
+      $Res Function(_$_UpdateCustomerSelected) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? customer = freezed,
+  }) {
+    return _then(_$_UpdateCustomerSelected(
+      customer: freezed == customer
+          ? _value.customer
+          : customer // ignore: cast_nullable_to_non_nullable
+              as Customer?,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CustomerCopyWith<$Res>? get customer {
+    if (_value.customer == null) {
+      return null;
+    }
+
+    return $CustomerCopyWith<$Res>(_value.customer!, (value) {
+      return _then(_value.copyWith(customer: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateCustomerSelected implements _UpdateCustomerSelected {
+  const _$_UpdateCustomerSelected({this.customer});
+
+  @override
+  final Customer? customer;
+
+  @override
+  String toString() {
+    return 'FlightDetailEvent.updateCustomerSelected(customer: $customer)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateCustomerSelected &&
+            (identical(other.customer, customer) ||
+                other.customer == customer));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, customer);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateCustomerSelectedCopyWith<_$_UpdateCustomerSelected> get copyWith =>
+      __$$_UpdateCustomerSelectedCopyWithImpl<_$_UpdateCustomerSelected>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(ItemViewEnum view) changeTypeView,
+    required TResult Function() showMoreInformation,
+    required TResult Function() getFlightById,
+    required TResult Function() getTicInformation,
+    required TResult Function(TicketInformation ticInformation, int seatIndex)
+        selectedSeat,
+    required TResult Function(Customer? customer) updateCustomerSelected,
+  }) {
+    return updateCustomerSelected(customer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(ItemViewEnum view)? changeTypeView,
+    TResult? Function()? showMoreInformation,
+    TResult? Function()? getFlightById,
+    TResult? Function()? getTicInformation,
+    TResult? Function(TicketInformation ticInformation, int seatIndex)?
+        selectedSeat,
+    TResult? Function(Customer? customer)? updateCustomerSelected,
+  }) {
+    return updateCustomerSelected?.call(customer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(ItemViewEnum view)? changeTypeView,
+    TResult Function()? showMoreInformation,
+    TResult Function()? getFlightById,
+    TResult Function()? getTicInformation,
+    TResult Function(TicketInformation ticInformation, int seatIndex)?
+        selectedSeat,
+    TResult Function(Customer? customer)? updateCustomerSelected,
+    required TResult orElse(),
+  }) {
+    if (updateCustomerSelected != null) {
+      return updateCustomerSelected(customer);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangeTypeView value) changeTypeView,
+    required TResult Function(_showMoreInformation value) showMoreInformation,
+    required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_GetTicInformation value) getTicInformation,
+    required TResult Function(_SelectedSeat value) selectedSeat,
+    required TResult Function(_UpdateCustomerSelected value)
+        updateCustomerSelected,
+  }) {
+    return updateCustomerSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeTypeView value)? changeTypeView,
+    TResult? Function(_showMoreInformation value)? showMoreInformation,
+    TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
+    TResult? Function(_SelectedSeat value)? selectedSeat,
+    TResult? Function(_UpdateCustomerSelected value)? updateCustomerSelected,
+  }) {
+    return updateCustomerSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangeTypeView value)? changeTypeView,
+    TResult Function(_showMoreInformation value)? showMoreInformation,
+    TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_GetTicInformation value)? getTicInformation,
+    TResult Function(_SelectedSeat value)? selectedSeat,
+    TResult Function(_UpdateCustomerSelected value)? updateCustomerSelected,
+    required TResult orElse(),
+  }) {
+    if (updateCustomerSelected != null) {
+      return updateCustomerSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateCustomerSelected implements FlightDetailEvent {
+  const factory _UpdateCustomerSelected({final Customer? customer}) =
+      _$_UpdateCustomerSelected;
+
+  Customer? get customer;
+  @JsonKey(ignore: true)
+  _$$_UpdateCustomerSelectedCopyWith<_$_UpdateCustomerSelected> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$FlightDetailState {
   FlightDetailModelState get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -976,6 +1209,8 @@ mixin _$FlightDetailState {
     required TResult Function(FlightDetailModelState data, String message)
         getTicInformationFailed,
     required TResult Function(FlightDetailModelState data) selectedSeatSuccess,
+    required TResult Function(FlightDetailModelState data)
+        updateCustomerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -989,6 +1224,7 @@ mixin _$FlightDetailState {
     TResult? Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult? Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult? Function(FlightDetailModelState data)? updateCustomerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1002,6 +1238,7 @@ mixin _$FlightDetailState {
     TResult Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult Function(FlightDetailModelState data)? updateCustomerSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1016,6 +1253,8 @@ mixin _$FlightDetailState {
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1028,6 +1267,7 @@ mixin _$FlightDetailState {
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1039,6 +1279,7 @@ mixin _$FlightDetailState {
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1170,6 +1411,8 @@ class _$_Initial extends _Initial {
     required TResult Function(FlightDetailModelState data, String message)
         getTicInformationFailed,
     required TResult Function(FlightDetailModelState data) selectedSeatSuccess,
+    required TResult Function(FlightDetailModelState data)
+        updateCustomerSuccess,
   }) {
     return initial(data);
   }
@@ -1186,6 +1429,7 @@ class _$_Initial extends _Initial {
     TResult? Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult? Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult? Function(FlightDetailModelState data)? updateCustomerSuccess,
   }) {
     return initial?.call(data);
   }
@@ -1202,6 +1446,7 @@ class _$_Initial extends _Initial {
     TResult Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult Function(FlightDetailModelState data)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1222,6 +1467,8 @@ class _$_Initial extends _Initial {
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
   }) {
     return initial(this);
   }
@@ -1237,6 +1484,7 @@ class _$_Initial extends _Initial {
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
   }) {
     return initial?.call(this);
   }
@@ -1251,6 +1499,7 @@ class _$_Initial extends _Initial {
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1362,6 +1611,8 @@ class _$_Loading extends _Loading {
     required TResult Function(FlightDetailModelState data, String message)
         getTicInformationFailed,
     required TResult Function(FlightDetailModelState data) selectedSeatSuccess,
+    required TResult Function(FlightDetailModelState data)
+        updateCustomerSuccess,
   }) {
     return loading(data, loadingField);
   }
@@ -1378,6 +1629,7 @@ class _$_Loading extends _Loading {
     TResult? Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult? Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult? Function(FlightDetailModelState data)? updateCustomerSuccess,
   }) {
     return loading?.call(data, loadingField);
   }
@@ -1394,6 +1646,7 @@ class _$_Loading extends _Loading {
     TResult Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult Function(FlightDetailModelState data)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1414,6 +1667,8 @@ class _$_Loading extends _Loading {
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
   }) {
     return loading(this);
   }
@@ -1429,6 +1684,7 @@ class _$_Loading extends _Loading {
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
   }) {
     return loading?.call(this);
   }
@@ -1443,6 +1699,7 @@ class _$_Loading extends _Loading {
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1548,6 +1805,8 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     required TResult Function(FlightDetailModelState data, String message)
         getTicInformationFailed,
     required TResult Function(FlightDetailModelState data) selectedSeatSuccess,
+    required TResult Function(FlightDetailModelState data)
+        updateCustomerSuccess,
   }) {
     return getFlightByIdSuccess(data);
   }
@@ -1564,6 +1823,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult? Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult? Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult? Function(FlightDetailModelState data)? updateCustomerSuccess,
   }) {
     return getFlightByIdSuccess?.call(data);
   }
@@ -1580,6 +1840,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult Function(FlightDetailModelState data)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (getFlightByIdSuccess != null) {
@@ -1600,6 +1861,8 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
   }) {
     return getFlightByIdSuccess(this);
   }
@@ -1615,6 +1878,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
   }) {
     return getFlightByIdSuccess?.call(this);
   }
@@ -1629,6 +1893,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (getFlightByIdSuccess != null) {
@@ -1741,6 +2006,8 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     required TResult Function(FlightDetailModelState data, String message)
         getTicInformationFailed,
     required TResult Function(FlightDetailModelState data) selectedSeatSuccess,
+    required TResult Function(FlightDetailModelState data)
+        updateCustomerSuccess,
   }) {
     return getFlightByIdFailed(data, message);
   }
@@ -1757,6 +2024,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult? Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult? Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult? Function(FlightDetailModelState data)? updateCustomerSuccess,
   }) {
     return getFlightByIdFailed?.call(data, message);
   }
@@ -1773,6 +2041,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult Function(FlightDetailModelState data)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (getFlightByIdFailed != null) {
@@ -1793,6 +2062,8 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
   }) {
     return getFlightByIdFailed(this);
   }
@@ -1808,6 +2079,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
   }) {
     return getFlightByIdFailed?.call(this);
   }
@@ -1822,6 +2094,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (getFlightByIdFailed != null) {
@@ -1928,6 +2201,8 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     required TResult Function(FlightDetailModelState data, String message)
         getTicInformationFailed,
     required TResult Function(FlightDetailModelState data) selectedSeatSuccess,
+    required TResult Function(FlightDetailModelState data)
+        updateCustomerSuccess,
   }) {
     return getTicInformationSuccess(data);
   }
@@ -1944,6 +2219,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult? Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult? Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult? Function(FlightDetailModelState data)? updateCustomerSuccess,
   }) {
     return getTicInformationSuccess?.call(data);
   }
@@ -1960,6 +2236,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult Function(FlightDetailModelState data)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationSuccess != null) {
@@ -1980,6 +2257,8 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
   }) {
     return getTicInformationSuccess(this);
   }
@@ -1995,6 +2274,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
   }) {
     return getTicInformationSuccess?.call(this);
   }
@@ -2009,6 +2289,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationSuccess != null) {
@@ -2123,6 +2404,8 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     required TResult Function(FlightDetailModelState data, String message)
         getTicInformationFailed,
     required TResult Function(FlightDetailModelState data) selectedSeatSuccess,
+    required TResult Function(FlightDetailModelState data)
+        updateCustomerSuccess,
   }) {
     return getTicInformationFailed(data, message);
   }
@@ -2139,6 +2422,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult? Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult? Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult? Function(FlightDetailModelState data)? updateCustomerSuccess,
   }) {
     return getTicInformationFailed?.call(data, message);
   }
@@ -2155,6 +2439,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult Function(FlightDetailModelState data)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationFailed != null) {
@@ -2175,6 +2460,8 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
   }) {
     return getTicInformationFailed(this);
   }
@@ -2190,6 +2477,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
   }) {
     return getTicInformationFailed?.call(this);
   }
@@ -2204,6 +2492,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationFailed != null) {
@@ -2309,6 +2598,8 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     required TResult Function(FlightDetailModelState data, String message)
         getTicInformationFailed,
     required TResult Function(FlightDetailModelState data) selectedSeatSuccess,
+    required TResult Function(FlightDetailModelState data)
+        updateCustomerSuccess,
   }) {
     return selectedSeatSuccess(data);
   }
@@ -2325,6 +2616,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     TResult? Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult? Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult? Function(FlightDetailModelState data)? updateCustomerSuccess,
   }) {
     return selectedSeatSuccess?.call(data);
   }
@@ -2341,6 +2633,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     TResult Function(FlightDetailModelState data, String message)?
         getTicInformationFailed,
     TResult Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult Function(FlightDetailModelState data)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (selectedSeatSuccess != null) {
@@ -2361,6 +2654,8 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
   }) {
     return selectedSeatSuccess(this);
   }
@@ -2376,6 +2671,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
   }) {
     return selectedSeatSuccess?.call(this);
   }
@@ -2390,6 +2686,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     required TResult orElse(),
   }) {
     if (selectedSeatSuccess != null) {
@@ -2409,5 +2706,197 @@ abstract class _SelectedSeatSuccess extends FlightDetailState {
   @override
   @JsonKey(ignore: true)
   _$$_SelectedSeatSuccessCopyWith<_$_SelectedSeatSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateCustomerSuccessCopyWith<$Res>
+    implements $FlightDetailStateCopyWith<$Res> {
+  factory _$$_UpdateCustomerSuccessCopyWith(_$_UpdateCustomerSuccess value,
+          $Res Function(_$_UpdateCustomerSuccess) then) =
+      __$$_UpdateCustomerSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FlightDetailModelState data});
+
+  @override
+  $FlightDetailModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_UpdateCustomerSuccessCopyWithImpl<$Res>
+    extends _$FlightDetailStateCopyWithImpl<$Res, _$_UpdateCustomerSuccess>
+    implements _$$_UpdateCustomerSuccessCopyWith<$Res> {
+  __$$_UpdateCustomerSuccessCopyWithImpl(_$_UpdateCustomerSuccess _value,
+      $Res Function(_$_UpdateCustomerSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_UpdateCustomerSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FlightDetailModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
+  const _$_UpdateCustomerSuccess({required this.data}) : super._();
+
+  @override
+  final FlightDetailModelState data;
+
+  @override
+  String toString() {
+    return 'FlightDetailState.updateCustomerSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateCustomerSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateCustomerSuccessCopyWith<_$_UpdateCustomerSuccess> get copyWith =>
+      __$$_UpdateCustomerSuccessCopyWithImpl<_$_UpdateCustomerSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FlightDetailModelState data) initial,
+    required TResult Function(FlightDetailModelState data, int loadingField)
+        loading,
+    required TResult Function(FlightDetailModelState data) getFlightByIdSuccess,
+    required TResult Function(FlightDetailModelState data, String message)
+        getFlightByIdFailed,
+    required TResult Function(FlightDetailModelState data)
+        getTicInformationSuccess,
+    required TResult Function(FlightDetailModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(FlightDetailModelState data) selectedSeatSuccess,
+    required TResult Function(FlightDetailModelState data)
+        updateCustomerSuccess,
+  }) {
+    return updateCustomerSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FlightDetailModelState data)? initial,
+    TResult? Function(FlightDetailModelState data, int loadingField)? loading,
+    TResult? Function(FlightDetailModelState data)? getFlightByIdSuccess,
+    TResult? Function(FlightDetailModelState data, String message)?
+        getFlightByIdFailed,
+    TResult? Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult? Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult? Function(FlightDetailModelState data)? updateCustomerSuccess,
+  }) {
+    return updateCustomerSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FlightDetailModelState data)? initial,
+    TResult Function(FlightDetailModelState data, int loadingField)? loading,
+    TResult Function(FlightDetailModelState data)? getFlightByIdSuccess,
+    TResult Function(FlightDetailModelState data, String message)?
+        getFlightByIdFailed,
+    TResult Function(FlightDetailModelState data)? getTicInformationSuccess,
+    TResult Function(FlightDetailModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(FlightDetailModelState data)? selectedSeatSuccess,
+    TResult Function(FlightDetailModelState data)? updateCustomerSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateCustomerSuccess != null) {
+      return updateCustomerSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
+    required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
+    required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
+  }) {
+    return updateCustomerSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
+  }) {
+    return updateCustomerSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateCustomerSuccess != null) {
+      return updateCustomerSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateCustomerSuccess extends FlightDetailState {
+  const factory _UpdateCustomerSuccess(
+      {required final FlightDetailModelState data}) = _$_UpdateCustomerSuccess;
+  const _UpdateCustomerSuccess._() : super._();
+
+  @override
+  FlightDetailModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_UpdateCustomerSuccessCopyWith<_$_UpdateCustomerSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }

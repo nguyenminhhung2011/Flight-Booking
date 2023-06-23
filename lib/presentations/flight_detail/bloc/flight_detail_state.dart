@@ -31,6 +31,9 @@ class FlightDetailState with _$FlightDetailState {
   const factory FlightDetailState.selectedSeatSuccess({
     required FlightDetailModelState data,
   }) = _SelectedSeatSuccess;
+  const factory FlightDetailState.updateCustomerSuccess({
+    required FlightDetailModelState data,
+  }) = _UpdateCustomerSuccess;
 
   bool get loadingGetFlight => maybeWhen(
       orElse: () => false, loading: (data, loadingField) => loadingField == 0);

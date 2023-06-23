@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CustomerModelState {
   List<Customer> get customers => throw _privateConstructorUsedError;
+  Payment? get paymentSelected => throw _privateConstructorUsedError;
   int? get currentIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +31,10 @@ abstract class $CustomerModelStateCopyWith<$Res> {
           CustomerModelState value, $Res Function(CustomerModelState) then) =
       _$CustomerModelStateCopyWithImpl<$Res, CustomerModelState>;
   @useResult
-  $Res call({List<Customer> customers, int? currentIndex});
+  $Res call(
+      {List<Customer> customers, Payment? paymentSelected, int? currentIndex});
+
+  $PaymentCopyWith<$Res>? get paymentSelected;
 }
 
 /// @nodoc
@@ -47,6 +51,7 @@ class _$CustomerModelStateCopyWithImpl<$Res, $Val extends CustomerModelState>
   @override
   $Res call({
     Object? customers = null,
+    Object? paymentSelected = freezed,
     Object? currentIndex = freezed,
   }) {
     return _then(_value.copyWith(
@@ -54,11 +59,27 @@ class _$CustomerModelStateCopyWithImpl<$Res, $Val extends CustomerModelState>
           ? _value.customers
           : customers // ignore: cast_nullable_to_non_nullable
               as List<Customer>,
+      paymentSelected: freezed == paymentSelected
+          ? _value.paymentSelected
+          : paymentSelected // ignore: cast_nullable_to_non_nullable
+              as Payment?,
       currentIndex: freezed == currentIndex
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PaymentCopyWith<$Res>? get paymentSelected {
+    if (_value.paymentSelected == null) {
+      return null;
+    }
+
+    return $PaymentCopyWith<$Res>(_value.paymentSelected!, (value) {
+      return _then(_value.copyWith(paymentSelected: value) as $Val);
+    });
   }
 }
 
@@ -70,7 +91,11 @@ abstract class _$$_CustomerModelStateCopyWith<$Res>
       __$$_CustomerModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Customer> customers, int? currentIndex});
+  $Res call(
+      {List<Customer> customers, Payment? paymentSelected, int? currentIndex});
+
+  @override
+  $PaymentCopyWith<$Res>? get paymentSelected;
 }
 
 /// @nodoc
@@ -85,6 +110,7 @@ class __$$_CustomerModelStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? customers = null,
+    Object? paymentSelected = freezed,
     Object? currentIndex = freezed,
   }) {
     return _then(_$_CustomerModelState(
@@ -92,6 +118,10 @@ class __$$_CustomerModelStateCopyWithImpl<$Res>
           ? _value._customers
           : customers // ignore: cast_nullable_to_non_nullable
               as List<Customer>,
+      paymentSelected: freezed == paymentSelected
+          ? _value.paymentSelected
+          : paymentSelected // ignore: cast_nullable_to_non_nullable
+              as Payment?,
       currentIndex: freezed == currentIndex
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
@@ -104,7 +134,9 @@ class __$$_CustomerModelStateCopyWithImpl<$Res>
 
 class _$_CustomerModelState implements _CustomerModelState {
   const _$_CustomerModelState(
-      {required final List<Customer> customers, this.currentIndex})
+      {required final List<Customer> customers,
+      this.paymentSelected,
+      this.currentIndex})
       : _customers = customers;
 
   final List<Customer> _customers;
@@ -116,11 +148,13 @@ class _$_CustomerModelState implements _CustomerModelState {
   }
 
   @override
+  final Payment? paymentSelected;
+  @override
   final int? currentIndex;
 
   @override
   String toString() {
-    return 'CustomerModelState(customers: $customers, currentIndex: $currentIndex)';
+    return 'CustomerModelState(customers: $customers, paymentSelected: $paymentSelected, currentIndex: $currentIndex)';
   }
 
   @override
@@ -130,13 +164,18 @@ class _$_CustomerModelState implements _CustomerModelState {
             other is _$_CustomerModelState &&
             const DeepCollectionEquality()
                 .equals(other._customers, _customers) &&
+            (identical(other.paymentSelected, paymentSelected) ||
+                other.paymentSelected == paymentSelected) &&
             (identical(other.currentIndex, currentIndex) ||
                 other.currentIndex == currentIndex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_customers), currentIndex);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_customers),
+      paymentSelected,
+      currentIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -149,10 +188,13 @@ class _$_CustomerModelState implements _CustomerModelState {
 abstract class _CustomerModelState implements CustomerModelState {
   const factory _CustomerModelState(
       {required final List<Customer> customers,
+      final Payment? paymentSelected,
       final int? currentIndex}) = _$_CustomerModelState;
 
   @override
   List<Customer> get customers;
+  @override
+  Payment? get paymentSelected;
   @override
   int? get currentIndex;
   @override
