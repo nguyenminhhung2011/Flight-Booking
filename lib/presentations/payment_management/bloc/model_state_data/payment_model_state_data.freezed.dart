@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PaymentModelStateData {
-  List<Payment> get payments => throw _privateConstructorUsedError;
+  List<PaymentItem> get payments => throw _privateConstructorUsedError;
   TotalStatisticalData get totalData => throw _privateConstructorUsedError;
   Revenue get revenue => throw _privateConstructorUsedError;
   PaymentStatusStateData get statusData => throw _privateConstructorUsedError;
@@ -34,7 +34,7 @@ abstract class $PaymentModelStateDataCopyWith<$Res> {
       _$PaymentModelStateDataCopyWithImpl<$Res, PaymentModelStateData>;
   @useResult
   $Res call(
-      {List<Payment> payments,
+      {List<PaymentItem> payments,
       TotalStatisticalData totalData,
       Revenue revenue,
       PaymentStatusStateData statusData,
@@ -70,7 +70,7 @@ class _$PaymentModelStateDataCopyWithImpl<$Res,
       payments: null == payments
           ? _value.payments
           : payments // ignore: cast_nullable_to_non_nullable
-              as List<Payment>,
+              as List<PaymentItem>,
       totalData: null == totalData
           ? _value.totalData
           : totalData // ignore: cast_nullable_to_non_nullable
@@ -132,7 +132,7 @@ abstract class _$$_PaymentModelStateDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Payment> payments,
+      {List<PaymentItem> payments,
       TotalStatisticalData totalData,
       Revenue revenue,
       PaymentStatusStateData statusData,
@@ -169,7 +169,7 @@ class __$$_PaymentModelStateDataCopyWithImpl<$Res>
       payments: null == payments
           ? _value._payments
           : payments // ignore: cast_nullable_to_non_nullable
-              as List<Payment>,
+              as List<PaymentItem>,
       totalData: null == totalData
           ? _value.totalData
           : totalData // ignore: cast_nullable_to_non_nullable
@@ -194,16 +194,16 @@ class __$$_PaymentModelStateDataCopyWithImpl<$Res>
 
 class _$_PaymentModelStateData implements _PaymentModelStateData {
   const _$_PaymentModelStateData(
-      {required final List<Payment> payments,
+      {required final List<PaymentItem> payments,
       required this.totalData,
       required this.revenue,
       required this.statusData,
       required this.ticketTierData})
       : _payments = payments;
 
-  final List<Payment> _payments;
+  final List<PaymentItem> _payments;
   @override
-  List<Payment> get payments {
+  List<PaymentItem> get payments {
     if (_payments is EqualUnmodifiableListView) return _payments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_payments);
@@ -257,14 +257,14 @@ class _$_PaymentModelStateData implements _PaymentModelStateData {
 
 abstract class _PaymentModelStateData implements PaymentModelStateData {
   const factory _PaymentModelStateData(
-      {required final List<Payment> payments,
+      {required final List<PaymentItem> payments,
       required final TotalStatisticalData totalData,
       required final Revenue revenue,
       required final PaymentStatusStateData statusData,
       required final TicketTierData ticketTierData}) = _$_PaymentModelStateData;
 
   @override
-  List<Payment> get payments;
+  List<PaymentItem> get payments;
   @override
   TotalStatisticalData get totalData;
   @override
