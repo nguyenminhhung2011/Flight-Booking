@@ -25,10 +25,20 @@ mixin _$BTEvent {
     required TResult Function() fetchCustomerData,
     required TResult Function(String id) getCustomerById,
     required TResult Function() getTicInformation,
-    required TResult Function(TicketInformation ticInformation, int seatIndex)
-        selectedSeat,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
     required TResult Function(String text) searchCustomer,
     required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,10 +50,20 @@ mixin _$BTEvent {
     TResult? Function()? fetchCustomerData,
     TResult? Function(String id)? getCustomerById,
     TResult? Function()? getTicInformation,
-    TResult? Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
     TResult? Function(String text)? searchCustomer,
     TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,10 +75,20 @@ mixin _$BTEvent {
     TResult Function()? fetchCustomerData,
     TResult Function(String id)? getCustomerById,
     TResult Function()? getTicInformation,
-    TResult Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
     TResult Function(String text)? searchCustomer,
     TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +104,7 @@ mixin _$BTEvent {
     required TResult Function(_SelectedSeat value) selectedSeat,
     required TResult Function(_SearchCustomer value) searchCustomer,
     required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +119,7 @@ mixin _$BTEvent {
     TResult? Function(_SelectedSeat value)? selectedSeat,
     TResult? Function(_SearchCustomer value)? searchCustomer,
     TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -102,6 +134,7 @@ mixin _$BTEvent {
     TResult Function(_SelectedSeat value)? selectedSeat,
     TResult Function(_SearchCustomer value)? searchCustomer,
     TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -168,10 +201,20 @@ class _$_Started implements _Started {
     required TResult Function() fetchCustomerData,
     required TResult Function(String id) getCustomerById,
     required TResult Function() getTicInformation,
-    required TResult Function(TicketInformation ticInformation, int seatIndex)
-        selectedSeat,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
     required TResult Function(String text) searchCustomer,
     required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
   }) {
     return onStarted();
   }
@@ -186,10 +229,20 @@ class _$_Started implements _Started {
     TResult? Function()? fetchCustomerData,
     TResult? Function(String id)? getCustomerById,
     TResult? Function()? getTicInformation,
-    TResult? Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
     TResult? Function(String text)? searchCustomer,
     TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
   }) {
     return onStarted?.call();
   }
@@ -204,10 +257,20 @@ class _$_Started implements _Started {
     TResult Function()? fetchCustomerData,
     TResult Function(String id)? getCustomerById,
     TResult Function()? getTicInformation,
-    TResult Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
     TResult Function(String text)? searchCustomer,
     TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -229,6 +292,7 @@ class _$_Started implements _Started {
     required TResult Function(_SelectedSeat value) selectedSeat,
     required TResult Function(_SearchCustomer value) searchCustomer,
     required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
   }) {
     return onStarted(this);
   }
@@ -246,6 +310,7 @@ class _$_Started implements _Started {
     TResult? Function(_SelectedSeat value)? selectedSeat,
     TResult? Function(_SearchCustomer value)? searchCustomer,
     TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
   }) {
     return onStarted?.call(this);
   }
@@ -263,6 +328,7 @@ class _$_Started implements _Started {
     TResult Function(_SelectedSeat value)? selectedSeat,
     TResult Function(_SearchCustomer value)? searchCustomer,
     TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -321,10 +387,20 @@ class _$_ButtonTap implements _ButtonTap {
     required TResult Function() fetchCustomerData,
     required TResult Function(String id) getCustomerById,
     required TResult Function() getTicInformation,
-    required TResult Function(TicketInformation ticInformation, int seatIndex)
-        selectedSeat,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
     required TResult Function(String text) searchCustomer,
     required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
   }) {
     return buttonTap();
   }
@@ -339,10 +415,20 @@ class _$_ButtonTap implements _ButtonTap {
     TResult? Function()? fetchCustomerData,
     TResult? Function(String id)? getCustomerById,
     TResult? Function()? getTicInformation,
-    TResult? Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
     TResult? Function(String text)? searchCustomer,
     TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
   }) {
     return buttonTap?.call();
   }
@@ -357,10 +443,20 @@ class _$_ButtonTap implements _ButtonTap {
     TResult Function()? fetchCustomerData,
     TResult Function(String id)? getCustomerById,
     TResult Function()? getTicInformation,
-    TResult Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
     TResult Function(String text)? searchCustomer,
     TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
     required TResult orElse(),
   }) {
     if (buttonTap != null) {
@@ -382,6 +478,7 @@ class _$_ButtonTap implements _ButtonTap {
     required TResult Function(_SelectedSeat value) selectedSeat,
     required TResult Function(_SearchCustomer value) searchCustomer,
     required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
   }) {
     return buttonTap(this);
   }
@@ -399,6 +496,7 @@ class _$_ButtonTap implements _ButtonTap {
     TResult? Function(_SelectedSeat value)? selectedSeat,
     TResult? Function(_SearchCustomer value)? searchCustomer,
     TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
   }) {
     return buttonTap?.call(this);
   }
@@ -416,6 +514,7 @@ class _$_ButtonTap implements _ButtonTap {
     TResult Function(_SelectedSeat value)? selectedSeat,
     TResult Function(_SearchCustomer value)? searchCustomer,
     TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
     required TResult orElse(),
   }) {
     if (buttonTap != null) {
@@ -501,10 +600,20 @@ class _$_ChangeTicIndexView implements _ChangeTicIndexView {
     required TResult Function() fetchCustomerData,
     required TResult Function(String id) getCustomerById,
     required TResult Function() getTicInformation,
-    required TResult Function(TicketInformation ticInformation, int seatIndex)
-        selectedSeat,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
     required TResult Function(String text) searchCustomer,
     required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
   }) {
     return changeTicIndexView(index);
   }
@@ -519,10 +628,20 @@ class _$_ChangeTicIndexView implements _ChangeTicIndexView {
     TResult? Function()? fetchCustomerData,
     TResult? Function(String id)? getCustomerById,
     TResult? Function()? getTicInformation,
-    TResult? Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
     TResult? Function(String text)? searchCustomer,
     TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
   }) {
     return changeTicIndexView?.call(index);
   }
@@ -537,10 +656,20 @@ class _$_ChangeTicIndexView implements _ChangeTicIndexView {
     TResult Function()? fetchCustomerData,
     TResult Function(String id)? getCustomerById,
     TResult Function()? getTicInformation,
-    TResult Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
     TResult Function(String text)? searchCustomer,
     TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
     required TResult orElse(),
   }) {
     if (changeTicIndexView != null) {
@@ -562,6 +691,7 @@ class _$_ChangeTicIndexView implements _ChangeTicIndexView {
     required TResult Function(_SelectedSeat value) selectedSeat,
     required TResult Function(_SearchCustomer value) searchCustomer,
     required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
   }) {
     return changeTicIndexView(this);
   }
@@ -579,6 +709,7 @@ class _$_ChangeTicIndexView implements _ChangeTicIndexView {
     TResult? Function(_SelectedSeat value)? selectedSeat,
     TResult? Function(_SearchCustomer value)? searchCustomer,
     TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
   }) {
     return changeTicIndexView?.call(this);
   }
@@ -596,6 +727,7 @@ class _$_ChangeTicIndexView implements _ChangeTicIndexView {
     TResult Function(_SelectedSeat value)? selectedSeat,
     TResult Function(_SearchCustomer value)? searchCustomer,
     TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
     required TResult orElse(),
   }) {
     if (changeTicIndexView != null) {
@@ -660,10 +792,20 @@ class _$_UpdateTicOverview implements _UpdateTicOverview {
     required TResult Function() fetchCustomerData,
     required TResult Function(String id) getCustomerById,
     required TResult Function() getTicInformation,
-    required TResult Function(TicketInformation ticInformation, int seatIndex)
-        selectedSeat,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
     required TResult Function(String text) searchCustomer,
     required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
   }) {
     return updateTicOverview();
   }
@@ -678,10 +820,20 @@ class _$_UpdateTicOverview implements _UpdateTicOverview {
     TResult? Function()? fetchCustomerData,
     TResult? Function(String id)? getCustomerById,
     TResult? Function()? getTicInformation,
-    TResult? Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
     TResult? Function(String text)? searchCustomer,
     TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
   }) {
     return updateTicOverview?.call();
   }
@@ -696,10 +848,20 @@ class _$_UpdateTicOverview implements _UpdateTicOverview {
     TResult Function()? fetchCustomerData,
     TResult Function(String id)? getCustomerById,
     TResult Function()? getTicInformation,
-    TResult Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
     TResult Function(String text)? searchCustomer,
     TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
     required TResult orElse(),
   }) {
     if (updateTicOverview != null) {
@@ -721,6 +883,7 @@ class _$_UpdateTicOverview implements _UpdateTicOverview {
     required TResult Function(_SelectedSeat value) selectedSeat,
     required TResult Function(_SearchCustomer value) searchCustomer,
     required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
   }) {
     return updateTicOverview(this);
   }
@@ -738,6 +901,7 @@ class _$_UpdateTicOverview implements _UpdateTicOverview {
     TResult? Function(_SelectedSeat value)? selectedSeat,
     TResult? Function(_SearchCustomer value)? searchCustomer,
     TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
   }) {
     return updateTicOverview?.call(this);
   }
@@ -755,6 +919,7 @@ class _$_UpdateTicOverview implements _UpdateTicOverview {
     TResult Function(_SelectedSeat value)? selectedSeat,
     TResult Function(_SearchCustomer value)? searchCustomer,
     TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
     required TResult orElse(),
   }) {
     if (updateTicOverview != null) {
@@ -813,10 +978,20 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     required TResult Function() fetchCustomerData,
     required TResult Function(String id) getCustomerById,
     required TResult Function() getTicInformation,
-    required TResult Function(TicketInformation ticInformation, int seatIndex)
-        selectedSeat,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
     required TResult Function(String text) searchCustomer,
     required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
   }) {
     return fetchCustomerData();
   }
@@ -831,10 +1006,20 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     TResult? Function()? fetchCustomerData,
     TResult? Function(String id)? getCustomerById,
     TResult? Function()? getTicInformation,
-    TResult? Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
     TResult? Function(String text)? searchCustomer,
     TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
   }) {
     return fetchCustomerData?.call();
   }
@@ -849,10 +1034,20 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     TResult Function()? fetchCustomerData,
     TResult Function(String id)? getCustomerById,
     TResult Function()? getTicInformation,
-    TResult Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
     TResult Function(String text)? searchCustomer,
     TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
     required TResult orElse(),
   }) {
     if (fetchCustomerData != null) {
@@ -874,6 +1069,7 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     required TResult Function(_SelectedSeat value) selectedSeat,
     required TResult Function(_SearchCustomer value) searchCustomer,
     required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
   }) {
     return fetchCustomerData(this);
   }
@@ -891,6 +1087,7 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     TResult? Function(_SelectedSeat value)? selectedSeat,
     TResult? Function(_SearchCustomer value)? searchCustomer,
     TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
   }) {
     return fetchCustomerData?.call(this);
   }
@@ -908,6 +1105,7 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     TResult Function(_SelectedSeat value)? selectedSeat,
     TResult Function(_SearchCustomer value)? searchCustomer,
     TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
     required TResult orElse(),
   }) {
     if (fetchCustomerData != null) {
@@ -992,10 +1190,20 @@ class _$_GetCustomerById implements _GetCustomerById {
     required TResult Function() fetchCustomerData,
     required TResult Function(String id) getCustomerById,
     required TResult Function() getTicInformation,
-    required TResult Function(TicketInformation ticInformation, int seatIndex)
-        selectedSeat,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
     required TResult Function(String text) searchCustomer,
     required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
   }) {
     return getCustomerById(id);
   }
@@ -1010,10 +1218,20 @@ class _$_GetCustomerById implements _GetCustomerById {
     TResult? Function()? fetchCustomerData,
     TResult? Function(String id)? getCustomerById,
     TResult? Function()? getTicInformation,
-    TResult? Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
     TResult? Function(String text)? searchCustomer,
     TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
   }) {
     return getCustomerById?.call(id);
   }
@@ -1028,10 +1246,20 @@ class _$_GetCustomerById implements _GetCustomerById {
     TResult Function()? fetchCustomerData,
     TResult Function(String id)? getCustomerById,
     TResult Function()? getTicInformation,
-    TResult Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
     TResult Function(String text)? searchCustomer,
     TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
     required TResult orElse(),
   }) {
     if (getCustomerById != null) {
@@ -1053,6 +1281,7 @@ class _$_GetCustomerById implements _GetCustomerById {
     required TResult Function(_SelectedSeat value) selectedSeat,
     required TResult Function(_SearchCustomer value) searchCustomer,
     required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
   }) {
     return getCustomerById(this);
   }
@@ -1070,6 +1299,7 @@ class _$_GetCustomerById implements _GetCustomerById {
     TResult? Function(_SelectedSeat value)? selectedSeat,
     TResult? Function(_SearchCustomer value)? searchCustomer,
     TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
   }) {
     return getCustomerById?.call(this);
   }
@@ -1087,6 +1317,7 @@ class _$_GetCustomerById implements _GetCustomerById {
     TResult Function(_SelectedSeat value)? selectedSeat,
     TResult Function(_SearchCustomer value)? searchCustomer,
     TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
     required TResult orElse(),
   }) {
     if (getCustomerById != null) {
@@ -1151,10 +1382,20 @@ class _$_GetTicInformation implements _GetTicInformation {
     required TResult Function() fetchCustomerData,
     required TResult Function(String id) getCustomerById,
     required TResult Function() getTicInformation,
-    required TResult Function(TicketInformation ticInformation, int seatIndex)
-        selectedSeat,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
     required TResult Function(String text) searchCustomer,
     required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
   }) {
     return getTicInformation();
   }
@@ -1169,10 +1410,20 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult? Function()? fetchCustomerData,
     TResult? Function(String id)? getCustomerById,
     TResult? Function()? getTicInformation,
-    TResult? Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
     TResult? Function(String text)? searchCustomer,
     TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
   }) {
     return getTicInformation?.call();
   }
@@ -1187,10 +1438,20 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult Function()? fetchCustomerData,
     TResult Function(String id)? getCustomerById,
     TResult Function()? getTicInformation,
-    TResult Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
     TResult Function(String text)? searchCustomer,
     TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
     required TResult orElse(),
   }) {
     if (getTicInformation != null) {
@@ -1212,6 +1473,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     required TResult Function(_SelectedSeat value) selectedSeat,
     required TResult Function(_SearchCustomer value) searchCustomer,
     required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
   }) {
     return getTicInformation(this);
   }
@@ -1229,6 +1491,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult? Function(_SelectedSeat value)? selectedSeat,
     TResult? Function(_SearchCustomer value)? searchCustomer,
     TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
   }) {
     return getTicInformation?.call(this);
   }
@@ -1246,6 +1509,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult Function(_SelectedSeat value)? selectedSeat,
     TResult Function(_SearchCustomer value)? searchCustomer,
     TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
     required TResult orElse(),
   }) {
     if (getTicInformation != null) {
@@ -1265,9 +1529,7 @@ abstract class _$$_SelectedSeatCopyWith<$Res> {
           _$_SelectedSeat value, $Res Function(_$_SelectedSeat) then) =
       __$$_SelectedSeatCopyWithImpl<$Res>;
   @useResult
-  $Res call({TicketInformation ticInformation, int seatIndex});
-
-  $TicketInformationCopyWith<$Res> get ticInformation;
+  $Res call({SeatSelected newSeat});
 }
 
 /// @nodoc
@@ -1281,44 +1543,28 @@ class __$$_SelectedSeatCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? ticInformation = null,
-    Object? seatIndex = null,
+    Object? newSeat = null,
   }) {
     return _then(_$_SelectedSeat(
-      ticInformation: null == ticInformation
-          ? _value.ticInformation
-          : ticInformation // ignore: cast_nullable_to_non_nullable
-              as TicketInformation,
-      seatIndex: null == seatIndex
-          ? _value.seatIndex
-          : seatIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+      newSeat: null == newSeat
+          ? _value.newSeat
+          : newSeat // ignore: cast_nullable_to_non_nullable
+              as SeatSelected,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TicketInformationCopyWith<$Res> get ticInformation {
-    return $TicketInformationCopyWith<$Res>(_value.ticInformation, (value) {
-      return _then(_value.copyWith(ticInformation: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_SelectedSeat implements _SelectedSeat {
-  const _$_SelectedSeat(
-      {required this.ticInformation, required this.seatIndex});
+  const _$_SelectedSeat({required this.newSeat});
 
   @override
-  final TicketInformation ticInformation;
-  @override
-  final int seatIndex;
+  final SeatSelected newSeat;
 
   @override
   String toString() {
-    return 'BTEvent.selectedSeat(ticInformation: $ticInformation, seatIndex: $seatIndex)';
+    return 'BTEvent.selectedSeat(newSeat: $newSeat)';
   }
 
   @override
@@ -1326,14 +1572,11 @@ class _$_SelectedSeat implements _SelectedSeat {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SelectedSeat &&
-            (identical(other.ticInformation, ticInformation) ||
-                other.ticInformation == ticInformation) &&
-            (identical(other.seatIndex, seatIndex) ||
-                other.seatIndex == seatIndex));
+            (identical(other.newSeat, newSeat) || other.newSeat == newSeat));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, ticInformation, seatIndex);
+  int get hashCode => Object.hash(runtimeType, newSeat);
 
   @JsonKey(ignore: true)
   @override
@@ -1351,12 +1594,22 @@ class _$_SelectedSeat implements _SelectedSeat {
     required TResult Function() fetchCustomerData,
     required TResult Function(String id) getCustomerById,
     required TResult Function() getTicInformation,
-    required TResult Function(TicketInformation ticInformation, int seatIndex)
-        selectedSeat,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
     required TResult Function(String text) searchCustomer,
     required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
   }) {
-    return selectedSeat(ticInformation, seatIndex);
+    return selectedSeat(newSeat);
   }
 
   @override
@@ -1369,12 +1622,22 @@ class _$_SelectedSeat implements _SelectedSeat {
     TResult? Function()? fetchCustomerData,
     TResult? Function(String id)? getCustomerById,
     TResult? Function()? getTicInformation,
-    TResult? Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
     TResult? Function(String text)? searchCustomer,
     TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
   }) {
-    return selectedSeat?.call(ticInformation, seatIndex);
+    return selectedSeat?.call(newSeat);
   }
 
   @override
@@ -1387,14 +1650,24 @@ class _$_SelectedSeat implements _SelectedSeat {
     TResult Function()? fetchCustomerData,
     TResult Function(String id)? getCustomerById,
     TResult Function()? getTicInformation,
-    TResult Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
     TResult Function(String text)? searchCustomer,
     TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
     required TResult orElse(),
   }) {
     if (selectedSeat != null) {
-      return selectedSeat(ticInformation, seatIndex);
+      return selectedSeat(newSeat);
     }
     return orElse();
   }
@@ -1412,6 +1685,7 @@ class _$_SelectedSeat implements _SelectedSeat {
     required TResult Function(_SelectedSeat value) selectedSeat,
     required TResult Function(_SearchCustomer value) searchCustomer,
     required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
   }) {
     return selectedSeat(this);
   }
@@ -1429,6 +1703,7 @@ class _$_SelectedSeat implements _SelectedSeat {
     TResult? Function(_SelectedSeat value)? selectedSeat,
     TResult? Function(_SearchCustomer value)? searchCustomer,
     TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
   }) {
     return selectedSeat?.call(this);
   }
@@ -1446,6 +1721,7 @@ class _$_SelectedSeat implements _SelectedSeat {
     TResult Function(_SelectedSeat value)? selectedSeat,
     TResult Function(_SearchCustomer value)? searchCustomer,
     TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
     required TResult orElse(),
   }) {
     if (selectedSeat != null) {
@@ -1456,12 +1732,10 @@ class _$_SelectedSeat implements _SelectedSeat {
 }
 
 abstract class _SelectedSeat implements BTEvent {
-  const factory _SelectedSeat(
-      {required final TicketInformation ticInformation,
-      required final int seatIndex}) = _$_SelectedSeat;
+  const factory _SelectedSeat({required final SeatSelected newSeat}) =
+      _$_SelectedSeat;
 
-  TicketInformation get ticInformation;
-  int get seatIndex;
+  SeatSelected get newSeat;
   @JsonKey(ignore: true)
   _$$_SelectedSeatCopyWith<_$_SelectedSeat> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1538,10 +1812,20 @@ class _$_SearchCustomer implements _SearchCustomer {
     required TResult Function() fetchCustomerData,
     required TResult Function(String id) getCustomerById,
     required TResult Function() getTicInformation,
-    required TResult Function(TicketInformation ticInformation, int seatIndex)
-        selectedSeat,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
     required TResult Function(String text) searchCustomer,
     required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
   }) {
     return searchCustomer(text);
   }
@@ -1556,10 +1840,20 @@ class _$_SearchCustomer implements _SearchCustomer {
     TResult? Function()? fetchCustomerData,
     TResult? Function(String id)? getCustomerById,
     TResult? Function()? getTicInformation,
-    TResult? Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
     TResult? Function(String text)? searchCustomer,
     TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
   }) {
     return searchCustomer?.call(text);
   }
@@ -1574,10 +1868,20 @@ class _$_SearchCustomer implements _SearchCustomer {
     TResult Function()? fetchCustomerData,
     TResult Function(String id)? getCustomerById,
     TResult Function()? getTicInformation,
-    TResult Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
     TResult Function(String text)? searchCustomer,
     TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
     required TResult orElse(),
   }) {
     if (searchCustomer != null) {
@@ -1599,6 +1903,7 @@ class _$_SearchCustomer implements _SearchCustomer {
     required TResult Function(_SelectedSeat value) selectedSeat,
     required TResult Function(_SearchCustomer value) searchCustomer,
     required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
   }) {
     return searchCustomer(this);
   }
@@ -1616,6 +1921,7 @@ class _$_SearchCustomer implements _SearchCustomer {
     TResult? Function(_SelectedSeat value)? selectedSeat,
     TResult? Function(_SearchCustomer value)? searchCustomer,
     TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
   }) {
     return searchCustomer?.call(this);
   }
@@ -1633,6 +1939,7 @@ class _$_SearchCustomer implements _SearchCustomer {
     TResult Function(_SelectedSeat value)? selectedSeat,
     TResult Function(_SearchCustomer value)? searchCustomer,
     TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
     required TResult orElse(),
   }) {
     if (searchCustomer != null) {
@@ -1723,10 +2030,20 @@ class _$_TextChange implements _TextChange {
     required TResult Function() fetchCustomerData,
     required TResult Function(String id) getCustomerById,
     required TResult Function() getTicInformation,
-    required TResult Function(TicketInformation ticInformation, int seatIndex)
-        selectedSeat,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
     required TResult Function(String text) searchCustomer,
     required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
   }) {
     return textChange(text);
   }
@@ -1741,10 +2058,20 @@ class _$_TextChange implements _TextChange {
     TResult? Function()? fetchCustomerData,
     TResult? Function(String id)? getCustomerById,
     TResult? Function()? getTicInformation,
-    TResult? Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
     TResult? Function(String text)? searchCustomer,
     TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
   }) {
     return textChange?.call(text);
   }
@@ -1759,10 +2086,20 @@ class _$_TextChange implements _TextChange {
     TResult Function()? fetchCustomerData,
     TResult Function(String id)? getCustomerById,
     TResult Function()? getTicInformation,
-    TResult Function(TicketInformation ticInformation, int seatIndex)?
-        selectedSeat,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
     TResult Function(String text)? searchCustomer,
     TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
     required TResult orElse(),
   }) {
     if (textChange != null) {
@@ -1784,6 +2121,7 @@ class _$_TextChange implements _TextChange {
     required TResult Function(_SelectedSeat value) selectedSeat,
     required TResult Function(_SearchCustomer value) searchCustomer,
     required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
   }) {
     return textChange(this);
   }
@@ -1801,6 +2139,7 @@ class _$_TextChange implements _TextChange {
     TResult? Function(_SelectedSeat value)? selectedSeat,
     TResult? Function(_SearchCustomer value)? searchCustomer,
     TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
   }) {
     return textChange?.call(this);
   }
@@ -1818,6 +2157,7 @@ class _$_TextChange implements _TextChange {
     TResult Function(_SelectedSeat value)? selectedSeat,
     TResult Function(_SearchCustomer value)? searchCustomer,
     TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
     required TResult orElse(),
   }) {
     if (textChange != null) {
@@ -1833,6 +2173,328 @@ abstract class _TextChange implements BTEvent {
   String get text;
   @JsonKey(ignore: true)
   _$$_TextChangeCopyWith<_$_TextChange> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddSeatCopyWith<$Res> {
+  factory _$$_AddSeatCopyWith(
+          _$_AddSeat value, $Res Function(_$_AddSeat) then) =
+      __$$_AddSeatCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String name,
+      String email,
+      String gender,
+      int seat,
+      int type,
+      String phoneNumber,
+      String identityNumber,
+      DateTime dateBorn,
+      double luggage});
+}
+
+/// @nodoc
+class __$$_AddSeatCopyWithImpl<$Res>
+    extends _$BTEventCopyWithImpl<$Res, _$_AddSeat>
+    implements _$$_AddSeatCopyWith<$Res> {
+  __$$_AddSeatCopyWithImpl(_$_AddSeat _value, $Res Function(_$_AddSeat) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? email = null,
+    Object? gender = null,
+    Object? seat = null,
+    Object? type = null,
+    Object? phoneNumber = null,
+    Object? identityNumber = null,
+    Object? dateBorn = null,
+    Object? luggage = null,
+  }) {
+    return _then(_$_AddSeat(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      seat: null == seat
+          ? _value.seat
+          : seat // ignore: cast_nullable_to_non_nullable
+              as int,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as int,
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      identityNumber: null == identityNumber
+          ? _value.identityNumber
+          : identityNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      dateBorn: null == dateBorn
+          ? _value.dateBorn
+          : dateBorn // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      luggage: null == luggage
+          ? _value.luggage
+          : luggage // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddSeat implements _AddSeat {
+  const _$_AddSeat(
+      {required this.name,
+      required this.email,
+      required this.gender,
+      required this.seat,
+      required this.type,
+      required this.phoneNumber,
+      required this.identityNumber,
+      required this.dateBorn,
+      required this.luggage});
+
+  @override
+  final String name;
+  @override
+  final String email;
+  @override
+  final String gender;
+  @override
+  final int seat;
+  @override
+  final int type;
+  @override
+  final String phoneNumber;
+  @override
+  final String identityNumber;
+  @override
+  final DateTime dateBorn;
+  @override
+  final double luggage;
+
+  @override
+  String toString() {
+    return 'BTEvent.addSeat(name: $name, email: $email, gender: $gender, seat: $seat, type: $type, phoneNumber: $phoneNumber, identityNumber: $identityNumber, dateBorn: $dateBorn, luggage: $luggage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddSeat &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.seat, seat) || other.seat == seat) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.identityNumber, identityNumber) ||
+                other.identityNumber == identityNumber) &&
+            (identical(other.dateBorn, dateBorn) ||
+                other.dateBorn == dateBorn) &&
+            (identical(other.luggage, luggage) || other.luggage == luggage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, email, gender, seat, type,
+      phoneNumber, identityNumber, dateBorn, luggage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddSeatCopyWith<_$_AddSeat> get copyWith =>
+      __$$_AddSeatCopyWithImpl<_$_AddSeat>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() buttonTap,
+    required TResult Function(int index) changeTicIndexView,
+    required TResult Function() updateTicOverview,
+    required TResult Function() fetchCustomerData,
+    required TResult Function(String id) getCustomerById,
+    required TResult Function() getTicInformation,
+    required TResult Function(SeatSelected newSeat) selectedSeat,
+    required TResult Function(String text) searchCustomer,
+    required TResult Function(String text) textChange,
+    required TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)
+        addSeat,
+  }) {
+    return addSeat(name, email, gender, seat, type, phoneNumber, identityNumber,
+        dateBorn, luggage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? buttonTap,
+    TResult? Function(int index)? changeTicIndexView,
+    TResult? Function()? updateTicOverview,
+    TResult? Function()? fetchCustomerData,
+    TResult? Function(String id)? getCustomerById,
+    TResult? Function()? getTicInformation,
+    TResult? Function(SeatSelected newSeat)? selectedSeat,
+    TResult? Function(String text)? searchCustomer,
+    TResult? Function(String text)? textChange,
+    TResult? Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
+  }) {
+    return addSeat?.call(name, email, gender, seat, type, phoneNumber,
+        identityNumber, dateBorn, luggage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? buttonTap,
+    TResult Function(int index)? changeTicIndexView,
+    TResult Function()? updateTicOverview,
+    TResult Function()? fetchCustomerData,
+    TResult Function(String id)? getCustomerById,
+    TResult Function()? getTicInformation,
+    TResult Function(SeatSelected newSeat)? selectedSeat,
+    TResult Function(String text)? searchCustomer,
+    TResult Function(String text)? textChange,
+    TResult Function(
+            String name,
+            String email,
+            String gender,
+            int seat,
+            int type,
+            String phoneNumber,
+            String identityNumber,
+            DateTime dateBorn,
+            double luggage)?
+        addSeat,
+    required TResult orElse(),
+  }) {
+    if (addSeat != null) {
+      return addSeat(name, email, gender, seat, type, phoneNumber,
+          identityNumber, dateBorn, luggage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_ChangeTicIndexView value) changeTicIndexView,
+    required TResult Function(_UpdateTicOverview value) updateTicOverview,
+    required TResult Function(_FetchCustomerData value) fetchCustomerData,
+    required TResult Function(_GetCustomerById value) getCustomerById,
+    required TResult Function(_GetTicInformation value) getTicInformation,
+    required TResult Function(_SelectedSeat value) selectedSeat,
+    required TResult Function(_SearchCustomer value) searchCustomer,
+    required TResult Function(_TextChange value) textChange,
+    required TResult Function(_AddSeat value) addSeat,
+  }) {
+    return addSeat(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_ChangeTicIndexView value)? changeTicIndexView,
+    TResult? Function(_UpdateTicOverview value)? updateTicOverview,
+    TResult? Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult? Function(_GetCustomerById value)? getCustomerById,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
+    TResult? Function(_SelectedSeat value)? selectedSeat,
+    TResult? Function(_SearchCustomer value)? searchCustomer,
+    TResult? Function(_TextChange value)? textChange,
+    TResult? Function(_AddSeat value)? addSeat,
+  }) {
+    return addSeat?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_ChangeTicIndexView value)? changeTicIndexView,
+    TResult Function(_UpdateTicOverview value)? updateTicOverview,
+    TResult Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult Function(_GetCustomerById value)? getCustomerById,
+    TResult Function(_GetTicInformation value)? getTicInformation,
+    TResult Function(_SelectedSeat value)? selectedSeat,
+    TResult Function(_SearchCustomer value)? searchCustomer,
+    TResult Function(_TextChange value)? textChange,
+    TResult Function(_AddSeat value)? addSeat,
+    required TResult orElse(),
+  }) {
+    if (addSeat != null) {
+      return addSeat(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddSeat implements BTEvent {
+  const factory _AddSeat(
+      {required final String name,
+      required final String email,
+      required final String gender,
+      required final int seat,
+      required final int type,
+      required final String phoneNumber,
+      required final String identityNumber,
+      required final DateTime dateBorn,
+      required final double luggage}) = _$_AddSeat;
+
+  String get name;
+  String get email;
+  String get gender;
+  int get seat;
+  int get type;
+  String get phoneNumber;
+  String get identityNumber;
+  DateTime get dateBorn;
+  double get luggage;
+  @JsonKey(ignore: true)
+  _$$_AddSeatCopyWith<_$_AddSeat> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1856,7 +2518,9 @@ mixin _$BTState {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1875,7 +2539,8 @@ mixin _$BTState {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1893,7 +2558,8 @@ mixin _$BTState {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1919,6 +2585,7 @@ mixin _$BTState {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1938,6 +2605,7 @@ mixin _$BTState {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1955,6 +2623,7 @@ mixin _$BTState {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -2087,7 +2756,9 @@ class _$_Initial extends _Initial {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
     return initial(data);
   }
@@ -2109,7 +2780,8 @@ class _$_Initial extends _Initial {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
     return initial?.call(data);
   }
@@ -2130,7 +2802,8 @@ class _$_Initial extends _Initial {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -2162,6 +2835,7 @@ class _$_Initial extends _Initial {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return initial(this);
   }
@@ -2184,6 +2858,7 @@ class _$_Initial extends _Initial {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return initial?.call(this);
   }
@@ -2204,6 +2879,7 @@ class _$_Initial extends _Initial {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -2317,7 +2993,9 @@ class _$_Loading extends _Loading {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
     return loading(data, groupLoading);
   }
@@ -2339,7 +3017,8 @@ class _$_Loading extends _Loading {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
     return loading?.call(data, groupLoading);
   }
@@ -2360,7 +3039,8 @@ class _$_Loading extends _Loading {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2392,6 +3072,7 @@ class _$_Loading extends _Loading {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return loading(this);
   }
@@ -2414,6 +3095,7 @@ class _$_Loading extends _Loading {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return loading?.call(this);
   }
@@ -2434,6 +3116,7 @@ class _$_Loading extends _Loading {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2545,7 +3228,9 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
     return changeTicIndexViewSuccess(data);
   }
@@ -2567,7 +3252,8 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
     return changeTicIndexViewSuccess?.call(data);
   }
@@ -2588,7 +3274,8 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (changeTicIndexViewSuccess != null) {
@@ -2620,6 +3307,7 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return changeTicIndexViewSuccess(this);
   }
@@ -2642,6 +3330,7 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return changeTicIndexViewSuccess?.call(this);
   }
@@ -2662,6 +3351,7 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (changeTicIndexViewSuccess != null) {
@@ -2770,7 +3460,9 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
     return fetchCustomerDataSuccess(data);
   }
@@ -2792,7 +3484,8 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
     return fetchCustomerDataSuccess?.call(data);
   }
@@ -2813,7 +3506,8 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (fetchCustomerDataSuccess != null) {
@@ -2845,6 +3539,7 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return fetchCustomerDataSuccess(this);
   }
@@ -2867,6 +3562,7 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return fetchCustomerDataSuccess?.call(this);
   }
@@ -2887,6 +3583,7 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (fetchCustomerDataSuccess != null) {
@@ -3004,7 +3701,9 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
     return fetchCustomerDataFailed(data, message);
   }
@@ -3026,7 +3725,8 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
     return fetchCustomerDataFailed?.call(data, message);
   }
@@ -3047,7 +3747,8 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (fetchCustomerDataFailed != null) {
@@ -3079,6 +3780,7 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return fetchCustomerDataFailed(this);
   }
@@ -3101,6 +3803,7 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return fetchCustomerDataFailed?.call(this);
   }
@@ -3121,6 +3824,7 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (fetchCustomerDataFailed != null) {
@@ -3231,7 +3935,9 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
     return getCustomerBydIdSuccess(data);
   }
@@ -3253,7 +3959,8 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
     return getCustomerBydIdSuccess?.call(data);
   }
@@ -3274,7 +3981,8 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (getCustomerBydIdSuccess != null) {
@@ -3306,6 +4014,7 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return getCustomerBydIdSuccess(this);
   }
@@ -3328,6 +4037,7 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return getCustomerBydIdSuccess?.call(this);
   }
@@ -3348,6 +4058,7 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (getCustomerBydIdSuccess != null) {
@@ -3464,7 +4175,9 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
     return getCustomerBydIdFailed(data, message);
   }
@@ -3486,7 +4199,8 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
     return getCustomerBydIdFailed?.call(data, message);
   }
@@ -3507,7 +4221,8 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (getCustomerBydIdFailed != null) {
@@ -3539,6 +4254,7 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return getCustomerBydIdFailed(this);
   }
@@ -3561,6 +4277,7 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return getCustomerBydIdFailed?.call(this);
   }
@@ -3581,6 +4298,7 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (getCustomerBydIdFailed != null) {
@@ -3691,7 +4409,9 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
     return getTicInformationSuccess(data);
   }
@@ -3713,7 +4433,8 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
     return getTicInformationSuccess?.call(data);
   }
@@ -3734,7 +4455,8 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationSuccess != null) {
@@ -3766,6 +4488,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return getTicInformationSuccess(this);
   }
@@ -3788,6 +4511,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return getTicInformationSuccess?.call(this);
   }
@@ -3808,6 +4532,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationSuccess != null) {
@@ -3925,7 +4650,9 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
     return getTicInformationFailed(data, message);
   }
@@ -3947,7 +4674,8 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
     return getTicInformationFailed?.call(data, message);
   }
@@ -3968,7 +4696,8 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationFailed != null) {
@@ -4000,6 +4729,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return getTicInformationFailed(this);
   }
@@ -4022,6 +4752,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return getTicInformationFailed?.call(this);
   }
@@ -4042,6 +4773,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationFailed != null) {
@@ -4151,7 +4883,9 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
     return searchCustomerSuccess(data);
   }
@@ -4173,7 +4907,8 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
     return searchCustomerSuccess?.call(data);
   }
@@ -4194,7 +4929,8 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (searchCustomerSuccess != null) {
@@ -4226,6 +4962,7 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return searchCustomerSuccess(this);
   }
@@ -4248,6 +4985,7 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return searchCustomerSuccess?.call(this);
   }
@@ -4268,6 +5006,7 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (searchCustomerSuccess != null) {
@@ -4384,7 +5123,9 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
     return searchCustomerFailed(data, message);
   }
@@ -4406,7 +5147,8 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
     return searchCustomerFailed?.call(data, message);
   }
@@ -4427,7 +5169,8 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (searchCustomerFailed != null) {
@@ -4459,6 +5202,7 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return searchCustomerFailed(this);
   }
@@ -4481,6 +5225,7 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return searchCustomerFailed?.call(this);
   }
@@ -4501,6 +5246,7 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (searchCustomerFailed != null) {
@@ -4533,7 +5279,7 @@ abstract class _$$_SelectedSeatSuccessCopyWith<$Res>
       __$$_SelectedSeatSuccessCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BTModelState data});
+  $Res call({BTModelState data, int ticIndex});
 
   @override
   $BTModelStateCopyWith<$Res> get data;
@@ -4551,12 +5297,17 @@ class __$$_SelectedSeatSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? ticIndex = null,
   }) {
     return _then(_$_SelectedSeatSuccess(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as BTModelState,
+      ticIndex: null == ticIndex
+          ? _value.ticIndex
+          : ticIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -4564,14 +5315,17 @@ class __$$_SelectedSeatSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
-  const _$_SelectedSeatSuccess({required this.data}) : super._();
+  const _$_SelectedSeatSuccess({required this.data, required this.ticIndex})
+      : super._();
 
   @override
   final BTModelState data;
+  @override
+  final int ticIndex;
 
   @override
   String toString() {
-    return 'BTState.selectedSeatSuccess(data: $data)';
+    return 'BTState.selectedSeatSuccess(data: $data, ticIndex: $ticIndex)';
   }
 
   @override
@@ -4579,11 +5333,13 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SelectedSeatSuccess &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.ticIndex, ticIndex) ||
+                other.ticIndex == ticIndex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, ticIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -4610,9 +5366,11 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     required TResult Function(BTModelState data) searchCustomerSuccess,
     required TResult Function(BTModelState data, String message)
         searchCustomerFailed,
-    required TResult Function(BTModelState data) selectedSeatSuccess,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
   }) {
-    return selectedSeatSuccess(data);
+    return selectedSeatSuccess(data, ticIndex);
   }
 
   @override
@@ -4632,9 +5390,10 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
         getTicInformationFailed,
     TResult? Function(BTModelState data)? searchCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult? Function(BTModelState data)? selectedSeatSuccess,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
   }) {
-    return selectedSeatSuccess?.call(data);
+    return selectedSeatSuccess?.call(data, ticIndex);
   }
 
   @override
@@ -4653,11 +5412,12 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
         getTicInformationFailed,
     TResult Function(BTModelState data)? searchCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
-    TResult Function(BTModelState data)? selectedSeatSuccess,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (selectedSeatSuccess != null) {
-      return selectedSeatSuccess(data);
+      return selectedSeatSuccess(data, ticIndex);
     }
     return orElse();
   }
@@ -4685,6 +5445,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
         searchCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
   }) {
     return selectedSeatSuccess(this);
   }
@@ -4707,6 +5468,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
   }) {
     return selectedSeatSuccess?.call(this);
   }
@@ -4727,6 +5489,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     required TResult orElse(),
   }) {
     if (selectedSeatSuccess != null) {
@@ -4737,14 +5500,246 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
 }
 
 abstract class _SelectedSeatSuccess extends BTState {
-  const factory _SelectedSeatSuccess({required final BTModelState data}) =
-      _$_SelectedSeatSuccess;
+  const factory _SelectedSeatSuccess(
+      {required final BTModelState data,
+      required final int ticIndex}) = _$_SelectedSeatSuccess;
   const _SelectedSeatSuccess._() : super._();
+
+  @override
+  BTModelState get data;
+  int get ticIndex;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SelectedSeatSuccessCopyWith<_$_SelectedSeatSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddSeatSuccessCopyWith<$Res>
+    implements $BTStateCopyWith<$Res> {
+  factory _$$_AddSeatSuccessCopyWith(
+          _$_AddSeatSuccess value, $Res Function(_$_AddSeatSuccess) then) =
+      __$$_AddSeatSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({BTModelState data});
+
+  @override
+  $BTModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_AddSeatSuccessCopyWithImpl<$Res>
+    extends _$BTStateCopyWithImpl<$Res, _$_AddSeatSuccess>
+    implements _$$_AddSeatSuccessCopyWith<$Res> {
+  __$$_AddSeatSuccessCopyWithImpl(
+      _$_AddSeatSuccess _value, $Res Function(_$_AddSeatSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_AddSeatSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as BTModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddSeatSuccess extends _AddSeatSuccess {
+  const _$_AddSeatSuccess({required this.data}) : super._();
+
+  @override
+  final BTModelState data;
+
+  @override
+  String toString() {
+    return 'BTState.addSeatSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddSeatSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddSeatSuccessCopyWith<_$_AddSeatSuccess> get copyWith =>
+      __$$_AddSeatSuccessCopyWithImpl<_$_AddSeatSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BTModelState data) initial,
+    required TResult Function(BTModelState data, int groupLoading) loading,
+    required TResult Function(BTModelState data) changeTicIndexViewSuccess,
+    required TResult Function(BTModelState data) fetchCustomerDataSuccess,
+    required TResult Function(BTModelState data, String message)
+        fetchCustomerDataFailed,
+    required TResult Function(BTModelState data) getCustomerBydIdSuccess,
+    required TResult Function(BTModelState data, String message)
+        getCustomerBydIdFailed,
+    required TResult Function(BTModelState data) getTicInformationSuccess,
+    required TResult Function(BTModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(BTModelState data) searchCustomerSuccess,
+    required TResult Function(BTModelState data, String message)
+        searchCustomerFailed,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) addSeatSuccess,
+  }) {
+    return addSeatSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BTModelState data)? initial,
+    TResult? Function(BTModelState data, int groupLoading)? loading,
+    TResult? Function(BTModelState data)? changeTicIndexViewSuccess,
+    TResult? Function(BTModelState data)? fetchCustomerDataSuccess,
+    TResult? Function(BTModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult? Function(BTModelState data)? getCustomerBydIdSuccess,
+    TResult? Function(BTModelState data, String message)?
+        getCustomerBydIdFailed,
+    TResult? Function(BTModelState data)? getTicInformationSuccess,
+    TResult? Function(BTModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(BTModelState data)? searchCustomerSuccess,
+    TResult? Function(BTModelState data, String message)? searchCustomerFailed,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? addSeatSuccess,
+  }) {
+    return addSeatSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BTModelState data)? initial,
+    TResult Function(BTModelState data, int groupLoading)? loading,
+    TResult Function(BTModelState data)? changeTicIndexViewSuccess,
+    TResult Function(BTModelState data)? fetchCustomerDataSuccess,
+    TResult Function(BTModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult Function(BTModelState data)? getCustomerBydIdSuccess,
+    TResult Function(BTModelState data, String message)? getCustomerBydIdFailed,
+    TResult Function(BTModelState data)? getTicInformationSuccess,
+    TResult Function(BTModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(BTModelState data)? searchCustomerSuccess,
+    TResult Function(BTModelState data, String message)? searchCustomerFailed,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? addSeatSuccess,
+    required TResult orElse(),
+  }) {
+    if (addSeatSuccess != null) {
+      return addSeatSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_ChangeTicIndexViewSuccess value)
+        changeTicIndexViewSuccess,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_GetCustomerBydIdSuccess value)
+        getCustomerBydIdSuccess,
+    required TResult Function(_GetCustomerBydIdFailed value)
+        getCustomerBydIdFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
+    required TResult Function(_SearchCustomerSuccess value)
+        searchCustomerSuccess,
+    required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
+    required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
+  }) {
+    return addSeatSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_ChangeTicIndexViewSuccess value)?
+        changeTicIndexViewSuccess,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_GetCustomerBydIdSuccess value)? getCustomerBydIdSuccess,
+    TResult? Function(_GetCustomerBydIdFailed value)? getCustomerBydIdFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
+    TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
+    TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
+  }) {
+    return addSeatSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_ChangeTicIndexViewSuccess value)?
+        changeTicIndexViewSuccess,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_GetCustomerBydIdSuccess value)? getCustomerBydIdSuccess,
+    TResult Function(_GetCustomerBydIdFailed value)? getCustomerBydIdFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
+    TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
+    TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
+    required TResult orElse(),
+  }) {
+    if (addSeatSuccess != null) {
+      return addSeatSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddSeatSuccess extends BTState {
+  const factory _AddSeatSuccess({required final BTModelState data}) =
+      _$_AddSeatSuccess;
+  const _AddSeatSuccess._() : super._();
 
   @override
   BTModelState get data;
   @override
   @JsonKey(ignore: true)
-  _$$_SelectedSeatSuccessCopyWith<_$_SelectedSeatSuccess> get copyWith =>
+  _$$_AddSeatSuccessCopyWith<_$_AddSeatSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }

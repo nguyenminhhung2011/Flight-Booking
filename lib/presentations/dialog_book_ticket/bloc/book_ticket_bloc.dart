@@ -19,6 +19,8 @@ part 'book_ticket_state.dart';
 
 part 'book_ticket_bloc.freezed.dart';
 
+const _seatDefault = 0;
+
 @injectable
 class BTBloc extends Bloc<BTEvent, BTState> {
   final CustomerUseCase _customerUseCase;
@@ -53,6 +55,7 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     on<_SelectedSeat>(_onSelectedSeat);
     on<_SearchCustomer>(_onSearchCustomer);
     on<_TextChange>(_onTextChange);
+    on<_AddSeat>(_onAddSeat);
   }
   FutureOr<void> _onStarted(
     _Started event,
@@ -152,6 +155,12 @@ class BTBloc extends Bloc<BTEvent, BTState> {
       emit(_GetCustomerBydIdSuccess(
           data: data.copyWith(
         ticInformation: result,
+        currentSeat: result.isNotEmpty && result.first.quantity > 0
+            ? SeatSelected(
+                seatIndex: _seatDefault,
+                ticInformation: result.first,
+              )
+            : null,
       )));
     } on AppException catch (e) {
       emit(_GetTicInformationFailed(
@@ -166,32 +175,70 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     }
   }
 
+  FutureOr<void> _onAddSeat(
+    _AddSeat event,
+    Emitter<BTState> emit,
+  ) {
+    final newTic = Ticket(
+      id: randDomNumber(100).toString(),
+      name: event.name,
+      gender: event.gender,
+      phoneNumber: event.phoneNumber,
+      emailAddress: event.email,
+      seat: event.seat,
+      type: event.type,
+      luggage: event.luggage,
+      dateBorn: event.dateBorn,
+      timeBought: DateTime.now(),
+    );
+    if (!data.tics.map((e) => '${e.type} - ${e.seat}').contains(
+          '${newTic.type} - ${newTic.seat}',
+        )) {
+      emit(BTState.addSeatSuccess(
+          data: data.copyWith(
+        tics: [...data.tics, newTic],
+      )));
+    }
+  }
+
   FutureOr<void> _onSelectedSeat(
     _SelectedSeat event,
     Emitter<BTState> emit,
   ) {
-    final newSeat = SeatSelected(
-        seatIndex: event.seatIndex, ticInformation: event.ticInformation);
-    final checkFound = data.chairsSelected
-        .map((e) => convertToSeatString(e))
-        .contains(convertToSeatString(newSeat));
-    if (checkFound) {
-      emit(BTState.selectedSeatSuccess(
-          data: data.copyWith(
-        chairsSelected: data.chairsSelected
-            .where(
-              (element) =>
-                  element.seatIndex != newSeat.seatIndex ||
-                  element.ticInformation.id.ticketType !=
-                      newSeat.ticInformation.id.ticketType,
-            )
-            .toList(),
-      )));
-    } else {
-      emit(BTState.selectedSeatSuccess(
-          data: data.copyWith(
-        chairsSelected: [...data.chairsSelected, newSeat],
-      )));
-    }
+    var ticIndex = -1;
+    ticIndex = data.tics.indexWhere(
+      (item) =>
+          item.type == event.newSeat.ticInformation.id.ticketType &&
+          item.seat == event.newSeat.seatIndex,
+    );
+    emit(_SelectedSeatSuccess(
+      data: data.copyWith(
+        currentSeat: event.newSeat,
+      ),
+      ticIndex: ticIndex,
+    ));
+    // final newSeat = SeatSelected(
+    //     seatIndex: event.seatIndex, ticInformation: event.ticInformation);
+    // final checkFound = data.chairsSelected
+    //     .map((e) => convertToSeatString(e))
+    //     .contains(convertToSeatString(newSeat));
+    // if (checkFound) {
+    //   emit(BTState.selectedSeatSuccess(
+    //       data: data.copyWith(
+    //     chairsSelected: data.chairsSelected
+    //         .where(
+    //           (element) =>
+    //               element.seatIndex != newSeat.seatIndex ||
+    //               element.ticInformation.id.ticketType !=
+    //                   newSeat.ticInformation.id.ticketType,
+    //         )
+    //         .toList(),
+    //   )));
+    // } else {
+    //   emit(BTState.selectedSeatSuccess(
+    //       data: data.copyWith(
+    //     chairsSelected: [...data.chairsSelected, newSeat],
+    //   )));
+    // }
   }
 }

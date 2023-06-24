@@ -29,7 +29,6 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/enum/tic_type_enum.dart';
-import '../../../domain/entities/customer/customer.dart';
 
 enum PaymentFilterMethod {
   calendarMethod,

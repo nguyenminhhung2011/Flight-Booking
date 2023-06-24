@@ -152,7 +152,7 @@ class _AddCustomerScreenState extends State<AddCustomerScreen> {
                   children: [
                     Text(
                       _bloc.customerId == -1
-                          ? S.of(context).addNewAirport
+                          ? S.of(context).addNewCustomer
                           : S.of(context).editCustomer,
                       style: context.titleLarge.copyWith(
                         fontWeight: FontWeight.bold,
