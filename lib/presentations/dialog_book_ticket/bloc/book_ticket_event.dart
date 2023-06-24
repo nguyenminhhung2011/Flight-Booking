@@ -25,6 +25,20 @@ class BTEvent with _$BTEvent {
     required String text,
   }) = _TextChange;
 
+  const factory BTEvent.removeTic({
+    required Ticket tic,
+  }) = _RemoveTic;
+
+  const factory BTEvent.selectedTic({
+    required Ticket tic,
+  }) = _SelectedTic;
+
+  const factory BTEvent.editTic({
+    required Ticket tic,
+  }) = _EditTic;
+
+  const factory BTEvent.getAllTicOfFlight() = _GetAllTicOfFlight;
+
   const factory BTEvent.addSeat({
     required String name,
     required String email,
