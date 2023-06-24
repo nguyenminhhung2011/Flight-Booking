@@ -14,6 +14,7 @@ class BTModelState with _$BTModelState {
     Customer? customerSelected,
     Flight? flight,
     SeatSelected? currentSeat,
+    required String currentTicId,
     required int indexView,
     required List<Customer> customers,
     required List<SeatSelected> chairsSelected,

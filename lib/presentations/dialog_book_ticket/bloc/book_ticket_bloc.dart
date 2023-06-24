@@ -40,6 +40,7 @@ class BTBloc extends Bloc<BTEvent, BTState> {
         _flightId = flightId,
         super(const BTState.initial(
           data: BTModelState(
+            currentTicId: "",
             indexView: 0,
             customers: <Customer>[],
             chairsSelected: <SeatSelected>[],
@@ -56,6 +57,10 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     on<_SearchCustomer>(_onSearchCustomer);
     on<_TextChange>(_onTextChange);
     on<_AddSeat>(_onAddSeat);
+    on<_RemoveTic>(_onRemoveTic);
+    on<_SelectedTic>(_onSelectedTic);
+    on<_EditTic>(_onEditTic);
+    on<_GetAllTicOfFlight>(_onGetAllTicOfFlight);
   }
   FutureOr<void> _onStarted(
     _Started event,
@@ -201,6 +206,58 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     }
   }
 
+  FutureOr<void> _onRemoveTic(
+    _RemoveTic event,
+    Emitter<BTState> emit,
+  ) {
+    emit(_RemoveTicSuccess(
+      data: data.copyWith(
+        tics: data.tics.where((element) => element.id != event.tic.id).toList(),
+      ),
+    ));
+  }
+
+  FutureOr<void> _onEditTic(
+    _EditTic event,
+    Emitter<BTState> emit,
+  ) {
+    emit(_EditTicSuccess(
+      data: data.copyWith(
+          tics: data.tics.map((e) {
+        if (e.id == event.tic.id) {
+          return event.tic;
+        }
+        return e;
+      }).toList()),
+    ));
+  }
+
+  FutureOr<void> _onSelectedTic(
+    _SelectedTic event,
+    Emitter<BTState> emit,
+  ) {
+    emit(_SelectedTicSuccess(
+      data: data.copyWith(
+        currentSeat: SeatSelected(
+          seatIndex: event.tic.seat,
+          ticInformation: data.ticInformation.firstWhere(
+            (element) => element.id.ticketType == event.tic.type,
+          ),
+        ),
+        currentTicId: event.tic.id,
+      ),
+      tic: event.tic,
+    ));
+  }
+
+  FutureOr<void> _onGetAllTicOfFlight(
+    _GetAllTicOfFlight event,
+    Emitter<BTState> emit,
+  ) async {
+    emit(_Loading(data: data, groupLoading: 2));
+    emit(_GetAllTicOfFlightSuccess(data: data));
+  }
+
   FutureOr<void> _onSelectedSeat(
     _SelectedSeat event,
     Emitter<BTState> emit,
@@ -214,6 +271,8 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     emit(_SelectedSeatSuccess(
       data: data.copyWith(
         currentSeat: event.newSeat,
+        currentTicId:
+            ticIndex == -1 ? data.currentTicId : data.tics[ticIndex].id,
       ),
       ticIndex: ticIndex,
     ));

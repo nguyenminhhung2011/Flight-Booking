@@ -8,6 +8,7 @@ import '../../../models/ticket/ticket_model.dart';
 part 'ticket_api.g.dart';
 
 class TicketEndPoint {
+  static const branch = '/api/v1/ticket';
   static const fetchTicketUrl = "ticket/fetch";
   static const editTicketUrl = "ticket/edit";
   static const deleteTicketUrl = "ticket/delete";
