@@ -41,6 +41,16 @@ class BTState with _$BTState {
     required BTModelState data,
     required String message,
   }) = _GetTicInformationFailed;
+
+  const factory BTState.getAllTicOfFlightSuccess({
+    required BTModelState data,
+  }) = _GetAllTicOfFlightSuccess;
+
+  const factory BTState.getAllTicOfFlightFailed({
+    required BTModelState data,
+    required String message,
+  }) = _GetAllTicOfFlightFailed;
+
   const factory BTState.searchCustomerSuccess({
     required BTModelState data,
   }) = _SearchCustomerSuccess;
@@ -49,6 +59,7 @@ class BTState with _$BTState {
     required BTModelState data,
     required String message,
   }) = _SearchCustomerFailed;
+
   const factory BTState.selectedSeatSuccess({
     required BTModelState data,
     required int ticIndex,
@@ -57,4 +68,16 @@ class BTState with _$BTState {
   const factory BTState.addSeatSuccess({
     required BTModelState data,
   }) = _AddSeatSuccess;
+  const factory BTState.removeTicSuccess({
+    required BTModelState data,
+  }) = _RemoveTicSuccess;
+
+  const factory BTState.selectedTicSuccess({
+    required BTModelState data,
+    required Ticket tic,
+  }) = _SelectedTicSuccess;
+
+  const factory BTState.editTicSuccess({
+    required BTModelState data,
+  }) = _EditTicSuccess;
 }

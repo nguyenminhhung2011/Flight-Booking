@@ -59,13 +59,17 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
   List<TicketInformation> get _ticInformation => _data.ticInformation;
   List<Ticket> get _listTic => _data.tics;
   SeatSelected? get _currentSeat => _data.currentSeat;
+  String get _currentTicId => _data.currentTicId;
 
   //UI
+  bool get _currentSeatIsAdded =>
+      _listTic.map((e) => '${e.type} - ${e.seat}').contains(
+          '${_currentSeat?.ticInformation.id.ticketType ?? 0} - ${_currentSeat?.seatIndex ?? 0}');
+
   String get _ticClass =>
       _currentSeat?.ticInformation.id.ticketType.ticClass.displayValue ??
       0.ticClass.displayValue;
 
-  List<SeatSelected> get _seatsSelected => _data.chairsSelected;
   @override
   void initState() {
     _bloc.add(const BTEvent.getTicInformation());
@@ -78,6 +82,35 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
     if (result != null) {
       _dateBorn.value = result;
     }
+  }
+
+  void _onRemoveTic(Ticket tic) async {
+    final show = await context.showYesNoDialog(
+        300, 'Remove this tic?', 'Are you sure remove this tic?');
+    if (!show) {
+      return;
+    }
+    _bloc.add(BTEvent.removeTic(tic: tic));
+  }
+
+  void _onSelectedTic(Ticket tic) {
+    _bloc.add(BTEvent.selectedTic(tic: tic));
+  }
+
+  void _onEditTic() {
+    _bloc.add(BTEvent.editTic(
+        tic: Ticket(
+      id: _currentTicId,
+      name: _nameController.text,
+      gender: _gender.value,
+      phoneNumber: _phoneNumberController.text,
+      emailAddress: _emailController.text,
+      seat: _currentSeat?.seatIndex ?? 0,
+      type: _currentSeat?.ticInformation.id.ticketType ?? 0,
+      luggage: 10.0,
+      dateBorn: _dateBorn.value,
+      timeBought: DateTime.now(),
+    )));
   }
 
   void _onAddSeat() {
@@ -98,6 +131,12 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
   void _onChangeGender(String? newValue) {
     _gender.value = newValue!;
   }
+
+  void _onButtonTap() {
+    _currentSeatIsAdded ? _onEditTic() : _onAddSeat();
+  }
+
+  void _onNextPage() {}
 
   void _setField(Ticket tic) {
     _nameController.text = tic.name;
@@ -128,6 +167,9 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
   void _listenStateChange(_, BTState state) {
     state.maybeWhen(
       changeTicIndexViewSuccess: (data) {},
+      selectedTicSuccess: (data, tic) {
+        _setField(tic);
+      },
       selectedSeatSuccess: (data, ticIndex) {
         if (ticIndex != -1) {
           var tic = _listTic[ticIndex];
@@ -200,111 +242,115 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
           children: [
             const SizedBox(height: 10.0),
             ..._listTic.map(
-              (e) => Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(10.0),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15.0),
-                  color: Theme.of(context).cardColor,
-                  border: Border.all(
-                    width: 1,
-                    color: e.emailAddress.isNotEmpty &&
-                            e.phoneNumber.isNotEmpty &&
-                            e.phoneNumber.isNotEmpty
-                        ? Colors.transparent
-                        : Colors.red,
+              (e) => GestureDetector(
+                onTap: () => _onSelectedTic(e),
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(10.0),
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 5.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    color: Theme.of(context).cardColor,
+                    border: Border.all(
+                      width: 1,
+                      color: e.emailAddress.isNotEmpty &&
+                              e.phoneNumber.isNotEmpty &&
+                              e.phoneNumber.isNotEmpty
+                          ? Colors.transparent
+                          : Colors.red,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Theme.of(context).shadowColor.withOpacity(0.2),
+                        blurRadius: 5.0,
+                      )
+                    ],
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Theme.of(context).shadowColor.withOpacity(0.2),
-                      blurRadius: 5.0,
-                    )
-                  ],
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 150,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.airplane_ticket,
-                                color: Theme.of(context).primaryColor,
-                              ),
-                              Expanded(
-                                child: Text(
-                                  e.type.ticClass.displayValue,
-                                  style: context.titleMedium.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 150,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.airplane_ticket,
+                                  color: Theme.of(context).primaryColor,
                                 ),
-                              )
-                            ],
-                          ),
-                          const SizedBox(height: 10.0),
-                          Text(
-                            e.name,
-                            style: context.titleSmall.copyWith(
-                              fontWeight: FontWeight.w500,
-                              color: Theme.of(context).hintColor,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 10.0),
-                    Container(
-                      width: 0.2,
-                      height: 80,
-                      margin: const EdgeInsets.symmetric(horizontal: 10.0),
-                      decoration:
-                          DottedDecoration(linePosition: LinePosition.left),
-                    ),
-                    const SizedBox(width: 10.0),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ...[
-                            if (e.emailAddress.isNotEmpty) e.emailAddress,
-                            if (e.phoneNumber.isNotEmpty) e.phoneNumber,
-                            e.gender,
-                            getYmdFormat(e.dateBorn)
-                          ]
-                              .map(
-                                (text) => Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    DotCustom(
-                                      color: Theme.of(context).primaryColor,
-                                      full: true,
-                                      radius: 5.0,
+                                Expanded(
+                                  child: Text(
+                                    e.type.ticClass.displayValue,
+                                    style: context.titleMedium.copyWith(
+                                      fontWeight: FontWeight.w500,
                                     ),
-                                    const SizedBox(width: 10.0),
-                                    Text(text, style: context.titleSmall),
-                                  ],
-                                ),
-                              )
-                              .expand((element) =>
-                                  [element, const SizedBox(height: 5.0)])
-                              .toList()
-                            ..removeLast(),
-                        ],
+                                  ),
+                                )
+                              ],
+                            ),
+                            const SizedBox(height: 10.0),
+                            Text(
+                              e.name,
+                              style: context.titleSmall.copyWith(
+                                fontWeight: FontWeight.w500,
+                                color: Theme.of(context).hintColor,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.delete, color: Colors.red),
-                    )
-                  ],
+                      const SizedBox(width: 10.0),
+                      Container(
+                        width: 0.2,
+                        height: 80,
+                        margin: const EdgeInsets.symmetric(horizontal: 10.0),
+                        decoration:
+                            DottedDecoration(linePosition: LinePosition.left),
+                      ),
+                      const SizedBox(width: 10.0),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ...[
+                              if (e.emailAddress.isNotEmpty) e.emailAddress,
+                              if (e.phoneNumber.isNotEmpty) e.phoneNumber,
+                              e.gender,
+                              getYmdFormat(e.dateBorn)
+                            ]
+                                .map(
+                                  (text) => Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      DotCustom(
+                                        color: Theme.of(context).primaryColor,
+                                        full: true,
+                                        radius: 5.0,
+                                      ),
+                                      const SizedBox(width: 10.0),
+                                      Text(text, style: context.titleSmall),
+                                    ],
+                                  ),
+                                )
+                                .expand((element) =>
+                                    [element, const SizedBox(height: 5.0)])
+                                .toList()
+                              ..removeLast(),
+                          ],
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () => _onRemoveTic(e),
+                        icon: const Icon(Icons.delete, color: Colors.red),
+                      )
+                    ],
+                  ),
                 ),
               ),
             )
@@ -491,16 +537,20 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
               Expanded(
                 child: ButtonCustom(
                   height: 50,
-                  onPress: _onAddSeat,
-                  child: Text(S.of(context).add),
+                  onPress: _onButtonTap,
+                  child: Text(
+                    _currentSeatIsAdded
+                        ? S.of(context).save
+                        : S.of(context).add,
+                  ),
                 ),
               ),
               const SizedBox(width: 10.0),
               Expanded(
                 child: ButtonCustom(
                   height: 50,
+                  onPress: _onNextPage,
                   child: Text(S.of(context).next),
-                  onPress: () {},
                 ),
               ),
             ],

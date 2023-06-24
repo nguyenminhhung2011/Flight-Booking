@@ -19,6 +19,7 @@ mixin _$BTModelState {
   Customer? get customerSelected => throw _privateConstructorUsedError;
   Flight? get flight => throw _privateConstructorUsedError;
   SeatSelected? get currentSeat => throw _privateConstructorUsedError;
+  String get currentTicId => throw _privateConstructorUsedError;
   int get indexView => throw _privateConstructorUsedError;
   List<Customer> get customers => throw _privateConstructorUsedError;
   List<SeatSelected> get chairsSelected => throw _privateConstructorUsedError;
@@ -41,6 +42,7 @@ abstract class $BTModelStateCopyWith<$Res> {
       {Customer? customerSelected,
       Flight? flight,
       SeatSelected? currentSeat,
+      String currentTicId,
       int indexView,
       List<Customer> customers,
       List<SeatSelected> chairsSelected,
@@ -67,6 +69,7 @@ class _$BTModelStateCopyWithImpl<$Res, $Val extends BTModelState>
     Object? customerSelected = freezed,
     Object? flight = freezed,
     Object? currentSeat = freezed,
+    Object? currentTicId = null,
     Object? indexView = null,
     Object? customers = null,
     Object? chairsSelected = null,
@@ -86,6 +89,10 @@ class _$BTModelStateCopyWithImpl<$Res, $Val extends BTModelState>
           ? _value.currentSeat
           : currentSeat // ignore: cast_nullable_to_non_nullable
               as SeatSelected?,
+      currentTicId: null == currentTicId
+          ? _value.currentTicId
+          : currentTicId // ignore: cast_nullable_to_non_nullable
+              as String,
       indexView: null == indexView
           ? _value.indexView
           : indexView // ignore: cast_nullable_to_non_nullable
@@ -146,6 +153,7 @@ abstract class _$$_BTModelStateCopyWith<$Res>
       {Customer? customerSelected,
       Flight? flight,
       SeatSelected? currentSeat,
+      String currentTicId,
       int indexView,
       List<Customer> customers,
       List<SeatSelected> chairsSelected,
@@ -172,6 +180,7 @@ class __$$_BTModelStateCopyWithImpl<$Res>
     Object? customerSelected = freezed,
     Object? flight = freezed,
     Object? currentSeat = freezed,
+    Object? currentTicId = null,
     Object? indexView = null,
     Object? customers = null,
     Object? chairsSelected = null,
@@ -191,6 +200,10 @@ class __$$_BTModelStateCopyWithImpl<$Res>
           ? _value.currentSeat
           : currentSeat // ignore: cast_nullable_to_non_nullable
               as SeatSelected?,
+      currentTicId: null == currentTicId
+          ? _value.currentTicId
+          : currentTicId // ignore: cast_nullable_to_non_nullable
+              as String,
       indexView: null == indexView
           ? _value.indexView
           : indexView // ignore: cast_nullable_to_non_nullable
@@ -222,6 +235,7 @@ class _$_BTModelState implements _BTModelState {
       {this.customerSelected,
       this.flight,
       this.currentSeat,
+      required this.currentTicId,
       required this.indexView,
       required final List<Customer> customers,
       required final List<SeatSelected> chairsSelected,
@@ -238,6 +252,8 @@ class _$_BTModelState implements _BTModelState {
   final Flight? flight;
   @override
   final SeatSelected? currentSeat;
+  @override
+  final String currentTicId;
   @override
   final int indexView;
   final List<Customer> _customers;
@@ -274,7 +290,7 @@ class _$_BTModelState implements _BTModelState {
 
   @override
   String toString() {
-    return 'BTModelState(customerSelected: $customerSelected, flight: $flight, currentSeat: $currentSeat, indexView: $indexView, customers: $customers, chairsSelected: $chairsSelected, ticInformation: $ticInformation, tics: $tics)';
+    return 'BTModelState(customerSelected: $customerSelected, flight: $flight, currentSeat: $currentSeat, currentTicId: $currentTicId, indexView: $indexView, customers: $customers, chairsSelected: $chairsSelected, ticInformation: $ticInformation, tics: $tics)';
   }
 
   @override
@@ -287,6 +303,8 @@ class _$_BTModelState implements _BTModelState {
             (identical(other.flight, flight) || other.flight == flight) &&
             (identical(other.currentSeat, currentSeat) ||
                 other.currentSeat == currentSeat) &&
+            (identical(other.currentTicId, currentTicId) ||
+                other.currentTicId == currentTicId) &&
             (identical(other.indexView, indexView) ||
                 other.indexView == indexView) &&
             const DeepCollectionEquality()
@@ -304,6 +322,7 @@ class _$_BTModelState implements _BTModelState {
       customerSelected,
       flight,
       currentSeat,
+      currentTicId,
       indexView,
       const DeepCollectionEquality().hash(_customers),
       const DeepCollectionEquality().hash(_chairsSelected),
@@ -322,6 +341,7 @@ abstract class _BTModelState implements BTModelState {
       {final Customer? customerSelected,
       final Flight? flight,
       final SeatSelected? currentSeat,
+      required final String currentTicId,
       required final int indexView,
       required final List<Customer> customers,
       required final List<SeatSelected> chairsSelected,
@@ -334,6 +354,8 @@ abstract class _BTModelState implements BTModelState {
   Flight? get flight;
   @override
   SeatSelected? get currentSeat;
+  @override
+  String get currentTicId;
   @override
   int get indexView;
   @override
