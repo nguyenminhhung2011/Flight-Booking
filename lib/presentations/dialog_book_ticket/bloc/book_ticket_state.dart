@@ -51,5 +51,10 @@ class BTState with _$BTState {
   }) = _SearchCustomerFailed;
   const factory BTState.selectedSeatSuccess({
     required BTModelState data,
+    required int ticIndex,
   }) = _SelectedSeatSuccess;
+
+  const factory BTState.addSeatSuccess({
+    required BTModelState data,
+  }) = _AddSeatSuccess;
 }
