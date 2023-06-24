@@ -52,6 +52,6 @@ class TicketModel {
         dateBorn: DateTime.fromMillisecondsSinceEpoch(dateBorn),
         type: type,
         timeBought: DateTime.fromMillisecondsSinceEpoch(timeBought),
-        seat: seat.toString(),
+        seat: seat,
       );
 }

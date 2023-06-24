@@ -3,16 +3,20 @@ import 'dart:developer';
 import 'package:collection/collection.dart';
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
+import 'package:flight_booking/core/components/widgets/extension/interger_extension.dart';
 import 'package:flight_booking/core/components/widgets/form_add_edit_information.dart';
 import 'package:flight_booking/presentations/dialog_book_ticket/bloc/book_ticket_bloc.dart';
+import 'package:flight_booking/presentations/list_flight/views/widgets/dot_custom.dart';
 import 'package:flight_booking/presentations/selected_customer/views/selected_customer_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/widgets/mobile/button_custom.dart';
 import '../../../domain/entities/seat_selected/seat_selected.dart';
+import '../../../domain/entities/ticket/ticket.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../generated/l10n.dart';
 import 'package:flight_booking/core/constant/constant.dart';
@@ -24,6 +28,7 @@ import '../../../core/components/widgets/mobile/text_field_custom.dart';
 import '../bloc/book_ticket_model_state.dart';
 
 const _hMarginCard = 20.0;
+const _defaultSeat = 0;
 
 class DialogBookTicket extends StatefulWidget {
   const DialogBookTicket({
@@ -35,21 +40,30 @@ class DialogBookTicket extends StatefulWidget {
 }
 
 class _DialogBookTicketState extends State<DialogBookTicket> {
+  //Controller
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _identityController = TextEditingController();
 
   // final TextEditingController _dateBornController = TextEditingController();
-  final ValueNotifier<String> _gender = ValueNotifier<String>('Male');
+  final ValueNotifier<String> _gender = ValueNotifier<String>('MALE');
   final ValueNotifier<DateTime> _dateBorn =
       ValueNotifier<DateTime>(DateTime.now());
 
+  //Data
   BTBloc get _bloc => BlocProvider.of<BTBloc>(context);
   BTModelState get _data => _bloc.data;
-  int get _flightId => _bloc.flightId;
+  // int get _flightId => _bloc.flightId;
   List<SeatSelected> get seatsSelected => _bloc.listSeat;
   List<TicketInformation> get _ticInformation => _data.ticInformation;
+  List<Ticket> get _listTic => _data.tics;
+  SeatSelected? get _currentSeat => _data.currentSeat;
+
+  //UI
+  String get _ticClass =>
+      _currentSeat?.ticInformation.id.ticketType.ticClass.displayValue ??
+      0.ticClass.displayValue;
 
   List<SeatSelected> get _seatsSelected => _data.chairsSelected;
   @override
@@ -66,20 +80,62 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
     }
   }
 
+  void _onAddSeat() {
+    _bloc.add(BTEvent.addSeat(
+      name: _nameController.text,
+      email: _emailController.text,
+      gender: _gender.value,
+      seat: _currentSeat?.seatIndex ?? _defaultSeat,
+      type: _currentSeat?.ticInformation.id.ticketType ??
+          TicTypeEnum.businessClass.toInteger,
+      phoneNumber: _phoneNumberController.text,
+      identityNumber: _identityController.text,
+      dateBorn: _dateBorn.value,
+      luggage: 10.0,
+    ));
+  }
+
   void _onChangeGender(String? newValue) {
     _gender.value = newValue!;
   }
 
+  void _setField(Ticket tic) {
+    _nameController.text = tic.name;
+    _emailController.text = tic.emailAddress;
+    _gender.value = tic.gender;
+    _phoneNumberController.text = tic.phoneNumber;
+    _identityController.text = '949593995';
+    _dateBorn.value = tic.dateBorn;
+  }
+
+  void _clearField() {
+    _nameController.text = '';
+    _emailController.text = '';
+    _gender.value = 'MALE';
+    _phoneNumberController.text = '';
+    _identityController.text = '949593995';
+    _dateBorn.value = DateTime.now();
+  }
+
   void _onSelectedSeat(int seatIndex, TicketInformation tic) {
+    final newSeatSelected =
+        SeatSelected(seatIndex: seatIndex, ticInformation: tic);
     _bloc.add(BTEvent.selectedSeat(
-      ticInformation: tic,
-      seatIndex: seatIndex,
+      newSeat: newSeatSelected,
     ));
   }
 
   void _listenStateChange(_, BTState state) {
     state.maybeWhen(
       changeTicIndexViewSuccess: (data) {},
+      selectedSeatSuccess: (data, ticIndex) {
+        if (ticIndex != -1) {
+          var tic = _listTic[ticIndex];
+          _setField(tic);
+        } else {
+          _clearField();
+        }
+      },
       fetchCustomerDataFailed: (data, error) {
         log(error);
       },
@@ -109,9 +165,14 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
           ),
           child: Row(
             children: [
-              const Expanded(
+              Expanded(
                 flex: 4,
-                child: SelectedCustomerForm(),
+                child: Column(
+                  children: [
+                    const Expanded(child: SelectedCustomerForm()),
+                    _listTicSelectedField(context),
+                  ],
+                ),
               ),
               const SizedBox(width: 10.0),
               _ticInformationField(context, headerTextStyle, fontColorByCard),
@@ -119,6 +180,137 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
           ),
         );
       },
+    );
+  }
+
+  Expanded _listTicSelectedField(BuildContext context) {
+    return Expanded(
+      child: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(10.0),
+          border: Border.all(
+            width: 1,
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
+        child: ListView(
+          children: [
+            const SizedBox(height: 10.0),
+            ..._listTic.map(
+              (e) => Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(10.0),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0),
+                  color: Theme.of(context).cardColor,
+                  border: Border.all(
+                    width: 1,
+                    color: e.emailAddress.isNotEmpty &&
+                            e.phoneNumber.isNotEmpty &&
+                            e.phoneNumber.isNotEmpty
+                        ? Colors.transparent
+                        : Colors.red,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Theme.of(context).shadowColor.withOpacity(0.2),
+                      blurRadius: 5.0,
+                    )
+                  ],
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 150,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.airplane_ticket,
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  e.type.ticClass.displayValue,
+                                  style: context.titleMedium.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(height: 10.0),
+                          Text(
+                            e.name,
+                            style: context.titleSmall.copyWith(
+                              fontWeight: FontWeight.w500,
+                              color: Theme.of(context).hintColor,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 10.0),
+                    Container(
+                      width: 0.2,
+                      height: 80,
+                      margin: const EdgeInsets.symmetric(horizontal: 10.0),
+                      decoration:
+                          DottedDecoration(linePosition: LinePosition.left),
+                    ),
+                    const SizedBox(width: 10.0),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ...[
+                            if (e.emailAddress.isNotEmpty) e.emailAddress,
+                            if (e.phoneNumber.isNotEmpty) e.phoneNumber,
+                            e.gender,
+                            getYmdFormat(e.dateBorn)
+                          ]
+                              .map(
+                                (text) => Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    DotCustom(
+                                      color: Theme.of(context).primaryColor,
+                                      full: true,
+                                      radius: 5.0,
+                                    ),
+                                    const SizedBox(width: 10.0),
+                                    Text(text, style: context.titleSmall),
+                                  ],
+                                ),
+                              )
+                              .expand((element) =>
+                                  [element, const SizedBox(height: 5.0)])
+                              .toList()
+                            ..removeLast(),
+                        ],
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.delete, color: Colors.red),
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 
@@ -152,28 +344,29 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Expanded>[
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      S.of(context).firstClass,
-                      maxLines: 1,
-                      style: headerTextStyle,
-                    ),
-                    const SizedBox(height: 10.0),
-                    Text(
-                      'Seat 5D',
-                      maxLines: 1,
-                      style: context.headlineMedium.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: fontColorByCard,
+              if (_currentSeat != null)
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        _ticClass,
+                        maxLines: 1,
+                        style: headerTextStyle,
                       ),
-                    ) // update here
-                    // change this type
-                  ],
+                      const SizedBox(height: 10.0),
+                      Text(
+                        'Seat ${_currentSeat?.ticInformation.seatHeader ?? 'A'}${_currentSeat?.seatIndex ?? 0}',
+                        maxLines: 1,
+                        style: context.headlineMedium.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: fontColorByCard,
+                        ),
+                      ) // update here
+                      // change this type
+                    ],
+                  ),
                 ),
-              ),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -273,7 +466,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
                 width: 150.0,
                 value: genderSelect,
                 onChange: _onChangeGender,
-                items: ['Male', 'Female']
+                items: ['MALE', 'FEMALE']
                     .map<DropdownMenuItem<String>>(
                       (String value) => DropdownMenuItem<String>(
                         value: value,
@@ -298,8 +491,8 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
               Expanded(
                 child: ButtonCustom(
                   height: 50,
+                  onPress: _onAddSeat,
                   child: Text(S.of(context).add),
-                  onPress: () {},
                 ),
               ),
               const SizedBox(width: 10.0),
@@ -372,10 +565,11 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
                                       onPressed: () => _onSelectedSeat(i, e),
                                       icon: Icon(
                                         Icons.chair,
-                                        color: _seatsSelected
+                                        color: _listTic
                                                 .map((item) =>
-                                                    convertToSeatString(item))
-                                                .contains('${e.seatHeader}$i')
+                                                    '${item.type} - ${item.seat}')
+                                                .contains(
+                                                    '${e.id.ticketType} - $i')
                                             ? Theme.of(context).primaryColor
                                             : Theme.of(context).hintColor,
                                       ),

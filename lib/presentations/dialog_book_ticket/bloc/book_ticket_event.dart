@@ -15,8 +15,7 @@ class BTEvent with _$BTEvent {
 
   const factory BTEvent.getTicInformation() = _GetTicInformation;
   const factory BTEvent.selectedSeat({
-    required TicketInformation ticInformation,
-    required int seatIndex,
+    required SeatSelected newSeat,
   }) = _SelectedSeat;
   const factory BTEvent.searchCustomer({
     required String text,
@@ -26,7 +25,15 @@ class BTEvent with _$BTEvent {
     required String text,
   }) = _TextChange;
 
-  // const factory BTEvent.addSeat({
-
-  // })
+  const factory BTEvent.addSeat({
+    required String name,
+    required String email,
+    required String gender,
+    required int seat,
+    required int type,
+    required String phoneNumber,
+    required String identityNumber,
+    required DateTime dateBorn,
+    required double luggage,
+  }) = _AddSeat;
 }

@@ -1,5 +1,4 @@
 import 'package:dotted_decoration/dotted_decoration.dart';
-import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flutter/material.dart';
