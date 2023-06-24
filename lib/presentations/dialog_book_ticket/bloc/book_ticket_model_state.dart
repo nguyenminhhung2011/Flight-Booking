@@ -13,6 +13,7 @@ class BTModelState with _$BTModelState {
   const factory BTModelState({
     Customer? customerSelected,
     Flight? flight,
+    SeatSelected? currentSeat,
     required int indexView,
     required List<Customer> customers,
     required List<SeatSelected> chairsSelected,

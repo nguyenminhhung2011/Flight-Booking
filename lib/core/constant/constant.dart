@@ -265,4 +265,4 @@ String randomString() {
 int randDomNumber(int max) => Random().nextInt(100);
 
 String convertToSeatString(SeatSelected seat) =>
-    '${seat.ticInformation.seatHeader}${seat.seatIndex}';
+    '${seat.ticInformation.id.ticketType} - ${seat.seatIndex}';
