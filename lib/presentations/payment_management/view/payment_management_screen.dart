@@ -14,7 +14,6 @@ import 'package:flight_booking/core/components/widgets/payment_status_utils.dart
 import 'package:flight_booking/core/components/widgets/range_date_picker_custom.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
-import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/domain/entities/payment/payment_item.dart';
 import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/payment_bloc.dart';
@@ -29,7 +28,6 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/enum/tic_type_enum.dart';
-import '../../../domain/entities/customer/customer.dart';
 
 enum PaymentFilterMethod {
   calendarMethod,

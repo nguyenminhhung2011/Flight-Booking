@@ -32,12 +32,19 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
   FutureOr<void> _onOnStarted(_OnStarted event, Emitter<PaymentState> emit) {}
 
   FutureOr<void> _onFetchPaymentData(
-      _FetchPaymentData event, Emitter<PaymentState> emit) async {
+    _FetchPaymentData event,
+    Emitter<PaymentState> emit,
+  ) async {
     emit(_Loading(data: state.data));
 
     try {
-      final response = await _paymentUseCase.fetchPaymentManagementPage();
+      final response = await _paymentUseCase.fetchPaymentManagementPage(
+        event.page,
+        event.perPage,
+      );
+
       print("response.payments.length: ${response.payments.length}");
+
       emit(_FetchListPaymentDataSuccess(data: response));
     } catch (e) {
       emit(_PaymentDataFailedState(data: state.data, message: e.toString()));
@@ -45,7 +52,9 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
   }
 
   FutureOr<void> _onOpenPaymentDetail(
-      _OpenPaymentDetail event, Emitter<PaymentState> emit) {}
+    _OpenPaymentDetail event,
+    Emitter<PaymentState> emit,
+  ) {}
 
   FutureOr<void> _onDeletePayment(
       _DeletePayment event, Emitter<PaymentState> emit) {}

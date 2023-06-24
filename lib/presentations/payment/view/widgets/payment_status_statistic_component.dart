@@ -12,7 +12,8 @@ class PaymentStatusStatisticComponent extends StatelessWidget {
   const PaymentStatusStatisticComponent(
       {super.key, this.height, required this.paymentStatusData});
 
-  Widget _buildStatusStatisticItem(BuildContext context, PaymentStatus status) {
+  Widget _buildStatusStatisticItem(
+      BuildContext context, PaymentStatus status, int num) {
     return ListTile(
       leading: Container(
         padding: const EdgeInsets.all(10),
@@ -34,7 +35,7 @@ class PaymentStatusStatisticComponent extends StatelessWidget {
             fontWeight: FontWeight.w600, overflow: TextOverflow.ellipsis),
       ),
       subtitle: Text(
-        "15",
+        num.toString(),
         style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis),
       ),
@@ -69,11 +70,13 @@ class PaymentStatusStatisticComponent extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Expanded(
-                        child: _buildStatusStatisticItem(
-                            context, PaymentStatus.create)),
+                        child: _buildStatusStatisticItem(context,
+                            PaymentStatus.create, paymentStatusData.create)),
                     Expanded(
                         child: _buildStatusStatisticItem(
-                            context, PaymentStatus.declined)),
+                            context,
+                            PaymentStatus.declined,
+                            paymentStatusData.declined)),
                   ],
                 ),
                 Row(
@@ -81,11 +84,13 @@ class PaymentStatusStatisticComponent extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Expanded(
-                        child: _buildStatusStatisticItem(
-                            context, PaymentStatus.pending)),
+                        child: _buildStatusStatisticItem(context,
+                            PaymentStatus.pending, paymentStatusData.pending)),
                     Expanded(
                         child: _buildStatusStatisticItem(
-                            context, PaymentStatus.succeeded)),
+                            context,
+                            PaymentStatus.succeeded,
+                            paymentStatusData.succeeded)),
                   ],
                 ),
               ],

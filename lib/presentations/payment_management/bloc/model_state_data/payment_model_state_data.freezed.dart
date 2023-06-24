@@ -16,6 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PaymentModelStateData {
+  int get page => throw _privateConstructorUsedError;
+  int get perPage => throw _privateConstructorUsedError;
   List<PaymentItem> get payments => throw _privateConstructorUsedError;
   TotalStatisticalData get totalData => throw _privateConstructorUsedError;
   Revenue get revenue => throw _privateConstructorUsedError;
@@ -34,7 +36,9 @@ abstract class $PaymentModelStateDataCopyWith<$Res> {
       _$PaymentModelStateDataCopyWithImpl<$Res, PaymentModelStateData>;
   @useResult
   $Res call(
-      {List<PaymentItem> payments,
+      {int page,
+      int perPage,
+      List<PaymentItem> payments,
       TotalStatisticalData totalData,
       Revenue revenue,
       PaymentStatusStateData statusData,
@@ -60,6 +64,8 @@ class _$PaymentModelStateDataCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? page = null,
+    Object? perPage = null,
     Object? payments = null,
     Object? totalData = null,
     Object? revenue = null,
@@ -67,6 +73,14 @@ class _$PaymentModelStateDataCopyWithImpl<$Res,
     Object? ticketTierData = null,
   }) {
     return _then(_value.copyWith(
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      perPage: null == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
+              as int,
       payments: null == payments
           ? _value.payments
           : payments // ignore: cast_nullable_to_non_nullable
@@ -132,7 +146,9 @@ abstract class _$$_PaymentModelStateDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<PaymentItem> payments,
+      {int page,
+      int perPage,
+      List<PaymentItem> payments,
       TotalStatisticalData totalData,
       Revenue revenue,
       PaymentStatusStateData statusData,
@@ -159,6 +175,8 @@ class __$$_PaymentModelStateDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? page = null,
+    Object? perPage = null,
     Object? payments = null,
     Object? totalData = null,
     Object? revenue = null,
@@ -166,6 +184,14 @@ class __$$_PaymentModelStateDataCopyWithImpl<$Res>
     Object? ticketTierData = null,
   }) {
     return _then(_$_PaymentModelStateData(
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      perPage: null == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
+              as int,
       payments: null == payments
           ? _value._payments
           : payments // ignore: cast_nullable_to_non_nullable
@@ -194,13 +220,21 @@ class __$$_PaymentModelStateDataCopyWithImpl<$Res>
 
 class _$_PaymentModelStateData implements _PaymentModelStateData {
   const _$_PaymentModelStateData(
-      {required final List<PaymentItem> payments,
+      {this.page = 0,
+      this.perPage = 10,
+      required final List<PaymentItem> payments,
       required this.totalData,
       required this.revenue,
       required this.statusData,
       required this.ticketTierData})
       : _payments = payments;
 
+  @override
+  @JsonKey()
+  final int page;
+  @override
+  @JsonKey()
+  final int perPage;
   final List<PaymentItem> _payments;
   @override
   List<PaymentItem> get payments {
@@ -220,7 +254,7 @@ class _$_PaymentModelStateData implements _PaymentModelStateData {
 
   @override
   String toString() {
-    return 'PaymentModelStateData(payments: $payments, totalData: $totalData, revenue: $revenue, statusData: $statusData, ticketTierData: $ticketTierData)';
+    return 'PaymentModelStateData(page: $page, perPage: $perPage, payments: $payments, totalData: $totalData, revenue: $revenue, statusData: $statusData, ticketTierData: $ticketTierData)';
   }
 
   @override
@@ -228,6 +262,8 @@ class _$_PaymentModelStateData implements _PaymentModelStateData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PaymentModelStateData &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.perPage, perPage) || other.perPage == perPage) &&
             const DeepCollectionEquality().equals(other._payments, _payments) &&
             (identical(other.totalData, totalData) ||
                 other.totalData == totalData) &&
@@ -241,6 +277,8 @@ class _$_PaymentModelStateData implements _PaymentModelStateData {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      page,
+      perPage,
       const DeepCollectionEquality().hash(_payments),
       totalData,
       revenue,
@@ -257,12 +295,18 @@ class _$_PaymentModelStateData implements _PaymentModelStateData {
 
 abstract class _PaymentModelStateData implements PaymentModelStateData {
   const factory _PaymentModelStateData(
-      {required final List<PaymentItem> payments,
+      {final int page,
+      final int perPage,
+      required final List<PaymentItem> payments,
       required final TotalStatisticalData totalData,
       required final Revenue revenue,
       required final PaymentStatusStateData statusData,
       required final TicketTierData ticketTierData}) = _$_PaymentModelStateData;
 
+  @override
+  int get page;
+  @override
+  int get perPage;
   @override
   List<PaymentItem> get payments;
   @override
