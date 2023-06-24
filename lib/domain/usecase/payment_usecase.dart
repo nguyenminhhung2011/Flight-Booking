@@ -46,8 +46,10 @@ class PaymentUseCase {
   Future<Payment?> getLatestPaymentOfCustomer(int customerId) async =>
       (await _paymentApi.getLatestPaymentOfCustomer(customerId)).data?.toEntity;
 
-  Future<PaymentModelStateData> fetchPaymentManagementPage() async {
-    final response = (await _paymentApi.fetchPaymentManagementPage());
+  Future<PaymentModelStateData> fetchPaymentManagementPage(
+      int page, int perPage) async {
+    final response =
+        (await _paymentApi.fetchPaymentManagementPage(page, perPage));
     return response.data.toEntity;
   }
 }

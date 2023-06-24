@@ -75,7 +75,10 @@ class _PaymentApi implements PaymentApi {
     perPage,
   ) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'perPage': perPage,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<List<dynamic>>(
@@ -86,7 +89,7 @@ class _PaymentApi implements PaymentApi {
     )
             .compose(
               _dio.options,
-              '/api/v1/payment/page=${page}&perPage=${perPage}',
+              '/api/v1/payment/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -211,10 +214,15 @@ class _PaymentApi implements PaymentApi {
   }
 
   @override
-  Future<HttpResponse<PaymentManagementPageModel>>
-      fetchPaymentManagementPage() async {
+  Future<HttpResponse<PaymentManagementPageModel>> fetchPaymentManagementPage(
+    page,
+    perPage,
+  ) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'perPage': perPage,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
