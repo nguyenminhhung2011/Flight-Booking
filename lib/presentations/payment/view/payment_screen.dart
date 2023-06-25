@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/data/models/model_heloer.dart';
 import 'package:flight_booking/presentations/payment/view/tabs/book_payment_tab.dart';
@@ -57,6 +60,22 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   void _listenStateChange(_, PaymentTabState state) {
     state.maybeWhen(
+      addTicToDBSuccess: (data) {
+        _onNextPage(2);
+      },
+      updateContactCustomerSuccess: (data) {
+        context.showSuccessDialog(
+          width: 300,
+          header: 'Update',
+          title: 'Update contact information success!',
+        );
+      },
+      addTicToDBFailed: (data, error) {
+        log(error);
+      },
+      updateContactCustomerFailed: (data, error) {
+        log(error);
+      },
       orElse: () {},
     );
   }
@@ -69,6 +88,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
       listener: _listenStateChange,
       builder: (context, state) {
         if (state.loadingGetData) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        if (_customer == null || _flight == null || _ticInformation == null) {
           return const Center(
             child: CircularProgressIndicator(),
           );
@@ -230,8 +254,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   controller: _pageController,
                   itemCount: 3,
                   itemBuilder: (context, index) => [
-                    BookPaymentTab(onNextPage: () => _onNextPage(1)),
-                    PaymentTab(onNextPage: () => _onNextPage(2)),
+                    BookPaymentTab(
+                      onNextPage: () => _onNextPage(1),
+                    ),
+                    const PaymentTab(),
                     ConfirmInformationTab(),
                   ][index],
                 ),

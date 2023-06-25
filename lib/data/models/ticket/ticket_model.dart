@@ -35,7 +35,18 @@ class TicketModel {
   @JsonKey(name: 'timeBought')
   late int timeBought;
 
-  TicketModel();
+  TicketModel({
+    required this.id,
+    required this.name,
+    required this.gender,
+    required this.phoneNumber,
+    required this.emailAddress,
+    required this.luggage,
+    required this.seat,
+    required this.type,
+    required this.dateBorn,
+    required this.timeBought,
+  });
 
   Map<String, dynamic> toJson() => _$TicketModelToJson(this);
 

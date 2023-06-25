@@ -1,3 +1,4 @@
+import 'package:flight_booking/core/components/widgets/custom_dialog_error/success_dialog.dart';
 import 'package:flight_booking/core/components/widgets/custom_dialog_error/yes_no_dilog.dart';
 import 'package:flight_booking/presentations/add_customer/bloc/add_customer_bloc.dart';
 import 'package:flight_booking/presentations/add_customer/views/add_customer_screen.dart';
@@ -213,6 +214,25 @@ extension AppCoordinator<T> on BuildContext {
       return result.isYes;
     }
     return false;
+  }
+
+  Future<void> showSuccessDialog({
+    required double width,
+    required String header,
+    required String title,
+  }) async {
+    await showDialog(
+        context: this,
+        builder: (_) {
+          return Dialog(
+            backgroundColor: Colors.transparent,
+            child: SuccessDialog(
+              header: header,
+              title: title,
+              width: width,
+            ),
+          );
+        });
   }
 
   Future<bool> showDeleteConfigAirportDialog(int airportId) async {

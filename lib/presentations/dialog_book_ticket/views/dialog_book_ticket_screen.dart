@@ -219,6 +219,20 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
           _clearField();
         }
       },
+      addSeatSuccess: (data) {
+        context.showSuccessDialog(
+          width: 300,
+          header: 'Add seat',
+          title: 'Add new seat success',
+        );
+      },
+      editTicSuccess: (data) {
+        context.showSuccessDialog(
+          width: 300,
+          header: 'Update seat',
+          title: 'Update seat success',
+        );
+      },
       fetchCustomerDataFailed: (data, error) {
         log(error);
       },

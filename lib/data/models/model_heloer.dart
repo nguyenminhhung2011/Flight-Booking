@@ -2,7 +2,9 @@ import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/data/models/airport/airport_model.dart';
 import 'package:flight_booking/data/models/ticket/ticket_information_model.dart';
 import 'package:flight_booking/data/models/ticket/ticket_information_model_id.dart';
+import 'package:flight_booking/data/models/ticket/ticket_model.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
+import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/airline/airline.dart';
@@ -22,6 +24,18 @@ class ModelHelper {
         airport.description,
         timeOfDayToInt(airport.openTime),
         timeOfDayToInt(airport.closeTime),
+      );
+  static TicketModel ticConvert(Ticket tic) => TicketModel(
+        id: int.parse(tic.id),
+        name: tic.name,
+        gender: tic.gender,
+        phoneNumber: tic.phoneNumber,
+        emailAddress: tic.emailAddress,
+        luggage: tic.luggage,
+        seat: tic.seat,
+        type: tic.type,
+        dateBorn: tic.dateBorn.millisecondsSinceEpoch,
+        timeBought: tic.timeBought.millisecondsSinceEpoch,
       );
 
   static FlightModel flightConvert(Flight flight) => FlightModel(

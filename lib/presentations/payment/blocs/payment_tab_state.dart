@@ -40,10 +40,34 @@ class PaymentTabState with _$PaymentTabState {
     required String message,
   }) = _GetTicInformationFailed;
 
+  const factory PaymentTabState.updateContactCustomerSuccess({
+    required PaymentTabModelState data,
+  }) = _UpdateContactCustomerSuccess;
+
+  const factory PaymentTabState.updateContactCustomerFailed({
+    required PaymentTabModelState data,
+    required String message,
+  }) = _UpdateContactCustomerFailed;
+
+  const factory PaymentTabState.addTicToDBSuccess({
+    required PaymentTabModelState data,
+  }) = _AddTicToDBSuccess;
+
+  const factory PaymentTabState.addTicToDBFailed({
+    required PaymentTabModelState data,
+    required String message,
+  }) = _AddTicToDBFailed;
+
   const factory PaymentTabState.changeCustomerTabIndexSuccess({
     required PaymentTabModelState data,
   }) = _ChangeCustomerTabIndexSuccess;
 
   bool get loadingGetData => maybeWhen(
       orElse: () => false, loading: (data, loadingField) => loadingField == 0);
+
+  bool get loadingUpdateContact => maybeWhen(
+      orElse: () => false, loading: (data, loadingField) => loadingField == 1);
+
+  bool get loadingAddTic => maybeWhen(
+      orElse: () => false, loading: (data, loadingField) => loadingField == 2);
 }

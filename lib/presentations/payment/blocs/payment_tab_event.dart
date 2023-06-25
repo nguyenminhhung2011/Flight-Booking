@@ -10,4 +10,12 @@ class PaymentTabEvent with _$PaymentTabEvent {
   const factory PaymentTabEvent.changeCustomerIndexView({
     required int newIndex,
   }) = _ChangeCustomerIndexView;
+  const factory PaymentTabEvent.addTicToDB({required String paymentType}) =
+      _AddTicToDB;
+
+  const factory PaymentTabEvent.updateContactCustomer({
+    required String name,
+    required String phoneNumber,
+    required String email,
+  }) = _UpdateContactCustomer;
 }
