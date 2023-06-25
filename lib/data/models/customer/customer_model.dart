@@ -1,3 +1,4 @@
+import 'package:flight_booking/data/models/credit_card/credit_card_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/entities/customer/customer.dart';
@@ -20,6 +21,8 @@ class CustomerModel {
   final String gender;
   @JsonKey(name: "birthday")
   final int birthday;
+  @JsonKey(name: "creditCard")
+  final CreditCardModel creditCard;
 
   CustomerModel({
     required this.id,
@@ -29,6 +32,7 @@ class CustomerModel {
     required this.email,
     required this.gender,
     required this.birthday,
+    required this.creditCard,
   });
 
   Map<String, dynamic> toJson() => _$CustomerModelToJson(this);

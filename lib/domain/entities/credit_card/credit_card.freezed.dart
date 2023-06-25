@@ -147,21 +147,26 @@ class __$$_CreditCardCopyWithImpl<$Res>
 
 class _$_CreditCard implements _CreditCard {
   const _$_CreditCard(
-      {required this.id,
-      required this.creditNum,
-      required this.expiredDate,
-      required this.cvc,
-      required this.nameCard});
+      {this.id = 0,
+      this.creditNum = "",
+      this.expiredDate = 0,
+      this.cvc = "",
+      this.nameCard = ""});
 
   @override
+  @JsonKey()
   final int id;
   @override
+  @JsonKey()
   final String creditNum;
   @override
+  @JsonKey()
   final DateTime expiredDate;
   @override
+  @JsonKey()
   final String cvc;
   @override
+  @JsonKey()
   final String nameCard;
 
   @override
@@ -197,11 +202,11 @@ class _$_CreditCard implements _CreditCard {
 
 abstract class _CreditCard implements CreditCard {
   const factory _CreditCard(
-      {required final int id,
-      required final String creditNum,
-      required final DateTime expiredDate,
-      required final String cvc,
-      required final String nameCard}) = _$_CreditCard;
+      {final int id,
+      final String creditNum,
+      final DateTime expiredDate,
+      final String cvc,
+      final String nameCard}) = _$_CreditCard;
 
   @override
   int get id;

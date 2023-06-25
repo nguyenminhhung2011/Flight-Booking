@@ -1,6 +1,8 @@
 import 'package:flight_booking/data/datasource/remote/payment/payment_api.dart';
+import 'package:flight_booking/data/models/payment/payment_model.dart';
 import 'package:flight_booking/data/models/payment/payment_success_response.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
+import 'package:flight_booking/domain/entities/payment/payment_item.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/payment_model_state_data.dart';
 import 'package:injectable/injectable.dart';
 
@@ -21,7 +23,7 @@ class PaymentUseCase {
     return result.data?.toEntity ?? const Payment();
   }
 
-  Future<List<Payment>> getPaymentByPage(int page, int perPage) async {
+  Future<List<PaymentItem>> getPaymentByPage(int page, int perPage) async {
     return (await _paymentApi.getPaymentByPage(page, perPage))
         .data
         .map((e) => e.toEntity)

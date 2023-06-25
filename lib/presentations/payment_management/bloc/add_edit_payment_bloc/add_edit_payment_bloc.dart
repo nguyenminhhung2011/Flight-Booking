@@ -12,7 +12,9 @@ class AddEditPaymentBloc extends Cubit<AddEditPaymentState> {
   AddEditPaymentBloc(this.paymentUseCase)
       : super(InitialAddEditState(const Payment()));
 
-  void onStarted(int id) {}
+  void onStarted(int id) {
+    emit(LoadingDialogState(state.payment));
+  }
 
   FutureOr<void> getPaymentDetail(int id) async {
     emit(LoadingDialogState(state.payment));

@@ -59,6 +59,7 @@ class ModelHelper {
         email: customer.email,
         gender: customer.gender,
         birthday: customer.birthday.millisecondsSinceEpoch,
+        // creditCard: customer
       );
 
   static Airport defaultAirport = Airport(
