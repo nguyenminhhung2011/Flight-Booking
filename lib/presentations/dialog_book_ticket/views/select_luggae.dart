@@ -127,7 +127,7 @@ class _SelectLuggageState extends State<SelectLuggage> {
             color: Theme.of(context).cardColor,
             boxShadow: [
               BoxShadow(
-                color: Theme.of(context).shadowColor.withOpacity(0.2),
+                color: Theme.of(context).shadowColor.withOpacity(0.4),
                 blurRadius: 5.0,
               )
             ],

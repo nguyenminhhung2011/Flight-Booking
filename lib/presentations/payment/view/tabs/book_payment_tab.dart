@@ -9,6 +9,7 @@ import '../../../../core/components/widgets/mobile/category_custom.dart';
 import '../../../../core/components/widgets/mobile/text_field_custom.dart';
 import '../../../../core/constant/constant.dart';
 import '../../../../domain/entities/customer/customer.dart';
+import '../../../../domain/entities/ticket/ticket.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
 import '../../../../presentations_mobile/flight_history_detail/views/widgets/customer_information_field.dart';
@@ -17,10 +18,14 @@ const _hPaddingCard = 15.0;
 const _maxWidthDevice = 1200;
 
 class BookPaymentTab extends StatefulWidget {
+  final Customer customer;
+  final List<Ticket> tics;
   final Function() onNextPage;
   const BookPaymentTab({
     super.key,
     required this.onNextPage,
+    required this.customer,
+    required this.tics,
   });
 
   @override

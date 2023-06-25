@@ -17,8 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$PaymentTabModelState {
   Flight? get flight => throw _privateConstructorUsedError;
-  Airport? get airport => throw _privateConstructorUsedError;
   Customer? get customer => throw _privateConstructorUsedError;
+  Map<int, TicketInformation>? get ticInformation =>
+      throw _privateConstructorUsedError;
+  Map<String, double> get priceSummary => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PaymentTabModelStateCopyWith<PaymentTabModelState> get copyWith =>
@@ -31,10 +33,13 @@ abstract class $PaymentTabModelStateCopyWith<$Res> {
           $Res Function(PaymentTabModelState) then) =
       _$PaymentTabModelStateCopyWithImpl<$Res, PaymentTabModelState>;
   @useResult
-  $Res call({Flight? flight, Airport? airport, Customer? customer});
+  $Res call(
+      {Flight? flight,
+      Customer? customer,
+      Map<int, TicketInformation>? ticInformation,
+      Map<String, double> priceSummary});
 
   $FlightCopyWith<$Res>? get flight;
-  $AirportCopyWith<$Res>? get airport;
   $CustomerCopyWith<$Res>? get customer;
 }
 
@@ -53,22 +58,27 @@ class _$PaymentTabModelStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? flight = freezed,
-    Object? airport = freezed,
     Object? customer = freezed,
+    Object? ticInformation = freezed,
+    Object? priceSummary = null,
   }) {
     return _then(_value.copyWith(
       flight: freezed == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
               as Flight?,
-      airport: freezed == airport
-          ? _value.airport
-          : airport // ignore: cast_nullable_to_non_nullable
-              as Airport?,
       customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
               as Customer?,
+      ticInformation: freezed == ticInformation
+          ? _value.ticInformation
+          : ticInformation // ignore: cast_nullable_to_non_nullable
+              as Map<int, TicketInformation>?,
+      priceSummary: null == priceSummary
+          ? _value.priceSummary
+          : priceSummary // ignore: cast_nullable_to_non_nullable
+              as Map<String, double>,
     ) as $Val);
   }
 
@@ -81,18 +91,6 @@ class _$PaymentTabModelStateCopyWithImpl<$Res,
 
     return $FlightCopyWith<$Res>(_value.flight!, (value) {
       return _then(_value.copyWith(flight: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AirportCopyWith<$Res>? get airport {
-    if (_value.airport == null) {
-      return null;
-    }
-
-    return $AirportCopyWith<$Res>(_value.airport!, (value) {
-      return _then(_value.copyWith(airport: value) as $Val);
     });
   }
 
@@ -117,12 +115,14 @@ abstract class _$$_PaymentTabModelStateCopyWith<$Res>
       __$$_PaymentTabModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Flight? flight, Airport? airport, Customer? customer});
+  $Res call(
+      {Flight? flight,
+      Customer? customer,
+      Map<int, TicketInformation>? ticInformation,
+      Map<String, double> priceSummary});
 
   @override
   $FlightCopyWith<$Res>? get flight;
-  @override
-  $AirportCopyWith<$Res>? get airport;
   @override
   $CustomerCopyWith<$Res>? get customer;
 }
@@ -139,22 +139,27 @@ class __$$_PaymentTabModelStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? flight = freezed,
-    Object? airport = freezed,
     Object? customer = freezed,
+    Object? ticInformation = freezed,
+    Object? priceSummary = null,
   }) {
     return _then(_$_PaymentTabModelState(
       flight: freezed == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
               as Flight?,
-      airport: freezed == airport
-          ? _value.airport
-          : airport // ignore: cast_nullable_to_non_nullable
-              as Airport?,
       customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
               as Customer?,
+      ticInformation: freezed == ticInformation
+          ? _value._ticInformation
+          : ticInformation // ignore: cast_nullable_to_non_nullable
+              as Map<int, TicketInformation>?,
+      priceSummary: null == priceSummary
+          ? _value._priceSummary
+          : priceSummary // ignore: cast_nullable_to_non_nullable
+              as Map<String, double>,
     ));
   }
 }
@@ -162,18 +167,39 @@ class __$$_PaymentTabModelStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PaymentTabModelState implements _PaymentTabModelState {
-  const _$_PaymentTabModelState({this.flight, this.airport, this.customer});
+  const _$_PaymentTabModelState(
+      {this.flight,
+      this.customer,
+      final Map<int, TicketInformation>? ticInformation,
+      required final Map<String, double> priceSummary})
+      : _ticInformation = ticInformation,
+        _priceSummary = priceSummary;
 
   @override
   final Flight? flight;
   @override
-  final Airport? airport;
-  @override
   final Customer? customer;
+  final Map<int, TicketInformation>? _ticInformation;
+  @override
+  Map<int, TicketInformation>? get ticInformation {
+    final value = _ticInformation;
+    if (value == null) return null;
+    if (_ticInformation is EqualUnmodifiableMapView) return _ticInformation;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, double> _priceSummary;
+  @override
+  Map<String, double> get priceSummary {
+    if (_priceSummary is EqualUnmodifiableMapView) return _priceSummary;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_priceSummary);
+  }
 
   @override
   String toString() {
-    return 'PaymentTabModelState(flight: $flight, airport: $airport, customer: $customer)';
+    return 'PaymentTabModelState(flight: $flight, customer: $customer, ticInformation: $ticInformation, priceSummary: $priceSummary)';
   }
 
   @override
@@ -182,13 +208,21 @@ class _$_PaymentTabModelState implements _PaymentTabModelState {
         (other.runtimeType == runtimeType &&
             other is _$_PaymentTabModelState &&
             (identical(other.flight, flight) || other.flight == flight) &&
-            (identical(other.airport, airport) || other.airport == airport) &&
             (identical(other.customer, customer) ||
-                other.customer == customer));
+                other.customer == customer) &&
+            const DeepCollectionEquality()
+                .equals(other._ticInformation, _ticInformation) &&
+            const DeepCollectionEquality()
+                .equals(other._priceSummary, _priceSummary));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, flight, airport, customer);
+  int get hashCode => Object.hash(
+      runtimeType,
+      flight,
+      customer,
+      const DeepCollectionEquality().hash(_ticInformation),
+      const DeepCollectionEquality().hash(_priceSummary));
 
   @JsonKey(ignore: true)
   @override
@@ -200,16 +234,20 @@ class _$_PaymentTabModelState implements _PaymentTabModelState {
 
 abstract class _PaymentTabModelState implements PaymentTabModelState {
   const factory _PaymentTabModelState(
-      {final Flight? flight,
-      final Airport? airport,
-      final Customer? customer}) = _$_PaymentTabModelState;
+          {final Flight? flight,
+          final Customer? customer,
+          final Map<int, TicketInformation>? ticInformation,
+          required final Map<String, double> priceSummary}) =
+      _$_PaymentTabModelState;
 
   @override
   Flight? get flight;
   @override
-  Airport? get airport;
-  @override
   Customer? get customer;
+  @override
+  Map<int, TicketInformation>? get ticInformation;
+  @override
+  Map<String, double> get priceSummary;
   @override
   @JsonKey(ignore: true)
   _$$_PaymentTabModelStateCopyWith<_$_PaymentTabModelState> get copyWith =>

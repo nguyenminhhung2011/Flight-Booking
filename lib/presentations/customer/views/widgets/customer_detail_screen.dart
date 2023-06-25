@@ -7,8 +7,13 @@ import 'package:flutter_timeline/flutter_timeline.dart';
 import 'package:intl/intl.dart';
 import '../../../../core/components/widgets/flux_table/flux_table_row.dart';
 import '../../../../core/components/widgets/flux_table/flux_ticket_table.dart';
+import '../../../../core/constant/constant.dart';
 import '../../../../core/constant/handle_time.dart';
+import '../../../../data/models/model_heloer.dart';
 import '../../../../domain/entities/customer/customer.dart';
+import '../../../../domain/entities/ticket/ticket.dart';
+import '../../../../domain/entities/ticket/ticket_information.dart';
+import '../../../../domain/entities/ticket/ticket_information_id.dart';
 import '../../../../generated/l10n.dart';
 
 class CustomerDetailScreen extends StatelessWidget {
@@ -164,14 +169,46 @@ class CustomerDetailScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 5),
-              const Expanded(
+              Expanded(
                 child: Column(
                   children: [
-                    Expanded(
+                    const Expanded(
                       flex: 1,
                       child: FlightInformationCard(),
                     ),
-                    Expanded(flex: 2, child: CustomerTicketInformationCard()),
+                    Expanded(
+                      flex: 2,
+                      child: CustomerTicketInformationCard(
+                        customer: ModelHelper.defaultCustomer,
+                        ticInformation: {
+                          1: TicketInformation(
+                            id: TicketInformationId(
+                              ticketType: 1,
+                              flight: ModelHelper.defaultFlight,
+                            ),
+                            quantity: 10,
+                            price: 100.0,
+                            seatPosition: 1,
+                            seatHeader: 'A',
+                          )
+                        },
+                        listTics: [
+                          for (int i = 0; i < 5; i++)
+                            Ticket(
+                              id: randomString(),
+                              name: 'Hung',
+                              gender: 'Male',
+                              phoneNumber: '09429242',
+                              emailAddress: 'hung@gmail.com',
+                              seat: 10,
+                              type: 1,
+                              luggage: 10.0,
+                              dateBorn: DateTime.now(),
+                              timeBought: DateTime.now(),
+                            )
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
