@@ -39,6 +39,10 @@ class BTEvent with _$BTEvent {
 
   const factory BTEvent.getAllTicOfFlight() = _GetAllTicOfFlight;
 
+  const factory BTEvent.updateCustomers(Customer customer) = _UpdateCustomer;
+
+  const factory BTEvent.getFlightById() = _GetFlightById;
+
   const factory BTEvent.addSeat({
     required String name,
     required String email,

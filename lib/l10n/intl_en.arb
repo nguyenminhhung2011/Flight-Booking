@@ -334,5 +334,7 @@
     "quantity": "Quantity",
     "editCustomer": "Edit Customer",
     "selectedCustomer": "Selected Customer",
+    "submit": "Submit",
+    "seeDetails": "See Details",
     "departurePlace": "Departure Place"
 }

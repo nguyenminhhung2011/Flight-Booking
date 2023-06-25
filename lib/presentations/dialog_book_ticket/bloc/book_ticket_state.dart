@@ -24,6 +24,15 @@ class BTState with _$BTState {
     required String message,
   }) = _FetchCustomerDataFailed;
 
+  const factory BTState.getFlightByIdSuccess({
+    required BTModelState data,
+  }) = _GetFlightByIdSuccess;
+
+  const factory BTState.getFlightByIdFailed({
+    required BTModelState data,
+    required String message,
+  }) = _GetFlightByIdFailed;
+
   const factory BTState.getCustomerBydIdSuccess({
     required BTModelState data,
   }) = _GetCustomerBydIdSuccess;
@@ -54,6 +63,10 @@ class BTState with _$BTState {
   const factory BTState.searchCustomerSuccess({
     required BTModelState data,
   }) = _SearchCustomerSuccess;
+
+  const factory BTState.updateCustomerSuccess({
+    required BTModelState data,
+  }) = _UpdateCustomerSuccess;
 
   const factory BTState.searchCustomerFailed({
     required BTModelState data,

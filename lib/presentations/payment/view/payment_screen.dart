@@ -5,7 +5,9 @@ import 'package:flight_booking/presentations/payment/view/tabs/paymnet_tab.dart'
 import 'package:flight_booking/presentations/payment/view/widgets/price_summary_cad.dart';
 import 'package:flight_booking/presentations/payment/view/widgets/tic_information.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../customer/views/widgets/customer_detail_card.dart';
+import '../bloc/payment_tab_bloc.dart';
 import 'widgets/flight_summary_card.dart';
 
 const _maxWidthDevice = 1200;
@@ -18,6 +20,8 @@ class PaymentScreen extends StatefulWidget {
 }
 
 class _PaymentScreenState extends State<PaymentScreen> {
+  PaymentTabBloc get _bloc => BlocProvider.of<PaymentTabBloc>(context);
+
   final ValueNotifier<int> _pageIndex = ValueNotifier<int>(0);
   final PageController _pageController = PageController();
 

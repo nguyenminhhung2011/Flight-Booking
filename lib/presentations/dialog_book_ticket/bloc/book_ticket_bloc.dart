@@ -11,6 +11,7 @@ import '../../../domain/entities/customer/customer.dart';
 import '../../../domain/entities/seat_selected/seat_selected.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../domain/usecase/customer_usecase.dart';
+import '../../../domain/usecase/flight_usecase.dart';
 import '../../../domain/usecase/tic_information_usecase.dart';
 import 'book_ticket_model_state.dart';
 
@@ -25,6 +26,7 @@ const _seatDefault = 0;
 class BTBloc extends Bloc<BTEvent, BTState> {
   final CustomerUseCase _customerUseCase;
   final TicketInformationUsecase _ticketInformationUsecase;
+  final FlightsUsecase _flightUsecase;
 
   final int _flightId;
   final List<SeatSelected> _seats;
@@ -36,6 +38,7 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     @factoryParam int flightId,
     this._customerUseCase,
     this._ticketInformationUsecase,
+    this._flightUsecase,
   )   : _seats = seats,
         _flightId = flightId,
         super(const BTState.initial(
@@ -61,7 +64,10 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     on<_SelectedTic>(_onSelectedTic);
     on<_EditTic>(_onEditTic);
     on<_GetAllTicOfFlight>(_onGetAllTicOfFlight);
+    on<_UpdateCustomer>(_onUpdateCustomer);
+    on<_GetFlightById>(_onGetFlightById);
   }
+
   FutureOr<void> _onStarted(
     _Started event,
     Emitter<BTState> state,
@@ -85,6 +91,27 @@ class BTBloc extends Bloc<BTEvent, BTState> {
       add(_SearchCustomer(text: event.text));
     } else {
       add(const _FetchCustomerData());
+    }
+  }
+
+  FutureOr<void> _onGetFlightById(
+    _GetFlightById event,
+    Emitter<BTState> emit,
+  ) async {
+    emit(_Loading(data: data, groupLoading: 4));
+    try {
+      final response = await _flightUsecase.getFlightById(_flightId.toString());
+      if (response == null) {
+        return emit(_GetFlightByIdFailed(data: data, message: 'Failed'));
+      }
+      return emit(_GetFlightByIdSuccess(
+          data: data.copyWith(
+        flight: response,
+      )));
+    } on AppException catch (e) {
+      emit(_GetFlightByIdFailed(data: data, message: e.toString()));
+    } catch (e) {
+      emit(_GetFlightByIdFailed(data: data, message: e.toString()));
     }
   }
 
@@ -256,6 +283,17 @@ class BTBloc extends Bloc<BTEvent, BTState> {
   ) async {
     emit(_Loading(data: data, groupLoading: 2));
     emit(_GetAllTicOfFlightSuccess(data: data));
+  }
+
+  FutureOr<void> _onUpdateCustomer(
+    _UpdateCustomer event,
+    Emitter<BTState> emit,
+  ) {
+    emit(_UpdateCustomerSuccess(
+      data: data.copyWith(
+        customers: [...data.customers, event.customer],
+      ),
+    ));
   }
 
   FutureOr<void> _onSelectedSeat(

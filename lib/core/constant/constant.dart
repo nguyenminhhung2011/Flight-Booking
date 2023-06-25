@@ -148,6 +148,25 @@ List<Map<String, dynamic>> mockFacilities = [
     'route': RoutesMobile.listFlightMobile,
   },
 ];
+
+List<Map<String, dynamic>> luggageConst = [
+  {
+    'title': 'No extra baggage',
+    'price': 0.0,
+    'icon': Icons.no_encryption,
+  },
+  {
+    'title': '+10kg',
+    'price': 10.0,
+    'icon': Icons.badge,
+  },
+  {
+    'title': '+23kg',
+    'price': 15.0,
+    'icon': Icons.luggage,
+  },
+];
+
 List<String> sogun = [
   'Manage Customer',
   'Manage Airport',
