@@ -230,11 +230,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   controller: _pageController,
                   itemCount: 3,
                   itemBuilder: (context, index) => [
-                    BookPaymentTab(
-                      onNextPage: () => _onNextPage(1),
-                      tics: _tics,
-                      customer: _customer ?? ModelHelper.defaultCustomer,
-                    ),
+                    BookPaymentTab(onNextPage: () => _onNextPage(1)),
                     PaymentTab(onNextPage: () => _onNextPage(2)),
                     ConfirmInformationTab(),
                   ][index],
