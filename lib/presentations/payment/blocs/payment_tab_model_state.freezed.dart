@@ -21,6 +21,7 @@ mixin _$PaymentTabModelState {
   Map<int, TicketInformation>? get ticInformation =>
       throw _privateConstructorUsedError;
   Map<String, double> get priceSummary => throw _privateConstructorUsedError;
+  int get customerIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PaymentTabModelStateCopyWith<PaymentTabModelState> get copyWith =>
@@ -37,7 +38,8 @@ abstract class $PaymentTabModelStateCopyWith<$Res> {
       {Flight? flight,
       Customer? customer,
       Map<int, TicketInformation>? ticInformation,
-      Map<String, double> priceSummary});
+      Map<String, double> priceSummary,
+      int customerIndex});
 
   $FlightCopyWith<$Res>? get flight;
   $CustomerCopyWith<$Res>? get customer;
@@ -61,6 +63,7 @@ class _$PaymentTabModelStateCopyWithImpl<$Res,
     Object? customer = freezed,
     Object? ticInformation = freezed,
     Object? priceSummary = null,
+    Object? customerIndex = null,
   }) {
     return _then(_value.copyWith(
       flight: freezed == flight
@@ -79,6 +82,10 @@ class _$PaymentTabModelStateCopyWithImpl<$Res,
           ? _value.priceSummary
           : priceSummary // ignore: cast_nullable_to_non_nullable
               as Map<String, double>,
+      customerIndex: null == customerIndex
+          ? _value.customerIndex
+          : customerIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -119,7 +126,8 @@ abstract class _$$_PaymentTabModelStateCopyWith<$Res>
       {Flight? flight,
       Customer? customer,
       Map<int, TicketInformation>? ticInformation,
-      Map<String, double> priceSummary});
+      Map<String, double> priceSummary,
+      int customerIndex});
 
   @override
   $FlightCopyWith<$Res>? get flight;
@@ -142,6 +150,7 @@ class __$$_PaymentTabModelStateCopyWithImpl<$Res>
     Object? customer = freezed,
     Object? ticInformation = freezed,
     Object? priceSummary = null,
+    Object? customerIndex = null,
   }) {
     return _then(_$_PaymentTabModelState(
       flight: freezed == flight
@@ -160,6 +169,10 @@ class __$$_PaymentTabModelStateCopyWithImpl<$Res>
           ? _value._priceSummary
           : priceSummary // ignore: cast_nullable_to_non_nullable
               as Map<String, double>,
+      customerIndex: null == customerIndex
+          ? _value.customerIndex
+          : customerIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -171,7 +184,8 @@ class _$_PaymentTabModelState implements _PaymentTabModelState {
       {this.flight,
       this.customer,
       final Map<int, TicketInformation>? ticInformation,
-      required final Map<String, double> priceSummary})
+      required final Map<String, double> priceSummary,
+      required this.customerIndex})
       : _ticInformation = ticInformation,
         _priceSummary = priceSummary;
 
@@ -198,8 +212,11 @@ class _$_PaymentTabModelState implements _PaymentTabModelState {
   }
 
   @override
+  final int customerIndex;
+
+  @override
   String toString() {
-    return 'PaymentTabModelState(flight: $flight, customer: $customer, ticInformation: $ticInformation, priceSummary: $priceSummary)';
+    return 'PaymentTabModelState(flight: $flight, customer: $customer, ticInformation: $ticInformation, priceSummary: $priceSummary, customerIndex: $customerIndex)';
   }
 
   @override
@@ -213,7 +230,9 @@ class _$_PaymentTabModelState implements _PaymentTabModelState {
             const DeepCollectionEquality()
                 .equals(other._ticInformation, _ticInformation) &&
             const DeepCollectionEquality()
-                .equals(other._priceSummary, _priceSummary));
+                .equals(other._priceSummary, _priceSummary) &&
+            (identical(other.customerIndex, customerIndex) ||
+                other.customerIndex == customerIndex));
   }
 
   @override
@@ -222,7 +241,8 @@ class _$_PaymentTabModelState implements _PaymentTabModelState {
       flight,
       customer,
       const DeepCollectionEquality().hash(_ticInformation),
-      const DeepCollectionEquality().hash(_priceSummary));
+      const DeepCollectionEquality().hash(_priceSummary),
+      customerIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -234,11 +254,11 @@ class _$_PaymentTabModelState implements _PaymentTabModelState {
 
 abstract class _PaymentTabModelState implements PaymentTabModelState {
   const factory _PaymentTabModelState(
-          {final Flight? flight,
-          final Customer? customer,
-          final Map<int, TicketInformation>? ticInformation,
-          required final Map<String, double> priceSummary}) =
-      _$_PaymentTabModelState;
+      {final Flight? flight,
+      final Customer? customer,
+      final Map<int, TicketInformation>? ticInformation,
+      required final Map<String, double> priceSummary,
+      required final int customerIndex}) = _$_PaymentTabModelState;
 
   @override
   Flight? get flight;
@@ -248,6 +268,8 @@ abstract class _PaymentTabModelState implements PaymentTabModelState {
   Map<int, TicketInformation>? get ticInformation;
   @override
   Map<String, double> get priceSummary;
+  @override
+  int get customerIndex;
   @override
   @JsonKey(ignore: true)
   _$$_PaymentTabModelStateCopyWith<_$_PaymentTabModelState> get copyWith =>

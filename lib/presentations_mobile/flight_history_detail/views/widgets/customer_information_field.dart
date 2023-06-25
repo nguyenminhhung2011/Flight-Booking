@@ -29,13 +29,6 @@ class CustomerInformationField extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _leftFiled(context, S.of(context).name, customer.name),
-            _rightField(context, S.of(context).gender, customer.gender),
-          ].expand((element) => [Expanded(child: element)]).toList(),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
             _leftFiled(context, S.of(context).dateBorn,
                 getYmdFormat(customer.birthday)),
             _rightField(

@@ -22,6 +22,7 @@ mixin _$PaymentTabEvent {
     required TResult Function() getCustomerById,
     required TResult Function() getFlightById,
     required TResult Function() getTicInformation,
+    required TResult Function(int newIndex) changeCustomerIndexView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$PaymentTabEvent {
     TResult? Function()? getCustomerById,
     TResult? Function()? getFlightById,
     TResult? Function()? getTicInformation,
+    TResult? Function(int newIndex)? changeCustomerIndexView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$PaymentTabEvent {
     TResult Function()? getCustomerById,
     TResult Function()? getFlightById,
     TResult Function()? getTicInformation,
+    TResult Function(int newIndex)? changeCustomerIndexView,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,8 @@ mixin _$PaymentTabEvent {
     required TResult Function(_GetCustomerById value) getCustomerById,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
+    required TResult Function(_ChangeCustomerIndexView value)
+        changeCustomerIndexView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +60,7 @@ mixin _$PaymentTabEvent {
     TResult? Function(_GetCustomerById value)? getCustomerById,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
+    TResult? Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +69,7 @@ mixin _$PaymentTabEvent {
     TResult Function(_GetCustomerById value)? getCustomerById,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
+    TResult Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +134,7 @@ class _$_Started implements _Started {
     required TResult Function() getCustomerById,
     required TResult Function() getFlightById,
     required TResult Function() getTicInformation,
+    required TResult Function(int newIndex) changeCustomerIndexView,
   }) {
     return started();
   }
@@ -138,6 +146,7 @@ class _$_Started implements _Started {
     TResult? Function()? getCustomerById,
     TResult? Function()? getFlightById,
     TResult? Function()? getTicInformation,
+    TResult? Function(int newIndex)? changeCustomerIndexView,
   }) {
     return started?.call();
   }
@@ -149,6 +158,7 @@ class _$_Started implements _Started {
     TResult Function()? getCustomerById,
     TResult Function()? getFlightById,
     TResult Function()? getTicInformation,
+    TResult Function(int newIndex)? changeCustomerIndexView,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -164,6 +174,8 @@ class _$_Started implements _Started {
     required TResult Function(_GetCustomerById value) getCustomerById,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
+    required TResult Function(_ChangeCustomerIndexView value)
+        changeCustomerIndexView,
   }) {
     return started(this);
   }
@@ -175,6 +187,7 @@ class _$_Started implements _Started {
     TResult? Function(_GetCustomerById value)? getCustomerById,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
+    TResult? Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
   }) {
     return started?.call(this);
   }
@@ -186,6 +199,7 @@ class _$_Started implements _Started {
     TResult Function(_GetCustomerById value)? getCustomerById,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
+    TResult Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -241,6 +255,7 @@ class _$_GetCustomerById implements _GetCustomerById {
     required TResult Function() getCustomerById,
     required TResult Function() getFlightById,
     required TResult Function() getTicInformation,
+    required TResult Function(int newIndex) changeCustomerIndexView,
   }) {
     return getCustomerById();
   }
@@ -252,6 +267,7 @@ class _$_GetCustomerById implements _GetCustomerById {
     TResult? Function()? getCustomerById,
     TResult? Function()? getFlightById,
     TResult? Function()? getTicInformation,
+    TResult? Function(int newIndex)? changeCustomerIndexView,
   }) {
     return getCustomerById?.call();
   }
@@ -263,6 +279,7 @@ class _$_GetCustomerById implements _GetCustomerById {
     TResult Function()? getCustomerById,
     TResult Function()? getFlightById,
     TResult Function()? getTicInformation,
+    TResult Function(int newIndex)? changeCustomerIndexView,
     required TResult orElse(),
   }) {
     if (getCustomerById != null) {
@@ -278,6 +295,8 @@ class _$_GetCustomerById implements _GetCustomerById {
     required TResult Function(_GetCustomerById value) getCustomerById,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
+    required TResult Function(_ChangeCustomerIndexView value)
+        changeCustomerIndexView,
   }) {
     return getCustomerById(this);
   }
@@ -289,6 +308,7 @@ class _$_GetCustomerById implements _GetCustomerById {
     TResult? Function(_GetCustomerById value)? getCustomerById,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
+    TResult? Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
   }) {
     return getCustomerById?.call(this);
   }
@@ -300,6 +320,7 @@ class _$_GetCustomerById implements _GetCustomerById {
     TResult Function(_GetCustomerById value)? getCustomerById,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
+    TResult Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
     required TResult orElse(),
   }) {
     if (getCustomerById != null) {
@@ -355,6 +376,7 @@ class _$_GetFlightById implements _GetFlightById {
     required TResult Function() getCustomerById,
     required TResult Function() getFlightById,
     required TResult Function() getTicInformation,
+    required TResult Function(int newIndex) changeCustomerIndexView,
   }) {
     return getFlightById();
   }
@@ -366,6 +388,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult? Function()? getCustomerById,
     TResult? Function()? getFlightById,
     TResult? Function()? getTicInformation,
+    TResult? Function(int newIndex)? changeCustomerIndexView,
   }) {
     return getFlightById?.call();
   }
@@ -377,6 +400,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult Function()? getCustomerById,
     TResult Function()? getFlightById,
     TResult Function()? getTicInformation,
+    TResult Function(int newIndex)? changeCustomerIndexView,
     required TResult orElse(),
   }) {
     if (getFlightById != null) {
@@ -392,6 +416,8 @@ class _$_GetFlightById implements _GetFlightById {
     required TResult Function(_GetCustomerById value) getCustomerById,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
+    required TResult Function(_ChangeCustomerIndexView value)
+        changeCustomerIndexView,
   }) {
     return getFlightById(this);
   }
@@ -403,6 +429,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult? Function(_GetCustomerById value)? getCustomerById,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
+    TResult? Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
   }) {
     return getFlightById?.call(this);
   }
@@ -414,6 +441,7 @@ class _$_GetFlightById implements _GetFlightById {
     TResult Function(_GetCustomerById value)? getCustomerById,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
+    TResult Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
     required TResult orElse(),
   }) {
     if (getFlightById != null) {
@@ -469,6 +497,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     required TResult Function() getCustomerById,
     required TResult Function() getFlightById,
     required TResult Function() getTicInformation,
+    required TResult Function(int newIndex) changeCustomerIndexView,
   }) {
     return getTicInformation();
   }
@@ -480,6 +509,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult? Function()? getCustomerById,
     TResult? Function()? getFlightById,
     TResult? Function()? getTicInformation,
+    TResult? Function(int newIndex)? changeCustomerIndexView,
   }) {
     return getTicInformation?.call();
   }
@@ -491,6 +521,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult Function()? getCustomerById,
     TResult Function()? getFlightById,
     TResult Function()? getTicInformation,
+    TResult Function(int newIndex)? changeCustomerIndexView,
     required TResult orElse(),
   }) {
     if (getTicInformation != null) {
@@ -506,6 +537,8 @@ class _$_GetTicInformation implements _GetTicInformation {
     required TResult Function(_GetCustomerById value) getCustomerById,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_GetTicInformation value) getTicInformation,
+    required TResult Function(_ChangeCustomerIndexView value)
+        changeCustomerIndexView,
   }) {
     return getTicInformation(this);
   }
@@ -517,6 +550,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult? Function(_GetCustomerById value)? getCustomerById,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_GetTicInformation value)? getTicInformation,
+    TResult? Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
   }) {
     return getTicInformation?.call(this);
   }
@@ -528,6 +562,7 @@ class _$_GetTicInformation implements _GetTicInformation {
     TResult Function(_GetCustomerById value)? getCustomerById,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_GetTicInformation value)? getTicInformation,
+    TResult Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
     required TResult orElse(),
   }) {
     if (getTicInformation != null) {
@@ -539,6 +574,162 @@ class _$_GetTicInformation implements _GetTicInformation {
 
 abstract class _GetTicInformation implements PaymentTabEvent {
   const factory _GetTicInformation() = _$_GetTicInformation;
+}
+
+/// @nodoc
+abstract class _$$_ChangeCustomerIndexViewCopyWith<$Res> {
+  factory _$$_ChangeCustomerIndexViewCopyWith(_$_ChangeCustomerIndexView value,
+          $Res Function(_$_ChangeCustomerIndexView) then) =
+      __$$_ChangeCustomerIndexViewCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int newIndex});
+}
+
+/// @nodoc
+class __$$_ChangeCustomerIndexViewCopyWithImpl<$Res>
+    extends _$PaymentTabEventCopyWithImpl<$Res, _$_ChangeCustomerIndexView>
+    implements _$$_ChangeCustomerIndexViewCopyWith<$Res> {
+  __$$_ChangeCustomerIndexViewCopyWithImpl(_$_ChangeCustomerIndexView _value,
+      $Res Function(_$_ChangeCustomerIndexView) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newIndex = null,
+  }) {
+    return _then(_$_ChangeCustomerIndexView(
+      newIndex: null == newIndex
+          ? _value.newIndex
+          : newIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeCustomerIndexView implements _ChangeCustomerIndexView {
+  const _$_ChangeCustomerIndexView({required this.newIndex});
+
+  @override
+  final int newIndex;
+
+  @override
+  String toString() {
+    return 'PaymentTabEvent.changeCustomerIndexView(newIndex: $newIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeCustomerIndexView &&
+            (identical(other.newIndex, newIndex) ||
+                other.newIndex == newIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeCustomerIndexViewCopyWith<_$_ChangeCustomerIndexView>
+      get copyWith =>
+          __$$_ChangeCustomerIndexViewCopyWithImpl<_$_ChangeCustomerIndexView>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getCustomerById,
+    required TResult Function() getFlightById,
+    required TResult Function() getTicInformation,
+    required TResult Function(int newIndex) changeCustomerIndexView,
+  }) {
+    return changeCustomerIndexView(newIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getCustomerById,
+    TResult? Function()? getFlightById,
+    TResult? Function()? getTicInformation,
+    TResult? Function(int newIndex)? changeCustomerIndexView,
+  }) {
+    return changeCustomerIndexView?.call(newIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getCustomerById,
+    TResult Function()? getFlightById,
+    TResult Function()? getTicInformation,
+    TResult Function(int newIndex)? changeCustomerIndexView,
+    required TResult orElse(),
+  }) {
+    if (changeCustomerIndexView != null) {
+      return changeCustomerIndexView(newIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_GetCustomerById value) getCustomerById,
+    required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_GetTicInformation value) getTicInformation,
+    required TResult Function(_ChangeCustomerIndexView value)
+        changeCustomerIndexView,
+  }) {
+    return changeCustomerIndexView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_GetCustomerById value)? getCustomerById,
+    TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
+    TResult? Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
+  }) {
+    return changeCustomerIndexView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_GetCustomerById value)? getCustomerById,
+    TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_GetTicInformation value)? getTicInformation,
+    TResult Function(_ChangeCustomerIndexView value)? changeCustomerIndexView,
+    required TResult orElse(),
+  }) {
+    if (changeCustomerIndexView != null) {
+      return changeCustomerIndexView(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeCustomerIndexView implements PaymentTabEvent {
+  const factory _ChangeCustomerIndexView({required final int newIndex}) =
+      _$_ChangeCustomerIndexView;
+
+  int get newIndex;
+  @JsonKey(ignore: true)
+  _$$_ChangeCustomerIndexViewCopyWith<_$_ChangeCustomerIndexView>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -559,6 +750,8 @@ mixin _$PaymentTabState {
         getTicInformationSuccess,
     required TResult Function(PaymentTabModelState data, String message)
         getTicInformationFailed,
+    required TResult Function(PaymentTabModelState data)
+        changeCustomerTabIndexSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -574,6 +767,7 @@ mixin _$PaymentTabState {
     TResult? Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult? Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult? Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -589,6 +783,7 @@ mixin _$PaymentTabState {
     TResult Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -606,6 +801,8 @@ mixin _$PaymentTabState {
         getTicInformationSuccess,
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
+    required TResult Function(_ChangeCustomerTabIndexSuccess value)
+        changeCustomerTabIndexSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -619,6 +816,8 @@ mixin _$PaymentTabState {
     TResult? Function(_GetTicInformationSuccess value)?
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -631,6 +830,8 @@ mixin _$PaymentTabState {
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -764,6 +965,8 @@ class _$_Initial extends _Initial {
         getTicInformationSuccess,
     required TResult Function(PaymentTabModelState data, String message)
         getTicInformationFailed,
+    required TResult Function(PaymentTabModelState data)
+        changeCustomerTabIndexSuccess,
   }) {
     return initial(data);
   }
@@ -782,6 +985,7 @@ class _$_Initial extends _Initial {
     TResult? Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult? Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult? Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
   }) {
     return initial?.call(data);
   }
@@ -800,6 +1004,7 @@ class _$_Initial extends _Initial {
     TResult Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -823,6 +1028,8 @@ class _$_Initial extends _Initial {
         getTicInformationSuccess,
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
+    required TResult Function(_ChangeCustomerTabIndexSuccess value)
+        changeCustomerTabIndexSuccess,
   }) {
     return initial(this);
   }
@@ -839,6 +1046,8 @@ class _$_Initial extends _Initial {
     TResult? Function(_GetTicInformationSuccess value)?
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
   }) {
     return initial?.call(this);
   }
@@ -854,6 +1063,8 @@ class _$_Initial extends _Initial {
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -967,6 +1178,8 @@ class _$_Loading extends _Loading {
         getTicInformationSuccess,
     required TResult Function(PaymentTabModelState data, String message)
         getTicInformationFailed,
+    required TResult Function(PaymentTabModelState data)
+        changeCustomerTabIndexSuccess,
   }) {
     return loading(data, loadingField);
   }
@@ -985,6 +1198,7 @@ class _$_Loading extends _Loading {
     TResult? Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult? Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult? Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
   }) {
     return loading?.call(data, loadingField);
   }
@@ -1003,6 +1217,7 @@ class _$_Loading extends _Loading {
     TResult Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1026,6 +1241,8 @@ class _$_Loading extends _Loading {
         getTicInformationSuccess,
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
+    required TResult Function(_ChangeCustomerTabIndexSuccess value)
+        changeCustomerTabIndexSuccess,
   }) {
     return loading(this);
   }
@@ -1042,6 +1259,8 @@ class _$_Loading extends _Loading {
     TResult? Function(_GetTicInformationSuccess value)?
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
   }) {
     return loading?.call(this);
   }
@@ -1057,6 +1276,8 @@ class _$_Loading extends _Loading {
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1164,6 +1385,8 @@ class _$_GetCustomerByIdSuccess extends _GetCustomerByIdSuccess {
         getTicInformationSuccess,
     required TResult Function(PaymentTabModelState data, String message)
         getTicInformationFailed,
+    required TResult Function(PaymentTabModelState data)
+        changeCustomerTabIndexSuccess,
   }) {
     return getCustomerByIdSuccess(data);
   }
@@ -1182,6 +1405,7 @@ class _$_GetCustomerByIdSuccess extends _GetCustomerByIdSuccess {
     TResult? Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult? Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult? Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
   }) {
     return getCustomerByIdSuccess?.call(data);
   }
@@ -1200,6 +1424,7 @@ class _$_GetCustomerByIdSuccess extends _GetCustomerByIdSuccess {
     TResult Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getCustomerByIdSuccess != null) {
@@ -1223,6 +1448,8 @@ class _$_GetCustomerByIdSuccess extends _GetCustomerByIdSuccess {
         getTicInformationSuccess,
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
+    required TResult Function(_ChangeCustomerTabIndexSuccess value)
+        changeCustomerTabIndexSuccess,
   }) {
     return getCustomerByIdSuccess(this);
   }
@@ -1239,6 +1466,8 @@ class _$_GetCustomerByIdSuccess extends _GetCustomerByIdSuccess {
     TResult? Function(_GetTicInformationSuccess value)?
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
   }) {
     return getCustomerByIdSuccess?.call(this);
   }
@@ -1254,6 +1483,8 @@ class _$_GetCustomerByIdSuccess extends _GetCustomerByIdSuccess {
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getCustomerByIdSuccess != null) {
@@ -1368,6 +1599,8 @@ class _$_GetCustomerByIdFailed extends _GetCustomerByIdFailed {
         getTicInformationSuccess,
     required TResult Function(PaymentTabModelState data, String message)
         getTicInformationFailed,
+    required TResult Function(PaymentTabModelState data)
+        changeCustomerTabIndexSuccess,
   }) {
     return getCustomerByIdFailed(data, message);
   }
@@ -1386,6 +1619,7 @@ class _$_GetCustomerByIdFailed extends _GetCustomerByIdFailed {
     TResult? Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult? Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult? Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
   }) {
     return getCustomerByIdFailed?.call(data, message);
   }
@@ -1404,6 +1638,7 @@ class _$_GetCustomerByIdFailed extends _GetCustomerByIdFailed {
     TResult Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getCustomerByIdFailed != null) {
@@ -1427,6 +1662,8 @@ class _$_GetCustomerByIdFailed extends _GetCustomerByIdFailed {
         getTicInformationSuccess,
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
+    required TResult Function(_ChangeCustomerTabIndexSuccess value)
+        changeCustomerTabIndexSuccess,
   }) {
     return getCustomerByIdFailed(this);
   }
@@ -1443,6 +1680,8 @@ class _$_GetCustomerByIdFailed extends _GetCustomerByIdFailed {
     TResult? Function(_GetTicInformationSuccess value)?
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
   }) {
     return getCustomerByIdFailed?.call(this);
   }
@@ -1458,6 +1697,8 @@ class _$_GetCustomerByIdFailed extends _GetCustomerByIdFailed {
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getCustomerByIdFailed != null) {
@@ -1565,6 +1806,8 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
         getTicInformationSuccess,
     required TResult Function(PaymentTabModelState data, String message)
         getTicInformationFailed,
+    required TResult Function(PaymentTabModelState data)
+        changeCustomerTabIndexSuccess,
   }) {
     return getFlightByIdSuccess(data);
   }
@@ -1583,6 +1826,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult? Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult? Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult? Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
   }) {
     return getFlightByIdSuccess?.call(data);
   }
@@ -1601,6 +1845,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getFlightByIdSuccess != null) {
@@ -1624,6 +1869,8 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
         getTicInformationSuccess,
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
+    required TResult Function(_ChangeCustomerTabIndexSuccess value)
+        changeCustomerTabIndexSuccess,
   }) {
     return getFlightByIdSuccess(this);
   }
@@ -1640,6 +1887,8 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult? Function(_GetTicInformationSuccess value)?
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
   }) {
     return getFlightByIdSuccess?.call(this);
   }
@@ -1655,6 +1904,8 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getFlightByIdSuccess != null) {
@@ -1769,6 +2020,8 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
         getTicInformationSuccess,
     required TResult Function(PaymentTabModelState data, String message)
         getTicInformationFailed,
+    required TResult Function(PaymentTabModelState data)
+        changeCustomerTabIndexSuccess,
   }) {
     return getFlightByIdFailed(data, message);
   }
@@ -1787,6 +2040,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult? Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult? Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult? Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
   }) {
     return getFlightByIdFailed?.call(data, message);
   }
@@ -1805,6 +2059,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getFlightByIdFailed != null) {
@@ -1828,6 +2083,8 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
         getTicInformationSuccess,
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
+    required TResult Function(_ChangeCustomerTabIndexSuccess value)
+        changeCustomerTabIndexSuccess,
   }) {
     return getFlightByIdFailed(this);
   }
@@ -1844,6 +2101,8 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult? Function(_GetTicInformationSuccess value)?
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
   }) {
     return getFlightByIdFailed?.call(this);
   }
@@ -1859,6 +2118,8 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getFlightByIdFailed != null) {
@@ -1967,6 +2228,8 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
         getTicInformationSuccess,
     required TResult Function(PaymentTabModelState data, String message)
         getTicInformationFailed,
+    required TResult Function(PaymentTabModelState data)
+        changeCustomerTabIndexSuccess,
   }) {
     return getTicInformationSuccess(data);
   }
@@ -1985,6 +2248,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult? Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult? Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult? Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
   }) {
     return getTicInformationSuccess?.call(data);
   }
@@ -2003,6 +2267,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationSuccess != null) {
@@ -2026,6 +2291,8 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
         getTicInformationSuccess,
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
+    required TResult Function(_ChangeCustomerTabIndexSuccess value)
+        changeCustomerTabIndexSuccess,
   }) {
     return getTicInformationSuccess(this);
   }
@@ -2042,6 +2309,8 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult? Function(_GetTicInformationSuccess value)?
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
   }) {
     return getTicInformationSuccess?.call(this);
   }
@@ -2057,6 +2326,8 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationSuccess != null) {
@@ -2172,6 +2443,8 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
         getTicInformationSuccess,
     required TResult Function(PaymentTabModelState data, String message)
         getTicInformationFailed,
+    required TResult Function(PaymentTabModelState data)
+        changeCustomerTabIndexSuccess,
   }) {
     return getTicInformationFailed(data, message);
   }
@@ -2190,6 +2463,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult? Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult? Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult? Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
   }) {
     return getTicInformationFailed?.call(data, message);
   }
@@ -2208,6 +2482,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult Function(PaymentTabModelState data)? getTicInformationSuccess,
     TResult Function(PaymentTabModelState data, String message)?
         getTicInformationFailed,
+    TResult Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationFailed != null) {
@@ -2231,6 +2506,8 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
         getTicInformationSuccess,
     required TResult Function(_GetTicInformationFailed value)
         getTicInformationFailed,
+    required TResult Function(_ChangeCustomerTabIndexSuccess value)
+        changeCustomerTabIndexSuccess,
   }) {
     return getTicInformationFailed(this);
   }
@@ -2247,6 +2524,8 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult? Function(_GetTicInformationSuccess value)?
         getTicInformationSuccess,
     TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
   }) {
     return getTicInformationFailed?.call(this);
   }
@@ -2262,6 +2541,8 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
     TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
     required TResult orElse(),
   }) {
     if (getTicInformationFailed != null) {
@@ -2283,5 +2564,214 @@ abstract class _GetTicInformationFailed extends PaymentTabState {
   @override
   @JsonKey(ignore: true)
   _$$_GetTicInformationFailedCopyWith<_$_GetTicInformationFailed>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ChangeCustomerTabIndexSuccessCopyWith<$Res>
+    implements $PaymentTabStateCopyWith<$Res> {
+  factory _$$_ChangeCustomerTabIndexSuccessCopyWith(
+          _$_ChangeCustomerTabIndexSuccess value,
+          $Res Function(_$_ChangeCustomerTabIndexSuccess) then) =
+      __$$_ChangeCustomerTabIndexSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PaymentTabModelState data});
+
+  @override
+  $PaymentTabModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_ChangeCustomerTabIndexSuccessCopyWithImpl<$Res>
+    extends _$PaymentTabStateCopyWithImpl<$Res,
+        _$_ChangeCustomerTabIndexSuccess>
+    implements _$$_ChangeCustomerTabIndexSuccessCopyWith<$Res> {
+  __$$_ChangeCustomerTabIndexSuccessCopyWithImpl(
+      _$_ChangeCustomerTabIndexSuccess _value,
+      $Res Function(_$_ChangeCustomerTabIndexSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_ChangeCustomerTabIndexSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as PaymentTabModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeCustomerTabIndexSuccess extends _ChangeCustomerTabIndexSuccess {
+  const _$_ChangeCustomerTabIndexSuccess({required this.data}) : super._();
+
+  @override
+  final PaymentTabModelState data;
+
+  @override
+  String toString() {
+    return 'PaymentTabState.changeCustomerTabIndexSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeCustomerTabIndexSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeCustomerTabIndexSuccessCopyWith<_$_ChangeCustomerTabIndexSuccess>
+      get copyWith => __$$_ChangeCustomerTabIndexSuccessCopyWithImpl<
+          _$_ChangeCustomerTabIndexSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PaymentTabModelState data) initial,
+    required TResult Function(PaymentTabModelState data, int loadingField)
+        loading,
+    required TResult Function(PaymentTabModelState data) getCustomerByIdSuccess,
+    required TResult Function(PaymentTabModelState data, String message)
+        getCustomerByIdFailed,
+    required TResult Function(PaymentTabModelState data) getFlightByIdSuccess,
+    required TResult Function(PaymentTabModelState data, String message)
+        getFlightByIdFailed,
+    required TResult Function(PaymentTabModelState data)
+        getTicInformationSuccess,
+    required TResult Function(PaymentTabModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(PaymentTabModelState data)
+        changeCustomerTabIndexSuccess,
+  }) {
+    return changeCustomerTabIndexSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentTabModelState data)? initial,
+    TResult? Function(PaymentTabModelState data, int loadingField)? loading,
+    TResult? Function(PaymentTabModelState data)? getCustomerByIdSuccess,
+    TResult? Function(PaymentTabModelState data, String message)?
+        getCustomerByIdFailed,
+    TResult? Function(PaymentTabModelState data)? getFlightByIdSuccess,
+    TResult? Function(PaymentTabModelState data, String message)?
+        getFlightByIdFailed,
+    TResult? Function(PaymentTabModelState data)? getTicInformationSuccess,
+    TResult? Function(PaymentTabModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
+  }) {
+    return changeCustomerTabIndexSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentTabModelState data)? initial,
+    TResult Function(PaymentTabModelState data, int loadingField)? loading,
+    TResult Function(PaymentTabModelState data)? getCustomerByIdSuccess,
+    TResult Function(PaymentTabModelState data, String message)?
+        getCustomerByIdFailed,
+    TResult Function(PaymentTabModelState data)? getFlightByIdSuccess,
+    TResult Function(PaymentTabModelState data, String message)?
+        getFlightByIdFailed,
+    TResult Function(PaymentTabModelState data)? getTicInformationSuccess,
+    TResult Function(PaymentTabModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(PaymentTabModelState data)? changeCustomerTabIndexSuccess,
+    required TResult orElse(),
+  }) {
+    if (changeCustomerTabIndexSuccess != null) {
+      return changeCustomerTabIndexSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetCustomerByIdSuccess value)
+        getCustomerByIdSuccess,
+    required TResult Function(_GetCustomerByIdFailed value)
+        getCustomerByIdFailed,
+    required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
+    required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
+    required TResult Function(_ChangeCustomerTabIndexSuccess value)
+        changeCustomerTabIndexSuccess,
+  }) {
+    return changeCustomerTabIndexSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetCustomerByIdSuccess value)? getCustomerByIdSuccess,
+    TResult? Function(_GetCustomerByIdFailed value)? getCustomerByIdFailed,
+    TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
+  }) {
+    return changeCustomerTabIndexSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetCustomerByIdSuccess value)? getCustomerByIdSuccess,
+    TResult Function(_GetCustomerByIdFailed value)? getCustomerByIdFailed,
+    TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_ChangeCustomerTabIndexSuccess value)?
+        changeCustomerTabIndexSuccess,
+    required TResult orElse(),
+  }) {
+    if (changeCustomerTabIndexSuccess != null) {
+      return changeCustomerTabIndexSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeCustomerTabIndexSuccess extends PaymentTabState {
+  const factory _ChangeCustomerTabIndexSuccess(
+          {required final PaymentTabModelState data}) =
+      _$_ChangeCustomerTabIndexSuccess;
+  const _ChangeCustomerTabIndexSuccess._() : super._();
+
+  @override
+  PaymentTabModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ChangeCustomerTabIndexSuccessCopyWith<_$_ChangeCustomerTabIndexSuccess>
       get copyWith => throw _privateConstructorUsedError;
 }

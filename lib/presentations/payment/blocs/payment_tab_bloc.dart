@@ -42,17 +42,21 @@ class PaymentTabBloc extends Bloc<PaymentTabEvent, PaymentTabState> {
         _flightId = ids['flightId'] ?? -1,
         super(
           const PaymentTabState.initial(
-            data: PaymentTabModelState(priceSummary: {
-              'luggage': 200.0,
-              'offer': 10.0,
-              'ticket': 300.0,
-            }),
+            data: PaymentTabModelState(
+              priceSummary: {
+                'luggage': 200.0,
+                'offer': 10.0,
+                'ticket': 300.0,
+              },
+              customerIndex: 0,
+            ),
           ),
         ) {
     on<_Started>(_onStarted);
     on<_GetFlightById>(_onGetFlightById);
     on<_GetCustomerById>(_onGetCustomerById);
     on<_GetTicInformation>(_onGetTicInformation);
+    on<_ChangeCustomerIndexView>(_onChangeCustomerIndexView);
   }
 
   FutureOr<void> _onStarted(
@@ -140,5 +144,14 @@ class PaymentTabBloc extends Bloc<PaymentTabEvent, PaymentTabState> {
         emit(_GetFlightByIdFailed(data: data, message: e.toString()));
       }
     }
+  }
+
+  FutureOr<void> _onChangeCustomerIndexView(
+    _ChangeCustomerIndexView event,
+    Emitter<PaymentTabState> emit,
+  ) {
+    emit(_ChangeCustomerTabIndexSuccess(
+      data: data.copyWith(customerIndex: event.newIndex),
+    ));
   }
 }

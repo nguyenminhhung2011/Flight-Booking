@@ -40,6 +40,10 @@ class PaymentTabState with _$PaymentTabState {
     required String message,
   }) = _GetTicInformationFailed;
 
+  const factory PaymentTabState.changeCustomerTabIndexSuccess({
+    required PaymentTabModelState data,
+  }) = _ChangeCustomerTabIndexSuccess;
+
   bool get loadingGetData => maybeWhen(
       orElse: () => false, loading: (data, loadingField) => loadingField == 0);
 }

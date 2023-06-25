@@ -12,5 +12,6 @@ class PaymentTabModelState with _$PaymentTabModelState {
     Customer? customer,
     Map<int, TicketInformation>? ticInformation,
     required Map<String, double> priceSummary,
+    required int customerIndex,
   }) = _PaymentTabModelState;
 }
