@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Customer _$CustomerFromJson(Map<String, dynamic> json) {
-  return _Customer.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Customer {
   int get id => throw _privateConstructorUsedError;
@@ -27,8 +23,8 @@ mixin _$Customer {
   String get identifyNum => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   DateTime get birthday => throw _privateConstructorUsedError;
+  CreditCard get creditCard => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CustomerCopyWith<Customer> get copyWith =>
       throw _privateConstructorUsedError;
@@ -46,7 +42,10 @@ abstract class $CustomerCopyWith<$Res> {
       String email,
       String identifyNum,
       String gender,
-      DateTime birthday});
+      DateTime birthday,
+      CreditCard creditCard});
+
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -69,6 +68,7 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
     Object? identifyNum = null,
     Object? gender = null,
     Object? birthday = null,
+    Object? creditCard = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -99,7 +99,19 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      creditCard: null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditCardCopyWith<$Res> get creditCard {
+    return $CreditCardCopyWith<$Res>(_value.creditCard, (value) {
+      return _then(_value.copyWith(creditCard: value) as $Val);
+    });
   }
 }
 
@@ -117,7 +129,11 @@ abstract class _$$_CustomerCopyWith<$Res> implements $CustomerCopyWith<$Res> {
       String email,
       String identifyNum,
       String gender,
-      DateTime birthday});
+      DateTime birthday,
+      CreditCard creditCard});
+
+  @override
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -138,6 +154,7 @@ class __$$_CustomerCopyWithImpl<$Res>
     Object? identifyNum = null,
     Object? gender = null,
     Object? birthday = null,
+    Object? creditCard = null,
   }) {
     return _then(_$_Customer(
       id: null == id
@@ -168,12 +185,16 @@ class __$$_CustomerCopyWithImpl<$Res>
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      creditCard: null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Customer implements _Customer {
   const _$_Customer(
       {required this.id,
@@ -182,10 +203,8 @@ class _$_Customer implements _Customer {
       required this.email,
       required this.identifyNum,
       required this.gender,
-      required this.birthday});
-
-  factory _$_Customer.fromJson(Map<String, dynamic> json) =>
-      _$$_CustomerFromJson(json);
+      required this.birthday,
+      required this.creditCard});
 
   @override
   final int id;
@@ -201,10 +220,12 @@ class _$_Customer implements _Customer {
   final String gender;
   @override
   final DateTime birthday;
+  @override
+  final CreditCard creditCard;
 
   @override
   String toString() {
-    return 'Customer(id: $id, name: $name, phoneNumber: $phoneNumber, email: $email, identifyNum: $identifyNum, gender: $gender, birthday: $birthday)';
+    return 'Customer(id: $id, name: $name, phoneNumber: $phoneNumber, email: $email, identifyNum: $identifyNum, gender: $gender, birthday: $birthday, creditCard: $creditCard)';
   }
 
   @override
@@ -221,26 +242,20 @@ class _$_Customer implements _Customer {
                 other.identifyNum == identifyNum) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.birthday, birthday) ||
-                other.birthday == birthday));
+                other.birthday == birthday) &&
+            (identical(other.creditCard, creditCard) ||
+                other.creditCard == creditCard));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, phoneNumber, email, identifyNum, gender, birthday);
+  int get hashCode => Object.hash(runtimeType, id, name, phoneNumber, email,
+      identifyNum, gender, birthday, creditCard);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_CustomerCopyWith<_$_Customer> get copyWith =>
       __$$_CustomerCopyWithImpl<_$_Customer>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_CustomerToJson(
-      this,
-    );
-  }
 }
 
 abstract class _Customer implements Customer {
@@ -251,9 +266,8 @@ abstract class _Customer implements Customer {
       required final String email,
       required final String identifyNum,
       required final String gender,
-      required final DateTime birthday}) = _$_Customer;
-
-  factory _Customer.fromJson(Map<String, dynamic> json) = _$_Customer.fromJson;
+      required final DateTime birthday,
+      required final CreditCard creditCard}) = _$_Customer;
 
   @override
   int get id;
@@ -269,6 +283,8 @@ abstract class _Customer implements Customer {
   String get gender;
   @override
   DateTime get birthday;
+  @override
+  CreditCard get creditCard;
   @override
   @JsonKey(ignore: true)
   _$$_CustomerCopyWith<_$_Customer> get copyWith =>

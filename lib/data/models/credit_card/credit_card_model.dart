@@ -6,21 +6,27 @@ part 'credit_card_model.g.dart';
 @JsonSerializable(explicitToJson: true)
 class CreditCardModel {
   @JsonKey(name: 'id')
-  late int id;
+  final int id;
 
   @JsonKey(name: 'credit_num')
-  late String creditNum;
+  final String creditNum;
 
   @JsonKey(name: 'expired_date')
-  late int expiredDate;
+  final int expiredDate;
 
   @JsonKey(name: 'cvc')
-  late String cvc;
+  final String cvc;
 
   @JsonKey(name: 'name_card')
-  late String nameCard;
+  final String nameCard;
 
-  CreditCardModel();
+  CreditCardModel({
+    required this.id,
+    required this.creditNum,
+    required this.expiredDate,
+    required this.cvc,
+    required this.nameCard,
+  });
 
   Map<String, dynamic> toJson() => _$CreditCardModelToJson(this);
 

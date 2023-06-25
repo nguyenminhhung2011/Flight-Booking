@@ -19,6 +19,7 @@ PaymentManagementPageModel _$PaymentManagementPageModelFromJson(
           json['statusData'] as Map<String, dynamic>),
       ticketTierData: TicketTierDataModel.fromJson(
           json['ticketTierData'] as Map<String, dynamic>),
+      totalPayment: json['totalPayment'] as int,
     );
 
 Map<String, dynamic> _$PaymentManagementPageModelToJson(
@@ -29,6 +30,7 @@ Map<String, dynamic> _$PaymentManagementPageModelToJson(
       'revenue': instance.revenue,
       'statusData': instance.statusData,
       'ticketTierData': instance.ticketTierData,
+      'totalPayment': instance.totalPayment,
     };
 
 TotalStatisticalDataModel _$TotalStatisticalDataModelFromJson(

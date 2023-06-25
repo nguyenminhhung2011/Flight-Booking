@@ -12,6 +12,7 @@ class PaymentModelStateData with _$PaymentModelStateData {
   const factory PaymentModelStateData({
     @Default(0) final int page,
     @Default(10) final int perPage,
+    @Default(0) final int total,
     required final List<PaymentItem> payments,
     required final TotalStatisticalData totalData,
     required final Revenue revenue,

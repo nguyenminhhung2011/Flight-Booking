@@ -300,9 +300,8 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                     color: primaryColor,
                                     overflow: TextOverflow.clip),
                               ),
-                              const SizedBox(height: 20.0),
                               SizedBox(
-                                height: 250,
+                                height: 300,
                                 child: PageView(
                                   controller: pageController,
                                   physics: const NeverScrollableScrollPhysics(),
@@ -385,7 +384,7 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                       },
                                       paddingLeft: 0,
                                       paddingRight: 0,
-                                      headerText: 'Issue Date',
+                                      headerText: 'Expiration Date',
                                       headerTextStyle: headerStyle1,
                                       hintStyle: titStyle1,
                                       hintText: "20-03-2002",
@@ -398,37 +397,58 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                   const SizedBox(width: 10.0),
                                   Expanded(
                                     child: TextFieldCustom(
-                                      onTap: () async {
-                                        (await context.pickDateTime());
-                                      },
                                       paddingLeft: 0,
                                       paddingRight: 0,
-                                      headerText: "Expiration Date",
+                                      headerText: S.of(context).phoneNumber,
+                                      isPhoneNumberField: true,
                                       headerTextStyle: headerStyle1,
-                                      hintText: S.of(context).enterYourEmail,
+                                      isNumberInputType: true,
                                       hintStyle: titStyle1,
+                                      hintText:
+                                          S.of(context).enterYourPhoneNumber,
                                       controller: TextEditingController(),
                                       textStyle: textStyle,
-                                      underText: "20-03-2002",
+                                      underText:
+                                          'For example: +84 901234567 where (+84) is the country code and 901234567 is the mobile number',
                                       underTextStyle: titStyle1,
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
-                              TextFieldCustom(
-                                paddingLeft: 0,
-                                paddingRight: 0,
-                                headerText: S.of(context).phoneNumber,
-                                isPhoneNumberField: true,
-                                headerTextStyle: headerStyle1,
-                                isNumberInputType: true,
-                                hintStyle: titStyle1,
-                                hintText: S.of(context).enterYourPhoneNumber,
-                                controller: TextEditingController(),
-                                textStyle: textStyle,
-                                underText:
-                                    'For example: +84 901234567 where (+84) is the country code and 901234567 is the mobile number',
-                                underTextStyle: titStyle1,
+                              Row(
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: TextFieldCustom(
+                                      paddingLeft: 0,
+                                      paddingRight: 0,
+                                      headerText: "Card Number",
+                                      isPhoneNumberField: true,
+                                      headerTextStyle: headerStyle1,
+                                      isNumberInputType: true,
+                                      hintStyle: titStyle1,
+                                      hintText: 'XXXX - XXXX - XXXX - XXXX',
+                                      controller: TextEditingController(),
+                                      textStyle: textStyle,
+                                      underTextStyle: titStyle1,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10.0),
+                                  Expanded(
+                                    child: TextFieldCustom(
+                                      paddingLeft: 0,
+                                      paddingRight: 0,
+                                      headerText: "CVC",
+                                      headerTextStyle: headerStyle1,
+                                      isNumberInputType: true,
+                                      hintStyle: titStyle1,
+                                      hintText: 'MM/YY',
+                                      controller: TextEditingController(),
+                                      textStyle: textStyle,
+                                      underTextStyle: titStyle1,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ]
                                 .expand((element) =>

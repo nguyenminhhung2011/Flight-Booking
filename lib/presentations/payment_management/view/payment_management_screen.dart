@@ -237,14 +237,45 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    SizedBox(
+                    Container(
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 0.5,
+                          color: Theme.of(context).hintColor,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
                       height: MediaQuery.of(context).size.height * 0.6,
                       child: _buildPaymentTable(state.data.payments),
                     ),
-                    PageIndexView(
-                      currentPage: 1,
-                      totalPage: 10,
-                      selected: (p0) {},
+                    const SizedBox(height: 15),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "Page: ",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                          const SizedBox(width: 10),
+                          PageIndexView(
+                            currentPage: state.data.page,
+                            totalPage:
+                                (state.data.total / state.data.perPage).ceil(),
+                            selected: (p0) {
+                              _paymentBLoc.add(
+                                PaymentEvent.fetchListPaymentData(
+                                  page: p0,
+                                  perPage: state.data.perPage,
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

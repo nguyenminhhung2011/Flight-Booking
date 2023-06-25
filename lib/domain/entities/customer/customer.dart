@@ -1,3 +1,4 @@
+import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'customer.freezed.dart';
 part 'customer.g.dart';
@@ -12,10 +13,8 @@ class Customer with _$Customer {
     required String identifyNum,
     required String gender,
     required DateTime birthday,
+    required CreditCard creditCard,
   }) = _Customer;
-
-  factory Customer.fromJson(Map<String, dynamic> json) =>
-      _$CustomerFromJson(json);
 
   static final Customer empty = Customer(
     id: 0,
@@ -25,5 +24,6 @@ class Customer with _$Customer {
     email: " email",
     gender: " gender",
     birthday: DateTime.now(),
+    creditCard: const reditCard(),
   );
 }

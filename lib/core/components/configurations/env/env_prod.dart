@@ -1,7 +1,7 @@
 final Map<String, dynamic> environmentProd = {
   'name': 'Flight Booking',
   'environment': 'prod',
-  'baseUrl': 'https://flight-booking-390802.as.r.appspot.com/',
+  'baseUrl': 'http://localhost:8080/',
   'mode': 'web',
 };
 

@@ -70,7 +70,7 @@ class _PaymentApi implements PaymentApi {
   }
 
   @override
-  Future<HttpResponse<List<PaymentModel>>> getPaymentByPage(
+  Future<HttpResponse<List<PaymentLight>>> getPaymentByPage(
     page,
     perPage,
   ) async {
@@ -82,7 +82,7 @@ class _PaymentApi implements PaymentApi {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<PaymentModel>>>(Options(
+        _setStreamType<HttpResponse<List<PaymentLight>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -95,7 +95,7 @@ class _PaymentApi implements PaymentApi {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
-        .map((dynamic i) => PaymentModel.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => PaymentLight.fromJson(i as Map<String, dynamic>))
         .toList();
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;

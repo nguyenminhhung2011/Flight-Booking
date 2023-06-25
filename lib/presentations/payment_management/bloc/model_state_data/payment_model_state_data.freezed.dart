@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PaymentModelStateData {
   int get page => throw _privateConstructorUsedError;
   int get perPage => throw _privateConstructorUsedError;
+  int get total => throw _privateConstructorUsedError;
   List<PaymentItem> get payments => throw _privateConstructorUsedError;
   TotalStatisticalData get totalData => throw _privateConstructorUsedError;
   Revenue get revenue => throw _privateConstructorUsedError;
@@ -38,6 +39,7 @@ abstract class $PaymentModelStateDataCopyWith<$Res> {
   $Res call(
       {int page,
       int perPage,
+      int total,
       List<PaymentItem> payments,
       TotalStatisticalData totalData,
       Revenue revenue,
@@ -66,6 +68,7 @@ class _$PaymentModelStateDataCopyWithImpl<$Res,
   $Res call({
     Object? page = null,
     Object? perPage = null,
+    Object? total = null,
     Object? payments = null,
     Object? totalData = null,
     Object? revenue = null,
@@ -80,6 +83,10 @@ class _$PaymentModelStateDataCopyWithImpl<$Res,
       perPage: null == perPage
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as int,
       payments: null == payments
           ? _value.payments
@@ -148,6 +155,7 @@ abstract class _$$_PaymentModelStateDataCopyWith<$Res>
   $Res call(
       {int page,
       int perPage,
+      int total,
       List<PaymentItem> payments,
       TotalStatisticalData totalData,
       Revenue revenue,
@@ -177,6 +185,7 @@ class __$$_PaymentModelStateDataCopyWithImpl<$Res>
   $Res call({
     Object? page = null,
     Object? perPage = null,
+    Object? total = null,
     Object? payments = null,
     Object? totalData = null,
     Object? revenue = null,
@@ -191,6 +200,10 @@ class __$$_PaymentModelStateDataCopyWithImpl<$Res>
       perPage: null == perPage
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as int,
       payments: null == payments
           ? _value._payments
@@ -222,6 +235,7 @@ class _$_PaymentModelStateData implements _PaymentModelStateData {
   const _$_PaymentModelStateData(
       {this.page = 0,
       this.perPage = 10,
+      this.total = 0,
       required final List<PaymentItem> payments,
       required this.totalData,
       required this.revenue,
@@ -235,6 +249,9 @@ class _$_PaymentModelStateData implements _PaymentModelStateData {
   @override
   @JsonKey()
   final int perPage;
+  @override
+  @JsonKey()
+  final int total;
   final List<PaymentItem> _payments;
   @override
   List<PaymentItem> get payments {
@@ -254,7 +271,7 @@ class _$_PaymentModelStateData implements _PaymentModelStateData {
 
   @override
   String toString() {
-    return 'PaymentModelStateData(page: $page, perPage: $perPage, payments: $payments, totalData: $totalData, revenue: $revenue, statusData: $statusData, ticketTierData: $ticketTierData)';
+    return 'PaymentModelStateData(page: $page, perPage: $perPage, total: $total, payments: $payments, totalData: $totalData, revenue: $revenue, statusData: $statusData, ticketTierData: $ticketTierData)';
   }
 
   @override
@@ -264,6 +281,7 @@ class _$_PaymentModelStateData implements _PaymentModelStateData {
             other is _$_PaymentModelStateData &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.perPage, perPage) || other.perPage == perPage) &&
+            (identical(other.total, total) || other.total == total) &&
             const DeepCollectionEquality().equals(other._payments, _payments) &&
             (identical(other.totalData, totalData) ||
                 other.totalData == totalData) &&
@@ -279,6 +297,7 @@ class _$_PaymentModelStateData implements _PaymentModelStateData {
       runtimeType,
       page,
       perPage,
+      total,
       const DeepCollectionEquality().hash(_payments),
       totalData,
       revenue,
@@ -297,6 +316,7 @@ abstract class _PaymentModelStateData implements PaymentModelStateData {
   const factory _PaymentModelStateData(
       {final int page,
       final int perPage,
+      final int total,
       required final List<PaymentItem> payments,
       required final TotalStatisticalData totalData,
       required final Revenue revenue,
@@ -307,6 +327,8 @@ abstract class _PaymentModelStateData implements PaymentModelStateData {
   int get page;
   @override
   int get perPage;
+  @override
+  int get total;
   @override
   List<PaymentItem> get payments;
   @override
