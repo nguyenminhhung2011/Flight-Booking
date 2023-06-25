@@ -3,12 +3,14 @@ import 'package:flight_booking/data/models/api_response/api_response.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../../models/payment/payment_model.dart';
 import '../../../models/ticket/ticket_model.dart';
 
 part 'ticket_api.g.dart';
 
 class TicketEndPoint {
   static const branch = '/api/v1/ticket';
+  static const bookTicket = '$branch/book_ticket';
   static const fetchTicketUrl = "ticket/fetch";
   static const editTicketUrl = "ticket/edit";
   static const deleteTicketUrl = "ticket/delete";
@@ -26,6 +28,11 @@ abstract class TicketApi {
 
   @POST(TicketEndPoint.addTicketUrl)
   Future<ApiResponse<TicketModel?>> addNewTickets({
+    @Body() required Map<String, dynamic> body,
+  });
+
+  @POST(TicketEndPoint.bookTicket)
+  Future<HttpResponse<PaymentModel?>> bookTicket({
     @Body() required Map<String, dynamic> body,
   });
 

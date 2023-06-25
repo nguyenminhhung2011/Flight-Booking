@@ -209,6 +209,7 @@ _i1.GetIt init(
         gh<_i42.CustomerUseCase>(),
         gh<_i12.FlightsUsecase>(),
         gh<_i25.TicketInformationUsecase>(),
+        gh<_i28.TicketUsecase>(),
       ));
   gh.factoryParam<_i50.SearchMobileBloc, _i51.SearchEnum?, dynamic>((
     searchType,

@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,6 +61,19 @@ class _BookPaymentTabState extends State<BookPaymentTab> {
 
   void _onCustomerViewChange(int index) {
     _bloc.add(PaymentTabEvent.changeCustomerIndexView(newIndex: index));
+  }
+
+  void _onUpdateContactInformation() async {
+    final show = await context.showYesNoDialog(300,
+        'Update contact information', 'Are you sure update your information?');
+    if (!show) {
+      return;
+    }
+    _bloc.add(PaymentTabEvent.updateContactCustomer(
+      name: _nameController.text,
+      phoneNumber: _phoneNumberController.text,
+      email: _emailController.text,
+    ));
   }
 
   @override
@@ -125,13 +139,17 @@ class _BookPaymentTabState extends State<BookPaymentTab> {
                               const SizedBox(height: 15.0),
                               TextButton(
                                 onPressed: () {},
-                                child: Text(
-                                  S.of(context).loginOrRegister,
-                                  style: titStyle1.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: primaryColor,
-                                  ),
-                                ),
+                                child: state.loadingUpdateContact
+                                    ? const Center(
+                                        child: CircularProgressIndicator(),
+                                      )
+                                    : Text(
+                                        S.of(context).loginOrRegister,
+                                        style: titStyle1.copyWith(
+                                          fontWeight: FontWeight.bold,
+                                          color: primaryColor,
+                                        ),
+                                      ),
                               )
                             ],
                           ),
@@ -160,7 +178,7 @@ class _BookPaymentTabState extends State<BookPaymentTab> {
                               ),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: _onUpdateContactInformation,
                               child: Text(
                                 S.of(context).save,
                                 style: titStyle1.copyWith(
