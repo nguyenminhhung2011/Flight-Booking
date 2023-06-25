@@ -2,7 +2,6 @@ import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:flight_booking/presentations/customer/views/widgets/customer_detail_screen.dart';
 import 'package:flight_booking/presentations/dashboard/views/dashboard_screen.dart';
 import 'package:flight_booking/presentations/login/views/login_screen.dart';
-import 'package:flight_booking/presentations/payment/bloc/payment_tab_bloc.dart';
 import 'package:flight_booking/presentations/payment/view/payment_screen.dart';
 import 'package:flight_booking/presentations/payment_detail/view/payment_detail_screen.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
@@ -13,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../core/dependency_injection/di.dart';
 import '../flight_detail/bloc/flight_detail_bloc.dart';
 import '../flight_detail/views/flight_detail_screen.dart';
+import '../payment/blocs/payment_tab_bloc.dart';
 
 class MainRoutes {
   static Map<String, WidgetBuilder> getRoutesWithSettings() {

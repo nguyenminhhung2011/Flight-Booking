@@ -2,14 +2,34 @@ import 'package:flight_booking/core/components/widgets/extension/context_extensi
 import 'package:flutter/material.dart';
 
 import '../../../../core/config/common_ui_config.dart';
+import '../../../../domain/entities/ticket/ticket.dart';
 import '../../../../generated/l10n.dart';
 
 const _hPaddingCard = 15.0;
 
-class PriceSummaryCard extends StatelessWidget {
-  const PriceSummaryCard({super.key});
+class PriceSummaryCard extends StatefulWidget {
+  final List<Ticket> tics;
+  final Map<String, double> priceSummary;
 
+  const PriceSummaryCard({
+    super.key,
+    required this.tics,
+    required this.priceSummary,
+  });
+
+  @override
+  State<PriceSummaryCard> createState() => _PriceSummaryCardState();
+}
+
+class _PriceSummaryCardState extends State<PriceSummaryCard> {
   final double paddingHorizontal = 15;
+
+  double priceSum = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,23 +77,21 @@ class PriceSummaryCard extends StatelessWidget {
                         .copyWith(fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(height: 10.0),
-                  ...<Map<String, dynamic>>[
-                    {'header': 'Base Fare x 1', 'title': 'BDT 6.942'},
-                    {'header': 'Tax x 1', 'title': 'BDT 6.942'},
-                    {'header': 'Total Airfare', 'title': 'BDT 6.942'},
-                  ]
+                  ...widget.priceSummary.entries
                       .map(
                         (e) => Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(e['header'].toString(), style: headerStyle),
-                            Text(e['title'].toString(), style: titleStyle),
+                            Text(e.key.toString(), style: headerStyle),
+                            Text('BDT ${e.value.toString()}',
+                                style: titleStyle),
                           ],
                         ),
                       )
                       .expand(
-                          (element) => [element, const SizedBox(height: 5.0)])
+                        (element) => [element, const SizedBox(height: 5.0)],
+                      ),
                 ],
               ),
             ),
@@ -94,7 +112,7 @@ class PriceSummaryCard extends StatelessWidget {
                           color: Theme.of(context).primaryColor),
                     ),
                     Text(
-                      "BDT 6.942",
+                      "BDT 100.0",
                       style: titleStyle.copyWith(fontSize: 16.0),
                     ),
                   ],

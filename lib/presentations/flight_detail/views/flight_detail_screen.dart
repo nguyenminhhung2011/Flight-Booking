@@ -385,7 +385,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        '${durationTime.inHours}h ${durationTime.inMinutes}m',
+                        '${durationTime.inHours}h ${durationTime.inMinutes - durationTime.inHours * 60}m',
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!
@@ -480,7 +480,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                     size: 15.0,
                   ),
                   Text(
-                    '${durationTime.inHours}h ${durationTime.inMinutes}m',
+                    '${durationTime.inHours}h ${durationTime.inMinutes - durationTime.inHours * 60}m',
                     style: Theme.of(context)
                         .textTheme
                         .titleSmall!

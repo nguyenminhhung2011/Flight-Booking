@@ -203,7 +203,8 @@ class FlightWidgetCustom extends StatelessWidget {
   Widget _mid(BuildContext context) {
     final durationTime = durationBetweenDate(flight.timeStart, flight.timeEnd);
     final Color primaryColor = Theme.of(context).primaryColor;
-    String durationText = ' ${durationTime.inHours}h${durationTime.inMinutes}m';
+    String durationText =
+        ' ${durationTime.inHours}h${durationTime.inMinutes - durationTime.inHours * 60}m';
     return Column(
       children: [
         RichTextCustom(

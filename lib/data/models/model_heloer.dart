@@ -78,4 +78,14 @@ class ModelHelper {
     timeEnd: DateTime.now(),
     airline: const Airline(id: -1, airlineName: 'Was deleted'),
   );
+
+  static Customer defaultCustomer = Customer(
+    id: -1,
+    name: 'Was deleted',
+    phoneNumber: '09328282448',
+    email: 'hung@gmail.com',
+    identifyNum: '928494',
+    gender: 'Female',
+    birthday: DateTime.now(),
+  );
 }
