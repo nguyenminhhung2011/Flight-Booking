@@ -181,22 +181,22 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
                             )
                           : const Column(
                               children: [
-                                TicColumnListView(
-                                  ticType: TicTypeEnum.businessClass,
-                                  count: 10,
-                                ),
-                                TicColumnListView(
-                                  ticType: TicTypeEnum.businessClass,
-                                  count: 10,
-                                ),
-                                TicColumnListView(
-                                  ticType: TicTypeEnum.premiumEconomyClass,
-                                  count: 10,
-                                ),
-                                TicColumnListView(
-                                  ticType: TicTypeEnum.firstClass,
-                                  count: 10,
-                                ),
+                                // TicColumnListView(
+                                //   ticType: TicTypeEnum.businessClass,
+                                //   count: 10,
+                                // ),
+                                // TicColumnListView(
+                                //   ticType: TicTypeEnum.businessClass,
+                                //   count: 10,
+                                // ),
+                                // TicColumnListView(
+                                //   ticType: TicTypeEnum.premiumEconomyClass,
+                                //   count: 10,
+                                // ),
+                                // TicColumnListView(
+                                //   ticType: TicTypeEnum.firstClass,
+                                //   count: 10,
+                                // ),
                               ],
                             )
                     ]
