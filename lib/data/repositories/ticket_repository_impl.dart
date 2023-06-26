@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flight_booking/data/models/model_heloer.dart';
+import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:injectable/injectable.dart';
 

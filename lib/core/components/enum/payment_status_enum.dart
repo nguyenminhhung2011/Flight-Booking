@@ -1,7 +1,13 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 enum PaymentStatus {
+  @JsonValue("SUCCEEDED")
   succeeded("Succeeded"),
+  @JsonValue("PENDING")
   pending("Pending"),
+  @JsonValue("DECLINED")
   declined("Declined"),
+  @JsonValue("CREATE")
   create("Create");
 
   final String name;

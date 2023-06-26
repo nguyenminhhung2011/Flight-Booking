@@ -396,20 +396,20 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                   PopupMenuItem<ActionEnum>(
                     value: ActionEnum.detail,
                     child: Text(
-                      ActionEnum.detail.name,
+                      "Detail",
                       style: context.bodyMedium,
                     ),
                   ),
                   PopupMenuItem<ActionEnum>(
                     value: ActionEnum.edit,
                     child: Text(
-                      ActionEnum.edit.name,
+                      "Edit",
                       style: context.bodyMedium,
                     ),
                   ),
                   PopupMenuItem<ActionEnum>(
                     child: Text(
-                      ActionEnum.delete.name,
+                      "Delete",
                       style: context.bodyMedium,
                     ),
                   ),
@@ -421,7 +421,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                     await showDialog(
                       context: context,
                       builder: (_) {
-                        return const EditPaymentDialog(id: 3);
+                        return EditPaymentDialog(id: int.parse(data as String));
                       },
                     );
                   }
@@ -444,7 +444,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                 data: getYmdHmFormat(
                     DateTime.fromMillisecondsSinceEpoch(data.createDate))),
             FlexRowTableData<PaymentStatus>(flex: 2, data: data.paymentStatus),
-            FlexRowTableData<String>(flex: 1),
+            FlexRowTableData<String>(flex: 1, data: data.id),
           ],
         );
       },

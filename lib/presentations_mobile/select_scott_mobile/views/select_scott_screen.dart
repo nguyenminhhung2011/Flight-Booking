@@ -6,6 +6,7 @@ import 'package:flight_booking/core/components/widgets/mobile/custom_template_sc
 import 'package:flight_booking/core/components/widgets/mobile/header_custom.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
+import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:flight_booking/domain/entities/customer/customer.dart';
 import 'package:flight_booking/presentations_mobile/select_scott_mobile/bloc/select_scott_bloc.dart';
 import 'package:flutter/cupertino.dart';
@@ -76,6 +77,7 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
   void _onAddNewCustomer() {
     _bloc.add(SelectScottEvent.addNewCustomer(
         customer: Customer(
+      creditCard: const CreditCard(),
       id: randDomNumber(100),
       name: _nameController.text,
       identifyNum: _identityController.text,

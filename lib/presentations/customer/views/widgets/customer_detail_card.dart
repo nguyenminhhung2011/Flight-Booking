@@ -1,7 +1,7 @@
 import 'package:flight_booking/core/components/widgets/card_custom.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
-import 'package:flight_booking/data/models/model_heloer.dart';
+import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket_information_id.dart';
 import 'package:flight_booking/presentations/customer/views/widgets/passenger_info_card.dart';

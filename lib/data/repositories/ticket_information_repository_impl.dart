@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flight_booking/core/components/network/app_exception.dart';
-import 'package:flight_booking/data/models/model_heloer.dart';
+import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:flight_booking/data/models/ticket/ticket_information_model.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket_information.dart';
 import 'package:injectable/injectable.dart';

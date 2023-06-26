@@ -1,5 +1,5 @@
 import 'package:flight_booking/data/models/airport/airport_model.dart';
-import 'package:flight_booking/data/models/model_heloer.dart';
+import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:flight_booking/domain/entities/flight/flight.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
