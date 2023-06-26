@@ -1,3 +1,4 @@
+import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:flight_booking/presentations/customer/views/widgets/customer_detail_screen.dart';
 import 'package:flight_booking/presentations/dashboard/views/dashboard_screen.dart';
 import 'package:flight_booking/presentations/login/views/login_screen.dart';
@@ -11,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../core/dependency_injection/di.dart';
 import '../flight_detail/bloc/flight_detail_bloc.dart';
 import '../flight_detail/views/flight_detail_screen.dart';
+import '../payment/blocs/payment_tab_bloc.dart';
 
 class MainRoutes {
   static Map<String, WidgetBuilder> getRoutesWithSettings() {
@@ -77,7 +79,21 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const PaymentScreen();
+            Map? arguments = settings.arguments as Map;
+            final tics = arguments['tics'];
+            final ids = arguments['ids'];
+            if (tics != null && tics is List<Ticket>) {
+              if (ids != null && ids is Map<String, int>) {
+                return BlocProvider<PaymentTabBloc>(
+                  create: (_) => injector(
+                    param1: tics,
+                    param2: ids,
+                  ),
+                  child: const PaymentScreen(),
+                );
+              }
+            }
+            return const SizedBox();
           },
         );
       default:

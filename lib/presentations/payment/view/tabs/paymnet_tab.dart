@@ -3,17 +3,19 @@ import 'package:flight_booking/core/components/widgets/extension/context_extensi
 import 'package:flight_booking/presentations/payment/view/widgets/payment_at_airport_tab.dart';
 import 'package:flight_booking/presentations/payment/view/widgets/payment_by_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/components/enum/payment_type.dart';
 import '../../../../core/config/common_ui_config.dart';
 import '../../../../generated/l10n.dart';
+import '../../blocs/payment_tab_bloc.dart';
 
 const _minWidthToReplayTab = 800;
 const _hPaddingCard = 15.0;
 const _maxWidthDevice = 1200;
 
 class PaymentTab extends StatefulWidget {
-  final Function() onNextPage;
-  const PaymentTab({super.key, required this.onNextPage});
+  const PaymentTab({super.key});
 
   @override
   State<PaymentTab> createState() => _PaymentTabState();
@@ -21,6 +23,7 @@ class PaymentTab extends StatefulWidget {
 
 class _PaymentTabState extends State<PaymentTab>
     with SingleTickerProviderStateMixin {
+  PaymentTabBloc get _bloc => context.read<PaymentTabBloc>();
   final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
   late TabController _tabController;
   final PageController _pageController =
@@ -44,6 +47,12 @@ class _PaymentTabState extends State<PaymentTab>
     super.dispose();
   }
 
+  void _onPay(PaymentType type) {
+    _bloc.add(
+      PaymentTabEvent.addTicToDB(paymentType: type.displayValue.toUpperCase()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final headerStyle = context.titleLarge
@@ -56,81 +65,94 @@ class _PaymentTabState extends State<PaymentTab>
         fontWeight: FontWeight.w500,
         color: Theme.of(context).hintColor,
         overflow: TextOverflow.ellipsis);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: 10.0,
-              horizontal:
-                  context.widthDevice > _maxWidthDevice ? 120 : _hPaddingCard,
-            ),
-            child: ListView(
-              children: [
-                Text(S.of(context).payment, style: headerStyle),
-                const SizedBox(height: 20.0),
-                Container(
-                  height: context.heightDevice - 145,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).cardColor,
-                    borderRadius: CommonAppUIConfig.primaryRadiusBorder,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Theme.of(context).shadowColor.withOpacity(0.1),
-                        blurRadius: 10.0,
-                      )
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      if (context.widthDevice > _minWidthToReplayTab)
-                        _tabIndexField(primaryColor),
-                      Expanded(
-                        child: ListView(
-                          children: [
-                            if (context.widthDevice < _minWidthToReplayTab) ...[
-                              _tabHorizontal(
-                                primaryColor,
-                                headerStyle,
-                                titStyle,
-                                headerStyle1,
-                              ),
-                            ],
-                            const SizedBox(height: 22.0),
-                            ValueListenableBuilder(
-                              valueListenable: _selectedIndex,
-                              builder: (context, sIndex, child) => SizedBox(
-                                height: context.heightDevice,
-                                child: PageView.builder(
-                                  pageSnapping: false,
-                                  controller: _pageController,
-                                  itemCount: 2,
-                                  physics: const BouncingScrollPhysics(
-                                    parent: NeverScrollableScrollPhysics(),
-                                  ),
-                                  itemBuilder: (context, index) => [
-                                    PaymentByCardTab(
-                                        onNextPage: widget.onNextPage),
-                                    PaymentAtAirportTab(
-                                        onNextPage: widget.onNextPage),
-                                  ][index],
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+    return BlocBuilder<PaymentTabBloc, PaymentTabState>(
+      builder: (context, state) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: context.widthDevice > _maxWidthDevice
+                      ? 120
+                      : _hPaddingCard,
                 ),
-              ],
-            ),
-          ),
-        )
-      ],
+                child: ListView(
+                  children: [
+                    Text(S.of(context).payment, style: headerStyle),
+                    const SizedBox(height: 20.0),
+                    Container(
+                      height: context.heightDevice - 145,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).cardColor,
+                        borderRadius: CommonAppUIConfig.primaryRadiusBorder,
+                        boxShadow: [
+                          BoxShadow(
+                            color:
+                                Theme.of(context).shadowColor.withOpacity(0.1),
+                            blurRadius: 10.0,
+                          )
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          if (context.widthDevice > _minWidthToReplayTab)
+                            _tabIndexField(primaryColor),
+                          Expanded(
+                            child: ListView(
+                              children: [
+                                if (context.widthDevice <
+                                    _minWidthToReplayTab) ...[
+                                  _tabHorizontal(
+                                    primaryColor,
+                                    headerStyle,
+                                    titStyle,
+                                    headerStyle1,
+                                  ),
+                                ],
+                                const SizedBox(height: 22.0),
+                                ValueListenableBuilder(
+                                  valueListenable: _selectedIndex,
+                                  builder: (context, sIndex, child) => SizedBox(
+                                    height: context.heightDevice,
+                                    child: PageView.builder(
+                                      pageSnapping: false,
+                                      controller: _pageController,
+                                      itemCount: 2,
+                                      physics: const BouncingScrollPhysics(
+                                        parent: NeverScrollableScrollPhysics(),
+                                      ),
+                                      itemBuilder: (context, index) => [
+                                        PaymentByCardTab(
+                                            loading: state.loadingAddTic,
+                                            onNextPage: () => _onPay(
+                                                  PaymentType.card,
+                                                )),
+                                        PaymentAtAirportTab(
+                                            loading: state.loadingAddTic,
+                                            onNextPage: () => _onPay(
+                                                  PaymentType.cash,
+                                                )),
+                                      ][index],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        );
+      },
     );
   }
 

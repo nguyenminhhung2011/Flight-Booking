@@ -4,6 +4,7 @@ import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
+import 'package:flight_booking/core/components/widgets/extension/string_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
@@ -375,12 +376,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                 _timePlace(
                   context,
                   getjmFormat(_flight?.timeStart ?? DateTime.now()),
-                  _locationDeparture.substring(
-                    0,
-                    !_locationDeparture.contains(',')
-                        ? _locationDeparture.length
-                        : _locationDeparture.indexOf(','),
-                  ),
+                  _locationDeparture.subString,
                 ),
                 SizedBox(
                   width: 300,
@@ -389,7 +385,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        '${durationTime.inHours}h ${durationTime.inMinutes}m',
+                        '${durationTime.inHours}h ${durationTime.inMinutes - durationTime.inHours * 60}m',
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!
@@ -484,7 +480,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
                     size: 15.0,
                   ),
                   Text(
-                    '${durationTime.inHours}h ${durationTime.inMinutes}m',
+                    '${durationTime.inHours}h ${durationTime.inMinutes - durationTime.inHours * 60}m',
                     style: Theme.of(context)
                         .textTheme
                         .titleSmall!

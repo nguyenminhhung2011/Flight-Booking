@@ -1,12 +1,18 @@
 import 'package:flight_booking/core/components/widgets/card_custom.dart';
+import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
+import 'package:flight_booking/data/models/model_heloer.dart';
+import 'package:flight_booking/domain/entities/ticket/ticket.dart';
+import 'package:flight_booking/domain/entities/ticket/ticket_information_id.dart';
 import 'package:flight_booking/presentations/customer/views/widgets/passenger_info_card.dart';
+import 'package:flight_booking/presentations/payment/view/widgets/tic_information.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
 import '../../../../core/components/widgets/swiper_custom.dart';
 import '../../../../domain/entities/customer/customer.dart';
+import '../../../../domain/entities/ticket/ticket_information.dart';
 import '../../../../generated/l10n.dart';
 import '../../../list_flight/views/widgets/flight_details_widget.dart';
 import '../../bloc/customer_bloc.dart';
@@ -34,9 +40,38 @@ class _CustomerDetailCardState extends State<CustomerDetailCard> {
                 child:
                     CustomerInformationCard(customer: customerState.customer),
               ),
-              const Expanded(
+              Expanded(
                 flex: 2,
-                child: CustomerTicketInformationCard(),
+                child: CustomerTicketInformationCard(
+                  customer: ModelHelper.defaultCustomer,
+                  ticInformation: {
+                    1: TicketInformation(
+                      id: TicketInformationId(
+                        ticketType: 1,
+                        flight: ModelHelper.defaultFlight,
+                      ),
+                      quantity: 10,
+                      price: 100.0,
+                      seatPosition: 1,
+                      seatHeader: 'A',
+                    )
+                  },
+                  listTics: [
+                    for (int i = 0; i < 5; i++)
+                      Ticket(
+                        id: randomString(),
+                        name: 'Hung',
+                        gender: 'Male',
+                        phoneNumber: '09429242',
+                        emailAddress: 'hung@gmail.com',
+                        seat: 10,
+                        type: 1,
+                        luggage: 10.0,
+                        dateBorn: DateTime.now(),
+                        timeBought: DateTime.now(),
+                      )
+                  ],
+                ),
               )
             ],
           );
@@ -47,8 +82,14 @@ class _CustomerDetailCardState extends State<CustomerDetailCard> {
 }
 
 class CustomerTicketInformationCard extends StatefulWidget {
+  final Customer customer;
+  final List<Ticket> listTics;
+  final Map<int, TicketInformation> ticInformation;
   const CustomerTicketInformationCard({
     super.key,
+    required this.customer,
+    required this.listTics,
+    required this.ticInformation,
   });
 
   @override
@@ -58,14 +99,6 @@ class CustomerTicketInformationCard extends StatefulWidget {
 
 class _CustomerTicketInformationCardState
     extends State<CustomerTicketInformationCard> {
-  final List<PassengerInfoCard> cards = const [
-    PassengerInfoCard(),
-    PassengerInfoCard(),
-    PassengerInfoCard(),
-    PassengerInfoCard(),
-    PassengerInfoCard(),
-  ];
-
   final SwiperController controller = SwiperController();
   @override
   void dispose() {
@@ -76,7 +109,6 @@ class _CustomerTicketInformationCardState
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 10.0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
@@ -90,7 +122,10 @@ class _CustomerTicketInformationCardState
               padding:
                   const EdgeInsets.symmetric(horizontal: 10, vertical: 10.0),
               constraints: const BoxConstraints(maxHeight: 350),
-              child: const FlightDataCustomerScreen(),
+              child: FlightDataCustomerScreen(
+                customer: widget.customer,
+                tics: widget.listTics,
+              ),
             ),
             const SizedBox(height: 10),
             Stack(
@@ -99,9 +134,14 @@ class _CustomerTicketInformationCardState
                   controller: controller,
                   height: 300,
                   itemBuilder: (index) {
-                    return cards.elementAt(index);
+                    final tic = widget.listTics[index];
+                    final ticInformation = widget.ticInformation[tic.type];
+                    return PassengerInfoCard(
+                      ticket: widget.listTics[index],
+                      ticInformation: ticInformation,
+                    );
                   },
-                  itemCount: cards.length,
+                  itemCount: widget.listTics.length,
                   swiperLayout: SwiperLayout.DEFAULT,
                 ),
                 Positioned(
@@ -206,8 +246,12 @@ class CustomerInformationCard extends StatelessWidget {
 }
 
 class FlightDataCustomerScreen extends StatelessWidget {
+  final Customer customer;
+  final List<Ticket> tics;
   const FlightDataCustomerScreen({
     Key? key,
+    required this.customer,
+    required this.tics,
   }) : super(key: key);
 
   @override
@@ -257,17 +301,18 @@ class FlightDataCustomerScreen extends StatelessWidget {
             children: [
               FlightDetailsWidget(
                   firstTitle: S.of(context).name,
-                  firstDesc: 'Hoang Truong',
+                  firstDesc: customer.name,
                   secondTitle: S.of(context).date,
-                  secondDesc: '28-08-2022'),
+                  secondDesc: getYmdFormat(customer.birthday)),
               FlightDetailsWidget(
-                  firstTitle: S.of(context).flight,
-                  firstDesc: '76836A45',
-                  secondTitle: S.of(context).gate,
-                  secondDesc: '66B'),
+                firstTitle: S.of(context).gender,
+                firstDesc: customer.gender,
+                secondTitle: S.of(context).phoneNumber,
+                secondDesc: customer.phoneNumber,
+              ),
               FlightDetailsWidget(
                 firstTitle: S.of(context).ticketNumber,
-                firstDesc: '5 Tickets',
+                firstDesc: '${tics.length} Tickets',
                 secondTitle: S.of(context).amount,
                 secondDesc: '100 \$',
               ),

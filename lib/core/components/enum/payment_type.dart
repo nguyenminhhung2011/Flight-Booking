@@ -17,4 +17,10 @@ enum PaymentType {
         return PaymentType.unknown;
     }
   }
+
+  String get displayValue => switch (this) {
+        PaymentType.card => "card",
+        PaymentType.cash => "cash",
+        _ => "unknown",
+      };
 }

@@ -11,4 +11,6 @@ extension StringExtension on String {
     result.add(substring(12, length));
     return result;
   }
+
+  String get subString => substring(0, contains(',') ? indexOf(',') : length);
 }
