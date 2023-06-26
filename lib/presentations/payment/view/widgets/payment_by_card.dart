@@ -14,7 +14,12 @@ const _hPaddingCard = 15.0;
 
 class PaymentByCardTab extends StatefulWidget {
   final Function() onNextPage;
-  const PaymentByCardTab({super.key, required this.onNextPage});
+  final bool loading;
+  const PaymentByCardTab({
+    super.key,
+    required this.onNextPage,
+    required this.loading,
+  });
 
   @override
   State<PaymentByCardTab> createState() => _PaymentByCardTabState();
@@ -164,6 +169,7 @@ class _PaymentByCardTabState extends State<PaymentByCardTab> {
               height: 45,
               child: ButtonCustom(
                 radius: 5.0,
+                loading: widget.loading,
                 onPress: widget.onNextPage,
                 child: Text(
                   S.of(context).paymentByCard,

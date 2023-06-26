@@ -11,10 +11,13 @@ import 'package:flight_booking/core/components/widgets/form_add_edit_information
 import 'package:flight_booking/presentations/dialog_book_ticket/bloc/book_ticket_bloc.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/dot_custom.dart';
 import 'package:flight_booking/presentations/selected_customer/views/selected_customer_form.dart';
+import 'package:flight_booking/presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/widgets/mobile/button_custom.dart';
+import '../../../domain/entities/customer/customer.dart';
+import '../../../domain/entities/flight/flight.dart';
 import '../../../domain/entities/seat_selected/seat_selected.dart';
 import '../../../domain/entities/ticket/ticket.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
@@ -25,6 +28,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../core/components/widgets/mobile/dropdown_button_custom.dart';
 import '../../../core/components/widgets/mobile/text_field_custom.dart';
+import '../../routes/routes.dart';
 import '../bloc/book_ticket_model_state.dart';
 
 const _hMarginCard = 20.0;
@@ -50,6 +54,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
   final ValueNotifier<String> _gender = ValueNotifier<String>('MALE');
   final ValueNotifier<DateTime> _dateBorn =
       ValueNotifier<DateTime>(DateTime.now());
+  final ValueNotifier<double> _luggage = ValueNotifier<double>(0);
 
   //Data
   BTBloc get _bloc => BlocProvider.of<BTBloc>(context);
@@ -60,6 +65,9 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
   List<Ticket> get _listTic => _data.tics;
   SeatSelected? get _currentSeat => _data.currentSeat;
   String get _currentTicId => _data.currentTicId;
+  Customer? get _customerSelected => _data.customerSelected;
+  int get _flightId => _bloc.flightId;
+  Flight? get _flight => _data.flight;
 
   //UI
   bool get _currentSeatIsAdded =>
@@ -74,6 +82,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
   void initState() {
     _bloc.add(const BTEvent.getTicInformation());
     _bloc.add(const BTEvent.fetchCustomerData());
+    _bloc.add(const BTEvent.getFlightById());
     super.initState();
   }
 
@@ -107,7 +116,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
       emailAddress: _emailController.text,
       seat: _currentSeat?.seatIndex ?? 0,
       type: _currentSeat?.ticInformation.id.ticketType ?? 0,
-      luggage: 10.0,
+      luggage: _luggage.value,
       dateBorn: _dateBorn.value,
       timeBought: DateTime.now(),
     )));
@@ -124,7 +133,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
       phoneNumber: _phoneNumberController.text,
       identityNumber: _identityController.text,
       dateBorn: _dateBorn.value,
-      luggage: 10.0,
+      luggage: _luggage.value,
     ));
   }
 
@@ -136,7 +145,37 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
     _currentSeatIsAdded ? _onEditTic() : _onAddSeat();
   }
 
-  void _onNextPage() {}
+  void _onNextPage() {
+    final listTic = _listTic
+        .where(
+          (element) =>
+              element.emailAddress.isNotEmpty &&
+              element.phoneNumber.isNotEmpty &&
+              element.phoneNumber.isNotEmpty,
+        )
+        .toList();
+    if (listTic.isEmpty) {
+      return;
+    }
+    context.openPageWithRouteAndParams(Routes.payment, {
+      'tics': listTic,
+      'ids': {
+        'customerId': _customerSelected?.id ?? -1,
+        'flightId': _flightId,
+      },
+    });
+  }
+
+  void _onShowDialogSelectedBaggage() async {
+    if (_flight == null) {
+      return;
+    }
+    final show =
+        await context.openSelectBaggage(_flight!, _nameController.text);
+    if (show != null && show is double) {
+      _luggage.value = show;
+    }
+  }
 
   void _setField(Ticket tic) {
     _nameController.text = tic.name;
@@ -145,6 +184,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
     _phoneNumberController.text = tic.phoneNumber;
     _identityController.text = '949593995';
     _dateBorn.value = tic.dateBorn;
+    _luggage.value = tic.luggage;
   }
 
   void _clearField() {
@@ -154,6 +194,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
     _phoneNumberController.text = '';
     _identityController.text = '949593995';
     _dateBorn.value = DateTime.now();
+    _luggage.value = 0.0;
   }
 
   void _onSelectedSeat(int seatIndex, TicketInformation tic) {
@@ -177,6 +218,20 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
         } else {
           _clearField();
         }
+      },
+      addSeatSuccess: (data) {
+        context.showSuccessDialog(
+          width: 300,
+          header: 'Add seat',
+          title: 'Add new seat success',
+        );
+      },
+      editTicSuccess: (data) {
+        context.showSuccessDialog(
+          width: 300,
+          header: 'Update seat',
+          title: 'Update seat success',
+        );
       },
       fetchCustomerDataFailed: (data, error) {
         log(error);
@@ -203,7 +258,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
             color: Theme.of(context).cardColor,
-            border: Border.all(width: 1, color: Theme.of(context).primaryColor),
+            // border: Border.all(width: 1, color: Theme.of(context).primaryColor),
           ),
           child: Row(
             children: [
@@ -370,7 +425,9 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
             flex: 1,
             child: _chairField(context),
           ),
-          const SizedBox(height: 10.0),
+          const SizedBox(height: 5.0),
+          const DividerCustomWithAirplane(),
+          const SizedBox(height: 5.0),
           Expanded(
             flex: 4,
             child: _fillInformationField(
@@ -499,36 +556,81 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
             );
           },
         ),
-        ValueListenableBuilder(
-          valueListenable: _gender,
-          builder: (context, genderSelect, child) {
-            return ListTile(
-              title: Text(
-                S.of(context).gender,
-                style: headerTextStyle,
+        Row(
+          children: [
+            Expanded(
+              child: ValueListenableBuilder(
+                valueListenable: _gender,
+                builder: (context, genderSelect, child) {
+                  return ListTile(
+                    title: Text(
+                      S.of(context).gender,
+                      style: headerTextStyle,
+                    ),
+                    trailing: DropdownButtonCustom<String?>(
+                      borderColor: Colors.grey[300],
+                      width: 150.0,
+                      value: genderSelect,
+                      onChange: _onChangeGender,
+                      items: ['MALE', 'FEMALE']
+                          .map<DropdownMenuItem<String>>(
+                            (String value) => DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(
+                                value,
+                                style: headerTextStyle.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: fontColorByCard,
+                                ),
+                              ),
+                            ),
+                          )
+                          .toList(),
+                    ),
+                  );
+                },
               ),
-              trailing: DropdownButtonCustom<String?>(
-                borderColor: Colors.grey[300],
-                width: 150.0,
-                value: genderSelect,
-                onChange: _onChangeGender,
-                items: ['MALE', 'FEMALE']
-                    .map<DropdownMenuItem<String>>(
-                      (String value) => DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(
-                          value,
-                          style: headerTextStyle.copyWith(
-                            fontWeight: FontWeight.w600,
-                            color: fontColorByCard,
+            ),
+            ValueListenableBuilder(
+              valueListenable: _luggage,
+              builder: (context, luggage, child) {
+                return InkWell(
+                  borderRadius: BorderRadius.circular(10.0),
+                  onTap: _onShowDialogSelectedBaggage,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 5.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      border: Border.all(
+                        width: 1,
+                        color: Theme.of(context).hintColor,
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          S.of(context).luggage,
+                          style: context.titleSmall.copyWith(
+                            fontSize: 11.0,
+                            color: Theme.of(context).hintColor,
                           ),
                         ),
-                      ),
-                    )
-                    .toList(),
-              ),
-            );
-          },
+                        Text(
+                          '\$$luggage',
+                          style: context.titleMedium.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(width: _hMarginCard),
+          ],
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: _hMarginCard),

@@ -1,3 +1,4 @@
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
@@ -31,6 +32,17 @@ class _SelectedCustomerFormState extends State<SelectedCustomerForm> {
 
   void _onSelectedCustomer(int id) {
     _bloc.add(BTEvent.getCustomerById(id: id.toString()));
+  }
+
+  void _onShowAddCustomerForm() async {
+    Map? result = await context.openShowAddEditCustomer(-1);
+    if (result == null) {
+      return;
+    }
+    var customer = result['customer'];
+    if (customer != null && customer is Customer) {
+      _bloc.add(BTEvent.updateCustomers(customer));
+    }
   }
 
   @override
@@ -121,9 +133,9 @@ class _SelectedCustomerFormState extends State<SelectedCustomerForm> {
               )
               .expand((element) => [element, const SizedBox(height: 10.0)]),
         ButtonCustom(
-          onPress: () {},
+          onPress: _onShowAddCustomerForm,
           height: 45.0,
-          child: Text(S.of(context).selectedCustomer),
+          child: Text(S.of(context).addNewCustomer),
         )
       ],
     );

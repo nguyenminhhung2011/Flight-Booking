@@ -3362,6 +3362,26 @@ class S {
     );
   }
 
+  /// `Submit`
+  String get submit {
+    return Intl.message(
+      'Submit',
+      name: 'submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See Details`
+  String get seeDetails {
+    return Intl.message(
+      'See Details',
+      name: 'seeDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Departure Place`
   String get departurePlace {
     return Intl.message(

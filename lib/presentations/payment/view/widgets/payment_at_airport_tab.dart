@@ -12,7 +12,12 @@ const _hPaddingCard = 15.0;
 
 class PaymentAtAirportTab extends StatefulWidget {
   final Function() onNextPage;
-  const PaymentAtAirportTab({super.key, required this.onNextPage});
+  final bool loading;
+  const PaymentAtAirportTab({
+    super.key,
+    required this.onNextPage,
+    required this.loading,
+  });
 
   @override
   State<PaymentAtAirportTab> createState() => _PaymentAtAirportTabState();
@@ -109,6 +114,7 @@ class _PaymentAtAirportTabState extends State<PaymentAtAirportTab> {
               height: 45,
               child: ButtonCustom(
                 radius: 5.0,
+                loading: widget.loading,
                 onPress: widget.onNextPage,
                 child: Text(
                   S.of(context).paymentAtAirport,

@@ -6,17 +6,18 @@ part of 'ticket_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-TicketModel _$TicketModelFromJson(Map<String, dynamic> json) => TicketModel()
-  ..id = json['id'] as int
-  ..name = json['name'] as String
-  ..gender = json['gender'] as String
-  ..phoneNumber = json['phoneNumber'] as String
-  ..emailAddress = json['emailAddress'] as String
-  ..luggage = (json['luggage'] as num).toDouble()
-  ..seat = json['seat'] as int
-  ..type = json['type'] as int
-  ..dateBorn = json['birthday'] as int
-  ..timeBought = json['timeBought'] as int;
+TicketModel _$TicketModelFromJson(Map<String, dynamic> json) => TicketModel(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      gender: json['gender'] as String,
+      phoneNumber: json['phoneNumber'] as String,
+      emailAddress: json['emailAddress'] as String,
+      luggage: (json['luggage'] as num).toDouble(),
+      seat: json['seat'] as int,
+      type: json['type'] as int,
+      dateBorn: json['birthday'] as int,
+      timeBought: json['timeBought'] as int,
+    );
 
 Map<String, dynamic> _$TicketModelToJson(TicketModel instance) =>
     <String, dynamic>{

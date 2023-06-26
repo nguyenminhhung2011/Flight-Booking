@@ -1,3 +1,4 @@
+import 'package:flight_booking/core/components/widgets/custom_dialog_error/success_dialog.dart';
 import 'package:flight_booking/core/components/widgets/custom_dialog_error/yes_no_dilog.dart';
 import 'package:flight_booking/presentations/add_customer/bloc/add_customer_bloc.dart';
 import 'package:flight_booking/presentations/add_customer/views/add_customer_screen.dart';
@@ -7,6 +8,7 @@ import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_fligh
 import 'package:flight_booking/presentations/add_edit_flight/view/add_edit_flight_form.dart';
 import 'package:flight_booking/presentations/dialog_book_ticket/bloc/book_ticket_bloc.dart';
 import 'package:flight_booking/presentations/dialog_book_ticket/views/dialog_book_ticket_screen.dart';
+import 'package:flight_booking/presentations/dialog_book_ticket/views/select_luggae.dart';
 import 'package:flight_booking/presentations/handle_config_airport/blocs/handle_config_airport_bloc.dart';
 import 'package:flight_booking/presentations/handle_config_airport/view/handle_confg_airport_form.dart';
 import 'package:flight_booking/presentations/list_ticket/views/widgets/position_dialog.dart';
@@ -19,6 +21,7 @@ import 'package:provider/provider.dart';
 
 import 'core/components/widgets/range_date_picker_custom.dart';
 import 'core/dependency_injection/di.dart';
+import 'domain/entities/flight/flight.dart';
 import 'domain/entities/seat_selected/seat_selected.dart';
 
 final _timeNow = DateTime.now();
@@ -79,6 +82,16 @@ extension AppCoordinator<T> on BuildContext {
         create: (_) => injector.get(),
         child: const Dialog(
             backgroundColor: Colors.transparent, child: SelectedCustomerForm()),
+      ),
+    );
+  }
+
+  Future<T?> openSelectBaggage(Flight flight, String customerName) {
+    return showDialog(
+      context: this,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: SelectLuggage(flight: flight, customerName: customerName),
       ),
     );
   }
@@ -201,6 +214,25 @@ extension AppCoordinator<T> on BuildContext {
       return result.isYes;
     }
     return false;
+  }
+
+  Future<void> showSuccessDialog({
+    required double width,
+    required String header,
+    required String title,
+  }) async {
+    await showDialog(
+        context: this,
+        builder: (_) {
+          return Dialog(
+            backgroundColor: Colors.transparent,
+            child: SuccessDialog(
+              header: header,
+              title: title,
+              width: width,
+            ),
+          );
+        });
   }
 
   Future<bool> showDeleteConfigAirportDialog(int airportId) async {

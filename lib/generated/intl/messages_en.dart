@@ -394,6 +394,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchByAccount": MessageLookupByLibrary.simpleMessage(
             "Search By Account Id, Payment Method,..."),
         "seat": MessageLookupByLibrary.simpleMessage("Seat"),
+        "seeDetails": MessageLookupByLibrary.simpleMessage("See Details"),
         "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
         "selectDateBorn":
             MessageLookupByLibrary.simpleMessage("Select Dated Born"),
@@ -420,6 +421,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "startFrom": MessageLookupByLibrary.simpleMessage("Start From"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
         "statusParams": m10,
+        "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "theServiceHaveNotFinished": MessageLookupByLibrary.simpleMessage(
             "The Service have not finished yet !!!"),
