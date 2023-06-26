@@ -46,9 +46,9 @@ class CustomerModel {
         id: id,
         name: name,
         identifyNum: identifyNum,
-        phoneNumber: phoneNumber,
+        phone: phoneNumber,
         email: email,
         gender: gender,
-        birthday: DateTime.fromMillisecondsSinceEpoch(birthday),
+        birthday: birthday,
       );
 }

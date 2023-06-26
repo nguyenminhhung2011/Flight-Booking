@@ -14,10 +14,10 @@ TicketModel _$TicketModelFromJson(Map<String, dynamic> json) => TicketModel(
       emailAddress: json['emailAddress'] as String,
       luggage: (json['luggage'] as num).toDouble(),
       seat: json['seat'] as int,
-      type: json['ticketType'] as int,
+      type: json['type'] as int,
       dateBorn: json['birthday'] as int,
       timeBought: json['timeBought'] as int,
-    );
+    )..price = (json['price'] as num).toDouble();
 
 Map<String, dynamic> _$TicketModelToJson(TicketModel instance) =>
     <String, dynamic>{
@@ -28,7 +28,8 @@ Map<String, dynamic> _$TicketModelToJson(TicketModel instance) =>
       'emailAddress': instance.emailAddress,
       'luggage': instance.luggage,
       'seat': instance.seat,
-      'ticketType': instance.type,
+      'price': instance.price,
+      'type': instance.type,
       'birthday': instance.dateBorn,
       'timeBought': instance.timeBought,
     };

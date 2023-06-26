@@ -10,39 +10,33 @@ class Customer with _$Customer {
   const factory Customer({
     required int id,
     required String name,
-    required String phoneNumber,
+    required String phone,
     required String email,
     required String identifyNum,
     required String gender,
-    @DateTimeConverter() required DateTime birthday,
+    required int birthday,
     @Default(CreditCard()) CreditCard creditCard,
   }) = _Customer;
 
   factory Customer.fromJson(Map<String, dynamic> json) =>
       _$CustomerFromJson(json);
 
-  static final Customer empty = Customer(
+  static Customer empty = const Customer(
     id: 0,
     name: "name",
     identifyNum: "identityNum",
-    phoneNumber: " phoneNumber",
-    email: " email",
-    gender: " gender",
-    birthday: DateTime.now(),
-    creditCard: const CreditCard(),
+    phone: "phoneNumber",
+    email: "email",
+    gender: "gender",
+    birthday: 0,
+    creditCard: CreditCard(),
   );
 }
 
-class DateTimeConverter implements JsonConverter<DateTime, int> {
-  const DateTimeConverter();
+DateTime fromJson(int json) {
+  return DateTime.fromMillisecondsSinceEpoch(json);
+}
 
-  @override
-  DateTime fromJson(int json) {
-    return DateTime.fromMillisecondsSinceEpoch(json);
-  }
-
-  @override
-  int toJson(DateTime object) {
-    return object.millisecondsSinceEpoch;
-  }
+int toJson(DateTime object) {
+  return object.millisecondsSinceEpoch;
 }

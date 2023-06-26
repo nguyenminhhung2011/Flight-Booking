@@ -103,7 +103,8 @@ class PassengerInfoCard extends StatelessWidget {
                   ),
             ),
             trailing: Text(
-              getYmdFormat(ticket.dateBorn),
+              getYmdFormat(
+                  DateTime.fromMillisecondsSinceEpoch(ticket.birthday)),
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).dividerColor.withOpacity(0.4),

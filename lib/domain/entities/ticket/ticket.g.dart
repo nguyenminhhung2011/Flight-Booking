@@ -7,7 +7,7 @@ part of 'ticket.dart';
 // **************************************************************************
 
 _$_Ticket _$$_TicketFromJson(Map<String, dynamic> json) => _$_Ticket(
-      id: json['id'] as String,
+      id: json['id'] as int,
       name: json['name'] as String,
       gender: json['gender'] as String,
       phoneNumber: json['phoneNumber'] as String,
@@ -15,8 +15,9 @@ _$_Ticket _$$_TicketFromJson(Map<String, dynamic> json) => _$_Ticket(
       seat: json['seat'] as int,
       type: json['type'] as int,
       luggage: (json['luggage'] as num).toDouble(),
-      dateBorn: DateTime.parse(json['dateBorn'] as String),
-      timeBought: DateTime.parse(json['timeBought'] as String),
+      birthday: json['birthday'] as int,
+      timeBought: json['timeBought'] as int,
+      price: (json['price'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$_TicketToJson(_$_Ticket instance) => <String, dynamic>{
@@ -28,6 +29,7 @@ Map<String, dynamic> _$$_TicketToJson(_$_Ticket instance) => <String, dynamic>{
       'seat': instance.seat,
       'type': instance.type,
       'luggage': instance.luggage,
-      'dateBorn': instance.dateBorn.toIso8601String(),
-      'timeBought': instance.timeBought.toIso8601String(),
+      'birthday': instance.birthday,
+      'timeBought': instance.timeBought,
+      'price': instance.price,
     };

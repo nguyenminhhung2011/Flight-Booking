@@ -212,7 +212,7 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     Emitter<BTState> emit,
   ) {
     final newTic = Ticket(
-      id: randDomNumber(100).toString(),
+      id: randDomNumber(100),
       name: event.name,
       gender: event.gender,
       phoneNumber: event.phoneNumber,
@@ -220,8 +220,9 @@ class BTBloc extends Bloc<BTEvent, BTState> {
       seat: event.seat,
       type: event.type,
       luggage: event.luggage,
-      dateBorn: event.dateBorn,
-      timeBought: DateTime.now(),
+      price: 0,
+      birthday: event.dateBorn.millisecondsSinceEpoch,
+      timeBought: DateTime.now().millisecondsSinceEpoch,
     );
     if (!data.tics.map((e) => '${e.type} - ${e.seat}').contains(
           '${newTic.type} - ${newTic.seat}',
@@ -271,7 +272,7 @@ class BTBloc extends Bloc<BTEvent, BTState> {
             (element) => element.id.ticketType == event.tic.type,
           ),
         ),
-        currentTicId: event.tic.id,
+        currentTicId: event.tic.id.toString(),
       ),
       tic: event.tic,
     ));
@@ -309,8 +310,9 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     emit(_SelectedSeatSuccess(
       data: data.copyWith(
         currentSeat: event.newSeat,
-        currentTicId:
-            ticIndex == -1 ? data.currentTicId : data.tics[ticIndex].id,
+        currentTicId: ticIndex == -1
+            ? data.currentTicId.toString()
+            : data.tics[ticIndex].id.toString(),
       ),
       ticIndex: ticIndex,
     ));

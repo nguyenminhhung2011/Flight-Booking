@@ -81,10 +81,10 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
       id: randDomNumber(100),
       name: _nameController.text,
       identifyNum: _identityController.text,
-      phoneNumber: _phoneNumberController.text,
+      phone: _phoneNumberController.text,
       email: _emailController.text,
       gender: _gender.value,
-      birthday: _dateBorn.value,
+      birthday: _dateBorn.value.millisecondsSinceEpoch,
     )));
     _clearText();
   }
@@ -309,8 +309,9 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
                         InformationColumnItem(
                             context: context,
                             header: S.of(context).dateBorn,
-                            title:
-                                getYmdFormat(customers[selectedIndex].birthday),
+                            title: getYmdFormat(
+                                DateTime.fromMillisecondsSinceEpoch(
+                                    customers[selectedIndex].birthday)),
                             isStart: true),
                         InformationColumnItem(
                             context: context,
@@ -327,7 +328,7 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
                         InformationColumnItem(
                             context: context,
                             header: S.of(context).phoneNumber,
-                            title: customers[selectedIndex].phoneNumber,
+                            title: customers[selectedIndex].phone,
                             isStart: true),
                         InformationColumnItem(
                             context: context,
