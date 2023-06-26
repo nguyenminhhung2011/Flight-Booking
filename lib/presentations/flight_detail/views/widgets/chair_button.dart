@@ -22,9 +22,7 @@ class ChairButton extends StatelessWidget {
         padding: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color: check
-              ? Theme.of(context).primaryColor
-              : Theme.of(context).hoverColor,
+          color: check ? Colors.red : Theme.of(context).hoverColor,
         ),
         child: Text(
           text,

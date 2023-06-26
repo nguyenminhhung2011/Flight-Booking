@@ -6,10 +6,8 @@ import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/string_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
-import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/domain/entities/seat_selected/seat_selected.dart';
-import 'package:flight_booking/presentations/customer/views/widgets/customer_detail_card.dart';
 import 'package:flight_booking/presentations/flight_detail/bloc/flight_detail_bloc.dart';
 import 'package:flight_booking/presentations/flight_detail/bloc/flight_detail_model_state.dart';
 import 'package:flight_booking/presentations/flight_detail/views/widgets/chair_button.dart';
@@ -26,6 +24,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/customer/customer.dart';
 import '../../../domain/entities/flight/flight.dart';
+import '../../../domain/entities/ticket/ticket.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../generated/l10n.dart';
 import '../../list_flight/views/widgets/dot_custom.dart';
@@ -41,8 +40,9 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   FlightDetailBloc get _bloc => BlocProvider.of<FlightDetailBloc>(context);
   FlightDetailState get _state => _bloc.state;
   FlightDetailModelState get _data => _state.data;
-  List<TicketInformation> get _ticInformation => _data.ticInformation;
+  Map<int, TicketInformation> get _ticInformation => _data.ticInformation;
   List<SeatSelected> get _seatsSelected => _data.chairsSelected;
+  List<Ticket> get _listTic => _data.tics;
   Flight? get _flight => _data.flight;
   String get _locationDeparture => _flight?.departureAirport.location ?? '';
   String get _locationArrival => _flight?.arrivalAirport.location ?? '';
@@ -78,7 +78,11 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
     state.whenOrNull(getFlightByIdSuccess: (data) {
       _bloc.add(const FlightDetailEvent.getTicInformation());
     }, getTicInformationSuccess: (data) {
+      _bloc.add(const FlightDetailEvent.getTicsByFlightId());
+    }, getTicsByFlightIdSuccess: (data) {
       _bloc.add(const FlightDetailEvent.started());
+    }, getTicsByFlightIdFailed: (data, error) {
+      log(error);
     }, getFlightByIdFailed: (data, error) {
       log(error);
     }, getTicInformationFailed: (data, error) {
@@ -157,17 +161,20 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
               context,
               Column(
                 children: [
-                  ..._ticInformation
+                  ..._ticInformation.entries
                       .map(
                         (e) => Wrap(
                           children: [
-                            for (int i = 0; i < e.quantity; i++)
+                            for (int i = 0; i < e.value.quantity; i++)
                               ChairButton(
-                                text: '${e.seatHeader}$i',
-                                check: _seatsSelected
-                                    .map((item) => convertToSeatString(item))
-                                    .contains('${e.seatHeader}$i'),
-                                onPress: () => _onSelectedSeat(i, e),
+                                text: '${e.value.seatHeader}$i',
+                                check: _listTic
+                                    .map(
+                                        (item) => '${item.type} - ${item.seat}')
+                                    .contains(
+                                      '${e.value.id.ticketType} - $i',
+                                    ),
+                                onPress: () => _onSelectedSeat(i, e.value),
                               )
                           ],
                         ),

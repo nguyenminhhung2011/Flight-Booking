@@ -123,6 +123,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
   }
 
   void _onAddSeat() {
+    // log(_currentSeat?.ticInformation.id.ticketType.toString() ?? '-1');
     _bloc.add(BTEvent.addSeat(
       name: _nameController.text,
       email: _emailController.text,

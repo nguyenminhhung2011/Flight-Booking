@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../domain/entities/customer/customer.dart';
 import '../../../domain/entities/flight/flight.dart';
+import '../../../domain/entities/payment/payment.dart';
 import '../../../domain/entities/ticket/ticket.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../customer/views/widgets/customer_detail_card.dart';
@@ -33,6 +34,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
   Map<int, TicketInformation>? get _ticInformation => _bloc.data.ticInformation;
   List<Ticket> get _tics => _bloc.tics;
   Map<String, double> get _priceSummary => _bloc.data.priceSummary;
+  Payment? get _payment => _bloc.data.payment;
 
   final ValueNotifier<int> _pageIndex = ValueNotifier<int>(0);
   final PageController _pageController = PageController();
@@ -61,7 +63,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
   void _listenStateChange(_, PaymentTabState state) {
     state.maybeWhen(
       addTicToDBSuccess: (data) {
-        _onNextPage(2);
+        if (_payment != null) {
+          _onNextPage(2);
+        }
       },
       updateContactCustomerSuccess: (data) {
         context.showSuccessDialog(
@@ -250,16 +254,16 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 ),
               ],
               Expanded(
-                child: PageView.builder(
+                child: PageView(
+                  physics: const NeverScrollableScrollPhysics(),
                   controller: _pageController,
-                  itemCount: 3,
-                  itemBuilder: (context, index) => [
+                  children: [
                     BookPaymentTab(
                       onNextPage: () => _onNextPage(1),
                     ),
                     const PaymentTab(),
-                    ConfirmInformationTab(),
-                  ][index],
+                    if (_payment != null) const ConfirmInformationTab(),
+                  ],
                 ),
               ),
             ],

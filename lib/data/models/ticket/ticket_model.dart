@@ -26,7 +26,7 @@ class TicketModel {
   @JsonKey(name: 'seat')
   late int seat;
 
-  @JsonKey(name: "type")
+  @JsonKey(name: "ticketType")
   late int type;
 
   @JsonKey(name: 'birthday')

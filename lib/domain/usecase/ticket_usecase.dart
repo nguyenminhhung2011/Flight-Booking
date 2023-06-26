@@ -12,6 +12,11 @@ class TicketUsecase {
     return await _listTicketRepository.getListTicket() ?? [];
   }
 
+  Future<List<Ticket>> getByFlightId({required int flightId}) async {
+    return await _listTicketRepository.getByFlightId(flightId: flightId) ??
+        <Ticket>[];
+  }
+
   Future<Payment?> bookTicket({
     required List<Ticket> tics,
     required int customerId,

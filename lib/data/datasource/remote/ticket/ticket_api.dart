@@ -26,6 +26,11 @@ abstract class TicketApi {
   @GET(TicketEndPoint.fetchTicketUrl)
   Future<ApiResponse<List<TicketModel>?>> fetchTickets();
 
+  @GET('${TicketEndPoint.branch}/flightId={id}')
+  Future<HttpResponse<List<TicketModel>?>> getByFlightId({
+    @Path("id") required int flightId,
+  });
+
   @POST(TicketEndPoint.addTicketUrl)
   Future<ApiResponse<TicketModel?>> addNewTickets({
     @Body() required Map<String, dynamic> body,
