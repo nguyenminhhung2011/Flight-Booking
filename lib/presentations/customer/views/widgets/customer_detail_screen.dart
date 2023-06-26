@@ -50,9 +50,9 @@ class CustomerDetailScreen extends StatelessWidget {
             name: S.of(context).nameData(i),
             email: S.of(context).email,
             identifyNum: S.of(context).identityNum,
-            phoneNumber: S.of(context).phoneNumber,
+            phone: S.of(context).phoneNumber,
             gender: S.of(context).gender,
-            birthday: DateTime.now(),
+            birthday: 0,
           ),
       ],
       rowBuilder: (data) {
@@ -110,9 +110,11 @@ class CustomerDetailScreen extends StatelessWidget {
               alignment: Alignment.center,
             ),
             FlexRowTableData<String>(flex: 3, data: data.identifyNum),
-            FlexRowTableData<String>(flex: 3, data: data.phoneNumber),
+            FlexRowTableData<String>(flex: 3, data: data.phone),
             FlexRowTableData<String>(
-                flex: 2, data: getYmdFormat(data.birthday)),
+                flex: 2,
+                data: getYmdFormat(
+                    DateTime.fromMillisecondsSinceEpoch(data.birthday))),
             FlexRowTableData(flex: 1),
           ],
         );
@@ -197,7 +199,8 @@ class CustomerDetailScreen extends StatelessWidget {
                         listTics: [
                           for (int i = 0; i < 5; i++)
                             Ticket(
-                              id: randomString(),
+                              price: 0,
+                              id: i,
                               name: 'Hung',
                               gender: 'Male',
                               phoneNumber: '09429242',
@@ -205,8 +208,8 @@ class CustomerDetailScreen extends StatelessWidget {
                               seat: 10,
                               type: 1,
                               luggage: 10.0,
-                              dateBorn: DateTime.now(),
-                              timeBought: DateTime.now(),
+                              birthday: DateTime.now().millisecondsSinceEpoch,
+                              timeBought: DateTime.now().millisecondsSinceEpoch,
                             )
                         ],
                       ),

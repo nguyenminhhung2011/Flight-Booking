@@ -55,7 +55,7 @@ class _BookPaymentTabState extends State<BookPaymentTab> {
     super.initState();
     if (_customer != null) {
       _nameController.text = _customer?.name ?? '';
-      _phoneNumberController.text = _customer?.phoneNumber ?? '';
+      _phoneNumberController.text = _customer?.phone ?? '';
       _emailController.text = _customer?.email ?? '';
     }
   }
@@ -287,11 +287,11 @@ class _BookPaymentTabState extends State<BookPaymentTab> {
                           customer: Customer(
                             id: randDomNumber(10),
                             name: _tics[_currentIndex].name,
-                            phoneNumber: _tics[_currentIndex].phoneNumber,
+                            phone: _tics[_currentIndex].phoneNumber,
                             email: _tics[_currentIndex].emailAddress,
                             identifyNum: _tics[_currentIndex].phoneNumber,
                             gender: _tics[_currentIndex].gender,
-                            birthday: _tics[_currentIndex].dateBorn,
+                            birthday: _tics[_currentIndex].birthday,
                           ),
                         ),
                       ]

@@ -30,7 +30,7 @@ class ModelHelper {
         timeOfDayToInt(airport.closeTime),
       );
   static TicketModel ticConvert(Ticket tic) => TicketModel(
-        id: int.parse(tic.id),
+        id: tic.id,
         name: tic.name,
         gender: tic.gender,
         phoneNumber: tic.phoneNumber,
@@ -38,8 +38,8 @@ class ModelHelper {
         luggage: tic.luggage,
         seat: tic.seat,
         type: tic.type,
-        dateBorn: tic.dateBorn.millisecondsSinceEpoch,
-        timeBought: tic.timeBought.millisecondsSinceEpoch,
+        dateBorn: tic.birthday,
+        timeBought: tic.timeBought,
       );
 
   static FlightModel flightConvert(Flight flight) => FlightModel(
@@ -76,8 +76,8 @@ class ModelHelper {
         gender: customer.gender,
         creditCard: creditCardConvert(customer.creditCard),
         identifyNum: customer.identifyNum,
-        phoneNumber: customer.phoneNumber,
-        birthday: customer.birthday.millisecondsSinceEpoch,
+        phoneNumber: customer.phone,
+        birthday: customer.birthday,
       );
 
   static CreditCardModel creditCardConvert(CreditCard creditCard) {
@@ -108,25 +108,25 @@ class ModelHelper {
     airline: const Airline(id: -1, airlineName: 'Was deleted'),
   );
 
-  static Customer defaultCustomer = Customer(
+  static Customer defaultCustomer = const Customer(
     id: -1,
     name: 'Was deleted',
-    phoneNumber: '09328282448',
+    phone: '09328282448',
     email: 'hung@gmail.com',
     identifyNum: '928494',
     gender: 'Female',
-    birthday: DateTime.now(),
+    birthday: 0,
   );
 
   static PaymentModel paymentConverter(Payment payment) {
     return PaymentModel(
-      id: int.parse(payment.id),
-      createDate: payment.createDate,
+      id: payment.id,
+      createDate: payment.createdDate,
       total: payment.total,
       paymentStatus: payment.paymentStatus.name.toUpperCase(),
       paymentType: payment.paymentType.name.toUpperCase(),
       customer: customerConvert(payment.customer ?? defaultCustomer),
-      tickets: payment.tickets.map((e) => ticConvert(e)).toList(),
+      tickets: payment.ticket.map((e) => ticConvert(e)).toList(),
     );
   }
 }

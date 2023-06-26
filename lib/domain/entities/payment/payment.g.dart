@@ -7,8 +7,8 @@ part of 'payment.dart';
 // **************************************************************************
 
 _$_Payment _$$_PaymentFromJson(Map<String, dynamic> json) => _$_Payment(
-      id: json['id'] as String? ?? "",
-      createDate: json['createDate'] as int? ?? 0,
+      id: json['id'] as int? ?? -1,
+      createdDate: json['createdDate'] as int? ?? 0,
       paymentType:
           $enumDecodeNullable(_$PaymentTypeEnumMap, json['paymentType']) ??
               PaymentType.cash,
@@ -19,7 +19,7 @@ _$_Payment _$$_PaymentFromJson(Map<String, dynamic> json) => _$_Payment(
       customer: json['customer'] == null
           ? null
           : Customer.fromJson(json['customer'] as Map<String, dynamic>),
-      tickets: (json['tickets'] as List<dynamic>?)
+      ticket: (json['ticket'] as List<dynamic>?)
               ?.map((e) => Ticket.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
@@ -28,12 +28,12 @@ _$_Payment _$$_PaymentFromJson(Map<String, dynamic> json) => _$_Payment(
 Map<String, dynamic> _$$_PaymentToJson(_$_Payment instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'createDate': instance.createDate,
+      'createdDate': instance.createdDate,
       'paymentType': _$PaymentTypeEnumMap[instance.paymentType]!,
       'paymentStatus': _$PaymentStatusEnumMap[instance.paymentStatus]!,
       'total': instance.total,
       'customer': instance.customer,
-      'tickets': instance.tickets,
+      'ticket': instance.ticket,
     };
 
 const _$PaymentTypeEnumMap = {

@@ -42,9 +42,9 @@ class CustomerDetailScreen extends StatelessWidget {
             name: S.of(context).nameData(i),
             email: S.of(context).email,
             identifyNum: S.of(context).identityNum,
-            phoneNumber: S.of(context).phoneNumber,
+            phone: S.of(context).phoneNumber,
             gender: S.of(context).gender,
-            birthday: DateTime.now(),
+            birthday: DateTime.now().millisecondsSinceEpoch,
           ),
       ],
       rowBuilder: (data) {
@@ -102,9 +102,11 @@ class CustomerDetailScreen extends StatelessWidget {
               alignment: Alignment.center,
             ),
             FlexRowTableData<String>(flex: 3, data: data.identifyNum),
-            FlexRowTableData<String>(flex: 3, data: data.phoneNumber),
+            FlexRowTableData<String>(flex: 3, data: data.phone),
             FlexRowTableData<String>(
-                flex: 2, data: getYmdFormat(data.birthday)),
+                flex: 2,
+                data: getYmdFormat(
+                    DateTime.fromMillisecondsSinceEpoch(data.birthday))),
             FlexRowTableData(flex: 1),
           ],
         );

@@ -90,10 +90,10 @@ class _AddCustomerScreenState extends State<AddCustomerScreen> {
   void _setDataThrowCustomerGot(Customer customer) {
     _nameController.text = customer.name;
     _emailController.text = customer.email;
-    _phoneNumberController.text = customer.phoneNumber;
+    _phoneNumberController.text = customer.phone;
     _identityController.text = customer.identifyNum;
     _gender.value = customer.gender;
-    _dateBorn.value = customer.birthday;
+    _dateBorn.value = DateTime.fromMillisecondsSinceEpoch(customer.birthday);
   }
 
   void _listenStateChange(_, AddCustomerState state) {

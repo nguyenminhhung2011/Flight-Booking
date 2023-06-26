@@ -22,12 +22,11 @@ Customer _$CustomerFromJson(Map<String, dynamic> json) {
 mixin _$Customer {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get phoneNumber => throw _privateConstructorUsedError;
+  String get phone => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get identifyNum => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
-  @DateTimeConverter()
-  DateTime get birthday => throw _privateConstructorUsedError;
+  int get birthday => throw _privateConstructorUsedError;
   CreditCard get creditCard => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,11 +43,11 @@ abstract class $CustomerCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      String phoneNumber,
+      String phone,
       String email,
       String identifyNum,
       String gender,
-      @DateTimeConverter() DateTime birthday,
+      int birthday,
       CreditCard creditCard});
 
   $CreditCardCopyWith<$Res> get creditCard;
@@ -69,7 +68,7 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? phoneNumber = null,
+    Object? phone = null,
     Object? email = null,
     Object? identifyNum = null,
     Object? gender = null,
@@ -85,9 +84,9 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      phoneNumber: null == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -104,7 +103,7 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
       birthday: null == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
       creditCard: null == creditCard
           ? _value.creditCard
           : creditCard // ignore: cast_nullable_to_non_nullable
@@ -131,11 +130,11 @@ abstract class _$$_CustomerCopyWith<$Res> implements $CustomerCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      String phoneNumber,
+      String phone,
       String email,
       String identifyNum,
       String gender,
-      @DateTimeConverter() DateTime birthday,
+      int birthday,
       CreditCard creditCard});
 
   @override
@@ -155,7 +154,7 @@ class __$$_CustomerCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? phoneNumber = null,
+    Object? phone = null,
     Object? email = null,
     Object? identifyNum = null,
     Object? gender = null,
@@ -171,9 +170,9 @@ class __$$_CustomerCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      phoneNumber: null == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -190,7 +189,7 @@ class __$$_CustomerCopyWithImpl<$Res>
       birthday: null == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
       creditCard: null == creditCard
           ? _value.creditCard
           : creditCard // ignore: cast_nullable_to_non_nullable
@@ -205,11 +204,11 @@ class _$_Customer implements _Customer {
   const _$_Customer(
       {required this.id,
       required this.name,
-      required this.phoneNumber,
+      required this.phone,
       required this.email,
       required this.identifyNum,
       required this.gender,
-      @DateTimeConverter() required this.birthday,
+      required this.birthday,
       this.creditCard = const CreditCard()});
 
   factory _$_Customer.fromJson(Map<String, dynamic> json) =>
@@ -220,7 +219,7 @@ class _$_Customer implements _Customer {
   @override
   final String name;
   @override
-  final String phoneNumber;
+  final String phone;
   @override
   final String email;
   @override
@@ -228,15 +227,14 @@ class _$_Customer implements _Customer {
   @override
   final String gender;
   @override
-  @DateTimeConverter()
-  final DateTime birthday;
+  final int birthday;
   @override
   @JsonKey()
   final CreditCard creditCard;
 
   @override
   String toString() {
-    return 'Customer(id: $id, name: $name, phoneNumber: $phoneNumber, email: $email, identifyNum: $identifyNum, gender: $gender, birthday: $birthday, creditCard: $creditCard)';
+    return 'Customer(id: $id, name: $name, phone: $phone, email: $email, identifyNum: $identifyNum, gender: $gender, birthday: $birthday, creditCard: $creditCard)';
   }
 
   @override
@@ -246,8 +244,7 @@ class _$_Customer implements _Customer {
             other is _$_Customer &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.identifyNum, identifyNum) ||
                 other.identifyNum == identifyNum) &&
@@ -260,7 +257,7 @@ class _$_Customer implements _Customer {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, phoneNumber, email,
+  int get hashCode => Object.hash(runtimeType, id, name, phone, email,
       identifyNum, gender, birthday, creditCard);
 
   @JsonKey(ignore: true)
@@ -281,11 +278,11 @@ abstract class _Customer implements Customer {
   const factory _Customer(
       {required final int id,
       required final String name,
-      required final String phoneNumber,
+      required final String phone,
       required final String email,
       required final String identifyNum,
       required final String gender,
-      @DateTimeConverter() required final DateTime birthday,
+      required final int birthday,
       final CreditCard creditCard}) = _$_Customer;
 
   factory _Customer.fromJson(Map<String, dynamic> json) = _$_Customer.fromJson;
@@ -295,7 +292,7 @@ abstract class _Customer implements Customer {
   @override
   String get name;
   @override
-  String get phoneNumber;
+  String get phone;
   @override
   String get email;
   @override
@@ -303,8 +300,7 @@ abstract class _Customer implements Customer {
   @override
   String get gender;
   @override
-  @DateTimeConverter()
-  DateTime get birthday;
+  int get birthday;
   @override
   CreditCard get creditCard;
   @override

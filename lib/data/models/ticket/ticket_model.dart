@@ -26,7 +26,10 @@ class TicketModel {
   @JsonKey(name: 'seat')
   late int seat;
 
-  @JsonKey(name: "ticketType")
+  @JsonKey(name: 'price')
+  late double price;
+
+  @JsonKey(name: "type")
   late int type;
 
   @JsonKey(name: 'birthday')
@@ -54,15 +57,16 @@ class TicketModel {
       _$TicketModelFromJson(json);
 
   Ticket get toEntity => Ticket(
-        id: id.toString(),
+        id: id,
         name: name,
         gender: gender,
         phoneNumber: phoneNumber,
         emailAddress: emailAddress,
         luggage: luggage,
-        dateBorn: DateTime.fromMillisecondsSinceEpoch(dateBorn),
+        birthday: dateBorn,
+        price: price,
         type: type,
-        timeBought: DateTime.fromMillisecondsSinceEpoch(timeBought),
+        timeBought: timeBought,
         seat: seat,
       );
 }

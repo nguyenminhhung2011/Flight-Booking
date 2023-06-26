@@ -103,11 +103,11 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
       builder: (context, state) {
         customerNameController.text = state.payment.customer?.name ?? "";
         customerEmailController.text = state.payment.customer?.email ?? "";
-        customerPhoneController.text =
-            state.payment.customer?.phoneNumber ?? "";
-        customerDobController.text = DateFormat()
-            .add_yMd()
-            .format(state.payment.customer?.birthday ?? DateTime.now());
+        customerPhoneController.text = state.payment.customer?.phone ?? "";
+        customerDobController.text = DateFormat().add_yMd().format(
+            DateTime.fromMillisecondsSinceEpoch(
+                state.payment.customer?.birthday ??
+                    DateTime.now().millisecondsSinceEpoch));
 
         creditNumController.text =
             state.payment.customer?.creditCard.creditNum ?? "";
@@ -194,12 +194,12 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                                       .text,
                                                   name: customerNameController
                                                       .text,
-                                                  phoneNumber:
-                                                      customerPhoneController
-                                                          .text,
+                                                  phone: customerPhoneController
+                                                      .text,
                                                   birthday: DateTime.parse(
-                                                      customerDobController
-                                                          .text),
+                                                          customerDobController
+                                                              .text)
+                                                      .millisecondsSinceEpoch,
                                                 ),
                                               ),
                                             );
@@ -313,7 +313,7 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                   marginTop: 10.0,
                                   spacingItem: 15.0,
                                   marginBottom: 0.0,
-                                  categories: state.payment.tickets
+                                  categories: state.payment.ticket
                                       .map((ticket) => ticket.name)
                                       .mapIndexed(
                                         (index, e) => CategoryStyle(
@@ -347,19 +347,19 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                 child: PageView(
                                   controller: pageController,
                                   physics: const NeverScrollableScrollPhysics(),
-                                  children: state.payment.tickets
+                                  children: state.payment.ticket
                                       .map(
                                         (ticket) => CustomerInformationField(
                                           isBorder: true,
                                           customer: Customer(
                                             creditCard: const CreditCard(),
-                                            id: int.parse(ticket.id),
+                                            id: (ticket.id),
                                             name: ticket.name,
-                                            phoneNumber: ticket.phoneNumber,
+                                            phone: ticket.phoneNumber,
                                             email: ticket.emailAddress,
                                             identifyNum: "123412341234",
                                             gender: ticket.gender,
-                                            birthday: ticket.dateBorn,
+                                            birthday: ticket.birthday,
                                           ),
                                         ),
                                       )

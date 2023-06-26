@@ -1,5 +1,4 @@
 import 'package:flight_booking/data/datasource/remote/payment/payment_api.dart';
-import 'package:flight_booking/data/models/payment/payment_model.dart';
 import 'package:flight_booking/data/models/payment/payment_success_response.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/domain/entities/payment/payment_item.dart';

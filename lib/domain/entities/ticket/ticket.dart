@@ -1,3 +1,4 @@
+import 'package:flight_booking/domain/entities/customer/customer.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'ticket.freezed.dart';
 part 'ticket.g.dart';
@@ -5,7 +6,7 @@ part 'ticket.g.dart';
 @freezed
 class Ticket with _$Ticket {
   const factory Ticket({
-    required String id,
+    required int id,
     required String name,
     required String gender,
     required String phoneNumber,
@@ -13,8 +14,9 @@ class Ticket with _$Ticket {
     required int seat,
     required int type,
     required double luggage,
-    required DateTime dateBorn,
-    required DateTime timeBought,
+    required int birthday,
+    required int timeBought,
+    required double price,
   }) = _Ticket;
 
   factory Ticket.fromJson(Map<String, dynamic> json) => _$TicketFromJson(json);

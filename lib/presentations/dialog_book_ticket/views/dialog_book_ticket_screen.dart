@@ -109,7 +109,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
   void _onEditTic() {
     _bloc.add(BTEvent.editTic(
         tic: Ticket(
-      id: _currentTicId,
+      id: int.parse(_currentTicId),
       name: _nameController.text,
       gender: _gender.value,
       phoneNumber: _phoneNumberController.text,
@@ -117,8 +117,9 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
       seat: _currentSeat?.seatIndex ?? 0,
       type: _currentSeat?.ticInformation.id.ticketType ?? 0,
       luggage: _luggage.value,
-      dateBorn: _dateBorn.value,
-      timeBought: DateTime.now(),
+      price: 0,
+      birthday: _dateBorn.value.millisecondsSinceEpoch,
+      timeBought: DateTime.now().millisecondsSinceEpoch,
     )));
   }
 
@@ -184,7 +185,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
     _gender.value = tic.gender;
     _phoneNumberController.text = tic.phoneNumber;
     _identityController.text = '949593995';
-    _dateBorn.value = tic.dateBorn;
+    _dateBorn.value = DateTime.fromMillisecondsSinceEpoch(tic.birthday);
     _luggage.value = tic.luggage;
   }
 
@@ -377,7 +378,8 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
                               if (e.emailAddress.isNotEmpty) e.emailAddress,
                               if (e.phoneNumber.isNotEmpty) e.phoneNumber,
                               e.gender,
-                              getYmdFormat(e.dateBorn)
+                              getYmdFormat(DateTime.fromMillisecondsSinceEpoch(
+                                  e.birthday))
                             ]
                                 .map(
                                   (text) => Row(
