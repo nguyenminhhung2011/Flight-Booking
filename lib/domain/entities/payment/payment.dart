@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../ticket/ticket.dart';
 part 'payment.freezed.dart';
+part 'payment.g.dart';
 
 @freezed
 class Payment with _$Payment {
@@ -17,4 +18,9 @@ class Payment with _$Payment {
     @Default(null) Customer? customer,
     @Default([]) List<Ticket> tickets,
   }) = _Payment;
+
+  const Payment._();
+
+  factory Payment.fromJson(Map<String, dynamic> json) =>
+      _$PaymentFromJson(json);
 }

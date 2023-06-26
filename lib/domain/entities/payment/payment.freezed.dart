@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Payment _$PaymentFromJson(Map<String, dynamic> json) {
+  return _Payment.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Payment {
   String get id => throw _privateConstructorUsedError;
@@ -24,6 +28,7 @@ mixin _$Payment {
   Customer? get customer => throw _privateConstructorUsedError;
   List<Ticket> get tickets => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PaymentCopyWith<Payment> get copyWith => throw _privateConstructorUsedError;
 }
@@ -183,8 +188,8 @@ class __$$_PaymentCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$_Payment implements _Payment {
+@JsonSerializable()
+class _$_Payment extends _Payment {
   const _$_Payment(
       {this.id = "",
       this.createDate = 0,
@@ -193,7 +198,11 @@ class _$_Payment implements _Payment {
       this.total = 0,
       this.customer = null,
       final List<Ticket> tickets = const []})
-      : _tickets = tickets;
+      : _tickets = tickets,
+        super._();
+
+  factory _$_Payment.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentFromJson(json);
 
   @override
   @JsonKey()
@@ -245,6 +254,7 @@ class _$_Payment implements _Payment {
             const DeepCollectionEquality().equals(other._tickets, _tickets));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -261,9 +271,16 @@ class _$_Payment implements _Payment {
   @pragma('vm:prefer-inline')
   _$$_PaymentCopyWith<_$_Payment> get copyWith =>
       __$$_PaymentCopyWithImpl<_$_Payment>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PaymentToJson(
+      this,
+    );
+  }
 }
 
-abstract class _Payment implements Payment {
+abstract class _Payment extends Payment {
   const factory _Payment(
       {final String id,
       final int createDate,
@@ -272,6 +289,9 @@ abstract class _Payment implements Payment {
       final double total,
       final Customer? customer,
       final List<Ticket> tickets}) = _$_Payment;
+  const _Payment._() : super._();
+
+  factory _Payment.fromJson(Map<String, dynamic> json) = _$_Payment.fromJson;
 
   @override
   String get id;

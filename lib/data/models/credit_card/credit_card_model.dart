@@ -8,16 +8,16 @@ class CreditCardModel {
   @JsonKey(name: 'id')
   final int id;
 
-  @JsonKey(name: 'credit_num')
+  @JsonKey(name: 'creditNum')
   final String creditNum;
 
-  @JsonKey(name: 'expired_date')
+  @JsonKey(name: 'expiredDate')
   final int expiredDate;
 
   @JsonKey(name: 'cvc')
   final String cvc;
 
-  @JsonKey(name: 'name_card')
+  @JsonKey(name: 'nameCard')
   final String nameCard;
 
   CreditCardModel({
@@ -36,7 +36,7 @@ class CreditCardModel {
   CreditCard get toEntity => CreditCard(
         id: id,
         creditNum: creditNum,
-        expiredDate: DateTime.fromMillisecondsSinceEpoch(expiredDate),
+        expiredDate: expiredDate,
         cvc: cvc,
         nameCard: nameCard,
       );

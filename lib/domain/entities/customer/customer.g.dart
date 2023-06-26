@@ -1,34 +1,32 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'customer_model.dart';
+part of 'customer.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CustomerModel _$CustomerModelFromJson(Map<String, dynamic> json) =>
-    CustomerModel(
+_$_Customer _$$_CustomerFromJson(Map<String, dynamic> json) => _$_Customer(
       id: json['id'] as int,
       name: json['name'] as String,
-      identifyNum: json['identifyNum'] as String,
-      phoneNumber: json['phone'] as String,
+      phoneNumber: json['phoneNumber'] as String,
       email: json['email'] as String,
+      identifyNum: json['identifyNum'] as String,
       gender: json['gender'] as String,
-      birthday: json['birthday'] as int,
+      birthday: const DateTimeConverter().fromJson(json['birthday'] as int),
       creditCard: json['creditCard'] == null
-          ? null
-          : CreditCardModel.fromJson(
-              json['creditCard'] as Map<String, dynamic>),
+          ? const CreditCard()
+          : CreditCard.fromJson(json['creditCard'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$CustomerModelToJson(CustomerModel instance) =>
+Map<String, dynamic> _$$_CustomerToJson(_$_Customer instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'identifyNum': instance.identifyNum,
-      'phone': instance.phoneNumber,
+      'phoneNumber': instance.phoneNumber,
       'email': instance.email,
+      'identifyNum': instance.identifyNum,
       'gender': instance.gender,
-      'birthday': instance.birthday,
+      'birthday': const DateTimeConverter().toJson(instance.birthday),
       'creditCard': instance.creditCard,
     };

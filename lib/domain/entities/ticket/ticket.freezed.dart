@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Ticket _$TicketFromJson(Map<String, dynamic> json) {
+  return _Ticket.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Ticket {
   String get id => throw _privateConstructorUsedError;
@@ -27,6 +31,7 @@ mixin _$Ticket {
   DateTime get dateBorn => throw _privateConstructorUsedError;
   DateTime get timeBought => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TicketCopyWith<Ticket> get copyWith => throw _privateConstructorUsedError;
 }
@@ -204,7 +209,7 @@ class __$$_TicketCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Ticket implements _Ticket {
   const _$_Ticket(
       {required this.id,
@@ -217,6 +222,9 @@ class _$_Ticket implements _Ticket {
       required this.luggage,
       required this.dateBorn,
       required this.timeBought});
+
+  factory _$_Ticket.fromJson(Map<String, dynamic> json) =>
+      _$$_TicketFromJson(json);
 
   @override
   final String id;
@@ -265,6 +273,7 @@ class _$_Ticket implements _Ticket {
                 other.timeBought == timeBought));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, gender, phoneNumber,
       emailAddress, seat, type, luggage, dateBorn, timeBought);
@@ -274,6 +283,13 @@ class _$_Ticket implements _Ticket {
   @pragma('vm:prefer-inline')
   _$$_TicketCopyWith<_$_Ticket> get copyWith =>
       __$$_TicketCopyWithImpl<_$_Ticket>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TicketToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Ticket implements Ticket {
@@ -288,6 +304,8 @@ abstract class _Ticket implements Ticket {
       required final double luggage,
       required final DateTime dateBorn,
       required final DateTime timeBought}) = _$_Ticket;
+
+  factory _Ticket.fromJson(Map<String, dynamic> json) = _$_Ticket.fromJson;
 
   @override
   String get id;

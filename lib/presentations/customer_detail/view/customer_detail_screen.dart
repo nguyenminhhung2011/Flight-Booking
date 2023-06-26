@@ -1,21 +1,14 @@
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flight_booking/core/components/widgets/card_custom.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
-import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:flight_booking/presentations/customer/views/widgets/customer_detail_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_timeline/flutter_timeline.dart';
 import 'package:intl/intl.dart';
-import '../../../../core/components/widgets/flux_table/flux_table_row.dart';
-import '../../../../core/components/widgets/flux_table/flux_ticket_table.dart';
-import '../../../../core/constant/constant.dart';
-import '../../../../core/constant/handle_time.dart';
-import '../../../../data/models/model_helper.dart';
-import '../../../../domain/entities/customer/customer.dart';
-import '../../../../domain/entities/ticket/ticket.dart';
-import '../../../../domain/entities/ticket/ticket_information.dart';
-import '../../../../domain/entities/ticket/ticket_information_id.dart';
-import '../../../../generated/l10n.dart';
+import '../../../core/components/widgets/flux_table/flux_table_row.dart';
+import '../../../core/components/widgets/flux_table/flux_ticket_table.dart';
+import '../../../core/constant/handle_time.dart';
+import '../../../domain/entities/customer/customer.dart';
+import '../../../generated/l10n.dart';
 
 class CustomerDetailScreen extends StatelessWidget {
   Widget _buildFlightHistoryTable(BuildContext context) {
@@ -46,7 +39,6 @@ class CustomerDetailScreen extends StatelessWidget {
         for (int i = 0; i < 50; i++)
           Customer(
             id: i,
-            creditCard: const CreditCard(),
             name: S.of(context).nameData(i),
             email: S.of(context).email,
             identifyNum: S.of(context).identityNum,
@@ -148,8 +140,7 @@ class CustomerDetailScreen extends StatelessWidget {
                         children: [
                           Expanded(
                             child: CustomerInformationCard(
-                              customer: Customer.empty,
-                            ),
+                                customer: Customer.empty),
                           ),
                           const SizedBox(width: 5),
                           const Expanded(
@@ -157,7 +148,7 @@ class CustomerDetailScreen extends StatelessWidget {
                           ),
                           const SizedBox(width: 5),
                           const Expanded(
-                            child: CardCustom(child: CustomerAirlinePieChart()),
+                            child: CustomerAirlinePieChart(),
                           ),
                         ],
                       ),
@@ -181,34 +172,9 @@ class CustomerDetailScreen extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: CustomerTicketInformationCard(
-                        customer: ModelHelper.defaultCustomer,
-                        ticInformation: {
-                          1: TicketInformation(
-                            id: TicketInformationId(
-                              ticketType: 1,
-                              flight: ModelHelper.defaultFlight,
-                            ),
-                            quantity: 10,
-                            price: 100.0,
-                            seatPosition: 1,
-                            seatHeader: 'A',
-                          )
-                        },
-                        listTics: [
-                          for (int i = 0; i < 5; i++)
-                            Ticket(
-                              id: randomString(),
-                              name: 'Hung',
-                              gender: 'Male',
-                              phoneNumber: '09429242',
-                              emailAddress: 'hung@gmail.com',
-                              seat: 10,
-                              type: 1,
-                              luggage: 10.0,
-                              dateBorn: DateTime.now(),
-                              timeBought: DateTime.now(),
-                            )
-                        ],
+                        customer: Customer.empty,
+                        listTics: [],
+                        ticInformation: {},
                       ),
                     ),
                   ],
@@ -305,89 +271,95 @@ class _CustomerAirlinePieChartState extends State<CustomerAirlinePieChart> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10),
-      child: Row(
-        children: [
-          Expanded(
-            flex: 2,
-            child: PieChart(
-              PieChartData(
-                borderData: FlBorderData(show: false),
-                sectionsSpace: 0,
-                centerSpaceRadius: 0,
-                pieTouchData: PieTouchData(
-                  touchCallback: (FlTouchEvent event, pieTouchResponse) {
-                    setState(() {
-                      if (!event.isInterestedForInteractions ||
-                          pieTouchResponse == null ||
-                          pieTouchResponse.touchedSection == null) {
-                        _touchIndex = -1;
-                        return;
-                      }
-                      _touchIndex =
-                          pieTouchResponse.touchedSection!.touchedSectionIndex;
-                    });
-                  },
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: const BorderSide(color: Colors.blueGrey, width: 0.2),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(right: 10),
+        child: Row(
+          children: [
+            Expanded(
+              flex: 2,
+              child: PieChart(
+                PieChartData(
+                  borderData: FlBorderData(show: false),
+                  sectionsSpace: 0,
+                  centerSpaceRadius: 0,
+                  pieTouchData: PieTouchData(
+                    touchCallback: (FlTouchEvent event, pieTouchResponse) {
+                      setState(() {
+                        if (!event.isInterestedForInteractions ||
+                            pieTouchResponse == null ||
+                            pieTouchResponse.touchedSection == null) {
+                          _touchIndex = -1;
+                          return;
+                        }
+                        _touchIndex = pieTouchResponse
+                            .touchedSection!.touchedSectionIndex;
+                      });
+                    },
+                  ),
+                  sections: showingSections(),
                 ),
-                sections: showingSections(),
               ),
             ),
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(height: 20, width: 20, color: Colors.green),
-                      Text(
-                        "Some Text",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 5),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(height: 20, width: 20, color: Colors.green),
-                      Text(
-                        "Some Text",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 5),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(height: 20, width: 20, color: Colors.green),
-                      Text(
-                        "Some Text",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ],
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(height: 20, width: 20, color: Colors.green),
+                        Text(
+                          "Some Text",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(height: 20, width: 20, color: Colors.green),
+                        Text(
+                          "Some Text",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(height: 20, width: 20, color: Colors.green),
+                        Text(
+                          "Some Text",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

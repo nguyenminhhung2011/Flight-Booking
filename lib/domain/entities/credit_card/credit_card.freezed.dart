@@ -14,14 +14,19 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+CreditCard _$CreditCardFromJson(Map<String, dynamic> json) {
+  return _CreditCard.fromJson(json);
+}
+
 /// @nodoc
 mixin _$CreditCard {
   int get id => throw _privateConstructorUsedError;
   String get creditNum => throw _privateConstructorUsedError;
-  DateTime get expiredDate => throw _privateConstructorUsedError;
+  int get expiredDate => throw _privateConstructorUsedError;
   String get cvc => throw _privateConstructorUsedError;
   String get nameCard => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CreditCardCopyWith<CreditCard> get copyWith =>
       throw _privateConstructorUsedError;
@@ -34,11 +39,7 @@ abstract class $CreditCardCopyWith<$Res> {
       _$CreditCardCopyWithImpl<$Res, CreditCard>;
   @useResult
   $Res call(
-      {int id,
-      String creditNum,
-      DateTime expiredDate,
-      String cvc,
-      String nameCard});
+      {int id, String creditNum, int expiredDate, String cvc, String nameCard});
 }
 
 /// @nodoc
@@ -72,7 +73,7 @@ class _$CreditCardCopyWithImpl<$Res, $Val extends CreditCard>
       expiredDate: null == expiredDate
           ? _value.expiredDate
           : expiredDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
       cvc: null == cvc
           ? _value.cvc
           : cvc // ignore: cast_nullable_to_non_nullable
@@ -94,11 +95,7 @@ abstract class _$$_CreditCardCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
-      String creditNum,
-      DateTime expiredDate,
-      String cvc,
-      String nameCard});
+      {int id, String creditNum, int expiredDate, String cvc, String nameCard});
 }
 
 /// @nodoc
@@ -130,7 +127,7 @@ class __$$_CreditCardCopyWithImpl<$Res>
       expiredDate: null == expiredDate
           ? _value.expiredDate
           : expiredDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
       cvc: null == cvc
           ? _value.cvc
           : cvc // ignore: cast_nullable_to_non_nullable
@@ -144,7 +141,7 @@ class __$$_CreditCardCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_CreditCard implements _CreditCard {
   const _$_CreditCard(
       {this.id = 0,
@@ -152,6 +149,9 @@ class _$_CreditCard implements _CreditCard {
       this.expiredDate = 0,
       this.cvc = "",
       this.nameCard = ""});
+
+  factory _$_CreditCard.fromJson(Map<String, dynamic> json) =>
+      _$$_CreditCardFromJson(json);
 
   @override
   @JsonKey()
@@ -161,7 +161,7 @@ class _$_CreditCard implements _CreditCard {
   final String creditNum;
   @override
   @JsonKey()
-  final DateTime expiredDate;
+  final int expiredDate;
   @override
   @JsonKey()
   final String cvc;
@@ -189,6 +189,7 @@ class _$_CreditCard implements _CreditCard {
                 other.nameCard == nameCard));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, id, creditNum, expiredDate, cvc, nameCard);
@@ -198,22 +199,32 @@ class _$_CreditCard implements _CreditCard {
   @pragma('vm:prefer-inline')
   _$$_CreditCardCopyWith<_$_CreditCard> get copyWith =>
       __$$_CreditCardCopyWithImpl<_$_CreditCard>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CreditCardToJson(
+      this,
+    );
+  }
 }
 
 abstract class _CreditCard implements CreditCard {
   const factory _CreditCard(
       {final int id,
       final String creditNum,
-      final DateTime expiredDate,
+      final int expiredDate,
       final String cvc,
       final String nameCard}) = _$_CreditCard;
+
+  factory _CreditCard.fromJson(Map<String, dynamic> json) =
+      _$_CreditCard.fromJson;
 
   @override
   int get id;
   @override
   String get creditNum;
   @override
-  DateTime get expiredDate;
+  int get expiredDate;
   @override
   String get cvc;
   @override

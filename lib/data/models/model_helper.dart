@@ -1,19 +1,23 @@
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/data/models/airport/airport_model.dart';
+import 'package:flight_booking/data/models/credit_card/credit_card_model.dart';
 import 'package:flight_booking/data/models/ticket/ticket_information_model.dart';
 import 'package:flight_booking/data/models/ticket/ticket_information_model_id.dart';
 import 'package:flight_booking/data/models/ticket/ticket_model.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
+import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/airline/airline.dart';
+import '../../domain/entities/credit_card/credit_card.dart';
 import '../../domain/entities/customer/customer.dart';
 import '../../domain/entities/flight/flight.dart';
 import '../../domain/entities/ticket/ticket_information.dart';
 import 'airline/airline_model.dart';
 import 'customer/customer_model.dart';
 import 'flight/flight_model.dart';
+import 'payment/payment_model.dart';
 
 class ModelHelper {
   static AirportModel airportConvert(Airport airport) => AirportModel(
@@ -68,13 +72,23 @@ class ModelHelper {
   static CustomerModel customerConvert(Customer customer) => CustomerModel(
         id: customer.id,
         name: customer.name,
-        identifyNum: customer.identifyNum,
-        phoneNumber: customer.phoneNumber,
         email: customer.email,
         gender: customer.gender,
+        creditCard: creditCardConvert(customer.creditCard),
+        identifyNum: customer.identifyNum,
+        phoneNumber: customer.phoneNumber,
         birthday: customer.birthday.millisecondsSinceEpoch,
-        // creditCard: customer
       );
+
+  static CreditCardModel creditCardConvert(CreditCard creditCard) {
+    return CreditCardModel(
+      id: creditCard.id,
+      creditNum: creditCard.creditNum,
+      expiredDate: creditCard.expiredDate,
+      cvc: creditCard.cvc,
+      nameCard: creditCard.nameCard,
+    );
+  }
 
   static Airport defaultAirport = Airport(
       id: -1,
@@ -103,4 +117,16 @@ class ModelHelper {
     gender: 'Female',
     birthday: DateTime.now(),
   );
+
+  static PaymentModel paymentConverter(Payment payment) {
+    return PaymentModel(
+      id: int.parse(payment.id),
+      createDate: payment.createDate,
+      total: payment.total,
+      paymentStatus: payment.paymentStatus.name.toUpperCase(),
+      paymentType: payment.paymentType.name.toUpperCase(),
+      customer: customerConvert(payment.customer ?? defaultCustomer),
+      tickets: payment.tickets.map((e) => ticConvert(e)).toList(),
+    );
+  }
 }
