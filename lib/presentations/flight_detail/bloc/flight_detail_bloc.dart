@@ -11,6 +11,7 @@ import '../../../core/components/network/app_exception.dart';
 import '../../../domain/entities/customer/customer.dart';
 import '../../../domain/entities/seat_selected/seat_selected.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
+import '../../../domain/usecase/ticket_usecase.dart';
 import 'flight_detail_model_state.dart';
 
 part 'flight_detail_event.dart';
@@ -22,10 +23,12 @@ part 'flight_detail_bloc.freezed.dart';
 class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
   final int _flightId;
   final FlightsUsecase _flightsUnease;
+  final TicketUsecase _ticUsecase;
   final TicketInformationUsecase _ticketInformationUsecase;
   FlightDetailBloc(
     @factoryParam int flightId,
     this._flightsUnease,
+    this._ticUsecase,
     this._ticketInformationUsecase,
   )   : _flightId = flightId,
         super(
@@ -34,8 +37,9 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
               animation: 1000.0,
               itemView: ItemViewEnum.gridView,
               showMoreInfor: false,
-              ticInformation: <TicketInformation>[],
+              ticInformation: {},
               chairsSelected: <SeatSelected>[],
+              tics: [],
             ),
           ),
         ) {
@@ -46,6 +50,7 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
     on<_GetTicInformation>(_onGetTicInformation);
     on<_SelectedSeat>(_onSelectedSeat);
     on<_UpdateCustomerSelected>(_onUpdateCustomer);
+    on<_GetTicsByFlightId>(_onGetAllTicsByFlight);
   }
 
   FlightDetailModelState get data => state.data;
@@ -108,9 +113,13 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
   ) async {
     emit(FlightDetailState.loading(data: data, loadingField: 1));
     try {
-      final result =
+      final response =
           await _ticketInformationUsecase.getTicketByFlight(_flightId);
-      result.sort((a, b) => a.seatPosition.compareTo(b.seatPosition));
+      Map<int, TicketInformation> result = {};
+      response.sort((a, b) => a.seatPosition.compareTo(b.seatPosition));
+      for (var element in response) {
+        result[element.id.ticketType] = element;
+      }
       emit(FlightDetailState.getTicInformationSuccess(
           data: data.copyWith(
         ticInformation: result,
@@ -132,6 +141,23 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
     _SelectedSeat event,
     Emitter<FlightDetailState> emit,
   ) {}
+
+  FutureOr<void> _onGetAllTicsByFlight(
+    _GetTicsByFlightId event,
+    Emitter<FlightDetailState> emit,
+  ) async {
+    emit(_Loading(data: data, loadingField: 1));
+    try {
+      final response = await _ticUsecase.getByFlightId(flightId: _flightId);
+      emit(_GetTicsByFlightIdSuccess(
+        data: data.copyWith(tics: response),
+      ));
+    } on AppException catch (e) {
+      emit(_GetTicsByFlightIdFailed(data: data, message: e.toString()));
+    } catch (e) {
+      emit(_GetTicsByFlightIdFailed(data: data, message: e.toString()));
+    }
+  }
 
   FutureOr<void> _onUpdateCustomer(
     _UpdateCustomerSelected event,

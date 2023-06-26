@@ -91,4 +91,16 @@ class TicketRepositoryImpl extends TicketRepository {
     }
     return response.data?.toEntity;
   }
+
+  @override
+  Future<List<Ticket>?> getByFlightId({required int flightId}) async {
+    final response = await _ticketApi.getByFlightId(flightId: flightId);
+    if (response.response.statusCode != HttpStatus.ok) {
+      throw AppException(
+        message: response.response.statusMessage ?? 'Failed',
+        code: response.response.statusCode,
+      );
+    }
+    return response.data?.map((e) => e.toEntity).toList();
+  }
 }

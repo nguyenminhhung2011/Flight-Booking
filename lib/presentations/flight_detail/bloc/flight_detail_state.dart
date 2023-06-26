@@ -28,6 +28,15 @@ class FlightDetailState with _$FlightDetailState {
     required String message,
   }) = _GetTicInformationFailed;
 
+  const factory FlightDetailState.getTicsByFlightIdSuccess({
+    required FlightDetailModelState data,
+  }) = _GetTicsByFlightIdSuccess;
+
+  const factory FlightDetailState.getTicsByFlightIdFailed({
+    required FlightDetailModelState data,
+    required String message,
+  }) = _GetTicsByFlightIdFailed;
+
   const factory FlightDetailState.selectedSeatSuccess({
     required FlightDetailModelState data,
   }) = _SelectedSeatSuccess;

@@ -178,6 +178,7 @@ _i1.GetIt init(
       _i43.FlightDetailBloc(
         flightId,
         gh<_i12.FlightsUsecase>(),
+        gh<_i28.TicketUsecase>(),
         gh<_i25.TicketInformationUsecase>(),
       ));
   gh.factoryParam<_i44.HandleConfigAirportBloc, int, dynamic>((
