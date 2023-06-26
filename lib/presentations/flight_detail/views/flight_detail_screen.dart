@@ -4,6 +4,7 @@ import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
+import 'package:flight_booking/core/components/widgets/extension/interger_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/string_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
@@ -301,28 +302,20 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(width: 20.0),
-          TicColumn(
-            color: Colors.blue,
-            header: S.of(context).economyClass,
-            count: 10,
-          ),
-          TicColumn(
-            color: Colors.red,
-            header: S.of(context).premiumEconomyClass,
-            count: 10,
-          ),
-          TicColumn(
-            color: Colors.yellow,
-            header: S.of(context).businessClass,
-            count: 10,
-          ),
-          TicColumn(
-            color: Colors.green,
-            header: S.of(context).premiumEconomyClass,
-            count: 10,
-          ),
+          ..._ticInformation.entries.map<Widget>((e) {
+            final ticType = e.value.id.ticketType.ticClass;
+            return TicColumn(
+              ticInformation: e.value,
+              tics: _listTic
+                  .where((element) => element.type == e.value.id.ticketType)
+                  .toList(),
+              header: ticType.displayValue,
+              color: ticType.colorType ?? Theme.of(context).primaryColor,
+            );
+          })
         ].expand((element) => [element, const SizedBox(width: 10.0)]).toList(),
       ),
     );

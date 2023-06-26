@@ -1,14 +1,21 @@
+import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../domain/entities/ticket/ticket.dart';
+import '../../../../domain/entities/ticket/ticket_information.dart';
 import '../../../../generated/l10n.dart';
 import '../../../list_flight/views/widgets/dot_custom.dart';
 
 class TicItem extends StatelessWidget {
+  final Ticket tic;
   final double? width;
+  final TicketInformation ticInformation;
   const TicItem({
     super.key,
     this.width,
+    required this.tic,
+    required this.ticInformation,
   });
 
   @override
@@ -32,7 +39,7 @@ class TicItem extends StatelessWidget {
           Row(
             children: [
               Text(
-                'DA-4301',
+                'Flight${ticInformation.id.flight.id}-${tic.id}',
                 style: Theme.of(context)
                     .textTheme
                     .titleSmall!
@@ -40,7 +47,7 @@ class TicItem extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                'B10',
+                '${ticInformation.seatHeader}${tic.seat}',
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).primaryColor,
@@ -49,7 +56,7 @@ class TicItem extends StatelessWidget {
             ],
           ),
           Text(
-            'Nguyen Minh Hung',
+            tic.name,
             style: Theme.of(context)
                 .textTheme
                 .titleMedium!
@@ -58,9 +65,9 @@ class TicItem extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _Fie(context, '20/11/2002'),
+              _Fie(context, getYmdFormat(tic.dateBorn)),
               const SizedBox(width: 5.0),
-              _Fie(context, '2 ${S.of(context).luggage}'),
+              _Fie(context, '${tic.luggage} ${S.of(context).luggage}'),
             ],
           ),
         ].expand((element) => [element, const SizedBox(height: 5.0)]).toList()
