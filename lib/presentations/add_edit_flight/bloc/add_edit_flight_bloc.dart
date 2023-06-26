@@ -14,7 +14,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../core/components/enum/tic_type_enum.dart';
 import '../../../core/constant/constant.dart';
-import '../../../data/models/model_heloer.dart';
+import '../../../data/models/model_helper.dart';
 import '../../../domain/entities/airport/airport.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../domain/entities/ticket/ticket_information_id.dart';

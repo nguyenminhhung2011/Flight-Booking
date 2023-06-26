@@ -14,16 +14,21 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Payment _$PaymentFromJson(Map<String, dynamic> json) {
+  return _Payment.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Payment {
-  String get id => throw _privateConstructorUsedError;
-  int get createDate => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  int get createdDate => throw _privateConstructorUsedError;
   PaymentType get paymentType => throw _privateConstructorUsedError;
   PaymentStatus get paymentStatus => throw _privateConstructorUsedError;
   double get total => throw _privateConstructorUsedError;
   Customer? get customer => throw _privateConstructorUsedError;
-  List<Ticket> get tickets => throw _privateConstructorUsedError;
+  List<Ticket> get ticket => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PaymentCopyWith<Payment> get copyWith => throw _privateConstructorUsedError;
 }
@@ -34,13 +39,13 @@ abstract class $PaymentCopyWith<$Res> {
       _$PaymentCopyWithImpl<$Res, Payment>;
   @useResult
   $Res call(
-      {String id,
-      int createDate,
+      {int id,
+      int createdDate,
       PaymentType paymentType,
       PaymentStatus paymentStatus,
       double total,
       Customer? customer,
-      List<Ticket> tickets});
+      List<Ticket> ticket});
 
   $CustomerCopyWith<$Res>? get customer;
 }
@@ -59,21 +64,21 @@ class _$PaymentCopyWithImpl<$Res, $Val extends Payment>
   @override
   $Res call({
     Object? id = null,
-    Object? createDate = null,
+    Object? createdDate = null,
     Object? paymentType = null,
     Object? paymentStatus = null,
     Object? total = null,
     Object? customer = freezed,
-    Object? tickets = null,
+    Object? ticket = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      createDate: null == createDate
-          ? _value.createDate
-          : createDate // ignore: cast_nullable_to_non_nullable
+              as int,
+      createdDate: null == createdDate
+          ? _value.createdDate
+          : createdDate // ignore: cast_nullable_to_non_nullable
               as int,
       paymentType: null == paymentType
           ? _value.paymentType
@@ -91,9 +96,9 @@ class _$PaymentCopyWithImpl<$Res, $Val extends Payment>
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
               as Customer?,
-      tickets: null == tickets
-          ? _value.tickets
-          : tickets // ignore: cast_nullable_to_non_nullable
+      ticket: null == ticket
+          ? _value.ticket
+          : ticket // ignore: cast_nullable_to_non_nullable
               as List<Ticket>,
     ) as $Val);
   }
@@ -119,13 +124,13 @@ abstract class _$$_PaymentCopyWith<$Res> implements $PaymentCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      int createDate,
+      {int id,
+      int createdDate,
       PaymentType paymentType,
       PaymentStatus paymentStatus,
       double total,
       Customer? customer,
-      List<Ticket> tickets});
+      List<Ticket> ticket});
 
   @override
   $CustomerCopyWith<$Res>? get customer;
@@ -142,21 +147,21 @@ class __$$_PaymentCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? createDate = null,
+    Object? createdDate = null,
     Object? paymentType = null,
     Object? paymentStatus = null,
     Object? total = null,
     Object? customer = freezed,
-    Object? tickets = null,
+    Object? ticket = null,
   }) {
     return _then(_$_Payment(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      createDate: null == createDate
-          ? _value.createDate
-          : createDate // ignore: cast_nullable_to_non_nullable
+              as int,
+      createdDate: null == createdDate
+          ? _value.createdDate
+          : createdDate // ignore: cast_nullable_to_non_nullable
               as int,
       paymentType: null == paymentType
           ? _value.paymentType
@@ -174,33 +179,37 @@ class __$$_PaymentCopyWithImpl<$Res>
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
               as Customer?,
-      tickets: null == tickets
-          ? _value._tickets
-          : tickets // ignore: cast_nullable_to_non_nullable
+      ticket: null == ticket
+          ? _value._ticket
+          : ticket // ignore: cast_nullable_to_non_nullable
               as List<Ticket>,
     ));
   }
 }
 
 /// @nodoc
-
-class _$_Payment implements _Payment {
+@JsonSerializable()
+class _$_Payment extends _Payment {
   const _$_Payment(
-      {this.id = "",
-      this.createDate = 0,
+      {this.id = -1,
+      this.createdDate = 0,
       this.paymentType = PaymentType.cash,
       this.paymentStatus = PaymentStatus.create,
       this.total = 0,
       this.customer = null,
-      final List<Ticket> tickets = const []})
-      : _tickets = tickets;
+      final List<Ticket> ticket = const []})
+      : _ticket = ticket,
+        super._();
+
+  factory _$_Payment.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentFromJson(json);
 
   @override
   @JsonKey()
-  final String id;
+  final int id;
   @override
   @JsonKey()
-  final int createDate;
+  final int createdDate;
   @override
   @JsonKey()
   final PaymentType paymentType;
@@ -213,18 +222,18 @@ class _$_Payment implements _Payment {
   @override
   @JsonKey()
   final Customer? customer;
-  final List<Ticket> _tickets;
+  final List<Ticket> _ticket;
   @override
   @JsonKey()
-  List<Ticket> get tickets {
-    if (_tickets is EqualUnmodifiableListView) return _tickets;
+  List<Ticket> get ticket {
+    if (_ticket is EqualUnmodifiableListView) return _ticket;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tickets);
+    return EqualUnmodifiableListView(_ticket);
   }
 
   @override
   String toString() {
-    return 'Payment(id: $id, createDate: $createDate, paymentType: $paymentType, paymentStatus: $paymentStatus, total: $total, customer: $customer, tickets: $tickets)';
+    return 'Payment(id: $id, createdDate: $createdDate, paymentType: $paymentType, paymentStatus: $paymentStatus, total: $total, customer: $customer, ticket: $ticket)';
   }
 
   @override
@@ -233,8 +242,8 @@ class _$_Payment implements _Payment {
         (other.runtimeType == runtimeType &&
             other is _$_Payment &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.createDate, createDate) ||
-                other.createDate == createDate) &&
+            (identical(other.createdDate, createdDate) ||
+                other.createdDate == createdDate) &&
             (identical(other.paymentType, paymentType) ||
                 other.paymentType == paymentType) &&
             (identical(other.paymentStatus, paymentStatus) ||
@@ -242,41 +251,52 @@ class _$_Payment implements _Payment {
             (identical(other.total, total) || other.total == total) &&
             (identical(other.customer, customer) ||
                 other.customer == customer) &&
-            const DeepCollectionEquality().equals(other._tickets, _tickets));
+            const DeepCollectionEquality().equals(other._ticket, _ticket));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      createDate,
+      createdDate,
       paymentType,
       paymentStatus,
       total,
       customer,
-      const DeepCollectionEquality().hash(_tickets));
+      const DeepCollectionEquality().hash(_ticket));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_PaymentCopyWith<_$_Payment> get copyWith =>
       __$$_PaymentCopyWithImpl<_$_Payment>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PaymentToJson(
+      this,
+    );
+  }
 }
 
-abstract class _Payment implements Payment {
+abstract class _Payment extends Payment {
   const factory _Payment(
-      {final String id,
-      final int createDate,
+      {final int id,
+      final int createdDate,
       final PaymentType paymentType,
       final PaymentStatus paymentStatus,
       final double total,
       final Customer? customer,
-      final List<Ticket> tickets}) = _$_Payment;
+      final List<Ticket> ticket}) = _$_Payment;
+  const _Payment._() : super._();
+
+  factory _Payment.fromJson(Map<String, dynamic> json) = _$_Payment.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
-  int get createDate;
+  int get createdDate;
   @override
   PaymentType get paymentType;
   @override
@@ -286,7 +306,7 @@ abstract class _Payment implements Payment {
   @override
   Customer? get customer;
   @override
-  List<Ticket> get tickets;
+  List<Ticket> get ticket;
   @override
   @JsonKey(ignore: true)
   _$$_PaymentCopyWith<_$_Payment> get copyWith =>

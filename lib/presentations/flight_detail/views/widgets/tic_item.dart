@@ -66,7 +66,10 @@ class TicItem extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _Fie(context, getYmdFormat(tic.dateBorn)),
+              _Fie(
+                  context,
+                  getYmdFormat(
+                      DateTime.fromMillisecondsSinceEpoch(tic.birthday))),
               const SizedBox(width: 5.0),
               _Fie(context, '${tic.luggage} ${S.of(context).luggage}'),
             ],

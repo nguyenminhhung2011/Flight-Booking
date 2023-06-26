@@ -107,11 +107,12 @@ class PaymentTabBloc extends Bloc<PaymentTabEvent, PaymentTabState> {
         Customer(
           id: _customerId,
           name: event.name,
-          phoneNumber: event.phoneNumber,
+          phone: event.phoneNumber,
           identifyNum: data.customer?.identifyNum ?? '',
           gender: data.customer?.gender ?? 'MALE',
           email: event.email,
-          birthday: data.customer?.birthday ?? DateTime.now(),
+          birthday:
+              data.customer?.birthday ?? DateTime.now().millisecondsSinceEpoch,
         ),
         _customerId,
       );

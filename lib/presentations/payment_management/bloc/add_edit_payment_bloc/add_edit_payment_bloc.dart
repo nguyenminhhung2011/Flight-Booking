@@ -12,7 +12,9 @@ class AddEditPaymentBloc extends Cubit<AddEditPaymentState> {
   AddEditPaymentBloc(this.paymentUseCase)
       : super(InitialAddEditState(const Payment()));
 
-  void onStarted(int id) {}
+  void onStarted(int id) {
+    emit(LoadingDialogState(state.payment));
+  }
 
   FutureOr<void> getPaymentDetail(int id) async {
     emit(LoadingDialogState(state.payment));
@@ -26,8 +28,18 @@ class AddEditPaymentBloc extends Cubit<AddEditPaymentState> {
     }
   }
 
-  FutureOr<void> updatePayment(int id, Payment newPayment) async {
-    emit(LoadingDialogState(state.payment));
+  FutureOr<void> updateCustomerField(int id, Payment newPayment) async {
+    emit(LoadingCustomerFieldState(state.payment));
+    try {
+      final response = await paymentUseCase.updatePayment(id, newPayment);
+      emit(FetchPaymentDetailSuccess(response));
+    } catch (e) {
+      emit(AddEditPaymentStateFailed(state.payment, "Error: $e"));
+    }
+  }
+
+  FutureOr<void> updatePaymentField(int id, Payment newPayment) async {
+    emit(LoadingPaymentInfoFieldState(state.payment));
     try {
       final response = await paymentUseCase.updatePayment(id, newPayment);
       emit(FetchPaymentDetailSuccess(response));

@@ -15,6 +15,10 @@ CustomerModel _$CustomerModelFromJson(Map<String, dynamic> json) =>
       email: json['email'] as String,
       gender: json['gender'] as String,
       birthday: json['birthday'] as int,
+      creditCard: json['creditCard'] == null
+          ? null
+          : CreditCardModel.fromJson(
+              json['creditCard'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CustomerModelToJson(CustomerModel instance) =>
@@ -26,4 +30,5 @@ Map<String, dynamic> _$CustomerModelToJson(CustomerModel instance) =>
       'email': instance.email,
       'gender': instance.gender,
       'birthday': instance.birthday,
+      'creditCard': instance.creditCard,
     };

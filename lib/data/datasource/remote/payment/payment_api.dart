@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flight_booking/data/models/payment/payment_light.dart';
 import 'package:flight_booking/data/models/payment/payment_management_page_model.dart';
 import 'package:flight_booking/data/models/payment/payment_model.dart';
 import 'package:flight_booking/data/models/payment/payment_success_response.dart';
@@ -35,10 +36,10 @@ abstract class PaymentApi {
   @GET(PaymentApiEndpoint.getPaymentById)
   Future<HttpResponse<PaymentModel?>> getPaymentById(@Query("id") int id);
 
-  @GET("${PaymentApiEndpoint.getPaymentByPage}page={page}&perPage={perPage}")
-  Future<HttpResponse<List<PaymentModel>>> getPaymentByPage(
-    @Path('page') int page,
-    @Path('perPage') int perPage,
+  @GET(PaymentApiEndpoint.getPaymentByPage)
+  Future<HttpResponse<List<PaymentLight>>> getPaymentByPage(
+    @Query('page') int page,
+    @Query('perPage') int perPage,
   );
 
   @GET("${PaymentApiEndpoint.getAllPayment}/customer={customerId}")
@@ -65,7 +66,10 @@ abstract class PaymentApi {
   );
 
   @GET(PaymentApiEndpoint.fetchPaymentManagementPage)
-  Future<HttpResponse<PaymentManagementPageModel>> fetchPaymentManagementPage();
+  Future<HttpResponse<PaymentManagementPageModel>> fetchPaymentManagementPage(
+    @Query('page') int page,
+    @Query('perPage') int perPage,
+  );
 
   @DELETE(PaymentApiEndpoint.deletePayment)
   Future<HttpResponse<PaymentSuccessResponse>> deletePayment(

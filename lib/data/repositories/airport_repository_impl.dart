@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flight_booking/core/components/network/app_exception.dart';
 import 'package:flight_booking/data/datasource/remote/airport/airport_api.dart';
-import 'package:flight_booking/data/models/model_heloer.dart';
+import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
 import 'package:flight_booking/domain/repositories/airport_repository.dart';
 import 'package:injectable/injectable.dart';

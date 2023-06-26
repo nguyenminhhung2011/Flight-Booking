@@ -9,20 +9,24 @@ part of 'customer.dart';
 _$_Customer _$$_CustomerFromJson(Map<String, dynamic> json) => _$_Customer(
       id: json['id'] as int,
       name: json['name'] as String,
-      phoneNumber: json['phoneNumber'] as String,
+      phone: json['phone'] as String,
       email: json['email'] as String,
       identifyNum: json['identifyNum'] as String,
       gender: json['gender'] as String,
-      birthday: DateTime.parse(json['birthday'] as String),
+      birthday: json['birthday'] as int,
+      creditCard: json['creditCard'] == null
+          ? const CreditCard()
+          : CreditCard.fromJson(json['creditCard'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_CustomerToJson(_$_Customer instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'phoneNumber': instance.phoneNumber,
+      'phone': instance.phone,
       'email': instance.email,
       'identifyNum': instance.identifyNum,
       'gender': instance.gender,
-      'birthday': instance.birthday.toIso8601String(),
+      'birthday': instance.birthday,
+      'creditCard': instance.creditCard,
     };

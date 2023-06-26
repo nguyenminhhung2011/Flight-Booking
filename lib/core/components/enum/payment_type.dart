@@ -1,7 +1,9 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 enum PaymentType {
-  card,
-  cash,
-  unknown;
+  @JsonValue("CARD") card,
+  @JsonValue("CASH") cash,
+  @JsonValue("UNKNOWN") unknown;
 
   static PaymentType getByName(String text) {
     final value = text.toLowerCase();

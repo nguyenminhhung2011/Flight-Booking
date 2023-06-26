@@ -1,3 +1,5 @@
+import 'package:flight_booking/data/models/credit_card/credit_card_model.dart';
+import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/entities/customer/customer.dart';
@@ -20,6 +22,8 @@ class CustomerModel {
   final String gender;
   @JsonKey(name: "birthday")
   final int birthday;
+  @JsonKey(name: "creditCard")
+  final CreditCardModel? creditCard;
 
   CustomerModel({
     required this.id,
@@ -29,6 +33,7 @@ class CustomerModel {
     required this.email,
     required this.gender,
     required this.birthday,
+    required this.creditCard,
   });
 
   Map<String, dynamic> toJson() => _$CustomerModelToJson(this);
@@ -37,12 +42,13 @@ class CustomerModel {
       _$CustomerModelFromJson(json);
 
   Customer toEntity() => Customer(
+        creditCard: creditCard?.toEntity ?? const CreditCard(),
         id: id,
         name: name,
         identifyNum: identifyNum,
-        phoneNumber: phoneNumber,
+        phone: phoneNumber,
         email: email,
         gender: gender,
-        birthday: DateTime.fromMillisecondsSinceEpoch(birthday),
+        birthday: birthday,
       );
 }

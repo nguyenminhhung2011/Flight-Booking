@@ -1,6 +1,6 @@
 import 'package:flight_booking/core/components/network/app_exception.dart';
 import 'package:flight_booking/data/datasource/remote/flight/flight_api.dart';
-import 'package:flight_booking/data/models/model_heloer.dart';
+import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/flight/flight.dart';

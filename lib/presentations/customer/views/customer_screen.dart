@@ -289,10 +289,12 @@ class _CustomerScreenState extends State<CustomerScreen> {
                         ),
                         FlexRowTableData<String>(
                             flex: 3, data: data.identifyNum),
+                        FlexRowTableData<String>(flex: 3, data: data.phone),
                         FlexRowTableData<String>(
-                            flex: 3, data: data.phoneNumber),
-                        FlexRowTableData<String>(
-                            flex: 2, data: getYmdFormat(data.birthday)),
+                            flex: 2,
+                            data: getYmdFormat(
+                                DateTime.fromMillisecondsSinceEpoch(
+                                    data.birthday))),
                         FlexRowTableData(flex: 1),
                       ],
                     );

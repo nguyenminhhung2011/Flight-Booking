@@ -8,6 +8,7 @@ import 'package:flight_booking/core/components/widgets/mobile/custom_template_sc
 import 'package:flight_booking/core/components/widgets/mobile/header_custom.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
+import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:flight_booking/presentations_mobile/flight_history_detail/bloc/flight_history_detail_model_state.dart';
 import 'package:flight_booking/presentations_mobile/flight_history_detail/views/widgets/airport_information_widget.dart';
 import 'package:flight_booking/presentations_mobile/flight_history_detail/views/widgets/customer_information_field.dart';
@@ -150,13 +151,14 @@ class _FlightHistoryDetailScreenState extends State<FlightHistoryDetailScreen> {
           ),
           CustomerInformationField(
             customer: Customer(
+              creditCard: const CreditCard(),
               id: 0,
               name: 'Nguyen Minh Hung',
-              phoneNumber: '09435385835',
+              phone: '09435385835',
               email: 'hungnguyen.201102a@gmail.com',
               identifyNum: '3242342384',
               gender: 'Male',
-              birthday: DateTime.now(),
+              birthday: DateTime.now().millisecondsSinceEpoch,
             ),
           ),
         ],

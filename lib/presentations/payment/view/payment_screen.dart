@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
-import 'package:flight_booking/data/models/model_heloer.dart';
+import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:flight_booking/presentations/payment/view/tabs/book_payment_tab.dart';
 import 'package:flight_booking/presentations/payment/view/tabs/confiirm_infomation_tab.dart';
 import 'package:flight_booking/presentations/payment/view/tabs/paymnet_tab.dart';

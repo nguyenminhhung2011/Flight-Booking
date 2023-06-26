@@ -13,7 +13,7 @@ PaymentModel _$PaymentModelFromJson(Map<String, dynamic> json) => PaymentModel(
       paymentStatus: json['paymentStatus'] as String,
       paymentType: json['paymentType'] as String,
       customer:
-          CustomerModel.fromJson(json['customers'] as Map<String, dynamic>),
+          CustomerModel.fromJson(json['customer'] as Map<String, dynamic>),
       tickets: (json['ticket'] as List<dynamic>)
           .map((e) => TicketModel.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -26,6 +26,6 @@ Map<String, dynamic> _$PaymentModelToJson(PaymentModel instance) =>
       'paymentType': instance.paymentType,
       'paymentStatus': instance.paymentStatus,
       'total': instance.total,
-      'customers': instance.customer,
+      'customer': instance.customer,
       'ticket': instance.tickets,
     };

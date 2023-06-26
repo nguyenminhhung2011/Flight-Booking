@@ -1,7 +1,7 @@
 import 'package:flight_booking/core/components/widgets/card_custom.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
-import 'package:flight_booking/data/models/model_heloer.dart';
+import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket_information_id.dart';
 import 'package:flight_booking/presentations/customer/views/widgets/passenger_info_card.dart';
@@ -59,7 +59,8 @@ class _CustomerDetailCardState extends State<CustomerDetailCard> {
                   listTics: [
                     for (int i = 0; i < 5; i++)
                       Ticket(
-                        id: randomString(),
+                        id: 0,
+                        price: 0,
                         name: 'Hung',
                         gender: 'Male',
                         phoneNumber: '09429242',
@@ -67,8 +68,8 @@ class _CustomerDetailCardState extends State<CustomerDetailCard> {
                         seat: 10,
                         type: 1,
                         luggage: 10.0,
-                        dateBorn: DateTime.now(),
-                        timeBought: DateTime.now(),
+                        birthday: DateTime.now().millisecondsSinceEpoch,
+                        timeBought: DateTime.now().millisecondsSinceEpoch,
                       )
                   ],
                 ),
@@ -223,20 +224,22 @@ class CustomerInformationCard extends StatelessWidget {
               children: [
                 LabelText(
                   label: S.of(context).birthday,
-                  title: getYmdFormat(customer.birthday),
+                  title: getYmdFormat(
+                      DateTime.fromMillisecondsSinceEpoch(customer.birthday)),
                 ),
                 LabelText(
                   label: S.of(context).age,
-                  title:
-                      ((DateTime.now().difference(customer.birthday).inDays) /
-                              365)
-                          .toString(),
+                  title: ((DateTime.now()
+                              .difference(DateTime.fromMillisecondsSinceEpoch(
+                                  customer.birthday))
+                              .inDays) /
+                          365)
+                      .toString(),
                 ),
                 LabelText(label: S.of(context).country, title: "VietNam"),
               ],
             ),
-            LabelText(
-                label: S.of(context).phoneNumber, title: customer.phoneNumber),
+            LabelText(label: S.of(context).phoneNumber, title: customer.phone),
             LabelText(label: S.of(context).email, title: customer.email),
           ],
         ),
@@ -303,12 +306,13 @@ class FlightDataCustomerScreen extends StatelessWidget {
                   firstTitle: S.of(context).name,
                   firstDesc: customer.name,
                   secondTitle: S.of(context).date,
-                  secondDesc: getYmdFormat(customer.birthday)),
+                  secondDesc: getYmdFormat(
+                      DateTime.fromMillisecondsSinceEpoch(customer.birthday))),
               FlightDetailsWidget(
                 firstTitle: S.of(context).gender,
                 firstDesc: customer.gender,
                 secondTitle: S.of(context).phoneNumber,
-                secondDesc: customer.phoneNumber,
+                secondDesc: customer.phone,
               ),
               FlightDetailsWidget(
                 firstTitle: S.of(context).ticketNumber,
