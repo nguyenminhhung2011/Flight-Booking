@@ -23,4 +23,11 @@ enum PaymentStatus {
         return PaymentStatus.pending;
     }
   }
+
+  String get displayValue => switch (this) {
+        PaymentStatus.succeeded => "succeed",
+        PaymentStatus.pending => "pending",
+        PaymentStatus.create => "create",
+        _ => "declined",
+      };
 }

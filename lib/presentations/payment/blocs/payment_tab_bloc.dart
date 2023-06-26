@@ -86,8 +86,10 @@ class PaymentTabBloc extends Bloc<PaymentTabEvent, PaymentTabState> {
         emit(_AddTicToDBFailed(data: data, message: 'Failed '));
         return;
       }
-      print(response);
-      emit(_AddTicToDBSuccess(data: data));
+
+      emit(_AddTicToDBSuccess(
+        data: data.copyWith(payment: response),
+      ));
     } on AppException catch (e) {
       emit(_AddTicToDBFailed(data: data, message: e.toString()));
     } catch (e) {

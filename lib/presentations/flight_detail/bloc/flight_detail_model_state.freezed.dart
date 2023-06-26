@@ -17,13 +17,14 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FlightDetailModelState {
   Flight? get flight => throw _privateConstructorUsedError;
+  Customer? get customerSelected => throw _privateConstructorUsedError;
   double get animation => throw _privateConstructorUsedError;
   bool get showMoreInfor => throw _privateConstructorUsedError;
   ItemViewEnum get itemView => throw _privateConstructorUsedError;
   List<SeatSelected> get chairsSelected => throw _privateConstructorUsedError;
-  List<TicketInformation> get ticInformation =>
+  Map<int, TicketInformation> get ticInformation =>
       throw _privateConstructorUsedError;
-  Customer? get customerSelected => throw _privateConstructorUsedError;
+  List<Ticket> get tics => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FlightDetailModelStateCopyWith<FlightDetailModelState> get copyWith =>
@@ -38,12 +39,13 @@ abstract class $FlightDetailModelStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Flight? flight,
+      Customer? customerSelected,
       double animation,
       bool showMoreInfor,
       ItemViewEnum itemView,
       List<SeatSelected> chairsSelected,
-      List<TicketInformation> ticInformation,
-      Customer? customerSelected});
+      Map<int, TicketInformation> ticInformation,
+      List<Ticket> tics});
 
   $FlightCopyWith<$Res>? get flight;
   $CustomerCopyWith<$Res>? get customerSelected;
@@ -64,18 +66,23 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? flight = freezed,
+    Object? customerSelected = freezed,
     Object? animation = null,
     Object? showMoreInfor = null,
     Object? itemView = null,
     Object? chairsSelected = null,
     Object? ticInformation = null,
-    Object? customerSelected = freezed,
+    Object? tics = null,
   }) {
     return _then(_value.copyWith(
       flight: freezed == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
               as Flight?,
+      customerSelected: freezed == customerSelected
+          ? _value.customerSelected
+          : customerSelected // ignore: cast_nullable_to_non_nullable
+              as Customer?,
       animation: null == animation
           ? _value.animation
           : animation // ignore: cast_nullable_to_non_nullable
@@ -95,11 +102,11 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
       ticInformation: null == ticInformation
           ? _value.ticInformation
           : ticInformation // ignore: cast_nullable_to_non_nullable
-              as List<TicketInformation>,
-      customerSelected: freezed == customerSelected
-          ? _value.customerSelected
-          : customerSelected // ignore: cast_nullable_to_non_nullable
-              as Customer?,
+              as Map<int, TicketInformation>,
+      tics: null == tics
+          ? _value.tics
+          : tics // ignore: cast_nullable_to_non_nullable
+              as List<Ticket>,
     ) as $Val);
   }
 
@@ -138,12 +145,13 @@ abstract class _$$_FlightDetailModelStateCopyWith<$Res>
   @useResult
   $Res call(
       {Flight? flight,
+      Customer? customerSelected,
       double animation,
       bool showMoreInfor,
       ItemViewEnum itemView,
       List<SeatSelected> chairsSelected,
-      List<TicketInformation> ticInformation,
-      Customer? customerSelected});
+      Map<int, TicketInformation> ticInformation,
+      List<Ticket> tics});
 
   @override
   $FlightCopyWith<$Res>? get flight;
@@ -164,18 +172,23 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? flight = freezed,
+    Object? customerSelected = freezed,
     Object? animation = null,
     Object? showMoreInfor = null,
     Object? itemView = null,
     Object? chairsSelected = null,
     Object? ticInformation = null,
-    Object? customerSelected = freezed,
+    Object? tics = null,
   }) {
     return _then(_$_FlightDetailModelState(
       flight: freezed == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
               as Flight?,
+      customerSelected: freezed == customerSelected
+          ? _value.customerSelected
+          : customerSelected // ignore: cast_nullable_to_non_nullable
+              as Customer?,
       animation: null == animation
           ? _value.animation
           : animation // ignore: cast_nullable_to_non_nullable
@@ -195,11 +208,11 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
       ticInformation: null == ticInformation
           ? _value._ticInformation
           : ticInformation // ignore: cast_nullable_to_non_nullable
-              as List<TicketInformation>,
-      customerSelected: freezed == customerSelected
-          ? _value.customerSelected
-          : customerSelected // ignore: cast_nullable_to_non_nullable
-              as Customer?,
+              as Map<int, TicketInformation>,
+      tics: null == tics
+          ? _value._tics
+          : tics // ignore: cast_nullable_to_non_nullable
+              as List<Ticket>,
     ));
   }
 }
@@ -209,17 +222,21 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
 class _$_FlightDetailModelState implements _FlightDetailModelState {
   const _$_FlightDetailModelState(
       {this.flight,
+      this.customerSelected,
       required this.animation,
       required this.showMoreInfor,
       required this.itemView,
       required final List<SeatSelected> chairsSelected,
-      required final List<TicketInformation> ticInformation,
-      this.customerSelected})
+      required final Map<int, TicketInformation> ticInformation,
+      required final List<Ticket> tics})
       : _chairsSelected = chairsSelected,
-        _ticInformation = ticInformation;
+        _ticInformation = ticInformation,
+        _tics = tics;
 
   @override
   final Flight? flight;
+  @override
+  final Customer? customerSelected;
   @override
   final double animation;
   @override
@@ -234,20 +251,25 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
     return EqualUnmodifiableListView(_chairsSelected);
   }
 
-  final List<TicketInformation> _ticInformation;
+  final Map<int, TicketInformation> _ticInformation;
   @override
-  List<TicketInformation> get ticInformation {
-    if (_ticInformation is EqualUnmodifiableListView) return _ticInformation;
+  Map<int, TicketInformation> get ticInformation {
+    if (_ticInformation is EqualUnmodifiableMapView) return _ticInformation;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_ticInformation);
+    return EqualUnmodifiableMapView(_ticInformation);
+  }
+
+  final List<Ticket> _tics;
+  @override
+  List<Ticket> get tics {
+    if (_tics is EqualUnmodifiableListView) return _tics;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tics);
   }
 
   @override
-  final Customer? customerSelected;
-
-  @override
   String toString() {
-    return 'FlightDetailModelState(flight: $flight, animation: $animation, showMoreInfor: $showMoreInfor, itemView: $itemView, chairsSelected: $chairsSelected, ticInformation: $ticInformation, customerSelected: $customerSelected)';
+    return 'FlightDetailModelState(flight: $flight, customerSelected: $customerSelected, animation: $animation, showMoreInfor: $showMoreInfor, itemView: $itemView, chairsSelected: $chairsSelected, ticInformation: $ticInformation, tics: $tics)';
   }
 
   @override
@@ -256,6 +278,8 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
         (other.runtimeType == runtimeType &&
             other is _$_FlightDetailModelState &&
             (identical(other.flight, flight) || other.flight == flight) &&
+            (identical(other.customerSelected, customerSelected) ||
+                other.customerSelected == customerSelected) &&
             (identical(other.animation, animation) ||
                 other.animation == animation) &&
             (identical(other.showMoreInfor, showMoreInfor) ||
@@ -266,20 +290,20 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
                 .equals(other._chairsSelected, _chairsSelected) &&
             const DeepCollectionEquality()
                 .equals(other._ticInformation, _ticInformation) &&
-            (identical(other.customerSelected, customerSelected) ||
-                other.customerSelected == customerSelected));
+            const DeepCollectionEquality().equals(other._tics, _tics));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       flight,
+      customerSelected,
       animation,
       showMoreInfor,
       itemView,
       const DeepCollectionEquality().hash(_chairsSelected),
       const DeepCollectionEquality().hash(_ticInformation),
-      customerSelected);
+      const DeepCollectionEquality().hash(_tics));
 
   @JsonKey(ignore: true)
   @override
@@ -292,15 +316,18 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
 abstract class _FlightDetailModelState implements FlightDetailModelState {
   const factory _FlightDetailModelState(
       {final Flight? flight,
+      final Customer? customerSelected,
       required final double animation,
       required final bool showMoreInfor,
       required final ItemViewEnum itemView,
       required final List<SeatSelected> chairsSelected,
-      required final List<TicketInformation> ticInformation,
-      final Customer? customerSelected}) = _$_FlightDetailModelState;
+      required final Map<int, TicketInformation> ticInformation,
+      required final List<Ticket> tics}) = _$_FlightDetailModelState;
 
   @override
   Flight? get flight;
+  @override
+  Customer? get customerSelected;
   @override
   double get animation;
   @override
@@ -310,9 +337,9 @@ abstract class _FlightDetailModelState implements FlightDetailModelState {
   @override
   List<SeatSelected> get chairsSelected;
   @override
-  List<TicketInformation> get ticInformation;
+  Map<int, TicketInformation> get ticInformation;
   @override
-  Customer? get customerSelected;
+  List<Ticket> get tics;
   @override
   @JsonKey(ignore: true)
   _$$_FlightDetailModelStateCopyWith<_$_FlightDetailModelState> get copyWith =>

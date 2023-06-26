@@ -3,6 +3,7 @@ import '../entities/ticket/ticket.dart';
 
 abstract class TicketRepository {
   Future<List<Ticket>?> getListTicket();
+  Future<List<Ticket>?> getByFlightId({required int flightId});
   Future<Ticket?> addNewTicket(Ticket ticket);
 
   Future<bool> deleteTicket(String id);

@@ -3,13 +3,18 @@ import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/widgets/custom_row_column.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
+import 'package:flight_booking/presentations/payment/blocs/payment_tab_bloc.dart';
 import 'package:flight_booking/presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/views/widgets/app_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../core/config/common_ui_config.dart';
+import '../../../../domain/entities/customer/customer.dart';
+import '../../../../domain/entities/flight/flight.dart';
+import '../../../../domain/entities/payment/payment.dart';
 import '../../../../generated/l10n.dart';
 
 const _hPaddingCard = 15.0;
@@ -26,7 +31,7 @@ const _headerTable = [
 ];
 
 class ConfirmInformationTab extends StatefulWidget {
-  ConfirmInformationTab({super.key});
+  const ConfirmInformationTab({super.key});
 
   @override
   State<ConfirmInformationTab> createState() => _ConfirmInformationTabState();
@@ -34,6 +39,11 @@ class ConfirmInformationTab extends StatefulWidget {
 
 class _ConfirmInformationTabState extends State<ConfirmInformationTab> {
   final ScreenshotController controller = ScreenshotController();
+  PaymentTabBloc get _bloc => context.read<PaymentTabBloc>();
+  Payment? get _payment => _bloc.data.payment;
+  Flight? get _flight => _bloc.data.flight;
+  Customer? get _customer => _bloc.data.customer;
+
   @override
   void dispose() {
     super.dispose();
@@ -78,86 +88,94 @@ class _ConfirmInformationTabState extends State<ConfirmInformationTab> {
                     ),
                     child: ListView(
                       children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 70,
-                                margin: const EdgeInsets.symmetric(
-                                  horizontal: _hMarginCard,
-                                  vertical: _hPaddingCard,
-                                ),
-                                padding:
-                                    const EdgeInsets.only(left: _hPaddingCard),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                    left: BorderSide(
-                                      width: 4,
-                                      color: primaryColor,
-                                    ),
+                        if (_payment != null)
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  height: 70,
+                                  margin: const EdgeInsets.symmetric(
+                                    horizontal: _hMarginCard,
+                                    vertical: _hPaddingCard,
                                   ),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      S.of(context).paymentInfo,
-                                      style: headerStyle,
-                                    ),
-                                    Text(
-                                      'Id: #3432243423',
-                                      style: titleStyle.copyWith(
-                                          color: Theme.of(context).hintColor),
-                                    ),
-                                    Text(
-                                      '${S.of(context).date}: ${getYmdFormat(DateTime.now())}',
-                                      style: titleStyle.copyWith(
-                                        color: Theme.of(context).hintColor,
+                                  padding: const EdgeInsets.only(
+                                      left: _hPaddingCard),
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                      left: BorderSide(
+                                        width: 4,
+                                        color: primaryColor,
                                       ),
                                     ),
-                                  ]
-                                      .expand((element) =>
-                                          [element, const SizedBox(height: 2)])
-                                      .toList()
-                                    ..removeLast(),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 10.0),
-                            Container(
-                              width: 300,
-                              height: 100,
-                              padding: const EdgeInsets.all(_hPaddingCard),
-                              decoration: BoxDecoration(
-                                color: primaryColor.withOpacity(0.2),
-                                borderRadius: const BorderRadius.only(
-                                  topRight: Radius.circular(15.0),
-                                  bottomLeft: Radius.circular(15.0),
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    ImageConst.onboard3,
-                                    width: 40,
-                                    height: 40,
                                   ),
-                                  const SizedBox(width: 5.0),
-                                  const AppName(fontSize: 30.0),
-                                ],
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        S.of(context).paymentInfo,
+                                        style: headerStyle,
+                                      ),
+                                      Text(
+                                        'Id: ${_payment?.id ?? 'Empty'}',
+                                        style: titleStyle.copyWith(
+                                            color: Theme.of(context).hintColor),
+                                      ),
+                                      Text(
+                                        '${S.of(context).date}: ${getYmdFormat(DateTime.fromMillisecondsSinceEpoch(_payment?.createDate ?? DateTime.now().millisecondsSinceEpoch))}',
+                                        style: titleStyle.copyWith(
+                                          color: Theme.of(context).hintColor,
+                                        ),
+                                      ),
+                                    ]
+                                        .expand((element) => [
+                                              element,
+                                              const SizedBox(height: 2)
+                                            ])
+                                        .toList()
+                                      ..removeLast(),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
+                              const SizedBox(width: 10.0),
+                              Container(
+                                width: 300,
+                                height: 100,
+                                padding: const EdgeInsets.all(_hPaddingCard),
+                                decoration: BoxDecoration(
+                                  color: primaryColor.withOpacity(0.2),
+                                  borderRadius: const BorderRadius.only(
+                                    topRight: Radius.circular(15.0),
+                                    bottomLeft: Radius.circular(15.0),
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      ImageConst.onboard3,
+                                      width: 40,
+                                      height: 40,
+                                    ),
+                                    const SizedBox(width: 5.0),
+                                    const AppName(fontSize: 30.0),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         const DividerCustomWithAirplane(),
-                        _informationField(context, headerStyle, titleStyle),
+                        if (_payment != null && _customer != null)
+                          _informationField(context, headerStyle, titleStyle),
                         const DividerCustomWithAirplane(),
-                        _customerInformation(context, headerStyle),
+                        if (_payment != null)
+                          _customerInformation(context, headerStyle),
                         const DividerCustomWithAirplane(),
-                        _table(context, headerStyle, primaryColor, titleStyle),
+                        if (_payment != null && _flight != null)
+                          _table(
+                              context, headerStyle, primaryColor, titleStyle),
                         const DividerCustomWithAirplane(),
                         Row(
                           children: [_buttonCapture(context)],
@@ -188,6 +206,12 @@ class _ConfirmInformationTabState extends State<ConfirmInformationTab> {
           const SizedBox(height: 20.0),
           ...[
             _headerTable,
+            // ..._payment!.tickets.mapIndexed(
+            //   (index, e) => [
+            //     (index + 1).toString(),
+            //     e.name,
+            //   ],
+            // ),
             [
               '1',
               'Flight ticket',
@@ -265,21 +289,18 @@ class _ConfirmInformationTabState extends State<ConfirmInformationTab> {
         children: [
           Text(S.of(context).customerInformation, style: headerStyle),
           const SizedBox(height: 10.0),
-          ...[
-            {'name': 'Nguyen Minh Hung', 'gender': 'Male'},
-            {'name': 'Truong Huynh Duc Hoang', 'gender': 'FeMale'}
-          ]
+          ..._payment!.tickets
               .map(
                 (e) => RichText(
                   text: TextSpan(
                     style: context.titleMedium,
                     children: <TextSpan>[
                       TextSpan(
-                        text: e['name'],
+                        text: e.name,
                         style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       TextSpan(
-                        text: '  (${e['gender']})',
+                        text: '  (${e.gender})',
                         style: TextStyle(
                           color: Theme.of(context).hintColor,
                           fontWeight: FontWeight.w400,
@@ -316,12 +337,12 @@ class _ConfirmInformationTabState extends State<ConfirmInformationTab> {
                 ),
                 const SizedBox(height: 10.0),
                 ...<Map<String, dynamic>>[
-                  {'header': S.of(context).name, 'tit': 'Nguyen Minh Hung'},
+                  {'header': S.of(context).name, 'tit': _customer!.name},
+                  {'header': S.of(context).email, 'tit': _customer!.email},
                   {
-                    'header': S.of(context).email,
-                    'tit': 'hungnguyen.201102@gmail.com'
+                    'header': S.of(context).phoneNumber,
+                    'tit': _customer!.phoneNumber
                   },
-                  {'header': S.of(context).phoneNumber, 'tit': '+84 232352352'},
                 ]
                     .map(
                       (e) => _rowInformation(e, titleStyle, context),
@@ -343,11 +364,17 @@ class _ConfirmInformationTabState extends State<ConfirmInformationTab> {
                 ),
                 const SizedBox(height: 10.0),
                 ...<Map<String, dynamic>>[
-                  {'header': S.of(context).id, 'tit': '43534535'},
-                  {'header': S.of(context).status, 'tit': 'In progress'},
+                  {
+                    'header': S.of(context).id,
+                    'tit': '${S.of(context).payment} ${_payment!.id}'
+                  },
+                  {
+                    'header': S.of(context).status,
+                    'tit': _payment!.paymentStatus.displayValue
+                  },
                   {
                     'header': S.of(context).payment,
-                    'tit': S.of(context).paymentAtAirport
+                    'tit': 'Payment by ${_payment!.paymentType.displayValue}'
                   },
                 ]
                     .map(
