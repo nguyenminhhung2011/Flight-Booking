@@ -2,16 +2,19 @@ import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/presentations/flight_detail/views/widgets/tic_item.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../domain/entities/ticket/ticket.dart';
+import '../../../../domain/entities/ticket/ticket_information.dart';
 import '../../../list_flight/views/widgets/dot_custom.dart';
 
 class TicColumnListView extends StatelessWidget {
   final TicTypeEnum ticType;
-  final int count;
-
+  final TicketInformation ticketInformation;
+  final List<Ticket> listTics;
   const TicColumnListView({
     super.key,
-    required this.count,
     required this.ticType,
+    required this.ticketInformation,
+    required this.listTics,
   });
 
   @override
@@ -45,7 +48,12 @@ class TicColumnListView extends StatelessWidget {
         const SizedBox(height: 10.0),
         Column(
           children: [
-            for (int i = 0; i < count; i++) TicItem2(color: ticType.colorType!),
+            // for (int i = 0; i < count; i++) TicItem2(color: ticType.colorType!),
+            ...listTics.map((e) => TicItem2(
+                  color: ticType.colorType!,
+                  tic: e,
+                  ticketInformation: ticketInformation,
+                ))
           ]
               .expand((element) => [element, const Divider(thickness: 0.5)])
               .toList(),
