@@ -23,7 +23,7 @@ class PaymentModel {
   @JsonKey(name: "total")
   final double total;
 
-  @JsonKey(name: "customers")
+  @JsonKey(name: "customer")
   final CustomerModel customer;
 
   @JsonKey(name: "ticket")
@@ -45,12 +45,12 @@ class PaymentModel {
       _$PaymentModelFromJson(json);
 
   Payment get toEntity => Payment(
-        id: id.toString(),
+        id: id,
         customer: customer.toEntity(),
-        createDate: createDate,
+        createdDate: createDate,
         paymentStatus: PaymentStatus.getByName(paymentStatus),
         paymentType: PaymentType.getByName(paymentType),
         total: total,
-        tickets: tickets.map((e) => e.toEntity).toList(),
+        ticket: tickets.map((e) => e.toEntity).toList(),
       );
 }

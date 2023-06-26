@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flight_booking/core/components/network/app_exception.dart';
-import 'package:flight_booking/data/models/model_heloer.dart';
+import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:flight_booking/domain/entities/customer/customer.dart';
 import 'package:injectable/injectable.dart';
 

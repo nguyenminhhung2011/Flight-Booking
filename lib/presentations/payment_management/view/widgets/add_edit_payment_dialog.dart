@@ -7,6 +7,7 @@ import 'package:flight_booking/core/components/widgets/mobile/category_custom.da
 import 'package:flight_booking/core/components/widgets/mobile/text_field_custom.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/dependency_injection/di.dart';
+import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:flight_booking/domain/entities/customer/customer.dart';
 import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/add_edit_payment_bloc/add_edit_payment_bloc.dart';
@@ -49,6 +50,11 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
   final customerEmailController = TextEditingController();
   final customerPhoneController = TextEditingController();
   final customerDobController = TextEditingController();
+
+  final creditNumController = TextEditingController();
+  final expiredDateController = TextEditingController();
+  final nameCardController = TextEditingController();
+  final cvcController = TextEditingController();
 
   final PageController pageController =
       PageController(initialPage: 0, keepPage: true);
@@ -97,11 +103,20 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
       builder: (context, state) {
         customerNameController.text = state.payment.customer?.name ?? "";
         customerEmailController.text = state.payment.customer?.email ?? "";
-        customerPhoneController.text =
-            state.payment.customer?.phoneNumber ?? "";
-        customerDobController.text = DateFormat()
-            .add_yMd()
-            .format(state.payment.customer?.birthday ?? DateTime.now());
+        customerPhoneController.text = state.payment.customer?.phone ?? "";
+        customerDobController.text = DateFormat().add_yMd().format(
+            DateTime.fromMillisecondsSinceEpoch(
+                state.payment.customer?.birthday ??
+                    DateTime.now().millisecondsSinceEpoch));
+
+        creditNumController.text =
+            state.payment.customer?.creditCard.creditNum ?? "";
+        expiredDateController.text =
+            state.payment.customer?.creditCard.expiredDate.toString() ?? "";
+        nameCardController.text =
+            state.payment.customer?.creditCard.nameCard ?? "";
+        cvcController.text = state.payment.customer?.creditCard.cvc ?? "";
+
         return Dialog(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
@@ -160,16 +175,43 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                       style: headerStyle1,
                                     ),
                                   ),
-                                  TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      S.of(context).save,
-                                      style: titStyle1.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                        color: primaryColor,
-                                      ),
-                                    ),
-                                  )
+                                  state is LoadingCustomerFieldState
+                                      ? LoadingIndicator(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onPrimary,
+                                          radius: 10,
+                                          strokeWidth: 1,
+                                        )
+                                      : TextButton(
+                                          onPressed: () {
+                                            bloc.updateCustomerField(
+                                              widget.id,
+                                              state.payment.copyWith(
+                                                customer: state.payment.customer
+                                                    ?.copyWith(
+                                                  email: customerEmailController
+                                                      .text,
+                                                  name: customerNameController
+                                                      .text,
+                                                  phone: customerPhoneController
+                                                      .text,
+                                                  birthday: DateTime.parse(
+                                                          customerDobController
+                                                              .text)
+                                                      .millisecondsSinceEpoch,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            S.of(context).save,
+                                            style: titStyle1.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color: primaryColor,
+                                            ),
+                                          ),
+                                        )
                                 ],
                               ),
                               const DividerCustomWithAirplane(),
@@ -271,7 +313,7 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                   marginTop: 10.0,
                                   spacingItem: 15.0,
                                   marginBottom: 0.0,
-                                  categories: state.payment.tickets
+                                  categories: state.payment.ticket
                                       .map((ticket) => ticket.name)
                                       .mapIndexed(
                                         (index, e) => CategoryStyle(
@@ -300,24 +342,24 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                     color: primaryColor,
                                     overflow: TextOverflow.clip),
                               ),
-                              const SizedBox(height: 20.0),
                               SizedBox(
-                                height: 250,
+                                height: 300,
                                 child: PageView(
                                   controller: pageController,
                                   physics: const NeverScrollableScrollPhysics(),
-                                  children: state.payment.tickets
+                                  children: state.payment.ticket
                                       .map(
                                         (ticket) => CustomerInformationField(
                                           isBorder: true,
                                           customer: Customer(
-                                            id: int.parse(ticket.id),
+                                            creditCard: const CreditCard(),
+                                            id: (ticket.id),
                                             name: ticket.name,
-                                            phoneNumber: ticket.phoneNumber,
+                                            phone: ticket.phoneNumber,
                                             email: ticket.emailAddress,
-                                            identifyNum: "identityNum",
+                                            identifyNum: "123412341234",
                                             gender: ticket.gender,
-                                            birthday: ticket.dateBorn,
+                                            birthday: ticket.birthday,
                                           ),
                                         ),
                                       )
@@ -350,16 +392,48 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                       style: headerStyle1,
                                     ),
                                   ),
-                                  TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      S.of(context).save,
-                                      style: titStyle1.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                        color: primaryColor,
-                                      ),
-                                    ),
-                                  )
+                                  state is LoadingPaymentInfoFieldState
+                                      ? LoadingIndicator(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onPrimary,
+                                          radius: 10,
+                                          strokeWidth: 1,
+                                        )
+                                      : TextButton(
+                                          onPressed: () {
+                                            bloc.updatePaymentField(
+                                              widget.id,
+                                              state.payment.copyWith(
+                                                customer: state.payment.customer
+                                                    ?.copyWith(
+                                                  creditCard: state.payment
+                                                          .customer?.creditCard
+                                                          .copyWith(
+                                                        creditNum:
+                                                            creditNumController
+                                                                .text,
+                                                        cvc: cvcController.text,
+                                                        expiredDate: int.parse(
+                                                            expiredDateController
+                                                                .text),
+                                                        nameCard:
+                                                            nameCardController
+                                                                .text,
+                                                      ) ??
+                                                      const CreditCard(),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            S.of(context).save,
+                                            style: titStyle1.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color: primaryColor,
+                                            ),
+                                          ),
+                                        )
                                 ],
                               ),
                               const DividerCustomWithAirplane(),
@@ -370,8 +444,22 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                 headerTextStyle: headerStyle1,
                                 hintStyle: titStyle1,
                                 hintText: "Enter your card number",
-                                controller:
-                                    TextEditingController(text: "Hoang"),
+                                controller: nameCardController,
+                                textStyle: textStyle,
+                                underText: '',
+                                underTextStyle: titStyle1,
+                              ),
+                              TextFieldCustom(
+                                onTap: () async {
+                                  (await context.pickDateTime());
+                                },
+                                paddingLeft: 0,
+                                paddingRight: 0,
+                                headerText: 'Expiration Date',
+                                headerTextStyle: headerStyle1,
+                                hintStyle: titStyle1,
+                                hintText: "20-03-2002",
+                                controller: creditNumController,
                                 textStyle: textStyle,
                                 underText: '',
                                 underTextStyle: titStyle1,
@@ -379,56 +467,37 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                               Row(
                                 children: [
                                   Expanded(
+                                    flex: 5,
                                     child: TextFieldCustom(
-                                      onTap: () async {
-                                        (await context.pickDateTime());
-                                      },
                                       paddingLeft: 0,
                                       paddingRight: 0,
-                                      headerText: 'Issue Date',
+                                      headerText: "Card Number",
+                                      isPhoneNumberField: true,
                                       headerTextStyle: headerStyle1,
+                                      isNumberInputType: true,
                                       hintStyle: titStyle1,
-                                      hintText: "20-03-2002",
-                                      controller: TextEditingController(),
+                                      hintText: 'XXXX - XXXX - XXXX - XXXX',
+                                      controller: creditNumController,
                                       textStyle: textStyle,
-                                      underText: '',
                                       underTextStyle: titStyle1,
                                     ),
                                   ),
                                   const SizedBox(width: 10.0),
                                   Expanded(
                                     child: TextFieldCustom(
-                                      onTap: () async {
-                                        (await context.pickDateTime());
-                                      },
                                       paddingLeft: 0,
                                       paddingRight: 0,
-                                      headerText: "Expiration Date",
+                                      headerText: "CVC",
                                       headerTextStyle: headerStyle1,
-                                      hintText: S.of(context).enterYourEmail,
+                                      isNumberInputType: true,
                                       hintStyle: titStyle1,
-                                      controller: TextEditingController(),
+                                      hintText: 'MM/YY',
+                                      controller: cvcController,
                                       textStyle: textStyle,
-                                      underText: "20-03-2002",
                                       underTextStyle: titStyle1,
                                     ),
-                                  )
+                                  ),
                                 ],
-                              ),
-                              TextFieldCustom(
-                                paddingLeft: 0,
-                                paddingRight: 0,
-                                headerText: S.of(context).phoneNumber,
-                                isPhoneNumberField: true,
-                                headerTextStyle: headerStyle1,
-                                isNumberInputType: true,
-                                hintStyle: titStyle1,
-                                hintText: S.of(context).enterYourPhoneNumber,
-                                controller: TextEditingController(),
-                                textStyle: textStyle,
-                                underText:
-                                    'For example: +84 901234567 where (+84) is the country code and 901234567 is the mobile number',
-                                underTextStyle: titStyle1,
                               ),
                             ]
                                 .expand((element) =>

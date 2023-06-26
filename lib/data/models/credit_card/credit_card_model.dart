@@ -6,21 +6,27 @@ part 'credit_card_model.g.dart';
 @JsonSerializable(explicitToJson: true)
 class CreditCardModel {
   @JsonKey(name: 'id')
-  late int id;
+  final int id;
 
-  @JsonKey(name: 'credit_num')
-  late String creditNum;
+  @JsonKey(name: 'creditNum')
+  final String creditNum;
 
-  @JsonKey(name: 'expired_date')
-  late int expiredDate;
+  @JsonKey(name: 'expiredDate')
+  final int expiredDate;
 
   @JsonKey(name: 'cvc')
-  late String cvc;
+  final String cvc;
 
-  @JsonKey(name: 'name_card')
-  late String nameCard;
+  @JsonKey(name: 'nameCard')
+  final String nameCard;
 
-  CreditCardModel();
+  CreditCardModel({
+    required this.id,
+    required this.creditNum,
+    required this.expiredDate,
+    required this.cvc,
+    required this.nameCard,
+  });
 
   Map<String, dynamic> toJson() => _$CreditCardModelToJson(this);
 
@@ -30,7 +36,7 @@ class CreditCardModel {
   CreditCard get toEntity => CreditCard(
         id: id,
         creditNum: creditNum,
-        expiredDate: DateTime.fromMillisecondsSinceEpoch(expiredDate),
+        expiredDate: expiredDate,
         cvc: cvc,
         nameCard: nameCard,
       );

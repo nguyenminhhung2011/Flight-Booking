@@ -93,7 +93,7 @@ class _SelectedCustomerFormState extends State<SelectedCustomerForm> {
             },
             {
               'headerText': S.of(context).phoneNumber,
-              'text': _customerSelected?.phoneNumber ?? '',
+              'text': _customerSelected?.phone ?? '',
             },
             {
               'headerText': S.of(context).identityNumber,

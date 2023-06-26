@@ -55,11 +55,11 @@ class AddCustomerBloc extends Bloc<AddCustomerEvent, AddCustomerState> {
       final response = await _customerUseCase.addNewCustomer(Customer(
         id: 0,
         name: event.name,
-        phoneNumber: event.phoneNumber,
+        phone: event.phoneNumber,
         email: event.email,
         identifyNum: event.identifyNum,
         gender: event.gender,
-        birthday: event.dob,
+        birthday: event.dob.millisecondsSinceEpoch,
       ));
       if (response == null) {
         return emit(AddCustomerState.addCustomerFailed(
@@ -103,11 +103,11 @@ class AddCustomerBloc extends Bloc<AddCustomerEvent, AddCustomerState> {
         Customer(
           id: _customerId,
           name: event.name,
-          phoneNumber: event.phoneNumber,
+          phone: event.phoneNumber,
           email: event.email,
           identifyNum: event.identifyNum,
           gender: event.gender,
-          birthday: event.dob,
+          birthday: event.dob.millisecondsSinceEpoch,
         ),
         _customerId,
       );

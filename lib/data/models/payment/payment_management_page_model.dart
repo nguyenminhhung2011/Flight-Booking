@@ -15,6 +15,7 @@ class PaymentManagementPageModel {
   final RevenueModel revenue;
   final PaymentStatusStateDataModel statusData;
   final TicketTierDataModel ticketTierData;
+  final int totalPayment;
 
   PaymentManagementPageModel({
     required this.payments,
@@ -22,6 +23,7 @@ class PaymentManagementPageModel {
     required this.revenue,
     required this.statusData,
     required this.ticketTierData,
+    required this.totalPayment,
   });
 
   factory PaymentManagementPageModel.fromJson(Map<String, dynamic> json) =>
@@ -31,6 +33,7 @@ class PaymentManagementPageModel {
         payments: payments.map((e) => e.toEntity).toList(),
         totalData: totalData.toEntity,
         revenue: revenue.toEntity,
+        total: totalPayment,
         statusData: statusData.toEntity,
         ticketTierData: ticketTierData.toEntity,
       );

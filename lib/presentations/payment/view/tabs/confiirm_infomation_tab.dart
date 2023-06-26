@@ -124,7 +124,7 @@ class _ConfirmInformationTabState extends State<ConfirmInformationTab> {
                                             color: Theme.of(context).hintColor),
                                       ),
                                       Text(
-                                        '${S.of(context).date}: ${getYmdFormat(DateTime.fromMillisecondsSinceEpoch(_payment?.createDate ?? DateTime.now().millisecondsSinceEpoch))}',
+                                        '${S.of(context).date}: ${getYmdFormat(DateTime.fromMillisecondsSinceEpoch(_payment?.createdDate ?? DateTime.now().millisecondsSinceEpoch))}',
                                         style: titleStyle.copyWith(
                                           color: Theme.of(context).hintColor,
                                         ),
@@ -289,7 +289,7 @@ class _ConfirmInformationTabState extends State<ConfirmInformationTab> {
         children: [
           Text(S.of(context).customerInformation, style: headerStyle),
           const SizedBox(height: 10.0),
-          ..._payment!.tickets
+          ..._payment!.ticket
               .map(
                 (e) => RichText(
                   text: TextSpan(
@@ -341,7 +341,7 @@ class _ConfirmInformationTabState extends State<ConfirmInformationTab> {
                   {'header': S.of(context).email, 'tit': _customer!.email},
                   {
                     'header': S.of(context).phoneNumber,
-                    'tit': _customer!.phoneNumber
+                    'tit': _customer!.phone
                   },
                 ]
                     .map(

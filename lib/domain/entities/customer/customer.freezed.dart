@@ -22,11 +22,12 @@ Customer _$CustomerFromJson(Map<String, dynamic> json) {
 mixin _$Customer {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get phoneNumber => throw _privateConstructorUsedError;
+  String get phone => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get identifyNum => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
-  DateTime get birthday => throw _privateConstructorUsedError;
+  int get birthday => throw _privateConstructorUsedError;
+  CreditCard get creditCard => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,11 +43,14 @@ abstract class $CustomerCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      String phoneNumber,
+      String phone,
       String email,
       String identifyNum,
       String gender,
-      DateTime birthday});
+      int birthday,
+      CreditCard creditCard});
+
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -64,11 +68,12 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? phoneNumber = null,
+    Object? phone = null,
     Object? email = null,
     Object? identifyNum = null,
     Object? gender = null,
     Object? birthday = null,
+    Object? creditCard = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -79,9 +84,9 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      phoneNumber: null == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -98,8 +103,20 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
       birthday: null == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
+      creditCard: null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditCardCopyWith<$Res> get creditCard {
+    return $CreditCardCopyWith<$Res>(_value.creditCard, (value) {
+      return _then(_value.copyWith(creditCard: value) as $Val);
+    });
   }
 }
 
@@ -113,11 +130,15 @@ abstract class _$$_CustomerCopyWith<$Res> implements $CustomerCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      String phoneNumber,
+      String phone,
       String email,
       String identifyNum,
       String gender,
-      DateTime birthday});
+      int birthday,
+      CreditCard creditCard});
+
+  @override
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -133,11 +154,12 @@ class __$$_CustomerCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? phoneNumber = null,
+    Object? phone = null,
     Object? email = null,
     Object? identifyNum = null,
     Object? gender = null,
     Object? birthday = null,
+    Object? creditCard = null,
   }) {
     return _then(_$_Customer(
       id: null == id
@@ -148,9 +170,9 @@ class __$$_CustomerCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      phoneNumber: null == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -167,7 +189,11 @@ class __$$_CustomerCopyWithImpl<$Res>
       birthday: null == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
+      creditCard: null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
     ));
   }
 }
@@ -178,11 +204,12 @@ class _$_Customer implements _Customer {
   const _$_Customer(
       {required this.id,
       required this.name,
-      required this.phoneNumber,
+      required this.phone,
       required this.email,
       required this.identifyNum,
       required this.gender,
-      required this.birthday});
+      required this.birthday,
+      this.creditCard = const CreditCard()});
 
   factory _$_Customer.fromJson(Map<String, dynamic> json) =>
       _$$_CustomerFromJson(json);
@@ -192,7 +219,7 @@ class _$_Customer implements _Customer {
   @override
   final String name;
   @override
-  final String phoneNumber;
+  final String phone;
   @override
   final String email;
   @override
@@ -200,11 +227,14 @@ class _$_Customer implements _Customer {
   @override
   final String gender;
   @override
-  final DateTime birthday;
+  final int birthday;
+  @override
+  @JsonKey()
+  final CreditCard creditCard;
 
   @override
   String toString() {
-    return 'Customer(id: $id, name: $name, phoneNumber: $phoneNumber, email: $email, identifyNum: $identifyNum, gender: $gender, birthday: $birthday)';
+    return 'Customer(id: $id, name: $name, phone: $phone, email: $email, identifyNum: $identifyNum, gender: $gender, birthday: $birthday, creditCard: $creditCard)';
   }
 
   @override
@@ -214,20 +244,21 @@ class _$_Customer implements _Customer {
             other is _$_Customer &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.identifyNum, identifyNum) ||
                 other.identifyNum == identifyNum) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.birthday, birthday) ||
-                other.birthday == birthday));
+                other.birthday == birthday) &&
+            (identical(other.creditCard, creditCard) ||
+                other.creditCard == creditCard));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, phoneNumber, email, identifyNum, gender, birthday);
+  int get hashCode => Object.hash(runtimeType, id, name, phone, email,
+      identifyNum, gender, birthday, creditCard);
 
   @JsonKey(ignore: true)
   @override
@@ -247,11 +278,12 @@ abstract class _Customer implements Customer {
   const factory _Customer(
       {required final int id,
       required final String name,
-      required final String phoneNumber,
+      required final String phone,
       required final String email,
       required final String identifyNum,
       required final String gender,
-      required final DateTime birthday}) = _$_Customer;
+      required final int birthday,
+      final CreditCard creditCard}) = _$_Customer;
 
   factory _Customer.fromJson(Map<String, dynamic> json) = _$_Customer.fromJson;
 
@@ -260,7 +292,7 @@ abstract class _Customer implements Customer {
   @override
   String get name;
   @override
-  String get phoneNumber;
+  String get phone;
   @override
   String get email;
   @override
@@ -268,7 +300,9 @@ abstract class _Customer implements Customer {
   @override
   String get gender;
   @override
-  DateTime get birthday;
+  int get birthday;
+  @override
+  CreditCard get creditCard;
   @override
   @JsonKey(ignore: true)
   _$$_CustomerCopyWith<_$_Customer> get copyWith =>

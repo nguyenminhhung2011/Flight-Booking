@@ -14,7 +14,6 @@ import 'package:flight_booking/core/components/widgets/payment_status_utils.dart
 import 'package:flight_booking/core/components/widgets/range_date_picker_custom.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
-import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/domain/entities/payment/payment_item.dart';
 import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/payment_bloc.dart';
@@ -238,14 +237,45 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    SizedBox(
+                    Container(
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 0.5,
+                          color: Theme.of(context).hintColor,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
                       height: MediaQuery.of(context).size.height * 0.6,
                       child: _buildPaymentTable(state.data.payments),
                     ),
-                    PageIndexView(
-                      currentPage: 1,
-                      totalPage: 10,
-                      selected: (p0) {},
+                    const SizedBox(height: 15),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "Page: ",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                          const SizedBox(width: 10),
+                          PageIndexView(
+                            currentPage: state.data.page,
+                            totalPage:
+                                (state.data.total / state.data.perPage).ceil(),
+                            selected: (p0) {
+                              _paymentBLoc.add(
+                                PaymentEvent.fetchListPaymentData(
+                                  page: p0,
+                                  perPage: state.data.perPage,
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -366,20 +396,20 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                   PopupMenuItem<ActionEnum>(
                     value: ActionEnum.detail,
                     child: Text(
-                      ActionEnum.detail.name,
+                      "Detail",
                       style: context.bodyMedium,
                     ),
                   ),
                   PopupMenuItem<ActionEnum>(
                     value: ActionEnum.edit,
                     child: Text(
-                      ActionEnum.edit.name,
+                      "Edit",
                       style: context.bodyMedium,
                     ),
                   ),
                   PopupMenuItem<ActionEnum>(
                     child: Text(
-                      ActionEnum.delete.name,
+                      "Delete",
                       style: context.bodyMedium,
                     ),
                   ),
@@ -391,7 +421,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                     await showDialog(
                       context: context,
                       builder: (_) {
-                        return const EditPaymentDialog(id: 3);
+                        return EditPaymentDialog(id: int.parse(data as String));
                       },
                     );
                   }
@@ -414,7 +444,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                 data: getYmdHmFormat(
                     DateTime.fromMillisecondsSinceEpoch(data.createDate))),
             FlexRowTableData<PaymentStatus>(flex: 2, data: data.paymentStatus),
-            FlexRowTableData<String>(flex: 1),
+            FlexRowTableData<String>(flex: 1, data: data.id),
           ],
         );
       },

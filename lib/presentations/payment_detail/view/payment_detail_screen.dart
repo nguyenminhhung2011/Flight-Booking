@@ -110,7 +110,7 @@ class PaymentDetailScreen extends StatelessWidget {
             );
           },
           rowData: [
-            FlexRowTableData<String>(flex: 2, data: data.id),
+            FlexRowTableData<String>(flex: 2, data: data.id.toString()),
             FlexRowTableData<String>(
                 flex: 2, data: data.customer?.id.toString()),
             FlexRowTableData<String>(flex: 2, data: data.customer?.name),
@@ -119,7 +119,7 @@ class PaymentDetailScreen extends StatelessWidget {
             FlexRowTableData<String>(
               flex: 2,
               data: DateFormat().add_MMMMEEEEd().add_Hm().format(
-                    DateTime.fromMillisecondsSinceEpoch(data.createDate),
+                    DateTime.fromMillisecondsSinceEpoch(data.createdDate),
                   ),
             ),
             FlexRowTableData<PaymentStatus>(flex: 2, data: getRandomStatus()),

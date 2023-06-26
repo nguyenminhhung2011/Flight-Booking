@@ -20,33 +20,33 @@ mixin _$PaymentEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)
+            PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
     required TResult Function() deletePayment,
-    required TResult Function() fetchListPaymentData,
+    required TResult Function(int page, int perPage) fetchListPaymentData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
     TResult? Function()? deletePayment,
-    TResult? Function()? fetchListPaymentData,
+    TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
     TResult Function()? deletePayment,
-    TResult Function()? fetchListPaymentData,
+    TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,11 +138,11 @@ class _$_OnStarted implements _OnStarted {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)
+            PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
     required TResult Function() deletePayment,
-    required TResult Function() fetchListPaymentData,
+    required TResult Function(int page, int perPage) fetchListPaymentData,
   }) {
     return onStarted();
   }
@@ -152,11 +152,11 @@ class _$_OnStarted implements _OnStarted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
     TResult? Function()? deletePayment,
-    TResult? Function()? fetchListPaymentData,
+    TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) {
     return onStarted?.call();
   }
@@ -166,11 +166,11 @@ class _$_OnStarted implements _OnStarted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
     TResult Function()? deletePayment,
-    TResult Function()? fetchListPaymentData,
+    TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -233,7 +233,9 @@ abstract class _$$_FetchPaymentDataCopyWith<$Res> {
   $Res call(
       {List<DateTime>? dateRange,
       PaymentStatus? status,
-      PaymentType? paymentMethod});
+      PaymentType? paymentMethod,
+      int page,
+      int perPage});
 }
 
 /// @nodoc
@@ -250,6 +252,8 @@ class __$$_FetchPaymentDataCopyWithImpl<$Res>
     Object? dateRange = freezed,
     Object? status = freezed,
     Object? paymentMethod = freezed,
+    Object? page = null,
+    Object? perPage = null,
   }) {
     return _then(_$_FetchPaymentData(
       dateRange: freezed == dateRange
@@ -264,6 +268,14 @@ class __$$_FetchPaymentDataCopyWithImpl<$Res>
           ? _value.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
               as PaymentType?,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      perPage: null == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -272,7 +284,11 @@ class __$$_FetchPaymentDataCopyWithImpl<$Res>
 
 class _$_FetchPaymentData implements _FetchPaymentData {
   const _$_FetchPaymentData(
-      {final List<DateTime>? dateRange, this.status, this.paymentMethod})
+      {final List<DateTime>? dateRange,
+      this.status,
+      this.paymentMethod,
+      this.page = 0,
+      this.perPage = 10})
       : _dateRange = dateRange;
 
   final List<DateTime>? _dateRange;
@@ -289,10 +305,16 @@ class _$_FetchPaymentData implements _FetchPaymentData {
   final PaymentStatus? status;
   @override
   final PaymentType? paymentMethod;
+  @override
+  @JsonKey()
+  final int page;
+  @override
+  @JsonKey()
+  final int perPage;
 
   @override
   String toString() {
-    return 'PaymentEvent.fetchPaymentData(dateRange: $dateRange, status: $status, paymentMethod: $paymentMethod)';
+    return 'PaymentEvent.fetchPaymentData(dateRange: $dateRange, status: $status, paymentMethod: $paymentMethod, page: $page, perPage: $perPage)';
   }
 
   @override
@@ -304,12 +326,19 @@ class _$_FetchPaymentData implements _FetchPaymentData {
                 .equals(other._dateRange, _dateRange) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.paymentMethod, paymentMethod) ||
-                other.paymentMethod == paymentMethod));
+                other.paymentMethod == paymentMethod) &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.perPage, perPage) || other.perPage == perPage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_dateRange), status, paymentMethod);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_dateRange),
+      status,
+      paymentMethod,
+      page,
+      perPage);
 
   @JsonKey(ignore: true)
   @override
@@ -322,13 +351,13 @@ class _$_FetchPaymentData implements _FetchPaymentData {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)
+            PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
     required TResult Function() deletePayment,
-    required TResult Function() fetchListPaymentData,
+    required TResult Function(int page, int perPage) fetchListPaymentData,
   }) {
-    return fetchPaymentData(dateRange, status, paymentMethod);
+    return fetchPaymentData(dateRange, status, paymentMethod, page, perPage);
   }
 
   @override
@@ -336,13 +365,14 @@ class _$_FetchPaymentData implements _FetchPaymentData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
     TResult? Function()? deletePayment,
-    TResult? Function()? fetchListPaymentData,
+    TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) {
-    return fetchPaymentData?.call(dateRange, status, paymentMethod);
+    return fetchPaymentData?.call(
+        dateRange, status, paymentMethod, page, perPage);
   }
 
   @override
@@ -350,15 +380,15 @@ class _$_FetchPaymentData implements _FetchPaymentData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
     TResult Function()? deletePayment,
-    TResult Function()? fetchListPaymentData,
+    TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) {
     if (fetchPaymentData != null) {
-      return fetchPaymentData(dateRange, status, paymentMethod);
+      return fetchPaymentData(dateRange, status, paymentMethod, page, perPage);
     }
     return orElse();
   }
@@ -408,11 +438,15 @@ abstract class _FetchPaymentData implements PaymentEvent {
   const factory _FetchPaymentData(
       {final List<DateTime>? dateRange,
       final PaymentStatus? status,
-      final PaymentType? paymentMethod}) = _$_FetchPaymentData;
+      final PaymentType? paymentMethod,
+      final int page,
+      final int perPage}) = _$_FetchPaymentData;
 
   List<DateTime>? get dateRange;
   PaymentStatus? get status;
   PaymentType? get paymentMethod;
+  int get page;
+  int get perPage;
   @JsonKey(ignore: true)
   _$$_FetchPaymentDataCopyWith<_$_FetchPaymentData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -458,11 +492,11 @@ class _$_OpenPaymentDetail implements _OpenPaymentDetail {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)
+            PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
     required TResult Function() deletePayment,
-    required TResult Function() fetchListPaymentData,
+    required TResult Function(int page, int perPage) fetchListPaymentData,
   }) {
     return openPaymentDetail();
   }
@@ -472,11 +506,11 @@ class _$_OpenPaymentDetail implements _OpenPaymentDetail {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
     TResult? Function()? deletePayment,
-    TResult? Function()? fetchListPaymentData,
+    TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) {
     return openPaymentDetail?.call();
   }
@@ -486,11 +520,11 @@ class _$_OpenPaymentDetail implements _OpenPaymentDetail {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
     TResult Function()? deletePayment,
-    TResult Function()? fetchListPaymentData,
+    TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) {
     if (openPaymentDetail != null) {
@@ -584,11 +618,11 @@ class _$_DeletePayment implements _DeletePayment {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)
+            PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
     required TResult Function() deletePayment,
-    required TResult Function() fetchListPaymentData,
+    required TResult Function(int page, int perPage) fetchListPaymentData,
   }) {
     return deletePayment();
   }
@@ -598,11 +632,11 @@ class _$_DeletePayment implements _DeletePayment {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
     TResult? Function()? deletePayment,
-    TResult? Function()? fetchListPaymentData,
+    TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) {
     return deletePayment?.call();
   }
@@ -612,11 +646,11 @@ class _$_DeletePayment implements _DeletePayment {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
     TResult Function()? deletePayment,
-    TResult Function()? fetchListPaymentData,
+    TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) {
     if (deletePayment != null) {
@@ -675,6 +709,8 @@ abstract class _$$_FetchListPaymentDataCopyWith<$Res> {
   factory _$$_FetchListPaymentDataCopyWith(_$_FetchListPaymentData value,
           $Res Function(_$_FetchListPaymentData) then) =
       __$$_FetchListPaymentDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int page, int perPage});
 }
 
 /// @nodoc
@@ -684,39 +720,74 @@ class __$$_FetchListPaymentDataCopyWithImpl<$Res>
   __$$_FetchListPaymentDataCopyWithImpl(_$_FetchListPaymentData _value,
       $Res Function(_$_FetchListPaymentData) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? page = null,
+    Object? perPage = null,
+  }) {
+    return _then(_$_FetchListPaymentData(
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      perPage: null == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_FetchListPaymentData implements _FetchListPaymentData {
-  const _$_FetchListPaymentData();
+  const _$_FetchListPaymentData({this.page = 0, this.perPage = 10});
+
+  @override
+  @JsonKey()
+  final int page;
+  @override
+  @JsonKey()
+  final int perPage;
 
   @override
   String toString() {
-    return 'PaymentEvent.fetchListPaymentData()';
+    return 'PaymentEvent.fetchListPaymentData(page: $page, perPage: $perPage)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FetchListPaymentData);
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchListPaymentData &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.perPage, perPage) || other.perPage == perPage));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, page, perPage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FetchListPaymentDataCopyWith<_$_FetchListPaymentData> get copyWith =>
+      __$$_FetchListPaymentDataCopyWithImpl<_$_FetchListPaymentData>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)
+            PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
     required TResult Function() deletePayment,
-    required TResult Function() fetchListPaymentData,
+    required TResult Function(int page, int perPage) fetchListPaymentData,
   }) {
-    return fetchListPaymentData();
+    return fetchListPaymentData(page, perPage);
   }
 
   @override
@@ -724,13 +795,13 @@ class _$_FetchListPaymentData implements _FetchListPaymentData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
     TResult? Function()? deletePayment,
-    TResult? Function()? fetchListPaymentData,
+    TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) {
-    return fetchListPaymentData?.call();
+    return fetchListPaymentData?.call(page, perPage);
   }
 
   @override
@@ -738,15 +809,15 @@ class _$_FetchListPaymentData implements _FetchListPaymentData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function(List<DateTime>? dateRange, PaymentStatus? status,
-            PaymentType? paymentMethod)?
+            PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
     TResult Function()? deletePayment,
-    TResult Function()? fetchListPaymentData,
+    TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) {
     if (fetchListPaymentData != null) {
-      return fetchListPaymentData();
+      return fetchListPaymentData(page, perPage);
     }
     return orElse();
   }
@@ -793,7 +864,14 @@ class _$_FetchListPaymentData implements _FetchListPaymentData {
 }
 
 abstract class _FetchListPaymentData implements PaymentEvent {
-  const factory _FetchListPaymentData() = _$_FetchListPaymentData;
+  const factory _FetchListPaymentData({final int page, final int perPage}) =
+      _$_FetchListPaymentData;
+
+  int get page;
+  int get perPage;
+  @JsonKey(ignore: true)
+  _$$_FetchListPaymentDataCopyWith<_$_FetchListPaymentData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

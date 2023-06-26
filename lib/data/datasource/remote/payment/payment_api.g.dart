@@ -70,29 +70,32 @@ class _PaymentApi implements PaymentApi {
   }
 
   @override
-  Future<HttpResponse<List<PaymentModel>>> getPaymentByPage(
+  Future<HttpResponse<List<PaymentLight>>> getPaymentByPage(
     page,
     perPage,
   ) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'perPage': perPage,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<PaymentModel>>>(Options(
+        _setStreamType<HttpResponse<List<PaymentLight>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/api/v1/payment/page=${page}&perPage=${perPage}',
+              '/api/v1/payment/',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
-        .map((dynamic i) => PaymentModel.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => PaymentLight.fromJson(i as Map<String, dynamic>))
         .toList();
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
@@ -159,7 +162,8 @@ class _PaymentApi implements PaymentApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'id': id};
     final _headers = <String, dynamic>{};
-    final _data = body;
+    final _data = <String, dynamic>{};
+    _data.addAll(body.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<PaymentModel>>(Options(
       method: 'PUT',
@@ -211,10 +215,15 @@ class _PaymentApi implements PaymentApi {
   }
 
   @override
-  Future<HttpResponse<PaymentManagementPageModel>>
-      fetchPaymentManagementPage() async {
+  Future<HttpResponse<PaymentManagementPageModel>> fetchPaymentManagementPage(
+    page,
+    perPage,
+  ) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'perPage': perPage,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(

@@ -14,9 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Ticket _$TicketFromJson(Map<String, dynamic> json) {
+  return _Ticket.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Ticket {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
@@ -24,9 +28,11 @@ mixin _$Ticket {
   int get seat => throw _privateConstructorUsedError;
   int get type => throw _privateConstructorUsedError;
   double get luggage => throw _privateConstructorUsedError;
-  DateTime get dateBorn => throw _privateConstructorUsedError;
-  DateTime get timeBought => throw _privateConstructorUsedError;
+  int get birthday => throw _privateConstructorUsedError;
+  int get timeBought => throw _privateConstructorUsedError;
+  double get price => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TicketCopyWith<Ticket> get copyWith => throw _privateConstructorUsedError;
 }
@@ -37,7 +43,7 @@ abstract class $TicketCopyWith<$Res> {
       _$TicketCopyWithImpl<$Res, Ticket>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       String gender,
       String phoneNumber,
@@ -45,8 +51,9 @@ abstract class $TicketCopyWith<$Res> {
       int seat,
       int type,
       double luggage,
-      DateTime dateBorn,
-      DateTime timeBought});
+      int birthday,
+      int timeBought,
+      double price});
 }
 
 /// @nodoc
@@ -70,14 +77,15 @@ class _$TicketCopyWithImpl<$Res, $Val extends Ticket>
     Object? seat = null,
     Object? type = null,
     Object? luggage = null,
-    Object? dateBorn = null,
+    Object? birthday = null,
     Object? timeBought = null,
+    Object? price = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -106,14 +114,18 @@ class _$TicketCopyWithImpl<$Res, $Val extends Ticket>
           ? _value.luggage
           : luggage // ignore: cast_nullable_to_non_nullable
               as double,
-      dateBorn: null == dateBorn
-          ? _value.dateBorn
-          : dateBorn // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      birthday: null == birthday
+          ? _value.birthday
+          : birthday // ignore: cast_nullable_to_non_nullable
+              as int,
       timeBought: null == timeBought
           ? _value.timeBought
           : timeBought // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -125,7 +137,7 @@ abstract class _$$_TicketCopyWith<$Res> implements $TicketCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       String gender,
       String phoneNumber,
@@ -133,8 +145,9 @@ abstract class _$$_TicketCopyWith<$Res> implements $TicketCopyWith<$Res> {
       int seat,
       int type,
       double luggage,
-      DateTime dateBorn,
-      DateTime timeBought});
+      int birthday,
+      int timeBought,
+      double price});
 }
 
 /// @nodoc
@@ -155,14 +168,15 @@ class __$$_TicketCopyWithImpl<$Res>
     Object? seat = null,
     Object? type = null,
     Object? luggage = null,
-    Object? dateBorn = null,
+    Object? birthday = null,
     Object? timeBought = null,
+    Object? price = null,
   }) {
     return _then(_$_Ticket(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -191,20 +205,24 @@ class __$$_TicketCopyWithImpl<$Res>
           ? _value.luggage
           : luggage // ignore: cast_nullable_to_non_nullable
               as double,
-      dateBorn: null == dateBorn
-          ? _value.dateBorn
-          : dateBorn // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      birthday: null == birthday
+          ? _value.birthday
+          : birthday // ignore: cast_nullable_to_non_nullable
+              as int,
       timeBought: null == timeBought
           ? _value.timeBought
           : timeBought // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Ticket implements _Ticket {
   const _$_Ticket(
       {required this.id,
@@ -215,11 +233,15 @@ class _$_Ticket implements _Ticket {
       required this.seat,
       required this.type,
       required this.luggage,
-      required this.dateBorn,
-      required this.timeBought});
+      required this.birthday,
+      required this.timeBought,
+      required this.price});
+
+  factory _$_Ticket.fromJson(Map<String, dynamic> json) =>
+      _$$_TicketFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
@@ -235,13 +257,15 @@ class _$_Ticket implements _Ticket {
   @override
   final double luggage;
   @override
-  final DateTime dateBorn;
+  final int birthday;
   @override
-  final DateTime timeBought;
+  final int timeBought;
+  @override
+  final double price;
 
   @override
   String toString() {
-    return 'Ticket(id: $id, name: $name, gender: $gender, phoneNumber: $phoneNumber, emailAddress: $emailAddress, seat: $seat, type: $type, luggage: $luggage, dateBorn: $dateBorn, timeBought: $timeBought)';
+    return 'Ticket(id: $id, name: $name, gender: $gender, phoneNumber: $phoneNumber, emailAddress: $emailAddress, seat: $seat, type: $type, luggage: $luggage, birthday: $birthday, timeBought: $timeBought, price: $price)';
   }
 
   @override
@@ -259,26 +283,35 @@ class _$_Ticket implements _Ticket {
             (identical(other.seat, seat) || other.seat == seat) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.luggage, luggage) || other.luggage == luggage) &&
-            (identical(other.dateBorn, dateBorn) ||
-                other.dateBorn == dateBorn) &&
+            (identical(other.birthday, birthday) ||
+                other.birthday == birthday) &&
             (identical(other.timeBought, timeBought) ||
-                other.timeBought == timeBought));
+                other.timeBought == timeBought) &&
+            (identical(other.price, price) || other.price == price));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, gender, phoneNumber,
-      emailAddress, seat, type, luggage, dateBorn, timeBought);
+      emailAddress, seat, type, luggage, birthday, timeBought, price);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_TicketCopyWith<_$_Ticket> get copyWith =>
       __$$_TicketCopyWithImpl<_$_Ticket>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TicketToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Ticket implements Ticket {
   const factory _Ticket(
-      {required final String id,
+      {required final int id,
       required final String name,
       required final String gender,
       required final String phoneNumber,
@@ -286,11 +319,14 @@ abstract class _Ticket implements Ticket {
       required final int seat,
       required final int type,
       required final double luggage,
-      required final DateTime dateBorn,
-      required final DateTime timeBought}) = _$_Ticket;
+      required final int birthday,
+      required final int timeBought,
+      required final double price}) = _$_Ticket;
+
+  factory _Ticket.fromJson(Map<String, dynamic> json) = _$_Ticket.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override
@@ -306,9 +342,11 @@ abstract class _Ticket implements Ticket {
   @override
   double get luggage;
   @override
-  DateTime get dateBorn;
+  int get birthday;
   @override
-  DateTime get timeBought;
+  int get timeBought;
+  @override
+  double get price;
   @override
   @JsonKey(ignore: true)
   _$$_TicketCopyWith<_$_Ticket> get copyWith =>
