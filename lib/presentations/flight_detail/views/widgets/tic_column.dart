@@ -1,3 +1,5 @@
+import 'package:flight_booking/domain/entities/ticket/ticket.dart';
+import 'package:flight_booking/domain/entities/ticket/ticket_information.dart';
 import 'package:flight_booking/presentations/flight_detail/views/widgets/tic_item.dart';
 import 'package:flutter/material.dart';
 
@@ -5,13 +7,15 @@ import '../../../list_flight/views/widgets/dot_custom.dart';
 
 class TicColumn extends StatelessWidget {
   final String header;
-  final int count;
   final Color color;
+  final List<Ticket> tics;
+  final TicketInformation ticInformation;
   const TicColumn({
     super.key,
     required this.header,
-    required this.count,
     required this.color,
+    required this.tics,
+    required this.ticInformation,
   });
 
   @override
@@ -19,6 +23,7 @@ class TicColumn extends StatelessWidget {
     return SizedBox(
       width: 350,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(
             children: [
@@ -34,7 +39,7 @@ class TicColumn extends StatelessWidget {
               )
             ],
           ),
-          for (int i = 0; i < count; i++) const TicItem(),
+          ...tics.map((e) => TicItem(tic: e, ticInformation: ticInformation))
         ]
             .expand((element) => [
                   element,
