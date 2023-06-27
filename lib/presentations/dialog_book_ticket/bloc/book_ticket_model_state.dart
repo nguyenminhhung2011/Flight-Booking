@@ -20,5 +20,6 @@ class BTModelState with _$BTModelState {
     required List<SeatSelected> chairsSelected,
     required List<TicketInformation> ticInformation,
     required List<Ticket> tics,
+    required List<Ticket> redTics,
   }) = _BTModelState;
 }

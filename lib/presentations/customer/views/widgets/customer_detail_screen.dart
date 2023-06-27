@@ -8,7 +8,6 @@ import 'package:flutter_timeline/flutter_timeline.dart';
 import 'package:intl/intl.dart';
 import '../../../../core/components/widgets/flux_table/flux_table_row.dart';
 import '../../../../core/components/widgets/flux_table/flux_ticket_table.dart';
-import '../../../../core/constant/constant.dart';
 import '../../../../core/constant/handle_time.dart';
 import '../../../../data/models/model_helper.dart';
 import '../../../../domain/entities/customer/customer.dart';

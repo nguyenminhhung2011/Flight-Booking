@@ -1,7 +1,6 @@
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../domain/entities/ticket/ticket.dart';
 import '../../../../domain/entities/ticket/ticket_information.dart';
@@ -141,7 +140,8 @@ class TicItem2 extends StatelessWidget {
           ),
           _Fie(context, '${ticketInformation.seatHeader}${tic.seat}'),
           _Fie(context, '${tic.luggage} ${S.of(context).luggage}'),
-          Text(DateFormat.yMd().format(tic.dateBorn), style: styleText1),
+          Text(getYmdFormat(DateTime.fromMillisecondsSinceEpoch(tic.birthday)),
+              style: styleText1),
           Container(
             width: 20.0,
             height: 20.0,
