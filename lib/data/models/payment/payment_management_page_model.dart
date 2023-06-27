@@ -1,5 +1,4 @@
 import 'package:flight_booking/data/models/payment/payment_light.dart';
-import 'package:flight_booking/data/models/payment/payment_model.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/payment_model_state_data.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/payment_status_state_data.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/model_state_data/revenue.dart';

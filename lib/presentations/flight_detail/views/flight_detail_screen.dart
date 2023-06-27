@@ -276,24 +276,18 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   }
 
   Column _listCustomerView(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        TicColumnListView(
-          ticType: TicTypeEnum.businessClass,
-          count: 10,
-        ),
-        TicColumnListView(
-          ticType: TicTypeEnum.businessClass,
-          count: 10,
-        ),
-        TicColumnListView(
-          ticType: TicTypeEnum.premiumEconomyClass,
-          count: 10,
-        ),
-        TicColumnListView(
-          ticType: TicTypeEnum.firstClass,
-          count: 10,
-        ),
+        ..._ticInformation.entries.map<Widget>((e) {
+          final ticType = e.value.id.ticketType.ticClass;
+          return TicColumnListView(
+            listTics: _listTic
+                .where((element) => element.type == e.value.id.ticketType)
+                .toList(),
+            ticketInformation: e.value,
+            ticType: ticType,
+          );
+        })
       ],
     );
   }

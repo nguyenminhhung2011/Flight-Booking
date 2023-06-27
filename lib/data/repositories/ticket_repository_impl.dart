@@ -8,7 +8,6 @@ import '../../core/components/network/app_exception.dart';
 import '../../domain/entities/ticket/ticket.dart';
 import '../../domain/repositories/ticket_repository.dart';
 import '../datasource/remote/ticket/ticket_api.dart';
-import '../models/ticket/ticket_model.dart';
 
 @Injectable(as: TicketRepository)
 class TicketRepositoryImpl extends TicketRepository {

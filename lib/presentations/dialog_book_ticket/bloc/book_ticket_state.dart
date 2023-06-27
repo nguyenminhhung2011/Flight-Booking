@@ -78,6 +78,10 @@ class BTState with _$BTState {
     required int ticIndex,
   }) = _SelectedSeatSuccess;
 
+  const factory BTState.selectedSeatFailed({
+    required BTModelState data,
+  }) = _SelectedSeatFailed;
+
   const factory BTState.addSeatSuccess({
     required BTModelState data,
   }) = _AddSeatSuccess;
