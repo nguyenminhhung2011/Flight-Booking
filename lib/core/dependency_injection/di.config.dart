@@ -286,7 +286,7 @@ _i1.GetIt init(
         gh<_i41.CustomerUseCase>(),
         gh<_i24.TicketInformationUsecase>(),
         gh<_i12.FlightsUsecase>(),
-        gh<_i28.TicketUsecase>(),
+        gh<_i27.TicketUsecase>(),
       ));
   gh.factory<_i67.CustomerBloc>(() => _i67.CustomerBloc(
         gh<_i41.CustomerUseCase>(),
