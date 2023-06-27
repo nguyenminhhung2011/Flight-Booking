@@ -1,11 +1,9 @@
 import 'package:flight_booking/core/components/widgets/card_custom.dart';
-import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket_information_id.dart';
 import 'package:flight_booking/presentations/customer/views/widgets/passenger_info_card.dart';
-import 'package:flight_booking/presentations/payment/view/widgets/tic_information.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';

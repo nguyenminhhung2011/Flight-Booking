@@ -1,8 +1,6 @@
 import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flight_booking/core/components/enum/payment_type.dart';
 import 'package:flight_booking/data/models/customer/customer_model.dart';
-import 'package:flight_booking/data/models/ticket/ticket_model.dart';
-import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/domain/entities/payment/payment_item.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'payment_light.g.dart';

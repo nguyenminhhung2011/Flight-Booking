@@ -53,5 +53,6 @@ class BTEvent with _$BTEvent {
     required String identityNumber,
     required DateTime dateBorn,
     required double luggage,
+    required double price,
   }) = _AddSeat;
 }
