@@ -84,6 +84,7 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
     if (state is AddEditPaymentStateFailed) {
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: Theme.of(context).primaryColor,
         content: Text(
           state.message,
           style: Theme.of(context)
