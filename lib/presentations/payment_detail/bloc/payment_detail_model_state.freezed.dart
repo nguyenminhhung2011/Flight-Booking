@@ -16,7 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PaymentDetailModelState {
-  String get paymentId => throw _privateConstructorUsedError;
+  List<PaymentItem> get payments => throw _privateConstructorUsedError;
+  PaymentDetailItem get paymentDetail => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PaymentDetailModelStateCopyWith<PaymentDetailModelState> get copyWith =>
@@ -29,7 +30,9 @@ abstract class $PaymentDetailModelStateCopyWith<$Res> {
           $Res Function(PaymentDetailModelState) then) =
       _$PaymentDetailModelStateCopyWithImpl<$Res, PaymentDetailModelState>;
   @useResult
-  $Res call({String paymentId});
+  $Res call({List<PaymentItem> payments, PaymentDetailItem paymentDetail});
+
+  $PaymentDetailItemCopyWith<$Res> get paymentDetail;
 }
 
 /// @nodoc
@@ -46,14 +49,27 @@ class _$PaymentDetailModelStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? paymentId = null,
+    Object? payments = null,
+    Object? paymentDetail = null,
   }) {
     return _then(_value.copyWith(
-      paymentId: null == paymentId
-          ? _value.paymentId
-          : paymentId // ignore: cast_nullable_to_non_nullable
-              as String,
+      payments: null == payments
+          ? _value.payments
+          : payments // ignore: cast_nullable_to_non_nullable
+              as List<PaymentItem>,
+      paymentDetail: null == paymentDetail
+          ? _value.paymentDetail
+          : paymentDetail // ignore: cast_nullable_to_non_nullable
+              as PaymentDetailItem,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PaymentDetailItemCopyWith<$Res> get paymentDetail {
+    return $PaymentDetailItemCopyWith<$Res>(_value.paymentDetail, (value) {
+      return _then(_value.copyWith(paymentDetail: value) as $Val);
+    });
   }
 }
 
@@ -65,7 +81,10 @@ abstract class _$$_PaymentDetailModelStateCopyWith<$Res>
       __$$_PaymentDetailModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String paymentId});
+  $Res call({List<PaymentItem> payments, PaymentDetailItem paymentDetail});
+
+  @override
+  $PaymentDetailItemCopyWith<$Res> get paymentDetail;
 }
 
 /// @nodoc
@@ -80,13 +99,18 @@ class __$$_PaymentDetailModelStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? paymentId = null,
+    Object? payments = null,
+    Object? paymentDetail = null,
   }) {
     return _then(_$_PaymentDetailModelState(
-      paymentId: null == paymentId
-          ? _value.paymentId
-          : paymentId // ignore: cast_nullable_to_non_nullable
-              as String,
+      payments: null == payments
+          ? _value._payments
+          : payments // ignore: cast_nullable_to_non_nullable
+              as List<PaymentItem>,
+      paymentDetail: null == paymentDetail
+          ? _value.paymentDetail
+          : paymentDetail // ignore: cast_nullable_to_non_nullable
+              as PaymentDetailItem,
     ));
   }
 }
@@ -94,14 +118,25 @@ class __$$_PaymentDetailModelStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PaymentDetailModelState extends _PaymentDetailModelState {
-  const _$_PaymentDetailModelState({required this.paymentId}) : super._();
+  const _$_PaymentDetailModelState(
+      {required final List<PaymentItem> payments, required this.paymentDetail})
+      : _payments = payments,
+        super._();
+
+  final List<PaymentItem> _payments;
+  @override
+  List<PaymentItem> get payments {
+    if (_payments is EqualUnmodifiableListView) return _payments;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_payments);
+  }
 
   @override
-  final String paymentId;
+  final PaymentDetailItem paymentDetail;
 
   @override
   String toString() {
-    return 'PaymentDetailModelState(paymentId: $paymentId)';
+    return 'PaymentDetailModelState(payments: $payments, paymentDetail: $paymentDetail)';
   }
 
   @override
@@ -109,12 +144,14 @@ class _$_PaymentDetailModelState extends _PaymentDetailModelState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PaymentDetailModelState &&
-            (identical(other.paymentId, paymentId) ||
-                other.paymentId == paymentId));
+            const DeepCollectionEquality().equals(other._payments, _payments) &&
+            (identical(other.paymentDetail, paymentDetail) ||
+                other.paymentDetail == paymentDetail));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, paymentId);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_payments), paymentDetail);
 
   @JsonKey(ignore: true)
   @override
@@ -126,12 +163,16 @@ class _$_PaymentDetailModelState extends _PaymentDetailModelState {
 }
 
 abstract class _PaymentDetailModelState extends PaymentDetailModelState {
-  const factory _PaymentDetailModelState({required final String paymentId}) =
+  const factory _PaymentDetailModelState(
+          {required final List<PaymentItem> payments,
+          required final PaymentDetailItem paymentDetail}) =
       _$_PaymentDetailModelState;
   const _PaymentDetailModelState._() : super._();
 
   @override
-  String get paymentId;
+  List<PaymentItem> get payments;
+  @override
+  PaymentDetailItem get paymentDetail;
   @override
   @JsonKey(ignore: true)
   _$$_PaymentDetailModelStateCopyWith<_$_PaymentDetailModelState>

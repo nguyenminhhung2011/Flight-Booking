@@ -1,11 +1,14 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
+import 'package:flight_booking/domain/entities/flight/flight.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class FlightInfoCard extends StatelessWidget {
-  const FlightInfoCard({super.key});
+  const FlightInfoCard({super.key, this.flight});
+
+  final Flight? flight;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,10 @@ class FlightInfoCard extends StatelessWidget {
             Divider(thickness: 1, color: Theme.of(context).dividerColor),
             const Expanded(child: FlightScheduleInformation()),
             Divider(thickness: 1, color: Theme.of(context).dividerColor),
-            const Expanded(child: FlightDestinationComponent()),
+            Expanded(
+                child: FlightDestinationComponent(
+              flight: flight,
+            )),
           ],
         ),
       ),
@@ -34,7 +40,8 @@ class FlightInfoCard extends StatelessWidget {
 }
 
 class FlightDestinationComponent extends StatelessWidget {
-  const FlightDestinationComponent({super.key});
+  const FlightDestinationComponent({super.key, this.flight});
+  final Flight? flight;
 
   Widget _buildColumnDataDisplay(
     BuildContext context, {
@@ -94,9 +101,9 @@ class FlightDestinationComponent extends StatelessWidget {
                 child: _buildColumnDataDisplay(
                   context,
                   headline: 'From',
-                  title: "Ho Chi Minh",
+                  title: flight?.arrivalAirport.location ?? "",
                   airportCode: "SGN",
-                  subtitle: "Tan Son Nhat International Airport",
+                  subtitle: flight?.arrivalAirport.name,
                 ),
               ),
               Container(
@@ -114,21 +121,21 @@ class FlightDestinationComponent extends StatelessWidget {
                 child: _buildColumnDataDisplay(
                   context,
                   headline: 'To',
-                  title: "Ha Noi",
+                  title: flight?.arrivalAirport.location ?? "",
                   airportCode: "HAN",
-                  subtitle: "Noi Bai International Airport",
+                  subtitle: flight?.arrivalAirport.name ?? "",
                 ),
               ),
             ],
           ),
         ),
-        VerticalDivider(color: Colors.grey, thickness: 0.5, width: 20),
+        const VerticalDivider(color: Colors.grey, thickness: 0.5, width: 20),
         Expanded(
           flex: 1,
           child: _buildColumnDataDisplay(
             context,
-            headline: 'Total Passenger',
-            title: "30",
+            headline: 'Flight Id',
+            title: flight?.id.toString() ?? "A24213",
           ),
         ),
       ],
@@ -137,10 +144,15 @@ class FlightDestinationComponent extends StatelessWidget {
 }
 
 class FlightScheduleComponent extends StatelessWidget {
-  const FlightScheduleComponent({super.key});
+  const FlightScheduleComponent({super.key, this.flight});
+
+  final Flight? flight;
 
   @override
   Widget build(BuildContext context) {
+    final Duration duration = flight != null
+        ? flight!.timeEnd.difference(flight!.timeStart)
+        : const Duration(seconds: 0);
     return Row(
       children: [
         Expanded(
@@ -157,7 +169,7 @@ class FlightScheduleComponent extends StatelessWidget {
               filterQuality: FilterQuality.high,
             ),
             title: Text(
-              "Vietnam Airlines",
+              flight?.airline.airlineName ?? "",
               style: Theme.of(context)
                   .textTheme
                   .titleSmall
@@ -182,7 +194,9 @@ class FlightScheduleComponent extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "11:00",
+                      DateFormat().add_Hm().format(
+                            flight?.timeStart ?? DateTime.now(),
+                          ),
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium
@@ -204,7 +218,7 @@ class FlightScheduleComponent extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        "0h 50m",
+                        "${duration.inHours}h : ${duration.inMinutes.remainder(60)}m",
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall
@@ -244,7 +258,9 @@ class FlightScheduleComponent extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "11:00",
+                      DateFormat()
+                          .add_Hm()
+                          .format(flight?.timeEnd ?? DateTime.now()),
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium
@@ -293,8 +309,8 @@ class FlightScheduleComponent extends StatelessWidget {
 }
 
 class FlightScheduleInformation extends StatelessWidget {
-  const FlightScheduleInformation({super.key});
-
+  const FlightScheduleInformation({super.key, this.flight});
+  final Flight? flight;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -322,17 +338,21 @@ class FlightScheduleInformation extends StatelessWidget {
                 ],
               ),
               Text(
-                DateFormat().add_yMMMMEEEEd().format(DateTime.now()),
+                DateFormat()
+                    .add_yMMMMEEEEd()
+                    .format(flight?.timeStart ?? DateTime.now()),
                 style: context.titleSmall.copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
-                DateFormat().add_jm().format(DateTime.now()),
+                DateFormat()
+                    .add_jm()
+                    .format(flight?.timeStart ?? DateTime.now()),
                 style: context.titleSmall.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).hintColor),
               ),
               Text(
-                "Ho Chi Minh City, Pleiku Gia Lai",
+                flight?.departureAirport.location ?? "sdf",
                 style: context.titleSmall.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).hintColor),
@@ -393,18 +413,22 @@ class FlightScheduleInformation extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  DateFormat().add_yMMMMEEEEd().format(DateTime.now()),
+                  DateFormat()
+                      .add_yMMMMEEEEd()
+                      .format(flight?.timeEnd ?? DateTime.now()),
                   style:
                       context.titleSmall.copyWith(fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  DateFormat().add_jm().format(DateTime.now()),
+                  DateFormat()
+                      .add_jm()
+                      .format(flight?.timeEnd ?? DateTime.now()),
                   style: context.titleSmall.copyWith(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).hintColor),
                 ),
                 Text(
-                  "Ho Chi Minh City, Pleiku Gia Lai",
+                  flight?.arrivalAirport.location ?? "",
                   style: context.titleSmall.copyWith(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).hintColor),

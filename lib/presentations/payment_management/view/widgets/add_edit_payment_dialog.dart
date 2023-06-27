@@ -5,7 +5,6 @@ import 'package:flight_booking/core/components/widgets/extension/context_extensi
 import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/core/components/widgets/mobile/category_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/text_field_custom.dart';
-import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/dependency_injection/di.dart';
 import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:flight_booking/domain/entities/customer/customer.dart';
@@ -112,8 +111,10 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
 
         creditNumController.text =
             state.payment.customer?.creditCard.creditNum ?? "";
-        expiredDateController.text =
-            state.payment.customer?.creditCard.expiredDate.toString() ?? "";
+        expiredDateController.text = DateFormat("dd/MM/yyyy").format(
+            DateTime.fromMillisecondsSinceEpoch(
+                state.payment.customer?.creditCard.expiredDate ?? 0));
+
         nameCardController.text =
             state.payment.customer?.creditCard.nameCard ?? "";
         cvcController.text = state.payment.customer?.creditCard.cvc ?? "";
@@ -197,7 +198,9 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                                       .text,
                                                   phone: customerPhoneController
                                                       .text,
-                                                  birthday: DateTime.parse(
+                                                  birthday: DateFormat(
+                                                          "dd/MM/yyyy")
+                                                      .parse(
                                                           customerDobController
                                                               .text)
                                                       .millisecondsSinceEpoch,
@@ -256,7 +259,7 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                       paddingLeft: 0,
                                       paddingRight: 0,
                                       headerText: S.of(context).phoneNumber,
-                                      isPhoneNumberField: true,
+                                      // isPhoneNumberField: true,
                                       headerTextStyle: headerStyle1,
                                       isNumberInputType: true,
                                       hintStyle: titStyle1,
@@ -271,20 +274,32 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                   ),
                                   const SizedBox(width: 10.0),
                                   Expanded(
-                                    child: TextFieldCustom(
-                                      onTap: () async {
-                                        (await context.pickDateTime());
-                                      },
-                                      paddingLeft: 0,
-                                      paddingRight: 0,
-                                      headerText: S.of(context).birthday,
-                                      headerTextStyle: headerStyle1,
-                                      hintText: "Enter your birthday",
-                                      hintStyle: titStyle1,
-                                      controller: customerDobController,
-                                      textStyle: textStyle,
-                                      underText: '',
-                                      underTextStyle: titStyle1,
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                        onTap: () async {
+                                          final DateTime? time =
+                                              (await context.pickDateTime());
+                                          if (time != null) {
+                                            customerDobController.text =
+                                                DateFormat("dd/MM/yyyy")
+                                                    .format(time);
+                                          }
+                                        },
+                                        child: TextFieldCustom(
+                                          enable: false,
+                                          paddingLeft: 0,
+                                          paddingRight: 0,
+                                          headerText: S.of(context).birthday,
+                                          headerTextStyle: headerStyle1,
+                                          hintText: "Enter your birthday",
+                                          hintStyle: titStyle1,
+                                          controller: customerDobController,
+                                          textStyle: textStyle,
+                                          underText: '',
+                                          underTextStyle: titStyle1,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -415,14 +430,17 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                                             creditNumController
                                                                 .text,
                                                         cvc: cvcController.text,
-                                                        expiredDate: int.parse(
-                                                            expiredDateController
-                                                                .text),
+                                                        expiredDate: DateFormat(
+                                                                "dd/MM/yyyy")
+                                                            .parse(
+                                                                expiredDateController
+                                                                    .text)
+                                                            .millisecondsSinceEpoch,
                                                         nameCard:
                                                             nameCardController
                                                                 .text,
                                                       ) ??
-                                                      const CreditCard(),
+                                                      CreditCard(),
                                                 ),
                                               ),
                                             );
@@ -444,26 +462,38 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                 headerText: S.of(context).name,
                                 headerTextStyle: headerStyle1,
                                 hintStyle: titStyle1,
+                                isNumberInputType: true,
                                 hintText: "Enter your card number",
                                 controller: nameCardController,
                                 textStyle: textStyle,
                                 underText: '',
                                 underTextStyle: titStyle1,
                               ),
-                              TextFieldCustom(
-                                onTap: () async {
-                                  (await context.pickDateTime());
-                                },
-                                paddingLeft: 0,
-                                paddingRight: 0,
-                                headerText: 'Expiration Date',
-                                headerTextStyle: headerStyle1,
-                                hintStyle: titStyle1,
-                                hintText: "20-03-2002",
-                                controller: creditNumController,
-                                textStyle: textStyle,
-                                underText: '',
-                                underTextStyle: titStyle1,
+                              Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  onTap: () async {
+                                    final DateTime? time =
+                                        (await context.pickDateTime());
+                                    if (time != null) {
+                                      expiredDateController.text =
+                                          DateFormat("dd/MM/yyyy").format(time);
+                                    }
+                                  },
+                                  child: TextFieldCustom(
+                                    enable: false,
+                                    paddingLeft: 0,
+                                    paddingRight: 0,
+                                    headerText: 'Expiration Date',
+                                    headerTextStyle: headerStyle1,
+                                    hintStyle: titStyle1,
+                                    hintText: "20-03-2002",
+                                    controller: expiredDateController,
+                                    textStyle: textStyle,
+                                    underText: '',
+                                    underTextStyle: titStyle1,
+                                  ),
+                                ),
                               ),
                               Row(
                                 children: [
@@ -473,7 +503,7 @@ class _EditPaymentDialogState extends State<EditPaymentDialog> {
                                       paddingLeft: 0,
                                       paddingRight: 0,
                                       headerText: "Card Number",
-                                      isPhoneNumberField: true,
+                                      // isPhoneNumberField: true,
                                       headerTextStyle: headerStyle1,
                                       isNumberInputType: true,
                                       hintStyle: titStyle1,

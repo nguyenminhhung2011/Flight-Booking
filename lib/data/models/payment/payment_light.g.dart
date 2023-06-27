@@ -13,7 +13,7 @@ PaymentLight _$PaymentLightFromJson(Map<String, dynamic> json) => PaymentLight(
       paymentStatus: json['paymentStatus'] as String,
       paymentType: json['paymentType'] as String,
       customer:
-          CustomerModel.fromJson(json['customers'] as Map<String, dynamic>),
+          CustomerModel.fromJson(json['customer'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$PaymentLightToJson(PaymentLight instance) =>
@@ -23,5 +23,5 @@ Map<String, dynamic> _$PaymentLightToJson(PaymentLight instance) =>
       'paymentType': instance.paymentType,
       'paymentStatus': instance.paymentStatus,
       'total': instance.total,
-      'customers': instance.customer,
+      'customer': instance.customer,
     };

@@ -37,9 +37,11 @@ class TextFieldCustom extends StatefulWidget {
   final Function()? prefixPress;
   final TextFieldType type;
   final Function()? onTap;
+  final bool enable;
 
   const TextFieldCustom({
     super.key,
+    this.enable = true,
     this.headerText,
     this.controller,
     this.headerTextStyle,
@@ -136,6 +138,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
                     ],
                     Expanded(
                       child: TextFormField(
+                        enabled: widget.enable,
                         onTap: widget.onTap,
                         obscureText: isShowPass,
                         controller: widget.controller,
@@ -190,6 +193,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
           SizedBox(
             width: double.infinity,
             child: TextFormField(
+              enabled: widget.enable,
               onTap: widget.onTap,
               maxLines: widget.maxLines ?? 1,
               keyboardType:

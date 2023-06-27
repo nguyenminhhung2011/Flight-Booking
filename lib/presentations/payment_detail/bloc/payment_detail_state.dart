@@ -23,4 +23,7 @@ class PaymentDetailState with _$PaymentDetailState {
 
   const factory PaymentDetailState.openPaymentPageSuccess(
       {required final PaymentDetailModelState data}) = _OpenPaymentPageSuccess;
+
+  const factory PaymentDetailState.failedState(
+      {required final PaymentDetailModelState data}) = _FailedState;
 }

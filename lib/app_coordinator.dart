@@ -283,8 +283,8 @@ extension AppCoordinator<T> on BuildContext {
     return Navigator.of(this).pushNamed(route, arguments: param);
   }
 
-  Future<T?> openPaymentDetailPage() {
-    return Navigator.of(this).pushNamed(Routes.paymentDetail);
+  Future<T?> openPaymentDetailPage(String id) {
+    return Navigator.of(this).pushNamed(Routes.paymentDetail, arguments: id);
   }
 }
 

@@ -4,7 +4,9 @@ import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_ticket_table.dart';
 import 'package:flight_booking/core/components/widgets/payment_status_utils.dart';
-import 'package:flight_booking/domain/entities/payment/payment.dart';
+import 'package:flight_booking/core/constant/handle_time.dart';
+import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
+import 'package:flight_booking/domain/entities/payment/payment_item.dart';
 import 'package:flight_booking/presentations/payment_detail/bloc/payment_detail_bloc.dart';
 import 'package:flight_booking/presentations/payment_detail/view/widgets/flight_info_card.dart';
 import 'package:flight_booking/presentations/payment_detail/view/widgets/payment_detail_card.dart';
@@ -12,16 +14,26 @@ import 'package:flight_booking/presentations/payment_detail/view/widgets/payment
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
-import 'package:intl/intl.dart';
 
-import '../../../core/components/enum/action_enum.dart';
 import '../../../core/components/widgets/flux_table/flux_table_row.dart';
 import '../../../generated/l10n.dart';
 
-class PaymentDetailScreen extends StatelessWidget {
-  PaymentDetailScreen({super.key});
+class PaymentDetailScreen extends StatefulWidget {
+  const PaymentDetailScreen({super.key});
 
-  final PaymentDetailBloc test = PaymentDetailBloc("");
+  @override
+  State<PaymentDetailScreen> createState() => _PaymentDetailScreenState();
+}
+
+class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
+  late final PaymentDetailBloc bloc =
+      BlocProvider.of<PaymentDetailBloc>(context);
+
+  @override
+  void initState() {
+    bloc.add(const PaymentDetailEvent.fetchPaymentDetailData());
+    super.initState();
+  }
 
   Widget _buildPaymentStatusComponent(
     BuildContext context,
@@ -55,15 +67,9 @@ class PaymentDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildPaymentTable(BuildContext context) {
-    return FluxTicketTable<Payment>(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-      tableDecoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: CommonAppUIConfig.primaryRadiusBorder,
-        border: Border.all(color: Theme.of(context).dividerColor, width: 1),
-      ),
-      data: [],
+  Widget _buildPaymentTable(PaymentDetailState state) {
+    return FluxTicketTable<PaymentItem>(
+      data: state.data.payments,
       rowBuilder: (data) {
         return FluxTableRow(
           rowDecoration: BoxDecoration(
@@ -74,56 +80,25 @@ class PaymentDetailScreen extends StatelessWidget {
           ),
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           itemBuilder: (data, int columnIndex) {
-            if (columnIndex == 6) {
+            if (columnIndex == 5) {
               return _buildPaymentStatusComponent(context, data);
             }
-            if (columnIndex == 7) {
-              return PopupMenuButton<ActionEnum>(
-                itemBuilder: (context) => [
-                  PopupMenuItem<ActionEnum>(
-                    value: ActionEnum.detail,
-                    child: Text(
-                      ActionEnum.detail.name,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  ),
-                  PopupMenuItem<ActionEnum>(
-                    child: Text(
-                      ActionEnum.edit.name,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  ),
-                  PopupMenuItem<ActionEnum>(
-                    child: Text(
-                      ActionEnum.delete.name,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  ),
-                ],
-                onSelected: (value) {},
-                icon: const Icon(Icons.more_vert),
-              );
-            }
+
             return Text(
               data.toString(),
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: context.bodyMedium,
             );
           },
           rowData: [
-            FlexRowTableData<String>(flex: 2, data: data.id.toString()),
-            FlexRowTableData<String>(
-                flex: 2, data: data.customer?.id.toString()),
-            FlexRowTableData<String>(flex: 2, data: data.customer?.name),
+            FlexRowTableData<String>(flex: 2, data: data.id),
+            FlexRowTableData<String>(flex: 2, data: data.customer?.name ?? ""),
             FlexRowTableData<String>(flex: 2, data: data.paymentType.name),
             FlexRowTableData<String>(flex: 2, data: data.total.toString()),
             FlexRowTableData<String>(
-              flex: 2,
-              data: DateFormat().add_MMMMEEEEd().add_Hm().format(
-                    DateTime.fromMillisecondsSinceEpoch(data.createdDate),
-                  ),
-            ),
-            FlexRowTableData<PaymentStatus>(flex: 2, data: getRandomStatus()),
-            FlexRowTableData<String>(flex: 1),
+                flex: 2,
+                data: getYmdHmFormat(
+                    DateTime.fromMillisecondsSinceEpoch(data.createDate))),
+            FlexRowTableData<PaymentStatus>(flex: 2, data: data.paymentStatus),
           ],
         );
       },
@@ -144,15 +119,15 @@ class PaymentDetailScreen extends StatelessWidget {
         },
         rowData: [
           FlexRowTableData<String>(flex: 2, data: S.of(context).id),
-          FlexRowTableData<String>(flex: 2, data: S.of(context).customerId),
+          FlexRowTableData<String>(flex: 2, data: "Customer Name"),
           FlexRowTableData<String>(flex: 2, data: S.of(context).paymentMethod),
           FlexRowTableData<String>(flex: 2, data: S.of(context).amount),
           FlexRowTableData<String>(flex: 2, data: S.of(context).creDate),
           FlexRowTableData<String>(flex: 2, data: S.of(context).status),
-          FlexRowTableData<String>(flex: 1, data: S.of(context).actions),
         ],
       ),
       isSelectable: true,
+      padding: const EdgeInsets.all(8),
     );
   }
 
@@ -176,7 +151,7 @@ class PaymentDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<PaymentDetailBloc, PaymentDetailState>(
-      bloc: test,
+      bloc: bloc,
       listener: _stateChangeListener,
       builder: (context, state) {
         return Scaffold(
@@ -203,22 +178,34 @@ class PaymentDetailScreen extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              const Expanded(
-                                  flex: 2, child: PaymentConfirmCard()),
+                              Expanded(
+                                  flex: 2,
+                                  child: PaymentConfirmCard(
+                                    creditCard: state.data.paymentDetail
+                                            .customer?.creditCard ??
+                                        const CreditCard(),
+                                  )),
                               SizedBox(width: cardSpace),
-                              const Expanded(flex: 3, child: FlightInfoCard()),
+                              Expanded(
+                                  flex: 3,
+                                  child: FlightInfoCard(
+                                    flight: state.data.paymentDetail.flight,
+                                  )),
                             ],
                           ),
                         ),
                         SizedBox(height: cardSpace),
                         Expanded(
-                          child: _buildPaymentTable(context),
+                          child: _buildPaymentTable(state),
                         ),
                       ],
                     ),
                   ),
                   SizedBox(width: cardSpace),
-                  const Expanded(child: PaymentDetailCard()),
+                  Expanded(
+                      child: PaymentDetailCard(
+                    payment: state.data.paymentDetail,
+                  )),
                 ],
               ),
             ),
