@@ -1,7 +1,7 @@
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 
-class PageIndexView extends StatelessWidget {
+class PageIndexView extends StatefulWidget {
   final int currentPage;
   final int totalPage;
   final Function(int) selected;
@@ -12,32 +12,45 @@ class PageIndexView extends StatelessWidget {
     required this.selected,
   });
 
-  int get right => (currentPage + 5) < totalPage ? currentPage + 5 : totalPage;
-  int get left => currentPage - (10 - (right - (currentPage + 1))) + 2;
+  @override
+  State<PageIndexView> createState() => _PageIndexViewState();
+}
+
+class _PageIndexViewState extends State<PageIndexView> {
+  int get right => (widget.currentPage + 5) < widget.totalPage
+      ? widget.currentPage + 5
+      : widget.totalPage;
+
+  int get left =>
+      widget.currentPage - (10 - (right - (widget.currentPage + 1))) + 2;
+
   int get leftField => left < 1 ? 1 : left;
+
   int get rightField => leftField != 1
       ? right
-      : right == totalPage
-          ? totalPage
+      : right == widget.totalPage
+          ? widget.totalPage
           : 10;
+
   @override
   Widget build(BuildContext context) {
+    print(widget.currentPage);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        if (totalPage < 10)
-          for (int i = 1; i <= totalPage; i++) ...[
+        if (widget.totalPage < 10)
+          for (int i = 1; i <= widget.totalPage; i++) ...[
             _textButton(i, context),
             const SizedBox(width: 8.0)
           ]
         else ...[
-          for (int i = leftField; i <= currentPage; i++) ...[
+          for (int i = leftField; i <= widget.currentPage; i++) ...[
             _textButton(i, context),
             const SizedBox(width: 8.0)
           ],
-          for (int i = currentPage + 1; i <= rightField; i++) ...[
+          for (int i = widget.currentPage + 1; i <= rightField; i++) ...[
             _textButton(i, context),
             const SizedBox(width: 8.0)
           ],
@@ -48,13 +61,14 @@ class PageIndexView extends StatelessWidget {
 
   InkWell _textButton(int i, BuildContext context) {
     return InkWell(
-      onTap: () => selected.call(i - 1),
+      onTap: () => widget.selected.call(i - 1),
       child: Text(
         i.toString(),
         style: context.titleSmall.copyWith(
           fontWeight: FontWeight.w600,
-          color:
-              ((i - 1) == currentPage) ? Theme.of(context).primaryColor : null,
+          color: ((i - 1) == widget.currentPage)
+              ? Theme.of(context).primaryColor
+              : null,
         ),
       ),
     );

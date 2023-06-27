@@ -6,7 +6,6 @@ import 'package:flight_booking/core/components/widgets/extension/context_extensi
 import 'package:flight_booking/core/components/widgets/mobile/appbar.dart';
 import 'package:flight_booking/core/components/widgets/mobile/custom_template_screen_stack_scroll.dart';
 import 'package:flight_booking/core/components/widgets/mobile/header_custom.dart';
-import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:flight_booking/presentations_mobile/flight_history_detail/bloc/flight_history_detail_model_state.dart';

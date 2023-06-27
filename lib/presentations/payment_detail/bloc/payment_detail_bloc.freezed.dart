@@ -719,6 +719,7 @@ mixin _$PaymentDetailState {
         changePaymentMethodSuccess,
     required TResult Function(PaymentDetailModelState data)
         openPaymentPageSuccess,
+    required TResult Function(PaymentDetailModelState data) failedState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -730,6 +731,7 @@ mixin _$PaymentDetailState {
     TResult? Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult? Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult? Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult? Function(PaymentDetailModelState data)? failedState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -741,6 +743,7 @@ mixin _$PaymentDetailState {
     TResult Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult Function(PaymentDetailModelState data)? failedState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -756,6 +759,7 @@ mixin _$PaymentDetailState {
         changePaymentMethodSuccess,
     required TResult Function(_OpenPaymentPageSuccess value)
         openPaymentPageSuccess,
+    required TResult Function(_FailedState value) failedState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -768,6 +772,7 @@ mixin _$PaymentDetailState {
     TResult? Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult? Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult? Function(_FailedState value)? failedState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -780,6 +785,7 @@ mixin _$PaymentDetailState {
     TResult Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult Function(_FailedState value)? failedState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -910,6 +916,7 @@ class _$_Initial extends _Initial {
         changePaymentMethodSuccess,
     required TResult Function(PaymentDetailModelState data)
         openPaymentPageSuccess,
+    required TResult Function(PaymentDetailModelState data) failedState,
   }) {
     return initial(data);
   }
@@ -924,6 +931,7 @@ class _$_Initial extends _Initial {
     TResult? Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult? Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult? Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult? Function(PaymentDetailModelState data)? failedState,
   }) {
     return initial?.call(data);
   }
@@ -938,6 +946,7 @@ class _$_Initial extends _Initial {
     TResult Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult Function(PaymentDetailModelState data)? failedState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -959,6 +968,7 @@ class _$_Initial extends _Initial {
         changePaymentMethodSuccess,
     required TResult Function(_OpenPaymentPageSuccess value)
         openPaymentPageSuccess,
+    required TResult Function(_FailedState value) failedState,
   }) {
     return initial(this);
   }
@@ -974,6 +984,7 @@ class _$_Initial extends _Initial {
     TResult? Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult? Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult? Function(_FailedState value)? failedState,
   }) {
     return initial?.call(this);
   }
@@ -989,6 +1000,7 @@ class _$_Initial extends _Initial {
     TResult Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult Function(_FailedState value)? failedState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1089,6 +1101,7 @@ class _$_Loading extends _Loading {
         changePaymentMethodSuccess,
     required TResult Function(PaymentDetailModelState data)
         openPaymentPageSuccess,
+    required TResult Function(PaymentDetailModelState data) failedState,
   }) {
     return loading(data);
   }
@@ -1103,6 +1116,7 @@ class _$_Loading extends _Loading {
     TResult? Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult? Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult? Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult? Function(PaymentDetailModelState data)? failedState,
   }) {
     return loading?.call(data);
   }
@@ -1117,6 +1131,7 @@ class _$_Loading extends _Loading {
     TResult Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult Function(PaymentDetailModelState data)? failedState,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1138,6 +1153,7 @@ class _$_Loading extends _Loading {
         changePaymentMethodSuccess,
     required TResult Function(_OpenPaymentPageSuccess value)
         openPaymentPageSuccess,
+    required TResult Function(_FailedState value) failedState,
   }) {
     return loading(this);
   }
@@ -1153,6 +1169,7 @@ class _$_Loading extends _Loading {
     TResult? Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult? Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult? Function(_FailedState value)? failedState,
   }) {
     return loading?.call(this);
   }
@@ -1168,6 +1185,7 @@ class _$_Loading extends _Loading {
     TResult Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult Function(_FailedState value)? failedState,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1273,6 +1291,7 @@ class _$_FetchPaymentDetailDataSuccess extends _FetchPaymentDetailDataSuccess {
         changePaymentMethodSuccess,
     required TResult Function(PaymentDetailModelState data)
         openPaymentPageSuccess,
+    required TResult Function(PaymentDetailModelState data) failedState,
   }) {
     return fetchPaymentDetailDataSuccess(data);
   }
@@ -1287,6 +1306,7 @@ class _$_FetchPaymentDetailDataSuccess extends _FetchPaymentDetailDataSuccess {
     TResult? Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult? Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult? Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult? Function(PaymentDetailModelState data)? failedState,
   }) {
     return fetchPaymentDetailDataSuccess?.call(data);
   }
@@ -1301,6 +1321,7 @@ class _$_FetchPaymentDetailDataSuccess extends _FetchPaymentDetailDataSuccess {
     TResult Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult Function(PaymentDetailModelState data)? failedState,
     required TResult orElse(),
   }) {
     if (fetchPaymentDetailDataSuccess != null) {
@@ -1322,6 +1343,7 @@ class _$_FetchPaymentDetailDataSuccess extends _FetchPaymentDetailDataSuccess {
         changePaymentMethodSuccess,
     required TResult Function(_OpenPaymentPageSuccess value)
         openPaymentPageSuccess,
+    required TResult Function(_FailedState value) failedState,
   }) {
     return fetchPaymentDetailDataSuccess(this);
   }
@@ -1337,6 +1359,7 @@ class _$_FetchPaymentDetailDataSuccess extends _FetchPaymentDetailDataSuccess {
     TResult? Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult? Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult? Function(_FailedState value)? failedState,
   }) {
     return fetchPaymentDetailDataSuccess?.call(this);
   }
@@ -1352,6 +1375,7 @@ class _$_FetchPaymentDetailDataSuccess extends _FetchPaymentDetailDataSuccess {
     TResult Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult Function(_FailedState value)? failedState,
     required TResult orElse(),
   }) {
     if (fetchPaymentDetailDataSuccess != null) {
@@ -1456,6 +1480,7 @@ class _$_SelectOldPaymentSuccess extends _SelectOldPaymentSuccess {
         changePaymentMethodSuccess,
     required TResult Function(PaymentDetailModelState data)
         openPaymentPageSuccess,
+    required TResult Function(PaymentDetailModelState data) failedState,
   }) {
     return selectOldPaymentSuccess(data);
   }
@@ -1470,6 +1495,7 @@ class _$_SelectOldPaymentSuccess extends _SelectOldPaymentSuccess {
     TResult? Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult? Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult? Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult? Function(PaymentDetailModelState data)? failedState,
   }) {
     return selectOldPaymentSuccess?.call(data);
   }
@@ -1484,6 +1510,7 @@ class _$_SelectOldPaymentSuccess extends _SelectOldPaymentSuccess {
     TResult Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult Function(PaymentDetailModelState data)? failedState,
     required TResult orElse(),
   }) {
     if (selectOldPaymentSuccess != null) {
@@ -1505,6 +1532,7 @@ class _$_SelectOldPaymentSuccess extends _SelectOldPaymentSuccess {
         changePaymentMethodSuccess,
     required TResult Function(_OpenPaymentPageSuccess value)
         openPaymentPageSuccess,
+    required TResult Function(_FailedState value) failedState,
   }) {
     return selectOldPaymentSuccess(this);
   }
@@ -1520,6 +1548,7 @@ class _$_SelectOldPaymentSuccess extends _SelectOldPaymentSuccess {
     TResult? Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult? Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult? Function(_FailedState value)? failedState,
   }) {
     return selectOldPaymentSuccess?.call(this);
   }
@@ -1535,6 +1564,7 @@ class _$_SelectOldPaymentSuccess extends _SelectOldPaymentSuccess {
     TResult Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult Function(_FailedState value)? failedState,
     required TResult orElse(),
   }) {
     if (selectOldPaymentSuccess != null) {
@@ -1641,6 +1671,7 @@ class _$_ChangePaymentMethodSuccess extends _ChangePaymentMethodSuccess {
         changePaymentMethodSuccess,
     required TResult Function(PaymentDetailModelState data)
         openPaymentPageSuccess,
+    required TResult Function(PaymentDetailModelState data) failedState,
   }) {
     return changePaymentMethodSuccess(data);
   }
@@ -1655,6 +1686,7 @@ class _$_ChangePaymentMethodSuccess extends _ChangePaymentMethodSuccess {
     TResult? Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult? Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult? Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult? Function(PaymentDetailModelState data)? failedState,
   }) {
     return changePaymentMethodSuccess?.call(data);
   }
@@ -1669,6 +1701,7 @@ class _$_ChangePaymentMethodSuccess extends _ChangePaymentMethodSuccess {
     TResult Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult Function(PaymentDetailModelState data)? failedState,
     required TResult orElse(),
   }) {
     if (changePaymentMethodSuccess != null) {
@@ -1690,6 +1723,7 @@ class _$_ChangePaymentMethodSuccess extends _ChangePaymentMethodSuccess {
         changePaymentMethodSuccess,
     required TResult Function(_OpenPaymentPageSuccess value)
         openPaymentPageSuccess,
+    required TResult Function(_FailedState value) failedState,
   }) {
     return changePaymentMethodSuccess(this);
   }
@@ -1705,6 +1739,7 @@ class _$_ChangePaymentMethodSuccess extends _ChangePaymentMethodSuccess {
     TResult? Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult? Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult? Function(_FailedState value)? failedState,
   }) {
     return changePaymentMethodSuccess?.call(this);
   }
@@ -1720,6 +1755,7 @@ class _$_ChangePaymentMethodSuccess extends _ChangePaymentMethodSuccess {
     TResult Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult Function(_FailedState value)? failedState,
     required TResult orElse(),
   }) {
     if (changePaymentMethodSuccess != null) {
@@ -1823,6 +1859,7 @@ class _$_OpenPaymentPageSuccess extends _OpenPaymentPageSuccess {
         changePaymentMethodSuccess,
     required TResult Function(PaymentDetailModelState data)
         openPaymentPageSuccess,
+    required TResult Function(PaymentDetailModelState data) failedState,
   }) {
     return openPaymentPageSuccess(data);
   }
@@ -1837,6 +1874,7 @@ class _$_OpenPaymentPageSuccess extends _OpenPaymentPageSuccess {
     TResult? Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult? Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult? Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult? Function(PaymentDetailModelState data)? failedState,
   }) {
     return openPaymentPageSuccess?.call(data);
   }
@@ -1851,6 +1889,7 @@ class _$_OpenPaymentPageSuccess extends _OpenPaymentPageSuccess {
     TResult Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
     TResult Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
     TResult Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult Function(PaymentDetailModelState data)? failedState,
     required TResult orElse(),
   }) {
     if (openPaymentPageSuccess != null) {
@@ -1872,6 +1911,7 @@ class _$_OpenPaymentPageSuccess extends _OpenPaymentPageSuccess {
         changePaymentMethodSuccess,
     required TResult Function(_OpenPaymentPageSuccess value)
         openPaymentPageSuccess,
+    required TResult Function(_FailedState value) failedState,
   }) {
     return openPaymentPageSuccess(this);
   }
@@ -1887,6 +1927,7 @@ class _$_OpenPaymentPageSuccess extends _OpenPaymentPageSuccess {
     TResult? Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult? Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult? Function(_FailedState value)? failedState,
   }) {
     return openPaymentPageSuccess?.call(this);
   }
@@ -1902,6 +1943,7 @@ class _$_OpenPaymentPageSuccess extends _OpenPaymentPageSuccess {
     TResult Function(_ChangePaymentMethodSuccess value)?
         changePaymentMethodSuccess,
     TResult Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult Function(_FailedState value)? failedState,
     required TResult orElse(),
   }) {
     if (openPaymentPageSuccess != null) {
@@ -1922,5 +1964,191 @@ abstract class _OpenPaymentPageSuccess extends PaymentDetailState {
   @override
   @JsonKey(ignore: true)
   _$$_OpenPaymentPageSuccessCopyWith<_$_OpenPaymentPageSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FailedStateCopyWith<$Res>
+    implements $PaymentDetailStateCopyWith<$Res> {
+  factory _$$_FailedStateCopyWith(
+          _$_FailedState value, $Res Function(_$_FailedState) then) =
+      __$$_FailedStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PaymentDetailModelState data});
+
+  @override
+  $PaymentDetailModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_FailedStateCopyWithImpl<$Res>
+    extends _$PaymentDetailStateCopyWithImpl<$Res, _$_FailedState>
+    implements _$$_FailedStateCopyWith<$Res> {
+  __$$_FailedStateCopyWithImpl(
+      _$_FailedState _value, $Res Function(_$_FailedState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_FailedState(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as PaymentDetailModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FailedState extends _FailedState {
+  const _$_FailedState({required this.data}) : super._();
+
+  @override
+  final PaymentDetailModelState data;
+
+  @override
+  String toString() {
+    return 'PaymentDetailState.failedState(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FailedState &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FailedStateCopyWith<_$_FailedState> get copyWith =>
+      __$$_FailedStateCopyWithImpl<_$_FailedState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PaymentDetailModelState data) initial,
+    required TResult Function(PaymentDetailModelState data) loading,
+    required TResult Function(PaymentDetailModelState data)
+        fetchPaymentDetailDataSuccess,
+    required TResult Function(PaymentDetailModelState data)
+        selectOldPaymentSuccess,
+    required TResult Function(PaymentDetailModelState data)
+        changePaymentMethodSuccess,
+    required TResult Function(PaymentDetailModelState data)
+        openPaymentPageSuccess,
+    required TResult Function(PaymentDetailModelState data) failedState,
+  }) {
+    return failedState(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentDetailModelState data)? initial,
+    TResult? Function(PaymentDetailModelState data)? loading,
+    TResult? Function(PaymentDetailModelState data)?
+        fetchPaymentDetailDataSuccess,
+    TResult? Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
+    TResult? Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
+    TResult? Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult? Function(PaymentDetailModelState data)? failedState,
+  }) {
+    return failedState?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentDetailModelState data)? initial,
+    TResult Function(PaymentDetailModelState data)? loading,
+    TResult Function(PaymentDetailModelState data)?
+        fetchPaymentDetailDataSuccess,
+    TResult Function(PaymentDetailModelState data)? selectOldPaymentSuccess,
+    TResult Function(PaymentDetailModelState data)? changePaymentMethodSuccess,
+    TResult Function(PaymentDetailModelState data)? openPaymentPageSuccess,
+    TResult Function(PaymentDetailModelState data)? failedState,
+    required TResult orElse(),
+  }) {
+    if (failedState != null) {
+      return failedState(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchPaymentDetailDataSuccess value)
+        fetchPaymentDetailDataSuccess,
+    required TResult Function(_SelectOldPaymentSuccess value)
+        selectOldPaymentSuccess,
+    required TResult Function(_ChangePaymentMethodSuccess value)
+        changePaymentMethodSuccess,
+    required TResult Function(_OpenPaymentPageSuccess value)
+        openPaymentPageSuccess,
+    required TResult Function(_FailedState value) failedState,
+  }) {
+    return failedState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchPaymentDetailDataSuccess value)?
+        fetchPaymentDetailDataSuccess,
+    TResult? Function(_SelectOldPaymentSuccess value)? selectOldPaymentSuccess,
+    TResult? Function(_ChangePaymentMethodSuccess value)?
+        changePaymentMethodSuccess,
+    TResult? Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult? Function(_FailedState value)? failedState,
+  }) {
+    return failedState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchPaymentDetailDataSuccess value)?
+        fetchPaymentDetailDataSuccess,
+    TResult Function(_SelectOldPaymentSuccess value)? selectOldPaymentSuccess,
+    TResult Function(_ChangePaymentMethodSuccess value)?
+        changePaymentMethodSuccess,
+    TResult Function(_OpenPaymentPageSuccess value)? openPaymentPageSuccess,
+    TResult Function(_FailedState value)? failedState,
+    required TResult orElse(),
+  }) {
+    if (failedState != null) {
+      return failedState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FailedState extends PaymentDetailState {
+  const factory _FailedState({required final PaymentDetailModelState data}) =
+      _$_FailedState;
+  const _FailedState._() : super._();
+
+  @override
+  PaymentDetailModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_FailedStateCopyWith<_$_FailedState> get copyWith =>
       throw _privateConstructorUsedError;
 }

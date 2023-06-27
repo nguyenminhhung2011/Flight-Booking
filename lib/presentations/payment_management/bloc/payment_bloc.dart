@@ -25,7 +25,7 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
     on<_OnStarted>((event, emit) => null);
     on<_FetchPaymentData>(_onFetchPaymentData);
     on<_OpenPaymentDetail>((event, emit) => null);
-    on<_DeletePayment>((event, emit) => null);
+    on<_DeletePayment>(_onDeletePayment);
     on<_FetchListPaymentData>(_onFetchListPaymentData);
   }
 
@@ -57,7 +57,27 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
   ) {}
 
   FutureOr<void> _onDeletePayment(
-      _DeletePayment event, Emitter<PaymentState> emit) {}
+      _DeletePayment event, Emitter<PaymentState> emit) async {
+    emit(_LoadingDeletePaymentItem(data: state.data, id: event.id));
+
+    try {
+      final bool response =
+          (await _paymentUseCase.deletePayment(int.parse(event.id))).success;
+      if (response) {
+        final newList = state.data.payments.toList()
+          ..removeWhere((element) => element.id == event.id);
+        return emit(
+          _DeletePaymentSuccess(
+            data: state.data.copyWith(payments: newList),
+          ),
+        );
+      }
+      throw Exception("Delete ticket failed !!! Try again later !!!");
+    } catch (e) {
+      print(e);
+      emit(_PaymentDataFailedState(data: state.data, message: e.toString()));
+    }
+  }
 
   FutureOr<void> _onFetchListPaymentData(
       _FetchListPaymentData event, Emitter<PaymentState> emit) async {
@@ -69,7 +89,11 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
       );
 
       emit(_FetchListPaymentDataSuccess(
-          data: state.data.copyWith(payments: response)));
+          data: state.data.copyWith(
+        payments: response,
+        page: event.page,
+        perPage: event.perPage,
+      )));
     } catch (e) {
       emit(_PaymentDataFailedState(data: state.data, message: e.toString()));
     }

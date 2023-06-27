@@ -1,15 +1,25 @@
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
+import 'package:flight_booking/domain/entities/payment/payment_detail_item.dart';
+import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class PaymentDetailCard extends StatelessWidget {
-  const PaymentDetailCard({super.key});
+class PaymentDetailCard extends StatefulWidget {
+  const PaymentDetailCard({super.key, required this.payment});
 
-  Widget _buildDataFieldDisplay(
-    BuildContext context, {
+  final PaymentDetailItem payment;
+
+  @override
+  State<PaymentDetailCard> createState() => _PaymentDetailCardState();
+}
+
+class _PaymentDetailCardState extends State<PaymentDetailCard> {
+  Widget _buildDataFieldDisplay({
     required String fieldName,
     required String data,
   }) {
@@ -38,18 +48,18 @@ class PaymentDetailCard extends StatelessWidget {
     );
   }
 
-  Widget _buildPassengerTicketListTile(BuildContext context) {
+  Widget _buildPassengerTicketListTile(Ticket ticket) {
     return ListTile(
       dense: true,
       contentPadding: const EdgeInsets.all(0),
-      leading: Image.asset(
-        "images/avatar.jpg",
-        width: 50,
-        filterQuality: FilterQuality.low,
-        fit: BoxFit.contain,
-      ),
+      // leading: Image.asset(
+      //   "images/avatar.jpg",
+      //   width: 50,
+      //   filterQuality: FilterQuality.low,
+      //   fit: BoxFit.contain,
+      // ),
       title: Text(
-        "Truong Huynh Duc Hoang",
+        ticket.name,
         style: Theme.of(context)
             .textTheme
             .bodyLarge
@@ -59,23 +69,22 @@ class PaymentDetailCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "x2",
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            "${ticket.luggage.toString()} KG",
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Theme.of(context).textTheme.headlineLarge?.color),
           ),
-          const SizedBox(width: 30),
+          const SizedBox(width: 25),
           Text(
-            "100\$",
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium
-                ?.copyWith(fontWeight: FontWeight.bold),
+            "${ticket.price} \$",
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).textTheme.headlineLarge?.color),
           ),
         ],
       ),
       subtitle: Text(
-        "Ticket Tiers",
+        TicTypeEnum.fromInt(ticket.type).displayValue,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
             fontWeight: FontWeight.bold,
             color: Theme.of(context).textTheme.headlineLarge?.color),
@@ -83,8 +92,7 @@ class PaymentDetailCard extends StatelessWidget {
     );
   }
 
-  Widget _buildPaymentListTileComponent(
-    BuildContext context, {
+  Widget _buildPaymentListTileComponent({
     required String imageUrl,
     required String title,
     required String value,
@@ -108,10 +116,10 @@ class PaymentDetailCard extends StatelessWidget {
           ),
           Text(
             value,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium
+                ?.copyWith(fontWeight: FontWeight.bold),
           )
         ],
       ),
@@ -164,16 +172,29 @@ class PaymentDetailCard extends StatelessWidget {
                       ?.copyWith(fontWeight: FontWeight.bold),
                 ),
                 const Divider(height: 30, thickness: 1.5),
-                _buildDataFieldDisplay(
-                  context,
-                  fieldName: "Payment Id",
-                  data: "0123456789",
-                ),
-                const SizedBox(height: 10),
-                _buildDataFieldDisplay(
-                  context,
-                  fieldName: "Date of Payment",
-                  data: getYmdHmFormat(DateTime.now()),
+                ...[
+                  _buildDataFieldDisplay(
+                    fieldName: "Payment Id",
+                    data: widget.payment.id.toString(),
+                  ),
+                  _buildDataFieldDisplay(
+                    fieldName: "Date of Payment",
+                    data: getYmdHmFormat(DateTime.fromMillisecondsSinceEpoch(
+                        widget.payment.createdDate)),
+                  ),
+                  _buildDataFieldDisplay(
+                    fieldName: "Payment Status",
+                    data: widget.payment.paymentStatus.displayValue,
+                  ),
+                  _buildDataFieldDisplay(
+                    fieldName: "Payment Type",
+                    data: widget.payment.paymentType.displayValue,
+                  ),
+                ].expand<Widget>(
+                  (element) => [
+                    element,
+                    const SizedBox(height: 10),
+                  ],
                 ),
                 const SizedBox(height: 30),
                 Text(
@@ -184,22 +205,40 @@ class PaymentDetailCard extends StatelessWidget {
                       ?.copyWith(fontWeight: FontWeight.bold),
                 ),
                 const Divider(height: 40, thickness: 1.5),
-                _buildDataFieldDisplay(
-                  context,
-                  fieldName: S.of(context).name,
-                  data: "Truong Huynh Duc Hoang",
-                ),
-                const SizedBox(height: 10),
-                _buildDataFieldDisplay(
-                  context,
-                  fieldName: S.of(context).name,
-                  data: "Truong Huynh Duc Hoang",
-                ),
-                const SizedBox(height: 10),
-                _buildDataFieldDisplay(
-                  context,
-                  fieldName: S.of(context).name,
-                  data: "Truong Huynh Duc Hoang",
+                ...[
+                  _buildDataFieldDisplay(
+                    fieldName: S.of(context).name,
+                    data: widget.payment.customer?.name ?? "",
+                  ),
+                  _buildDataFieldDisplay(
+                    fieldName: "Gender",
+                    data: widget.payment.customer?.gender ?? "Unknown",
+                  ),
+                  _buildDataFieldDisplay(
+                    fieldName: S.of(context).email,
+                    data: widget.payment.customer?.email ?? "",
+                  ),
+                  _buildDataFieldDisplay(
+                    fieldName: S.of(context).identityNumber,
+                    data: widget.payment.customer?.identifyNum ?? "",
+                  ),
+                  _buildDataFieldDisplay(
+                    fieldName: S.of(context).phoneNumber,
+                    data: widget.payment.customer?.phone ?? "",
+                  ),
+                  _buildDataFieldDisplay(
+                    fieldName: S.of(context).birthday,
+                    data: DateFormat("dd/MM/yyyy").format(
+                        DateTime.fromMillisecondsSinceEpoch(
+                            widget.payment.customer?.birthday ?? 0)),
+                  ),
+                ].expand<Widget>(
+                  (element) {
+                    return [
+                      element,
+                      const SizedBox(height: 10),
+                    ];
+                  },
                 ),
                 const SizedBox(height: 30),
                 Text(
@@ -221,12 +260,13 @@ class PaymentDetailCard extends StatelessWidget {
                       ?.copyWith(fontWeight: FontWeight.bold),
                 ),
                 ConstrainedBox(
-                  constraints: BoxConstraints(maxHeight: 250),
+                  constraints: const BoxConstraints(maxHeight: 250),
                   child: ListView.builder(
                     shrinkWrap: true,
-                    itemCount: 5,
+                    itemCount: widget.payment.ticket.length,
                     itemBuilder: (context, index) =>
-                        _buildPassengerTicketListTile(context),
+                        _buildPassengerTicketListTile(
+                            widget.payment.ticket.elementAt(index)),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -239,14 +279,12 @@ class PaymentDetailCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 _buildPaymentListTileComponent(
-                  context,
                   imageUrl: "icons/fare.png",
                   title: "Fare",
                   value: 1234.toString(),
                 ),
                 const SizedBox(height: 20),
                 _buildPaymentListTileComponent(
-                  context,
                   imageUrl: "icons/tax.png",
                   title: "Tax",
                   value: "\$12342143",
@@ -257,10 +295,9 @@ class PaymentDetailCard extends StatelessWidget {
                   color: Theme.of(context).dividerColor,
                 ),
                 _buildPaymentListTileComponent(
-                  context,
                   imageUrl: "icons/receive-amount.png",
                   title: "Total",
-                  value: "\$12342143",
+                  value: widget.payment.total.toString(),
                 ),
                 const SizedBox(height: 20),
                 TextButton.icon(
