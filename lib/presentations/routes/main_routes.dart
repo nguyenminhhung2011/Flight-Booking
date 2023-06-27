@@ -3,6 +3,7 @@ import 'package:flight_booking/presentations/customer/views/widgets/customer_det
 import 'package:flight_booking/presentations/dashboard/views/dashboard_screen.dart';
 import 'package:flight_booking/presentations/login/views/login_screen.dart';
 import 'package:flight_booking/presentations/payment/view/payment_screen.dart';
+import 'package:flight_booking/presentations/payment_detail/bloc/payment_detail_bloc.dart';
 import 'package:flight_booking/presentations/payment_detail/view/payment_detail_screen.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flight_booking/presentations/splash/splash_screen.dart';
@@ -63,7 +64,10 @@ class MainRoutes {
       case Routes.paymentDetail:
         return MaterialPageRoute(
           builder: (context) {
-            return PaymentDetailScreen();
+            return BlocProvider<PaymentDetailBloc>(
+              create: (context) => injector(param1: settings.arguments),
+              child: PaymentDetailScreen(),
+            );
           },
           settings: settings,
         );

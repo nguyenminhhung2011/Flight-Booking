@@ -128,6 +128,7 @@ class ModelHelper {
       paymentType: payment.paymentType.name.toUpperCase(),
       customer: customerConvert(payment.customer ?? defaultCustomer),
       tickets: payment.ticket.map((e) => ticConvert(e)).toList(),
+      flight: null,
     );
   }
 }

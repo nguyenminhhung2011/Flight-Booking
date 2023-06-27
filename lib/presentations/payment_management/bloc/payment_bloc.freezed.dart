@@ -23,7 +23,7 @@ mixin _$PaymentEvent {
             PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
-    required TResult Function() deletePayment,
+    required TResult Function(String id) deletePayment,
     required TResult Function(int page, int perPage) fetchListPaymentData,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,7 +34,7 @@ mixin _$PaymentEvent {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
-    TResult? Function()? deletePayment,
+    TResult? Function(String id)? deletePayment,
     TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) =>
       throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ mixin _$PaymentEvent {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
-    TResult Function()? deletePayment,
+    TResult Function(String id)? deletePayment,
     TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) =>
@@ -141,7 +141,7 @@ class _$_OnStarted implements _OnStarted {
             PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
-    required TResult Function() deletePayment,
+    required TResult Function(String id) deletePayment,
     required TResult Function(int page, int perPage) fetchListPaymentData,
   }) {
     return onStarted();
@@ -155,7 +155,7 @@ class _$_OnStarted implements _OnStarted {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
-    TResult? Function()? deletePayment,
+    TResult? Function(String id)? deletePayment,
     TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) {
     return onStarted?.call();
@@ -169,7 +169,7 @@ class _$_OnStarted implements _OnStarted {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
-    TResult Function()? deletePayment,
+    TResult Function(String id)? deletePayment,
     TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) {
@@ -354,7 +354,7 @@ class _$_FetchPaymentData implements _FetchPaymentData {
             PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
-    required TResult Function() deletePayment,
+    required TResult Function(String id) deletePayment,
     required TResult Function(int page, int perPage) fetchListPaymentData,
   }) {
     return fetchPaymentData(dateRange, status, paymentMethod, page, perPage);
@@ -368,7 +368,7 @@ class _$_FetchPaymentData implements _FetchPaymentData {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
-    TResult? Function()? deletePayment,
+    TResult? Function(String id)? deletePayment,
     TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) {
     return fetchPaymentData?.call(
@@ -383,7 +383,7 @@ class _$_FetchPaymentData implements _FetchPaymentData {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
-    TResult Function()? deletePayment,
+    TResult Function(String id)? deletePayment,
     TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) {
@@ -495,7 +495,7 @@ class _$_OpenPaymentDetail implements _OpenPaymentDetail {
             PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
-    required TResult Function() deletePayment,
+    required TResult Function(String id) deletePayment,
     required TResult Function(int page, int perPage) fetchListPaymentData,
   }) {
     return openPaymentDetail();
@@ -509,7 +509,7 @@ class _$_OpenPaymentDetail implements _OpenPaymentDetail {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
-    TResult? Function()? deletePayment,
+    TResult? Function(String id)? deletePayment,
     TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) {
     return openPaymentDetail?.call();
@@ -523,7 +523,7 @@ class _$_OpenPaymentDetail implements _OpenPaymentDetail {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
-    TResult Function()? deletePayment,
+    TResult Function(String id)? deletePayment,
     TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) {
@@ -583,6 +583,8 @@ abstract class _$$_DeletePaymentCopyWith<$Res> {
   factory _$$_DeletePaymentCopyWith(
           _$_DeletePayment value, $Res Function(_$_DeletePayment) then) =
       __$$_DeletePaymentCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -592,26 +594,50 @@ class __$$_DeletePaymentCopyWithImpl<$Res>
   __$$_DeletePaymentCopyWithImpl(
       _$_DeletePayment _value, $Res Function(_$_DeletePayment) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_DeletePayment(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_DeletePayment implements _DeletePayment {
-  const _$_DeletePayment();
+  const _$_DeletePayment(this.id);
+
+  @override
+  final String id;
 
   @override
   String toString() {
-    return 'PaymentEvent.deletePayment()';
+    return 'PaymentEvent.deletePayment(id: $id)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_DeletePayment);
+        (other.runtimeType == runtimeType &&
+            other is _$_DeletePayment &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DeletePaymentCopyWith<_$_DeletePayment> get copyWith =>
+      __$$_DeletePaymentCopyWithImpl<_$_DeletePayment>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -621,10 +647,10 @@ class _$_DeletePayment implements _DeletePayment {
             PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
-    required TResult Function() deletePayment,
+    required TResult Function(String id) deletePayment,
     required TResult Function(int page, int perPage) fetchListPaymentData,
   }) {
-    return deletePayment();
+    return deletePayment(id);
   }
 
   @override
@@ -635,10 +661,10 @@ class _$_DeletePayment implements _DeletePayment {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
-    TResult? Function()? deletePayment,
+    TResult? Function(String id)? deletePayment,
     TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) {
-    return deletePayment?.call();
+    return deletePayment?.call(id);
   }
 
   @override
@@ -649,12 +675,12 @@ class _$_DeletePayment implements _DeletePayment {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
-    TResult Function()? deletePayment,
+    TResult Function(String id)? deletePayment,
     TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) {
     if (deletePayment != null) {
-      return deletePayment();
+      return deletePayment(id);
     }
     return orElse();
   }
@@ -701,7 +727,12 @@ class _$_DeletePayment implements _DeletePayment {
 }
 
 abstract class _DeletePayment implements PaymentEvent {
-  const factory _DeletePayment() = _$_DeletePayment;
+  const factory _DeletePayment(final String id) = _$_DeletePayment;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$_DeletePaymentCopyWith<_$_DeletePayment> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -784,7 +815,7 @@ class _$_FetchListPaymentData implements _FetchListPaymentData {
             PaymentType? paymentMethod, int page, int perPage)
         fetchPaymentData,
     required TResult Function() openPaymentDetail,
-    required TResult Function() deletePayment,
+    required TResult Function(String id) deletePayment,
     required TResult Function(int page, int perPage) fetchListPaymentData,
   }) {
     return fetchListPaymentData(page, perPage);
@@ -798,7 +829,7 @@ class _$_FetchListPaymentData implements _FetchListPaymentData {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult? Function()? openPaymentDetail,
-    TResult? Function()? deletePayment,
+    TResult? Function(String id)? deletePayment,
     TResult? Function(int page, int perPage)? fetchListPaymentData,
   }) {
     return fetchListPaymentData?.call(page, perPage);
@@ -812,7 +843,7 @@ class _$_FetchListPaymentData implements _FetchListPaymentData {
             PaymentType? paymentMethod, int page, int perPage)?
         fetchPaymentData,
     TResult Function()? openPaymentDetail,
-    TResult Function()? deletePayment,
+    TResult Function(String id)? deletePayment,
     TResult Function(int page, int perPage)? fetchListPaymentData,
     required TResult orElse(),
   }) {
@@ -881,6 +912,9 @@ mixin _$PaymentState {
   TResult when<TResult extends Object?>({
     required TResult Function(PaymentModelStateData data) initial,
     required TResult Function(PaymentModelStateData data) loading,
+    required TResult Function(PaymentModelStateData data, String id)
+        loadingDeletePaymentItem,
+    required TResult Function(PaymentModelStateData data) loadingTable,
     required TResult Function(PaymentModelStateData data)
         fetchPaymentDataSuccess,
     required TResult Function(PaymentModelStateData data) deletePaymentSuccess,
@@ -896,6 +930,9 @@ mixin _$PaymentState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PaymentModelStateData data)? initial,
     TResult? Function(PaymentModelStateData data)? loading,
+    TResult? Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult? Function(PaymentModelStateData data)? loadingTable,
     TResult? Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -908,6 +945,9 @@ mixin _$PaymentState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PaymentModelStateData data)? initial,
     TResult Function(PaymentModelStateData data)? loading,
+    TResult Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult Function(PaymentModelStateData data)? loadingTable,
     TResult Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -921,6 +961,9 @@ mixin _$PaymentState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingDeletePaymentItem value)
+        loadingDeletePaymentItem,
+    required TResult Function(_LoadingTable value) loadingTable,
     required TResult Function(_FetchPaymentDataSuccess value)
         fetchPaymentDataSuccess,
     required TResult Function(_DeletePaymentSuccess value) deletePaymentSuccess,
@@ -936,6 +979,9 @@ mixin _$PaymentState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingDeletePaymentItem value)?
+        loadingDeletePaymentItem,
+    TResult? Function(_LoadingTable value)? loadingTable,
     TResult? Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult? Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult? Function(_OpenPaymentDetailSuccess value)?
@@ -949,6 +995,8 @@ mixin _$PaymentState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingDeletePaymentItem value)? loadingDeletePaymentItem,
+    TResult Function(_LoadingTable value)? loadingTable,
     TResult Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
@@ -1044,14 +1092,15 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
+class _$_Initial extends _Initial {
   const _$_Initial(
       {this.data = const PaymentModelStateData(
           payments: [],
           totalData: TotalStatisticalData(),
           revenue: Revenue(),
           statusData: PaymentStatusStateData(),
-          ticketTierData: TicketTierData())});
+          ticketTierData: TicketTierData())})
+      : super._();
 
   @override
   @JsonKey()
@@ -1084,6 +1133,9 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function(PaymentModelStateData data) initial,
     required TResult Function(PaymentModelStateData data) loading,
+    required TResult Function(PaymentModelStateData data, String id)
+        loadingDeletePaymentItem,
+    required TResult Function(PaymentModelStateData data) loadingTable,
     required TResult Function(PaymentModelStateData data)
         fetchPaymentDataSuccess,
     required TResult Function(PaymentModelStateData data) deletePaymentSuccess,
@@ -1102,6 +1154,9 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PaymentModelStateData data)? initial,
     TResult? Function(PaymentModelStateData data)? loading,
+    TResult? Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult? Function(PaymentModelStateData data)? loadingTable,
     TResult? Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -1117,6 +1172,9 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PaymentModelStateData data)? initial,
     TResult Function(PaymentModelStateData data)? loading,
+    TResult Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult Function(PaymentModelStateData data)? loadingTable,
     TResult Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -1136,6 +1194,9 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingDeletePaymentItem value)
+        loadingDeletePaymentItem,
+    required TResult Function(_LoadingTable value) loadingTable,
     required TResult Function(_FetchPaymentDataSuccess value)
         fetchPaymentDataSuccess,
     required TResult Function(_DeletePaymentSuccess value) deletePaymentSuccess,
@@ -1154,6 +1215,9 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingDeletePaymentItem value)?
+        loadingDeletePaymentItem,
+    TResult? Function(_LoadingTable value)? loadingTable,
     TResult? Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult? Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult? Function(_OpenPaymentDetailSuccess value)?
@@ -1170,6 +1234,8 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingDeletePaymentItem value)? loadingDeletePaymentItem,
+    TResult Function(_LoadingTable value)? loadingTable,
     TResult Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
@@ -1185,8 +1251,9 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements PaymentState {
+abstract class _Initial extends PaymentState {
   const factory _Initial({final PaymentModelStateData data}) = _$_Initial;
+  const _Initial._() : super._();
 
   @override
   PaymentModelStateData get data;
@@ -1233,8 +1300,8 @@ class __$$_LoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading({required this.data});
+class _$_Loading extends _Loading {
+  const _$_Loading({required this.data}) : super._();
 
   @override
   final PaymentModelStateData data;
@@ -1266,6 +1333,9 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function(PaymentModelStateData data) initial,
     required TResult Function(PaymentModelStateData data) loading,
+    required TResult Function(PaymentModelStateData data, String id)
+        loadingDeletePaymentItem,
+    required TResult Function(PaymentModelStateData data) loadingTable,
     required TResult Function(PaymentModelStateData data)
         fetchPaymentDataSuccess,
     required TResult Function(PaymentModelStateData data) deletePaymentSuccess,
@@ -1284,6 +1354,9 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PaymentModelStateData data)? initial,
     TResult? Function(PaymentModelStateData data)? loading,
+    TResult? Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult? Function(PaymentModelStateData data)? loadingTable,
     TResult? Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -1299,6 +1372,9 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PaymentModelStateData data)? initial,
     TResult Function(PaymentModelStateData data)? loading,
+    TResult Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult Function(PaymentModelStateData data)? loadingTable,
     TResult Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -1318,6 +1394,9 @@ class _$_Loading implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingDeletePaymentItem value)
+        loadingDeletePaymentItem,
+    required TResult Function(_LoadingTable value) loadingTable,
     required TResult Function(_FetchPaymentDataSuccess value)
         fetchPaymentDataSuccess,
     required TResult Function(_DeletePaymentSuccess value) deletePaymentSuccess,
@@ -1336,6 +1415,9 @@ class _$_Loading implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingDeletePaymentItem value)?
+        loadingDeletePaymentItem,
+    TResult? Function(_LoadingTable value)? loadingTable,
     TResult? Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult? Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult? Function(_OpenPaymentDetailSuccess value)?
@@ -1352,6 +1434,8 @@ class _$_Loading implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingDeletePaymentItem value)? loadingDeletePaymentItem,
+    TResult Function(_LoadingTable value)? loadingTable,
     TResult Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
@@ -1367,15 +1451,433 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements PaymentState {
+abstract class _Loading extends PaymentState {
   const factory _Loading({required final PaymentModelStateData data}) =
       _$_Loading;
+  const _Loading._() : super._();
 
   @override
   PaymentModelStateData get data;
   @override
   @JsonKey(ignore: true)
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadingDeletePaymentItemCopyWith<$Res>
+    implements $PaymentStateCopyWith<$Res> {
+  factory _$$_LoadingDeletePaymentItemCopyWith(
+          _$_LoadingDeletePaymentItem value,
+          $Res Function(_$_LoadingDeletePaymentItem) then) =
+      __$$_LoadingDeletePaymentItemCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PaymentModelStateData data, String id});
+
+  @override
+  $PaymentModelStateDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_LoadingDeletePaymentItemCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res, _$_LoadingDeletePaymentItem>
+    implements _$$_LoadingDeletePaymentItemCopyWith<$Res> {
+  __$$_LoadingDeletePaymentItemCopyWithImpl(_$_LoadingDeletePaymentItem _value,
+      $Res Function(_$_LoadingDeletePaymentItem) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? id = null,
+  }) {
+    return _then(_$_LoadingDeletePaymentItem(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as PaymentModelStateData,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LoadingDeletePaymentItem extends _LoadingDeletePaymentItem {
+  const _$_LoadingDeletePaymentItem({required this.data, required this.id})
+      : super._();
+
+  @override
+  final PaymentModelStateData data;
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'PaymentState.loadingDeletePaymentItem(data: $data, id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadingDeletePaymentItem &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadingDeletePaymentItemCopyWith<_$_LoadingDeletePaymentItem>
+      get copyWith => __$$_LoadingDeletePaymentItemCopyWithImpl<
+          _$_LoadingDeletePaymentItem>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PaymentModelStateData data) initial,
+    required TResult Function(PaymentModelStateData data) loading,
+    required TResult Function(PaymentModelStateData data, String id)
+        loadingDeletePaymentItem,
+    required TResult Function(PaymentModelStateData data) loadingTable,
+    required TResult Function(PaymentModelStateData data)
+        fetchPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data) deletePaymentSuccess,
+    required TResult Function(PaymentModelStateData data)
+        openPaymentDetailSuccess,
+    required TResult Function(PaymentModelStateData data)
+        fetchListPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data, String message)
+        paymentDataFailedState,
+  }) {
+    return loadingDeletePaymentItem(data, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentModelStateData data)? initial,
+    TResult? Function(PaymentModelStateData data)? loading,
+    TResult? Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult? Function(PaymentModelStateData data)? loadingTable,
+    TResult? Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
+    TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
+    TResult? Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
+  }) {
+    return loadingDeletePaymentItem?.call(data, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentModelStateData data)? initial,
+    TResult Function(PaymentModelStateData data)? loading,
+    TResult Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult Function(PaymentModelStateData data)? loadingTable,
+    TResult Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
+    TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
+    TResult Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
+    required TResult orElse(),
+  }) {
+    if (loadingDeletePaymentItem != null) {
+      return loadingDeletePaymentItem(data, id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingDeletePaymentItem value)
+        loadingDeletePaymentItem,
+    required TResult Function(_LoadingTable value) loadingTable,
+    required TResult Function(_FetchPaymentDataSuccess value)
+        fetchPaymentDataSuccess,
+    required TResult Function(_DeletePaymentSuccess value) deletePaymentSuccess,
+    required TResult Function(_OpenPaymentDetailSuccess value)
+        openPaymentDetailSuccess,
+    required TResult Function(_FetchListPaymentDataSuccess value)
+        fetchListPaymentDataSuccess,
+    required TResult Function(_PaymentDataFailedState value)
+        paymentDataFailedState,
+  }) {
+    return loadingDeletePaymentItem(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingDeletePaymentItem value)?
+        loadingDeletePaymentItem,
+    TResult? Function(_LoadingTable value)? loadingTable,
+    TResult? Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
+    TResult? Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
+    TResult? Function(_OpenPaymentDetailSuccess value)?
+        openPaymentDetailSuccess,
+    TResult? Function(_FetchListPaymentDataSuccess value)?
+        fetchListPaymentDataSuccess,
+    TResult? Function(_PaymentDataFailedState value)? paymentDataFailedState,
+  }) {
+    return loadingDeletePaymentItem?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingDeletePaymentItem value)? loadingDeletePaymentItem,
+    TResult Function(_LoadingTable value)? loadingTable,
+    TResult Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
+    TResult Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
+    TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
+    TResult Function(_FetchListPaymentDataSuccess value)?
+        fetchListPaymentDataSuccess,
+    TResult Function(_PaymentDataFailedState value)? paymentDataFailedState,
+    required TResult orElse(),
+  }) {
+    if (loadingDeletePaymentItem != null) {
+      return loadingDeletePaymentItem(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingDeletePaymentItem extends PaymentState {
+  const factory _LoadingDeletePaymentItem(
+      {required final PaymentModelStateData data,
+      required final String id}) = _$_LoadingDeletePaymentItem;
+  const _LoadingDeletePaymentItem._() : super._();
+
+  @override
+  PaymentModelStateData get data;
+  String get id;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LoadingDeletePaymentItemCopyWith<_$_LoadingDeletePaymentItem>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadingTableCopyWith<$Res>
+    implements $PaymentStateCopyWith<$Res> {
+  factory _$$_LoadingTableCopyWith(
+          _$_LoadingTable value, $Res Function(_$_LoadingTable) then) =
+      __$$_LoadingTableCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PaymentModelStateData data});
+
+  @override
+  $PaymentModelStateDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_LoadingTableCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res, _$_LoadingTable>
+    implements _$$_LoadingTableCopyWith<$Res> {
+  __$$_LoadingTableCopyWithImpl(
+      _$_LoadingTable _value, $Res Function(_$_LoadingTable) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_LoadingTable(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as PaymentModelStateData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LoadingTable extends _LoadingTable {
+  const _$_LoadingTable({required this.data}) : super._();
+
+  @override
+  final PaymentModelStateData data;
+
+  @override
+  String toString() {
+    return 'PaymentState.loadingTable(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadingTable &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadingTableCopyWith<_$_LoadingTable> get copyWith =>
+      __$$_LoadingTableCopyWithImpl<_$_LoadingTable>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PaymentModelStateData data) initial,
+    required TResult Function(PaymentModelStateData data) loading,
+    required TResult Function(PaymentModelStateData data, String id)
+        loadingDeletePaymentItem,
+    required TResult Function(PaymentModelStateData data) loadingTable,
+    required TResult Function(PaymentModelStateData data)
+        fetchPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data) deletePaymentSuccess,
+    required TResult Function(PaymentModelStateData data)
+        openPaymentDetailSuccess,
+    required TResult Function(PaymentModelStateData data)
+        fetchListPaymentDataSuccess,
+    required TResult Function(PaymentModelStateData data, String message)
+        paymentDataFailedState,
+  }) {
+    return loadingTable(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentModelStateData data)? initial,
+    TResult? Function(PaymentModelStateData data)? loading,
+    TResult? Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult? Function(PaymentModelStateData data)? loadingTable,
+    TResult? Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
+    TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
+    TResult? Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult? Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
+  }) {
+    return loadingTable?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentModelStateData data)? initial,
+    TResult Function(PaymentModelStateData data)? loading,
+    TResult Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult Function(PaymentModelStateData data)? loadingTable,
+    TResult Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
+    TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
+    TResult Function(PaymentModelStateData data)? fetchListPaymentDataSuccess,
+    TResult Function(PaymentModelStateData data, String message)?
+        paymentDataFailedState,
+    required TResult orElse(),
+  }) {
+    if (loadingTable != null) {
+      return loadingTable(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingDeletePaymentItem value)
+        loadingDeletePaymentItem,
+    required TResult Function(_LoadingTable value) loadingTable,
+    required TResult Function(_FetchPaymentDataSuccess value)
+        fetchPaymentDataSuccess,
+    required TResult Function(_DeletePaymentSuccess value) deletePaymentSuccess,
+    required TResult Function(_OpenPaymentDetailSuccess value)
+        openPaymentDetailSuccess,
+    required TResult Function(_FetchListPaymentDataSuccess value)
+        fetchListPaymentDataSuccess,
+    required TResult Function(_PaymentDataFailedState value)
+        paymentDataFailedState,
+  }) {
+    return loadingTable(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingDeletePaymentItem value)?
+        loadingDeletePaymentItem,
+    TResult? Function(_LoadingTable value)? loadingTable,
+    TResult? Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
+    TResult? Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
+    TResult? Function(_OpenPaymentDetailSuccess value)?
+        openPaymentDetailSuccess,
+    TResult? Function(_FetchListPaymentDataSuccess value)?
+        fetchListPaymentDataSuccess,
+    TResult? Function(_PaymentDataFailedState value)? paymentDataFailedState,
+  }) {
+    return loadingTable?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingDeletePaymentItem value)? loadingDeletePaymentItem,
+    TResult Function(_LoadingTable value)? loadingTable,
+    TResult Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
+    TResult Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
+    TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
+    TResult Function(_FetchListPaymentDataSuccess value)?
+        fetchListPaymentDataSuccess,
+    TResult Function(_PaymentDataFailedState value)? paymentDataFailedState,
+    required TResult orElse(),
+  }) {
+    if (loadingTable != null) {
+      return loadingTable(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingTable extends PaymentState {
+  const factory _LoadingTable({required final PaymentModelStateData data}) =
+      _$_LoadingTable;
+  const _LoadingTable._() : super._();
+
+  @override
+  PaymentModelStateData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LoadingTableCopyWith<_$_LoadingTable> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1417,8 +1919,8 @@ class __$$_FetchPaymentDataSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
-  const _$_FetchPaymentDataSuccess({required this.data});
+class _$_FetchPaymentDataSuccess extends _FetchPaymentDataSuccess {
+  const _$_FetchPaymentDataSuccess({required this.data}) : super._();
 
   @override
   final PaymentModelStateData data;
@@ -1452,6 +1954,9 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(PaymentModelStateData data) initial,
     required TResult Function(PaymentModelStateData data) loading,
+    required TResult Function(PaymentModelStateData data, String id)
+        loadingDeletePaymentItem,
+    required TResult Function(PaymentModelStateData data) loadingTable,
     required TResult Function(PaymentModelStateData data)
         fetchPaymentDataSuccess,
     required TResult Function(PaymentModelStateData data) deletePaymentSuccess,
@@ -1470,6 +1975,9 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PaymentModelStateData data)? initial,
     TResult? Function(PaymentModelStateData data)? loading,
+    TResult? Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult? Function(PaymentModelStateData data)? loadingTable,
     TResult? Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -1485,6 +1993,9 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PaymentModelStateData data)? initial,
     TResult Function(PaymentModelStateData data)? loading,
+    TResult Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult Function(PaymentModelStateData data)? loadingTable,
     TResult Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -1504,6 +2015,9 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingDeletePaymentItem value)
+        loadingDeletePaymentItem,
+    required TResult Function(_LoadingTable value) loadingTable,
     required TResult Function(_FetchPaymentDataSuccess value)
         fetchPaymentDataSuccess,
     required TResult Function(_DeletePaymentSuccess value) deletePaymentSuccess,
@@ -1522,6 +2036,9 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingDeletePaymentItem value)?
+        loadingDeletePaymentItem,
+    TResult? Function(_LoadingTable value)? loadingTable,
     TResult? Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult? Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult? Function(_OpenPaymentDetailSuccess value)?
@@ -1538,6 +2055,8 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingDeletePaymentItem value)? loadingDeletePaymentItem,
+    TResult Function(_LoadingTable value)? loadingTable,
     TResult Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
@@ -1553,9 +2072,10 @@ class _$_FetchPaymentDataSuccess implements _FetchPaymentDataSuccess {
   }
 }
 
-abstract class _FetchPaymentDataSuccess implements PaymentState {
+abstract class _FetchPaymentDataSuccess extends PaymentState {
   const factory _FetchPaymentDataSuccess(
       {required final PaymentModelStateData data}) = _$_FetchPaymentDataSuccess;
+  const _FetchPaymentDataSuccess._() : super._();
 
   @override
   PaymentModelStateData get data;
@@ -1603,8 +2123,8 @@ class __$$_DeletePaymentSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
-  const _$_DeletePaymentSuccess({required this.data});
+class _$_DeletePaymentSuccess extends _DeletePaymentSuccess {
+  const _$_DeletePaymentSuccess({required this.data}) : super._();
 
   @override
   final PaymentModelStateData data;
@@ -1637,6 +2157,9 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(PaymentModelStateData data) initial,
     required TResult Function(PaymentModelStateData data) loading,
+    required TResult Function(PaymentModelStateData data, String id)
+        loadingDeletePaymentItem,
+    required TResult Function(PaymentModelStateData data) loadingTable,
     required TResult Function(PaymentModelStateData data)
         fetchPaymentDataSuccess,
     required TResult Function(PaymentModelStateData data) deletePaymentSuccess,
@@ -1655,6 +2178,9 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PaymentModelStateData data)? initial,
     TResult? Function(PaymentModelStateData data)? loading,
+    TResult? Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult? Function(PaymentModelStateData data)? loadingTable,
     TResult? Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -1670,6 +2196,9 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PaymentModelStateData data)? initial,
     TResult Function(PaymentModelStateData data)? loading,
+    TResult Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult Function(PaymentModelStateData data)? loadingTable,
     TResult Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -1689,6 +2218,9 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingDeletePaymentItem value)
+        loadingDeletePaymentItem,
+    required TResult Function(_LoadingTable value) loadingTable,
     required TResult Function(_FetchPaymentDataSuccess value)
         fetchPaymentDataSuccess,
     required TResult Function(_DeletePaymentSuccess value) deletePaymentSuccess,
@@ -1707,6 +2239,9 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingDeletePaymentItem value)?
+        loadingDeletePaymentItem,
+    TResult? Function(_LoadingTable value)? loadingTable,
     TResult? Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult? Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult? Function(_OpenPaymentDetailSuccess value)?
@@ -1723,6 +2258,8 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingDeletePaymentItem value)? loadingDeletePaymentItem,
+    TResult Function(_LoadingTable value)? loadingTable,
     TResult Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
@@ -1738,9 +2275,10 @@ class _$_DeletePaymentSuccess implements _DeletePaymentSuccess {
   }
 }
 
-abstract class _DeletePaymentSuccess implements PaymentState {
+abstract class _DeletePaymentSuccess extends PaymentState {
   const factory _DeletePaymentSuccess(
       {required final PaymentModelStateData data}) = _$_DeletePaymentSuccess;
+  const _DeletePaymentSuccess._() : super._();
 
   @override
   PaymentModelStateData get data;
@@ -1789,8 +2327,8 @@ class __$$_OpenPaymentDetailSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
-  const _$_OpenPaymentDetailSuccess({required this.data});
+class _$_OpenPaymentDetailSuccess extends _OpenPaymentDetailSuccess {
+  const _$_OpenPaymentDetailSuccess({required this.data}) : super._();
 
   @override
   final PaymentModelStateData data;
@@ -1823,6 +2361,9 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(PaymentModelStateData data) initial,
     required TResult Function(PaymentModelStateData data) loading,
+    required TResult Function(PaymentModelStateData data, String id)
+        loadingDeletePaymentItem,
+    required TResult Function(PaymentModelStateData data) loadingTable,
     required TResult Function(PaymentModelStateData data)
         fetchPaymentDataSuccess,
     required TResult Function(PaymentModelStateData data) deletePaymentSuccess,
@@ -1841,6 +2382,9 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PaymentModelStateData data)? initial,
     TResult? Function(PaymentModelStateData data)? loading,
+    TResult? Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult? Function(PaymentModelStateData data)? loadingTable,
     TResult? Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -1856,6 +2400,9 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PaymentModelStateData data)? initial,
     TResult Function(PaymentModelStateData data)? loading,
+    TResult Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult Function(PaymentModelStateData data)? loadingTable,
     TResult Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -1875,6 +2422,9 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingDeletePaymentItem value)
+        loadingDeletePaymentItem,
+    required TResult Function(_LoadingTable value) loadingTable,
     required TResult Function(_FetchPaymentDataSuccess value)
         fetchPaymentDataSuccess,
     required TResult Function(_DeletePaymentSuccess value) deletePaymentSuccess,
@@ -1893,6 +2443,9 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingDeletePaymentItem value)?
+        loadingDeletePaymentItem,
+    TResult? Function(_LoadingTable value)? loadingTable,
     TResult? Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult? Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult? Function(_OpenPaymentDetailSuccess value)?
@@ -1909,6 +2462,8 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingDeletePaymentItem value)? loadingDeletePaymentItem,
+    TResult Function(_LoadingTable value)? loadingTable,
     TResult Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
@@ -1924,10 +2479,11 @@ class _$_OpenPaymentDetailSuccess implements _OpenPaymentDetailSuccess {
   }
 }
 
-abstract class _OpenPaymentDetailSuccess implements PaymentState {
+abstract class _OpenPaymentDetailSuccess extends PaymentState {
   const factory _OpenPaymentDetailSuccess(
           {required final PaymentModelStateData data}) =
       _$_OpenPaymentDetailSuccess;
+  const _OpenPaymentDetailSuccess._() : super._();
 
   @override
   PaymentModelStateData get data;
@@ -1977,8 +2533,8 @@ class __$$_FetchListPaymentDataSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
-  const _$_FetchListPaymentDataSuccess({required this.data});
+class _$_FetchListPaymentDataSuccess extends _FetchListPaymentDataSuccess {
+  const _$_FetchListPaymentDataSuccess({required this.data}) : super._();
 
   @override
   final PaymentModelStateData data;
@@ -2011,6 +2567,9 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(PaymentModelStateData data) initial,
     required TResult Function(PaymentModelStateData data) loading,
+    required TResult Function(PaymentModelStateData data, String id)
+        loadingDeletePaymentItem,
+    required TResult Function(PaymentModelStateData data) loadingTable,
     required TResult Function(PaymentModelStateData data)
         fetchPaymentDataSuccess,
     required TResult Function(PaymentModelStateData data) deletePaymentSuccess,
@@ -2029,6 +2588,9 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PaymentModelStateData data)? initial,
     TResult? Function(PaymentModelStateData data)? loading,
+    TResult? Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult? Function(PaymentModelStateData data)? loadingTable,
     TResult? Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -2044,6 +2606,9 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PaymentModelStateData data)? initial,
     TResult Function(PaymentModelStateData data)? loading,
+    TResult Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult Function(PaymentModelStateData data)? loadingTable,
     TResult Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -2063,6 +2628,9 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingDeletePaymentItem value)
+        loadingDeletePaymentItem,
+    required TResult Function(_LoadingTable value) loadingTable,
     required TResult Function(_FetchPaymentDataSuccess value)
         fetchPaymentDataSuccess,
     required TResult Function(_DeletePaymentSuccess value) deletePaymentSuccess,
@@ -2081,6 +2649,9 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingDeletePaymentItem value)?
+        loadingDeletePaymentItem,
+    TResult? Function(_LoadingTable value)? loadingTable,
     TResult? Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult? Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult? Function(_OpenPaymentDetailSuccess value)?
@@ -2097,6 +2668,8 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingDeletePaymentItem value)? loadingDeletePaymentItem,
+    TResult Function(_LoadingTable value)? loadingTable,
     TResult Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
@@ -2112,10 +2685,11 @@ class _$_FetchListPaymentDataSuccess implements _FetchListPaymentDataSuccess {
   }
 }
 
-abstract class _FetchListPaymentDataSuccess implements PaymentState {
+abstract class _FetchListPaymentDataSuccess extends PaymentState {
   const factory _FetchListPaymentDataSuccess(
           {required final PaymentModelStateData data}) =
       _$_FetchListPaymentDataSuccess;
+  const _FetchListPaymentDataSuccess._() : super._();
 
   @override
   PaymentModelStateData get data;
@@ -2168,8 +2742,9 @@ class __$$_PaymentDataFailedStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PaymentDataFailedState implements _PaymentDataFailedState {
-  const _$_PaymentDataFailedState({required this.data, required this.message});
+class _$_PaymentDataFailedState extends _PaymentDataFailedState {
+  const _$_PaymentDataFailedState({required this.data, required this.message})
+      : super._();
 
   @override
   final PaymentModelStateData data;
@@ -2205,6 +2780,9 @@ class _$_PaymentDataFailedState implements _PaymentDataFailedState {
   TResult when<TResult extends Object?>({
     required TResult Function(PaymentModelStateData data) initial,
     required TResult Function(PaymentModelStateData data) loading,
+    required TResult Function(PaymentModelStateData data, String id)
+        loadingDeletePaymentItem,
+    required TResult Function(PaymentModelStateData data) loadingTable,
     required TResult Function(PaymentModelStateData data)
         fetchPaymentDataSuccess,
     required TResult Function(PaymentModelStateData data) deletePaymentSuccess,
@@ -2223,6 +2801,9 @@ class _$_PaymentDataFailedState implements _PaymentDataFailedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PaymentModelStateData data)? initial,
     TResult? Function(PaymentModelStateData data)? loading,
+    TResult? Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult? Function(PaymentModelStateData data)? loadingTable,
     TResult? Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult? Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult? Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -2238,6 +2819,9 @@ class _$_PaymentDataFailedState implements _PaymentDataFailedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PaymentModelStateData data)? initial,
     TResult Function(PaymentModelStateData data)? loading,
+    TResult Function(PaymentModelStateData data, String id)?
+        loadingDeletePaymentItem,
+    TResult Function(PaymentModelStateData data)? loadingTable,
     TResult Function(PaymentModelStateData data)? fetchPaymentDataSuccess,
     TResult Function(PaymentModelStateData data)? deletePaymentSuccess,
     TResult Function(PaymentModelStateData data)? openPaymentDetailSuccess,
@@ -2257,6 +2841,9 @@ class _$_PaymentDataFailedState implements _PaymentDataFailedState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingDeletePaymentItem value)
+        loadingDeletePaymentItem,
+    required TResult Function(_LoadingTable value) loadingTable,
     required TResult Function(_FetchPaymentDataSuccess value)
         fetchPaymentDataSuccess,
     required TResult Function(_DeletePaymentSuccess value) deletePaymentSuccess,
@@ -2275,6 +2862,9 @@ class _$_PaymentDataFailedState implements _PaymentDataFailedState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingDeletePaymentItem value)?
+        loadingDeletePaymentItem,
+    TResult? Function(_LoadingTable value)? loadingTable,
     TResult? Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult? Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult? Function(_OpenPaymentDetailSuccess value)?
@@ -2291,6 +2881,8 @@ class _$_PaymentDataFailedState implements _PaymentDataFailedState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingDeletePaymentItem value)? loadingDeletePaymentItem,
+    TResult Function(_LoadingTable value)? loadingTable,
     TResult Function(_FetchPaymentDataSuccess value)? fetchPaymentDataSuccess,
     TResult Function(_DeletePaymentSuccess value)? deletePaymentSuccess,
     TResult Function(_OpenPaymentDetailSuccess value)? openPaymentDetailSuccess,
@@ -2306,10 +2898,11 @@ class _$_PaymentDataFailedState implements _PaymentDataFailedState {
   }
 }
 
-abstract class _PaymentDataFailedState implements PaymentState {
+abstract class _PaymentDataFailedState extends PaymentState {
   const factory _PaymentDataFailedState(
       {required final PaymentModelStateData data,
       required final String message}) = _$_PaymentDataFailedState;
+  const _PaymentDataFailedState._() : super._();
 
   @override
   PaymentModelStateData get data;

@@ -8,6 +8,7 @@ import 'package:flight_booking/core/components/widgets/custom_row_column.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_table_row.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_ticket_table.dart';
+import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/core/components/widgets/mobile/sort_button.dart';
 import 'package:flight_booking/core/components/widgets/page_index_view.dart';
 import 'package:flight_booking/core/components/widgets/payment_status_utils.dart';
@@ -59,8 +60,19 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
       deletePaymentSuccess: (data) {},
       fetchListPaymentDataSuccess: (data) {},
       fetchPaymentDataSuccess: (data) {},
-      openPaymentDetailSuccess: (data) {
-        context.openPaymentDetailPage();
+      openPaymentDetailSuccess: (data) {},
+      paymentDataFailedState: (data, message) {
+        ScaffoldMessenger.of(context).clearSnackBars();
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Theme.of(context).primaryColor,
+          content: Text(
+            message,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+          ),
+        ));
       },
     );
   }
@@ -118,170 +130,180 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
       builder: (context, state) {
         return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          body: SafeArea(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ListTile(
-                      leading: Icon(
-                        Icons.payment,
-                        size: 30,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      title: Text(
-                        S.of(context).paymentManagement,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyLarge
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    _divider(context),
-                    _buildStatisticRow(state),
-                    _divider(context),
-                    CustomRowColumn(
-                      isRow: Breakpoints.large.isActive(context),
-                      children: <FlexItemRowColumData>[
-                        FlexItemRowColumData(
-                          flex: 2,
-                          data: PaymentStatusStatisticComponent(
-                            paymentStatusData: state.data.statusData,
+          body: state.isLoading
+              ? const LoadingIndicator()
+              : SafeArea(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ListTile(
+                            leading: Icon(
+                              Icons.payment,
+                              size: 30,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            title: Text(
+                              S.of(context).paymentManagement,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(fontWeight: FontWeight.bold),
+                            ),
                           ),
-                        ),
-                        FlexItemRowColumData(
-                          flex: 2,
-                          data: PaymentMethodStatisticComponent(
-                              revenue: state.data.revenue),
-                        ),
-                        FlexItemRowColumData(
-                          flex: 3,
-                          data: TicketTierStatisticComponent(
-                            datas: [
-                              PieData(
-                                tit: TicTypeEnum.businessClass,
-                                data: (state.data.ticketTierData.business /
-                                        state.data.ticketTierData.getSum) *
-                                    100,
+                          _divider(context),
+                          _buildStatisticRow(state),
+                          _divider(context),
+                          CustomRowColumn(
+                            isRow: Breakpoints.large.isActive(context),
+                            children: <FlexItemRowColumData>[
+                              FlexItemRowColumData(
+                                flex: 2,
+                                data: PaymentStatusStatisticComponent(
+                                  paymentStatusData: state.data.statusData,
+                                ),
                               ),
-                              PieData(
-                                  tit: TicTypeEnum.economyClass,
-                                  data: (state.data.ticketTierData.economy /
-                                          state.data.ticketTierData.getSum) *
-                                      100),
-                              PieData(
-                                  tit: TicTypeEnum.firstClass,
-                                  data: (state.data.ticketTierData.first /
-                                          state.data.ticketTierData.getSum) *
-                                      100),
-                              PieData(
-                                tit: TicTypeEnum.premiumEconomyClass,
-                                data:
-                                    (state.data.ticketTierData.premiumEconomy /
-                                            state.data.ticketTierData.getSum) *
-                                        100,
+                              FlexItemRowColumData(
+                                flex: 2,
+                                data: PaymentMethodStatisticComponent(
+                                    revenue: state.data.revenue),
+                              ),
+                              FlexItemRowColumData(
+                                flex: 3,
+                                data: TicketTierStatisticComponent(
+                                  datas: [
+                                    PieData(
+                                      tit: TicTypeEnum.businessClass,
+                                      data:
+                                          (state.data.ticketTierData.business /
+                                                  state.data.ticketTierData
+                                                      .getSum) *
+                                              100,
+                                    ),
+                                    PieData(
+                                        tit: TicTypeEnum.economyClass,
+                                        data:
+                                            (state.data.ticketTierData.economy /
+                                                    state.data.ticketTierData
+                                                        .getSum) *
+                                                100),
+                                    PieData(
+                                        tit: TicTypeEnum.firstClass,
+                                        data: (state.data.ticketTierData.first /
+                                                state.data.ticketTierData
+                                                    .getSum) *
+                                            100),
+                                    PieData(
+                                      tit: TicTypeEnum.premiumEconomyClass,
+                                      data: (state.data.ticketTierData
+                                                  .premiumEconomy /
+                                              state
+                                                  .data.ticketTierData.getSum) *
+                                          100,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 30),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        ...<Map<String, dynamic>>[
-                          {
-                            'icon': Icons.calendar_month,
-                            'text': S.of(context).dateRange,
-                            'case': PaymentFilterMethod.calendarMethod,
-                          },
-                          {
-                            'icon': Icons.flag,
-                            'text': S.of(context).status,
-                            'case': PaymentFilterMethod.statusMethod,
-                          },
-                          {
-                            'icon': Icons.credit_card,
-                            'text': S.of(context).paymentMethod,
-                            'case': PaymentFilterMethod.paymentMethod,
-                          }
-                        ]
-                            .map(
-                              (e) => _buildFilterButton(
-                                filter: e['case'] as PaymentFilterMethod,
-                                title: e['text'].toString(),
-                                icon: e['icon'] as IconData,
+                          const SizedBox(height: 30),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              ...<Map<String, dynamic>>[
+                                {
+                                  'icon': Icons.calendar_month,
+                                  'text': S.of(context).dateRange,
+                                  'case': PaymentFilterMethod.calendarMethod,
+                                },
+                                {
+                                  'icon': Icons.flag,
+                                  'text': S.of(context).status,
+                                  'case': PaymentFilterMethod.statusMethod,
+                                },
+                                {
+                                  'icon': Icons.credit_card,
+                                  'text': S.of(context).paymentMethod,
+                                  'case': PaymentFilterMethod.paymentMethod,
+                                }
+                              ]
+                                  .map(
+                                    (e) => _buildFilterButton(
+                                      filter: e['case'] as PaymentFilterMethod,
+                                      title: e['text'].toString(),
+                                      icon: e['icon'] as IconData,
+                                    ),
+                                  )
+                                  .expand(
+                                    (element) => [
+                                      element,
+                                      const SizedBox(width: 10.0),
+                                    ],
+                                  ),
+                              const Spacer(),
+                              Expanded(
+                                child: CustomerTextField(
+                                  prefixWidget: const Icon(Icons.search),
+                                  isDense: true,
+                                  hint: S.of(context).searchByAccount,
+                                  hintStyle: context.bodyMedium.copyWith(
+                                      color: Theme.of(context).disabledColor),
+                                ),
                               ),
-                            )
-                            .expand(
-                              (element) => [
-                                element,
-                                const SizedBox(width: 10.0),
+                            ],
+                          ),
+                          const SizedBox(height: 20),
+                          Container(
+                            padding: const EdgeInsets.all(15),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 0.5,
+                                color: Theme.of(context).hintColor,
+                              ),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            height: MediaQuery.of(context).size.height * 0.6,
+                            child:
+                                _buildPaymentTable(state, state.data.payments),
+                          ),
+                          const SizedBox(height: 15),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  "Page: ",
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
+                                const SizedBox(width: 10),
+                                PageIndexView(
+                                  currentPage: state.data.page,
+                                  totalPage:
+                                      (state.data.total / state.data.perPage)
+                                          .ceil(),
+                                  selected: (p0) {
+                                    _paymentBLoc.add(
+                                      PaymentEvent.fetchListPaymentData(
+                                        page: p0,
+                                        perPage: state.data.perPage,
+                                      ),
+                                    );
+                                  },
+                                ),
                               ],
                             ),
-                        const Spacer(),
-                        Expanded(
-                          child: CustomerTextField(
-                            prefixWidget: const Icon(Icons.search),
-                            isDense: true,
-                            hint: S.of(context).searchByAccount,
-                            hintStyle: context.bodyMedium.copyWith(
-                                color: Theme.of(context).disabledColor),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Container(
-                      padding: const EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 0.5,
-                          color: Theme.of(context).hintColor,
-                        ),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      height: MediaQuery.of(context).size.height * 0.6,
-                      child: _buildPaymentTable(state.data.payments),
-                    ),
-                    const SizedBox(height: 15),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            "Page: ",
-                            style: Theme.of(context).textTheme.bodyLarge,
-                          ),
-                          const SizedBox(width: 10),
-                          PageIndexView(
-                            currentPage: state.data.page,
-                            totalPage:
-                                (state.data.total / state.data.perPage).ceil(),
-                            selected: (p0) {
-                              _paymentBLoc.add(
-                                PaymentEvent.fetchListPaymentData(
-                                  page: p0,
-                                  perPage: state.data.perPage,
-                                ),
-                              );
-                            },
                           ),
                         ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-          ),
         );
       },
     );
@@ -374,7 +396,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
     return status.elementAt(Random().nextInt(4));
   }
 
-  Widget _buildPaymentTable(List<PaymentItem> payments) {
+  Widget _buildPaymentTable(PaymentState state, List<PaymentItem> payments) {
     return FluxTicketTable<PaymentItem>(
       data: payments,
       rowBuilder: (data) {
@@ -392,6 +414,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
             }
             if (columnIndex == 6) {
               return PopupMenuButton<ActionEnum>(
+                position: PopupMenuPosition.under,
                 itemBuilder: (context) => [
                   PopupMenuItem<ActionEnum>(
                     value: ActionEnum.detail,
@@ -408,6 +431,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                     ),
                   ),
                   PopupMenuItem<ActionEnum>(
+                    value: ActionEnum.delete,
                     child: Text(
                       "Delete",
                       style: context.bodyMedium,
@@ -416,7 +440,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                 ],
                 onSelected: (value) async {
                   if (value == ActionEnum.detail) {
-                    await context.openPaymentDetailPage();
+                    await context.openPaymentDetailPage(data as String);
                   } else if (value == ActionEnum.edit) {
                     await showDialog(
                       context: context,
@@ -424,9 +448,24 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                         return EditPaymentDialog(id: int.parse(data as String));
                       },
                     );
+                  } else if (value == ActionEnum.delete) {
+                    final show = await context.showYesNoDialog(
+                      300,
+                      "Delete Payment",
+                      "Are your sure to delete this payment ?",
+                    );
+                    if (show) {
+                      _paymentBLoc.add(PaymentEvent.deletePayment(data));
+                    }
                   }
                 },
-                icon: const Icon(Icons.more_vert),
+                icon: state.isLoadingItem(data)
+                    ? LoadingIndicator(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        radius: 10,
+                        strokeWidth: 1,
+                      )
+                    : const Icon(Icons.more_vert),
               );
             }
             return Text(

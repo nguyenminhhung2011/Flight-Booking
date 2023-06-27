@@ -12,7 +12,10 @@ class PaymentEvent with _$PaymentEvent {
   }) = _FetchPaymentData;
 
   const factory PaymentEvent.openPaymentDetail() = _OpenPaymentDetail;
-  const factory PaymentEvent.deletePayment() = _DeletePayment;
+
+  const factory PaymentEvent.deletePayment(
+    final String id,
+  ) = _DeletePayment;
   const factory PaymentEvent.fetchListPaymentData({
     @Default(0) final int page,
     @Default(10) final int perPage,

@@ -14,8 +14,18 @@ class PaymentState with _$PaymentState {
       )
       final PaymentModelStateData data}) = _Initial;
 
+  const PaymentState._();
+
   const factory PaymentState.loading(
       {required final PaymentModelStateData data}) = _Loading;
+
+  const factory PaymentState.loadingDeletePaymentItem({
+    required final PaymentModelStateData data,
+    required String id,
+  }) = _LoadingDeletePaymentItem;
+
+  const factory PaymentState.loadingTable(
+      {required final PaymentModelStateData data}) = _LoadingTable;
 
   const factory PaymentState.fetchPaymentDataSuccess({
     required final PaymentModelStateData data,
@@ -37,4 +47,10 @@ class PaymentState with _$PaymentState {
     required final PaymentModelStateData data,
     required final String message,
   }) = _PaymentDataFailedState;
+
+  bool get isLoading => this is _Loading;
+
+  bool isLoadingItem(String id) =>
+      this is _LoadingDeletePaymentItem &&
+      (this as _LoadingDeletePaymentItem).id == id;
 }

@@ -21,7 +21,7 @@ class AddEditPaymentBloc extends Cubit<AddEditPaymentState> {
     try {
       final response = await paymentUseCase.getPaymentById(id);
 
-      emit(FetchPaymentDetailSuccess(response));
+      emit(FetchPaymentDetailSuccess(Payment.fromPaymentDetail(response)));
     } catch (e) {
       print(e.toString());
       emit(AddEditPaymentStateFailed(state.payment, "Error: $e"));
