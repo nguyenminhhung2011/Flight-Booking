@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/components/enum/tic_type_enum.dart';
 import '../../../generated/l10n.dart';
 import '../../flight_detail/views/widgets/icon_button.dart';
-import '../../flight_detail/views/widgets/tic_column_list_view.dart';
 
 class ListTicketScreen extends StatefulWidget {
   const ListTicketScreen({
@@ -181,22 +180,22 @@ class _ListTicketScreenState extends State<ListTicketScreen> {
                             )
                           : const Column(
                               children: [
-                                TicColumnListView(
-                                  ticType: TicTypeEnum.businessClass,
-                                  count: 10,
-                                ),
-                                TicColumnListView(
-                                  ticType: TicTypeEnum.businessClass,
-                                  count: 10,
-                                ),
-                                TicColumnListView(
-                                  ticType: TicTypeEnum.premiumEconomyClass,
-                                  count: 10,
-                                ),
-                                TicColumnListView(
-                                  ticType: TicTypeEnum.firstClass,
-                                  count: 10,
-                                ),
+                                // TicColumnListView(
+                                //   ticType: TicTypeEnum.businessClass,
+                                //   count: 10,
+                                // ),
+                                // TicColumnListView(
+                                //   ticType: TicTypeEnum.businessClass,
+                                //   count: 10,
+                                // ),
+                                // TicColumnListView(
+                                //   ticType: TicTypeEnum.premiumEconomyClass,
+                                //   count: 10,
+                                // ),
+                                // TicColumnListView(
+                                //   ticType: TicTypeEnum.firstClass,
+                                //   count: 10,
+                                // ),
                               ],
                             )
                     ]

@@ -5,7 +5,6 @@ import 'package:flight_booking/presentations/airport/views/airport_screen.dart';
 import 'package:flight_booking/presentations/customer/views/customer_screen.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_model_state.dart';
-import 'package:flight_booking/presentations/list_ticket/bloc/list_ticket_bloc.dart';
 import 'package:flight_booking/presentations/login/bloc/authentication_bloc.dart';
 import 'package:flight_booking/presentations/overview/views/overview_new_screen.dart';
 import 'package:flight_booking/presentations/payment_management/view/payment_management_screen.dart';
@@ -20,7 +19,6 @@ import '../../airport/bloc/airport_bloc.dart';
 import '../../customer/views/widgets/customer_detail_card.dart';
 import '../../list_flight/views/flight_fast_view.dart';
 import '../../list_flight/views/list_flight_screen.dart';
-import '../../list_ticket/views/list_ticket_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});

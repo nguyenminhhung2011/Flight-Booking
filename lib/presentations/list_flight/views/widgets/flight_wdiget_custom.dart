@@ -101,6 +101,9 @@ class FlightWidgetCustom extends StatelessWidget {
                       color: Theme.of(context).cardColor,
                       child: Text(
                         S.of(context).bookingTime,
+                        style: context.titleMedium.copyWith(
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 10.0),

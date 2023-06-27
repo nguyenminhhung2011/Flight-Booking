@@ -26,6 +26,7 @@ mixin _$BTModelState {
   List<TicketInformation> get ticInformation =>
       throw _privateConstructorUsedError;
   List<Ticket> get tics => throw _privateConstructorUsedError;
+  List<Ticket> get redTics => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BTModelStateCopyWith<BTModelState> get copyWith =>
@@ -47,7 +48,8 @@ abstract class $BTModelStateCopyWith<$Res> {
       List<Customer> customers,
       List<SeatSelected> chairsSelected,
       List<TicketInformation> ticInformation,
-      List<Ticket> tics});
+      List<Ticket> tics,
+      List<Ticket> redTics});
 
   $CustomerCopyWith<$Res>? get customerSelected;
   $FlightCopyWith<$Res>? get flight;
@@ -75,6 +77,7 @@ class _$BTModelStateCopyWithImpl<$Res, $Val extends BTModelState>
     Object? chairsSelected = null,
     Object? ticInformation = null,
     Object? tics = null,
+    Object? redTics = null,
   }) {
     return _then(_value.copyWith(
       customerSelected: freezed == customerSelected
@@ -112,6 +115,10 @@ class _$BTModelStateCopyWithImpl<$Res, $Val extends BTModelState>
       tics: null == tics
           ? _value.tics
           : tics // ignore: cast_nullable_to_non_nullable
+              as List<Ticket>,
+      redTics: null == redTics
+          ? _value.redTics
+          : redTics // ignore: cast_nullable_to_non_nullable
               as List<Ticket>,
     ) as $Val);
   }
@@ -158,7 +165,8 @@ abstract class _$$_BTModelStateCopyWith<$Res>
       List<Customer> customers,
       List<SeatSelected> chairsSelected,
       List<TicketInformation> ticInformation,
-      List<Ticket> tics});
+      List<Ticket> tics,
+      List<Ticket> redTics});
 
   @override
   $CustomerCopyWith<$Res>? get customerSelected;
@@ -186,6 +194,7 @@ class __$$_BTModelStateCopyWithImpl<$Res>
     Object? chairsSelected = null,
     Object? ticInformation = null,
     Object? tics = null,
+    Object? redTics = null,
   }) {
     return _then(_$_BTModelState(
       customerSelected: freezed == customerSelected
@@ -224,6 +233,10 @@ class __$$_BTModelStateCopyWithImpl<$Res>
           ? _value._tics
           : tics // ignore: cast_nullable_to_non_nullable
               as List<Ticket>,
+      redTics: null == redTics
+          ? _value._redTics
+          : redTics // ignore: cast_nullable_to_non_nullable
+              as List<Ticket>,
     ));
   }
 }
@@ -240,11 +253,13 @@ class _$_BTModelState implements _BTModelState {
       required final List<Customer> customers,
       required final List<SeatSelected> chairsSelected,
       required final List<TicketInformation> ticInformation,
-      required final List<Ticket> tics})
+      required final List<Ticket> tics,
+      required final List<Ticket> redTics})
       : _customers = customers,
         _chairsSelected = chairsSelected,
         _ticInformation = ticInformation,
-        _tics = tics;
+        _tics = tics,
+        _redTics = redTics;
 
   @override
   final Customer? customerSelected;
@@ -288,9 +303,17 @@ class _$_BTModelState implements _BTModelState {
     return EqualUnmodifiableListView(_tics);
   }
 
+  final List<Ticket> _redTics;
+  @override
+  List<Ticket> get redTics {
+    if (_redTics is EqualUnmodifiableListView) return _redTics;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_redTics);
+  }
+
   @override
   String toString() {
-    return 'BTModelState(customerSelected: $customerSelected, flight: $flight, currentSeat: $currentSeat, currentTicId: $currentTicId, indexView: $indexView, customers: $customers, chairsSelected: $chairsSelected, ticInformation: $ticInformation, tics: $tics)';
+    return 'BTModelState(customerSelected: $customerSelected, flight: $flight, currentSeat: $currentSeat, currentTicId: $currentTicId, indexView: $indexView, customers: $customers, chairsSelected: $chairsSelected, ticInformation: $ticInformation, tics: $tics, redTics: $redTics)';
   }
 
   @override
@@ -313,7 +336,8 @@ class _$_BTModelState implements _BTModelState {
                 .equals(other._chairsSelected, _chairsSelected) &&
             const DeepCollectionEquality()
                 .equals(other._ticInformation, _ticInformation) &&
-            const DeepCollectionEquality().equals(other._tics, _tics));
+            const DeepCollectionEquality().equals(other._tics, _tics) &&
+            const DeepCollectionEquality().equals(other._redTics, _redTics));
   }
 
   @override
@@ -327,7 +351,8 @@ class _$_BTModelState implements _BTModelState {
       const DeepCollectionEquality().hash(_customers),
       const DeepCollectionEquality().hash(_chairsSelected),
       const DeepCollectionEquality().hash(_ticInformation),
-      const DeepCollectionEquality().hash(_tics));
+      const DeepCollectionEquality().hash(_tics),
+      const DeepCollectionEquality().hash(_redTics));
 
   @JsonKey(ignore: true)
   @override
@@ -346,7 +371,8 @@ abstract class _BTModelState implements BTModelState {
       required final List<Customer> customers,
       required final List<SeatSelected> chairsSelected,
       required final List<TicketInformation> ticInformation,
-      required final List<Ticket> tics}) = _$_BTModelState;
+      required final List<Ticket> tics,
+      required final List<Ticket> redTics}) = _$_BTModelState;
 
   @override
   Customer? get customerSelected;
@@ -366,6 +392,8 @@ abstract class _BTModelState implements BTModelState {
   List<TicketInformation> get ticInformation;
   @override
   List<Ticket> get tics;
+  @override
+  List<Ticket> get redTics;
   @override
   @JsonKey(ignore: true)
   _$$_BTModelStateCopyWith<_$_BTModelState> get copyWith =>

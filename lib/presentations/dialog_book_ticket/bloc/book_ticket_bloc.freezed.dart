@@ -43,7 +43,8 @@ mixin _$BTEvent {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) =>
       throw _privateConstructorUsedError;
@@ -74,7 +75,8 @@ mixin _$BTEvent {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) =>
       throw _privateConstructorUsedError;
@@ -105,7 +107,8 @@ mixin _$BTEvent {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) =>
@@ -255,7 +258,8 @@ class _$_Started implements _Started {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return onStarted();
@@ -289,7 +293,8 @@ class _$_Started implements _Started {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return onStarted?.call();
@@ -323,7 +328,8 @@ class _$_Started implements _Started {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -477,7 +483,8 @@ class _$_ButtonTap implements _ButtonTap {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return buttonTap();
@@ -511,7 +518,8 @@ class _$_ButtonTap implements _ButtonTap {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return buttonTap?.call();
@@ -545,7 +553,8 @@ class _$_ButtonTap implements _ButtonTap {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -726,7 +735,8 @@ class _$_ChangeTicIndexView implements _ChangeTicIndexView {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return changeTicIndexView(index);
@@ -760,7 +770,8 @@ class _$_ChangeTicIndexView implements _ChangeTicIndexView {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return changeTicIndexView?.call(index);
@@ -794,7 +805,8 @@ class _$_ChangeTicIndexView implements _ChangeTicIndexView {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -954,7 +966,8 @@ class _$_UpdateTicOverview implements _UpdateTicOverview {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return updateTicOverview();
@@ -988,7 +1001,8 @@ class _$_UpdateTicOverview implements _UpdateTicOverview {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return updateTicOverview?.call();
@@ -1022,7 +1036,8 @@ class _$_UpdateTicOverview implements _UpdateTicOverview {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -1176,7 +1191,8 @@ class _$_FetchCustomerData implements _FetchCustomerData {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return fetchCustomerData();
@@ -1210,7 +1226,8 @@ class _$_FetchCustomerData implements _FetchCustomerData {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return fetchCustomerData?.call();
@@ -1244,7 +1261,8 @@ class _$_FetchCustomerData implements _FetchCustomerData {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -1424,7 +1442,8 @@ class _$_GetCustomerById implements _GetCustomerById {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return getCustomerById(id);
@@ -1458,7 +1477,8 @@ class _$_GetCustomerById implements _GetCustomerById {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return getCustomerById?.call(id);
@@ -1492,7 +1512,8 @@ class _$_GetCustomerById implements _GetCustomerById {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -1652,7 +1673,8 @@ class _$_GetTicInformation implements _GetTicInformation {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return getTicInformation();
@@ -1686,7 +1708,8 @@ class _$_GetTicInformation implements _GetTicInformation {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return getTicInformation?.call();
@@ -1720,7 +1743,8 @@ class _$_GetTicInformation implements _GetTicInformation {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -1900,7 +1924,8 @@ class _$_SelectedSeat implements _SelectedSeat {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return selectedSeat(newSeat);
@@ -1934,7 +1959,8 @@ class _$_SelectedSeat implements _SelectedSeat {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return selectedSeat?.call(newSeat);
@@ -1968,7 +1994,8 @@ class _$_SelectedSeat implements _SelectedSeat {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -2154,7 +2181,8 @@ class _$_SearchCustomer implements _SearchCustomer {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return searchCustomer(text);
@@ -2188,7 +2216,8 @@ class _$_SearchCustomer implements _SearchCustomer {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return searchCustomer?.call(text);
@@ -2222,7 +2251,8 @@ class _$_SearchCustomer implements _SearchCustomer {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -2408,7 +2438,8 @@ class _$_TextChange implements _TextChange {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return textChange(text);
@@ -2442,7 +2473,8 @@ class _$_TextChange implements _TextChange {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return textChange?.call(text);
@@ -2476,7 +2508,8 @@ class _$_TextChange implements _TextChange {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -2671,7 +2704,8 @@ class _$_RemoveTic implements _RemoveTic {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return removeTic(tic);
@@ -2705,7 +2739,8 @@ class _$_RemoveTic implements _RemoveTic {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return removeTic?.call(tic);
@@ -2739,7 +2774,8 @@ class _$_RemoveTic implements _RemoveTic {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -2934,7 +2970,8 @@ class _$_SelectedTic implements _SelectedTic {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return selectedTic(tic);
@@ -2968,7 +3005,8 @@ class _$_SelectedTic implements _SelectedTic {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return selectedTic?.call(tic);
@@ -3002,7 +3040,8 @@ class _$_SelectedTic implements _SelectedTic {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -3196,7 +3235,8 @@ class _$_EditTic implements _EditTic {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return editTic(tic);
@@ -3230,7 +3270,8 @@ class _$_EditTic implements _EditTic {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return editTic?.call(tic);
@@ -3264,7 +3305,8 @@ class _$_EditTic implements _EditTic {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -3423,7 +3465,8 @@ class _$_GetAllTicOfFlight implements _GetAllTicOfFlight {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return getAllTicOfFlight();
@@ -3457,7 +3500,8 @@ class _$_GetAllTicOfFlight implements _GetAllTicOfFlight {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return getAllTicOfFlight?.call();
@@ -3491,7 +3535,8 @@ class _$_GetAllTicOfFlight implements _GetAllTicOfFlight {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -3682,7 +3727,8 @@ class _$_UpdateCustomer implements _UpdateCustomer {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return updateCustomers(customer);
@@ -3716,7 +3762,8 @@ class _$_UpdateCustomer implements _UpdateCustomer {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return updateCustomers?.call(customer);
@@ -3750,7 +3797,8 @@ class _$_UpdateCustomer implements _UpdateCustomer {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -3909,7 +3957,8 @@ class _$_GetFlightById implements _GetFlightById {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return getFlightById();
@@ -3943,7 +3992,8 @@ class _$_GetFlightById implements _GetFlightById {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return getFlightById?.call();
@@ -3977,7 +4027,8 @@ class _$_GetFlightById implements _GetFlightById {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
@@ -4083,7 +4134,8 @@ abstract class _$$_AddSeatCopyWith<$Res> {
       String phoneNumber,
       String identityNumber,
       DateTime dateBorn,
-      double luggage});
+      double luggage,
+      double price});
 }
 
 /// @nodoc
@@ -4105,6 +4157,7 @@ class __$$_AddSeatCopyWithImpl<$Res>
     Object? identityNumber = null,
     Object? dateBorn = null,
     Object? luggage = null,
+    Object? price = null,
   }) {
     return _then(_$_AddSeat(
       name: null == name
@@ -4143,6 +4196,10 @@ class __$$_AddSeatCopyWithImpl<$Res>
           ? _value.luggage
           : luggage // ignore: cast_nullable_to_non_nullable
               as double,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -4159,7 +4216,8 @@ class _$_AddSeat implements _AddSeat {
       required this.phoneNumber,
       required this.identityNumber,
       required this.dateBorn,
-      required this.luggage});
+      required this.luggage,
+      required this.price});
 
   @override
   final String name;
@@ -4179,10 +4237,12 @@ class _$_AddSeat implements _AddSeat {
   final DateTime dateBorn;
   @override
   final double luggage;
+  @override
+  final double price;
 
   @override
   String toString() {
-    return 'BTEvent.addSeat(name: $name, email: $email, gender: $gender, seat: $seat, type: $type, phoneNumber: $phoneNumber, identityNumber: $identityNumber, dateBorn: $dateBorn, luggage: $luggage)';
+    return 'BTEvent.addSeat(name: $name, email: $email, gender: $gender, seat: $seat, type: $type, phoneNumber: $phoneNumber, identityNumber: $identityNumber, dateBorn: $dateBorn, luggage: $luggage, price: $price)';
   }
 
   @override
@@ -4201,12 +4261,13 @@ class _$_AddSeat implements _AddSeat {
                 other.identityNumber == identityNumber) &&
             (identical(other.dateBorn, dateBorn) ||
                 other.dateBorn == dateBorn) &&
-            (identical(other.luggage, luggage) || other.luggage == luggage));
+            (identical(other.luggage, luggage) || other.luggage == luggage) &&
+            (identical(other.price, price) || other.price == price));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, name, email, gender, seat, type,
-      phoneNumber, identityNumber, dateBorn, luggage);
+      phoneNumber, identityNumber, dateBorn, luggage, price);
 
   @JsonKey(ignore: true)
   @override
@@ -4242,11 +4303,12 @@ class _$_AddSeat implements _AddSeat {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)
+            double luggage,
+            double price)
         addSeat,
   }) {
     return addSeat(name, email, gender, seat, type, phoneNumber, identityNumber,
-        dateBorn, luggage);
+        dateBorn, luggage, price);
   }
 
   @override
@@ -4277,11 +4339,12 @@ class _$_AddSeat implements _AddSeat {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
   }) {
     return addSeat?.call(name, email, gender, seat, type, phoneNumber,
-        identityNumber, dateBorn, luggage);
+        identityNumber, dateBorn, luggage, price);
   }
 
   @override
@@ -4312,13 +4375,14 @@ class _$_AddSeat implements _AddSeat {
             String phoneNumber,
             String identityNumber,
             DateTime dateBorn,
-            double luggage)?
+            double luggage,
+            double price)?
         addSeat,
     required TResult orElse(),
   }) {
     if (addSeat != null) {
       return addSeat(name, email, gender, seat, type, phoneNumber,
-          identityNumber, dateBorn, luggage);
+          identityNumber, dateBorn, luggage, price);
     }
     return orElse();
   }
@@ -4410,7 +4474,8 @@ abstract class _AddSeat implements BTEvent {
       required final String phoneNumber,
       required final String identityNumber,
       required final DateTime dateBorn,
-      required final double luggage}) = _$_AddSeat;
+      required final double luggage,
+      required final double price}) = _$_AddSeat;
 
   String get name;
   String get email;
@@ -4421,6 +4486,7 @@ abstract class _AddSeat implements BTEvent {
   String get identityNumber;
   DateTime get dateBorn;
   double get luggage;
+  double get price;
   @JsonKey(ignore: true)
   _$$_AddSeatCopyWith<_$_AddSeat> get copyWith =>
       throw _privateConstructorUsedError;
@@ -4455,6 +4521,7 @@ mixin _$BTState {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -4484,6 +4551,7 @@ mixin _$BTState {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -4512,6 +4580,7 @@ mixin _$BTState {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -4549,6 +4618,7 @@ mixin _$BTState {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -4578,6 +4648,7 @@ mixin _$BTState {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -4604,6 +4675,7 @@ mixin _$BTState {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -4749,6 +4821,7 @@ class _$_Initial extends _Initial {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -4781,6 +4854,7 @@ class _$_Initial extends _Initial {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -4812,6 +4886,7 @@ class _$_Initial extends _Initial {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -4855,6 +4930,7 @@ class _$_Initial extends _Initial {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -4887,6 +4963,7 @@ class _$_Initial extends _Initial {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -4916,6 +4993,7 @@ class _$_Initial extends _Initial {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -5042,6 +5120,7 @@ class _$_Loading extends _Loading {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -5074,6 +5153,7 @@ class _$_Loading extends _Loading {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -5105,6 +5185,7 @@ class _$_Loading extends _Loading {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -5148,6 +5229,7 @@ class _$_Loading extends _Loading {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -5180,6 +5262,7 @@ class _$_Loading extends _Loading {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -5209,6 +5292,7 @@ class _$_Loading extends _Loading {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -5333,6 +5417,7 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -5365,6 +5450,7 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -5396,6 +5482,7 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -5439,6 +5526,7 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -5471,6 +5559,7 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -5500,6 +5589,7 @@ class _$_ChangeTicIndexViewSuccess extends _ChangeTicIndexViewSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -5621,6 +5711,7 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -5653,6 +5744,7 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -5684,6 +5776,7 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -5727,6 +5820,7 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -5759,6 +5853,7 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -5788,6 +5883,7 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -5918,6 +6014,7 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -5950,6 +6047,7 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -5981,6 +6079,7 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -6024,6 +6123,7 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -6056,6 +6156,7 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -6085,6 +6186,7 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -6207,6 +6309,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -6239,6 +6342,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -6270,6 +6374,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -6313,6 +6418,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -6345,6 +6451,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -6374,6 +6481,7 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -6503,6 +6611,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -6535,6 +6644,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -6566,6 +6676,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -6609,6 +6720,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -6641,6 +6753,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -6670,6 +6783,7 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -6793,6 +6907,7 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -6825,6 +6940,7 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -6856,6 +6972,7 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -6899,6 +7016,7 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -6931,6 +7049,7 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -6960,6 +7079,7 @@ class _$_GetCustomerBydIdSuccess extends _GetCustomerBydIdSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -7089,6 +7209,7 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -7121,6 +7242,7 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -7152,6 +7274,7 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -7195,6 +7318,7 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -7227,6 +7351,7 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -7256,6 +7381,7 @@ class _$_GetCustomerBydIdFailed extends _GetCustomerBydIdFailed {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -7379,6 +7505,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -7411,6 +7538,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -7442,6 +7570,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -7485,6 +7614,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -7517,6 +7647,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -7546,6 +7677,7 @@ class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -7676,6 +7808,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -7708,6 +7841,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -7739,6 +7873,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -7782,6 +7917,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -7814,6 +7950,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -7843,6 +7980,7 @@ class _$_GetTicInformationFailed extends _GetTicInformationFailed {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -7966,6 +8104,7 @@ class _$_GetAllTicOfFlightSuccess extends _GetAllTicOfFlightSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -7998,6 +8137,7 @@ class _$_GetAllTicOfFlightSuccess extends _GetAllTicOfFlightSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -8029,6 +8169,7 @@ class _$_GetAllTicOfFlightSuccess extends _GetAllTicOfFlightSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -8072,6 +8213,7 @@ class _$_GetAllTicOfFlightSuccess extends _GetAllTicOfFlightSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -8104,6 +8246,7 @@ class _$_GetAllTicOfFlightSuccess extends _GetAllTicOfFlightSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -8133,6 +8276,7 @@ class _$_GetAllTicOfFlightSuccess extends _GetAllTicOfFlightSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -8263,6 +8407,7 @@ class _$_GetAllTicOfFlightFailed extends _GetAllTicOfFlightFailed {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -8295,6 +8440,7 @@ class _$_GetAllTicOfFlightFailed extends _GetAllTicOfFlightFailed {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -8326,6 +8472,7 @@ class _$_GetAllTicOfFlightFailed extends _GetAllTicOfFlightFailed {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -8369,6 +8516,7 @@ class _$_GetAllTicOfFlightFailed extends _GetAllTicOfFlightFailed {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -8401,6 +8549,7 @@ class _$_GetAllTicOfFlightFailed extends _GetAllTicOfFlightFailed {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -8430,6 +8579,7 @@ class _$_GetAllTicOfFlightFailed extends _GetAllTicOfFlightFailed {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -8552,6 +8702,7 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -8584,6 +8735,7 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -8615,6 +8767,7 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -8658,6 +8811,7 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -8690,6 +8844,7 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -8719,6 +8874,7 @@ class _$_SearchCustomerSuccess extends _SearchCustomerSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -8839,6 +8995,7 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -8871,6 +9028,7 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -8902,6 +9060,7 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -8945,6 +9104,7 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -8977,6 +9137,7 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -9006,6 +9167,7 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -9135,6 +9297,7 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -9167,6 +9330,7 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -9198,6 +9362,7 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -9241,6 +9406,7 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -9273,6 +9439,7 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -9302,6 +9469,7 @@ class _$_SearchCustomerFailed extends _SearchCustomerFailed {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -9434,6 +9602,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -9466,6 +9635,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -9497,6 +9667,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -9540,6 +9711,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -9572,6 +9744,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -9601,6 +9774,7 @@ class _$_SelectedSeatSuccess extends _SelectedSeatSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -9626,6 +9800,299 @@ abstract class _SelectedSeatSuccess extends BTState {
   @override
   @JsonKey(ignore: true)
   _$$_SelectedSeatSuccessCopyWith<_$_SelectedSeatSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedSeatFailedCopyWith<$Res>
+    implements $BTStateCopyWith<$Res> {
+  factory _$$_SelectedSeatFailedCopyWith(_$_SelectedSeatFailed value,
+          $Res Function(_$_SelectedSeatFailed) then) =
+      __$$_SelectedSeatFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({BTModelState data});
+
+  @override
+  $BTModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_SelectedSeatFailedCopyWithImpl<$Res>
+    extends _$BTStateCopyWithImpl<$Res, _$_SelectedSeatFailed>
+    implements _$$_SelectedSeatFailedCopyWith<$Res> {
+  __$$_SelectedSeatFailedCopyWithImpl(
+      _$_SelectedSeatFailed _value, $Res Function(_$_SelectedSeatFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_SelectedSeatFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as BTModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedSeatFailed extends _SelectedSeatFailed {
+  const _$_SelectedSeatFailed({required this.data}) : super._();
+
+  @override
+  final BTModelState data;
+
+  @override
+  String toString() {
+    return 'BTState.selectedSeatFailed(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedSeatFailed &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedSeatFailedCopyWith<_$_SelectedSeatFailed> get copyWith =>
+      __$$_SelectedSeatFailedCopyWithImpl<_$_SelectedSeatFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BTModelState data) initial,
+    required TResult Function(BTModelState data, int groupLoading) loading,
+    required TResult Function(BTModelState data) changeTicIndexViewSuccess,
+    required TResult Function(BTModelState data) fetchCustomerDataSuccess,
+    required TResult Function(BTModelState data, String message)
+        fetchCustomerDataFailed,
+    required TResult Function(BTModelState data) getFlightByIdSuccess,
+    required TResult Function(BTModelState data, String message)
+        getFlightByIdFailed,
+    required TResult Function(BTModelState data) getCustomerBydIdSuccess,
+    required TResult Function(BTModelState data, String message)
+        getCustomerBydIdFailed,
+    required TResult Function(BTModelState data) getTicInformationSuccess,
+    required TResult Function(BTModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(BTModelState data) getAllTicOfFlightSuccess,
+    required TResult Function(BTModelState data, String message)
+        getAllTicOfFlightFailed,
+    required TResult Function(BTModelState data) searchCustomerSuccess,
+    required TResult Function(BTModelState data) updateCustomerSuccess,
+    required TResult Function(BTModelState data, String message)
+        searchCustomerFailed,
+    required TResult Function(BTModelState data, int ticIndex)
+        selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
+    required TResult Function(BTModelState data) addSeatSuccess,
+    required TResult Function(BTModelState data) removeTicSuccess,
+    required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
+    required TResult Function(BTModelState data) editTicSuccess,
+  }) {
+    return selectedSeatFailed(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BTModelState data)? initial,
+    TResult? Function(BTModelState data, int groupLoading)? loading,
+    TResult? Function(BTModelState data)? changeTicIndexViewSuccess,
+    TResult? Function(BTModelState data)? fetchCustomerDataSuccess,
+    TResult? Function(BTModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult? Function(BTModelState data)? getFlightByIdSuccess,
+    TResult? Function(BTModelState data, String message)? getFlightByIdFailed,
+    TResult? Function(BTModelState data)? getCustomerBydIdSuccess,
+    TResult? Function(BTModelState data, String message)?
+        getCustomerBydIdFailed,
+    TResult? Function(BTModelState data)? getTicInformationSuccess,
+    TResult? Function(BTModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(BTModelState data)? getAllTicOfFlightSuccess,
+    TResult? Function(BTModelState data, String message)?
+        getAllTicOfFlightFailed,
+    TResult? Function(BTModelState data)? searchCustomerSuccess,
+    TResult? Function(BTModelState data)? updateCustomerSuccess,
+    TResult? Function(BTModelState data, String message)? searchCustomerFailed,
+    TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
+    TResult? Function(BTModelState data)? addSeatSuccess,
+    TResult? Function(BTModelState data)? removeTicSuccess,
+    TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
+    TResult? Function(BTModelState data)? editTicSuccess,
+  }) {
+    return selectedSeatFailed?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BTModelState data)? initial,
+    TResult Function(BTModelState data, int groupLoading)? loading,
+    TResult Function(BTModelState data)? changeTicIndexViewSuccess,
+    TResult Function(BTModelState data)? fetchCustomerDataSuccess,
+    TResult Function(BTModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult Function(BTModelState data)? getFlightByIdSuccess,
+    TResult Function(BTModelState data, String message)? getFlightByIdFailed,
+    TResult Function(BTModelState data)? getCustomerBydIdSuccess,
+    TResult Function(BTModelState data, String message)? getCustomerBydIdFailed,
+    TResult Function(BTModelState data)? getTicInformationSuccess,
+    TResult Function(BTModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(BTModelState data)? getAllTicOfFlightSuccess,
+    TResult Function(BTModelState data, String message)?
+        getAllTicOfFlightFailed,
+    TResult Function(BTModelState data)? searchCustomerSuccess,
+    TResult Function(BTModelState data)? updateCustomerSuccess,
+    TResult Function(BTModelState data, String message)? searchCustomerFailed,
+    TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
+    TResult Function(BTModelState data)? addSeatSuccess,
+    TResult Function(BTModelState data)? removeTicSuccess,
+    TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
+    TResult Function(BTModelState data)? editTicSuccess,
+    required TResult orElse(),
+  }) {
+    if (selectedSeatFailed != null) {
+      return selectedSeatFailed(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_ChangeTicIndexViewSuccess value)
+        changeTicIndexViewSuccess,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
+    required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_GetCustomerBydIdSuccess value)
+        getCustomerBydIdSuccess,
+    required TResult Function(_GetCustomerBydIdFailed value)
+        getCustomerBydIdFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
+    required TResult Function(_GetAllTicOfFlightSuccess value)
+        getAllTicOfFlightSuccess,
+    required TResult Function(_GetAllTicOfFlightFailed value)
+        getAllTicOfFlightFailed,
+    required TResult Function(_SearchCustomerSuccess value)
+        searchCustomerSuccess,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
+    required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
+    required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
+    required TResult Function(_AddSeatSuccess value) addSeatSuccess,
+    required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
+    required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
+    required TResult Function(_EditTicSuccess value) editTicSuccess,
+  }) {
+    return selectedSeatFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_ChangeTicIndexViewSuccess value)?
+        changeTicIndexViewSuccess,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_GetCustomerBydIdSuccess value)? getCustomerBydIdSuccess,
+    TResult? Function(_GetCustomerBydIdFailed value)? getCustomerBydIdFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_GetAllTicOfFlightSuccess value)?
+        getAllTicOfFlightSuccess,
+    TResult? Function(_GetAllTicOfFlightFailed value)? getAllTicOfFlightFailed,
+    TResult? Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
+    TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
+    TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
+    TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
+    TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
+    TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
+    TResult? Function(_EditTicSuccess value)? editTicSuccess,
+  }) {
+    return selectedSeatFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_ChangeTicIndexViewSuccess value)?
+        changeTicIndexViewSuccess,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_GetCustomerBydIdSuccess value)? getCustomerBydIdSuccess,
+    TResult Function(_GetCustomerBydIdFailed value)? getCustomerBydIdFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_GetAllTicOfFlightSuccess value)? getAllTicOfFlightSuccess,
+    TResult Function(_GetAllTicOfFlightFailed value)? getAllTicOfFlightFailed,
+    TResult Function(_SearchCustomerSuccess value)? searchCustomerSuccess,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
+    TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
+    TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
+    TResult Function(_AddSeatSuccess value)? addSeatSuccess,
+    TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
+    TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
+    TResult Function(_EditTicSuccess value)? editTicSuccess,
+    required TResult orElse(),
+  }) {
+    if (selectedSeatFailed != null) {
+      return selectedSeatFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedSeatFailed extends BTState {
+  const factory _SelectedSeatFailed({required final BTModelState data}) =
+      _$_SelectedSeatFailed;
+  const _SelectedSeatFailed._() : super._();
+
+  @override
+  BTModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SelectedSeatFailedCopyWith<_$_SelectedSeatFailed> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -9722,6 +10189,7 @@ class _$_AddSeatSuccess extends _AddSeatSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -9754,6 +10222,7 @@ class _$_AddSeatSuccess extends _AddSeatSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -9785,6 +10254,7 @@ class _$_AddSeatSuccess extends _AddSeatSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -9828,6 +10298,7 @@ class _$_AddSeatSuccess extends _AddSeatSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -9860,6 +10331,7 @@ class _$_AddSeatSuccess extends _AddSeatSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -9889,6 +10361,7 @@ class _$_AddSeatSuccess extends _AddSeatSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -10008,6 +10481,7 @@ class _$_RemoveTicSuccess extends _RemoveTicSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -10040,6 +10514,7 @@ class _$_RemoveTicSuccess extends _RemoveTicSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -10071,6 +10546,7 @@ class _$_RemoveTicSuccess extends _RemoveTicSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -10114,6 +10590,7 @@ class _$_RemoveTicSuccess extends _RemoveTicSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -10146,6 +10623,7 @@ class _$_RemoveTicSuccess extends _RemoveTicSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -10175,6 +10653,7 @@ class _$_RemoveTicSuccess extends _RemoveTicSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -10313,6 +10792,7 @@ class _$_SelectedTicSuccess extends _SelectedTicSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -10345,6 +10825,7 @@ class _$_SelectedTicSuccess extends _SelectedTicSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -10376,6 +10857,7 @@ class _$_SelectedTicSuccess extends _SelectedTicSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -10419,6 +10901,7 @@ class _$_SelectedTicSuccess extends _SelectedTicSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -10451,6 +10934,7 @@ class _$_SelectedTicSuccess extends _SelectedTicSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -10480,6 +10964,7 @@ class _$_SelectedTicSuccess extends _SelectedTicSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -10601,6 +11086,7 @@ class _$_EditTicSuccess extends _EditTicSuccess {
         searchCustomerFailed,
     required TResult Function(BTModelState data, int ticIndex)
         selectedSeatSuccess,
+    required TResult Function(BTModelState data) selectedSeatFailed,
     required TResult Function(BTModelState data) addSeatSuccess,
     required TResult Function(BTModelState data) removeTicSuccess,
     required TResult Function(BTModelState data, Ticket tic) selectedTicSuccess,
@@ -10633,6 +11119,7 @@ class _$_EditTicSuccess extends _EditTicSuccess {
     TResult? Function(BTModelState data)? updateCustomerSuccess,
     TResult? Function(BTModelState data, String message)? searchCustomerFailed,
     TResult? Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult? Function(BTModelState data)? selectedSeatFailed,
     TResult? Function(BTModelState data)? addSeatSuccess,
     TResult? Function(BTModelState data)? removeTicSuccess,
     TResult? Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -10664,6 +11151,7 @@ class _$_EditTicSuccess extends _EditTicSuccess {
     TResult Function(BTModelState data)? updateCustomerSuccess,
     TResult Function(BTModelState data, String message)? searchCustomerFailed,
     TResult Function(BTModelState data, int ticIndex)? selectedSeatSuccess,
+    TResult Function(BTModelState data)? selectedSeatFailed,
     TResult Function(BTModelState data)? addSeatSuccess,
     TResult Function(BTModelState data)? removeTicSuccess,
     TResult Function(BTModelState data, Ticket tic)? selectedTicSuccess,
@@ -10707,6 +11195,7 @@ class _$_EditTicSuccess extends _EditTicSuccess {
         updateCustomerSuccess,
     required TResult Function(_SearchCustomerFailed value) searchCustomerFailed,
     required TResult Function(_SelectedSeatSuccess value) selectedSeatSuccess,
+    required TResult Function(_SelectedSeatFailed value) selectedSeatFailed,
     required TResult Function(_AddSeatSuccess value) addSeatSuccess,
     required TResult Function(_RemoveTicSuccess value) removeTicSuccess,
     required TResult Function(_SelectedTicSuccess value) selectedTicSuccess,
@@ -10739,6 +11228,7 @@ class _$_EditTicSuccess extends _EditTicSuccess {
     TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult? Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult? Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult? Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult? Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult? Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult? Function(_SelectedTicSuccess value)? selectedTicSuccess,
@@ -10768,6 +11258,7 @@ class _$_EditTicSuccess extends _EditTicSuccess {
     TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
     TResult Function(_SearchCustomerFailed value)? searchCustomerFailed,
     TResult Function(_SelectedSeatSuccess value)? selectedSeatSuccess,
+    TResult Function(_SelectedSeatFailed value)? selectedSeatFailed,
     TResult Function(_AddSeatSuccess value)? addSeatSuccess,
     TResult Function(_RemoveTicSuccess value)? removeTicSuccess,
     TResult Function(_SelectedTicSuccess value)? selectedTicSuccess,

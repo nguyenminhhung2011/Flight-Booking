@@ -1,6 +1,6 @@
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../domain/entities/ticket/ticket.dart';
 import '../../../../domain/entities/ticket/ticket_information.dart';
@@ -48,10 +48,10 @@ class TicItem extends StatelessWidget {
               const Spacer(),
               Text(
                 '${ticInformation.seatHeader}${tic.seat}',
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).primaryColor,
-                    ),
+                style: context.titleSmall.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
             ],
           ),
@@ -88,10 +88,10 @@ class TicItem extends StatelessWidget {
       ),
       child: Text(
         tit,
-        style: Theme.of(context).textTheme.titleSmall!.copyWith(
-              fontSize: 12.0,
-              fontWeight: FontWeight.w300,
-            ),
+        style: context.titleSmall.copyWith(
+          fontSize: 12.0,
+          fontWeight: FontWeight.w300,
+        ),
       ),
     );
   }
@@ -99,26 +99,28 @@ class TicItem extends StatelessWidget {
 
 class TicItem2 extends StatelessWidget {
   final Color color;
+  final Ticket tic;
+  final TicketInformation ticketInformation;
   const TicItem2({
     super.key,
     required this.color,
+    required this.tic,
+    required this.ticketInformation,
   });
 
   @override
   Widget build(BuildContext context) {
-    var stypeText1 = Theme.of(context)
-        .textTheme
-        .titleSmall!
-        .copyWith(fontSize: 11, color: Colors.grey);
+    var styleText1 = context.titleSmall.copyWith(color: Colors.grey);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
       child: Row(
         children: [
-          Text('DN-0932', maxLines: 1, style: stypeText1),
+          Text('Flight${ticketInformation.id.flight.id}-${tic.id}',
+              maxLines: 1, style: styleText1),
           DotCustom(color: color, full: false),
           Expanded(
             child: Text(
-              'Nguyen Minh Hung',
+              tic.name,
               maxLines: 1,
               style: Theme.of(context)
                   .textTheme
@@ -128,20 +130,21 @@ class TicItem2 extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              'Some notes in here ',
+              tic.phoneNumber,
               maxLines: 1,
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+              style: context.titleSmall.copyWith(
                   fontSize: 11.0,
                   color: Colors.grey,
                   overflow: TextOverflow.ellipsis),
             ),
           ),
-          _Fie(context, '${S.of(context).chair} B02'),
-          _Fie(context, '2 ${S.of(context).luggage}'),
-          Text(DateFormat.yMd().format(DateTime.now()), style: stypeText1),
+          _Fie(context, '${ticketInformation.seatHeader}${tic.seat}'),
+          _Fie(context, '${tic.luggage} ${S.of(context).luggage}'),
+          Text(getYmdFormat(DateTime.fromMillisecondsSinceEpoch(tic.birthday)),
+              style: styleText1),
           Container(
-            width: 14.0,
-            height: 14.0,
+            width: 20.0,
+            height: 20.0,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
@@ -174,10 +177,9 @@ class TicItem2 extends StatelessWidget {
       ),
       child: Text(
         tit,
-        style: Theme.of(context).textTheme.titleSmall!.copyWith(
-              fontSize: 12.0,
-              fontWeight: FontWeight.w300,
-            ),
+        style: context.titleSmall.copyWith(
+          fontWeight: FontWeight.w300,
+        ),
       ),
     );
   }
@@ -237,10 +239,10 @@ class _TicItem3State extends State<TicItem3> {
                 const Spacer(),
                 Text(
                   'B10',
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                  style: context.titleSmall.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).primaryColor,
+                  ),
                 ),
               ],
             ),
@@ -275,10 +277,10 @@ class _TicItem3State extends State<TicItem3> {
       ),
       child: Text(
         tit,
-        style: Theme.of(context).textTheme.titleSmall!.copyWith(
-              fontSize: 12.0,
-              fontWeight: FontWeight.w300,
-            ),
+        style: context.titleSmall.copyWith(
+          fontSize: 12.0,
+          fontWeight: FontWeight.w300,
+        ),
       ),
     );
   }

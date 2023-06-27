@@ -63,6 +63,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
   List<SeatSelected> get seatsSelected => _bloc.listSeat;
   List<TicketInformation> get _ticInformation => _data.ticInformation;
   List<Ticket> get _listTic => _data.tics;
+  List<Ticket> get _redTics => _data.redTics;
   SeatSelected? get _currentSeat => _data.currentSeat;
   String get _currentTicId => _data.currentTicId;
   Customer? get _customerSelected => _data.customerSelected;
@@ -83,6 +84,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
     _bloc.add(const BTEvent.getTicInformation());
     _bloc.add(const BTEvent.fetchCustomerData());
     _bloc.add(const BTEvent.getFlightById());
+    _bloc.add(const BTEvent.getAllTicOfFlight());
     super.initState();
   }
 
@@ -136,6 +138,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
       identityNumber: _identityController.text,
       dateBorn: _dateBorn.value,
       luggage: _luggage.value,
+      price: _currentSeat?.ticInformation.price ?? 0.0,
     ));
   }
 
@@ -234,6 +237,16 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
           header: 'Update seat',
           title: 'Update seat success',
         );
+      },
+      selectedSeatFailed: (data) {
+        context.showSuccessDialog(
+          width: 300,
+          header: 'Select Seat',
+          title: 'Seat was selected',
+        );
+      },
+      getAllTicOfFlightFailed: (data, error) {
+        log(error);
       },
       fetchCustomerDataFailed: (data, error) {
         log(error);
@@ -724,7 +737,8 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
                                                 .map((item) =>
                                                     '${item.type} - ${item.seat}')
                                                 .contains(
-                                                    '${e.id.ticketType} - $i')
+                                                  '${e.id.ticketType} - $i',
+                                                )
                                             ? Theme.of(context).primaryColor
                                             : Theme.of(context).hintColor,
                                       ),

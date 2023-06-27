@@ -13,6 +13,7 @@ import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../domain/usecase/customer_usecase.dart';
 import '../../../domain/usecase/flight_usecase.dart';
 import '../../../domain/usecase/tic_information_usecase.dart';
+import '../../../domain/usecase/ticket_usecase.dart';
 import 'book_ticket_model_state.dart';
 
 part 'book_ticket_event.dart';
@@ -27,6 +28,7 @@ class BTBloc extends Bloc<BTEvent, BTState> {
   final CustomerUseCase _customerUseCase;
   final TicketInformationUsecase _ticketInformationUsecase;
   final FlightsUsecase _flightUsecase;
+  final TicketUsecase _ticketUsecase;
 
   final int _flightId;
   final List<SeatSelected> _seats;
@@ -39,6 +41,7 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     this._customerUseCase,
     this._ticketInformationUsecase,
     this._flightUsecase,
+    this._ticketUsecase,
   )   : _seats = seats,
         _flightId = flightId,
         super(const BTState.initial(
@@ -49,6 +52,7 @@ class BTBloc extends Bloc<BTEvent, BTState> {
             chairsSelected: <SeatSelected>[],
             ticInformation: <TicketInformation>[],
             tics: <Ticket>[],
+            redTics: <Ticket>[],
           ),
         )) {
     on<_Started>(_onStarted);
@@ -220,7 +224,7 @@ class BTBloc extends Bloc<BTEvent, BTState> {
       seat: event.seat,
       type: event.type,
       luggage: event.luggage,
-      price: 0,
+      price: event.price,
       birthday: event.dateBorn.millisecondsSinceEpoch,
       timeBought: DateTime.now().millisecondsSinceEpoch,
     );
@@ -283,7 +287,16 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     Emitter<BTState> emit,
   ) async {
     emit(_Loading(data: data, groupLoading: 2));
-    emit(_GetAllTicOfFlightSuccess(data: data));
+    try {
+      final response = await _ticketUsecase.getByFlightId(flightId: _flightId);
+      emit(_GetAllTicOfFlightSuccess(
+        data: data.copyWith(redTics: response),
+      ));
+    } on AppException catch (e) {
+      emit(_GetAllTicOfFlightFailed(data: data, message: e.toString()));
+    } catch (e) {
+      emit(_GetAllTicOfFlightFailed(data: data, message: e.toString()));
+    }
   }
 
   FutureOr<void> _onUpdateCustomer(
@@ -307,6 +320,11 @@ class BTBloc extends Bloc<BTEvent, BTState> {
           item.type == event.newSeat.ticInformation.id.ticketType &&
           item.seat == event.newSeat.seatIndex,
     );
+    if (data.redTics.map((e) => '${e.type} - ${e.seat}').contains(
+          '${event.newSeat.ticInformation.id.ticketType} - ${event.newSeat.seatIndex}',
+        )) {
+      emit(_SelectedSeatFailed(data: data));
+    }
     emit(_SelectedSeatSuccess(
       data: data.copyWith(
         currentSeat: event.newSeat,

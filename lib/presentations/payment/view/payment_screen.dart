@@ -255,7 +255,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ],
               Expanded(
                 child: PageView(
-                  physics: const NeverScrollableScrollPhysics(),
+                  // physics: const NeverScrollableScrollPhysics(),
                   controller: _pageController,
                   children: [
                     BookPaymentTab(
