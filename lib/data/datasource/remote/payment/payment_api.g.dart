@@ -102,27 +102,27 @@ class _PaymentApi implements PaymentApi {
   }
 
   @override
-  Future<HttpResponse<List<PaymentModel>>> getAllPaymentByCustomerId(
+  Future<HttpResponse<List<PaymentLight>>> getAllPaymentByCustomerId(
       customerId) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'id': customerId};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<PaymentModel>>>(Options(
+        _setStreamType<HttpResponse<List<PaymentLight>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/api/v1/payment/all/customer=${customerId}',
+              '/api/v1/payment/getByCustomer',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
-        .map((dynamic i) => PaymentModel.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => PaymentLight.fromJson(i as Map<String, dynamic>))
         .toList();
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;

@@ -22,7 +22,7 @@ class PaymentLight {
   @JsonKey(name: "total")
   final double total;
 
-  @JsonKey(name: "customers")
+  @JsonKey(name: "customer")
   final CustomerModel customer;
 
   PaymentLight({

@@ -1,11 +1,16 @@
 import 'package:flight_booking/core/components/enum/payment_type.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
+import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class PaymentConfirmCard extends StatefulWidget {
-  const PaymentConfirmCard({super.key});
-
+  const PaymentConfirmCard({
+    super.key,
+    required this.creditCard,
+  });
+  final CreditCard creditCard;
   @override
   State<PaymentConfirmCard> createState() => _PaymentConfirmCardState();
 }
@@ -46,7 +51,7 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                       value: PaymentType.card,
                     ),
                     const SizedBox(width: 15),
-                    PaymentMethodSelection(),
+                    const PaymentMethodSelection(),
                   ],
                 ),
                 Row(
@@ -77,7 +82,9 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                   .titleMedium
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
-            const CustomerTextField(),
+            CustomerTextField(
+                controller:
+                    TextEditingController(text: widget.creditCard.creditNum)),
             const Spacer(),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,22 +106,25 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                 ),
               ],
             ),
-            const Row(
+            Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
                   flex: 2,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(child: CustomerTextField()),
-                      SizedBox(width: 10),
-                      Expanded(child: CustomerTextField()),
-                    ],
+                  child: CustomerTextField(
+                    controller: TextEditingController(
+                        text: DateFormat("dd/MM/yyyy").format(
+                      DateTime.fromMillisecondsSinceEpoch(
+                          widget.creditCard.expiredDate),
+                    )),
                   ),
                 ),
-                SizedBox(width: 10),
-                Expanded(child: CustomerTextField()),
+                const SizedBox(width: 10),
+                Expanded(
+                    child: CustomerTextField(
+                  controller:
+                      TextEditingController(text: widget.creditCard.cvc),
+                )),
               ],
             ),
             const Spacer(),
@@ -126,6 +136,8 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
             CustomerTextField(
+              controller:
+                  TextEditingController(text: widget.creditCard.nameCard),
               width: MediaQuery.of(context).size.width,
               hint: "Enter your Card holder name",
             ),

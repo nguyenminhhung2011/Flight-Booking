@@ -14,6 +14,7 @@ class PaymentApiEndpoint {
   static const branch = '/api/v1/payment';
   static const getAllPayment = "$branch/all";
   static const getLatestPaymentOfCustomer = "$branch/getLatest";
+  static const getByCustomer = "$branch/getByCustomer";
   static const getPaymentByPage = "$branch/";
   static const getPaymentSearchList = "$branch/search";
   static const filterPayment = "$branch/search";
@@ -42,9 +43,9 @@ abstract class PaymentApi {
     @Query('perPage') int perPage,
   );
 
-  @GET("${PaymentApiEndpoint.getAllPayment}/customer={customerId}")
-  Future<HttpResponse<List<PaymentModel>>> getAllPaymentByCustomerId(
-    @Path('customerId') int customerId,
+  @GET(PaymentApiEndpoint.getByCustomer)
+  Future<HttpResponse<List<PaymentLight>>> getAllPaymentByCustomerId(
+    @Query('id') int customerId,
   );
 
   @GET(PaymentApiEndpoint.getLatestPaymentOfCustomer)

@@ -11,6 +11,9 @@ PaymentModel _$PaymentModelFromJson(Map<String, dynamic> json) => PaymentModel(
       createDate: json['createdDate'] as int,
       total: (json['total'] as num).toDouble(),
       paymentStatus: json['paymentStatus'] as String,
+      flight: json['flight'] == null
+          ? null
+          : FlightModel.fromJson(json['flight'] as Map<String, dynamic>),
       paymentType: json['paymentType'] as String,
       customer:
           CustomerModel.fromJson(json['customer'] as Map<String, dynamic>),
@@ -26,6 +29,7 @@ Map<String, dynamic> _$PaymentModelToJson(PaymentModel instance) =>
       'paymentType': instance.paymentType,
       'paymentStatus': instance.paymentStatus,
       'total': instance.total,
+      'flight': instance.flight,
       'customer': instance.customer,
       'ticket': instance.tickets,
     };
