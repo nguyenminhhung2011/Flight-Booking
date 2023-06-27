@@ -30,6 +30,7 @@ class ModelHelper {
         timeOfDayToInt(airport.closeTime),
       );
   static TicketModel ticConvert(Ticket tic) => TicketModel(
+        price: tic.price,
         id: tic.id,
         name: tic.name,
         gender: tic.gender,
