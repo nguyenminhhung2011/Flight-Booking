@@ -28,6 +28,7 @@ mixin _$CustomerEvent {
     required TResult Function(String id) editCustomer,
     required TResult Function() addCustomer,
     required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
     required TResult Function(int customerId) getLatestPaymentOfCustomer,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ mixin _$CustomerEvent {
     TResult? Function(String id)? editCustomer,
     TResult? Function()? addCustomer,
     TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
     TResult? Function(int customerId)? getLatestPaymentOfCustomer,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +60,7 @@ mixin _$CustomerEvent {
     TResult Function(String id)? editCustomer,
     TResult Function()? addCustomer,
     TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
     TResult Function(int customerId)? getLatestPaymentOfCustomer,
     required TResult orElse(),
   }) =>
@@ -73,6 +76,7 @@ mixin _$CustomerEvent {
     required TResult Function(_EditCustomer value) editCustomer,
     required TResult Function(_AddCustomer value) addCustomer,
     required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_GetLatestPaymentOfCustomer value)
         getLatestPaymentOfCustomer,
   }) =>
@@ -88,6 +92,7 @@ mixin _$CustomerEvent {
     TResult? Function(_EditCustomer value)? editCustomer,
     TResult? Function(_AddCustomer value)? addCustomer,
     TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
   }) =>
@@ -103,6 +108,7 @@ mixin _$CustomerEvent {
     TResult Function(_EditCustomer value)? editCustomer,
     TResult Function(_AddCustomer value)? addCustomer,
     TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
     required TResult orElse(),
@@ -176,6 +182,7 @@ class _$_OnStarted implements _OnStarted {
     required TResult Function(String id) editCustomer,
     required TResult Function() addCustomer,
     required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
     required TResult Function(int customerId) getLatestPaymentOfCustomer,
   }) {
     return onStarted();
@@ -194,6 +201,7 @@ class _$_OnStarted implements _OnStarted {
     TResult? Function(String id)? editCustomer,
     TResult? Function()? addCustomer,
     TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
     TResult? Function(int customerId)? getLatestPaymentOfCustomer,
   }) {
     return onStarted?.call();
@@ -212,6 +220,7 @@ class _$_OnStarted implements _OnStarted {
     TResult Function(String id)? editCustomer,
     TResult Function()? addCustomer,
     TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
     TResult Function(int customerId)? getLatestPaymentOfCustomer,
     required TResult orElse(),
   }) {
@@ -233,6 +242,7 @@ class _$_OnStarted implements _OnStarted {
     required TResult Function(_EditCustomer value) editCustomer,
     required TResult Function(_AddCustomer value) addCustomer,
     required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_GetLatestPaymentOfCustomer value)
         getLatestPaymentOfCustomer,
   }) {
@@ -251,6 +261,7 @@ class _$_OnStarted implements _OnStarted {
     TResult? Function(_EditCustomer value)? editCustomer,
     TResult? Function(_AddCustomer value)? addCustomer,
     TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
   }) {
@@ -269,6 +280,7 @@ class _$_OnStarted implements _OnStarted {
     TResult Function(_EditCustomer value)? editCustomer,
     TResult Function(_AddCustomer value)? addCustomer,
     TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
     required TResult orElse(),
@@ -360,6 +372,7 @@ class _$_OpenCustomerDetail implements _OpenCustomerDetail {
     required TResult Function(String id) editCustomer,
     required TResult Function() addCustomer,
     required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
     required TResult Function(int customerId) getLatestPaymentOfCustomer,
   }) {
     return openCustomerDetail(customerId);
@@ -378,6 +391,7 @@ class _$_OpenCustomerDetail implements _OpenCustomerDetail {
     TResult? Function(String id)? editCustomer,
     TResult? Function()? addCustomer,
     TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
     TResult? Function(int customerId)? getLatestPaymentOfCustomer,
   }) {
     return openCustomerDetail?.call(customerId);
@@ -396,6 +410,7 @@ class _$_OpenCustomerDetail implements _OpenCustomerDetail {
     TResult Function(String id)? editCustomer,
     TResult Function()? addCustomer,
     TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
     TResult Function(int customerId)? getLatestPaymentOfCustomer,
     required TResult orElse(),
   }) {
@@ -417,6 +432,7 @@ class _$_OpenCustomerDetail implements _OpenCustomerDetail {
     required TResult Function(_EditCustomer value) editCustomer,
     required TResult Function(_AddCustomer value) addCustomer,
     required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_GetLatestPaymentOfCustomer value)
         getLatestPaymentOfCustomer,
   }) {
@@ -435,6 +451,7 @@ class _$_OpenCustomerDetail implements _OpenCustomerDetail {
     TResult? Function(_EditCustomer value)? editCustomer,
     TResult? Function(_AddCustomer value)? addCustomer,
     TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
   }) {
@@ -453,6 +470,7 @@ class _$_OpenCustomerDetail implements _OpenCustomerDetail {
     TResult Function(_EditCustomer value)? editCustomer,
     TResult Function(_AddCustomer value)? addCustomer,
     TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
     required TResult orElse(),
@@ -556,6 +574,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     required TResult Function(String id) editCustomer,
     required TResult Function() addCustomer,
     required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
     required TResult Function(int customerId) getLatestPaymentOfCustomer,
   }) {
     return selectCustomer(id, index);
@@ -574,6 +593,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     TResult? Function(String id)? editCustomer,
     TResult? Function()? addCustomer,
     TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
     TResult? Function(int customerId)? getLatestPaymentOfCustomer,
   }) {
     return selectCustomer?.call(id, index);
@@ -592,6 +612,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     TResult Function(String id)? editCustomer,
     TResult Function()? addCustomer,
     TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
     TResult Function(int customerId)? getLatestPaymentOfCustomer,
     required TResult orElse(),
   }) {
@@ -613,6 +634,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     required TResult Function(_EditCustomer value) editCustomer,
     required TResult Function(_AddCustomer value) addCustomer,
     required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_GetLatestPaymentOfCustomer value)
         getLatestPaymentOfCustomer,
   }) {
@@ -631,6 +653,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     TResult? Function(_EditCustomer value)? editCustomer,
     TResult? Function(_AddCustomer value)? addCustomer,
     TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
   }) {
@@ -649,6 +672,7 @@ class _$_SelectCustomer implements _SelectCustomer {
     TResult Function(_EditCustomer value)? editCustomer,
     TResult Function(_AddCustomer value)? addCustomer,
     TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
     required TResult orElse(),
@@ -762,6 +786,7 @@ class _$_SearchCustomer implements _SearchCustomer {
     required TResult Function(String id) editCustomer,
     required TResult Function() addCustomer,
     required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
     required TResult Function(int customerId) getLatestPaymentOfCustomer,
   }) {
     return searchCustomers(id, name, identify);
@@ -780,6 +805,7 @@ class _$_SearchCustomer implements _SearchCustomer {
     TResult? Function(String id)? editCustomer,
     TResult? Function()? addCustomer,
     TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
     TResult? Function(int customerId)? getLatestPaymentOfCustomer,
   }) {
     return searchCustomers?.call(id, name, identify);
@@ -798,6 +824,7 @@ class _$_SearchCustomer implements _SearchCustomer {
     TResult Function(String id)? editCustomer,
     TResult Function()? addCustomer,
     TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
     TResult Function(int customerId)? getLatestPaymentOfCustomer,
     required TResult orElse(),
   }) {
@@ -819,6 +846,7 @@ class _$_SearchCustomer implements _SearchCustomer {
     required TResult Function(_EditCustomer value) editCustomer,
     required TResult Function(_AddCustomer value) addCustomer,
     required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_GetLatestPaymentOfCustomer value)
         getLatestPaymentOfCustomer,
   }) {
@@ -837,6 +865,7 @@ class _$_SearchCustomer implements _SearchCustomer {
     TResult? Function(_EditCustomer value)? editCustomer,
     TResult? Function(_AddCustomer value)? addCustomer,
     TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
   }) {
@@ -855,6 +884,7 @@ class _$_SearchCustomer implements _SearchCustomer {
     TResult Function(_EditCustomer value)? editCustomer,
     TResult Function(_AddCustomer value)? addCustomer,
     TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
     required TResult orElse(),
@@ -928,6 +958,7 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     required TResult Function(String id) editCustomer,
     required TResult Function() addCustomer,
     required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
     required TResult Function(int customerId) getLatestPaymentOfCustomer,
   }) {
     return fetchCustomerData();
@@ -946,6 +977,7 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     TResult? Function(String id)? editCustomer,
     TResult? Function()? addCustomer,
     TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
     TResult? Function(int customerId)? getLatestPaymentOfCustomer,
   }) {
     return fetchCustomerData?.call();
@@ -964,6 +996,7 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     TResult Function(String id)? editCustomer,
     TResult Function()? addCustomer,
     TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
     TResult Function(int customerId)? getLatestPaymentOfCustomer,
     required TResult orElse(),
   }) {
@@ -985,6 +1018,7 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     required TResult Function(_EditCustomer value) editCustomer,
     required TResult Function(_AddCustomer value) addCustomer,
     required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_GetLatestPaymentOfCustomer value)
         getLatestPaymentOfCustomer,
   }) {
@@ -1003,6 +1037,7 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     TResult? Function(_EditCustomer value)? editCustomer,
     TResult? Function(_AddCustomer value)? addCustomer,
     TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
   }) {
@@ -1021,6 +1056,7 @@ class _$_FetchCustomerData implements _FetchCustomerData {
     TResult Function(_EditCustomer value)? editCustomer,
     TResult Function(_AddCustomer value)? addCustomer,
     TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
     required TResult orElse(),
@@ -1110,6 +1146,7 @@ class _$_DeleteCustomer implements _DeleteCustomer {
     required TResult Function(String id) editCustomer,
     required TResult Function() addCustomer,
     required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
     required TResult Function(int customerId) getLatestPaymentOfCustomer,
   }) {
     return deleteCustomer(id);
@@ -1128,6 +1165,7 @@ class _$_DeleteCustomer implements _DeleteCustomer {
     TResult? Function(String id)? editCustomer,
     TResult? Function()? addCustomer,
     TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
     TResult? Function(int customerId)? getLatestPaymentOfCustomer,
   }) {
     return deleteCustomer?.call(id);
@@ -1146,6 +1184,7 @@ class _$_DeleteCustomer implements _DeleteCustomer {
     TResult Function(String id)? editCustomer,
     TResult Function()? addCustomer,
     TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
     TResult Function(int customerId)? getLatestPaymentOfCustomer,
     required TResult orElse(),
   }) {
@@ -1167,6 +1206,7 @@ class _$_DeleteCustomer implements _DeleteCustomer {
     required TResult Function(_EditCustomer value) editCustomer,
     required TResult Function(_AddCustomer value) addCustomer,
     required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_GetLatestPaymentOfCustomer value)
         getLatestPaymentOfCustomer,
   }) {
@@ -1185,6 +1225,7 @@ class _$_DeleteCustomer implements _DeleteCustomer {
     TResult? Function(_EditCustomer value)? editCustomer,
     TResult? Function(_AddCustomer value)? addCustomer,
     TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
   }) {
@@ -1203,6 +1244,7 @@ class _$_DeleteCustomer implements _DeleteCustomer {
     TResult Function(_EditCustomer value)? editCustomer,
     TResult Function(_AddCustomer value)? addCustomer,
     TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
     required TResult orElse(),
@@ -1297,6 +1339,7 @@ class _$_EditCustomer implements _EditCustomer {
     required TResult Function(String id) editCustomer,
     required TResult Function() addCustomer,
     required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
     required TResult Function(int customerId) getLatestPaymentOfCustomer,
   }) {
     return editCustomer(id);
@@ -1315,6 +1358,7 @@ class _$_EditCustomer implements _EditCustomer {
     TResult? Function(String id)? editCustomer,
     TResult? Function()? addCustomer,
     TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
     TResult? Function(int customerId)? getLatestPaymentOfCustomer,
   }) {
     return editCustomer?.call(id);
@@ -1333,6 +1377,7 @@ class _$_EditCustomer implements _EditCustomer {
     TResult Function(String id)? editCustomer,
     TResult Function()? addCustomer,
     TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
     TResult Function(int customerId)? getLatestPaymentOfCustomer,
     required TResult orElse(),
   }) {
@@ -1354,6 +1399,7 @@ class _$_EditCustomer implements _EditCustomer {
     required TResult Function(_EditCustomer value) editCustomer,
     required TResult Function(_AddCustomer value) addCustomer,
     required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_GetLatestPaymentOfCustomer value)
         getLatestPaymentOfCustomer,
   }) {
@@ -1372,6 +1418,7 @@ class _$_EditCustomer implements _EditCustomer {
     TResult? Function(_EditCustomer value)? editCustomer,
     TResult? Function(_AddCustomer value)? addCustomer,
     TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
   }) {
@@ -1390,6 +1437,7 @@ class _$_EditCustomer implements _EditCustomer {
     TResult Function(_EditCustomer value)? editCustomer,
     TResult Function(_AddCustomer value)? addCustomer,
     TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
     required TResult orElse(),
@@ -1458,6 +1506,7 @@ class _$_AddCustomer implements _AddCustomer {
     required TResult Function(String id) editCustomer,
     required TResult Function() addCustomer,
     required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
     required TResult Function(int customerId) getLatestPaymentOfCustomer,
   }) {
     return addCustomer();
@@ -1476,6 +1525,7 @@ class _$_AddCustomer implements _AddCustomer {
     TResult? Function(String id)? editCustomer,
     TResult? Function()? addCustomer,
     TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
     TResult? Function(int customerId)? getLatestPaymentOfCustomer,
   }) {
     return addCustomer?.call();
@@ -1494,6 +1544,7 @@ class _$_AddCustomer implements _AddCustomer {
     TResult Function(String id)? editCustomer,
     TResult Function()? addCustomer,
     TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
     TResult Function(int customerId)? getLatestPaymentOfCustomer,
     required TResult orElse(),
   }) {
@@ -1515,6 +1566,7 @@ class _$_AddCustomer implements _AddCustomer {
     required TResult Function(_EditCustomer value) editCustomer,
     required TResult Function(_AddCustomer value) addCustomer,
     required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_GetLatestPaymentOfCustomer value)
         getLatestPaymentOfCustomer,
   }) {
@@ -1533,6 +1585,7 @@ class _$_AddCustomer implements _AddCustomer {
     TResult? Function(_EditCustomer value)? editCustomer,
     TResult? Function(_AddCustomer value)? addCustomer,
     TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
   }) {
@@ -1551,6 +1604,7 @@ class _$_AddCustomer implements _AddCustomer {
     TResult Function(_EditCustomer value)? editCustomer,
     TResult Function(_AddCustomer value)? addCustomer,
     TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
     required TResult orElse(),
@@ -1659,6 +1713,7 @@ class _$_UpdateCustomers implements _UpdateCustomers {
     required TResult Function(String id) editCustomer,
     required TResult Function() addCustomer,
     required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
     required TResult Function(int customerId) getLatestPaymentOfCustomer,
   }) {
     return updateCustomers(isEdit, customer);
@@ -1677,6 +1732,7 @@ class _$_UpdateCustomers implements _UpdateCustomers {
     TResult? Function(String id)? editCustomer,
     TResult? Function()? addCustomer,
     TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
     TResult? Function(int customerId)? getLatestPaymentOfCustomer,
   }) {
     return updateCustomers?.call(isEdit, customer);
@@ -1695,6 +1751,7 @@ class _$_UpdateCustomers implements _UpdateCustomers {
     TResult Function(String id)? editCustomer,
     TResult Function()? addCustomer,
     TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
     TResult Function(int customerId)? getLatestPaymentOfCustomer,
     required TResult orElse(),
   }) {
@@ -1716,6 +1773,7 @@ class _$_UpdateCustomers implements _UpdateCustomers {
     required TResult Function(_EditCustomer value) editCustomer,
     required TResult Function(_AddCustomer value) addCustomer,
     required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_GetLatestPaymentOfCustomer value)
         getLatestPaymentOfCustomer,
   }) {
@@ -1734,6 +1792,7 @@ class _$_UpdateCustomers implements _UpdateCustomers {
     TResult? Function(_EditCustomer value)? editCustomer,
     TResult? Function(_AddCustomer value)? addCustomer,
     TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
   }) {
@@ -1752,6 +1811,7 @@ class _$_UpdateCustomers implements _UpdateCustomers {
     TResult Function(_EditCustomer value)? editCustomer,
     TResult Function(_AddCustomer value)? addCustomer,
     TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
     required TResult orElse(),
@@ -1772,6 +1832,202 @@ abstract class _UpdateCustomers implements CustomerEvent {
   Customer get customer;
   @JsonKey(ignore: true)
   _$$_UpdateCustomersCopyWith<_$_UpdateCustomers> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetTicInformationCopyWith<$Res> {
+  factory _$$_GetTicInformationCopyWith(_$_GetTicInformation value,
+          $Res Function(_$_GetTicInformation) then) =
+      __$$_GetTicInformationCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int flightId});
+}
+
+/// @nodoc
+class __$$_GetTicInformationCopyWithImpl<$Res>
+    extends _$CustomerEventCopyWithImpl<$Res, _$_GetTicInformation>
+    implements _$$_GetTicInformationCopyWith<$Res> {
+  __$$_GetTicInformationCopyWithImpl(
+      _$_GetTicInformation _value, $Res Function(_$_GetTicInformation) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? flightId = null,
+  }) {
+    return _then(_$_GetTicInformation(
+      flightId: null == flightId
+          ? _value.flightId
+          : flightId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetTicInformation implements _GetTicInformation {
+  const _$_GetTicInformation({required this.flightId});
+
+  @override
+  final int flightId;
+
+  @override
+  String toString() {
+    return 'CustomerEvent.getTicInformation(flightId: $flightId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetTicInformation &&
+            (identical(other.flightId, flightId) ||
+                other.flightId == flightId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, flightId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetTicInformationCopyWith<_$_GetTicInformation> get copyWith =>
+      __$$_GetTicInformationCopyWithImpl<_$_GetTicInformation>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function(String customerId) openCustomerDetail,
+    required TResult Function(String id, int index) selectCustomer,
+    required TResult Function(String? id, String? name, String? identify)
+        searchCustomers,
+    required TResult Function() fetchCustomerData,
+    required TResult Function(int id) deleteCustomer,
+    required TResult Function(String id) editCustomer,
+    required TResult Function() addCustomer,
+    required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
+    required TResult Function(int customerId) getLatestPaymentOfCustomer,
+  }) {
+    return getTicInformation(flightId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function(String customerId)? openCustomerDetail,
+    TResult? Function(String id, int index)? selectCustomer,
+    TResult? Function(String? id, String? name, String? identify)?
+        searchCustomers,
+    TResult? Function()? fetchCustomerData,
+    TResult? Function(int id)? deleteCustomer,
+    TResult? Function(String id)? editCustomer,
+    TResult? Function()? addCustomer,
+    TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
+    TResult? Function(int customerId)? getLatestPaymentOfCustomer,
+  }) {
+    return getTicInformation?.call(flightId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function(String customerId)? openCustomerDetail,
+    TResult Function(String id, int index)? selectCustomer,
+    TResult Function(String? id, String? name, String? identify)?
+        searchCustomers,
+    TResult Function()? fetchCustomerData,
+    TResult Function(int id)? deleteCustomer,
+    TResult Function(String id)? editCustomer,
+    TResult Function()? addCustomer,
+    TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
+    TResult Function(int customerId)? getLatestPaymentOfCustomer,
+    required TResult orElse(),
+  }) {
+    if (getTicInformation != null) {
+      return getTicInformation(flightId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_OpenCustomerDetail value) openCustomerDetail,
+    required TResult Function(_SelectCustomer value) selectCustomer,
+    required TResult Function(_SearchCustomer value) searchCustomers,
+    required TResult Function(_FetchCustomerData value) fetchCustomerData,
+    required TResult Function(_DeleteCustomer value) deleteCustomer,
+    required TResult Function(_EditCustomer value) editCustomer,
+    required TResult Function(_AddCustomer value) addCustomer,
+    required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
+    required TResult Function(_GetLatestPaymentOfCustomer value)
+        getLatestPaymentOfCustomer,
+  }) {
+    return getTicInformation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult? Function(_SelectCustomer value)? selectCustomer,
+    TResult? Function(_SearchCustomer value)? searchCustomers,
+    TResult? Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult? Function(_DeleteCustomer value)? deleteCustomer,
+    TResult? Function(_EditCustomer value)? editCustomer,
+    TResult? Function(_AddCustomer value)? addCustomer,
+    TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
+    TResult? Function(_GetLatestPaymentOfCustomer value)?
+        getLatestPaymentOfCustomer,
+  }) {
+    return getTicInformation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_OpenCustomerDetail value)? openCustomerDetail,
+    TResult Function(_SelectCustomer value)? selectCustomer,
+    TResult Function(_SearchCustomer value)? searchCustomers,
+    TResult Function(_FetchCustomerData value)? fetchCustomerData,
+    TResult Function(_DeleteCustomer value)? deleteCustomer,
+    TResult Function(_EditCustomer value)? editCustomer,
+    TResult Function(_AddCustomer value)? addCustomer,
+    TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
+    TResult Function(_GetLatestPaymentOfCustomer value)?
+        getLatestPaymentOfCustomer,
+    required TResult orElse(),
+  }) {
+    if (getTicInformation != null) {
+      return getTicInformation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTicInformation implements CustomerEvent {
+  const factory _GetTicInformation({required final int flightId}) =
+      _$_GetTicInformation;
+
+  int get flightId;
+  @JsonKey(ignore: true)
+  _$$_GetTicInformationCopyWith<_$_GetTicInformation> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1853,6 +2109,7 @@ class _$_GetLatestPaymentOfCustomer implements _GetLatestPaymentOfCustomer {
     required TResult Function(String id) editCustomer,
     required TResult Function() addCustomer,
     required TResult Function(bool isEdit, Customer customer) updateCustomers,
+    required TResult Function(int flightId) getTicInformation,
     required TResult Function(int customerId) getLatestPaymentOfCustomer,
   }) {
     return getLatestPaymentOfCustomer(customerId);
@@ -1871,6 +2128,7 @@ class _$_GetLatestPaymentOfCustomer implements _GetLatestPaymentOfCustomer {
     TResult? Function(String id)? editCustomer,
     TResult? Function()? addCustomer,
     TResult? Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult? Function(int flightId)? getTicInformation,
     TResult? Function(int customerId)? getLatestPaymentOfCustomer,
   }) {
     return getLatestPaymentOfCustomer?.call(customerId);
@@ -1889,6 +2147,7 @@ class _$_GetLatestPaymentOfCustomer implements _GetLatestPaymentOfCustomer {
     TResult Function(String id)? editCustomer,
     TResult Function()? addCustomer,
     TResult Function(bool isEdit, Customer customer)? updateCustomers,
+    TResult Function(int flightId)? getTicInformation,
     TResult Function(int customerId)? getLatestPaymentOfCustomer,
     required TResult orElse(),
   }) {
@@ -1910,6 +2169,7 @@ class _$_GetLatestPaymentOfCustomer implements _GetLatestPaymentOfCustomer {
     required TResult Function(_EditCustomer value) editCustomer,
     required TResult Function(_AddCustomer value) addCustomer,
     required TResult Function(_UpdateCustomers value) updateCustomers,
+    required TResult Function(_GetTicInformation value) getTicInformation,
     required TResult Function(_GetLatestPaymentOfCustomer value)
         getLatestPaymentOfCustomer,
   }) {
@@ -1928,6 +2188,7 @@ class _$_GetLatestPaymentOfCustomer implements _GetLatestPaymentOfCustomer {
     TResult? Function(_EditCustomer value)? editCustomer,
     TResult? Function(_AddCustomer value)? addCustomer,
     TResult? Function(_UpdateCustomers value)? updateCustomers,
+    TResult? Function(_GetTicInformation value)? getTicInformation,
     TResult? Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
   }) {
@@ -1946,6 +2207,7 @@ class _$_GetLatestPaymentOfCustomer implements _GetLatestPaymentOfCustomer {
     TResult Function(_EditCustomer value)? editCustomer,
     TResult Function(_AddCustomer value)? addCustomer,
     TResult Function(_UpdateCustomers value)? updateCustomers,
+    TResult Function(_GetTicInformation value)? getTicInformation,
     TResult Function(_GetLatestPaymentOfCustomer value)?
         getLatestPaymentOfCustomer,
     required TResult orElse(),
@@ -1989,7 +2251,10 @@ mixin _$CustomerState {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -2016,7 +2281,11 @@ mixin _$CustomerState {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -2042,7 +2311,11 @@ mixin _$CustomerState {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -2069,6 +2342,10 @@ mixin _$CustomerState {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -2094,6 +2371,9 @@ mixin _$CustomerState {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -2115,6 +2395,8 @@ mixin _$CustomerState {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -2258,7 +2540,10 @@ class _$_Initial extends _Initial {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -2288,7 +2573,11 @@ class _$_Initial extends _Initial {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -2317,7 +2606,11 @@ class _$_Initial extends _Initial {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -2350,6 +2643,10 @@ class _$_Initial extends _Initial {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -2378,6 +2675,9 @@ class _$_Initial extends _Initial {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -2402,6 +2702,8 @@ class _$_Initial extends _Initial {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -2524,7 +2826,10 @@ class _$_Loading extends _Loading {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -2554,7 +2859,11 @@ class _$_Loading extends _Loading {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -2583,7 +2892,11 @@ class _$_Loading extends _Loading {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -2616,6 +2929,10 @@ class _$_Loading extends _Loading {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -2644,6 +2961,9 @@ class _$_Loading extends _Loading {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -2668,6 +2988,8 @@ class _$_Loading extends _Loading {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -2786,7 +3108,10 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -2816,7 +3141,11 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -2845,7 +3174,11 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -2878,6 +3211,10 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -2906,6 +3243,9 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -2930,6 +3270,8 @@ class _$_FetchCustomerDataSuccess extends _FetchCustomerDataSuccess {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -3055,7 +3397,10 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -3085,7 +3430,11 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -3114,7 +3463,11 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -3147,6 +3500,10 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -3175,6 +3532,9 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -3199,6 +3559,8 @@ class _$_FetchCustomerDataFailed extends _FetchCustomerDataFailed {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -3338,7 +3700,10 @@ class _$_OpenCustomerDetailSuccess extends _OpenCustomerDetailSuccess {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -3368,7 +3733,11 @@ class _$_OpenCustomerDetailSuccess extends _OpenCustomerDetailSuccess {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -3397,7 +3766,11 @@ class _$_OpenCustomerDetailSuccess extends _OpenCustomerDetailSuccess {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -3430,6 +3803,10 @@ class _$_OpenCustomerDetailSuccess extends _OpenCustomerDetailSuccess {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -3458,6 +3835,9 @@ class _$_OpenCustomerDetailSuccess extends _OpenCustomerDetailSuccess {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -3482,6 +3862,8 @@ class _$_OpenCustomerDetailSuccess extends _OpenCustomerDetailSuccess {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -3609,7 +3991,10 @@ class _$_OpenCustomerDetailFailed extends _OpenCustomerDetailFailed {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -3639,7 +4024,11 @@ class _$_OpenCustomerDetailFailed extends _OpenCustomerDetailFailed {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -3668,7 +4057,11 @@ class _$_OpenCustomerDetailFailed extends _OpenCustomerDetailFailed {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -3701,6 +4094,10 @@ class _$_OpenCustomerDetailFailed extends _OpenCustomerDetailFailed {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -3729,6 +4126,9 @@ class _$_OpenCustomerDetailFailed extends _OpenCustomerDetailFailed {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -3753,6 +4153,8 @@ class _$_OpenCustomerDetailFailed extends _OpenCustomerDetailFailed {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -3889,7 +4291,10 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -3919,7 +4324,11 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -3948,7 +4357,11 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -3981,6 +4394,10 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -4009,6 +4426,9 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -4033,6 +4453,8 @@ class _$_SelectCustomerSuccess extends _SelectCustomerSuccess {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -4159,7 +4581,10 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -4189,7 +4614,11 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -4218,7 +4647,11 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -4251,6 +4684,10 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -4279,6 +4716,9 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -4303,6 +4743,8 @@ class _$_SelectCustomerFailed extends _SelectCustomerFailed {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -4420,7 +4862,10 @@ class _$_DeleteCustomerSuccess extends _DeleteCustomerSuccess {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -4450,7 +4895,11 @@ class _$_DeleteCustomerSuccess extends _DeleteCustomerSuccess {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -4479,7 +4928,11 @@ class _$_DeleteCustomerSuccess extends _DeleteCustomerSuccess {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -4512,6 +4965,10 @@ class _$_DeleteCustomerSuccess extends _DeleteCustomerSuccess {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -4540,6 +4997,9 @@ class _$_DeleteCustomerSuccess extends _DeleteCustomerSuccess {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -4564,6 +5024,8 @@ class _$_DeleteCustomerSuccess extends _DeleteCustomerSuccess {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -4688,7 +5150,10 @@ class _$_DeleteCustomerFailed extends _DeleteCustomerFailed {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -4718,7 +5183,11 @@ class _$_DeleteCustomerFailed extends _DeleteCustomerFailed {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -4747,7 +5216,11 @@ class _$_DeleteCustomerFailed extends _DeleteCustomerFailed {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -4780,6 +5253,10 @@ class _$_DeleteCustomerFailed extends _DeleteCustomerFailed {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -4808,6 +5285,9 @@ class _$_DeleteCustomerFailed extends _DeleteCustomerFailed {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -4832,6 +5312,8 @@ class _$_DeleteCustomerFailed extends _DeleteCustomerFailed {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -4863,6 +5345,577 @@ abstract class _DeleteCustomerFailed extends CustomerState {
 }
 
 /// @nodoc
+abstract class _$$_GetTicInformationSuccessCopyWith<$Res>
+    implements $CustomerStateCopyWith<$Res> {
+  factory _$$_GetTicInformationSuccessCopyWith(
+          _$_GetTicInformationSuccess value,
+          $Res Function(_$_GetTicInformationSuccess) then) =
+      __$$_GetTicInformationSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CustomerModelState data});
+
+  @override
+  $CustomerModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetTicInformationSuccessCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$_GetTicInformationSuccess>
+    implements _$$_GetTicInformationSuccessCopyWith<$Res> {
+  __$$_GetTicInformationSuccessCopyWithImpl(_$_GetTicInformationSuccess _value,
+      $Res Function(_$_GetTicInformationSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_GetTicInformationSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CustomerModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetTicInformationSuccess extends _GetTicInformationSuccess {
+  const _$_GetTicInformationSuccess({required this.data}) : super._();
+
+  @override
+  final CustomerModelState data;
+
+  @override
+  String toString() {
+    return 'CustomerState.getTicInformationSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetTicInformationSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetTicInformationSuccessCopyWith<_$_GetTicInformationSuccess>
+      get copyWith => __$$_GetTicInformationSuccessCopyWithImpl<
+          _$_GetTicInformationSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CustomerModelState data) initial,
+    required TResult Function(CustomerModelState data, int loadingField)
+        loading,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        selectCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
+        getPaymentOfCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getPaymentOfCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
+    required TResult Function(CustomerModelState data) updateCustomerSuccess,
+  }) {
+    return getTicInformationSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CustomerModelState data)? initial,
+    TResult? Function(CustomerModelState data, int loadingField)? loading,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getPaymentOfCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+    TResult? Function(CustomerModelState data)? updateCustomerSuccess,
+  }) {
+    return getTicInformationSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CustomerModelState data)? initial,
+    TResult Function(CustomerModelState data, int loadingField)? loading,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getPaymentOfCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+    TResult Function(CustomerModelState data)? updateCustomerSuccess,
+    required TResult orElse(),
+  }) {
+    if (getTicInformationSuccess != null) {
+      return getTicInformationSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
+    required TResult Function(_SelectCustomerSuccess value)
+        selectCustomerSuccess,
+    required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
+    required TResult Function(_GetPaymentOfCustomerSuccess value)
+        getPaymentOfCustomerSuccess,
+    required TResult Function(_GetPaymentOfCustomerFailed value)
+        getPaymentOfCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
+  }) {
+    return getTicInformationSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
+    TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_GetPaymentOfCustomerSuccess value)?
+        getPaymentOfCustomerSuccess,
+    TResult? Function(_GetPaymentOfCustomerFailed value)?
+        getPaymentOfCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
+  }) {
+    return getTicInformationSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
+    TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_GetPaymentOfCustomerSuccess value)?
+        getPaymentOfCustomerSuccess,
+    TResult Function(_GetPaymentOfCustomerFailed value)?
+        getPaymentOfCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
+    required TResult orElse(),
+  }) {
+    if (getTicInformationSuccess != null) {
+      return getTicInformationSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTicInformationSuccess extends CustomerState {
+  const factory _GetTicInformationSuccess(
+      {required final CustomerModelState data}) = _$_GetTicInformationSuccess;
+  const _GetTicInformationSuccess._() : super._();
+
+  @override
+  CustomerModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetTicInformationSuccessCopyWith<_$_GetTicInformationSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetTicInformationFailedCopyWith<$Res>
+    implements $CustomerStateCopyWith<$Res> {
+  factory _$$_GetTicInformationFailedCopyWith(_$_GetTicInformationFailed value,
+          $Res Function(_$_GetTicInformationFailed) then) =
+      __$$_GetTicInformationFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CustomerModelState data, String message});
+
+  @override
+  $CustomerModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetTicInformationFailedCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$_GetTicInformationFailed>
+    implements _$$_GetTicInformationFailedCopyWith<$Res> {
+  __$$_GetTicInformationFailedCopyWithImpl(_$_GetTicInformationFailed _value,
+      $Res Function(_$_GetTicInformationFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_GetTicInformationFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CustomerModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetTicInformationFailed extends _GetTicInformationFailed {
+  const _$_GetTicInformationFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final CustomerModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'CustomerState.getTicInformationFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetTicInformationFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetTicInformationFailedCopyWith<_$_GetTicInformationFailed>
+      get copyWith =>
+          __$$_GetTicInformationFailedCopyWithImpl<_$_GetTicInformationFailed>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CustomerModelState data) initial,
+    required TResult Function(CustomerModelState data, int loadingField)
+        loading,
+    required TResult Function(CustomerModelState data) fetchCustomerDataSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        fetchCustomerDataFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        openCustomerDetailSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerDetailFailed,
+    required TResult Function(CustomerModelState data, Customer customer)
+        selectCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        selectCustomerFailed,
+    required TResult Function(CustomerModelState data) deleteCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        deleteCustomerFailed,
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
+        getPaymentOfCustomerSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getPaymentOfCustomerFailed,
+    required TResult Function(CustomerModelState data, String message)
+        openCustomerAddEditPage,
+    required TResult Function(CustomerModelState data) updateCustomerSuccess,
+  }) {
+    return getTicInformationFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CustomerModelState data)? initial,
+    TResult? Function(CustomerModelState data, int loadingField)? loading,
+    TResult? Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult? Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getPaymentOfCustomerFailed,
+    TResult? Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+    TResult? Function(CustomerModelState data)? updateCustomerSuccess,
+  }) {
+    return getTicInformationFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CustomerModelState data)? initial,
+    TResult Function(CustomerModelState data, int loadingField)? loading,
+    TResult Function(CustomerModelState data)? fetchCustomerDataSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        fetchCustomerDataFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        openCustomerDetailSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerDetailFailed,
+    TResult Function(CustomerModelState data, Customer customer)?
+        selectCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        selectCustomerFailed,
+    TResult Function(CustomerModelState data)? deleteCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        deleteCustomerFailed,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getPaymentOfCustomerFailed,
+    TResult Function(CustomerModelState data, String message)?
+        openCustomerAddEditPage,
+    TResult Function(CustomerModelState data)? updateCustomerSuccess,
+    required TResult orElse(),
+  }) {
+    if (getTicInformationFailed != null) {
+      return getTicInformationFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchCustomerDataSuccess value)
+        fetchCustomerDataSuccess,
+    required TResult Function(_FetchCustomerDataFailed value)
+        fetchCustomerDataFailed,
+    required TResult Function(_OpenCustomerDetailSuccess value)
+        openCustomerDetailSuccess,
+    required TResult Function(_OpenCustomerDetailFailed value)
+        openCustomerDetailFailed,
+    required TResult Function(_SelectCustomerSuccess value)
+        selectCustomerSuccess,
+    required TResult Function(_SelectCustomerFailed value) selectCustomerFailed,
+    required TResult Function(_DeleteCustomerSuccess value)
+        deleteCustomerSuccess,
+    required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
+    required TResult Function(_GetPaymentOfCustomerSuccess value)
+        getPaymentOfCustomerSuccess,
+    required TResult Function(_GetPaymentOfCustomerFailed value)
+        getPaymentOfCustomerFailed,
+    required TResult Function(_OpenCustomerAddEditPage value)
+        openCustomerAddEditPage,
+    required TResult Function(_UpdateCustomerSuccess value)
+        updateCustomerSuccess,
+  }) {
+    return getTicInformationFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchCustomerDataSuccess value)?
+        fetchCustomerDataSuccess,
+    TResult? Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult? Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult? Function(_OpenCustomerDetailFailed value)?
+        openCustomerDetailFailed,
+    TResult? Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult? Function(_GetPaymentOfCustomerSuccess value)?
+        getPaymentOfCustomerSuccess,
+    TResult? Function(_GetPaymentOfCustomerFailed value)?
+        getPaymentOfCustomerFailed,
+    TResult? Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+    TResult? Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
+  }) {
+    return getTicInformationFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchCustomerDataSuccess value)? fetchCustomerDataSuccess,
+    TResult Function(_FetchCustomerDataFailed value)? fetchCustomerDataFailed,
+    TResult Function(_OpenCustomerDetailSuccess value)?
+        openCustomerDetailSuccess,
+    TResult Function(_OpenCustomerDetailFailed value)? openCustomerDetailFailed,
+    TResult Function(_SelectCustomerSuccess value)? selectCustomerSuccess,
+    TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
+    TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
+    TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
+    TResult Function(_GetPaymentOfCustomerSuccess value)?
+        getPaymentOfCustomerSuccess,
+    TResult Function(_GetPaymentOfCustomerFailed value)?
+        getPaymentOfCustomerFailed,
+    TResult Function(_OpenCustomerAddEditPage value)? openCustomerAddEditPage,
+    TResult Function(_UpdateCustomerSuccess value)? updateCustomerSuccess,
+    required TResult orElse(),
+  }) {
+    if (getTicInformationFailed != null) {
+      return getTicInformationFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTicInformationFailed extends CustomerState {
+  const factory _GetTicInformationFailed(
+      {required final CustomerModelState data,
+      required final String message}) = _$_GetTicInformationFailed;
+  const _GetTicInformationFailed._() : super._();
+
+  @override
+  CustomerModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetTicInformationFailedCopyWith<_$_GetTicInformationFailed>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$_GetPaymentOfCustomerSuccessCopyWith<$Res>
     implements $CustomerStateCopyWith<$Res> {
   factory _$$_GetPaymentOfCustomerSuccessCopyWith(
@@ -4871,7 +5924,7 @@ abstract class _$$_GetPaymentOfCustomerSuccessCopyWith<$Res>
       __$$_GetPaymentOfCustomerSuccessCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CustomerModelState data});
+  $Res call({CustomerModelState data, int flightId});
 
   @override
   $CustomerModelStateCopyWith<$Res> get data;
@@ -4890,12 +5943,17 @@ class __$$_GetPaymentOfCustomerSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? flightId = null,
   }) {
     return _then(_$_GetPaymentOfCustomerSuccess(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as CustomerModelState,
+      flightId: null == flightId
+          ? _value.flightId
+          : flightId // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -4903,14 +5961,18 @@ class __$$_GetPaymentOfCustomerSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_GetPaymentOfCustomerSuccess extends _GetPaymentOfCustomerSuccess {
-  const _$_GetPaymentOfCustomerSuccess({required this.data}) : super._();
+  const _$_GetPaymentOfCustomerSuccess(
+      {required this.data, required this.flightId})
+      : super._();
 
   @override
   final CustomerModelState data;
+  @override
+  final int flightId;
 
   @override
   String toString() {
-    return 'CustomerState.getPaymentOfCustomerSuccess(data: $data)';
+    return 'CustomerState.getPaymentOfCustomerSuccess(data: $data, flightId: $flightId)';
   }
 
   @override
@@ -4918,11 +5980,13 @@ class _$_GetPaymentOfCustomerSuccess extends _GetPaymentOfCustomerSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GetPaymentOfCustomerSuccess &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.flightId, flightId) ||
+                other.flightId == flightId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, flightId);
 
   @JsonKey(ignore: true)
   @override
@@ -4951,7 +6015,10 @@ class _$_GetPaymentOfCustomerSuccess extends _GetPaymentOfCustomerSuccess {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -4959,7 +6026,7 @@ class _$_GetPaymentOfCustomerSuccess extends _GetPaymentOfCustomerSuccess {
         openCustomerAddEditPage,
     required TResult Function(CustomerModelState data) updateCustomerSuccess,
   }) {
-    return getPaymentOfCustomerSuccess(data);
+    return getPaymentOfCustomerSuccess(data, flightId);
   }
 
   @override
@@ -4981,14 +6048,18 @@ class _$_GetPaymentOfCustomerSuccess extends _GetPaymentOfCustomerSuccess {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
         openCustomerAddEditPage,
     TResult? Function(CustomerModelState data)? updateCustomerSuccess,
   }) {
-    return getPaymentOfCustomerSuccess?.call(data);
+    return getPaymentOfCustomerSuccess?.call(data, flightId);
   }
 
   @override
@@ -5010,7 +6081,11 @@ class _$_GetPaymentOfCustomerSuccess extends _GetPaymentOfCustomerSuccess {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -5019,7 +6094,7 @@ class _$_GetPaymentOfCustomerSuccess extends _GetPaymentOfCustomerSuccess {
     required TResult orElse(),
   }) {
     if (getPaymentOfCustomerSuccess != null) {
-      return getPaymentOfCustomerSuccess(data);
+      return getPaymentOfCustomerSuccess(data, flightId);
     }
     return orElse();
   }
@@ -5043,6 +6118,10 @@ class _$_GetPaymentOfCustomerSuccess extends _GetPaymentOfCustomerSuccess {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -5071,6 +6150,9 @@ class _$_GetPaymentOfCustomerSuccess extends _GetPaymentOfCustomerSuccess {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -5095,6 +6177,8 @@ class _$_GetPaymentOfCustomerSuccess extends _GetPaymentOfCustomerSuccess {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -5112,12 +6196,13 @@ class _$_GetPaymentOfCustomerSuccess extends _GetPaymentOfCustomerSuccess {
 
 abstract class _GetPaymentOfCustomerSuccess extends CustomerState {
   const factory _GetPaymentOfCustomerSuccess(
-          {required final CustomerModelState data}) =
-      _$_GetPaymentOfCustomerSuccess;
+      {required final CustomerModelState data,
+      required final int flightId}) = _$_GetPaymentOfCustomerSuccess;
   const _GetPaymentOfCustomerSuccess._() : super._();
 
   @override
   CustomerModelState get data;
+  int get flightId;
   @override
   @JsonKey(ignore: true)
   _$$_GetPaymentOfCustomerSuccessCopyWith<_$_GetPaymentOfCustomerSuccess>
@@ -5223,7 +6308,10 @@ class _$_GetPaymentOfCustomerFailed extends _GetPaymentOfCustomerFailed {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -5253,7 +6341,11 @@ class _$_GetPaymentOfCustomerFailed extends _GetPaymentOfCustomerFailed {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -5282,7 +6374,11 @@ class _$_GetPaymentOfCustomerFailed extends _GetPaymentOfCustomerFailed {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -5315,6 +6411,10 @@ class _$_GetPaymentOfCustomerFailed extends _GetPaymentOfCustomerFailed {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -5343,6 +6443,9 @@ class _$_GetPaymentOfCustomerFailed extends _GetPaymentOfCustomerFailed {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -5367,6 +6470,8 @@ class _$_GetPaymentOfCustomerFailed extends _GetPaymentOfCustomerFailed {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -5494,7 +6599,10 @@ class _$_OpenCustomerAddEditPage extends _OpenCustomerAddEditPage {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -5524,7 +6632,11 @@ class _$_OpenCustomerAddEditPage extends _OpenCustomerAddEditPage {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -5553,7 +6665,11 @@ class _$_OpenCustomerAddEditPage extends _OpenCustomerAddEditPage {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -5586,6 +6702,10 @@ class _$_OpenCustomerAddEditPage extends _OpenCustomerAddEditPage {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -5614,6 +6734,9 @@ class _$_OpenCustomerAddEditPage extends _OpenCustomerAddEditPage {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -5638,6 +6761,8 @@ class _$_OpenCustomerAddEditPage extends _OpenCustomerAddEditPage {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?
@@ -5755,7 +6880,10 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
     required TResult Function(CustomerModelState data) deleteCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         deleteCustomerFailed,
-    required TResult Function(CustomerModelState data)
+    required TResult Function(CustomerModelState data) getTicInformationSuccess,
+    required TResult Function(CustomerModelState data, String message)
+        getTicInformationFailed,
+    required TResult Function(CustomerModelState data, int flightId)
         getPaymentOfCustomerSuccess,
     required TResult Function(CustomerModelState data, String message)
         getPaymentOfCustomerFailed,
@@ -5785,7 +6913,11 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
     TResult? Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult? Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult? Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult? Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult? Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult? Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult? Function(CustomerModelState data, String message)?
@@ -5814,7 +6946,11 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
     TResult Function(CustomerModelState data)? deleteCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         deleteCustomerFailed,
-    TResult Function(CustomerModelState data)? getPaymentOfCustomerSuccess,
+    TResult Function(CustomerModelState data)? getTicInformationSuccess,
+    TResult Function(CustomerModelState data, String message)?
+        getTicInformationFailed,
+    TResult Function(CustomerModelState data, int flightId)?
+        getPaymentOfCustomerSuccess,
     TResult Function(CustomerModelState data, String message)?
         getPaymentOfCustomerFailed,
     TResult Function(CustomerModelState data, String message)?
@@ -5847,6 +6983,10 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
     required TResult Function(_DeleteCustomerSuccess value)
         deleteCustomerSuccess,
     required TResult Function(_DeleteCustomerFailed value) deleteCustomerFailed,
+    required TResult Function(_GetTicInformationSuccess value)
+        getTicInformationSuccess,
+    required TResult Function(_GetTicInformationFailed value)
+        getTicInformationFailed,
     required TResult Function(_GetPaymentOfCustomerSuccess value)
         getPaymentOfCustomerSuccess,
     required TResult Function(_GetPaymentOfCustomerFailed value)
@@ -5875,6 +7015,9 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
     TResult? Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult? Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult? Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult? Function(_GetTicInformationSuccess value)?
+        getTicInformationSuccess,
+    TResult? Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult? Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult? Function(_GetPaymentOfCustomerFailed value)?
@@ -5899,6 +7042,8 @@ class _$_UpdateCustomerSuccess extends _UpdateCustomerSuccess {
     TResult Function(_SelectCustomerFailed value)? selectCustomerFailed,
     TResult Function(_DeleteCustomerSuccess value)? deleteCustomerSuccess,
     TResult Function(_DeleteCustomerFailed value)? deleteCustomerFailed,
+    TResult Function(_GetTicInformationSuccess value)? getTicInformationSuccess,
+    TResult Function(_GetTicInformationFailed value)? getTicInformationFailed,
     TResult Function(_GetPaymentOfCustomerSuccess value)?
         getPaymentOfCustomerSuccess,
     TResult Function(_GetPaymentOfCustomerFailed value)?

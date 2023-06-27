@@ -44,11 +44,17 @@ class _CustomerScreenState extends State<CustomerScreen> {
           customerId: customer.id,
         ));
       },
-      selectCustomerFailed: (data, message) {},
       deleteCustomerSuccess: (data) {},
-      deleteCustomerFailed: (data, message) {},
       fetchCustomerDataSuccess: (data) {},
-      fetchCustomerDataFailed: (data, message) {},
+      deleteCustomerFailed: (data, message) {
+        context.showSuccessDialog(width: 300, header: 'Error', title: message);
+      },
+      selectCustomerFailed: (data, message) {
+        context.showSuccessDialog(width: 300, header: 'Error', title: message);
+      },
+      fetchCustomerDataFailed: (data, message) {
+        context.showSuccessDialog(width: 300, header: 'Error', title: message);
+      },
     );
   }
 

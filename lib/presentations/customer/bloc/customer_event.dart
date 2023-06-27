@@ -19,6 +19,11 @@ class CustomerEvent with _$CustomerEvent {
     required bool isEdit,
     required Customer customer,
   }) = _UpdateCustomers;
+
+  const factory CustomerEvent.getTicInformation({
+    required int flightId,
+  }) = _GetTicInformation;
+
   const factory CustomerEvent.getLatestPaymentOfCustomer({
     required int customerId,
   }) = _GetLatestPaymentOfCustomer;

@@ -92,15 +92,20 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
           ? 0
           : _currentTicInformation.seatPosition;
     }, addTicInformationFailed: (data, error) {
-      log(error);
+      context.showSuccessDialog(
+          width: 300, header: 'Error', title: error.toString());
     }, addNewFlightFailed: (data, error) {
-      log(error);
+      context.showSuccessDialog(
+          width: 300, header: 'Error', title: error.toString());
     }, editFlightFailed: (data, error) {
-      log(error);
+      context.showSuccessDialog(
+          width: 300, header: 'Error', title: error.toString());
     }, fetchAirlineFailed: (data, error) {
-      log(error);
+      context.showSuccessDialog(
+          width: 300, header: 'Error', title: error.toString());
     }, fetchAirportFailed: (data, error) {
-      log(error);
+      context.showSuccessDialog(
+          width: 300, header: 'Error', title: error.toString());
     });
   }
 

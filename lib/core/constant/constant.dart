@@ -9,7 +9,10 @@ import 'package:flight_booking/presentations_mobile/save/views/save_mobile_scree
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../data/models/model_helper.dart';
 import '../../domain/entities/seat_selected/seat_selected.dart';
+import '../../domain/entities/ticket/ticket_information.dart';
+import '../../domain/entities/ticket/ticket_information_id.dart';
 import '../../generated/l10n.dart';
 
 List<String> weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -285,3 +288,46 @@ int randDomNumber(int max) => Random().nextInt(100);
 
 String convertToSeatString(SeatSelected seat) =>
     '${seat.ticInformation.id.ticketType} - ${seat.seatIndex}';
+
+Map<int, TicketInformation> ticInformationConst = {
+  0: TicketInformation(
+    id: TicketInformationId(
+      ticketType: 0,
+      flight: ModelHelper.defaultFlight,
+    ),
+    quantity: 10,
+    price: 100.0,
+    seatPosition: 1,
+    seatHeader: 'A',
+  ),
+  1: TicketInformation(
+    id: TicketInformationId(
+      ticketType: 1,
+      flight: ModelHelper.defaultFlight,
+    ),
+    quantity: 10,
+    price: 100.0,
+    seatPosition: 1,
+    seatHeader: 'B',
+  ),
+  2: TicketInformation(
+    id: TicketInformationId(
+      ticketType: 2,
+      flight: ModelHelper.defaultFlight,
+    ),
+    quantity: 10,
+    price: 100.0,
+    seatPosition: 1,
+    seatHeader: 'C',
+  ),
+  3: TicketInformation(
+    id: TicketInformationId(
+      ticketType: 3,
+      flight: ModelHelper.defaultFlight,
+    ),
+    quantity: 10,
+    price: 100.0,
+    seatPosition: 1,
+    seatHeader: 'D',
+  ),
+};

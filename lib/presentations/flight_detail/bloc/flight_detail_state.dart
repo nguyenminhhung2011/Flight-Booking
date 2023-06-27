@@ -45,5 +45,6 @@ class FlightDetailState with _$FlightDetailState {
   }) = _UpdateCustomerSuccess;
 
   bool get loadingGetFlight => maybeWhen(
-      orElse: () => false, loading: (data, loadingField) => loadingField == 0);
+      orElse: () => false,
+      loading: (data, loadingField) => loadingField == 0 || loadingField == 1);
 }

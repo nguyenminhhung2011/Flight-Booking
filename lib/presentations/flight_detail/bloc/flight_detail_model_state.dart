@@ -14,6 +14,7 @@ class FlightDetailModelState with _$FlightDetailModelState {
   const factory FlightDetailModelState({
     Flight? flight,
     Customer? customerSelected,
+    Ticket? ticSelected,
     required double animation,
     required bool showMoreInfor,
     required ItemViewEnum itemView,

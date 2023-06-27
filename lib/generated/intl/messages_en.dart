@@ -86,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Apply New Password"),
         "arrivalFlight": MessageLookupByLibrary.simpleMessage("Arrival Flight"),
         "arrivalPlace": MessageLookupByLibrary.simpleMessage("Arrival Place"),
+        "backToDashboard":
+            MessageLookupByLibrary.simpleMessage("Back to dashboard"),
         "benefit": MessageLookupByLibrary.simpleMessage("Benefits"),
         "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
         "blackFridayOffer":

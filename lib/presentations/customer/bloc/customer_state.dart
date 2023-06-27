@@ -45,8 +45,18 @@ class CustomerState with _$CustomerState {
   const factory CustomerState.deleteCustomerFailed(
       {required CustomerModelState data,
       required String message}) = _DeleteCustomerFailed;
-  const factory CustomerState.getPaymentOfCustomerSuccess(
-      {required CustomerModelState data}) = _GetPaymentOfCustomerSuccess;
+
+  const factory CustomerState.getTicInformationSuccess(
+      {required CustomerModelState data}) = _GetTicInformationSuccess;
+
+  const factory CustomerState.getTicInformationFailed(
+      {required CustomerModelState data,
+      required String message}) = _GetTicInformationFailed;
+
+  const factory CustomerState.getPaymentOfCustomerSuccess({
+    required CustomerModelState data,
+    required int flightId,
+  }) = _GetPaymentOfCustomerSuccess;
 
   const factory CustomerState.getPaymentOfCustomerFailed(
       {required CustomerModelState data,

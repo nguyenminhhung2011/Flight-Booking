@@ -324,16 +324,17 @@ class BTBloc extends Bloc<BTEvent, BTState> {
           '${event.newSeat.ticInformation.id.ticketType} - ${event.newSeat.seatIndex}',
         )) {
       emit(_SelectedSeatFailed(data: data));
+    } else {
+      emit(_SelectedSeatSuccess(
+        data: data.copyWith(
+          currentSeat: event.newSeat,
+          currentTicId: ticIndex == -1
+              ? data.currentTicId.toString()
+              : data.tics[ticIndex].id.toString(),
+        ),
+        ticIndex: ticIndex,
+      ));
     }
-    emit(_SelectedSeatSuccess(
-      data: data.copyWith(
-        currentSeat: event.newSeat,
-        currentTicId: ticIndex == -1
-            ? data.currentTicId.toString()
-            : data.tics[ticIndex].id.toString(),
-      ),
-      ticIndex: ticIndex,
-    ));
     // final newSeat = SeatSelected(
     //     seatIndex: event.seatIndex, ticInformation: event.ticInformation);
     // final checkFound = data.chairsSelected

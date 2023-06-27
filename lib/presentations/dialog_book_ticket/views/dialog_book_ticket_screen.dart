@@ -733,14 +733,20 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
                                       onPressed: () => _onSelectedSeat(i, e),
                                       icon: Icon(
                                         Icons.chair,
-                                        color: _listTic
+                                        color: _redTics
                                                 .map((item) =>
                                                     '${item.type} - ${item.seat}')
                                                 .contains(
-                                                  '${e.id.ticketType} - $i',
-                                                )
-                                            ? Theme.of(context).primaryColor
-                                            : Theme.of(context).hintColor,
+                                                    '${e.id.ticketType} - $i')
+                                            ? Colors.red
+                                            : _listTic
+                                                    .map((item) =>
+                                                        '${item.type} - ${item.seat}')
+                                                    .contains(
+                                                      '${e.id.ticketType} - $i',
+                                                    )
+                                                ? Theme.of(context).primaryColor
+                                                : Theme.of(context).hintColor,
                                       ),
                                     ),
                                     Text(

@@ -112,16 +112,20 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
         },
         fetchWardsSuccess: (data) {},
         addNewAirportFailed: (data, error) {
-          log(error);
+          context.showSuccessDialog(
+              width: 300, header: 'Error', title: error.toString());
         },
         fetchPlaceFailed: (data, error) {
-          log(error);
+          context.showSuccessDialog(
+              width: 300, header: 'Error', title: error.toString());
         },
         fetchDistrictsFailed: (data, error) {
-          log(error);
+          context.showSuccessDialog(
+              width: 300, header: 'Error', title: error.toString());
         },
         fetchWardsFailed: (data, error) {
-          log(error);
+          context.showSuccessDialog(
+              width: 300, header: 'Error', title: error.toString());
         });
   }
 

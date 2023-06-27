@@ -4,6 +4,7 @@ import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/interger_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/string_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
@@ -44,6 +45,8 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
   Map<int, TicketInformation> get _ticInformation => _data.ticInformation;
   List<SeatSelected> get _seatsSelected => _data.chairsSelected;
   List<Ticket> get _listTic => _data.tics;
+  Ticket? get _ticSelected => _data.ticSelected;
+
   Flight? get _flight => _data.flight;
   String get _locationDeparture => _flight?.departureAirport.location ?? '';
   String get _locationArrival => _flight?.arrivalAirport.location ?? '';
@@ -81,7 +84,9 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
     }, getTicInformationSuccess: (data) {
       _bloc.add(const FlightDetailEvent.getTicsByFlightId());
     }, getTicsByFlightIdSuccess: (data) {
-      _bloc.add(const FlightDetailEvent.started());
+      Future.delayed(const Duration(milliseconds: 300)).whenComplete(() {
+        _bloc.add(const FlightDetailEvent.started());
+      });
     }, getTicsByFlightIdFailed: (data, error) {
       log(error);
     }, getFlightByIdFailed: (data, error) {
@@ -104,7 +109,20 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
     return BlocConsumer<FlightDetailBloc, FlightDetailState>(
       listener: _listenStateChanged,
       builder: (context, state) {
+        if (state.loadingGetFlight) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
         return Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            leading: IconButton(
+              onPressed: () => context.pop(),
+              icon: Icon(Icons.arrow_back, color: context.titleMedium.color),
+            ),
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          ),
           floatingActionButton: Breakpoints.small.isActive(context)
               ? IconButton(
                   color: Theme.of(context).primaryColor,
@@ -143,9 +161,12 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
       ),
       child: ListView(
         children: [
-          const FastViewTic(
-            ticType: TicTypeEnum.businessClass,
-          ),
+          if (_ticSelected != null && _ticInformation.isNotEmpty)
+            FastViewTic(
+              ticType: _ticSelected!.type.ticClass,
+              tic: _ticSelected!,
+              ticInformation: _ticInformation[_ticSelected?.type ?? 0]!,
+            ),
           AnimatedContainer(
             duration: const Duration(seconds: 1),
             height: animation,

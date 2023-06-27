@@ -98,19 +98,19 @@ class _SettingScreenState extends State<SettingScreen> {
                     icon: authenticationState.status ==
                             AuthenticationStatus.checking
                         ? LoadingIndicator(
-                            color: Theme.of(context).colorScheme.onBackground,
+                            color: Theme.of(context).primaryColor,
                             radius: 10,
                             strokeWidth: 1.5,
                           )
                         : Icon(
                             Icons.logout,
-                            color: Theme.of(context).colorScheme.onBackground,
+                            color: Theme.of(context).primaryColor,
                             size: 25,
                           ),
                     label: Text(
                       "Logout",
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: Theme.of(context).colorScheme.onBackground,
+                            color: Theme.of(context).primaryColor,
                           ),
                     ),
                   )

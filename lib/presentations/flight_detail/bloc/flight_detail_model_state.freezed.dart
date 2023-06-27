@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FlightDetailModelState {
   Flight? get flight => throw _privateConstructorUsedError;
   Customer? get customerSelected => throw _privateConstructorUsedError;
+  Ticket? get ticSelected => throw _privateConstructorUsedError;
   double get animation => throw _privateConstructorUsedError;
   bool get showMoreInfor => throw _privateConstructorUsedError;
   ItemViewEnum get itemView => throw _privateConstructorUsedError;
@@ -40,6 +41,7 @@ abstract class $FlightDetailModelStateCopyWith<$Res> {
   $Res call(
       {Flight? flight,
       Customer? customerSelected,
+      Ticket? ticSelected,
       double animation,
       bool showMoreInfor,
       ItemViewEnum itemView,
@@ -49,6 +51,7 @@ abstract class $FlightDetailModelStateCopyWith<$Res> {
 
   $FlightCopyWith<$Res>? get flight;
   $CustomerCopyWith<$Res>? get customerSelected;
+  $TicketCopyWith<$Res>? get ticSelected;
 }
 
 /// @nodoc
@@ -67,6 +70,7 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
   $Res call({
     Object? flight = freezed,
     Object? customerSelected = freezed,
+    Object? ticSelected = freezed,
     Object? animation = null,
     Object? showMoreInfor = null,
     Object? itemView = null,
@@ -83,6 +87,10 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
           ? _value.customerSelected
           : customerSelected // ignore: cast_nullable_to_non_nullable
               as Customer?,
+      ticSelected: freezed == ticSelected
+          ? _value.ticSelected
+          : ticSelected // ignore: cast_nullable_to_non_nullable
+              as Ticket?,
       animation: null == animation
           ? _value.animation
           : animation // ignore: cast_nullable_to_non_nullable
@@ -133,6 +141,18 @@ class _$FlightDetailModelStateCopyWithImpl<$Res,
       return _then(_value.copyWith(customerSelected: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TicketCopyWith<$Res>? get ticSelected {
+    if (_value.ticSelected == null) {
+      return null;
+    }
+
+    return $TicketCopyWith<$Res>(_value.ticSelected!, (value) {
+      return _then(_value.copyWith(ticSelected: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -146,6 +166,7 @@ abstract class _$$_FlightDetailModelStateCopyWith<$Res>
   $Res call(
       {Flight? flight,
       Customer? customerSelected,
+      Ticket? ticSelected,
       double animation,
       bool showMoreInfor,
       ItemViewEnum itemView,
@@ -157,6 +178,8 @@ abstract class _$$_FlightDetailModelStateCopyWith<$Res>
   $FlightCopyWith<$Res>? get flight;
   @override
   $CustomerCopyWith<$Res>? get customerSelected;
+  @override
+  $TicketCopyWith<$Res>? get ticSelected;
 }
 
 /// @nodoc
@@ -173,6 +196,7 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
   $Res call({
     Object? flight = freezed,
     Object? customerSelected = freezed,
+    Object? ticSelected = freezed,
     Object? animation = null,
     Object? showMoreInfor = null,
     Object? itemView = null,
@@ -189,6 +213,10 @@ class __$$_FlightDetailModelStateCopyWithImpl<$Res>
           ? _value.customerSelected
           : customerSelected // ignore: cast_nullable_to_non_nullable
               as Customer?,
+      ticSelected: freezed == ticSelected
+          ? _value.ticSelected
+          : ticSelected // ignore: cast_nullable_to_non_nullable
+              as Ticket?,
       animation: null == animation
           ? _value.animation
           : animation // ignore: cast_nullable_to_non_nullable
@@ -223,6 +251,7 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
   const _$_FlightDetailModelState(
       {this.flight,
       this.customerSelected,
+      this.ticSelected,
       required this.animation,
       required this.showMoreInfor,
       required this.itemView,
@@ -237,6 +266,8 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
   final Flight? flight;
   @override
   final Customer? customerSelected;
+  @override
+  final Ticket? ticSelected;
   @override
   final double animation;
   @override
@@ -269,7 +300,7 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
 
   @override
   String toString() {
-    return 'FlightDetailModelState(flight: $flight, customerSelected: $customerSelected, animation: $animation, showMoreInfor: $showMoreInfor, itemView: $itemView, chairsSelected: $chairsSelected, ticInformation: $ticInformation, tics: $tics)';
+    return 'FlightDetailModelState(flight: $flight, customerSelected: $customerSelected, ticSelected: $ticSelected, animation: $animation, showMoreInfor: $showMoreInfor, itemView: $itemView, chairsSelected: $chairsSelected, ticInformation: $ticInformation, tics: $tics)';
   }
 
   @override
@@ -280,6 +311,8 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
             (identical(other.flight, flight) || other.flight == flight) &&
             (identical(other.customerSelected, customerSelected) ||
                 other.customerSelected == customerSelected) &&
+            (identical(other.ticSelected, ticSelected) ||
+                other.ticSelected == ticSelected) &&
             (identical(other.animation, animation) ||
                 other.animation == animation) &&
             (identical(other.showMoreInfor, showMoreInfor) ||
@@ -298,6 +331,7 @@ class _$_FlightDetailModelState implements _FlightDetailModelState {
       runtimeType,
       flight,
       customerSelected,
+      ticSelected,
       animation,
       showMoreInfor,
       itemView,
@@ -317,6 +351,7 @@ abstract class _FlightDetailModelState implements FlightDetailModelState {
   const factory _FlightDetailModelState(
       {final Flight? flight,
       final Customer? customerSelected,
+      final Ticket? ticSelected,
       required final double animation,
       required final bool showMoreInfor,
       required final ItemViewEnum itemView,
@@ -328,6 +363,8 @@ abstract class _FlightDetailModelState implements FlightDetailModelState {
   Flight? get flight;
   @override
   Customer? get customerSelected;
+  @override
+  Ticket? get ticSelected;
   @override
   double get animation;
   @override

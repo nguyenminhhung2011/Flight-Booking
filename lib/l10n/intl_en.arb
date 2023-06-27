@@ -336,5 +336,6 @@
     "selectedCustomer": "Selected Customer",
     "submit": "Submit",
     "seeDetails": "See Details",
+    "backToDashboard": "Back to dashboard",
     "departurePlace": "Departure Place"
 }

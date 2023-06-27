@@ -2,14 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:ticket_widget/ticket_widget.dart';
 
 import '../../../../core/components/enum/tic_type_enum.dart';
+import '../../../../domain/entities/ticket/ticket.dart';
+import '../../../../domain/entities/ticket/ticket_information.dart';
 import '../../../../generated/l10n.dart';
 import '../../../list_flight/views/widgets/flight_details_widget.dart';
 
 class FastViewTic extends StatelessWidget {
+  final Ticket tic;
   final TicTypeEnum ticType;
+  final TicketInformation ticInformation;
   const FastViewTic({
     super.key,
     required this.ticType,
+    required this.tic,
+    required this.ticInformation,
   });
 
   @override
@@ -36,17 +42,19 @@ class FastViewTic extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
-                  border: Border.all(width: 1, color: Colors.amber),
+                  border: Border.all(
+                      width: 1, color: ticType.colorType ?? Colors.amber),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.star, color: Colors.amber, size: 14.0),
+                    Icon(Icons.star,
+                        color: ticType.colorType ?? Colors.amber, size: 14.0),
                     Text(
                       ' ${ticType.displayValue}',
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
                             fontWeight: FontWeight.bold,
-                            color: Colors.amber,
+                            color: ticType.colorType ?? Colors.amber,
                           ),
                     ),
                   ],
@@ -66,14 +74,14 @@ class FastViewTic extends StatelessWidget {
           ),
           FlightDetailsWidget(
               firstTitle: S.of(context).name,
-              firstDesc: 'Nguyen Minh Hung',
+              firstDesc: tic.name,
               secondTitle: S.of(context).gender,
               secondDesc: S.of(context).boy),
           FlightDetailsWidget(
               firstTitle: S.of(context).phoneNumber,
-              firstDesc: '+84.4340040340430',
+              firstDesc: tic.phoneNumber,
               secondTitle: S.of(context).luggage,
-              secondDesc: '+4'),
+              secondDesc: '+${tic.luggage}'),
           const Spacer(),
           Row(
             children: [
@@ -103,7 +111,7 @@ class FastViewTic extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    'B10',
+                    '${ticInformation.seatHeader}${tic.seat}',
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.bold,
                         ),

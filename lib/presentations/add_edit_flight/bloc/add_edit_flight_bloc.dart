@@ -8,7 +8,6 @@ import 'package:flight_booking/domain/entities/airline/airline.dart';
 import 'package:flight_booking/domain/entities/flight/flight.dart';
 import 'package:flight_booking/domain/usecase/airport_usecase.dart';
 import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_model_state.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -346,7 +345,9 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
           timeStart: result.timeStart,
           timeEnd: result.timeEnd,
           airline: result.airline,
-          headerText: S.current.editAirport,
+          headerText: S.current.editFlight,
+          airportStart: result.departureAirport,
+          airportEnd: result.arrivalAirport,
         ),
       ));
     } on AppException catch (e) {

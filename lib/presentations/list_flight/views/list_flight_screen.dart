@@ -120,15 +120,20 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
     }, getFlightByIdSuccess: (data, flightId) {
       _bloc.add(ListFlightEvent.getTicInformationByFlightId(id: flightId));
     }, getFlightByIdFailed: (data, error) {
-      log(error);
+      context.showSuccessDialog(
+          width: 300, header: 'Error', title: error.toString());
     }, getTicInformationByFlightIdFailed: (data, error) {
-      log(error);
+      context.showSuccessDialog(
+          width: 300, header: 'Error', title: error.toString());
     }, getFlightPageFFailed: (data, error) {
-      log(error);
+      context.showSuccessDialog(
+          width: 300, header: 'Error', title: error.toString());
     }, getFlightsFailed: (data, error) {
-      log(error);
+      context.showSuccessDialog(
+          width: 300, header: 'Error', title: error.toString());
     }, deleteFlightFailed: (data, error) {
-      log(error);
+      context.showSuccessDialog(
+          width: 300, header: 'Error', title: error.toString());
     });
   }
 
