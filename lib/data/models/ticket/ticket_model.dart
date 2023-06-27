@@ -14,7 +14,7 @@ class TicketModel {
   @JsonKey(name: 'gender')
   late String gender;
 
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phone')
   late String phoneNumber;
 
   @JsonKey(name: 'emailAddress')
@@ -49,6 +49,7 @@ class TicketModel {
     required this.type,
     required this.dateBorn,
     required this.timeBought,
+    required this.price,
   });
 
   Map<String, dynamic> toJson() => _$TicketModelToJson(this);
