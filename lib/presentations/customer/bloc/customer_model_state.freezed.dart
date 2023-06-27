@@ -18,7 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CustomerModelState {
   List<Customer> get customers => throw _privateConstructorUsedError;
   Payment? get paymentSelected => throw _privateConstructorUsedError;
+  Customer? get customerSelected => throw _privateConstructorUsedError;
   int? get currentIndex => throw _privateConstructorUsedError;
+  Map<int, TicketInformation>? get ticInformation =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CustomerModelStateCopyWith<CustomerModelState> get copyWith =>
@@ -32,9 +35,14 @@ abstract class $CustomerModelStateCopyWith<$Res> {
       _$CustomerModelStateCopyWithImpl<$Res, CustomerModelState>;
   @useResult
   $Res call(
-      {List<Customer> customers, Payment? paymentSelected, int? currentIndex});
+      {List<Customer> customers,
+      Payment? paymentSelected,
+      Customer? customerSelected,
+      int? currentIndex,
+      Map<int, TicketInformation>? ticInformation});
 
   $PaymentCopyWith<$Res>? get paymentSelected;
+  $CustomerCopyWith<$Res>? get customerSelected;
 }
 
 /// @nodoc
@@ -52,7 +60,9 @@ class _$CustomerModelStateCopyWithImpl<$Res, $Val extends CustomerModelState>
   $Res call({
     Object? customers = null,
     Object? paymentSelected = freezed,
+    Object? customerSelected = freezed,
     Object? currentIndex = freezed,
+    Object? ticInformation = freezed,
   }) {
     return _then(_value.copyWith(
       customers: null == customers
@@ -63,10 +73,18 @@ class _$CustomerModelStateCopyWithImpl<$Res, $Val extends CustomerModelState>
           ? _value.paymentSelected
           : paymentSelected // ignore: cast_nullable_to_non_nullable
               as Payment?,
+      customerSelected: freezed == customerSelected
+          ? _value.customerSelected
+          : customerSelected // ignore: cast_nullable_to_non_nullable
+              as Customer?,
       currentIndex: freezed == currentIndex
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
               as int?,
+      ticInformation: freezed == ticInformation
+          ? _value.ticInformation
+          : ticInformation // ignore: cast_nullable_to_non_nullable
+              as Map<int, TicketInformation>?,
     ) as $Val);
   }
 
@@ -81,6 +99,18 @@ class _$CustomerModelStateCopyWithImpl<$Res, $Val extends CustomerModelState>
       return _then(_value.copyWith(paymentSelected: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CustomerCopyWith<$Res>? get customerSelected {
+    if (_value.customerSelected == null) {
+      return null;
+    }
+
+    return $CustomerCopyWith<$Res>(_value.customerSelected!, (value) {
+      return _then(_value.copyWith(customerSelected: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -92,10 +122,16 @@ abstract class _$$_CustomerModelStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Customer> customers, Payment? paymentSelected, int? currentIndex});
+      {List<Customer> customers,
+      Payment? paymentSelected,
+      Customer? customerSelected,
+      int? currentIndex,
+      Map<int, TicketInformation>? ticInformation});
 
   @override
   $PaymentCopyWith<$Res>? get paymentSelected;
+  @override
+  $CustomerCopyWith<$Res>? get customerSelected;
 }
 
 /// @nodoc
@@ -111,7 +147,9 @@ class __$$_CustomerModelStateCopyWithImpl<$Res>
   $Res call({
     Object? customers = null,
     Object? paymentSelected = freezed,
+    Object? customerSelected = freezed,
     Object? currentIndex = freezed,
+    Object? ticInformation = freezed,
   }) {
     return _then(_$_CustomerModelState(
       customers: null == customers
@@ -122,10 +160,18 @@ class __$$_CustomerModelStateCopyWithImpl<$Res>
           ? _value.paymentSelected
           : paymentSelected // ignore: cast_nullable_to_non_nullable
               as Payment?,
+      customerSelected: freezed == customerSelected
+          ? _value.customerSelected
+          : customerSelected // ignore: cast_nullable_to_non_nullable
+              as Customer?,
       currentIndex: freezed == currentIndex
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
               as int?,
+      ticInformation: freezed == ticInformation
+          ? _value._ticInformation
+          : ticInformation // ignore: cast_nullable_to_non_nullable
+              as Map<int, TicketInformation>?,
     ));
   }
 }
@@ -136,8 +182,11 @@ class _$_CustomerModelState implements _CustomerModelState {
   const _$_CustomerModelState(
       {required final List<Customer> customers,
       this.paymentSelected,
-      this.currentIndex})
-      : _customers = customers;
+      this.customerSelected,
+      this.currentIndex,
+      final Map<int, TicketInformation>? ticInformation})
+      : _customers = customers,
+        _ticInformation = ticInformation;
 
   final List<Customer> _customers;
   @override
@@ -150,11 +199,22 @@ class _$_CustomerModelState implements _CustomerModelState {
   @override
   final Payment? paymentSelected;
   @override
+  final Customer? customerSelected;
+  @override
   final int? currentIndex;
+  final Map<int, TicketInformation>? _ticInformation;
+  @override
+  Map<int, TicketInformation>? get ticInformation {
+    final value = _ticInformation;
+    if (value == null) return null;
+    if (_ticInformation is EqualUnmodifiableMapView) return _ticInformation;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'CustomerModelState(customers: $customers, paymentSelected: $paymentSelected, currentIndex: $currentIndex)';
+    return 'CustomerModelState(customers: $customers, paymentSelected: $paymentSelected, customerSelected: $customerSelected, currentIndex: $currentIndex, ticInformation: $ticInformation)';
   }
 
   @override
@@ -166,8 +226,12 @@ class _$_CustomerModelState implements _CustomerModelState {
                 .equals(other._customers, _customers) &&
             (identical(other.paymentSelected, paymentSelected) ||
                 other.paymentSelected == paymentSelected) &&
+            (identical(other.customerSelected, customerSelected) ||
+                other.customerSelected == customerSelected) &&
             (identical(other.currentIndex, currentIndex) ||
-                other.currentIndex == currentIndex));
+                other.currentIndex == currentIndex) &&
+            const DeepCollectionEquality()
+                .equals(other._ticInformation, _ticInformation));
   }
 
   @override
@@ -175,7 +239,9 @@ class _$_CustomerModelState implements _CustomerModelState {
       runtimeType,
       const DeepCollectionEquality().hash(_customers),
       paymentSelected,
-      currentIndex);
+      customerSelected,
+      currentIndex,
+      const DeepCollectionEquality().hash(_ticInformation));
 
   @JsonKey(ignore: true)
   @override
@@ -187,16 +253,23 @@ class _$_CustomerModelState implements _CustomerModelState {
 
 abstract class _CustomerModelState implements CustomerModelState {
   const factory _CustomerModelState(
-      {required final List<Customer> customers,
-      final Payment? paymentSelected,
-      final int? currentIndex}) = _$_CustomerModelState;
+          {required final List<Customer> customers,
+          final Payment? paymentSelected,
+          final Customer? customerSelected,
+          final int? currentIndex,
+          final Map<int, TicketInformation>? ticInformation}) =
+      _$_CustomerModelState;
 
   @override
   List<Customer> get customers;
   @override
   Payment? get paymentSelected;
   @override
+  Customer? get customerSelected;
+  @override
   int? get currentIndex;
+  @override
+  Map<int, TicketInformation>? get ticInformation;
   @override
   @JsonKey(ignore: true)
   _$$_CustomerModelStateCopyWith<_$_CustomerModelState> get copyWith =>

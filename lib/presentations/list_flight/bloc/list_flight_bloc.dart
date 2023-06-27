@@ -181,6 +181,10 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
               data.flights.where((element) => element.id != event.id).toList(),
         )),
       );
+    } on AppException catch (e) {
+      emit(
+        ListFlightState.deleteFlightFailed(data: data, message: e.toString()),
+      );
     } catch (e) {
       emit(
         ListFlightState.deleteFlightFailed(data: data, message: e.toString()),

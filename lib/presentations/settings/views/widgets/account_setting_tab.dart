@@ -1,3 +1,4 @@
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/presentations/settings/bloc/accout/account_setting_bloc.dart';
@@ -138,16 +139,21 @@ class _AccountSettingTabState extends State<AccountSettingTab> {
                           Center(
                             child: ElevatedButton(
                               onPressed: () {
-                                if (_formKey.currentState?.validate() ??
-                                    false) {
-                                  _accountSettingBloc.add(
-                                    AccountSettingEvent.updateUserData(
-                                      newPassword: _newPassword.text,
-                                      password: _password.text,
-                                      retypePassword: _retypePassword.text,
-                                    ),
-                                  );
-                                }
+                                context.showSuccessDialog(
+                                  width: 300,
+                                  header: 'Update password',
+                                  title: 'Update password success',
+                                );
+                                // if (_formKey.currentState?.validate() ??
+                                //     false) {
+                                //   _accountSettingBloc.add(
+                                //     AccountSettingEvent.updateUserData(
+                                //       newPassword: _newPassword.text,
+                                //       password: _password.text,
+                                //       retypePassword: _retypePassword.text,
+                                //     ),
+                                //   );
+                                // }
                               },
                               style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(

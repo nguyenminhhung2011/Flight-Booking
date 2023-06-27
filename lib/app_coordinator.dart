@@ -28,6 +28,9 @@ final _timeNow = DateTime.now();
 
 extension AppCoordinator<T> on BuildContext {
   void pop() => Navigator.of(this).pop();
+
+  void popUntil(String nRoute) =>
+      Navigator.popUntil(this, ModalRoute.withName(nRoute));
   void popArgs(T? args) => Navigator.of(this).pop(args);
 
   void startSelectedBottomBarItem(int view) {}

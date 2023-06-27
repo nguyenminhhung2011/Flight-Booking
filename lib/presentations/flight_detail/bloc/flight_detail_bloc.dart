@@ -140,7 +140,16 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
   FutureOr<void> _onSelectedSeat(
     _SelectedSeat event,
     Emitter<FlightDetailState> emit,
-  ) {}
+  ) {
+    var tic = data.tics.indexWhere((element) =>
+        element.seat == event.seatIndex &&
+        element.type == event.ticInformation.id.ticketType);
+    if (tic != -1) {
+      emit(_SelectedSeatSuccess(
+        data: data.copyWith(ticSelected: data.tics[tic]),
+      ));
+    }
+  }
 
   FutureOr<void> _onGetAllTicsByFlight(
     _GetTicsByFlightId event,
@@ -150,7 +159,10 @@ class FlightDetailBloc extends Bloc<FlightDetailEvent, FlightDetailState> {
     try {
       final response = await _ticUsecase.getByFlightId(flightId: _flightId);
       emit(_GetTicsByFlightIdSuccess(
-        data: data.copyWith(tics: response),
+        data: data.copyWith(
+          tics: response,
+          ticSelected: response.isNotEmpty ? response[0] : null,
+        ),
       ));
     } on AppException catch (e) {
       emit(_GetTicsByFlightIdFailed(data: data, message: e.toString()));

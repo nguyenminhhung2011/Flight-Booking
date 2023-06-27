@@ -1,9 +1,11 @@
 import 'package:collection/collection.dart';
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
 import 'package:flight_booking/core/components/widgets/custom_row_column.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/presentations/payment/blocs/payment_tab_bloc.dart';
+import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flight_booking/presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/views/widgets/app_name.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,7 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:screenshot/screenshot.dart';
 
+import '../../../../core/components/widgets/mobile/button_custom.dart';
 import '../../../../core/config/common_ui_config.dart';
 import '../../../../domain/entities/customer/customer.dart';
 import '../../../../domain/entities/flight/flight.dart';
@@ -178,7 +181,23 @@ class _ConfirmInformationTabState extends State<ConfirmInformationTab> {
                               context, headerStyle, primaryColor, titleStyle),
                         const DividerCustomWithAirplane(),
                         Row(
-                          children: [_buttonCapture(context)],
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            _buttonCapture(context),
+                            ButtonCustom(
+                              height: 45,
+                              enableWidth: false,
+                              radius: 5.0,
+                              onPress: () => context.popUntil(Routes.dashboard),
+                              child: Text(
+                                S.of(context).backToDashboard,
+                                style: context.titleMedium.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: _hMarginCard),
+                          ],
                         ),
                       ]
                           .expand((element) =>

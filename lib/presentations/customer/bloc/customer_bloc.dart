@@ -47,6 +47,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
 
   FutureOr<void> _onSelectCustomer(
       _SelectCustomer event, Emitter<CustomerState> emit) async {
+    emit(_Loading(data: data, loadingField: 1));
     final result = await customerUseCase.getCustomerById(event.id);
     if (result != null) {
       emit(
@@ -54,6 +55,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
           data: data.copyWith(
             customers: data.customers,
             currentIndex: event.index,
+            customerSelected: result,
           ),
           customer: result,
         ),
@@ -176,9 +178,11 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
         ));
       }
       return emit(_GetPaymentOfCustomerSuccess(
-          data: data.copyWith(
-        paymentSelected: response,
-      )));
+        data: data.copyWith(
+          paymentSelected: response,
+        ),
+        flightId: 0,
+      ));
     } catch (e) {
       emit(_GetPaymentOfCustomerFailed(
         data: data,

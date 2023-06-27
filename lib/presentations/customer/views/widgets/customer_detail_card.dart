@@ -1,8 +1,8 @@
 import 'package:flight_booking/core/components/widgets/card_custom.dart';
+import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket.dart';
-import 'package:flight_booking/domain/entities/ticket/ticket_information_id.dart';
 import 'package:flight_booking/presentations/customer/views/widgets/passenger_info_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +10,7 @@ import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
 import '../../../../core/components/widgets/swiper_custom.dart';
 import '../../../../domain/entities/customer/customer.dart';
+import '../../../../domain/entities/payment/payment.dart';
 import '../../../../domain/entities/ticket/ticket_information.dart';
 import '../../../../generated/l10n.dart';
 import '../../../list_flight/views/widgets/flight_details_widget.dart';
@@ -25,51 +26,35 @@ class CustomerDetailCard extends StatefulWidget {
 class _CustomerDetailCardState extends State<CustomerDetailCard> {
   CustomerBloc get _customerBloc => BlocProvider.of<CustomerBloc>(context);
 
+  Customer? get _customerSelected => _customerBloc.data.customerSelected;
+  Payment? get _latestPayment => _customerBloc.data.paymentSelected;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocBuilder<CustomerBloc, CustomerState>(
         builder: (context, customerState) {
+          if (customerState.isLoadingGetPayment) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
                 flex: 1,
-                child:
-                    CustomerInformationCard(customer: customerState.customer),
+                child: CustomerInformationCard(
+                  customer: _customerSelected ?? ModelHelper.defaultCustomer,
+                ),
               ),
               Expanded(
                 flex: 2,
                 child: CustomerTicketInformationCard(
-                  customer: ModelHelper.defaultCustomer,
-                  ticInformation: {
-                    1: TicketInformation(
-                      id: TicketInformationId(
-                        ticketType: 1,
-                        flight: ModelHelper.defaultFlight,
-                      ),
-                      quantity: 10,
-                      price: 100.0,
-                      seatPosition: 1,
-                      seatHeader: 'A',
-                    )
-                  },
-                  listTics: [
-                    for (int i = 0; i < 5; i++)
-                      Ticket(
-                        id: 0,
-                        price: 0,
-                        name: 'Hung',
-                        gender: 'Male',
-                        phoneNumber: '09429242',
-                        emailAddress: 'hung@gmail.com',
-                        seat: 10,
-                        type: 1,
-                        luggage: 10.0,
-                        birthday: DateTime.now().millisecondsSinceEpoch,
-                        timeBought: DateTime.now().millisecondsSinceEpoch,
-                      )
-                  ],
+                  customer:
+                      _latestPayment?.customer ?? ModelHelper.defaultCustomer,
+                  ticInformation: ticInformationConst,
+                  listTics: _latestPayment?.ticket ?? [],
                 ),
               )
             ],
