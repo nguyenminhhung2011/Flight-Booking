@@ -1,4 +1,3 @@
-import 'package:flight_booking/domain/entities/customer/customer.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'ticket.freezed.dart';
 part 'ticket.g.dart';
