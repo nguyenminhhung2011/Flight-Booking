@@ -394,6 +394,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sale Performance"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "saveChange": MessageLookupByLibrary.simpleMessage("Save Change"),
+        "schedule": MessageLookupByLibrary.simpleMessage("Schedule"),
         "searchAnything":
             MessageLookupByLibrary.simpleMessage("Search Anything..."),
         "searchByAccount": MessageLookupByLibrary.simpleMessage(

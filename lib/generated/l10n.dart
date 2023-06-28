@@ -3402,6 +3402,16 @@ class S {
     );
   }
 
+  /// `Schedule`
+  String get schedule {
+    return Intl.message(
+      'Schedule',
+      name: 'schedule',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `List Stop Airports`
   String get listStopAirports {
     return Intl.message(
