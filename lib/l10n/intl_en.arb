@@ -323,6 +323,7 @@
     "next": "Next",
     "previous": "Previous",
     "arrivalPlace": "Arrival Place",
+    "airportStop": "Airport Stop",
     "arrivalFlight": "Arrival Flight",
     "from": "From",
     "empty": "Empty",

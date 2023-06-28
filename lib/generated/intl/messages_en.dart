@@ -73,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "airportOverview":
             MessageLookupByLibrary.simpleMessage("Airport Overview"),
         "airportStart": MessageLookupByLibrary.simpleMessage("Airport Start"),
+        "airportStop": MessageLookupByLibrary.simpleMessage("Airport Stop"),
         "allBooking": MessageLookupByLibrary.simpleMessage("All Booking"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Already have account?"),

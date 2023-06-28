@@ -475,7 +475,7 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
                         Expanded(
                           child: DropdownButtonCustom<Airport?>(
                             radius: 10.0,
-                            headerText: S.of(context).timeStopAirports,
+                            headerText: S.of(context).airportStop,
                             items: airports
                                 .map<DropdownMenuItem<Airport>>(
                                     (Airport value) =>
