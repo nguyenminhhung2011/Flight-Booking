@@ -20,6 +20,8 @@ class AirportModel {
   final int? openTime;
   @JsonKey(name: 'closeTime', includeIfNull: true)
   final int? closeTime;
+  @JsonKey(name: 'code', includeIfNull: true)
+  final String? code;
 
   AirportModel(
     this.id,
@@ -29,6 +31,7 @@ class AirportModel {
     this.description,
     this.openTime,
     this.closeTime,
+    this.code,
   );
 
   Map<String, dynamic> toJson() => _$AirportModelToJson(this);
@@ -43,5 +46,6 @@ class AirportModel {
         description: description ?? '',
         openTime: intToTimeLeft(openTime),
         closeTime: intToTimeLeft(closeTime),
+        code: code ?? '',
       );
 }

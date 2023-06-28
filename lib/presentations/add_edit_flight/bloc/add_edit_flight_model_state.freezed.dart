@@ -17,9 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AddEditFlightModelState {
   List<Airport> get listAirport => throw _privateConstructorUsedError;
+  List<StopAirport> get stopAirport => throw _privateConstructorUsedError;
   List<Airline> get listAirline => throw _privateConstructorUsedError;
   DateTime get timeStart => throw _privateConstructorUsedError;
   DateTime get timeEnd => throw _privateConstructorUsedError;
+  DateTime get timeStopSelected => throw _privateConstructorUsedError;
   String get headerText => throw _privateConstructorUsedError;
   List<TicketInformation> get listTicInformation =>
       throw _privateConstructorUsedError;
@@ -27,6 +29,7 @@ mixin _$AddEditFlightModelState {
   Airport? get airportStart => throw _privateConstructorUsedError;
   Airport? get airportEnd => throw _privateConstructorUsedError;
   Airline? get airline => throw _privateConstructorUsedError;
+  Airport? get airportStopSelected => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddEditFlightModelStateCopyWith<AddEditFlightModelState> get copyWith =>
@@ -41,19 +44,23 @@ abstract class $AddEditFlightModelStateCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Airport> listAirport,
+      List<StopAirport> stopAirport,
       List<Airline> listAirline,
       DateTime timeStart,
       DateTime timeEnd,
+      DateTime timeStopSelected,
       String headerText,
       List<TicketInformation> listTicInformation,
       int ticInformationDisplayIndex,
       Airport? airportStart,
       Airport? airportEnd,
-      Airline? airline});
+      Airline? airline,
+      Airport? airportStopSelected});
 
   $AirportCopyWith<$Res>? get airportStart;
   $AirportCopyWith<$Res>? get airportEnd;
   $AirlineCopyWith<$Res>? get airline;
+  $AirportCopyWith<$Res>? get airportStopSelected;
 }
 
 /// @nodoc
@@ -71,21 +78,28 @@ class _$AddEditFlightModelStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? listAirport = null,
+    Object? stopAirport = null,
     Object? listAirline = null,
     Object? timeStart = null,
     Object? timeEnd = null,
+    Object? timeStopSelected = null,
     Object? headerText = null,
     Object? listTicInformation = null,
     Object? ticInformationDisplayIndex = null,
     Object? airportStart = freezed,
     Object? airportEnd = freezed,
     Object? airline = freezed,
+    Object? airportStopSelected = freezed,
   }) {
     return _then(_value.copyWith(
       listAirport: null == listAirport
           ? _value.listAirport
           : listAirport // ignore: cast_nullable_to_non_nullable
               as List<Airport>,
+      stopAirport: null == stopAirport
+          ? _value.stopAirport
+          : stopAirport // ignore: cast_nullable_to_non_nullable
+              as List<StopAirport>,
       listAirline: null == listAirline
           ? _value.listAirline
           : listAirline // ignore: cast_nullable_to_non_nullable
@@ -97,6 +111,10 @@ class _$AddEditFlightModelStateCopyWithImpl<$Res,
       timeEnd: null == timeEnd
           ? _value.timeEnd
           : timeEnd // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      timeStopSelected: null == timeStopSelected
+          ? _value.timeStopSelected
+          : timeStopSelected // ignore: cast_nullable_to_non_nullable
               as DateTime,
       headerText: null == headerText
           ? _value.headerText
@@ -122,6 +140,10 @@ class _$AddEditFlightModelStateCopyWithImpl<$Res,
           ? _value.airline
           : airline // ignore: cast_nullable_to_non_nullable
               as Airline?,
+      airportStopSelected: freezed == airportStopSelected
+          ? _value.airportStopSelected
+          : airportStopSelected // ignore: cast_nullable_to_non_nullable
+              as Airport?,
     ) as $Val);
   }
 
@@ -160,6 +182,18 @@ class _$AddEditFlightModelStateCopyWithImpl<$Res,
       return _then(_value.copyWith(airline: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AirportCopyWith<$Res>? get airportStopSelected {
+    if (_value.airportStopSelected == null) {
+      return null;
+    }
+
+    return $AirportCopyWith<$Res>(_value.airportStopSelected!, (value) {
+      return _then(_value.copyWith(airportStopSelected: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -172,15 +206,18 @@ abstract class _$$_AddEditFlightModelStateCopyWith<$Res>
   @useResult
   $Res call(
       {List<Airport> listAirport,
+      List<StopAirport> stopAirport,
       List<Airline> listAirline,
       DateTime timeStart,
       DateTime timeEnd,
+      DateTime timeStopSelected,
       String headerText,
       List<TicketInformation> listTicInformation,
       int ticInformationDisplayIndex,
       Airport? airportStart,
       Airport? airportEnd,
-      Airline? airline});
+      Airline? airline,
+      Airport? airportStopSelected});
 
   @override
   $AirportCopyWith<$Res>? get airportStart;
@@ -188,6 +225,8 @@ abstract class _$$_AddEditFlightModelStateCopyWith<$Res>
   $AirportCopyWith<$Res>? get airportEnd;
   @override
   $AirlineCopyWith<$Res>? get airline;
+  @override
+  $AirportCopyWith<$Res>? get airportStopSelected;
 }
 
 /// @nodoc
@@ -203,21 +242,28 @@ class __$$_AddEditFlightModelStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? listAirport = null,
+    Object? stopAirport = null,
     Object? listAirline = null,
     Object? timeStart = null,
     Object? timeEnd = null,
+    Object? timeStopSelected = null,
     Object? headerText = null,
     Object? listTicInformation = null,
     Object? ticInformationDisplayIndex = null,
     Object? airportStart = freezed,
     Object? airportEnd = freezed,
     Object? airline = freezed,
+    Object? airportStopSelected = freezed,
   }) {
     return _then(_$_AddEditFlightModelState(
       listAirport: null == listAirport
           ? _value._listAirport
           : listAirport // ignore: cast_nullable_to_non_nullable
               as List<Airport>,
+      stopAirport: null == stopAirport
+          ? _value._stopAirport
+          : stopAirport // ignore: cast_nullable_to_non_nullable
+              as List<StopAirport>,
       listAirline: null == listAirline
           ? _value._listAirline
           : listAirline // ignore: cast_nullable_to_non_nullable
@@ -229,6 +275,10 @@ class __$$_AddEditFlightModelStateCopyWithImpl<$Res>
       timeEnd: null == timeEnd
           ? _value.timeEnd
           : timeEnd // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      timeStopSelected: null == timeStopSelected
+          ? _value.timeStopSelected
+          : timeStopSelected // ignore: cast_nullable_to_non_nullable
               as DateTime,
       headerText: null == headerText
           ? _value.headerText
@@ -254,6 +304,10 @@ class __$$_AddEditFlightModelStateCopyWithImpl<$Res>
           ? _value.airline
           : airline // ignore: cast_nullable_to_non_nullable
               as Airline?,
+      airportStopSelected: freezed == airportStopSelected
+          ? _value.airportStopSelected
+          : airportStopSelected // ignore: cast_nullable_to_non_nullable
+              as Airport?,
     ));
   }
 }
@@ -263,16 +317,20 @@ class __$$_AddEditFlightModelStateCopyWithImpl<$Res>
 class _$_AddEditFlightModelState implements _AddEditFlightModelState {
   const _$_AddEditFlightModelState(
       {required final List<Airport> listAirport,
+      required final List<StopAirport> stopAirport,
       required final List<Airline> listAirline,
       required this.timeStart,
       required this.timeEnd,
+      required this.timeStopSelected,
       required this.headerText,
       required final List<TicketInformation> listTicInformation,
       required this.ticInformationDisplayIndex,
       this.airportStart,
       this.airportEnd,
-      this.airline})
+      this.airline,
+      this.airportStopSelected})
       : _listAirport = listAirport,
+        _stopAirport = stopAirport,
         _listAirline = listAirline,
         _listTicInformation = listTicInformation;
 
@@ -282,6 +340,14 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
     if (_listAirport is EqualUnmodifiableListView) return _listAirport;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_listAirport);
+  }
+
+  final List<StopAirport> _stopAirport;
+  @override
+  List<StopAirport> get stopAirport {
+    if (_stopAirport is EqualUnmodifiableListView) return _stopAirport;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_stopAirport);
   }
 
   final List<Airline> _listAirline;
@@ -296,6 +362,8 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
   final DateTime timeStart;
   @override
   final DateTime timeEnd;
+  @override
+  final DateTime timeStopSelected;
   @override
   final String headerText;
   final List<TicketInformation> _listTicInformation;
@@ -315,10 +383,12 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
   final Airport? airportEnd;
   @override
   final Airline? airline;
+  @override
+  final Airport? airportStopSelected;
 
   @override
   String toString() {
-    return 'AddEditFlightModelState(listAirport: $listAirport, listAirline: $listAirline, timeStart: $timeStart, timeEnd: $timeEnd, headerText: $headerText, listTicInformation: $listTicInformation, ticInformationDisplayIndex: $ticInformationDisplayIndex, airportStart: $airportStart, airportEnd: $airportEnd, airline: $airline)';
+    return 'AddEditFlightModelState(listAirport: $listAirport, stopAirport: $stopAirport, listAirline: $listAirline, timeStart: $timeStart, timeEnd: $timeEnd, timeStopSelected: $timeStopSelected, headerText: $headerText, listTicInformation: $listTicInformation, ticInformationDisplayIndex: $ticInformationDisplayIndex, airportStart: $airportStart, airportEnd: $airportEnd, airline: $airline, airportStopSelected: $airportStopSelected)';
   }
 
   @override
@@ -329,10 +399,14 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
             const DeepCollectionEquality()
                 .equals(other._listAirport, _listAirport) &&
             const DeepCollectionEquality()
+                .equals(other._stopAirport, _stopAirport) &&
+            const DeepCollectionEquality()
                 .equals(other._listAirline, _listAirline) &&
             (identical(other.timeStart, timeStart) ||
                 other.timeStart == timeStart) &&
             (identical(other.timeEnd, timeEnd) || other.timeEnd == timeEnd) &&
+            (identical(other.timeStopSelected, timeStopSelected) ||
+                other.timeStopSelected == timeStopSelected) &&
             (identical(other.headerText, headerText) ||
                 other.headerText == headerText) &&
             const DeepCollectionEquality()
@@ -345,22 +419,27 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
                 other.airportStart == airportStart) &&
             (identical(other.airportEnd, airportEnd) ||
                 other.airportEnd == airportEnd) &&
-            (identical(other.airline, airline) || other.airline == airline));
+            (identical(other.airline, airline) || other.airline == airline) &&
+            (identical(other.airportStopSelected, airportStopSelected) ||
+                other.airportStopSelected == airportStopSelected));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_listAirport),
+      const DeepCollectionEquality().hash(_stopAirport),
       const DeepCollectionEquality().hash(_listAirline),
       timeStart,
       timeEnd,
+      timeStopSelected,
       headerText,
       const DeepCollectionEquality().hash(_listTicInformation),
       ticInformationDisplayIndex,
       airportStart,
       airportEnd,
-      airline);
+      airline,
+      airportStopSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -374,24 +453,31 @@ class _$_AddEditFlightModelState implements _AddEditFlightModelState {
 abstract class _AddEditFlightModelState implements AddEditFlightModelState {
   const factory _AddEditFlightModelState(
       {required final List<Airport> listAirport,
+      required final List<StopAirport> stopAirport,
       required final List<Airline> listAirline,
       required final DateTime timeStart,
       required final DateTime timeEnd,
+      required final DateTime timeStopSelected,
       required final String headerText,
       required final List<TicketInformation> listTicInformation,
       required final int ticInformationDisplayIndex,
       final Airport? airportStart,
       final Airport? airportEnd,
-      final Airline? airline}) = _$_AddEditFlightModelState;
+      final Airline? airline,
+      final Airport? airportStopSelected}) = _$_AddEditFlightModelState;
 
   @override
   List<Airport> get listAirport;
+  @override
+  List<StopAirport> get stopAirport;
   @override
   List<Airline> get listAirline;
   @override
   DateTime get timeStart;
   @override
   DateTime get timeEnd;
+  @override
+  DateTime get timeStopSelected;
   @override
   String get headerText;
   @override
@@ -404,6 +490,8 @@ abstract class _AddEditFlightModelState implements AddEditFlightModelState {
   Airport? get airportEnd;
   @override
   Airline? get airline;
+  @override
+  Airport? get airportStopSelected;
   @override
   @JsonKey(ignore: true)
   _$$_AddEditFlightModelStateCopyWith<_$_AddEditFlightModelState>

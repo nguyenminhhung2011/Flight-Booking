@@ -115,6 +115,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "clickToUpload":
             MessageLookupByLibrary.simpleMessage("Click to upload"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "code": MessageLookupByLibrary.simpleMessage("Code"),
         "codePayment": MessageLookupByLibrary.simpleMessage("Code Payment"),
         "commingFlights":
             MessageLookupByLibrary.simpleMessage("Comming Flights"),
@@ -266,6 +267,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "listCustomer": MessageLookupByLibrary.simpleMessage("List Customer"),
         "listFlights": MessageLookupByLibrary.simpleMessage("List Flights"),
         "listHotels": MessageLookupByLibrary.simpleMessage("List Hotels"),
+        "listStopAirports":
+            MessageLookupByLibrary.simpleMessage("List Stop Airports"),
         "listTicket": MessageLookupByLibrary.simpleMessage("List tickets"),
         "listView": MessageLookupByLibrary.simpleMessage("List View"),
         "location": MessageLookupByLibrary.simpleMessage("Location"),
@@ -442,6 +445,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "timeClose": MessageLookupByLibrary.simpleMessage("Time Close"),
         "timeOpen": MessageLookupByLibrary.simpleMessage("Time Open"),
         "timePayment": MessageLookupByLibrary.simpleMessage("Time Payment"),
+        "timeStopAirports":
+            MessageLookupByLibrary.simpleMessage("Time Stop Airports"),
         "times": MessageLookupByLibrary.simpleMessage("Times"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "totalAirfare": MessageLookupByLibrary.simpleMessage("Total Airfare:"),

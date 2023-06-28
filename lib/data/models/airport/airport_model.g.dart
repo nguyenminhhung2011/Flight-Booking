@@ -14,6 +14,7 @@ AirportModel _$AirportModelFromJson(Map<String, dynamic> json) => AirportModel(
       json['description'] as String?,
       json['openTime'] as int?,
       json['closeTime'] as int?,
+      json['code'] as String?,
     );
 
 Map<String, dynamic> _$AirportModelToJson(AirportModel instance) =>
@@ -25,4 +26,5 @@ Map<String, dynamic> _$AirportModelToJson(AirportModel instance) =>
       'description': instance.description,
       'openTime': instance.openTime,
       'closeTime': instance.closeTime,
+      'code': instance.code,
     };

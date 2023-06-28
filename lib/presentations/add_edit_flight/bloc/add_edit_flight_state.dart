@@ -60,14 +60,40 @@ class AddEditFlightState with _$AddEditFlightState {
     required AddEditFlightModelState data,
   }) = _UpdateTicInformationSuccess;
 
+  const factory AddEditFlightState.selectedStopAirportSuccess({
+    required AddEditFlightModelState data,
+    required String description,
+  }) = _SelectedStopAirportSuccess;
+
+  const factory AddEditFlightState.removeStopAirportSuccess({
+    required AddEditFlightModelState data,
+  }) = _RemoveStopAirportSuccess;
+
+  const factory AddEditFlightState.addNewStopAirportSuccess({
+    required AddEditFlightModelState data,
+  }) = _AddNewStopAirportSuccess;
+
+  const factory AddEditFlightState.addNewStopAirportFailed({
+    required AddEditFlightModelState data,
+    required String message,
+  }) = _AddNewStopAirportFailed;
+
   const factory AddEditFlightState.getFlightByIdFailed({
     required AddEditFlightModelState data,
     required String message,
   }) = _GetFlightByIdFailed;
+
   const factory AddEditFlightState.addTicInformationSuccess({
     required AddEditFlightModelState data,
     required Flight flight,
   }) = _AddTicInformationSuccess;
+
+  const factory AddEditFlightState.selectedAirportStopSuccess({
+    required AddEditFlightModelState data,
+  }) = _SelectedAirportStopSuccess;
+  const factory AddEditFlightState.selectedTimeStopSuccess({
+    required AddEditFlightModelState data,
+  }) = _SelectedTimeStopSuccess;
 
   const factory AddEditFlightState.addTicInformationFailed({
     required AddEditFlightModelState data,

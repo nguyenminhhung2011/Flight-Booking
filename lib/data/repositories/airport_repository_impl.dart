@@ -60,8 +60,10 @@ class AirportRepositoryImpl extends AirportRepository {
   Future<Airport?> editAirport(Airport newAirport, int id) async {
     final airportModel = ModelHelper.airportConvert(newAirport);
     final body = airportModel.toJson();
-    final response =
-        await _airportApi.editAirport(body: body, id: id.toString());
+    final response = await _airportApi.editAirport(
+      body: body,
+      id: id.toString(),
+    );
     if (response.response.statusCode != HttpStatusCode.OK) {
       throw AppException(
         code: response.response.statusCode,

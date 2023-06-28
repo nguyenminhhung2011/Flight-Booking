@@ -1,10 +1,12 @@
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/data/models/airport/airport_model.dart';
+import 'package:flight_booking/data/models/airport/stop_airport_model.dart';
 import 'package:flight_booking/data/models/credit_card/credit_card_model.dart';
 import 'package:flight_booking/data/models/ticket/ticket_information_model.dart';
 import 'package:flight_booking/data/models/ticket/ticket_information_model_id.dart';
 import 'package:flight_booking/data/models/ticket/ticket_model.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
+import 'package:flight_booking/domain/entities/airport/stop_airport.dart';
 import 'package:flight_booking/domain/entities/payment/payment.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +30,7 @@ class ModelHelper {
         airport.description,
         timeOfDayToInt(airport.openTime),
         timeOfDayToInt(airport.closeTime),
+        airport.code,
       );
   static TicketModel ticConvert(Ticket tic) => TicketModel(
         id: tic.id,
@@ -43,14 +46,23 @@ class ModelHelper {
         price: tic.price,
       );
 
-  static FlightModel flightConvert(Flight flight) => FlightModel(
-        flight.id,
-        airportConvert(flight.arrivalAirport),
-        airportConvert(flight.departureAirport),
-        flight.timeStart.subtract(const Duration(hours: 7)),
-        flight.timeEnd.subtract(const Duration(hours: 7)),
-        airlineConvert(flight.airline),
+  static StopAirportModel stopAirportConvert(StopAirport stop) =>
+      StopAirportModel(
+        airport: airportConvert(stop.airport),
+        description: stop.description,
+        stopTime: stop.stopTime.millisecondsSinceEpoch,
       );
+
+  static FlightModel flightConvert(Flight flight) => FlightModel(
+      flight.id,
+      airportConvert(flight.arrivalAirport),
+      airportConvert(flight.departureAirport),
+      flight.timeStart.subtract(const Duration(hours: 7)),
+      flight.timeEnd.subtract(const Duration(hours: 7)),
+      airlineConvert(flight.airline),
+      flight.stopAirports
+          .map<StopAirportModel>((e) => stopAirportConvert(e))
+          .toList());
 
   static AirlineModel airlineConvert(Airline airline) => AirlineModel(
         airline.id,
@@ -92,13 +104,15 @@ class ModelHelper {
   }
 
   static Airport defaultAirport = Airport(
-      id: -1,
-      name: 'Was deleted',
-      image: 'Was deleted',
-      location: 'Was deleted',
-      description: 'Was deleted',
-      openTime: TimeOfDay.now(),
-      closeTime: TimeOfDay.now());
+    id: -1,
+    name: 'Was deleted',
+    image: 'Was deleted',
+    location: 'Was deleted',
+    description: 'Was deleted',
+    openTime: TimeOfDay.now(),
+    closeTime: TimeOfDay.now(),
+    code: 'Was deleted',
+  );
 
   static Flight defaultFlight = Flight(
     id: -1,

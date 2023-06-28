@@ -3392,6 +3392,36 @@ class S {
     );
   }
 
+  /// `Code`
+  String get code {
+    return Intl.message(
+      'Code',
+      name: 'code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List Stop Airports`
+  String get listStopAirports {
+    return Intl.message(
+      'List Stop Airports',
+      name: 'listStopAirports',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time Stop Airports`
+  String get timeStopAirports {
+    return Intl.message(
+      'Time Stop Airports',
+      name: 'timeStopAirports',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Departure Place`
   String get departurePlace {
     return Intl.message(

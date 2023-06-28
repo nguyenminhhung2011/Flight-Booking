@@ -337,5 +337,8 @@
     "submit": "Submit",
     "seeDetails": "See Details",
     "backToDashboard": "Back to dashboard",
+    "code": "Code",
+    "listStopAirports": "List Stop Airports",
+    "timeStopAirports": "Time Stop Airports",
     "departurePlace": "Departure Place"
 }

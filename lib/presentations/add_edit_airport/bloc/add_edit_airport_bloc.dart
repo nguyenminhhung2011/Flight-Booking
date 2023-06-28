@@ -55,6 +55,7 @@ class AddEditAirportBloc
               location: TextEditingController(),
               name: TextEditingController(),
               description: TextEditingController(),
+              code: TextEditingController(),
               startTime: _defaultTime,
               closeTime: _defaultTime,
               locationEdit: _locationNUll,
@@ -138,6 +139,7 @@ class AddEditAirportBloc
             name: TextEditingController(text: result.name),
             location: TextEditingController(text: result.location),
             description: TextEditingController(text: result.description),
+            code: TextEditingController(text: result.code),
             locationEdit: result.location,
             imageUrl: result.image,
             startTime: result.openTime,
@@ -299,6 +301,8 @@ class AddEditAirportBloc
       String location =
           '${data.provinces[data.provincesSelected].name}, ${data.districts[data.districtsSelected].name}, ${data.wards[data.wardsSelected].name}';
       String name = data.name.text;
+      String code = data.code.text;
+      code = (code.length > 3 ? code.substring(0, 3) : code).toUpperCase();
       String description = data.description.text;
       TimeOfDay openTime = data.startTime;
       TimeOfDay closeTime = data.closeTime;
@@ -327,6 +331,7 @@ class AddEditAirportBloc
         description: description,
         openTime: openTime,
         closeTime: closeTime,
+        code: code,
       );
       final add = await _airportsUsecase.addNewAirport(newAirport);
       if (add == null) {
@@ -356,6 +361,8 @@ class AddEditAirportBloc
       String location =
           '${data.provinces[data.provincesSelected].name}, ${data.districts[data.districtsSelected].name}, ${data.wards[data.wardsSelected].name}';
       String name = data.name.text;
+      String code = data.code.text;
+      code = (code.length > 3 ? code.substring(0, 3) : code).toUpperCase();
       String description = data.description.text;
       List<String> imageUrls = [];
       TimeOfDay openTime = data.startTime;
@@ -381,6 +388,7 @@ class AddEditAirportBloc
         description: description,
         openTime: openTime,
         closeTime: closeTime,
+        code: code,
       );
       final edit = await _airportsUsecase.editAirport(newAirport, id);
       if (edit == null) {

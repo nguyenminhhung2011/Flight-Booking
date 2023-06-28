@@ -163,6 +163,7 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
         final location = data.locationEdit;
         final timeOpen = data.startTime;
         final timeClose = data.closeTime;
+        final code = data.code;
 
         if (loadingGetAirport) {
           return _loadingWidget(context);
@@ -187,8 +188,8 @@ class _AddEditAirportFormState extends State<AddEditAirportForm> {
                 children: [
                   Expanded(
                     child: FilterCategory(
-                      controller: TextEditingController(text: _bloc.airportId),
-                      hint: S.of(context).id,
+                      controller: code,
+                      hint: S.of(context).code,
                       iconData: Icons.insert_drive_file,
                     ),
                   ),

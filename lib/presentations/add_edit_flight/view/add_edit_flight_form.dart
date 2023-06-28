@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:collection/collection.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/date_time_enum.dart';
@@ -10,6 +8,7 @@ import 'package:flight_booking/core/components/widgets/extension/context_extensi
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/domain/entities/airline/airline.dart';
 import 'package:flight_booking/domain/entities/airport/airport.dart';
+import 'package:flight_booking/domain/entities/airport/stop_airport.dart';
 import 'package:flight_booking/domain/entities/ticket/ticket_information.dart';
 import 'package:flight_booking/presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/dot_custom.dart';
@@ -35,6 +34,8 @@ class AddEditFlightForm extends StatefulWidget {
 class _AddEditFlightFormState extends State<AddEditFlightForm> {
   final TextEditingController _priceController = TextEditingController();
   final TextEditingController _quantityController = TextEditingController();
+  final TextEditingController _descriptionStopAirportController =
+      TextEditingController();
   final ValueNotifier<String> _seatHeader =
       ValueNotifier<String>(seatHeader.first);
   final ValueNotifier<int> _seatPosition = ValueNotifier<int>(0);
@@ -68,6 +69,7 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
   void dispose() {
     _priceController.dispose();
     _quantityController.dispose();
+    _descriptionStopAirportController.dispose();
     super.dispose();
   }
 
@@ -91,21 +93,27 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
       _seatPosition.value = _currentTicInformation.seatPosition == -1
           ? 0
           : _currentTicInformation.seatPosition;
+    }, getFlightByIdSuccess: (data) {
+      if (data.stopAirport.isNotEmpty) {
+        _descriptionStopAirportController.text =
+            data.stopAirport.first.description;
+      }
+    }, selectedStopAirportSuccess: (data, des) {
+      _descriptionStopAirportController.text = des;
+    }, addNewStopAirportFailed: (data, error) {
+      context.showSuccessDialog(width: 300, header: 'Error', title: error);
+    }, getFlightByIdFailed: (data, error) {
+      context.showSuccessDialog(width: 300, header: 'Error', title: error);
     }, addTicInformationFailed: (data, error) {
-      context.showSuccessDialog(
-          width: 300, header: 'Error', title: error.toString());
+      context.showSuccessDialog(width: 300, header: 'Error', title: error);
     }, addNewFlightFailed: (data, error) {
-      context.showSuccessDialog(
-          width: 300, header: 'Error', title: error.toString());
+      context.showSuccessDialog(width: 300, header: 'Error', title: error);
     }, editFlightFailed: (data, error) {
-      context.showSuccessDialog(
-          width: 300, header: 'Error', title: error.toString());
+      context.showSuccessDialog(width: 300, header: 'Error', title: error);
     }, fetchAirlineFailed: (data, error) {
-      context.showSuccessDialog(
-          width: 300, header: 'Error', title: error.toString());
+      context.showSuccessDialog(width: 300, header: 'Error', title: error);
     }, fetchAirportFailed: (data, error) {
-      context.showSuccessDialog(
-          width: 300, header: 'Error', title: error.toString());
+      context.showSuccessDialog(width: 300, header: 'Error', title: error);
     });
   }
 
@@ -117,6 +125,39 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
     _bloc.add(
       AddEditFlightEvent.updateDateField(dateTime: datePic, enumTime: timeEnum),
     );
+  }
+
+  void _onRemoveStopAirport(StopAirport stopAirport) async {
+    final show = await context.showYesNoDialog(
+      300,
+      'Remove',
+      'Remove this stop airport',
+    );
+    if (show) {
+      _bloc.add(AddEditFlightEvent.removeStopAirport(stopAirport: stopAirport));
+    }
+  }
+
+  void _onSelectedAirportStop(Airport airport) {
+    _bloc.add(AddEditFlightEvent.selectedAirportStop(airport: airport));
+  }
+
+  void _onSelectedTimeStop() async {
+    DateTime? datePic = (await context.pickDateTime());
+    if (datePic == null) {
+      return;
+    }
+    _bloc.add(AddEditFlightEvent.selectedTimeStop(time: datePic));
+  }
+
+  void _onAddNewStopAirport() async {
+    _bloc.add(AddEditFlightEvent.addNewStopAirport(
+      description: _descriptionStopAirportController.text,
+    ));
+  }
+
+  void _onSelectedStopAirport(StopAirport stopAirport) {
+    _bloc.add(AddEditFlightEvent.selectedStopAirport(stopAirport: stopAirport));
   }
 
   void _onSubmitButton() {
@@ -184,9 +225,10 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
         final airlineSelected = data.airline;
         final primaryColor = Theme.of(context).primaryColor;
         final flightId = _bloc.flightId;
+        final stopAirports = _bloc.data.stopAirport;
 
         return Container(
-          constraints: BoxConstraints(maxHeight: context.heightDevice * 0.78),
+          constraints: BoxConstraints(maxHeight: context.heightDevice),
           width: Breakpoints.small.isActive(context)
               ? double.infinity
               : widthDevice * 0.5,
@@ -369,6 +411,108 @@ class _AddEditFlightFormState extends State<AddEditFlightForm> {
                           ),
                         ),
                       ],
+                    ),
+                    const SizedBox(height: 10.0),
+                    Text(
+                      S.of(context).listStopAirports,
+                      style: context.titleMedium.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(10.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        border: Border.all(
+                            width: 1, color: Theme.of(context).dividerColor),
+                        color: Colors.transparent,
+                      ),
+                      child: Wrap(
+                        children: [
+                          ...stopAirports.mapIndexed(
+                            (index, element) => Padding(
+                              padding: const EdgeInsets.only(
+                                  right: 5.0, top: 5.0, bottom: 5.0),
+                              child: GestureDetector(
+                                onTap: () => _onSelectedStopAirport(element),
+                                child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10.0, vertical: 5.0),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          element.airport.name,
+                                          style: context.titleMedium.copyWith(
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        IconButton(
+                                          onPressed: () =>
+                                              _onRemoveStopAirport(element),
+                                          icon: const Icon(
+                                            Icons.close,
+                                            color: Colors.white,
+                                          ),
+                                        )
+                                      ],
+                                    )),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Expanded(
+                          child: DropdownButtonCustom<Airport?>(
+                            radius: 10.0,
+                            headerText: S.of(context).timeStopAirports,
+                            items: airports
+                                .map<DropdownMenuItem<Airport>>(
+                                    (Airport value) =>
+                                        DropdownMenuItem<Airport>(
+                                          value: value,
+                                          child: Text(value.name),
+                                        ))
+                                .toList(),
+                            value: data.airportStopSelected,
+                            onChange: (value) => _onSelectedAirportStop(value!),
+                          ),
+                        ),
+                        const SizedBox(width: 10.0),
+                        Expanded(
+                          child: FilterCategory(
+                            controller: TextEditingController(
+                              text:
+                                  '${DateFormat().add_yMMMMEEEEd().format(data.timeStopSelected)} / ${getjmFormat(data.timeStopSelected)}',
+                            ),
+                            title: S.of(context).timeStopAirports,
+                            hint: S.of(context).dateFinish,
+                            iconData: Icons.calendar_month,
+                            onPress: _onSelectedTimeStop,
+                          ),
+                        ),
+                      ],
+                    ),
+                    FilterCategory(
+                      hint: S.of(context).description,
+                      iconData: Icons.description,
+                      controller: _descriptionStopAirportController,
+                      lines: 4,
+                    ),
+                    ButtonCustom(
+                      onPress: _onAddNewStopAirport,
+                      height: 45.0,
+                      child: Text(S.of(context).add),
                     ),
                     const SizedBox(height: 10.0),
                     Text(
