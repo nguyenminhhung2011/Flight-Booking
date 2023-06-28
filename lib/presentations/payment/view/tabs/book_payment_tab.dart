@@ -1,7 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
-import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,7 +34,7 @@ class BookPaymentTab extends StatefulWidget {
 class _BookPaymentTabState extends State<BookPaymentTab> {
   PaymentTabBloc get _bloc => context.read<PaymentTabBloc>();
   Customer? get _customer => _bloc.data.customer;
-  List<Ticket> get _tics => _bloc.tics;
+  List<Ticket> get _tics => _bloc.data.tics;
   int get _currentIndex => _bloc.data.customerIndex;
 
   final TextEditingController _nameController = TextEditingController();

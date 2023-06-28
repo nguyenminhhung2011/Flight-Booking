@@ -103,16 +103,6 @@ class ModelHelper {
     );
   }
 
-  static CreditCardModel creditCardConvert(CreditCard creditCard) {
-    return CreditCardModel(
-      id: creditCard.id,
-      creditNum: creditCard.creditNum,
-      expiredDate: creditCard.expiredDate,
-      cvc: creditCard.cvc,
-      nameCard: creditCard.nameCard,
-    );
-  }
-
   static Airport defaultAirport = Airport(
     id: -1,
     name: 'Was deleted',

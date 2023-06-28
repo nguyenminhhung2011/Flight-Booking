@@ -30,6 +30,7 @@ import '../../../domain/entities/ticket/ticket.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../generated/l10n.dart';
 import '../../list_flight/views/widgets/dot_custom.dart';
+import '../../routes/routes.dart';
 
 class FlightDetailScreen extends StatefulWidget {
   const FlightDetailScreen({super.key});
@@ -118,7 +119,7 @@ class _FlightDetailScreenState extends State<FlightDetailScreen> {
           appBar: AppBar(
             elevation: 0,
             leading: IconButton(
-              onPressed: () => context.pop(),
+              onPressed: () => context.popUntil(Routes.dashboard),
               icon: Icon(Icons.arrow_back, color: context.titleMedium.color),
             ),
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,

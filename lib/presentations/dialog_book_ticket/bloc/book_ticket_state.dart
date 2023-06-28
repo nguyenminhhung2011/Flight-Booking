@@ -97,4 +97,17 @@ class BTState with _$BTState {
   const factory BTState.editTicSuccess({
     required BTModelState data,
   }) = _EditTicSuccess;
+
+  const factory BTState.addTicToDBSuccess({
+    required BTModelState data,
+    required int paymentId,
+  }) = _AddTicToDBSuccess;
+
+  const factory BTState.addTicToDBFailed({
+    required BTModelState data,
+    required String message,
+  }) = _AddTicToDBFailed;
+
+  bool get loadingButton => maybeWhen(
+      orElse: () => false, loading: (data, loadingField) => loadingField == 5);
 }

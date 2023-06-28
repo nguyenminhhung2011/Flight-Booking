@@ -29,16 +29,15 @@ import '../../data/repositories/flight_repository_impl.dart' as _i11;
 import '../../data/repositories/ticket_information_repository_impl.dart'
     as _i23;
 import '../../data/repositories/ticket_repository_impl.dart' as _i26;
-import '../../data/repositories/user_repository_impl.dart' as _i55;
-import '../../domain/entities/seat_selected/seat_selected.dart' as _i66;
-import '../../domain/entities/ticket/ticket.dart' as _i49;
+import '../../data/repositories/user_repository_impl.dart' as _i54;
+import '../../domain/entities/seat_selected/seat_selected.dart' as _i65;
 import '../../domain/repositories/airline_repository.dart' as _i30;
 import '../../domain/repositories/airport_repository.dart' as _i34;
 import '../../domain/repositories/customer_repository.dart' as _i39;
 import '../../domain/repositories/flight_repository.dart' as _i10;
 import '../../domain/repositories/ticket_information_repository.dart' as _i22;
 import '../../domain/repositories/ticket_repository.dart' as _i25;
-import '../../domain/repositories/user_repository.dart' as _i54;
+import '../../domain/repositories/user_repository.dart' as _i53;
 import '../../domain/usecase/airline_usecase.dart' as _i32;
 import '../../domain/usecase/airport_usecase.dart' as _i36;
 import '../../domain/usecase/customer_usecase.dart' as _i41;
@@ -46,23 +45,25 @@ import '../../domain/usecase/flight_usecase.dart' as _i12;
 import '../../domain/usecase/payment_usecase.dart' as _i15;
 import '../../domain/usecase/tic_information_usecase.dart' as _i24;
 import '../../domain/usecase/ticket_usecase.dart' as _i27;
-import '../../domain/usecase/user_usecase.dart' as _i56;
-import '../../presentations/add_customer/bloc/add_customer_bloc.dart' as _i58;
+import '../../domain/usecase/user_usecase.dart' as _i55;
+import '../../presentations/add_customer/bloc/add_customer_bloc.dart' as _i57;
 import '../../presentations/add_edit_airport/bloc/add_edit_airport_bloc.dart'
-    as _i59;
+    as _i58;
 import '../../presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart'
-    as _i60;
-import '../../presentations/airport/bloc/airport_bloc.dart' as _i61;
-import '../../presentations/customer/bloc/customer_bloc.dart' as _i67;
+    as _i59;
+import '../../presentations/airport/bloc/airport_bloc.dart' as _i60;
+import '../../presentations/customer/bloc/customer_bloc.dart' as _i66;
+import '../../presentations/customer/bloc/detail/customer_detail_bloc.dart'
+    as _i67;
 import '../../presentations/dashboard/bloc/dashboard_bloc.dart' as _i5;
 import '../../presentations/dialog_book_ticket/bloc/book_ticket_bloc.dart'
-    as _i65;
+    as _i64;
 import '../../presentations/flight_detail/bloc/flight_detail_bloc.dart' as _i42;
 import '../../presentations/handle_config_airport/blocs/handle_config_airport_bloc.dart'
     as _i43;
 import '../../presentations/list_flight/bloc/list_flight_bloc.dart' as _i44;
 import '../../presentations/list_ticket/bloc/list_ticket_bloc.dart' as _i45;
-import '../../presentations/login/bloc/authentication_bloc.dart' as _i64;
+import '../../presentations/login/bloc/authentication_bloc.dart' as _i63;
 import '../../presentations/payment/blocs/payment_tab_bloc.dart' as _i48;
 import '../../presentations/payment_detail/bloc/payment_detail_bloc.dart'
     as _i47;
@@ -70,29 +71,29 @@ import '../../presentations/payment_management/bloc/add_edit_payment_bloc/add_ed
     as _i28;
 import '../../presentations/payment_management/bloc/payment_bloc.dart' as _i46;
 import '../../presentations/selected_customer/notifier/selected_customer_notidier.dart'
-    as _i52;
+    as _i51;
 import '../../presentations/settings/bloc/accout/account_setting_bloc.dart'
-    as _i57;
+    as _i56;
 import '../../presentations/settings/bloc/general/general_setting_bloc.dart'
     as _i68;
 import '../../presentations/settings/bloc/setting_bloc.dart' as _i19;
 import '../../presentations_mobile/airport_detail_mobile/bloc/airport_detail_mobile_bloc.dart'
     as _i3;
-import '../../presentations_mobile/auth/bloc/auth_bloc.dart' as _i63;
+import '../../presentations_mobile/auth/bloc/auth_bloc.dart' as _i62;
 import '../../presentations_mobile/dashboard_mobile/bloc/dashboard_mobile_bloc.dart'
     as _i6;
 import '../../presentations_mobile/flight_history_detail/bloc/flight_history_detail_bloc.dart'
     as _i9;
 import '../../presentations_mobile/list_airport_mobile/bloc/airport_mobile_bloc.dart'
-    as _i62;
+    as _i61;
 import '../../presentations_mobile/save/bloc/save_bloc.dart' as _i17;
 import '../../presentations_mobile/search_mobile/bloc/search_mobile_bloc.dart'
-    as _i50;
+    as _i49;
 import '../../presentations_mobile/select_scott_mobile/bloc/select_scott_bloc.dart'
     as _i18;
 import '../../presentations_mobile/ticket_mobile/bloc/tic_mobile_bloc.dart'
-    as _i53;
-import '../components/enum/search_enum.dart' as _i51;
+    as _i52;
+import '../components/enum/search_enum.dart' as _i50;
 import '../services/cloundinary_service.dart' as _i4;
 import '../services/image_pic_service.dart' as _i13;
 import '../services/place/place_service.dart' as _i16;
@@ -206,81 +207,81 @@ _i1.GetIt init(
         payment,
         gh<_i15.PaymentUseCase>(),
       ));
-  gh.factoryParam<_i48.PaymentTabBloc, List<_i49.Ticket>, Map<String, int>>((
-    tics,
+  gh.factoryParam<_i48.PaymentTabBloc, Map<String, int>, dynamic>((
     ids,
+    _,
   ) =>
       _i48.PaymentTabBloc(
-        tics,
         ids,
         gh<_i41.CustomerUseCase>(),
         gh<_i12.FlightsUsecase>(),
         gh<_i24.TicketInformationUsecase>(),
         gh<_i27.TicketUsecase>(),
+        gh<_i15.PaymentUseCase>(),
       ));
-  gh.factoryParam<_i50.SearchMobileBloc, _i51.SearchEnum?, dynamic>((
+  gh.factoryParam<_i49.SearchMobileBloc, _i50.SearchEnum?, dynamic>((
     searchType,
     _,
   ) =>
-      _i50.SearchMobileBloc(
+      _i49.SearchMobileBloc(
         searchType,
         gh<_i36.AirportUsecase>(),
         gh<_i12.FlightsUsecase>(),
       ));
-  gh.factory<_i52.SelectedCustomerNotifier>(
-      () => _i52.SelectedCustomerNotifier(gh<_i41.CustomerUseCase>()));
-  gh.factory<_i53.TicMobileBloc>(
-      () => _i53.TicMobileBloc(gh<_i27.TicketUsecase>()));
-  gh.factory<_i54.UserRepository>(
-      () => _i55.UserRepositoryImpl(gh<_i37.AuthApi>()));
-  gh.factory<_i56.UserUseCase>(
-      () => _i56.UserUseCase(gh<_i54.UserRepository>()));
-  gh.factory<_i57.AccountSettingBloc>(
-      () => _i57.AccountSettingBloc(gh<_i56.UserUseCase>()));
-  gh.factoryParam<_i58.AddCustomerBloc, int, dynamic>((
+  gh.factory<_i51.SelectedCustomerNotifier>(
+      () => _i51.SelectedCustomerNotifier(gh<_i41.CustomerUseCase>()));
+  gh.factory<_i52.TicMobileBloc>(
+      () => _i52.TicMobileBloc(gh<_i27.TicketUsecase>()));
+  gh.factory<_i53.UserRepository>(
+      () => _i54.UserRepositoryImpl(gh<_i37.AuthApi>()));
+  gh.factory<_i55.UserUseCase>(
+      () => _i55.UserUseCase(gh<_i53.UserRepository>()));
+  gh.factory<_i56.AccountSettingBloc>(
+      () => _i56.AccountSettingBloc(gh<_i55.UserUseCase>()));
+  gh.factoryParam<_i57.AddCustomerBloc, int, dynamic>((
     customerId,
     _,
   ) =>
-      _i58.AddCustomerBloc(
+      _i57.AddCustomerBloc(
         customerId,
         gh<_i41.CustomerUseCase>(),
       ));
-  gh.factoryParam<_i59.AddEditAirportBloc, String, dynamic>((
+  gh.factoryParam<_i58.AddEditAirportBloc, String, dynamic>((
     airportId,
     _,
   ) =>
-      _i59.AddEditAirportBloc(
+      _i58.AddEditAirportBloc(
         airportId,
         gh<_i36.AirportUsecase>(),
         gh<_i4.CloundinaryService>(),
         gh<_i13.ImagePicService>(),
         gh<_i16.PlaceService>(),
       ));
-  gh.factoryParam<_i60.AddEditFlightBloc, String, dynamic>((
+  gh.factoryParam<_i59.AddEditFlightBloc, String, dynamic>((
     flightId,
     _,
   ) =>
-      _i60.AddEditFlightBloc(
+      _i59.AddEditFlightBloc(
         flightId,
         gh<_i12.FlightsUsecase>(),
         gh<_i36.AirportUsecase>(),
         gh<_i32.AirlineUsecase>(),
         gh<_i24.TicketInformationUsecase>(),
       ));
-  gh.factory<_i61.AirportBloc>(() => _i61.AirportBloc(
+  gh.factory<_i60.AirportBloc>(() => _i60.AirportBloc(
         gh<_i36.AirportUsecase>(),
         gh<_i12.FlightsUsecase>(),
       ));
-  gh.factory<_i62.AirportMobileBloc>(
-      () => _i62.AirportMobileBloc(gh<_i36.AirportUsecase>()));
-  gh.factory<_i63.AuthBloc>(() => _i63.AuthBloc(gh<_i54.UserRepository>()));
-  gh.factory<_i64.AuthenticationBloc>(
-      () => _i64.AuthenticationBloc(gh<_i56.UserUseCase>()));
-  gh.factoryParam<_i65.BTBloc, List<_i66.SeatSelected>, int>((
+  gh.factory<_i61.AirportMobileBloc>(
+      () => _i61.AirportMobileBloc(gh<_i36.AirportUsecase>()));
+  gh.factory<_i62.AuthBloc>(() => _i62.AuthBloc(gh<_i53.UserRepository>()));
+  gh.factory<_i63.AuthenticationBloc>(
+      () => _i63.AuthenticationBloc(gh<_i55.UserUseCase>()));
+  gh.factoryParam<_i64.BTBloc, List<_i65.SeatSelected>, int>((
     seats,
     flightId,
   ) =>
-      _i65.BTBloc(
+      _i64.BTBloc(
         seats,
         flightId,
         gh<_i41.CustomerUseCase>(),
@@ -288,12 +289,20 @@ _i1.GetIt init(
         gh<_i12.FlightsUsecase>(),
         gh<_i27.TicketUsecase>(),
       ));
-  gh.factory<_i67.CustomerBloc>(() => _i67.CustomerBloc(
+  gh.factory<_i66.CustomerBloc>(() => _i66.CustomerBloc(
         gh<_i41.CustomerUseCase>(),
         gh<_i15.PaymentUseCase>(),
       ));
+  gh.factoryParam<_i67.CustomerDetailBloc, int, dynamic>((
+    customerId,
+    _,
+  ) =>
+      _i67.CustomerDetailBloc(
+        customerId,
+        gh<_i41.CustomerUseCase>(),
+      ));
   gh.factory<_i68.GeneralSettingBloc>(
-      () => _i68.GeneralSettingBloc(gh<_i56.UserUseCase>()));
+      () => _i68.GeneralSettingBloc(gh<_i55.UserUseCase>()));
   return getIt;
 }
 

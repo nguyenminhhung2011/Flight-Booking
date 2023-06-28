@@ -70,12 +70,52 @@ class BTBloc extends Bloc<BTEvent, BTState> {
     on<_GetAllTicOfFlight>(_onGetAllTicOfFlight);
     on<_UpdateCustomer>(_onUpdateCustomer);
     on<_GetFlightById>(_onGetFlightById);
+    on<_AddTicToDB>(_onAddTicToDB);
   }
 
   FutureOr<void> _onStarted(
     _Started event,
     Emitter<BTState> state,
   ) {}
+
+  FutureOr<void> _onAddTicToDB(
+    _AddTicToDB event,
+    Emitter<BTState> emit,
+  ) async {
+    final tics = data.tics
+        .where(
+          (element) =>
+              element.emailAddress.isNotEmpty &&
+              element.phoneNumber.isNotEmpty &&
+              element.phoneNumber.isNotEmpty,
+        )
+        .toList();
+    if (tics.isNotEmpty) {
+      emit(_Loading(data: data, groupLoading: 5));
+      try {
+        final response = await _ticketUsecase.bookTicket(
+          tics: tics,
+          customerId: data.customerSelected?.id ?? -1,
+          flightId: flightId,
+          paymentType: event.paymentType,
+        );
+        if (response == null) {
+          emit(_AddTicToDBFailed(data: data, message: 'Failed '));
+          return;
+        }
+        emit(_AddTicToDBSuccess(
+          data: data,
+          paymentId: response.id,
+        ));
+      } on AppException catch (e) {
+        emit(_AddTicToDBFailed(data: data, message: e.toString()));
+      } catch (e) {
+        emit(_AddTicToDBFailed(data: data, message: e.toString()));
+      }
+    } else {
+      emit(_AddTicToDBFailed(data: data, message: 'list tic is not empty'));
+    }
+  }
 
   FutureOr<void> _onChangeTicIndexView(
     _ChangeTicIndexView event,

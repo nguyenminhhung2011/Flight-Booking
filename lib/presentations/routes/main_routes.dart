@@ -84,18 +84,14 @@ class MainRoutes {
           settings: settings,
           builder: (_) {
             Map? arguments = settings.arguments as Map;
-            final tics = arguments['tics'];
             final ids = arguments['ids'];
-            if (tics != null && tics is List<Ticket>) {
-              if (ids != null && ids is Map<String, int>) {
-                return BlocProvider<PaymentTabBloc>(
-                  create: (_) => injector(
-                    param1: tics,
-                    param2: ids,
-                  ),
-                  child: const PaymentScreen(),
-                );
-              }
+            if (ids != null && ids is Map<String, int>) {
+              return BlocProvider<PaymentTabBloc>(
+                create: (_) => injector(
+                  param1: ids,
+                ),
+                child: const PaymentScreen(),
+              );
             }
             return const SizedBox();
           },

@@ -57,6 +57,14 @@ class PaymentTabState with _$PaymentTabState {
     required PaymentTabModelState data,
     required String message,
   }) = _AddTicToDBFailed;
+  const factory PaymentTabState.getPaymentByIdSuccess({
+    required PaymentTabModelState data,
+  }) = _GetPaymentByIdSuccess;
+
+  const factory PaymentTabState.getPaymentByIdFailed({
+    required PaymentTabModelState data,
+    required String message,
+  }) = _GetPaymentByIdFailed;
 
   const factory PaymentTabState.changeCustomerTabIndexSuccess({
     required PaymentTabModelState data,

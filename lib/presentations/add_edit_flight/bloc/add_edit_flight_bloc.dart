@@ -421,7 +421,9 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
           data: data.copyWith(
               listTicInformation: data.listTicInformation
                   .map<TicketInformation>(
-                    (e) => e.copyWith(id: e.id.copyWith(flight: event.flight)),
+                    (e) => e.copyWith(
+                      id: e.id.copyWith(flight: event.flight),
+                    ),
                   )
                   .toList()),
           type: 1),
