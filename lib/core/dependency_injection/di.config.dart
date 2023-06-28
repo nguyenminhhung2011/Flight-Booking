@@ -54,6 +54,8 @@ import '../../presentations/add_edit_flight/bloc/add_edit_flight_bloc.dart'
     as _i60;
 import '../../presentations/airport/bloc/airport_bloc.dart' as _i61;
 import '../../presentations/customer/bloc/customer_bloc.dart' as _i67;
+import '../../presentations/customer/bloc/detail/customer_detail_bloc.dart'
+    as _i68;
 import '../../presentations/dashboard/bloc/dashboard_bloc.dart' as _i5;
 import '../../presentations/dialog_book_ticket/bloc/book_ticket_bloc.dart'
     as _i65;
@@ -74,7 +76,7 @@ import '../../presentations/selected_customer/notifier/selected_customer_notidie
 import '../../presentations/settings/bloc/accout/account_setting_bloc.dart'
     as _i57;
 import '../../presentations/settings/bloc/general/general_setting_bloc.dart'
-    as _i68;
+    as _i69;
 import '../../presentations/settings/bloc/setting_bloc.dart' as _i19;
 import '../../presentations_mobile/airport_detail_mobile/bloc/airport_detail_mobile_bloc.dart'
     as _i3;
@@ -96,7 +98,7 @@ import '../components/enum/search_enum.dart' as _i51;
 import '../services/cloundinary_service.dart' as _i4;
 import '../services/image_pic_service.dart' as _i13;
 import '../services/place/place_service.dart' as _i16;
-import 'modules/data_source_module.dart' as _i69;
+import 'modules/data_source_module.dart' as _i70;
 
 const String _prod = 'prod';
 
@@ -292,9 +294,17 @@ _i1.GetIt init(
         gh<_i41.CustomerUseCase>(),
         gh<_i15.PaymentUseCase>(),
       ));
-  gh.factory<_i68.GeneralSettingBloc>(
-      () => _i68.GeneralSettingBloc(gh<_i56.UserUseCase>()));
+  gh.factoryParam<_i68.CustomerDetailBloc, int, dynamic>((
+    customerId,
+    _,
+  ) =>
+      _i68.CustomerDetailBloc(
+        customerId,
+        gh<_i41.CustomerUseCase>(),
+      ));
+  gh.factory<_i69.GeneralSettingBloc>(
+      () => _i69.GeneralSettingBloc(gh<_i56.UserUseCase>()));
   return getIt;
 }
 
-class _$DataSourceModule extends _i69.DataSourceModule {}
+class _$DataSourceModule extends _i70.DataSourceModule {}
