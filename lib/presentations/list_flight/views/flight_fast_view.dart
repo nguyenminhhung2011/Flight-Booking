@@ -1,11 +1,16 @@
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
+import 'package:flight_booking/data/models/model_helper.dart';
+import 'package:flight_booking/domain/entities/airport/stop_airport.dart';
 import 'package:flight_booking/presentations/list_flight/bloc/list_flight_bloc.dart';
+import 'package:flight_booking/presentations/list_flight/views/widgets/dot_custom.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/flight_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../domain/entities/airport/airport.dart';
 import '../../../domain/entities/flight/flight.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../generated/l10n.dart';
@@ -21,6 +26,8 @@ class _FlightFastViewState extends State<FlightFastView> {
   ListFlightBloc get _bloc => context.read<ListFlightBloc>();
   List<TicketInformation> get _ticInformation => _bloc.data.ticketInformation;
   Flight? get _currentFlight => _bloc.data.flightSelected;
+  List<StopAirport> get _stopAirports =>
+      _currentFlight?.stopAirports ?? <StopAirport>[];
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +60,6 @@ class _FlightFastViewState extends State<FlightFastView> {
                     if (_currentFlight != null) ...[
                       Container(
                         width: double.infinity,
-                        height: 510,
                         padding: const EdgeInsets.all(10.0),
                         margin: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
@@ -137,37 +143,49 @@ class _FlightFastViewState extends State<FlightFastView> {
                           ],
                         ),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              S.of(context).flightInformation,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge!
-                                  .copyWith(fontWeight: FontWeight.bold),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  S.of(context).schedule,
+                                  textAlign: TextAlign.center,
+                                  style: context.titleLarge
+                                      .copyWith(fontWeight: FontWeight.bold),
+                                ),
+                              ],
                             ),
-                            _rowData(context, S.of(context).driver,
-                                'Nguyen Minh Hung'),
-                            _rowData(
+                            const SizedBox(height: 15.0),
+                            _airportStartAndEndField(
                               context,
-                              S.of(context).noCustomer,
-                              S.of(context).numberCustomer(100),
+                              _currentFlight?.departureAirport ??
+                                  ModelHelper.defaultAirport,
+                              _currentFlight?.timeStart ?? DateTime.now(),
                             ),
-                            Container(
-                              height: 1,
-                              decoration: DottedDecoration(
-                                color: Theme.of(context).dividerColor,
-                                shape: Shape.line,
-                                linePosition: LinePosition.bottom,
-                              ),
+                            const SizedBox(height: 7.0),
+                            _dot(context),
+                            ..._stopAirports
+                                .map<Widget>(
+                                  (e) => _filedAirportInformation(e, context),
+                                )
+                                .expand(
+                                  (element) => [
+                                    element,
+                                    _dot(context),
+                                  ],
+                                ),
+                            const SizedBox(height: 7.0),
+                            _airportStartAndEndField(
+                              context,
+                              _currentFlight?.arrivalAirport ??
+                                  ModelHelper.defaultAirport,
+                              _currentFlight?.timeEnd ?? DateTime.now(),
                             ),
-                            _rowData(context, S.of(context).price, '200,00\$'),
-                          ]
-                              .expand((element) =>
-                                  [element, const SizedBox(height: 10.0)])
-                              .toList(),
+                          ],
                         ),
                       ),
+                    const SizedBox(height: 10.0),
                   ],
                 ),
               ),
@@ -175,29 +193,135 @@ class _FlightFastViewState extends State<FlightFastView> {
     });
   }
 
-  Row _rowData(BuildContext context, String tit, String desc) {
-    final TextStyle titleStyle =
-        Theme.of(context).textTheme.titleMedium!.copyWith(color: Colors.grey);
-
-    final TextStyle? descStyle = Theme.of(context).textTheme.titleMedium;
+  Row _airportStartAndEndField(
+      BuildContext context, Airport airport, DateTime time) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          tit,
-          maxLines: 1,
-          textAlign: TextAlign.start,
-          style: titleStyle,
-        ),
+        Icon(Icons.airplane_ticket, color: Theme.of(context).primaryColor),
+        const SizedBox(width: 10.0),
         Expanded(
-          child: Text(
-            desc,
-            maxLines: 1,
-            textAlign: TextAlign.end,
-            style: descStyle,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                getYmdFormat(time),
+                style: context.titleSmall.copyWith(
+                  color: Theme.of(context).primaryColor,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              const SizedBox(height: 5.0),
+              Text(
+                airport.code,
+                style: context.titleMedium.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 2.0),
+              Text(
+                airport.name,
+                style: context.titleMedium.copyWith(),
+              ),
+            ],
           ),
-        ),
+        )
       ],
+    );
+  }
+
+  Container _filedAirportInformation(StopAirport e, BuildContext context) {
+    final headerTextStyle = context.titleMedium.copyWith(
+      fontWeight: FontWeight.bold,
+      overflow: TextOverflow.ellipsis,
+    );
+
+    return Container(
+      padding: const EdgeInsets.only(
+        left: 15.0,
+        top: 5.0,
+        bottom: 5.0,
+      ),
+      margin: const EdgeInsets.only(left: 7.0),
+      decoration: DottedDecoration(
+        linePosition: LinePosition.left,
+        strokeWidth: 1.5,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            getYmdFormat(e.stopTime),
+            style: context.titleSmall.copyWith(
+              color: Theme.of(context).primaryColor,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+          Row(
+            children: [
+              const SizedBox(width: 10.0),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      e.airport.name,
+                      style: headerTextStyle,
+                    ),
+                    const SizedBox(height: 2.0),
+                    Text(
+                      e.airport.code,
+                      style: context.titleSmall,
+                    )
+                  ],
+                ),
+              ),
+              Text(
+                getjmFormat(e.stopTime),
+                style: headerTextStyle,
+              ),
+            ],
+          ),
+          const SizedBox(height: 10.0),
+          Container(
+            padding: const EdgeInsets.all(10.0),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.0),
+              color: Theme.of(context).dividerColor.withOpacity(0.05),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ...<Map<String, dynamic>>[
+                  {'header': S.of(context).description, 'text': e.description},
+                  {'header': S.of(context).code, 'text': e.airport.location}
+                ].map(
+                  (e) => Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        e['header'].toString(),
+                        style: context.titleSmall
+                            .copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      Text(e['text'], style: context.titleSmall),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  DotCustom _dot(BuildContext context) {
+    return DotCustom(
+      color: Theme.of(context).primaryColor,
+      full: true,
+      radius: 15.0,
     );
   }
 }

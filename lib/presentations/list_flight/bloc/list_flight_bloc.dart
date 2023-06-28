@@ -42,16 +42,17 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
   ) : super(
           const ListFlightState.initial(
             data: ListFlightModelState(
-                flights: <Flight>[],
-                currentPage: 0,
-                totalPage: 0,
-                listAirlines: <Airline>[],
-                locations: <PlaceModel>[],
-                locationArrival: _locationNull,
-                locationDeparture: _locationNull,
-                airlineName: _locationNull,
-                typePage: TypePage.normalPage,
-                ticketInformation: <TicketInformation>[]),
+              flights: <Flight>[],
+              currentPage: 0,
+              totalPage: 0,
+              listAirlines: <Airline>[],
+              locations: <PlaceModel>[],
+              locationArrival: _locationNull,
+              locationDeparture: _locationNull,
+              airlineName: _locationNull,
+              typePage: TypePage.normalPage,
+              ticketInformation: <TicketInformation>[],
+            ),
           ),
         ) {
     on<_SelectFlight>(_onSelectFlight);
