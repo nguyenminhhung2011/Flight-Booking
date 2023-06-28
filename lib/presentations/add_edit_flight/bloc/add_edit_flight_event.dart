@@ -32,6 +32,26 @@ class AddEditFlightEvent with _$AddEditFlightEvent {
     int? newSeatPosition,
   }) = _UpdateTicInformation;
 
+  const factory AddEditFlightEvent.selectedStopAirport({
+    required StopAirport stopAirport,
+  }) = _SelectedStopAirport;
+
+  const factory AddEditFlightEvent.removeStopAirport({
+    required StopAirport stopAirport,
+  }) = _RemoveStopAirport;
+
+  const factory AddEditFlightEvent.addNewStopAirport({
+    required String description,
+  }) = _AddNewStopAirport;
+
+  const factory AddEditFlightEvent.selectedAirportStop({
+    required Airport airport,
+  }) = _SelectedAirportStop;
+
+  const factory AddEditFlightEvent.selectedTimeStop({
+    required DateTime time,
+  }) = _SelectedTimeStop;
+
   const factory AddEditFlightEvent.changeTicInformationView({
     required int newIndex,
   }) = _ChangeTicInformationView;

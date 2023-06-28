@@ -15,6 +15,7 @@ import '../../../core/components/enum/tic_type_enum.dart';
 import '../../../core/constant/constant.dart';
 import '../../../data/models/model_helper.dart';
 import '../../../domain/entities/airport/airport.dart';
+import '../../../domain/entities/airport/stop_airport.dart';
 import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../domain/entities/ticket/ticket_information_id.dart';
 import '../../../domain/usecase/airline_usecase.dart';
@@ -52,6 +53,7 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
             data: AddEditFlightModelState(
               timeEnd: DateTime.now(),
               timeStart: DateTime.now(),
+              timeStopSelected: DateTime.now(),
               listTicInformation: [
                 TicTypeEnum.businessClass,
                 TicTypeEnum.economyClass,
@@ -74,6 +76,7 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
               headerText: S.current.addNewFlight,
               listAirline: <Airline>[],
               listAirport: <Airport>[],
+              stopAirport: <StopAirport>[],
             ),
           ),
         ) {
@@ -91,6 +94,13 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
     on<_AddTicInformation>(_onAddTicInformation);
     on<_UpdateTicInformation>(_onUpdateTicInformation);
     on<_ChangeTicInformationView>(_onChangeTicInformationView);
+
+    on<_AddNewStopAirport>(_onAddNewStopAirport);
+    on<_SelectedStopAirport>(_onSelectStopAirport);
+    on<_RemoveStopAirport>(_onRemoveStopAirport);
+
+    on<_SelectedAirportStop>(_onSelectedAirportStop);
+    on<_SelectedTimeStop>(_onSelectedTimeStop);
   }
 
   bool get _isDataNull =>
@@ -170,6 +180,7 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
           listAirport: result,
           airportStart: airport,
           airportEnd: airport,
+          airportStopSelected: airport,
         ),
       ));
     } on AppException catch (e) {
@@ -241,6 +252,7 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
         timeStart: data.timeStart,
         timeEnd: data.timeEnd,
         airline: data.airline!,
+        stopAirports: data.stopAirport,
       );
       final edit = await _flightsUsecase.editFlight(newFlight, _flightId);
       if (edit == null) {
@@ -292,6 +304,7 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
         timeStart: data.timeStart,
         timeEnd: data.timeEnd,
         airline: data.airline!,
+        stopAirports: data.stopAirport,
       );
       final add = await _flightsUsecase.addNewFlight(newFlight);
       if (add == null) {
@@ -348,6 +361,10 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
           headerText: S.current.editFlight,
           airportStart: result.departureAirport,
           airportEnd: result.arrivalAirport,
+          stopAirport: result.stopAirports,
+          timeStopSelected: result.stopAirports.isNotEmpty
+              ? result.stopAirports.first.stopTime
+              : DateTime.now(),
         ),
       ));
     } on AppException catch (e) {
@@ -437,5 +454,92 @@ class AddEditFlightBloc extends Bloc<AddEditFlightEvent, AddEditFlightState> {
         message: e.toString(),
       ));
     }
+  }
+
+  FutureOr<void> _onSelectStopAirport(
+    _SelectedStopAirport event,
+    Emitter<AddEditFlightState> emit,
+  ) {
+    emit(_SelectedStopAirportSuccess(
+      data: data.copyWith(
+        timeStopSelected: event.stopAirport.stopTime,
+        airportStopSelected: event.stopAirport.airport,
+      ),
+      description: event.stopAirport.description,
+    ));
+  }
+
+  FutureOr<void> _onRemoveStopAirport(
+    _RemoveStopAirport event,
+    Emitter<AddEditFlightState> emit,
+  ) {
+    emit(_RemoveStopAirportSuccess(
+      data: data.copyWith(
+        stopAirport: data.stopAirport
+            .where(
+                (element) => element.airport.id != event.stopAirport.airport.id)
+            .toList(),
+      ),
+    ));
+  }
+
+  FutureOr<void> _onAddNewStopAirport(
+      _AddNewStopAirport event, Emitter<AddEditFlightState> emit) {
+    final timeStart = data.stopAirport.isEmpty
+        ? data.timeStart
+        : data.stopAirport.last.stopTime;
+    final timeFinish = data.timeEnd;
+    if (timeStart.isBefore(data.timeStopSelected) &&
+        timeFinish.isAfter(data.timeStopSelected)) {
+      if ([
+            data.airportStart,
+            ...data.stopAirport.map((e) => e.airport).toList(),
+            data.airportEnd
+          ].contains(data.airportStopSelected) ||
+          data.airportStopSelected == null) {
+        emit(_AddNewFlightFailed(
+          data: data,
+          message: 'Airport is exists in list',
+        ));
+      } else {
+        emit(_AddNewStopAirportSuccess(
+          data: data.copyWith(stopAirport: [
+            ...data.stopAirport,
+            StopAirport(
+              airport: data.airportStopSelected ?? ModelHelper.defaultAirport,
+              stopTime: data.timeStopSelected,
+              description: event.description,
+            )
+          ]),
+        ));
+      }
+    } else {
+      emit(_AddNewFlightFailed(
+        data: data,
+        message: 'Time must be in between time start and time end of flight',
+      ));
+    }
+  }
+
+  FutureOr<void> _onSelectedAirportStop(
+    _SelectedAirportStop event,
+    Emitter<AddEditFlightState> emit,
+  ) {
+    emit(_SelectedAirportStopSuccess(
+      data: data.copyWith(
+        airportStopSelected: event.airport,
+      ),
+    ));
+  }
+
+  FutureOr<void> _onSelectedTimeStop(
+    _SelectedTimeStop event,
+    Emitter<AddEditFlightState> emit,
+  ) {
+    emit(_SelectedTimeStopSuccess(
+      data: data.copyWith(
+        timeStopSelected: event.time,
+      ),
+    ));
   }
 }

@@ -12,5 +12,6 @@ class Airport with _$Airport {
     required String description,
     required TimeOfDay openTime,
     required TimeOfDay closeTime,
+    required String code,
   }) = _Airport;
 }

@@ -23,6 +23,7 @@ mixin _$Airport {
   String get description => throw _privateConstructorUsedError;
   TimeOfDay get openTime => throw _privateConstructorUsedError;
   TimeOfDay get closeTime => throw _privateConstructorUsedError;
+  String get code => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AirportCopyWith<Airport> get copyWith => throw _privateConstructorUsedError;
@@ -40,7 +41,8 @@ abstract class $AirportCopyWith<$Res> {
       String location,
       String description,
       TimeOfDay openTime,
-      TimeOfDay closeTime});
+      TimeOfDay closeTime,
+      String code});
 }
 
 /// @nodoc
@@ -63,6 +65,7 @@ class _$AirportCopyWithImpl<$Res, $Val extends Airport>
     Object? description = null,
     Object? openTime = null,
     Object? closeTime = null,
+    Object? code = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -93,6 +96,10 @@ class _$AirportCopyWithImpl<$Res, $Val extends Airport>
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
+      code: null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -111,7 +118,8 @@ abstract class _$$_AirportCopyWith<$Res> implements $AirportCopyWith<$Res> {
       String location,
       String description,
       TimeOfDay openTime,
-      TimeOfDay closeTime});
+      TimeOfDay closeTime,
+      String code});
 }
 
 /// @nodoc
@@ -131,6 +139,7 @@ class __$$_AirportCopyWithImpl<$Res>
     Object? description = null,
     Object? openTime = null,
     Object? closeTime = null,
+    Object? code = null,
   }) {
     return _then(_$_Airport(
       id: null == id
@@ -161,6 +170,10 @@ class __$$_AirportCopyWithImpl<$Res>
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
+      code: null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -175,7 +188,8 @@ class _$_Airport implements _Airport {
       required this.location,
       required this.description,
       required this.openTime,
-      required this.closeTime});
+      required this.closeTime,
+      required this.code});
 
   @override
   final int id;
@@ -191,10 +205,12 @@ class _$_Airport implements _Airport {
   final TimeOfDay openTime;
   @override
   final TimeOfDay closeTime;
+  @override
+  final String code;
 
   @override
   String toString() {
-    return 'Airport(id: $id, name: $name, image: $image, location: $location, description: $description, openTime: $openTime, closeTime: $closeTime)';
+    return 'Airport(id: $id, name: $name, image: $image, location: $location, description: $description, openTime: $openTime, closeTime: $closeTime, code: $code)';
   }
 
   @override
@@ -212,12 +228,13 @@ class _$_Airport implements _Airport {
             (identical(other.openTime, openTime) ||
                 other.openTime == openTime) &&
             (identical(other.closeTime, closeTime) ||
-                other.closeTime == closeTime));
+                other.closeTime == closeTime) &&
+            (identical(other.code, code) || other.code == code));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, image, location, description, openTime, closeTime);
+  int get hashCode => Object.hash(runtimeType, id, name, image, location,
+      description, openTime, closeTime, code);
 
   @JsonKey(ignore: true)
   @override
@@ -234,7 +251,8 @@ abstract class _Airport implements Airport {
       required final String location,
       required final String description,
       required final TimeOfDay openTime,
-      required final TimeOfDay closeTime}) = _$_Airport;
+      required final TimeOfDay closeTime,
+      required final String code}) = _$_Airport;
 
   @override
   int get id;
@@ -250,6 +268,8 @@ abstract class _Airport implements Airport {
   TimeOfDay get openTime;
   @override
   TimeOfDay get closeTime;
+  @override
+  String get code;
   @override
   @JsonKey(ignore: true)
   _$$_AirportCopyWith<_$_Airport> get copyWith =>

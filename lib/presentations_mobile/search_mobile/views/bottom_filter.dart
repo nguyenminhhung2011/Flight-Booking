@@ -201,7 +201,8 @@ List<Airport> filterAirport = <Airport>[
         location: '',
         description: '',
         openTime: const TimeOfDay(hour: 5, minute: 0),
-        closeTime: const TimeOfDay(hour: 5, minute: 0)),
+        closeTime: const TimeOfDay(hour: 5, minute: 0),
+        code: 'BAS'),
 ];
 
 class SearchMobileController extends ChangeNotifier {

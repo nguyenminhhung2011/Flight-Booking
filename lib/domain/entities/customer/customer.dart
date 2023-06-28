@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'customer.freezed.dart';

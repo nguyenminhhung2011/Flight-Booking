@@ -22,6 +22,7 @@ mixin _$Flight {
   DateTime get timeStart => throw _privateConstructorUsedError;
   DateTime get timeEnd => throw _privateConstructorUsedError;
   Airline get airline => throw _privateConstructorUsedError;
+  List<StopAirport> get stopAirports => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FlightCopyWith<Flight> get copyWith => throw _privateConstructorUsedError;
@@ -38,7 +39,8 @@ abstract class $FlightCopyWith<$Res> {
       Airport departureAirport,
       DateTime timeStart,
       DateTime timeEnd,
-      Airline airline});
+      Airline airline,
+      List<StopAirport> stopAirports});
 
   $AirportCopyWith<$Res> get arrivalAirport;
   $AirportCopyWith<$Res> get departureAirport;
@@ -64,6 +66,7 @@ class _$FlightCopyWithImpl<$Res, $Val extends Flight>
     Object? timeStart = null,
     Object? timeEnd = null,
     Object? airline = null,
+    Object? stopAirports = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -90,6 +93,10 @@ class _$FlightCopyWithImpl<$Res, $Val extends Flight>
           ? _value.airline
           : airline // ignore: cast_nullable_to_non_nullable
               as Airline,
+      stopAirports: null == stopAirports
+          ? _value.stopAirports
+          : stopAirports // ignore: cast_nullable_to_non_nullable
+              as List<StopAirport>,
     ) as $Val);
   }
 
@@ -130,7 +137,8 @@ abstract class _$$_FlightCopyWith<$Res> implements $FlightCopyWith<$Res> {
       Airport departureAirport,
       DateTime timeStart,
       DateTime timeEnd,
-      Airline airline});
+      Airline airline,
+      List<StopAirport> stopAirports});
 
   @override
   $AirportCopyWith<$Res> get arrivalAirport;
@@ -156,6 +164,7 @@ class __$$_FlightCopyWithImpl<$Res>
     Object? timeStart = null,
     Object? timeEnd = null,
     Object? airline = null,
+    Object? stopAirports = null,
   }) {
     return _then(_$_Flight(
       id: null == id
@@ -182,6 +191,10 @@ class __$$_FlightCopyWithImpl<$Res>
           ? _value.airline
           : airline // ignore: cast_nullable_to_non_nullable
               as Airline,
+      stopAirports: null == stopAirports
+          ? _value._stopAirports
+          : stopAirports // ignore: cast_nullable_to_non_nullable
+              as List<StopAirport>,
     ));
   }
 }
@@ -195,7 +208,9 @@ class _$_Flight implements _Flight {
       required this.departureAirport,
       required this.timeStart,
       required this.timeEnd,
-      required this.airline});
+      required this.airline,
+      final List<StopAirport> stopAirports = const <StopAirport>[]})
+      : _stopAirports = stopAirports;
 
   @override
   final int id;
@@ -209,10 +224,18 @@ class _$_Flight implements _Flight {
   final DateTime timeEnd;
   @override
   final Airline airline;
+  final List<StopAirport> _stopAirports;
+  @override
+  @JsonKey()
+  List<StopAirport> get stopAirports {
+    if (_stopAirports is EqualUnmodifiableListView) return _stopAirports;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_stopAirports);
+  }
 
   @override
   String toString() {
-    return 'Flight(id: $id, arrivalAirport: $arrivalAirport, departureAirport: $departureAirport, timeStart: $timeStart, timeEnd: $timeEnd, airline: $airline)';
+    return 'Flight(id: $id, arrivalAirport: $arrivalAirport, departureAirport: $departureAirport, timeStart: $timeStart, timeEnd: $timeEnd, airline: $airline, stopAirports: $stopAirports)';
   }
 
   @override
@@ -228,12 +251,21 @@ class _$_Flight implements _Flight {
             (identical(other.timeStart, timeStart) ||
                 other.timeStart == timeStart) &&
             (identical(other.timeEnd, timeEnd) || other.timeEnd == timeEnd) &&
-            (identical(other.airline, airline) || other.airline == airline));
+            (identical(other.airline, airline) || other.airline == airline) &&
+            const DeepCollectionEquality()
+                .equals(other._stopAirports, _stopAirports));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, arrivalAirport,
-      departureAirport, timeStart, timeEnd, airline);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      arrivalAirport,
+      departureAirport,
+      timeStart,
+      timeEnd,
+      airline,
+      const DeepCollectionEquality().hash(_stopAirports));
 
   @JsonKey(ignore: true)
   @override
@@ -249,7 +281,8 @@ abstract class _Flight implements Flight {
       required final Airport departureAirport,
       required final DateTime timeStart,
       required final DateTime timeEnd,
-      required final Airline airline}) = _$_Flight;
+      required final Airline airline,
+      final List<StopAirport> stopAirports}) = _$_Flight;
 
   @override
   int get id;
@@ -263,6 +296,8 @@ abstract class _Flight implements Flight {
   DateTime get timeEnd;
   @override
   Airline get airline;
+  @override
+  List<StopAirport> get stopAirports;
   @override
   @JsonKey(ignore: true)
   _$$_FlightCopyWith<_$_Flight> get copyWith =>

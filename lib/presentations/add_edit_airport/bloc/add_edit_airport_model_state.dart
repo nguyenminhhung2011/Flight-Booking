@@ -12,6 +12,7 @@ class AddEditAirportModelState with _$AddEditAirportModelState {
     required TextEditingController name,
     required TextEditingController location,
     required TextEditingController description,
+    required TextEditingController code,
     required TimeOfDay startTime,
     required TimeOfDay closeTime,
     required String headerText,

@@ -35,6 +35,11 @@ mixin _$AddEditFlightEvent {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +61,11 @@ mixin _$AddEditFlightEvent {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) =>
       throw _privateConstructorUsedError;
@@ -76,6 +86,11 @@ mixin _$AddEditFlightEvent {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) =>
@@ -95,6 +110,11 @@ mixin _$AddEditFlightEvent {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) =>
@@ -114,6 +134,11 @@ mixin _$AddEditFlightEvent {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) =>
@@ -133,6 +158,11 @@ mixin _$AddEditFlightEvent {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) =>
@@ -211,6 +241,11 @@ class _$_Started implements _Started {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return onStarted();
@@ -235,6 +270,11 @@ class _$_Started implements _Started {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return onStarted?.call();
@@ -258,6 +298,11 @@ class _$_Started implements _Started {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -283,6 +328,11 @@ class _$_Started implements _Started {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -305,6 +355,11 @@ class _$_Started implements _Started {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -327,6 +382,11 @@ class _$_Started implements _Started {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -395,6 +455,11 @@ class _$_Dispose implements _Dispose {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return dispose();
@@ -419,6 +484,11 @@ class _$_Dispose implements _Dispose {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return dispose?.call();
@@ -442,6 +512,11 @@ class _$_Dispose implements _Dispose {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -467,6 +542,11 @@ class _$_Dispose implements _Dispose {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -489,6 +569,11 @@ class _$_Dispose implements _Dispose {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -511,6 +596,11 @@ class _$_Dispose implements _Dispose {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -606,6 +696,11 @@ class _$_EditFlight implements _EditFlight {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return editFlight(id);
@@ -630,6 +725,11 @@ class _$_EditFlight implements _EditFlight {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return editFlight?.call(id);
@@ -653,6 +753,11 @@ class _$_EditFlight implements _EditFlight {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -678,6 +783,11 @@ class _$_EditFlight implements _EditFlight {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -700,6 +810,11 @@ class _$_EditFlight implements _EditFlight {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -722,6 +837,11 @@ class _$_EditFlight implements _EditFlight {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -796,6 +916,11 @@ class _$_AddNewFlight implements _AddNewFlight {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return addNewFlight();
@@ -820,6 +945,11 @@ class _$_AddNewFlight implements _AddNewFlight {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return addNewFlight?.call();
@@ -843,6 +973,11 @@ class _$_AddNewFlight implements _AddNewFlight {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -868,6 +1003,11 @@ class _$_AddNewFlight implements _AddNewFlight {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -890,6 +1030,11 @@ class _$_AddNewFlight implements _AddNewFlight {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -912,6 +1057,11 @@ class _$_AddNewFlight implements _AddNewFlight {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -1018,6 +1168,11 @@ class _$_AddTicInformation implements _AddTicInformation {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return addTicInformation(flight);
@@ -1042,6 +1197,11 @@ class _$_AddTicInformation implements _AddTicInformation {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return addTicInformation?.call(flight);
@@ -1065,6 +1225,11 @@ class _$_AddTicInformation implements _AddTicInformation {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -1090,6 +1255,11 @@ class _$_AddTicInformation implements _AddTicInformation {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -1112,6 +1282,11 @@ class _$_AddTicInformation implements _AddTicInformation {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -1134,6 +1309,11 @@ class _$_AddTicInformation implements _AddTicInformation {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -1245,6 +1425,11 @@ class _$_UpdateDateField implements _UpdateDateField {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return updateDateField(dateTime, enumTime);
@@ -1269,6 +1454,11 @@ class _$_UpdateDateField implements _UpdateDateField {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return updateDateField?.call(dateTime, enumTime);
@@ -1292,6 +1482,11 @@ class _$_UpdateDateField implements _UpdateDateField {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -1317,6 +1512,11 @@ class _$_UpdateDateField implements _UpdateDateField {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -1339,6 +1539,11 @@ class _$_UpdateDateField implements _UpdateDateField {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -1361,6 +1566,11 @@ class _$_UpdateDateField implements _UpdateDateField {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -1438,6 +1648,11 @@ class _$_FetchAllAirports implements _FetchAllAirports {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return fetchAllAirports();
@@ -1462,6 +1677,11 @@ class _$_FetchAllAirports implements _FetchAllAirports {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return fetchAllAirports?.call();
@@ -1485,6 +1705,11 @@ class _$_FetchAllAirports implements _FetchAllAirports {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -1510,6 +1735,11 @@ class _$_FetchAllAirports implements _FetchAllAirports {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -1532,6 +1762,11 @@ class _$_FetchAllAirports implements _FetchAllAirports {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -1554,6 +1789,11 @@ class _$_FetchAllAirports implements _FetchAllAirports {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -1623,6 +1863,11 @@ class _$_FetchAllAirlines implements _FetchAllAirlines {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return fetchAllAirlines();
@@ -1647,6 +1892,11 @@ class _$_FetchAllAirlines implements _FetchAllAirlines {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return fetchAllAirlines?.call();
@@ -1670,6 +1920,11 @@ class _$_FetchAllAirlines implements _FetchAllAirlines {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -1695,6 +1950,11 @@ class _$_FetchAllAirlines implements _FetchAllAirlines {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -1717,6 +1977,11 @@ class _$_FetchAllAirlines implements _FetchAllAirlines {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -1739,6 +2004,11 @@ class _$_FetchAllAirlines implements _FetchAllAirlines {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -1854,6 +2124,11 @@ class _$_SelectedAirport implements _SelectedAirport {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return selectedAirport(airport, isStartAirport);
@@ -1878,6 +2153,11 @@ class _$_SelectedAirport implements _SelectedAirport {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return selectedAirport?.call(airport, isStartAirport);
@@ -1901,6 +2181,11 @@ class _$_SelectedAirport implements _SelectedAirport {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -1926,6 +2211,11 @@ class _$_SelectedAirport implements _SelectedAirport {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -1948,6 +2238,11 @@ class _$_SelectedAirport implements _SelectedAirport {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -1970,6 +2265,11 @@ class _$_SelectedAirport implements _SelectedAirport {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -2047,6 +2347,11 @@ class _$_ButtonTap implements _ButtonTap {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return buttonTap();
@@ -2071,6 +2376,11 @@ class _$_ButtonTap implements _ButtonTap {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return buttonTap?.call();
@@ -2094,6 +2404,11 @@ class _$_ButtonTap implements _ButtonTap {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -2119,6 +2434,11 @@ class _$_ButtonTap implements _ButtonTap {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -2141,6 +2461,11 @@ class _$_ButtonTap implements _ButtonTap {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -2163,6 +2488,11 @@ class _$_ButtonTap implements _ButtonTap {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -2268,6 +2598,11 @@ class _$_SelectedAirline implements _SelectedAirline {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return selectedAirline(airline);
@@ -2292,6 +2627,11 @@ class _$_SelectedAirline implements _SelectedAirline {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return selectedAirline?.call(airline);
@@ -2315,6 +2655,11 @@ class _$_SelectedAirline implements _SelectedAirline {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -2340,6 +2685,11 @@ class _$_SelectedAirline implements _SelectedAirline {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -2362,6 +2712,11 @@ class _$_SelectedAirline implements _SelectedAirline {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -2384,6 +2739,11 @@ class _$_SelectedAirline implements _SelectedAirline {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -2485,6 +2845,11 @@ class _$_GetFlightById implements _GetFlightById {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return getFlightById(id);
@@ -2509,6 +2874,11 @@ class _$_GetFlightById implements _GetFlightById {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return getFlightById?.call(id);
@@ -2532,6 +2902,11 @@ class _$_GetFlightById implements _GetFlightById {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -2557,6 +2932,11 @@ class _$_GetFlightById implements _GetFlightById {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -2579,6 +2959,11 @@ class _$_GetFlightById implements _GetFlightById {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -2601,6 +2986,11 @@ class _$_GetFlightById implements _GetFlightById {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -2735,6 +3125,11 @@ class _$_UpdateTicInformation implements _UpdateTicInformation {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return updateTicInformation(
@@ -2760,6 +3155,11 @@ class _$_UpdateTicInformation implements _UpdateTicInformation {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return updateTicInformation?.call(
@@ -2784,6 +3184,11 @@ class _$_UpdateTicInformation implements _UpdateTicInformation {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -2810,6 +3215,11 @@ class _$_UpdateTicInformation implements _UpdateTicInformation {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -2832,6 +3242,11 @@ class _$_UpdateTicInformation implements _UpdateTicInformation {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -2854,6 +3269,11 @@ class _$_UpdateTicInformation implements _UpdateTicInformation {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -2877,6 +3297,1278 @@ abstract class _UpdateTicInformation implements AddEditFlightEvent {
   int? get newSeatPosition;
   @JsonKey(ignore: true)
   _$$_UpdateTicInformationCopyWith<_$_UpdateTicInformation> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedStopAirportCopyWith<$Res> {
+  factory _$$_SelectedStopAirportCopyWith(_$_SelectedStopAirport value,
+          $Res Function(_$_SelectedStopAirport) then) =
+      __$$_SelectedStopAirportCopyWithImpl<$Res>;
+  @useResult
+  $Res call({StopAirport stopAirport});
+
+  $StopAirportCopyWith<$Res> get stopAirport;
+}
+
+/// @nodoc
+class __$$_SelectedStopAirportCopyWithImpl<$Res>
+    extends _$AddEditFlightEventCopyWithImpl<$Res, _$_SelectedStopAirport>
+    implements _$$_SelectedStopAirportCopyWith<$Res> {
+  __$$_SelectedStopAirportCopyWithImpl(_$_SelectedStopAirport _value,
+      $Res Function(_$_SelectedStopAirport) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? stopAirport = null,
+  }) {
+    return _then(_$_SelectedStopAirport(
+      stopAirport: null == stopAirport
+          ? _value.stopAirport
+          : stopAirport // ignore: cast_nullable_to_non_nullable
+              as StopAirport,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StopAirportCopyWith<$Res> get stopAirport {
+    return $StopAirportCopyWith<$Res>(_value.stopAirport, (value) {
+      return _then(_value.copyWith(stopAirport: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedStopAirport implements _SelectedStopAirport {
+  const _$_SelectedStopAirport({required this.stopAirport});
+
+  @override
+  final StopAirport stopAirport;
+
+  @override
+  String toString() {
+    return 'AddEditFlightEvent.selectedStopAirport(stopAirport: $stopAirport)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedStopAirport &&
+            (identical(other.stopAirport, stopAirport) ||
+                other.stopAirport == stopAirport));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, stopAirport);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedStopAirportCopyWith<_$_SelectedStopAirport> get copyWith =>
+      __$$_SelectedStopAirportCopyWithImpl<_$_SelectedStopAirport>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() dispose,
+    required TResult Function(String id) editFlight,
+    required TResult Function() addNewFlight,
+    required TResult Function(Flight flight) addTicInformation,
+    required TResult Function(DateTime dateTime, DateTimeEnum enumTime)
+        updateDateField,
+    required TResult Function() fetchAllAirports,
+    required TResult Function() fetchAllAirlines,
+    required TResult Function(Airport airport, bool isStartAirport)
+        selectedAirport,
+    required TResult Function() buttonTap,
+    required TResult Function(Airline airline) selectedAirline,
+    required TResult Function(String id) getFlightById,
+    required TResult Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)
+        updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
+    required TResult Function(int newIndex) changeTicInformationView,
+  }) {
+    return selectedStopAirport(stopAirport);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? dispose,
+    TResult? Function(String id)? editFlight,
+    TResult? Function()? addNewFlight,
+    TResult? Function(Flight flight)? addTicInformation,
+    TResult? Function(DateTime dateTime, DateTimeEnum enumTime)?
+        updateDateField,
+    TResult? Function()? fetchAllAirports,
+    TResult? Function()? fetchAllAirlines,
+    TResult? Function(Airport airport, bool isStartAirport)? selectedAirport,
+    TResult? Function()? buttonTap,
+    TResult? Function(Airline airline)? selectedAirline,
+    TResult? Function(String id)? getFlightById,
+    TResult? Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)?
+        updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
+    TResult? Function(int newIndex)? changeTicInformationView,
+  }) {
+    return selectedStopAirport?.call(stopAirport);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? dispose,
+    TResult Function(String id)? editFlight,
+    TResult Function()? addNewFlight,
+    TResult Function(Flight flight)? addTicInformation,
+    TResult Function(DateTime dateTime, DateTimeEnum enumTime)? updateDateField,
+    TResult Function()? fetchAllAirports,
+    TResult Function()? fetchAllAirlines,
+    TResult Function(Airport airport, bool isStartAirport)? selectedAirport,
+    TResult Function()? buttonTap,
+    TResult Function(Airline airline)? selectedAirline,
+    TResult Function(String id)? getFlightById,
+    TResult Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)?
+        updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
+    TResult Function(int newIndex)? changeTicInformationView,
+    required TResult orElse(),
+  }) {
+    if (selectedStopAirport != null) {
+      return selectedStopAirport(stopAirport);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
+    required TResult Function(_EditFlight value) editFlight,
+    required TResult Function(_AddNewFlight value) addNewFlight,
+    required TResult Function(_AddTicInformation value) addTicInformation,
+    required TResult Function(_UpdateDateField value) updateDateField,
+    required TResult Function(_FetchAllAirports value) fetchAllAirports,
+    required TResult Function(_FetchAllAirlines value) fetchAllAirlines,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_SelectedAirline value) selectedAirline,
+    required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
+    required TResult Function(_ChangeTicInformationView value)
+        changeTicInformationView,
+  }) {
+    return selectedStopAirport(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
+    TResult? Function(_EditFlight value)? editFlight,
+    TResult? Function(_AddNewFlight value)? addNewFlight,
+    TResult? Function(_AddTicInformation value)? addTicInformation,
+    TResult? Function(_UpdateDateField value)? updateDateField,
+    TResult? Function(_FetchAllAirports value)? fetchAllAirports,
+    TResult? Function(_FetchAllAirlines value)? fetchAllAirlines,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_SelectedAirline value)? selectedAirline,
+    TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
+    TResult? Function(_ChangeTicInformationView value)?
+        changeTicInformationView,
+  }) {
+    return selectedStopAirport?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
+    TResult Function(_EditFlight value)? editFlight,
+    TResult Function(_AddNewFlight value)? addNewFlight,
+    TResult Function(_AddTicInformation value)? addTicInformation,
+    TResult Function(_UpdateDateField value)? updateDateField,
+    TResult Function(_FetchAllAirports value)? fetchAllAirports,
+    TResult Function(_FetchAllAirlines value)? fetchAllAirlines,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_SelectedAirline value)? selectedAirline,
+    TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
+    TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
+    required TResult orElse(),
+  }) {
+    if (selectedStopAirport != null) {
+      return selectedStopAirport(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedStopAirport implements AddEditFlightEvent {
+  const factory _SelectedStopAirport({required final StopAirport stopAirport}) =
+      _$_SelectedStopAirport;
+
+  StopAirport get stopAirport;
+  @JsonKey(ignore: true)
+  _$$_SelectedStopAirportCopyWith<_$_SelectedStopAirport> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RemoveStopAirportCopyWith<$Res> {
+  factory _$$_RemoveStopAirportCopyWith(_$_RemoveStopAirport value,
+          $Res Function(_$_RemoveStopAirport) then) =
+      __$$_RemoveStopAirportCopyWithImpl<$Res>;
+  @useResult
+  $Res call({StopAirport stopAirport});
+
+  $StopAirportCopyWith<$Res> get stopAirport;
+}
+
+/// @nodoc
+class __$$_RemoveStopAirportCopyWithImpl<$Res>
+    extends _$AddEditFlightEventCopyWithImpl<$Res, _$_RemoveStopAirport>
+    implements _$$_RemoveStopAirportCopyWith<$Res> {
+  __$$_RemoveStopAirportCopyWithImpl(
+      _$_RemoveStopAirport _value, $Res Function(_$_RemoveStopAirport) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? stopAirport = null,
+  }) {
+    return _then(_$_RemoveStopAirport(
+      stopAirport: null == stopAirport
+          ? _value.stopAirport
+          : stopAirport // ignore: cast_nullable_to_non_nullable
+              as StopAirport,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StopAirportCopyWith<$Res> get stopAirport {
+    return $StopAirportCopyWith<$Res>(_value.stopAirport, (value) {
+      return _then(_value.copyWith(stopAirport: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_RemoveStopAirport implements _RemoveStopAirport {
+  const _$_RemoveStopAirport({required this.stopAirport});
+
+  @override
+  final StopAirport stopAirport;
+
+  @override
+  String toString() {
+    return 'AddEditFlightEvent.removeStopAirport(stopAirport: $stopAirport)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RemoveStopAirport &&
+            (identical(other.stopAirport, stopAirport) ||
+                other.stopAirport == stopAirport));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, stopAirport);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RemoveStopAirportCopyWith<_$_RemoveStopAirport> get copyWith =>
+      __$$_RemoveStopAirportCopyWithImpl<_$_RemoveStopAirport>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() dispose,
+    required TResult Function(String id) editFlight,
+    required TResult Function() addNewFlight,
+    required TResult Function(Flight flight) addTicInformation,
+    required TResult Function(DateTime dateTime, DateTimeEnum enumTime)
+        updateDateField,
+    required TResult Function() fetchAllAirports,
+    required TResult Function() fetchAllAirlines,
+    required TResult Function(Airport airport, bool isStartAirport)
+        selectedAirport,
+    required TResult Function() buttonTap,
+    required TResult Function(Airline airline) selectedAirline,
+    required TResult Function(String id) getFlightById,
+    required TResult Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)
+        updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
+    required TResult Function(int newIndex) changeTicInformationView,
+  }) {
+    return removeStopAirport(stopAirport);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? dispose,
+    TResult? Function(String id)? editFlight,
+    TResult? Function()? addNewFlight,
+    TResult? Function(Flight flight)? addTicInformation,
+    TResult? Function(DateTime dateTime, DateTimeEnum enumTime)?
+        updateDateField,
+    TResult? Function()? fetchAllAirports,
+    TResult? Function()? fetchAllAirlines,
+    TResult? Function(Airport airport, bool isStartAirport)? selectedAirport,
+    TResult? Function()? buttonTap,
+    TResult? Function(Airline airline)? selectedAirline,
+    TResult? Function(String id)? getFlightById,
+    TResult? Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)?
+        updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
+    TResult? Function(int newIndex)? changeTicInformationView,
+  }) {
+    return removeStopAirport?.call(stopAirport);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? dispose,
+    TResult Function(String id)? editFlight,
+    TResult Function()? addNewFlight,
+    TResult Function(Flight flight)? addTicInformation,
+    TResult Function(DateTime dateTime, DateTimeEnum enumTime)? updateDateField,
+    TResult Function()? fetchAllAirports,
+    TResult Function()? fetchAllAirlines,
+    TResult Function(Airport airport, bool isStartAirport)? selectedAirport,
+    TResult Function()? buttonTap,
+    TResult Function(Airline airline)? selectedAirline,
+    TResult Function(String id)? getFlightById,
+    TResult Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)?
+        updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
+    TResult Function(int newIndex)? changeTicInformationView,
+    required TResult orElse(),
+  }) {
+    if (removeStopAirport != null) {
+      return removeStopAirport(stopAirport);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
+    required TResult Function(_EditFlight value) editFlight,
+    required TResult Function(_AddNewFlight value) addNewFlight,
+    required TResult Function(_AddTicInformation value) addTicInformation,
+    required TResult Function(_UpdateDateField value) updateDateField,
+    required TResult Function(_FetchAllAirports value) fetchAllAirports,
+    required TResult Function(_FetchAllAirlines value) fetchAllAirlines,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_SelectedAirline value) selectedAirline,
+    required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
+    required TResult Function(_ChangeTicInformationView value)
+        changeTicInformationView,
+  }) {
+    return removeStopAirport(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
+    TResult? Function(_EditFlight value)? editFlight,
+    TResult? Function(_AddNewFlight value)? addNewFlight,
+    TResult? Function(_AddTicInformation value)? addTicInformation,
+    TResult? Function(_UpdateDateField value)? updateDateField,
+    TResult? Function(_FetchAllAirports value)? fetchAllAirports,
+    TResult? Function(_FetchAllAirlines value)? fetchAllAirlines,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_SelectedAirline value)? selectedAirline,
+    TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
+    TResult? Function(_ChangeTicInformationView value)?
+        changeTicInformationView,
+  }) {
+    return removeStopAirport?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
+    TResult Function(_EditFlight value)? editFlight,
+    TResult Function(_AddNewFlight value)? addNewFlight,
+    TResult Function(_AddTicInformation value)? addTicInformation,
+    TResult Function(_UpdateDateField value)? updateDateField,
+    TResult Function(_FetchAllAirports value)? fetchAllAirports,
+    TResult Function(_FetchAllAirlines value)? fetchAllAirlines,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_SelectedAirline value)? selectedAirline,
+    TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
+    TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
+    required TResult orElse(),
+  }) {
+    if (removeStopAirport != null) {
+      return removeStopAirport(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveStopAirport implements AddEditFlightEvent {
+  const factory _RemoveStopAirport({required final StopAirport stopAirport}) =
+      _$_RemoveStopAirport;
+
+  StopAirport get stopAirport;
+  @JsonKey(ignore: true)
+  _$$_RemoveStopAirportCopyWith<_$_RemoveStopAirport> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddNewStopAirportCopyWith<$Res> {
+  factory _$$_AddNewStopAirportCopyWith(_$_AddNewStopAirport value,
+          $Res Function(_$_AddNewStopAirport) then) =
+      __$$_AddNewStopAirportCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String description});
+}
+
+/// @nodoc
+class __$$_AddNewStopAirportCopyWithImpl<$Res>
+    extends _$AddEditFlightEventCopyWithImpl<$Res, _$_AddNewStopAirport>
+    implements _$$_AddNewStopAirportCopyWith<$Res> {
+  __$$_AddNewStopAirportCopyWithImpl(
+      _$_AddNewStopAirport _value, $Res Function(_$_AddNewStopAirport) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? description = null,
+  }) {
+    return _then(_$_AddNewStopAirport(
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddNewStopAirport implements _AddNewStopAirport {
+  const _$_AddNewStopAirport({required this.description});
+
+  @override
+  final String description;
+
+  @override
+  String toString() {
+    return 'AddEditFlightEvent.addNewStopAirport(description: $description)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddNewStopAirport &&
+            (identical(other.description, description) ||
+                other.description == description));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, description);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddNewStopAirportCopyWith<_$_AddNewStopAirport> get copyWith =>
+      __$$_AddNewStopAirportCopyWithImpl<_$_AddNewStopAirport>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() dispose,
+    required TResult Function(String id) editFlight,
+    required TResult Function() addNewFlight,
+    required TResult Function(Flight flight) addTicInformation,
+    required TResult Function(DateTime dateTime, DateTimeEnum enumTime)
+        updateDateField,
+    required TResult Function() fetchAllAirports,
+    required TResult Function() fetchAllAirlines,
+    required TResult Function(Airport airport, bool isStartAirport)
+        selectedAirport,
+    required TResult Function() buttonTap,
+    required TResult Function(Airline airline) selectedAirline,
+    required TResult Function(String id) getFlightById,
+    required TResult Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)
+        updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
+    required TResult Function(int newIndex) changeTicInformationView,
+  }) {
+    return addNewStopAirport(description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? dispose,
+    TResult? Function(String id)? editFlight,
+    TResult? Function()? addNewFlight,
+    TResult? Function(Flight flight)? addTicInformation,
+    TResult? Function(DateTime dateTime, DateTimeEnum enumTime)?
+        updateDateField,
+    TResult? Function()? fetchAllAirports,
+    TResult? Function()? fetchAllAirlines,
+    TResult? Function(Airport airport, bool isStartAirport)? selectedAirport,
+    TResult? Function()? buttonTap,
+    TResult? Function(Airline airline)? selectedAirline,
+    TResult? Function(String id)? getFlightById,
+    TResult? Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)?
+        updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
+    TResult? Function(int newIndex)? changeTicInformationView,
+  }) {
+    return addNewStopAirport?.call(description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? dispose,
+    TResult Function(String id)? editFlight,
+    TResult Function()? addNewFlight,
+    TResult Function(Flight flight)? addTicInformation,
+    TResult Function(DateTime dateTime, DateTimeEnum enumTime)? updateDateField,
+    TResult Function()? fetchAllAirports,
+    TResult Function()? fetchAllAirlines,
+    TResult Function(Airport airport, bool isStartAirport)? selectedAirport,
+    TResult Function()? buttonTap,
+    TResult Function(Airline airline)? selectedAirline,
+    TResult Function(String id)? getFlightById,
+    TResult Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)?
+        updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
+    TResult Function(int newIndex)? changeTicInformationView,
+    required TResult orElse(),
+  }) {
+    if (addNewStopAirport != null) {
+      return addNewStopAirport(description);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
+    required TResult Function(_EditFlight value) editFlight,
+    required TResult Function(_AddNewFlight value) addNewFlight,
+    required TResult Function(_AddTicInformation value) addTicInformation,
+    required TResult Function(_UpdateDateField value) updateDateField,
+    required TResult Function(_FetchAllAirports value) fetchAllAirports,
+    required TResult Function(_FetchAllAirlines value) fetchAllAirlines,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_SelectedAirline value) selectedAirline,
+    required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
+    required TResult Function(_ChangeTicInformationView value)
+        changeTicInformationView,
+  }) {
+    return addNewStopAirport(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
+    TResult? Function(_EditFlight value)? editFlight,
+    TResult? Function(_AddNewFlight value)? addNewFlight,
+    TResult? Function(_AddTicInformation value)? addTicInformation,
+    TResult? Function(_UpdateDateField value)? updateDateField,
+    TResult? Function(_FetchAllAirports value)? fetchAllAirports,
+    TResult? Function(_FetchAllAirlines value)? fetchAllAirlines,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_SelectedAirline value)? selectedAirline,
+    TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
+    TResult? Function(_ChangeTicInformationView value)?
+        changeTicInformationView,
+  }) {
+    return addNewStopAirport?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
+    TResult Function(_EditFlight value)? editFlight,
+    TResult Function(_AddNewFlight value)? addNewFlight,
+    TResult Function(_AddTicInformation value)? addTicInformation,
+    TResult Function(_UpdateDateField value)? updateDateField,
+    TResult Function(_FetchAllAirports value)? fetchAllAirports,
+    TResult Function(_FetchAllAirlines value)? fetchAllAirlines,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_SelectedAirline value)? selectedAirline,
+    TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
+    TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
+    required TResult orElse(),
+  }) {
+    if (addNewStopAirport != null) {
+      return addNewStopAirport(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddNewStopAirport implements AddEditFlightEvent {
+  const factory _AddNewStopAirport({required final String description}) =
+      _$_AddNewStopAirport;
+
+  String get description;
+  @JsonKey(ignore: true)
+  _$$_AddNewStopAirportCopyWith<_$_AddNewStopAirport> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedAirportStopCopyWith<$Res> {
+  factory _$$_SelectedAirportStopCopyWith(_$_SelectedAirportStop value,
+          $Res Function(_$_SelectedAirportStop) then) =
+      __$$_SelectedAirportStopCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Airport airport});
+
+  $AirportCopyWith<$Res> get airport;
+}
+
+/// @nodoc
+class __$$_SelectedAirportStopCopyWithImpl<$Res>
+    extends _$AddEditFlightEventCopyWithImpl<$Res, _$_SelectedAirportStop>
+    implements _$$_SelectedAirportStopCopyWith<$Res> {
+  __$$_SelectedAirportStopCopyWithImpl(_$_SelectedAirportStop _value,
+      $Res Function(_$_SelectedAirportStop) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? airport = null,
+  }) {
+    return _then(_$_SelectedAirportStop(
+      airport: null == airport
+          ? _value.airport
+          : airport // ignore: cast_nullable_to_non_nullable
+              as Airport,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AirportCopyWith<$Res> get airport {
+    return $AirportCopyWith<$Res>(_value.airport, (value) {
+      return _then(_value.copyWith(airport: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedAirportStop implements _SelectedAirportStop {
+  const _$_SelectedAirportStop({required this.airport});
+
+  @override
+  final Airport airport;
+
+  @override
+  String toString() {
+    return 'AddEditFlightEvent.selectedAirportStop(airport: $airport)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedAirportStop &&
+            (identical(other.airport, airport) || other.airport == airport));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, airport);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedAirportStopCopyWith<_$_SelectedAirportStop> get copyWith =>
+      __$$_SelectedAirportStopCopyWithImpl<_$_SelectedAirportStop>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() dispose,
+    required TResult Function(String id) editFlight,
+    required TResult Function() addNewFlight,
+    required TResult Function(Flight flight) addTicInformation,
+    required TResult Function(DateTime dateTime, DateTimeEnum enumTime)
+        updateDateField,
+    required TResult Function() fetchAllAirports,
+    required TResult Function() fetchAllAirlines,
+    required TResult Function(Airport airport, bool isStartAirport)
+        selectedAirport,
+    required TResult Function() buttonTap,
+    required TResult Function(Airline airline) selectedAirline,
+    required TResult Function(String id) getFlightById,
+    required TResult Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)
+        updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
+    required TResult Function(int newIndex) changeTicInformationView,
+  }) {
+    return selectedAirportStop(airport);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? dispose,
+    TResult? Function(String id)? editFlight,
+    TResult? Function()? addNewFlight,
+    TResult? Function(Flight flight)? addTicInformation,
+    TResult? Function(DateTime dateTime, DateTimeEnum enumTime)?
+        updateDateField,
+    TResult? Function()? fetchAllAirports,
+    TResult? Function()? fetchAllAirlines,
+    TResult? Function(Airport airport, bool isStartAirport)? selectedAirport,
+    TResult? Function()? buttonTap,
+    TResult? Function(Airline airline)? selectedAirline,
+    TResult? Function(String id)? getFlightById,
+    TResult? Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)?
+        updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
+    TResult? Function(int newIndex)? changeTicInformationView,
+  }) {
+    return selectedAirportStop?.call(airport);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? dispose,
+    TResult Function(String id)? editFlight,
+    TResult Function()? addNewFlight,
+    TResult Function(Flight flight)? addTicInformation,
+    TResult Function(DateTime dateTime, DateTimeEnum enumTime)? updateDateField,
+    TResult Function()? fetchAllAirports,
+    TResult Function()? fetchAllAirlines,
+    TResult Function(Airport airport, bool isStartAirport)? selectedAirport,
+    TResult Function()? buttonTap,
+    TResult Function(Airline airline)? selectedAirline,
+    TResult Function(String id)? getFlightById,
+    TResult Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)?
+        updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
+    TResult Function(int newIndex)? changeTicInformationView,
+    required TResult orElse(),
+  }) {
+    if (selectedAirportStop != null) {
+      return selectedAirportStop(airport);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
+    required TResult Function(_EditFlight value) editFlight,
+    required TResult Function(_AddNewFlight value) addNewFlight,
+    required TResult Function(_AddTicInformation value) addTicInformation,
+    required TResult Function(_UpdateDateField value) updateDateField,
+    required TResult Function(_FetchAllAirports value) fetchAllAirports,
+    required TResult Function(_FetchAllAirlines value) fetchAllAirlines,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_SelectedAirline value) selectedAirline,
+    required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
+    required TResult Function(_ChangeTicInformationView value)
+        changeTicInformationView,
+  }) {
+    return selectedAirportStop(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
+    TResult? Function(_EditFlight value)? editFlight,
+    TResult? Function(_AddNewFlight value)? addNewFlight,
+    TResult? Function(_AddTicInformation value)? addTicInformation,
+    TResult? Function(_UpdateDateField value)? updateDateField,
+    TResult? Function(_FetchAllAirports value)? fetchAllAirports,
+    TResult? Function(_FetchAllAirlines value)? fetchAllAirlines,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_SelectedAirline value)? selectedAirline,
+    TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
+    TResult? Function(_ChangeTicInformationView value)?
+        changeTicInformationView,
+  }) {
+    return selectedAirportStop?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
+    TResult Function(_EditFlight value)? editFlight,
+    TResult Function(_AddNewFlight value)? addNewFlight,
+    TResult Function(_AddTicInformation value)? addTicInformation,
+    TResult Function(_UpdateDateField value)? updateDateField,
+    TResult Function(_FetchAllAirports value)? fetchAllAirports,
+    TResult Function(_FetchAllAirlines value)? fetchAllAirlines,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_SelectedAirline value)? selectedAirline,
+    TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
+    TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
+    required TResult orElse(),
+  }) {
+    if (selectedAirportStop != null) {
+      return selectedAirportStop(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedAirportStop implements AddEditFlightEvent {
+  const factory _SelectedAirportStop({required final Airport airport}) =
+      _$_SelectedAirportStop;
+
+  Airport get airport;
+  @JsonKey(ignore: true)
+  _$$_SelectedAirportStopCopyWith<_$_SelectedAirportStop> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedTimeStopCopyWith<$Res> {
+  factory _$$_SelectedTimeStopCopyWith(
+          _$_SelectedTimeStop value, $Res Function(_$_SelectedTimeStop) then) =
+      __$$_SelectedTimeStopCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime time});
+}
+
+/// @nodoc
+class __$$_SelectedTimeStopCopyWithImpl<$Res>
+    extends _$AddEditFlightEventCopyWithImpl<$Res, _$_SelectedTimeStop>
+    implements _$$_SelectedTimeStopCopyWith<$Res> {
+  __$$_SelectedTimeStopCopyWithImpl(
+      _$_SelectedTimeStop _value, $Res Function(_$_SelectedTimeStop) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? time = null,
+  }) {
+    return _then(_$_SelectedTimeStop(
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedTimeStop implements _SelectedTimeStop {
+  const _$_SelectedTimeStop({required this.time});
+
+  @override
+  final DateTime time;
+
+  @override
+  String toString() {
+    return 'AddEditFlightEvent.selectedTimeStop(time: $time)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedTimeStop &&
+            (identical(other.time, time) || other.time == time));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, time);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedTimeStopCopyWith<_$_SelectedTimeStop> get copyWith =>
+      __$$_SelectedTimeStopCopyWithImpl<_$_SelectedTimeStop>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() dispose,
+    required TResult Function(String id) editFlight,
+    required TResult Function() addNewFlight,
+    required TResult Function(Flight flight) addTicInformation,
+    required TResult Function(DateTime dateTime, DateTimeEnum enumTime)
+        updateDateField,
+    required TResult Function() fetchAllAirports,
+    required TResult Function() fetchAllAirlines,
+    required TResult Function(Airport airport, bool isStartAirport)
+        selectedAirport,
+    required TResult Function() buttonTap,
+    required TResult Function(Airline airline) selectedAirline,
+    required TResult Function(String id) getFlightById,
+    required TResult Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)
+        updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
+    required TResult Function(int newIndex) changeTicInformationView,
+  }) {
+    return selectedTimeStop(time);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? dispose,
+    TResult? Function(String id)? editFlight,
+    TResult? Function()? addNewFlight,
+    TResult? Function(Flight flight)? addTicInformation,
+    TResult? Function(DateTime dateTime, DateTimeEnum enumTime)?
+        updateDateField,
+    TResult? Function()? fetchAllAirports,
+    TResult? Function()? fetchAllAirlines,
+    TResult? Function(Airport airport, bool isStartAirport)? selectedAirport,
+    TResult? Function()? buttonTap,
+    TResult? Function(Airline airline)? selectedAirline,
+    TResult? Function(String id)? getFlightById,
+    TResult? Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)?
+        updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
+    TResult? Function(int newIndex)? changeTicInformationView,
+  }) {
+    return selectedTimeStop?.call(time);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? dispose,
+    TResult Function(String id)? editFlight,
+    TResult Function()? addNewFlight,
+    TResult Function(Flight flight)? addTicInformation,
+    TResult Function(DateTime dateTime, DateTimeEnum enumTime)? updateDateField,
+    TResult Function()? fetchAllAirports,
+    TResult Function()? fetchAllAirlines,
+    TResult Function(Airport airport, bool isStartAirport)? selectedAirport,
+    TResult Function()? buttonTap,
+    TResult Function(Airline airline)? selectedAirline,
+    TResult Function(String id)? getFlightById,
+    TResult Function(String newSeatHeader, int quantity, double price,
+            int? newSeatPosition)?
+        updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
+    TResult Function(int newIndex)? changeTicInformationView,
+    required TResult orElse(),
+  }) {
+    if (selectedTimeStop != null) {
+      return selectedTimeStop(time);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) onStarted,
+    required TResult Function(_Dispose value) dispose,
+    required TResult Function(_EditFlight value) editFlight,
+    required TResult Function(_AddNewFlight value) addNewFlight,
+    required TResult Function(_AddTicInformation value) addTicInformation,
+    required TResult Function(_UpdateDateField value) updateDateField,
+    required TResult Function(_FetchAllAirports value) fetchAllAirports,
+    required TResult Function(_FetchAllAirlines value) fetchAllAirlines,
+    required TResult Function(_SelectedAirport value) selectedAirport,
+    required TResult Function(_ButtonTap value) buttonTap,
+    required TResult Function(_SelectedAirline value) selectedAirline,
+    required TResult Function(_GetFlightById value) getFlightById,
+    required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
+    required TResult Function(_ChangeTicInformationView value)
+        changeTicInformationView,
+  }) {
+    return selectedTimeStop(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? onStarted,
+    TResult? Function(_Dispose value)? dispose,
+    TResult? Function(_EditFlight value)? editFlight,
+    TResult? Function(_AddNewFlight value)? addNewFlight,
+    TResult? Function(_AddTicInformation value)? addTicInformation,
+    TResult? Function(_UpdateDateField value)? updateDateField,
+    TResult? Function(_FetchAllAirports value)? fetchAllAirports,
+    TResult? Function(_FetchAllAirlines value)? fetchAllAirlines,
+    TResult? Function(_SelectedAirport value)? selectedAirport,
+    TResult? Function(_ButtonTap value)? buttonTap,
+    TResult? Function(_SelectedAirline value)? selectedAirline,
+    TResult? Function(_GetFlightById value)? getFlightById,
+    TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
+    TResult? Function(_ChangeTicInformationView value)?
+        changeTicInformationView,
+  }) {
+    return selectedTimeStop?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? onStarted,
+    TResult Function(_Dispose value)? dispose,
+    TResult Function(_EditFlight value)? editFlight,
+    TResult Function(_AddNewFlight value)? addNewFlight,
+    TResult Function(_AddTicInformation value)? addTicInformation,
+    TResult Function(_UpdateDateField value)? updateDateField,
+    TResult Function(_FetchAllAirports value)? fetchAllAirports,
+    TResult Function(_FetchAllAirlines value)? fetchAllAirlines,
+    TResult Function(_SelectedAirport value)? selectedAirport,
+    TResult Function(_ButtonTap value)? buttonTap,
+    TResult Function(_SelectedAirline value)? selectedAirline,
+    TResult Function(_GetFlightById value)? getFlightById,
+    TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
+    TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
+    required TResult orElse(),
+  }) {
+    if (selectedTimeStop != null) {
+      return selectedTimeStop(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedTimeStop implements AddEditFlightEvent {
+  const factory _SelectedTimeStop({required final DateTime time}) =
+      _$_SelectedTimeStop;
+
+  DateTime get time;
+  @JsonKey(ignore: true)
+  _$$_SelectedTimeStopCopyWith<_$_SelectedTimeStop> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2964,6 +4656,11 @@ class _$_ChangeTicInformationView implements _ChangeTicInformationView {
     required TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)
         updateTicInformation,
+    required TResult Function(StopAirport stopAirport) selectedStopAirport,
+    required TResult Function(StopAirport stopAirport) removeStopAirport,
+    required TResult Function(String description) addNewStopAirport,
+    required TResult Function(Airport airport) selectedAirportStop,
+    required TResult Function(DateTime time) selectedTimeStop,
     required TResult Function(int newIndex) changeTicInformationView,
   }) {
     return changeTicInformationView(newIndex);
@@ -2988,6 +4685,11 @@ class _$_ChangeTicInformationView implements _ChangeTicInformationView {
     TResult? Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult? Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult? Function(StopAirport stopAirport)? removeStopAirport,
+    TResult? Function(String description)? addNewStopAirport,
+    TResult? Function(Airport airport)? selectedAirportStop,
+    TResult? Function(DateTime time)? selectedTimeStop,
     TResult? Function(int newIndex)? changeTicInformationView,
   }) {
     return changeTicInformationView?.call(newIndex);
@@ -3011,6 +4713,11 @@ class _$_ChangeTicInformationView implements _ChangeTicInformationView {
     TResult Function(String newSeatHeader, int quantity, double price,
             int? newSeatPosition)?
         updateTicInformation,
+    TResult Function(StopAirport stopAirport)? selectedStopAirport,
+    TResult Function(StopAirport stopAirport)? removeStopAirport,
+    TResult Function(String description)? addNewStopAirport,
+    TResult Function(Airport airport)? selectedAirportStop,
+    TResult Function(DateTime time)? selectedTimeStop,
     TResult Function(int newIndex)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -3036,6 +4743,11 @@ class _$_ChangeTicInformationView implements _ChangeTicInformationView {
     required TResult Function(_SelectedAirline value) selectedAirline,
     required TResult Function(_GetFlightById value) getFlightById,
     required TResult Function(_UpdateTicInformation value) updateTicInformation,
+    required TResult Function(_SelectedStopAirport value) selectedStopAirport,
+    required TResult Function(_RemoveStopAirport value) removeStopAirport,
+    required TResult Function(_AddNewStopAirport value) addNewStopAirport,
+    required TResult Function(_SelectedAirportStop value) selectedAirportStop,
+    required TResult Function(_SelectedTimeStop value) selectedTimeStop,
     required TResult Function(_ChangeTicInformationView value)
         changeTicInformationView,
   }) {
@@ -3058,6 +4770,11 @@ class _$_ChangeTicInformationView implements _ChangeTicInformationView {
     TResult? Function(_SelectedAirline value)? selectedAirline,
     TResult? Function(_GetFlightById value)? getFlightById,
     TResult? Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult? Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult? Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult? Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult? Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult? Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult? Function(_ChangeTicInformationView value)?
         changeTicInformationView,
   }) {
@@ -3080,6 +4797,11 @@ class _$_ChangeTicInformationView implements _ChangeTicInformationView {
     TResult Function(_SelectedAirline value)? selectedAirline,
     TResult Function(_GetFlightById value)? getFlightById,
     TResult Function(_UpdateTicInformation value)? updateTicInformation,
+    TResult Function(_SelectedStopAirport value)? selectedStopAirport,
+    TResult Function(_RemoveStopAirport value)? removeStopAirport,
+    TResult Function(_AddNewStopAirport value)? addNewStopAirport,
+    TResult Function(_SelectedAirportStop value)? selectedAirportStop,
+    TResult Function(_SelectedTimeStop value)? selectedTimeStop,
     TResult Function(_ChangeTicInformationView value)? changeTicInformationView,
     required TResult orElse(),
   }) {
@@ -3127,10 +4849,22 @@ mixin _$AddEditFlightState {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) =>
@@ -3158,10 +4892,18 @@ mixin _$AddEditFlightState {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) =>
@@ -3188,10 +4930,18 @@ mixin _$AddEditFlightState {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -3214,9 +4964,21 @@ mixin _$AddEditFlightState {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) =>
@@ -3238,9 +5000,19 @@ mixin _$AddEditFlightState {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) =>
       throw _privateConstructorUsedError;
@@ -3261,8 +5033,16 @@ mixin _$AddEditFlightState {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) =>
@@ -3406,10 +5186,22 @@ class _$_Initial extends _Initial {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -3440,10 +5232,18 @@ class _$_Initial extends _Initial {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -3473,10 +5273,18 @@ class _$_Initial extends _Initial {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -3505,9 +5313,21 @@ class _$_Initial extends _Initial {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -3532,9 +5352,19 @@ class _$_Initial extends _Initial {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return initial?.call(this);
@@ -3558,8 +5388,16 @@ class _$_Initial extends _Initial {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -3681,10 +5519,22 @@ class _$_Loading extends _Loading {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -3715,10 +5565,18 @@ class _$_Loading extends _Loading {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -3748,10 +5606,18 @@ class _$_Loading extends _Loading {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -3780,9 +5646,21 @@ class _$_Loading extends _Loading {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -3807,9 +5685,19 @@ class _$_Loading extends _Loading {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return loading?.call(this);
@@ -3833,8 +5721,16 @@ class _$_Loading extends _Loading {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -3970,10 +5866,22 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -4004,10 +5912,18 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -4037,10 +5953,18 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -4069,9 +5993,21 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -4096,9 +6032,19 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return addNewFlightSuccess?.call(this);
@@ -4122,8 +6068,16 @@ class _$_AddNewFlightSuccess extends _AddNewFlightSuccess {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -4250,10 +6204,22 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -4284,10 +6250,18 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -4317,10 +6291,18 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -4349,9 +6331,21 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -4376,9 +6370,19 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return addNewFlightFailed?.call(this);
@@ -4402,8 +6406,16 @@ class _$_AddNewFlightFailed extends _AddNewFlightFailed {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -4539,10 +6551,22 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -4573,10 +6597,18 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -4606,10 +6638,18 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -4638,9 +6678,21 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -4665,9 +6717,19 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return editFlightSuccess?.call(this);
@@ -4691,8 +6753,16 @@ class _$_EditFlightSuccess extends _EditFlightSuccess {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -4818,10 +6888,22 @@ class _$_EditFlightFailed extends _EditFlightFailed {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -4852,10 +6934,18 @@ class _$_EditFlightFailed extends _EditFlightFailed {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -4885,10 +6975,18 @@ class _$_EditFlightFailed extends _EditFlightFailed {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -4917,9 +7015,21 @@ class _$_EditFlightFailed extends _EditFlightFailed {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -4944,9 +7054,19 @@ class _$_EditFlightFailed extends _EditFlightFailed {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return editFlightFailed?.call(this);
@@ -4970,8 +7090,16 @@ class _$_EditFlightFailed extends _EditFlightFailed {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -5089,10 +7217,22 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -5123,10 +7263,18 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -5156,10 +7304,18 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -5188,9 +7344,21 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -5215,9 +7383,19 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return fetchAirportSuccess?.call(this);
@@ -5241,8 +7419,16 @@ class _$_FetchAirportSuccess extends _FetchAirportSuccess {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -5367,10 +7553,22 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -5401,10 +7599,18 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -5434,10 +7640,18 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -5466,9 +7680,21 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -5493,9 +7719,19 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return fetchAirportFailed?.call(this);
@@ -5519,8 +7755,16 @@ class _$_FetchAirportFailed extends _FetchAirportFailed {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -5638,10 +7882,22 @@ class _$_FetchAirlineSuccess extends _FetchAirlineSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -5672,10 +7928,18 @@ class _$_FetchAirlineSuccess extends _FetchAirlineSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -5705,10 +7969,18 @@ class _$_FetchAirlineSuccess extends _FetchAirlineSuccess {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -5737,9 +8009,21 @@ class _$_FetchAirlineSuccess extends _FetchAirlineSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -5764,9 +8048,19 @@ class _$_FetchAirlineSuccess extends _FetchAirlineSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return fetchAirlineSuccess?.call(this);
@@ -5790,8 +8084,16 @@ class _$_FetchAirlineSuccess extends _FetchAirlineSuccess {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -5916,10 +8218,22 @@ class _$_FetchAirlineFailed extends _FetchAirlineFailed {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -5950,10 +8264,18 @@ class _$_FetchAirlineFailed extends _FetchAirlineFailed {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -5983,10 +8305,18 @@ class _$_FetchAirlineFailed extends _FetchAirlineFailed {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -6015,9 +8345,21 @@ class _$_FetchAirlineFailed extends _FetchAirlineFailed {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -6042,9 +8384,19 @@ class _$_FetchAirlineFailed extends _FetchAirlineFailed {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return fetchAirlineFailed?.call(this);
@@ -6068,8 +8420,16 @@ class _$_FetchAirlineFailed extends _FetchAirlineFailed {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -6187,10 +8547,22 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -6221,10 +8593,18 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -6254,10 +8634,18 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -6286,9 +8674,21 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -6313,9 +8713,19 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return getFlightByIdSuccess?.call(this);
@@ -6339,8 +8749,16 @@ class _$_GetFlightByIdSuccess extends _GetFlightByIdSuccess {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -6461,10 +8879,22 @@ class _$_ChangeTicInformationViewSuccess
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -6495,10 +8925,18 @@ class _$_ChangeTicInformationViewSuccess
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -6528,10 +8966,18 @@ class _$_ChangeTicInformationViewSuccess
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -6560,9 +9006,21 @@ class _$_ChangeTicInformationViewSuccess
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -6587,9 +9045,19 @@ class _$_ChangeTicInformationViewSuccess
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return changeTicInformationViewSuccess?.call(this);
@@ -6613,8 +9081,16 @@ class _$_ChangeTicInformationViewSuccess
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -6735,10 +9211,22 @@ class _$_UpdateTicInformationSuccess extends _UpdateTicInformationSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -6769,10 +9257,18 @@ class _$_UpdateTicInformationSuccess extends _UpdateTicInformationSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -6802,10 +9298,18 @@ class _$_UpdateTicInformationSuccess extends _UpdateTicInformationSuccess {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -6834,9 +9338,21 @@ class _$_UpdateTicInformationSuccess extends _UpdateTicInformationSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -6861,9 +9377,19 @@ class _$_UpdateTicInformationSuccess extends _UpdateTicInformationSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return updateTicInformationSuccess?.call(this);
@@ -6887,8 +9413,16 @@ class _$_UpdateTicInformationSuccess extends _UpdateTicInformationSuccess {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -6910,6 +9444,1346 @@ abstract class _UpdateTicInformationSuccess extends AddEditFlightState {
   @override
   @JsonKey(ignore: true)
   _$$_UpdateTicInformationSuccessCopyWith<_$_UpdateTicInformationSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedStopAirportSuccessCopyWith<$Res>
+    implements $AddEditFlightStateCopyWith<$Res> {
+  factory _$$_SelectedStopAirportSuccessCopyWith(
+          _$_SelectedStopAirportSuccess value,
+          $Res Function(_$_SelectedStopAirportSuccess) then) =
+      __$$_SelectedStopAirportSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AddEditFlightModelState data, String description});
+
+  @override
+  $AddEditFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_SelectedStopAirportSuccessCopyWithImpl<$Res>
+    extends _$AddEditFlightStateCopyWithImpl<$Res,
+        _$_SelectedStopAirportSuccess>
+    implements _$$_SelectedStopAirportSuccessCopyWith<$Res> {
+  __$$_SelectedStopAirportSuccessCopyWithImpl(
+      _$_SelectedStopAirportSuccess _value,
+      $Res Function(_$_SelectedStopAirportSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? description = null,
+  }) {
+    return _then(_$_SelectedStopAirportSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AddEditFlightModelState,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedStopAirportSuccess extends _SelectedStopAirportSuccess {
+  const _$_SelectedStopAirportSuccess(
+      {required this.data, required this.description})
+      : super._();
+
+  @override
+  final AddEditFlightModelState data;
+  @override
+  final String description;
+
+  @override
+  String toString() {
+    return 'AddEditFlightState.selectedStopAirportSuccess(data: $data, description: $description)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedStopAirportSuccess &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.description, description) ||
+                other.description == description));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, description);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedStopAirportSuccessCopyWith<_$_SelectedStopAirportSuccess>
+      get copyWith => __$$_SelectedStopAirportSuccessCopyWithImpl<
+          _$_SelectedStopAirportSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AddEditFlightModelState data) initial,
+    required TResult Function(AddEditFlightModelState data, int type) loading,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addNewFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewFlightFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        editFlightFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirportFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirlineFailed,
+    required TResult Function(AddEditFlightModelState data)
+        getFlightByIdSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        changeTicInformationViewSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
+    required TResult Function(AddEditFlightModelState data, String message)
+        getFlightByIdFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addTicInformationFailed,
+  }) {
+    return selectedStopAirportSuccess(data, description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AddEditFlightModelState data)? initial,
+    TResult? Function(AddEditFlightModelState data, int type)? loading,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult? Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+  }) {
+    return selectedStopAirportSuccess?.call(data, description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AddEditFlightModelState data)? initial,
+    TResult Function(AddEditFlightModelState data, int type)? loading,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (selectedStopAirportSuccess != null) {
+      return selectedStopAirportSuccess(data, description);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddNewFlightSuccess value) addNewFlightSuccess,
+    required TResult Function(_AddNewFlightFailed value) addNewFlightFailed,
+    required TResult Function(_EditFlightSuccess value) editFlightSuccess,
+    required TResult Function(_EditFlightFailed value) editFlightFailed,
+    required TResult Function(_FetchAirportSuccess value) fetchAirportSuccess,
+    required TResult Function(_FetchAirportFailed value) fetchAirportFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+    required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
+    required TResult Function(_ChangeTicInformationViewSuccess value)
+        changeTicInformationViewSuccess,
+    required TResult Function(_UpdateTicInformationSuccess value)
+        updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
+    required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_AddTicInformationSuccess value)
+        addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
+    required TResult Function(_AddTicInformationFailed value)
+        addTicInformationFailed,
+  }) {
+    return selectedStopAirportSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult? Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult? Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult? Function(_EditFlightFailed value)? editFlightFailed,
+    TResult? Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult? Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult? Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult? Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_AddTicInformationSuccess value)?
+        addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
+  }) {
+    return selectedStopAirportSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult Function(_EditFlightFailed value)? editFlightFailed,
+    TResult Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (selectedStopAirportSuccess != null) {
+      return selectedStopAirportSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedStopAirportSuccess extends AddEditFlightState {
+  const factory _SelectedStopAirportSuccess(
+      {required final AddEditFlightModelState data,
+      required final String description}) = _$_SelectedStopAirportSuccess;
+  const _SelectedStopAirportSuccess._() : super._();
+
+  @override
+  AddEditFlightModelState get data;
+  String get description;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SelectedStopAirportSuccessCopyWith<_$_SelectedStopAirportSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RemoveStopAirportSuccessCopyWith<$Res>
+    implements $AddEditFlightStateCopyWith<$Res> {
+  factory _$$_RemoveStopAirportSuccessCopyWith(
+          _$_RemoveStopAirportSuccess value,
+          $Res Function(_$_RemoveStopAirportSuccess) then) =
+      __$$_RemoveStopAirportSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AddEditFlightModelState data});
+
+  @override
+  $AddEditFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_RemoveStopAirportSuccessCopyWithImpl<$Res>
+    extends _$AddEditFlightStateCopyWithImpl<$Res, _$_RemoveStopAirportSuccess>
+    implements _$$_RemoveStopAirportSuccessCopyWith<$Res> {
+  __$$_RemoveStopAirportSuccessCopyWithImpl(_$_RemoveStopAirportSuccess _value,
+      $Res Function(_$_RemoveStopAirportSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_RemoveStopAirportSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AddEditFlightModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RemoveStopAirportSuccess extends _RemoveStopAirportSuccess {
+  const _$_RemoveStopAirportSuccess({required this.data}) : super._();
+
+  @override
+  final AddEditFlightModelState data;
+
+  @override
+  String toString() {
+    return 'AddEditFlightState.removeStopAirportSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RemoveStopAirportSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RemoveStopAirportSuccessCopyWith<_$_RemoveStopAirportSuccess>
+      get copyWith => __$$_RemoveStopAirportSuccessCopyWithImpl<
+          _$_RemoveStopAirportSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AddEditFlightModelState data) initial,
+    required TResult Function(AddEditFlightModelState data, int type) loading,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addNewFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewFlightFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        editFlightFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirportFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirlineFailed,
+    required TResult Function(AddEditFlightModelState data)
+        getFlightByIdSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        changeTicInformationViewSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
+    required TResult Function(AddEditFlightModelState data, String message)
+        getFlightByIdFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addTicInformationFailed,
+  }) {
+    return removeStopAirportSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AddEditFlightModelState data)? initial,
+    TResult? Function(AddEditFlightModelState data, int type)? loading,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult? Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+  }) {
+    return removeStopAirportSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AddEditFlightModelState data)? initial,
+    TResult Function(AddEditFlightModelState data, int type)? loading,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (removeStopAirportSuccess != null) {
+      return removeStopAirportSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddNewFlightSuccess value) addNewFlightSuccess,
+    required TResult Function(_AddNewFlightFailed value) addNewFlightFailed,
+    required TResult Function(_EditFlightSuccess value) editFlightSuccess,
+    required TResult Function(_EditFlightFailed value) editFlightFailed,
+    required TResult Function(_FetchAirportSuccess value) fetchAirportSuccess,
+    required TResult Function(_FetchAirportFailed value) fetchAirportFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+    required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
+    required TResult Function(_ChangeTicInformationViewSuccess value)
+        changeTicInformationViewSuccess,
+    required TResult Function(_UpdateTicInformationSuccess value)
+        updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
+    required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_AddTicInformationSuccess value)
+        addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
+    required TResult Function(_AddTicInformationFailed value)
+        addTicInformationFailed,
+  }) {
+    return removeStopAirportSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult? Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult? Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult? Function(_EditFlightFailed value)? editFlightFailed,
+    TResult? Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult? Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult? Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult? Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_AddTicInformationSuccess value)?
+        addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
+  }) {
+    return removeStopAirportSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult Function(_EditFlightFailed value)? editFlightFailed,
+    TResult Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (removeStopAirportSuccess != null) {
+      return removeStopAirportSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveStopAirportSuccess extends AddEditFlightState {
+  const factory _RemoveStopAirportSuccess(
+          {required final AddEditFlightModelState data}) =
+      _$_RemoveStopAirportSuccess;
+  const _RemoveStopAirportSuccess._() : super._();
+
+  @override
+  AddEditFlightModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_RemoveStopAirportSuccessCopyWith<_$_RemoveStopAirportSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddNewStopAirportSuccessCopyWith<$Res>
+    implements $AddEditFlightStateCopyWith<$Res> {
+  factory _$$_AddNewStopAirportSuccessCopyWith(
+          _$_AddNewStopAirportSuccess value,
+          $Res Function(_$_AddNewStopAirportSuccess) then) =
+      __$$_AddNewStopAirportSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AddEditFlightModelState data});
+
+  @override
+  $AddEditFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_AddNewStopAirportSuccessCopyWithImpl<$Res>
+    extends _$AddEditFlightStateCopyWithImpl<$Res, _$_AddNewStopAirportSuccess>
+    implements _$$_AddNewStopAirportSuccessCopyWith<$Res> {
+  __$$_AddNewStopAirportSuccessCopyWithImpl(_$_AddNewStopAirportSuccess _value,
+      $Res Function(_$_AddNewStopAirportSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_AddNewStopAirportSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AddEditFlightModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddNewStopAirportSuccess extends _AddNewStopAirportSuccess {
+  const _$_AddNewStopAirportSuccess({required this.data}) : super._();
+
+  @override
+  final AddEditFlightModelState data;
+
+  @override
+  String toString() {
+    return 'AddEditFlightState.addNewStopAirportSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddNewStopAirportSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddNewStopAirportSuccessCopyWith<_$_AddNewStopAirportSuccess>
+      get copyWith => __$$_AddNewStopAirportSuccessCopyWithImpl<
+          _$_AddNewStopAirportSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AddEditFlightModelState data) initial,
+    required TResult Function(AddEditFlightModelState data, int type) loading,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addNewFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewFlightFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        editFlightFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirportFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirlineFailed,
+    required TResult Function(AddEditFlightModelState data)
+        getFlightByIdSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        changeTicInformationViewSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
+    required TResult Function(AddEditFlightModelState data, String message)
+        getFlightByIdFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addTicInformationFailed,
+  }) {
+    return addNewStopAirportSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AddEditFlightModelState data)? initial,
+    TResult? Function(AddEditFlightModelState data, int type)? loading,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult? Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+  }) {
+    return addNewStopAirportSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AddEditFlightModelState data)? initial,
+    TResult Function(AddEditFlightModelState data, int type)? loading,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (addNewStopAirportSuccess != null) {
+      return addNewStopAirportSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddNewFlightSuccess value) addNewFlightSuccess,
+    required TResult Function(_AddNewFlightFailed value) addNewFlightFailed,
+    required TResult Function(_EditFlightSuccess value) editFlightSuccess,
+    required TResult Function(_EditFlightFailed value) editFlightFailed,
+    required TResult Function(_FetchAirportSuccess value) fetchAirportSuccess,
+    required TResult Function(_FetchAirportFailed value) fetchAirportFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+    required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
+    required TResult Function(_ChangeTicInformationViewSuccess value)
+        changeTicInformationViewSuccess,
+    required TResult Function(_UpdateTicInformationSuccess value)
+        updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
+    required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_AddTicInformationSuccess value)
+        addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
+    required TResult Function(_AddTicInformationFailed value)
+        addTicInformationFailed,
+  }) {
+    return addNewStopAirportSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult? Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult? Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult? Function(_EditFlightFailed value)? editFlightFailed,
+    TResult? Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult? Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult? Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult? Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_AddTicInformationSuccess value)?
+        addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
+  }) {
+    return addNewStopAirportSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult Function(_EditFlightFailed value)? editFlightFailed,
+    TResult Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (addNewStopAirportSuccess != null) {
+      return addNewStopAirportSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddNewStopAirportSuccess extends AddEditFlightState {
+  const factory _AddNewStopAirportSuccess(
+          {required final AddEditFlightModelState data}) =
+      _$_AddNewStopAirportSuccess;
+  const _AddNewStopAirportSuccess._() : super._();
+
+  @override
+  AddEditFlightModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AddNewStopAirportSuccessCopyWith<_$_AddNewStopAirportSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddNewStopAirportFailedCopyWith<$Res>
+    implements $AddEditFlightStateCopyWith<$Res> {
+  factory _$$_AddNewStopAirportFailedCopyWith(_$_AddNewStopAirportFailed value,
+          $Res Function(_$_AddNewStopAirportFailed) then) =
+      __$$_AddNewStopAirportFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AddEditFlightModelState data, String message});
+
+  @override
+  $AddEditFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_AddNewStopAirportFailedCopyWithImpl<$Res>
+    extends _$AddEditFlightStateCopyWithImpl<$Res, _$_AddNewStopAirportFailed>
+    implements _$$_AddNewStopAirportFailedCopyWith<$Res> {
+  __$$_AddNewStopAirportFailedCopyWithImpl(_$_AddNewStopAirportFailed _value,
+      $Res Function(_$_AddNewStopAirportFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_AddNewStopAirportFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AddEditFlightModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddNewStopAirportFailed extends _AddNewStopAirportFailed {
+  const _$_AddNewStopAirportFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final AddEditFlightModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AddEditFlightState.addNewStopAirportFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddNewStopAirportFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddNewStopAirportFailedCopyWith<_$_AddNewStopAirportFailed>
+      get copyWith =>
+          __$$_AddNewStopAirportFailedCopyWithImpl<_$_AddNewStopAirportFailed>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AddEditFlightModelState data) initial,
+    required TResult Function(AddEditFlightModelState data, int type) loading,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addNewFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewFlightFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        editFlightFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirportFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirlineFailed,
+    required TResult Function(AddEditFlightModelState data)
+        getFlightByIdSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        changeTicInformationViewSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
+    required TResult Function(AddEditFlightModelState data, String message)
+        getFlightByIdFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addTicInformationFailed,
+  }) {
+    return addNewStopAirportFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AddEditFlightModelState data)? initial,
+    TResult? Function(AddEditFlightModelState data, int type)? loading,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult? Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+  }) {
+    return addNewStopAirportFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AddEditFlightModelState data)? initial,
+    TResult Function(AddEditFlightModelState data, int type)? loading,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (addNewStopAirportFailed != null) {
+      return addNewStopAirportFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddNewFlightSuccess value) addNewFlightSuccess,
+    required TResult Function(_AddNewFlightFailed value) addNewFlightFailed,
+    required TResult Function(_EditFlightSuccess value) editFlightSuccess,
+    required TResult Function(_EditFlightFailed value) editFlightFailed,
+    required TResult Function(_FetchAirportSuccess value) fetchAirportSuccess,
+    required TResult Function(_FetchAirportFailed value) fetchAirportFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+    required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
+    required TResult Function(_ChangeTicInformationViewSuccess value)
+        changeTicInformationViewSuccess,
+    required TResult Function(_UpdateTicInformationSuccess value)
+        updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
+    required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_AddTicInformationSuccess value)
+        addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
+    required TResult Function(_AddTicInformationFailed value)
+        addTicInformationFailed,
+  }) {
+    return addNewStopAirportFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult? Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult? Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult? Function(_EditFlightFailed value)? editFlightFailed,
+    TResult? Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult? Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult? Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult? Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_AddTicInformationSuccess value)?
+        addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
+  }) {
+    return addNewStopAirportFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult Function(_EditFlightFailed value)? editFlightFailed,
+    TResult Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (addNewStopAirportFailed != null) {
+      return addNewStopAirportFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddNewStopAirportFailed extends AddEditFlightState {
+  const factory _AddNewStopAirportFailed(
+      {required final AddEditFlightModelState data,
+      required final String message}) = _$_AddNewStopAirportFailed;
+  const _AddNewStopAirportFailed._() : super._();
+
+  @override
+  AddEditFlightModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AddNewStopAirportFailedCopyWith<_$_AddNewStopAirportFailed>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -7014,10 +10888,22 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -7048,10 +10934,18 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -7081,10 +10975,18 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -7113,9 +11015,21 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -7140,9 +11054,19 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return getFlightByIdFailed?.call(this);
@@ -7166,8 +11090,16 @@ class _$_GetFlightByIdFailed extends _GetFlightByIdFailed {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -7304,10 +11236,22 @@ class _$_AddTicInformationSuccess extends _AddTicInformationSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -7338,10 +11282,18 @@ class _$_AddTicInformationSuccess extends _AddTicInformationSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -7371,10 +11323,18 @@ class _$_AddTicInformationSuccess extends _AddTicInformationSuccess {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -7403,9 +11363,21 @@ class _$_AddTicInformationSuccess extends _AddTicInformationSuccess {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -7430,9 +11402,19 @@ class _$_AddTicInformationSuccess extends _AddTicInformationSuccess {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return addTicInformationSuccess?.call(this);
@@ -7456,8 +11438,16 @@ class _$_AddTicInformationSuccess extends _AddTicInformationSuccess {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {
@@ -7480,6 +11470,666 @@ abstract class _AddTicInformationSuccess extends AddEditFlightState {
   @override
   @JsonKey(ignore: true)
   _$$_AddTicInformationSuccessCopyWith<_$_AddTicInformationSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedAirportStopSuccessCopyWith<$Res>
+    implements $AddEditFlightStateCopyWith<$Res> {
+  factory _$$_SelectedAirportStopSuccessCopyWith(
+          _$_SelectedAirportStopSuccess value,
+          $Res Function(_$_SelectedAirportStopSuccess) then) =
+      __$$_SelectedAirportStopSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AddEditFlightModelState data});
+
+  @override
+  $AddEditFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_SelectedAirportStopSuccessCopyWithImpl<$Res>
+    extends _$AddEditFlightStateCopyWithImpl<$Res,
+        _$_SelectedAirportStopSuccess>
+    implements _$$_SelectedAirportStopSuccessCopyWith<$Res> {
+  __$$_SelectedAirportStopSuccessCopyWithImpl(
+      _$_SelectedAirportStopSuccess _value,
+      $Res Function(_$_SelectedAirportStopSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_SelectedAirportStopSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AddEditFlightModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedAirportStopSuccess extends _SelectedAirportStopSuccess {
+  const _$_SelectedAirportStopSuccess({required this.data}) : super._();
+
+  @override
+  final AddEditFlightModelState data;
+
+  @override
+  String toString() {
+    return 'AddEditFlightState.selectedAirportStopSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedAirportStopSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedAirportStopSuccessCopyWith<_$_SelectedAirportStopSuccess>
+      get copyWith => __$$_SelectedAirportStopSuccessCopyWithImpl<
+          _$_SelectedAirportStopSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AddEditFlightModelState data) initial,
+    required TResult Function(AddEditFlightModelState data, int type) loading,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addNewFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewFlightFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        editFlightFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirportFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirlineFailed,
+    required TResult Function(AddEditFlightModelState data)
+        getFlightByIdSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        changeTicInformationViewSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
+    required TResult Function(AddEditFlightModelState data, String message)
+        getFlightByIdFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addTicInformationFailed,
+  }) {
+    return selectedAirportStopSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AddEditFlightModelState data)? initial,
+    TResult? Function(AddEditFlightModelState data, int type)? loading,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult? Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+  }) {
+    return selectedAirportStopSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AddEditFlightModelState data)? initial,
+    TResult Function(AddEditFlightModelState data, int type)? loading,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (selectedAirportStopSuccess != null) {
+      return selectedAirportStopSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddNewFlightSuccess value) addNewFlightSuccess,
+    required TResult Function(_AddNewFlightFailed value) addNewFlightFailed,
+    required TResult Function(_EditFlightSuccess value) editFlightSuccess,
+    required TResult Function(_EditFlightFailed value) editFlightFailed,
+    required TResult Function(_FetchAirportSuccess value) fetchAirportSuccess,
+    required TResult Function(_FetchAirportFailed value) fetchAirportFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+    required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
+    required TResult Function(_ChangeTicInformationViewSuccess value)
+        changeTicInformationViewSuccess,
+    required TResult Function(_UpdateTicInformationSuccess value)
+        updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
+    required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_AddTicInformationSuccess value)
+        addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
+    required TResult Function(_AddTicInformationFailed value)
+        addTicInformationFailed,
+  }) {
+    return selectedAirportStopSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult? Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult? Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult? Function(_EditFlightFailed value)? editFlightFailed,
+    TResult? Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult? Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult? Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult? Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_AddTicInformationSuccess value)?
+        addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
+  }) {
+    return selectedAirportStopSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult Function(_EditFlightFailed value)? editFlightFailed,
+    TResult Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (selectedAirportStopSuccess != null) {
+      return selectedAirportStopSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedAirportStopSuccess extends AddEditFlightState {
+  const factory _SelectedAirportStopSuccess(
+          {required final AddEditFlightModelState data}) =
+      _$_SelectedAirportStopSuccess;
+  const _SelectedAirportStopSuccess._() : super._();
+
+  @override
+  AddEditFlightModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SelectedAirportStopSuccessCopyWith<_$_SelectedAirportStopSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedTimeStopSuccessCopyWith<$Res>
+    implements $AddEditFlightStateCopyWith<$Res> {
+  factory _$$_SelectedTimeStopSuccessCopyWith(_$_SelectedTimeStopSuccess value,
+          $Res Function(_$_SelectedTimeStopSuccess) then) =
+      __$$_SelectedTimeStopSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AddEditFlightModelState data});
+
+  @override
+  $AddEditFlightModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_SelectedTimeStopSuccessCopyWithImpl<$Res>
+    extends _$AddEditFlightStateCopyWithImpl<$Res, _$_SelectedTimeStopSuccess>
+    implements _$$_SelectedTimeStopSuccessCopyWith<$Res> {
+  __$$_SelectedTimeStopSuccessCopyWithImpl(_$_SelectedTimeStopSuccess _value,
+      $Res Function(_$_SelectedTimeStopSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_SelectedTimeStopSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AddEditFlightModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedTimeStopSuccess extends _SelectedTimeStopSuccess {
+  const _$_SelectedTimeStopSuccess({required this.data}) : super._();
+
+  @override
+  final AddEditFlightModelState data;
+
+  @override
+  String toString() {
+    return 'AddEditFlightState.selectedTimeStopSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedTimeStopSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedTimeStopSuccessCopyWith<_$_SelectedTimeStopSuccess>
+      get copyWith =>
+          __$$_SelectedTimeStopSuccessCopyWithImpl<_$_SelectedTimeStopSuccess>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AddEditFlightModelState data) initial,
+    required TResult Function(AddEditFlightModelState data, int type) loading,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addNewFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewFlightFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        editFlightSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        editFlightFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirportFailed,
+    required TResult Function(AddEditFlightModelState data) fetchAirlineSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        fetchAirlineFailed,
+    required TResult Function(AddEditFlightModelState data)
+        getFlightByIdSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        changeTicInformationViewSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
+    required TResult Function(AddEditFlightModelState data, String message)
+        getFlightByIdFailed,
+    required TResult Function(AddEditFlightModelState data, Flight flight)
+        addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addTicInformationFailed,
+  }) {
+    return selectedTimeStopSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AddEditFlightModelState data)? initial,
+    TResult? Function(AddEditFlightModelState data, int type)? loading,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult? Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult? Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult? Function(AddEditFlightModelState data)?
+        updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult? Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+  }) {
+    return selectedTimeStopSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AddEditFlightModelState data)? initial,
+    TResult Function(AddEditFlightModelState data, int type)? loading,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addNewFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewFlightFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        editFlightSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        editFlightFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirportFailed,
+    TResult Function(AddEditFlightModelState data)? fetchAirlineSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        fetchAirlineFailed,
+    TResult Function(AddEditFlightModelState data)? getFlightByIdSuccess,
+    TResult Function(AddEditFlightModelState data)?
+        changeTicInformationViewSuccess,
+    TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
+    TResult Function(AddEditFlightModelState data, String message)?
+        getFlightByIdFailed,
+    TResult Function(AddEditFlightModelState data, Flight flight)?
+        addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (selectedTimeStopSuccess != null) {
+      return selectedTimeStopSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddNewFlightSuccess value) addNewFlightSuccess,
+    required TResult Function(_AddNewFlightFailed value) addNewFlightFailed,
+    required TResult Function(_EditFlightSuccess value) editFlightSuccess,
+    required TResult Function(_EditFlightFailed value) editFlightFailed,
+    required TResult Function(_FetchAirportSuccess value) fetchAirportSuccess,
+    required TResult Function(_FetchAirportFailed value) fetchAirportFailed,
+    required TResult Function(_FetchAirlineSuccess value) fetchAirlineSuccess,
+    required TResult Function(_FetchAirlineFailed value) fetchAirlineFailed,
+    required TResult Function(_GetFlightByIdSuccess value) getFlightByIdSuccess,
+    required TResult Function(_ChangeTicInformationViewSuccess value)
+        changeTicInformationViewSuccess,
+    required TResult Function(_UpdateTicInformationSuccess value)
+        updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
+    required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
+    required TResult Function(_AddTicInformationSuccess value)
+        addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
+    required TResult Function(_AddTicInformationFailed value)
+        addTicInformationFailed,
+  }) {
+    return selectedTimeStopSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult? Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult? Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult? Function(_EditFlightFailed value)? editFlightFailed,
+    TResult? Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult? Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult? Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult? Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult? Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult? Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult? Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult? Function(_AddTicInformationSuccess value)?
+        addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
+  }) {
+    return selectedTimeStopSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddNewFlightSuccess value)? addNewFlightSuccess,
+    TResult Function(_AddNewFlightFailed value)? addNewFlightFailed,
+    TResult Function(_EditFlightSuccess value)? editFlightSuccess,
+    TResult Function(_EditFlightFailed value)? editFlightFailed,
+    TResult Function(_FetchAirportSuccess value)? fetchAirportSuccess,
+    TResult Function(_FetchAirportFailed value)? fetchAirportFailed,
+    TResult Function(_FetchAirlineSuccess value)? fetchAirlineSuccess,
+    TResult Function(_FetchAirlineFailed value)? fetchAirlineFailed,
+    TResult Function(_GetFlightByIdSuccess value)? getFlightByIdSuccess,
+    TResult Function(_ChangeTicInformationViewSuccess value)?
+        changeTicInformationViewSuccess,
+    TResult Function(_UpdateTicInformationSuccess value)?
+        updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
+    TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
+    TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
+    TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
+    required TResult orElse(),
+  }) {
+    if (selectedTimeStopSuccess != null) {
+      return selectedTimeStopSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedTimeStopSuccess extends AddEditFlightState {
+  const factory _SelectedTimeStopSuccess(
+          {required final AddEditFlightModelState data}) =
+      _$_SelectedTimeStopSuccess;
+  const _SelectedTimeStopSuccess._() : super._();
+
+  @override
+  AddEditFlightModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SelectedTimeStopSuccessCopyWith<_$_SelectedTimeStopSuccess>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -7585,10 +12235,22 @@ class _$_AddTicInformationFailed extends _AddTicInformationFailed {
         changeTicInformationViewSuccess,
     required TResult Function(AddEditFlightModelState data)
         updateTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data, String description)
+        selectedStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        removeStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        addNewStopAirportSuccess,
+    required TResult Function(AddEditFlightModelState data, String message)
+        addNewStopAirportFailed,
     required TResult Function(AddEditFlightModelState data, String message)
         getFlightByIdFailed,
     required TResult Function(AddEditFlightModelState data, Flight flight)
         addTicInformationSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedAirportStopSuccess,
+    required TResult Function(AddEditFlightModelState data)
+        selectedTimeStopSuccess,
     required TResult Function(AddEditFlightModelState data, String message)
         addTicInformationFailed,
   }) {
@@ -7619,10 +12281,18 @@ class _$_AddTicInformationFailed extends _AddTicInformationFailed {
         changeTicInformationViewSuccess,
     TResult? Function(AddEditFlightModelState data)?
         updateTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult? Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult? Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult? Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult? Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult? Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
   }) {
@@ -7652,10 +12322,18 @@ class _$_AddTicInformationFailed extends _AddTicInformationFailed {
     TResult Function(AddEditFlightModelState data)?
         changeTicInformationViewSuccess,
     TResult Function(AddEditFlightModelState data)? updateTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data, String description)?
+        selectedStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? removeStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data)? addNewStopAirportSuccess,
+    TResult Function(AddEditFlightModelState data, String message)?
+        addNewStopAirportFailed,
     TResult Function(AddEditFlightModelState data, String message)?
         getFlightByIdFailed,
     TResult Function(AddEditFlightModelState data, Flight flight)?
         addTicInformationSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedAirportStopSuccess,
+    TResult Function(AddEditFlightModelState data)? selectedTimeStopSuccess,
     TResult Function(AddEditFlightModelState data, String message)?
         addTicInformationFailed,
     required TResult orElse(),
@@ -7684,9 +12362,21 @@ class _$_AddTicInformationFailed extends _AddTicInformationFailed {
         changeTicInformationViewSuccess,
     required TResult Function(_UpdateTicInformationSuccess value)
         updateTicInformationSuccess,
+    required TResult Function(_SelectedStopAirportSuccess value)
+        selectedStopAirportSuccess,
+    required TResult Function(_RemoveStopAirportSuccess value)
+        removeStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportSuccess value)
+        addNewStopAirportSuccess,
+    required TResult Function(_AddNewStopAirportFailed value)
+        addNewStopAirportFailed,
     required TResult Function(_GetFlightByIdFailed value) getFlightByIdFailed,
     required TResult Function(_AddTicInformationSuccess value)
         addTicInformationSuccess,
+    required TResult Function(_SelectedAirportStopSuccess value)
+        selectedAirportStopSuccess,
+    required TResult Function(_SelectedTimeStopSuccess value)
+        selectedTimeStopSuccess,
     required TResult Function(_AddTicInformationFailed value)
         addTicInformationFailed,
   }) {
@@ -7711,9 +12401,19 @@ class _$_AddTicInformationFailed extends _AddTicInformationFailed {
         changeTicInformationViewSuccess,
     TResult? Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult? Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult? Function(_RemoveStopAirportSuccess value)?
+        removeStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportSuccess value)?
+        addNewStopAirportSuccess,
+    TResult? Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult? Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult? Function(_AddTicInformationSuccess value)?
         addTicInformationSuccess,
+    TResult? Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult? Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult? Function(_AddTicInformationFailed value)? addTicInformationFailed,
   }) {
     return addTicInformationFailed?.call(this);
@@ -7737,8 +12437,16 @@ class _$_AddTicInformationFailed extends _AddTicInformationFailed {
         changeTicInformationViewSuccess,
     TResult Function(_UpdateTicInformationSuccess value)?
         updateTicInformationSuccess,
+    TResult Function(_SelectedStopAirportSuccess value)?
+        selectedStopAirportSuccess,
+    TResult Function(_RemoveStopAirportSuccess value)? removeStopAirportSuccess,
+    TResult Function(_AddNewStopAirportSuccess value)? addNewStopAirportSuccess,
+    TResult Function(_AddNewStopAirportFailed value)? addNewStopAirportFailed,
     TResult Function(_GetFlightByIdFailed value)? getFlightByIdFailed,
     TResult Function(_AddTicInformationSuccess value)? addTicInformationSuccess,
+    TResult Function(_SelectedAirportStopSuccess value)?
+        selectedAirportStopSuccess,
+    TResult Function(_SelectedTimeStopSuccess value)? selectedTimeStopSuccess,
     TResult Function(_AddTicInformationFailed value)? addTicInformationFailed,
     required TResult orElse(),
   }) {

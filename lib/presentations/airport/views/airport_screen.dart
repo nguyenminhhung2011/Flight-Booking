@@ -262,6 +262,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                 rowData: [
                   FlexRowTableData<String>(flex: 1, data: S.of(context).id),
                   FlexRowTableData<String>(flex: 1, data: S.of(context).name),
+                  FlexRowTableData<String>(flex: 1, data: S.of(context).code),
                   FlexRowTableData<String>(flex: 1, data: S.of(context).image),
                   FlexRowTableData<String>(
                       flex: 1, data: S.of(context).location),
@@ -278,7 +279,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                     if (index == 0) {
                       return Text('Airport ${data.toString()}');
                     }
-                    if (index == 3) {
+                    if (index == 4) {
                       return Row(
                         children: [
                           Icon(
@@ -294,7 +295,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                           )),
                         ],
                       );
-                    } else if (index == 2) {
+                    } else if (index == 3) {
                       if (data.toString().isEmpty) {
                         return const SizedBox();
                       }
@@ -308,7 +309,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                           ),
                         ),
                       );
-                    } else if (index == 4) {
+                    } else if (index == 5) {
                       return SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
@@ -346,6 +347,7 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
                     FlexRowTableData<String>(
                         flex: 1, data: airportData.id.toString()),
                     FlexRowTableData<String>(flex: 1, data: airportData.name),
+                    FlexRowTableData<String>(flex: 1, data: airportData.code),
                     FlexRowTableData<String>(flex: 1, data: airportData.image),
                     FlexRowTableData<String>(
                         flex: 1, data: airportData.location),
