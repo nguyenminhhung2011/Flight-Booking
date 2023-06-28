@@ -7,6 +7,7 @@ import 'package:flight_booking/core/components/widgets/mobile/category_custom.da
 import 'package:flight_booking/core/components/widgets/mobile/text_field_custom.dart';
 import 'package:flight_booking/core/dependency_injection/di.dart';
 import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
+import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
 import 'package:flight_booking/domain/entities/customer/customer.dart';
 import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/add_edit_payment_bloc/add_edit_payment_bloc.dart';
