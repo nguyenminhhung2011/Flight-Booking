@@ -295,7 +295,7 @@ class _FlightFastViewState extends State<FlightFastView> {
               children: [
                 ...<Map<String, dynamic>>[
                   {'header': S.of(context).description, 'text': e.description},
-                  {'header': S.of(context).code, 'text': e.airport.location}
+                  {'header': S.of(context).location, 'text': e.airport.location}
                 ].map(
                   (e) => Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
