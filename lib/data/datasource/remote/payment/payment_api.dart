@@ -66,6 +66,11 @@ abstract class PaymentApi {
     // @Query
   );
 
+  @GET('${PaymentApiEndpoint.branch}/id={id}')
+  Future<HttpResponse<PaymentModel?>> getNormalPaymentById(
+    @Path("id") int id, // @Query
+  );
+
   @GET(PaymentApiEndpoint.fetchPaymentManagementPage)
   Future<HttpResponse<PaymentManagementPageModel>> fetchPaymentManagementPage(
     @Query('page') int page,

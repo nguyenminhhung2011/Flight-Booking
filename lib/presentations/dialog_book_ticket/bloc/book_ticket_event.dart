@@ -37,6 +37,10 @@ class BTEvent with _$BTEvent {
     required Ticket tic,
   }) = _EditTic;
 
+  const factory BTEvent.addTicToDB({
+    required String paymentType,
+  }) = _AddTicToDB;
+
   const factory BTEvent.getAllTicOfFlight() = _GetAllTicOfFlight;
 
   const factory BTEvent.updateCustomers(Customer customer) = _UpdateCustomer;

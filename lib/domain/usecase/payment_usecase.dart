@@ -17,6 +17,11 @@ class PaymentUseCase {
     return response.data.map((e) => e.toEntity).toList();
   }
 
+  Future<Payment?> getNormalPaymentById(int id) async {
+    final response = await _paymentApi.getNormalPaymentById(id);
+    return response.data?.toEntity;
+  }
+
   Future<PaymentDetailItem> getPaymentById(int id) async {
     final result = (await _paymentApi.getPaymentById(id));
 

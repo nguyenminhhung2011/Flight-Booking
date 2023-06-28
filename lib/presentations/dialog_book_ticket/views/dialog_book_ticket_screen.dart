@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:collection/collection.dart';
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/enum/payment_type.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
@@ -151,24 +152,9 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
   }
 
   void _onNextPage() {
-    final listTic = _listTic
-        .where(
-          (element) =>
-              element.emailAddress.isNotEmpty &&
-              element.phoneNumber.isNotEmpty &&
-              element.phoneNumber.isNotEmpty,
-        )
-        .toList();
-    if (listTic.isEmpty) {
-      return;
-    }
-    context.openPageWithRouteAndParams(Routes.payment, {
-      'tics': listTic,
-      'ids': {
-        'customerId': _customerSelected?.id ?? -1,
-        'flightId': _flightId,
-      },
-    });
+    _bloc.add(BTEvent.addTicToDB(
+      paymentType: PaymentType.unknown.displayValue.toUpperCase(),
+    ));
   }
 
   void _onShowDialogSelectedBaggage() async {
@@ -245,14 +231,33 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
           title: 'Seat was selected',
         );
       },
+      addTicToDBSuccess: (data, paymentId) async {
+        final show = await context.showYesNoDialog(
+            300, 'Payment', 'Do you want payment now?');
+        if (show) {
+          // ignore: use_build_context_synchronously
+          context.openPageWithRouteAndParams(Routes.payment, {
+            'ids': {
+              'flightId': _flightId,
+              'paymentId': paymentId,
+            },
+          });
+        } else {
+          // ignore: use_build_context_synchronously
+          context.popUntil(Routes.dashboard);
+        }
+      },
+      addTicToDBFailed: (data, error) {
+        context.showSuccessDialog(width: 300, header: 'Error', title: error);
+      },
       getAllTicOfFlightFailed: (data, error) {
-        log(error);
+        context.showSuccessDialog(width: 300, header: 'Error', title: error);
       },
       fetchCustomerDataFailed: (data, error) {
-        log(error);
+        context.showSuccessDialog(width: 300, header: 'Error', title: error);
       },
       searchCustomerFailed: (data, error) {
-        log(error);
+        context.showSuccessDialog(width: 300, header: 'Error', title: error);
       },
       orElse: () {},
     );
@@ -667,6 +672,7 @@ class _DialogBookTicketState extends State<DialogBookTicket> {
               Expanded(
                 child: ButtonCustom(
                   height: 50,
+                  loading: _bloc.state.loadingButton,
                   onPress: _onNextPage,
                   child: Text(S.of(context).next),
                 ),

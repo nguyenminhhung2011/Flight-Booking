@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/data/models/model_helper.dart';
@@ -32,7 +30,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
   Flight? get _flight => _bloc.data.flight;
   Customer? get _customer => _bloc.data.customer;
   Map<int, TicketInformation>? get _ticInformation => _bloc.data.ticInformation;
-  List<Ticket> get _tics => _bloc.tics;
+  List<Ticket> get _tics => _bloc.data.tics;
   Map<String, double> get _priceSummary => _bloc.data.priceSummary;
   Payment? get _payment => _bloc.data.payment;
 
@@ -41,8 +39,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   @override
   void initState() {
+    _bloc.add(const PaymentTabEvent.getPaymentById());
     _bloc.add(const PaymentTabEvent.getFlightById());
-    _bloc.add(const PaymentTabEvent.getCustomerById());
     _bloc.add(const PaymentTabEvent.getTicInformation());
     super.initState();
   }
@@ -74,11 +72,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
           title: 'Update contact information success!',
         );
       },
+      getPaymentByIdFailed: (data, error) {
+        context.showSuccessDialog(width: 300, header: 'Error', title: error);
+      },
       addTicToDBFailed: (data, error) {
-        log(error);
+        context.showSuccessDialog(width: 300, header: 'Error', title: error);
       },
       updateContactCustomerFailed: (data, error) {
-        log(error);
+        context.showSuccessDialog(width: 300, header: 'Error', title: error);
       },
       orElse: () {},
     );
@@ -255,7 +256,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ],
               Expanded(
                 child: PageView(
-                  // physics: const NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   controller: _pageController,
                   children: [
                     BookPaymentTab(
