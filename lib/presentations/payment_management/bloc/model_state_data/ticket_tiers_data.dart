@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'ticket_tiers_data.freezed.dart';
+part 'ticket_tiers_data.g.dart';
 
 @freezed
 class TicketTierData with _$TicketTierData {
@@ -12,6 +13,9 @@ class TicketTierData with _$TicketTierData {
   }) = _TicketTierData;
 
   const TicketTierData._();
+
+  factory TicketTierData.fromJson(Map<String, dynamic> json) =>
+      _$TicketTierDataFromJson(json);
 
   int get getSum {
     int total = economy + premiumEconomy + business + first;

@@ -14,12 +14,18 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+DashboardModelState _$DashboardModelStateFromJson(Map<String, dynamic> json) {
+  return _DashboardModelState.fromJson(json);
+}
+
 /// @nodoc
 mixin _$DashboardModelState {
   int get viewEnum => throw _privateConstructorUsedError;
   bool get isDarkTheme => throw _privateConstructorUsedError;
   bool get secondBodyDis => throw _privateConstructorUsedError;
+  OverviewModelStateData get overviewData => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $DashboardModelStateCopyWith<DashboardModelState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -31,7 +37,13 @@ abstract class $DashboardModelStateCopyWith<$Res> {
           DashboardModelState value, $Res Function(DashboardModelState) then) =
       _$DashboardModelStateCopyWithImpl<$Res, DashboardModelState>;
   @useResult
-  $Res call({int viewEnum, bool isDarkTheme, bool secondBodyDis});
+  $Res call(
+      {int viewEnum,
+      bool isDarkTheme,
+      bool secondBodyDis,
+      OverviewModelStateData overviewData});
+
+  $OverviewModelStateDataCopyWith<$Res> get overviewData;
 }
 
 /// @nodoc
@@ -50,6 +62,7 @@ class _$DashboardModelStateCopyWithImpl<$Res, $Val extends DashboardModelState>
     Object? viewEnum = null,
     Object? isDarkTheme = null,
     Object? secondBodyDis = null,
+    Object? overviewData = null,
   }) {
     return _then(_value.copyWith(
       viewEnum: null == viewEnum
@@ -64,7 +77,19 @@ class _$DashboardModelStateCopyWithImpl<$Res, $Val extends DashboardModelState>
           ? _value.secondBodyDis
           : secondBodyDis // ignore: cast_nullable_to_non_nullable
               as bool,
+      overviewData: null == overviewData
+          ? _value.overviewData
+          : overviewData // ignore: cast_nullable_to_non_nullable
+              as OverviewModelStateData,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $OverviewModelStateDataCopyWith<$Res> get overviewData {
+    return $OverviewModelStateDataCopyWith<$Res>(_value.overviewData, (value) {
+      return _then(_value.copyWith(overviewData: value) as $Val);
+    });
   }
 }
 
@@ -76,7 +101,14 @@ abstract class _$$_DashboardModelStateCopyWith<$Res>
       __$$_DashboardModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int viewEnum, bool isDarkTheme, bool secondBodyDis});
+  $Res call(
+      {int viewEnum,
+      bool isDarkTheme,
+      bool secondBodyDis,
+      OverviewModelStateData overviewData});
+
+  @override
+  $OverviewModelStateDataCopyWith<$Res> get overviewData;
 }
 
 /// @nodoc
@@ -93,6 +125,7 @@ class __$$_DashboardModelStateCopyWithImpl<$Res>
     Object? viewEnum = null,
     Object? isDarkTheme = null,
     Object? secondBodyDis = null,
+    Object? overviewData = null,
   }) {
     return _then(_$_DashboardModelState(
       viewEnum: null == viewEnum
@@ -107,17 +140,25 @@ class __$$_DashboardModelStateCopyWithImpl<$Res>
           ? _value.secondBodyDis
           : secondBodyDis // ignore: cast_nullable_to_non_nullable
               as bool,
+      overviewData: null == overviewData
+          ? _value.overviewData
+          : overviewData // ignore: cast_nullable_to_non_nullable
+              as OverviewModelStateData,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_DashboardModelState implements _DashboardModelState {
   const _$_DashboardModelState(
       {required this.viewEnum,
       required this.isDarkTheme,
-      required this.secondBodyDis});
+      required this.secondBodyDis,
+      required this.overviewData});
+
+  factory _$_DashboardModelState.fromJson(Map<String, dynamic> json) =>
+      _$$_DashboardModelStateFromJson(json);
 
   @override
   final int viewEnum;
@@ -125,10 +166,12 @@ class _$_DashboardModelState implements _DashboardModelState {
   final bool isDarkTheme;
   @override
   final bool secondBodyDis;
+  @override
+  final OverviewModelStateData overviewData;
 
   @override
   String toString() {
-    return 'DashboardModelState(viewEnum: $viewEnum, isDarkTheme: $isDarkTheme, secondBodyDis: $secondBodyDis)';
+    return 'DashboardModelState(viewEnum: $viewEnum, isDarkTheme: $isDarkTheme, secondBodyDis: $secondBodyDis, overviewData: $overviewData)';
   }
 
   @override
@@ -141,12 +184,15 @@ class _$_DashboardModelState implements _DashboardModelState {
             (identical(other.isDarkTheme, isDarkTheme) ||
                 other.isDarkTheme == isDarkTheme) &&
             (identical(other.secondBodyDis, secondBodyDis) ||
-                other.secondBodyDis == secondBodyDis));
+                other.secondBodyDis == secondBodyDis) &&
+            (identical(other.overviewData, overviewData) ||
+                other.overviewData == overviewData));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, viewEnum, isDarkTheme, secondBodyDis);
+  int get hashCode => Object.hash(
+      runtimeType, viewEnum, isDarkTheme, secondBodyDis, overviewData);
 
   @JsonKey(ignore: true)
   @override
@@ -154,13 +200,25 @@ class _$_DashboardModelState implements _DashboardModelState {
   _$$_DashboardModelStateCopyWith<_$_DashboardModelState> get copyWith =>
       __$$_DashboardModelStateCopyWithImpl<_$_DashboardModelState>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_DashboardModelStateToJson(
+      this,
+    );
+  }
 }
 
 abstract class _DashboardModelState implements DashboardModelState {
   const factory _DashboardModelState(
-      {required final int viewEnum,
-      required final bool isDarkTheme,
-      required final bool secondBodyDis}) = _$_DashboardModelState;
+          {required final int viewEnum,
+          required final bool isDarkTheme,
+          required final bool secondBodyDis,
+          required final OverviewModelStateData overviewData}) =
+      _$_DashboardModelState;
+
+  factory _DashboardModelState.fromJson(Map<String, dynamic> json) =
+      _$_DashboardModelState.fromJson;
 
   @override
   int get viewEnum;
@@ -168,6 +226,8 @@ abstract class _DashboardModelState implements DashboardModelState {
   bool get isDarkTheme;
   @override
   bool get secondBodyDis;
+  @override
+  OverviewModelStateData get overviewData;
   @override
   @JsonKey(ignore: true)
   _$$_DashboardModelStateCopyWith<_$_DashboardModelState> get copyWith =>
