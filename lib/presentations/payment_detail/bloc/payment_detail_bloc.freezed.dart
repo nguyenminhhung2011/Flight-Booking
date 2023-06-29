@@ -19,7 +19,7 @@ mixin _$PaymentDetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
-    required TResult Function() fetchPaymentDetailData,
+    required TResult Function(String id) fetchPaymentDetailData,
     required TResult Function() selectOldPayment,
     required TResult Function() changePaymentMethod,
     required TResult Function() openPaymentPage,
@@ -28,7 +28,7 @@ mixin _$PaymentDetailEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
-    TResult? Function()? fetchPaymentDetailData,
+    TResult? Function(String id)? fetchPaymentDetailData,
     TResult? Function()? selectOldPayment,
     TResult? Function()? changePaymentMethod,
     TResult? Function()? openPaymentPage,
@@ -37,7 +37,7 @@ mixin _$PaymentDetailEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
-    TResult Function()? fetchPaymentDetailData,
+    TResult Function(String id)? fetchPaymentDetailData,
     TResult Function()? selectOldPayment,
     TResult Function()? changePaymentMethod,
     TResult Function()? openPaymentPage,
@@ -132,7 +132,7 @@ class _$_OnStarted extends _OnStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
-    required TResult Function() fetchPaymentDetailData,
+    required TResult Function(String id) fetchPaymentDetailData,
     required TResult Function() selectOldPayment,
     required TResult Function() changePaymentMethod,
     required TResult Function() openPaymentPage,
@@ -144,7 +144,7 @@ class _$_OnStarted extends _OnStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
-    TResult? Function()? fetchPaymentDetailData,
+    TResult? Function(String id)? fetchPaymentDetailData,
     TResult? Function()? selectOldPayment,
     TResult? Function()? changePaymentMethod,
     TResult? Function()? openPaymentPage,
@@ -156,7 +156,7 @@ class _$_OnStarted extends _OnStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
-    TResult Function()? fetchPaymentDetailData,
+    TResult Function(String id)? fetchPaymentDetailData,
     TResult Function()? selectOldPayment,
     TResult Function()? changePaymentMethod,
     TResult Function()? openPaymentPage,
@@ -220,6 +220,8 @@ abstract class _$$_FetchPaymentDetailDataCopyWith<$Res> {
   factory _$$_FetchPaymentDetailDataCopyWith(_$_FetchPaymentDetailData value,
           $Res Function(_$_FetchPaymentDetailData) then) =
       __$$_FetchPaymentDetailDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -229,64 +231,88 @@ class __$$_FetchPaymentDetailDataCopyWithImpl<$Res>
   __$$_FetchPaymentDetailDataCopyWithImpl(_$_FetchPaymentDetailData _value,
       $Res Function(_$_FetchPaymentDetailData) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_FetchPaymentDetailData(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_FetchPaymentDetailData extends _FetchPaymentDetailData {
-  const _$_FetchPaymentDetailData() : super._();
+  const _$_FetchPaymentDetailData({required this.id}) : super._();
+
+  @override
+  final String id;
 
   @override
   String toString() {
-    return 'PaymentDetailEvent.fetchPaymentDetailData()';
+    return 'PaymentDetailEvent.fetchPaymentDetailData(id: $id)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchPaymentDetailData);
+            other is _$_FetchPaymentDetailData &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FetchPaymentDetailDataCopyWith<_$_FetchPaymentDetailData> get copyWith =>
+      __$$_FetchPaymentDetailDataCopyWithImpl<_$_FetchPaymentDetailData>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
-    required TResult Function() fetchPaymentDetailData,
+    required TResult Function(String id) fetchPaymentDetailData,
     required TResult Function() selectOldPayment,
     required TResult Function() changePaymentMethod,
     required TResult Function() openPaymentPage,
   }) {
-    return fetchPaymentDetailData();
+    return fetchPaymentDetailData(id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
-    TResult? Function()? fetchPaymentDetailData,
+    TResult? Function(String id)? fetchPaymentDetailData,
     TResult? Function()? selectOldPayment,
     TResult? Function()? changePaymentMethod,
     TResult? Function()? openPaymentPage,
   }) {
-    return fetchPaymentDetailData?.call();
+    return fetchPaymentDetailData?.call(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
-    TResult Function()? fetchPaymentDetailData,
+    TResult Function(String id)? fetchPaymentDetailData,
     TResult Function()? selectOldPayment,
     TResult Function()? changePaymentMethod,
     TResult Function()? openPaymentPage,
     required TResult orElse(),
   }) {
     if (fetchPaymentDetailData != null) {
-      return fetchPaymentDetailData();
+      return fetchPaymentDetailData(id);
     }
     return orElse();
   }
@@ -334,8 +360,14 @@ class _$_FetchPaymentDetailData extends _FetchPaymentDetailData {
 }
 
 abstract class _FetchPaymentDetailData extends PaymentDetailEvent {
-  const factory _FetchPaymentDetailData() = _$_FetchPaymentDetailData;
+  const factory _FetchPaymentDetailData({required final String id}) =
+      _$_FetchPaymentDetailData;
   const _FetchPaymentDetailData._() : super._();
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$_FetchPaymentDetailDataCopyWith<_$_FetchPaymentDetailData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -377,7 +409,7 @@ class _$_SelectOldPayment extends _SelectOldPayment {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
-    required TResult Function() fetchPaymentDetailData,
+    required TResult Function(String id) fetchPaymentDetailData,
     required TResult Function() selectOldPayment,
     required TResult Function() changePaymentMethod,
     required TResult Function() openPaymentPage,
@@ -389,7 +421,7 @@ class _$_SelectOldPayment extends _SelectOldPayment {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
-    TResult? Function()? fetchPaymentDetailData,
+    TResult? Function(String id)? fetchPaymentDetailData,
     TResult? Function()? selectOldPayment,
     TResult? Function()? changePaymentMethod,
     TResult? Function()? openPaymentPage,
@@ -401,7 +433,7 @@ class _$_SelectOldPayment extends _SelectOldPayment {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
-    TResult Function()? fetchPaymentDetailData,
+    TResult Function(String id)? fetchPaymentDetailData,
     TResult Function()? selectOldPayment,
     TResult Function()? changePaymentMethod,
     TResult Function()? openPaymentPage,
@@ -499,7 +531,7 @@ class _$_ChangePaymentMethod extends _ChangePaymentMethod {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
-    required TResult Function() fetchPaymentDetailData,
+    required TResult Function(String id) fetchPaymentDetailData,
     required TResult Function() selectOldPayment,
     required TResult Function() changePaymentMethod,
     required TResult Function() openPaymentPage,
@@ -511,7 +543,7 @@ class _$_ChangePaymentMethod extends _ChangePaymentMethod {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
-    TResult? Function()? fetchPaymentDetailData,
+    TResult? Function(String id)? fetchPaymentDetailData,
     TResult? Function()? selectOldPayment,
     TResult? Function()? changePaymentMethod,
     TResult? Function()? openPaymentPage,
@@ -523,7 +555,7 @@ class _$_ChangePaymentMethod extends _ChangePaymentMethod {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
-    TResult Function()? fetchPaymentDetailData,
+    TResult Function(String id)? fetchPaymentDetailData,
     TResult Function()? selectOldPayment,
     TResult Function()? changePaymentMethod,
     TResult Function()? openPaymentPage,
@@ -621,7 +653,7 @@ class _$_OpenPaymentPage extends _OpenPaymentPage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
-    required TResult Function() fetchPaymentDetailData,
+    required TResult Function(String id) fetchPaymentDetailData,
     required TResult Function() selectOldPayment,
     required TResult Function() changePaymentMethod,
     required TResult Function() openPaymentPage,
@@ -633,7 +665,7 @@ class _$_OpenPaymentPage extends _OpenPaymentPage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
-    TResult? Function()? fetchPaymentDetailData,
+    TResult? Function(String id)? fetchPaymentDetailData,
     TResult? Function()? selectOldPayment,
     TResult? Function()? changePaymentMethod,
     TResult? Function()? openPaymentPage,
@@ -645,7 +677,7 @@ class _$_OpenPaymentPage extends _OpenPaymentPage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
-    TResult Function()? fetchPaymentDetailData,
+    TResult Function(String id)? fetchPaymentDetailData,
     TResult Function()? selectOldPayment,
     TResult Function()? changePaymentMethod,
     TResult Function()? openPaymentPage,

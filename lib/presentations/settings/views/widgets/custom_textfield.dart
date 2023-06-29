@@ -20,7 +20,9 @@ class CustomerTextField extends StatefulWidget {
     this.readOnly,
     this.checkFormat = true,
     this.isDense = false,
+    this.enable = false,
   });
+  final bool enable;
   final String? title;
   final double? width;
   final int? maxLine;
@@ -61,6 +63,7 @@ class _CustomerTextFieldState extends State<CustomerTextField> {
               ]
             : [],
         decoration: InputDecoration(
+          fillColor: widget.enable ? null : Theme.of(context).disabledColor,
           suffixIconConstraints:
               const BoxConstraints(minHeight: 48, minWidth: 20),
           isDense: widget.isDense,

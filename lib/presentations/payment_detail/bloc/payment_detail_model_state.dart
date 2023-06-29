@@ -9,6 +9,7 @@ class PaymentDetailModelState with _$PaymentDetailModelState {
   const PaymentDetailModelState._();
 
   const factory PaymentDetailModelState({
+    required final int currentIndex,
     required final List<PaymentItem> payments,
     required final PaymentDetailItem paymentDetail,
   }) = _PaymentDetailModelState;

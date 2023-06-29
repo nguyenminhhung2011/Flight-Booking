@@ -6,9 +6,11 @@ class AccountSettingEvent with _$AccountSettingEvent {
 
   const factory AccountSettingEvent.onStarted() = _OnStarted;
   const factory AccountSettingEvent.fetchUserData() = _FetchUserData;
-  const factory AccountSettingEvent.updateUserData({
-    required String password,
+  const factory AccountSettingEvent.changePassword({
+    required String oldPassword,
     required String newPassword,
-    required String retypePassword,
+  }) = _ChangePassword;
+  const factory AccountSettingEvent.updateUserData({
+    required User user,
   }) = _UpdateUserData;
 }

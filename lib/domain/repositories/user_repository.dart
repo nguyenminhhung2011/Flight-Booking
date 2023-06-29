@@ -8,5 +8,4 @@ abstract class UserRepository {
       String username, String password);
   Future<bool> logout();
   Future<User> getUser();
-  Future<User> updateUserInfo(User user);
 }

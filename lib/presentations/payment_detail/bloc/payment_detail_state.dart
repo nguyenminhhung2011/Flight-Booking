@@ -26,4 +26,6 @@ class PaymentDetailState with _$PaymentDetailState {
 
   const factory PaymentDetailState.failedState(
       {required final PaymentDetailModelState data}) = _FailedState;
+
+  bool get isLoading => this is _Loading;
 }

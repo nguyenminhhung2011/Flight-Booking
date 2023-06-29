@@ -20,27 +20,25 @@ mixin _$AccountSettingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function() fetchUserData,
-    required TResult Function(
-            String password, String newPassword, String retypePassword)
-        updateUserData,
+    required TResult Function(String oldPassword, String newPassword)
+        changePassword,
+    required TResult Function(User user) updateUserData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function()? fetchUserData,
-    TResult? Function(
-            String password, String newPassword, String retypePassword)?
-        updateUserData,
+    TResult? Function(String oldPassword, String newPassword)? changePassword,
+    TResult? Function(User user)? updateUserData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function()? fetchUserData,
-    TResult Function(
-            String password, String newPassword, String retypePassword)?
-        updateUserData,
+    TResult Function(String oldPassword, String newPassword)? changePassword,
+    TResult Function(User user)? updateUserData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +46,7 @@ mixin _$AccountSettingEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_OnStarted value) onStarted,
     required TResult Function(_FetchUserData value) fetchUserData,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdateUserData value) updateUserData,
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +54,7 @@ mixin _$AccountSettingEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnStarted value)? onStarted,
     TResult? Function(_FetchUserData value)? fetchUserData,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdateUserData value)? updateUserData,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +62,7 @@ mixin _$AccountSettingEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnStarted value)? onStarted,
     TResult Function(_FetchUserData value)? fetchUserData,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdateUserData value)? updateUserData,
     required TResult orElse(),
   }) =>
@@ -126,9 +127,9 @@ class _$_OnStarted extends _OnStarted {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function() fetchUserData,
-    required TResult Function(
-            String password, String newPassword, String retypePassword)
-        updateUserData,
+    required TResult Function(String oldPassword, String newPassword)
+        changePassword,
+    required TResult Function(User user) updateUserData,
   }) {
     return onStarted();
   }
@@ -138,9 +139,8 @@ class _$_OnStarted extends _OnStarted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function()? fetchUserData,
-    TResult? Function(
-            String password, String newPassword, String retypePassword)?
-        updateUserData,
+    TResult? Function(String oldPassword, String newPassword)? changePassword,
+    TResult? Function(User user)? updateUserData,
   }) {
     return onStarted?.call();
   }
@@ -150,9 +150,8 @@ class _$_OnStarted extends _OnStarted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function()? fetchUserData,
-    TResult Function(
-            String password, String newPassword, String retypePassword)?
-        updateUserData,
+    TResult Function(String oldPassword, String newPassword)? changePassword,
+    TResult Function(User user)? updateUserData,
     required TResult orElse(),
   }) {
     if (onStarted != null) {
@@ -166,6 +165,7 @@ class _$_OnStarted extends _OnStarted {
   TResult map<TResult extends Object?>({
     required TResult Function(_OnStarted value) onStarted,
     required TResult Function(_FetchUserData value) fetchUserData,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdateUserData value) updateUserData,
   }) {
     return onStarted(this);
@@ -176,6 +176,7 @@ class _$_OnStarted extends _OnStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnStarted value)? onStarted,
     TResult? Function(_FetchUserData value)? fetchUserData,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdateUserData value)? updateUserData,
   }) {
     return onStarted?.call(this);
@@ -186,6 +187,7 @@ class _$_OnStarted extends _OnStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnStarted value)? onStarted,
     TResult Function(_FetchUserData value)? fetchUserData,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdateUserData value)? updateUserData,
     required TResult orElse(),
   }) {
@@ -241,9 +243,9 @@ class _$_FetchUserData extends _FetchUserData {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function() fetchUserData,
-    required TResult Function(
-            String password, String newPassword, String retypePassword)
-        updateUserData,
+    required TResult Function(String oldPassword, String newPassword)
+        changePassword,
+    required TResult Function(User user) updateUserData,
   }) {
     return fetchUserData();
   }
@@ -253,9 +255,8 @@ class _$_FetchUserData extends _FetchUserData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function()? fetchUserData,
-    TResult? Function(
-            String password, String newPassword, String retypePassword)?
-        updateUserData,
+    TResult? Function(String oldPassword, String newPassword)? changePassword,
+    TResult? Function(User user)? updateUserData,
   }) {
     return fetchUserData?.call();
   }
@@ -265,9 +266,8 @@ class _$_FetchUserData extends _FetchUserData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function()? fetchUserData,
-    TResult Function(
-            String password, String newPassword, String retypePassword)?
-        updateUserData,
+    TResult Function(String oldPassword, String newPassword)? changePassword,
+    TResult Function(User user)? updateUserData,
     required TResult orElse(),
   }) {
     if (fetchUserData != null) {
@@ -281,6 +281,7 @@ class _$_FetchUserData extends _FetchUserData {
   TResult map<TResult extends Object?>({
     required TResult Function(_OnStarted value) onStarted,
     required TResult Function(_FetchUserData value) fetchUserData,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdateUserData value) updateUserData,
   }) {
     return fetchUserData(this);
@@ -291,6 +292,7 @@ class _$_FetchUserData extends _FetchUserData {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnStarted value)? onStarted,
     TResult? Function(_FetchUserData value)? fetchUserData,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdateUserData value)? updateUserData,
   }) {
     return fetchUserData?.call(this);
@@ -301,6 +303,7 @@ class _$_FetchUserData extends _FetchUserData {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnStarted value)? onStarted,
     TResult Function(_FetchUserData value)? fetchUserData,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdateUserData value)? updateUserData,
     required TResult orElse(),
   }) {
@@ -317,12 +320,176 @@ abstract class _FetchUserData extends AccountSettingEvent {
 }
 
 /// @nodoc
+abstract class _$$_ChangePasswordCopyWith<$Res> {
+  factory _$$_ChangePasswordCopyWith(
+          _$_ChangePassword value, $Res Function(_$_ChangePassword) then) =
+      __$$_ChangePasswordCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String oldPassword, String newPassword});
+}
+
+/// @nodoc
+class __$$_ChangePasswordCopyWithImpl<$Res>
+    extends _$AccountSettingEventCopyWithImpl<$Res, _$_ChangePassword>
+    implements _$$_ChangePasswordCopyWith<$Res> {
+  __$$_ChangePasswordCopyWithImpl(
+      _$_ChangePassword _value, $Res Function(_$_ChangePassword) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? oldPassword = null,
+    Object? newPassword = null,
+  }) {
+    return _then(_$_ChangePassword(
+      oldPassword: null == oldPassword
+          ? _value.oldPassword
+          : oldPassword // ignore: cast_nullable_to_non_nullable
+              as String,
+      newPassword: null == newPassword
+          ? _value.newPassword
+          : newPassword // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangePassword extends _ChangePassword {
+  const _$_ChangePassword(
+      {required this.oldPassword, required this.newPassword})
+      : super._();
+
+  @override
+  final String oldPassword;
+  @override
+  final String newPassword;
+
+  @override
+  String toString() {
+    return 'AccountSettingEvent.changePassword(oldPassword: $oldPassword, newPassword: $newPassword)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangePassword &&
+            (identical(other.oldPassword, oldPassword) ||
+                other.oldPassword == oldPassword) &&
+            (identical(other.newPassword, newPassword) ||
+                other.newPassword == newPassword));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, oldPassword, newPassword);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangePasswordCopyWith<_$_ChangePassword> get copyWith =>
+      __$$_ChangePasswordCopyWithImpl<_$_ChangePassword>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function() fetchUserData,
+    required TResult Function(String oldPassword, String newPassword)
+        changePassword,
+    required TResult Function(User user) updateUserData,
+  }) {
+    return changePassword(oldPassword, newPassword);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function()? fetchUserData,
+    TResult? Function(String oldPassword, String newPassword)? changePassword,
+    TResult? Function(User user)? updateUserData,
+  }) {
+    return changePassword?.call(oldPassword, newPassword);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function()? fetchUserData,
+    TResult Function(String oldPassword, String newPassword)? changePassword,
+    TResult Function(User user)? updateUserData,
+    required TResult orElse(),
+  }) {
+    if (changePassword != null) {
+      return changePassword(oldPassword, newPassword);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_FetchUserData value) fetchUserData,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_UpdateUserData value) updateUserData,
+  }) {
+    return changePassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_FetchUserData value)? fetchUserData,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_UpdateUserData value)? updateUserData,
+  }) {
+    return changePassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_FetchUserData value)? fetchUserData,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_UpdateUserData value)? updateUserData,
+    required TResult orElse(),
+  }) {
+    if (changePassword != null) {
+      return changePassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePassword extends AccountSettingEvent {
+  const factory _ChangePassword(
+      {required final String oldPassword,
+      required final String newPassword}) = _$_ChangePassword;
+  const _ChangePassword._() : super._();
+
+  String get oldPassword;
+  String get newPassword;
+  @JsonKey(ignore: true)
+  _$$_ChangePasswordCopyWith<_$_ChangePassword> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$_UpdateUserDataCopyWith<$Res> {
   factory _$$_UpdateUserDataCopyWith(
           _$_UpdateUserData value, $Res Function(_$_UpdateUserData) then) =
       __$$_UpdateUserDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({String password, String newPassword, String retypePassword});
+  $Res call({User user});
+
+  $UserCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -336,46 +503,36 @@ class __$$_UpdateUserDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = null,
-    Object? newPassword = null,
-    Object? retypePassword = null,
+    Object? user = null,
   }) {
     return _then(_$_UpdateUserData(
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      newPassword: null == newPassword
-          ? _value.newPassword
-          : newPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-      retypePassword: null == retypePassword
-          ? _value.retypePassword
-          : retypePassword // ignore: cast_nullable_to_non_nullable
-              as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get user {
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_UpdateUserData extends _UpdateUserData {
-  const _$_UpdateUserData(
-      {required this.password,
-      required this.newPassword,
-      required this.retypePassword})
-      : super._();
+  const _$_UpdateUserData({required this.user}) : super._();
 
   @override
-  final String password;
-  @override
-  final String newPassword;
-  @override
-  final String retypePassword;
+  final User user;
 
   @override
   String toString() {
-    return 'AccountSettingEvent.updateUserData(password: $password, newPassword: $newPassword, retypePassword: $retypePassword)';
+    return 'AccountSettingEvent.updateUserData(user: $user)';
   }
 
   @override
@@ -383,17 +540,11 @@ class _$_UpdateUserData extends _UpdateUserData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateUserData &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.newPassword, newPassword) ||
-                other.newPassword == newPassword) &&
-            (identical(other.retypePassword, retypePassword) ||
-                other.retypePassword == retypePassword));
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, password, newPassword, retypePassword);
+  int get hashCode => Object.hash(runtimeType, user);
 
   @JsonKey(ignore: true)
   @override
@@ -406,11 +557,11 @@ class _$_UpdateUserData extends _UpdateUserData {
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
     required TResult Function() fetchUserData,
-    required TResult Function(
-            String password, String newPassword, String retypePassword)
-        updateUserData,
+    required TResult Function(String oldPassword, String newPassword)
+        changePassword,
+    required TResult Function(User user) updateUserData,
   }) {
-    return updateUserData(password, newPassword, retypePassword);
+    return updateUserData(user);
   }
 
   @override
@@ -418,11 +569,10 @@ class _$_UpdateUserData extends _UpdateUserData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
     TResult? Function()? fetchUserData,
-    TResult? Function(
-            String password, String newPassword, String retypePassword)?
-        updateUserData,
+    TResult? Function(String oldPassword, String newPassword)? changePassword,
+    TResult? Function(User user)? updateUserData,
   }) {
-    return updateUserData?.call(password, newPassword, retypePassword);
+    return updateUserData?.call(user);
   }
 
   @override
@@ -430,13 +580,12 @@ class _$_UpdateUserData extends _UpdateUserData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
     TResult Function()? fetchUserData,
-    TResult Function(
-            String password, String newPassword, String retypePassword)?
-        updateUserData,
+    TResult Function(String oldPassword, String newPassword)? changePassword,
+    TResult Function(User user)? updateUserData,
     required TResult orElse(),
   }) {
     if (updateUserData != null) {
-      return updateUserData(password, newPassword, retypePassword);
+      return updateUserData(user);
     }
     return orElse();
   }
@@ -446,6 +595,7 @@ class _$_UpdateUserData extends _UpdateUserData {
   TResult map<TResult extends Object?>({
     required TResult Function(_OnStarted value) onStarted,
     required TResult Function(_FetchUserData value) fetchUserData,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdateUserData value) updateUserData,
   }) {
     return updateUserData(this);
@@ -456,6 +606,7 @@ class _$_UpdateUserData extends _UpdateUserData {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnStarted value)? onStarted,
     TResult? Function(_FetchUserData value)? fetchUserData,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdateUserData value)? updateUserData,
   }) {
     return updateUserData?.call(this);
@@ -466,6 +617,7 @@ class _$_UpdateUserData extends _UpdateUserData {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnStarted value)? onStarted,
     TResult Function(_FetchUserData value)? fetchUserData,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdateUserData value)? updateUserData,
     required TResult orElse(),
   }) {
@@ -477,15 +629,10 @@ class _$_UpdateUserData extends _UpdateUserData {
 }
 
 abstract class _UpdateUserData extends AccountSettingEvent {
-  const factory _UpdateUserData(
-      {required final String password,
-      required final String newPassword,
-      required final String retypePassword}) = _$_UpdateUserData;
+  const factory _UpdateUserData({required final User user}) = _$_UpdateUserData;
   const _UpdateUserData._() : super._();
 
-  String get password;
-  String get newPassword;
-  String get retypePassword;
+  User get user;
   @JsonKey(ignore: true)
   _$$_UpdateUserDataCopyWith<_$_UpdateUserData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -500,12 +647,16 @@ mixin _$AccountSettingState {
     required TResult Function(AccountSettingModelState data) loading,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -513,9 +664,14 @@ mixin _$AccountSettingState {
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -523,9 +679,14 @@ mixin _$AccountSettingState {
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -538,6 +699,9 @@ mixin _$AccountSettingState {
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -548,6 +712,8 @@ mixin _$AccountSettingState {
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -558,6 +724,8 @@ mixin _$AccountSettingState {
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -682,12 +850,16 @@ class _$_Initial extends _Initial {
     required TResult Function(AccountSettingModelState data) loading,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
   }) {
     return initial(data);
   }
@@ -698,9 +870,14 @@ class _$_Initial extends _Initial {
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
   }) {
     return initial?.call(data);
   }
@@ -711,9 +888,14 @@ class _$_Initial extends _Initial {
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -732,6 +914,9 @@ class _$_Initial extends _Initial {
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return initial(this);
   }
@@ -745,6 +930,8 @@ class _$_Initial extends _Initial {
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return initial?.call(this);
   }
@@ -758,6 +945,8 @@ class _$_Initial extends _Initial {
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -852,12 +1041,16 @@ class _$_Loading extends _Loading {
     required TResult Function(AccountSettingModelState data) loading,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
   }) {
     return loading(data);
   }
@@ -868,9 +1061,14 @@ class _$_Loading extends _Loading {
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
   }) {
     return loading?.call(data);
   }
@@ -881,9 +1079,14 @@ class _$_Loading extends _Loading {
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -902,6 +1105,9 @@ class _$_Loading extends _Loading {
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return loading(this);
   }
@@ -915,6 +1121,8 @@ class _$_Loading extends _Loading {
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return loading?.call(this);
   }
@@ -928,6 +1136,8 @@ class _$_Loading extends _Loading {
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1024,12 +1234,16 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
     required TResult Function(AccountSettingModelState data) loading,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
   }) {
     return fetchUserDataSuccess(data);
   }
@@ -1040,9 +1254,14 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
   }) {
     return fetchUserDataSuccess?.call(data);
   }
@@ -1053,9 +1272,14 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
     required TResult orElse(),
   }) {
     if (fetchUserDataSuccess != null) {
@@ -1074,6 +1298,9 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return fetchUserDataSuccess(this);
   }
@@ -1087,6 +1314,8 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return fetchUserDataSuccess?.call(this);
   }
@@ -1100,6 +1329,8 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (fetchUserDataSuccess != null) {
@@ -1130,7 +1361,7 @@ abstract class _$$_FetchUserDataFailedCopyWith<$Res>
       __$$_FetchUserDataFailedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AccountSettingModelState data});
+  $Res call({AccountSettingModelState data, String message});
 
   @override
   $AccountSettingModelStateCopyWith<$Res> get data;
@@ -1148,12 +1379,17 @@ class __$$_FetchUserDataFailedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? message = null,
   }) {
     return _then(_$_FetchUserDataFailed(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as AccountSettingModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1161,14 +1397,17 @@ class __$$_FetchUserDataFailedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FetchUserDataFailed extends _FetchUserDataFailed {
-  const _$_FetchUserDataFailed({required this.data}) : super._();
+  const _$_FetchUserDataFailed({required this.data, required this.message})
+      : super._();
 
   @override
   final AccountSettingModelState data;
+  @override
+  final String message;
 
   @override
   String toString() {
-    return 'AccountSettingState.fetchUserDataFailed(data: $data)';
+    return 'AccountSettingState.fetchUserDataFailed(data: $data, message: $message)';
   }
 
   @override
@@ -1176,11 +1415,12 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FetchUserDataFailed &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, message);
 
   @JsonKey(ignore: true)
   @override
@@ -1196,14 +1436,18 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
     required TResult Function(AccountSettingModelState data) loading,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
   }) {
-    return fetchUserDataFailed(data);
+    return fetchUserDataFailed(data, message);
   }
 
   @override
@@ -1212,11 +1456,16 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
   }) {
-    return fetchUserDataFailed?.call(data);
+    return fetchUserDataFailed?.call(data, message);
   }
 
   @override
@@ -1225,13 +1474,18 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
     required TResult orElse(),
   }) {
     if (fetchUserDataFailed != null) {
-      return fetchUserDataFailed(data);
+      return fetchUserDataFailed(data, message);
     }
     return orElse();
   }
@@ -1246,6 +1500,9 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return fetchUserDataFailed(this);
   }
@@ -1259,6 +1516,8 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return fetchUserDataFailed?.call(this);
   }
@@ -1272,6 +1531,8 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (fetchUserDataFailed != null) {
@@ -1283,11 +1544,13 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
 
 abstract class _FetchUserDataFailed extends AccountSettingState {
   const factory _FetchUserDataFailed(
-      {required final AccountSettingModelState data}) = _$_FetchUserDataFailed;
+      {required final AccountSettingModelState data,
+      required final String message}) = _$_FetchUserDataFailed;
   const _FetchUserDataFailed._() : super._();
 
   @override
   AccountSettingModelState get data;
+  String get message;
   @override
   @JsonKey(ignore: true)
   _$$_FetchUserDataFailedCopyWith<_$_FetchUserDataFailed> get copyWith =>
@@ -1368,12 +1631,16 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
     required TResult Function(AccountSettingModelState data) loading,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
   }) {
     return updateUserDataSuccess(data);
   }
@@ -1384,9 +1651,14 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
   }) {
     return updateUserDataSuccess?.call(data);
   }
@@ -1397,9 +1669,14 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
     required TResult orElse(),
   }) {
     if (updateUserDataSuccess != null) {
@@ -1418,6 +1695,9 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return updateUserDataSuccess(this);
   }
@@ -1431,6 +1711,8 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return updateUserDataSuccess?.call(this);
   }
@@ -1444,6 +1726,8 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (updateUserDataSuccess != null) {
@@ -1475,7 +1759,7 @@ abstract class _$$_UpdateUserDataFailedCopyWith<$Res>
       __$$_UpdateUserDataFailedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AccountSettingModelState data});
+  $Res call({AccountSettingModelState data, String message});
 
   @override
   $AccountSettingModelStateCopyWith<$Res> get data;
@@ -1493,12 +1777,17 @@ class __$$_UpdateUserDataFailedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? message = null,
   }) {
     return _then(_$_UpdateUserDataFailed(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as AccountSettingModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1506,14 +1795,17 @@ class __$$_UpdateUserDataFailedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
-  const _$_UpdateUserDataFailed({required this.data}) : super._();
+  const _$_UpdateUserDataFailed({required this.data, required this.message})
+      : super._();
 
   @override
   final AccountSettingModelState data;
+  @override
+  final String message;
 
   @override
   String toString() {
-    return 'AccountSettingState.updateUserDataFailed(data: $data)';
+    return 'AccountSettingState.updateUserDataFailed(data: $data, message: $message)';
   }
 
   @override
@@ -1521,11 +1813,12 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateUserDataFailed &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, message);
 
   @JsonKey(ignore: true)
   @override
@@ -1541,14 +1834,18 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
     required TResult Function(AccountSettingModelState data) loading,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
-    required TResult Function(AccountSettingModelState data)
+    required TResult Function(AccountSettingModelState data, String message)
         updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
   }) {
-    return updateUserDataFailed(data);
+    return updateUserDataFailed(data, message);
   }
 
   @override
@@ -1557,11 +1854,16 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult? Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
   }) {
-    return updateUserDataFailed?.call(data);
+    return updateUserDataFailed?.call(data, message);
   }
 
   @override
@@ -1570,13 +1872,18 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
-    TResult Function(AccountSettingModelState data)? updateUserDataFailed,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
     required TResult orElse(),
   }) {
     if (updateUserDataFailed != null) {
-      return updateUserDataFailed(data);
+      return updateUserDataFailed(data, message);
     }
     return orElse();
   }
@@ -1591,6 +1898,9 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return updateUserDataFailed(this);
   }
@@ -1604,6 +1914,8 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return updateUserDataFailed?.call(this);
   }
@@ -1617,6 +1929,8 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (updateUserDataFailed != null) {
@@ -1628,13 +1942,413 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
 
 abstract class _UpdateUserDataFailed extends AccountSettingState {
   const factory _UpdateUserDataFailed(
-      {required final AccountSettingModelState data}) = _$_UpdateUserDataFailed;
+      {required final AccountSettingModelState data,
+      required final String message}) = _$_UpdateUserDataFailed;
   const _UpdateUserDataFailed._() : super._();
+
+  @override
+  AccountSettingModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_UpdateUserDataFailedCopyWith<_$_UpdateUserDataFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ChangePasswordSuccessCopyWith<$Res>
+    implements $AccountSettingStateCopyWith<$Res> {
+  factory _$$_ChangePasswordSuccessCopyWith(_$_ChangePasswordSuccess value,
+          $Res Function(_$_ChangePasswordSuccess) then) =
+      __$$_ChangePasswordSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AccountSettingModelState data});
+
+  @override
+  $AccountSettingModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_ChangePasswordSuccessCopyWithImpl<$Res>
+    extends _$AccountSettingStateCopyWithImpl<$Res, _$_ChangePasswordSuccess>
+    implements _$$_ChangePasswordSuccessCopyWith<$Res> {
+  __$$_ChangePasswordSuccessCopyWithImpl(_$_ChangePasswordSuccess _value,
+      $Res Function(_$_ChangePasswordSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_ChangePasswordSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AccountSettingModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
+  const _$_ChangePasswordSuccess({required this.data}) : super._();
+
+  @override
+  final AccountSettingModelState data;
+
+  @override
+  String toString() {
+    return 'AccountSettingState.changePasswordSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangePasswordSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangePasswordSuccessCopyWith<_$_ChangePasswordSuccess> get copyWith =>
+      __$$_ChangePasswordSuccessCopyWithImpl<_$_ChangePasswordSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AccountSettingModelState data) initial,
+    required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data)
+        fetchUserDataSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        updateUserDataSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
+  }) {
+    return changePasswordSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AccountSettingModelState data)? initial,
+    TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
+  }) {
+    return changePasswordSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AccountSettingModelState data)? initial,
+    TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changePasswordSuccess != null) {
+      return changePasswordSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
+    required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_UpdateUserDataSuccess value)
+        updateUserDataSuccess,
+    required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return changePasswordSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
+    TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
+    TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return changePasswordSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
+    TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
+    TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changePasswordSuccess != null) {
+      return changePasswordSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePasswordSuccess extends AccountSettingState {
+  const factory _ChangePasswordSuccess(
+          {required final AccountSettingModelState data}) =
+      _$_ChangePasswordSuccess;
+  const _ChangePasswordSuccess._() : super._();
 
   @override
   AccountSettingModelState get data;
   @override
   @JsonKey(ignore: true)
-  _$$_UpdateUserDataFailedCopyWith<_$_UpdateUserDataFailed> get copyWith =>
+  _$$_ChangePasswordSuccessCopyWith<_$_ChangePasswordSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ChangePasswordFailedCopyWith<$Res>
+    implements $AccountSettingStateCopyWith<$Res> {
+  factory _$$_ChangePasswordFailedCopyWith(_$_ChangePasswordFailed value,
+          $Res Function(_$_ChangePasswordFailed) then) =
+      __$$_ChangePasswordFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AccountSettingModelState data, String message});
+
+  @override
+  $AccountSettingModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_ChangePasswordFailedCopyWithImpl<$Res>
+    extends _$AccountSettingStateCopyWithImpl<$Res, _$_ChangePasswordFailed>
+    implements _$$_ChangePasswordFailedCopyWith<$Res> {
+  __$$_ChangePasswordFailedCopyWithImpl(_$_ChangePasswordFailed _value,
+      $Res Function(_$_ChangePasswordFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_ChangePasswordFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AccountSettingModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangePasswordFailed extends _ChangePasswordFailed {
+  const _$_ChangePasswordFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final AccountSettingModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AccountSettingState.changePasswordFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangePasswordFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangePasswordFailedCopyWith<_$_ChangePasswordFailed> get copyWith =>
+      __$$_ChangePasswordFailedCopyWithImpl<_$_ChangePasswordFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AccountSettingModelState data) initial,
+    required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data)
+        fetchUserDataSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        updateUserDataSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
+  }) {
+    return changePasswordFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AccountSettingModelState data)? initial,
+    TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
+  }) {
+    return changePasswordFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AccountSettingModelState data)? initial,
+    TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changePasswordFailed != null) {
+      return changePasswordFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
+    required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_UpdateUserDataSuccess value)
+        updateUserDataSuccess,
+    required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return changePasswordFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
+    TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
+    TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return changePasswordFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
+    TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
+    TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changePasswordFailed != null) {
+      return changePasswordFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePasswordFailed extends AccountSettingState {
+  const factory _ChangePasswordFailed(
+      {required final AccountSettingModelState data,
+      required final String message}) = _$_ChangePasswordFailed;
+  const _ChangePasswordFailed._() : super._();
+
+  @override
+  AccountSettingModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ChangePasswordFailedCopyWith<_$_ChangePasswordFailed> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PaymentDetailModelState {
+  int get currentIndex => throw _privateConstructorUsedError;
   List<PaymentItem> get payments => throw _privateConstructorUsedError;
   PaymentDetailItem get paymentDetail => throw _privateConstructorUsedError;
 
@@ -30,7 +31,10 @@ abstract class $PaymentDetailModelStateCopyWith<$Res> {
           $Res Function(PaymentDetailModelState) then) =
       _$PaymentDetailModelStateCopyWithImpl<$Res, PaymentDetailModelState>;
   @useResult
-  $Res call({List<PaymentItem> payments, PaymentDetailItem paymentDetail});
+  $Res call(
+      {int currentIndex,
+      List<PaymentItem> payments,
+      PaymentDetailItem paymentDetail});
 
   $PaymentDetailItemCopyWith<$Res> get paymentDetail;
 }
@@ -49,10 +53,15 @@ class _$PaymentDetailModelStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? currentIndex = null,
     Object? payments = null,
     Object? paymentDetail = null,
   }) {
     return _then(_value.copyWith(
+      currentIndex: null == currentIndex
+          ? _value.currentIndex
+          : currentIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       payments: null == payments
           ? _value.payments
           : payments // ignore: cast_nullable_to_non_nullable
@@ -81,7 +90,10 @@ abstract class _$$_PaymentDetailModelStateCopyWith<$Res>
       __$$_PaymentDetailModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<PaymentItem> payments, PaymentDetailItem paymentDetail});
+  $Res call(
+      {int currentIndex,
+      List<PaymentItem> payments,
+      PaymentDetailItem paymentDetail});
 
   @override
   $PaymentDetailItemCopyWith<$Res> get paymentDetail;
@@ -99,10 +111,15 @@ class __$$_PaymentDetailModelStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? currentIndex = null,
     Object? payments = null,
     Object? paymentDetail = null,
   }) {
     return _then(_$_PaymentDetailModelState(
+      currentIndex: null == currentIndex
+          ? _value.currentIndex
+          : currentIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       payments: null == payments
           ? _value._payments
           : payments // ignore: cast_nullable_to_non_nullable
@@ -119,10 +136,14 @@ class __$$_PaymentDetailModelStateCopyWithImpl<$Res>
 
 class _$_PaymentDetailModelState extends _PaymentDetailModelState {
   const _$_PaymentDetailModelState(
-      {required final List<PaymentItem> payments, required this.paymentDetail})
+      {required this.currentIndex,
+      required final List<PaymentItem> payments,
+      required this.paymentDetail})
       : _payments = payments,
         super._();
 
+  @override
+  final int currentIndex;
   final List<PaymentItem> _payments;
   @override
   List<PaymentItem> get payments {
@@ -136,7 +157,7 @@ class _$_PaymentDetailModelState extends _PaymentDetailModelState {
 
   @override
   String toString() {
-    return 'PaymentDetailModelState(payments: $payments, paymentDetail: $paymentDetail)';
+    return 'PaymentDetailModelState(currentIndex: $currentIndex, payments: $payments, paymentDetail: $paymentDetail)';
   }
 
   @override
@@ -144,13 +165,15 @@ class _$_PaymentDetailModelState extends _PaymentDetailModelState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PaymentDetailModelState &&
+            (identical(other.currentIndex, currentIndex) ||
+                other.currentIndex == currentIndex) &&
             const DeepCollectionEquality().equals(other._payments, _payments) &&
             (identical(other.paymentDetail, paymentDetail) ||
                 other.paymentDetail == paymentDetail));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
+  int get hashCode => Object.hash(runtimeType, currentIndex,
       const DeepCollectionEquality().hash(_payments), paymentDetail);
 
   @JsonKey(ignore: true)
@@ -164,11 +187,14 @@ class _$_PaymentDetailModelState extends _PaymentDetailModelState {
 
 abstract class _PaymentDetailModelState extends PaymentDetailModelState {
   const factory _PaymentDetailModelState(
-          {required final List<PaymentItem> payments,
+          {required final int currentIndex,
+          required final List<PaymentItem> payments,
           required final PaymentDetailItem paymentDetail}) =
       _$_PaymentDetailModelState;
   const _PaymentDetailModelState._() : super._();
 
+  @override
+  int get currentIndex;
   @override
   List<PaymentItem> get payments;
   @override
