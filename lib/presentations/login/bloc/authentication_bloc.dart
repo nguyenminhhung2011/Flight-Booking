@@ -45,13 +45,15 @@ class AuthenticationBloc
       LoginEvent event, Emitter<AuthenticationState> emit) async {
     emit(state.copyWith(status: AuthenticationStatus.checking));
 
-    final token = await _userUseCase.login(event.username, event.password);
+    try {
+      final token = await _userUseCase.login(event.username, event.password);
 
-    if (token != null && token.isNotEmpty) {
-      return emit(AuthenticationState.authenticated(token: token));
+      if (token != null && token.isNotEmpty) {
+        return emit(AuthenticationState.authenticated(token: token));
+      }
+    } catch (e) {
+      return emit(AuthenticationState.unauthenticated(message: ""));
     }
-
-    return emit(AuthenticationState.unauthenticated());
   }
 
   FutureOr<void> _onLogoutEvent(

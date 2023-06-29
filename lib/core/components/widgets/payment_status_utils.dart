@@ -1,7 +1,7 @@
 import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flutter/material.dart';
 
-extension PaymentStatusUtils on PaymentStatus {
+extension PaymentStatsUtils on PaymentStatus {
   IconData getIconBaseOnStatus() {
     switch (this) {
       case PaymentStatus.create:

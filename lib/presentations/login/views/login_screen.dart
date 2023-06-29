@@ -13,70 +13,80 @@ class LoginScreen extends StatelessWidget {
 
   final pageController = PageController();
 
+  void _stateChangeListener(
+      BuildContext context, AuthenticationState state) async {
+    if (state.status == AuthenticationStatus.authenticated) {
+      await context.openDashboardPage();
+    } else if (state.status == AuthenticationStatus.unauthenticated) {
+      await context.showSuccessDialog(
+        width: 300,
+        header: "Can not authenticate user",
+        title: "User username or password is incorrect",
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthenticationBloc, AuthenticationState>(
-        listener: (context, state) async {
-      if (state.status == AuthenticationStatus.authenticated) {
-        await context.openDashboardPage();
-      }
-    }, builder: (context, state) {
-      return Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        body: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.25,
-            vertical: MediaQuery.of(context).size.height * 0.15,
-          ),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage(
-                Theme.of(context).brightness == Brightness.light
-                    ? ImageConst.loginBackground
-                    : ImageConst.loginBackgroundDark,
+        listener: _stateChangeListener,
+        builder: (context, state) {
+          return Scaffold(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            body: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 0.25,
+                vertical: MediaQuery.of(context).size.height * 0.15,
+              ),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    Theme.of(context).brightness == Brightness.light
+                        ? ImageConst.loginBackground
+                        : ImageConst.loginBackgroundDark,
+                  ),
+                ),
+              ),
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.05,
+                  vertical: MediaQuery.of(context).size.height * 0.05,
+                ),
+                // width: loginFormWidth,
+                // height: loginFormHeight,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: PageView(
+                  controller: pageController,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: [
+                    LoginForm(
+                      authenticationState: state,
+                      navigateToForgetPassword: () async {
+                        await pageController.nextPage(
+                          duration: const Duration(milliseconds: 200),
+                          curve: Curves.bounceIn,
+                        );
+                      },
+                    ),
+                    ForgetPasswordForm(
+                      comebackToLoginForm: () async {
+                        await pageController.previousPage(
+                          duration: const Duration(milliseconds: 200),
+                          curve: Curves.bounceIn,
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.05,
-              vertical: MediaQuery.of(context).size.height * 0.05,
-            ),
-            // width: loginFormWidth,
-            // height: loginFormHeight,
-            decoration: BoxDecoration(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: PageView(
-              controller: pageController,
-              physics: const NeverScrollableScrollPhysics(),
-              children: [
-                LoginForm(
-                  authenticationState: state,
-                  navigateToForgetPassword: () async {
-                    await pageController.nextPage(
-                      duration: const Duration(milliseconds: 200),
-                      curve: Curves.bounceIn,
-                    );
-                  },
-                ),
-                ForgetPasswordForm(
-                  comebackToLoginForm: () async {
-                    await pageController.previousPage(
-                      duration: const Duration(milliseconds: 200),
-                      curve: Curves.bounceIn,
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
-      );
-    });
+          );
+        });
   }
 }
 
