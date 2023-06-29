@@ -21,7 +21,7 @@ import '../../../core/components/widgets/custom_row_column.dart';
 import '../../../core/components/widgets/range_date_picker_custom.dart';
 import '../../../core/components/widgets/swiper_custom.dart';
 import '../../../generated/l10n.dart';
-import '../../customer/views/widgets/customer_detail_screen.dart';
+import '../../customer_detail/view/customer_detail_screen.dart';
 import '../../dashboard/views/widgets/flight_information_row.dart';
 
 class OverviewNewScreen extends StatefulWidget {

@@ -1,5 +1,4 @@
-import 'package:flight_booking/domain/entities/ticket/ticket.dart';
-import 'package:flight_booking/presentations/customer/views/widgets/customer_detail_screen.dart';
+import 'package:flight_booking/presentations/customer/bloc/detail/customer_detail_bloc.dart';
 import 'package:flight_booking/presentations/dashboard/views/dashboard_screen.dart';
 import 'package:flight_booking/presentations/login/views/login_screen.dart';
 import 'package:flight_booking/presentations/payment/view/payment_screen.dart';
@@ -11,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/dependency_injection/di.dart';
+import '../customer_detail/view/customer_detail_screen.dart';
 import '../flight_detail/bloc/flight_detail_bloc.dart';
 import '../flight_detail/views/flight_detail_screen.dart';
 import '../payment/blocs/payment_tab_bloc.dart';
@@ -74,7 +74,13 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const CustomerDetailScreen();
+            if (settings.arguments is int) {
+              return BlocProvider<CustomerDetailBloc>(
+                child: const CustomerDetailScreen(),
+                create: (_) => injector(param1: settings.arguments),
+              );
+            }
+            return const SizedBox();
           },
         );
       case Routes.payment:

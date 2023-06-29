@@ -345,8 +345,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "paymentNumber": MessageLookupByLibrary.simpleMessage("Payment number"),
         "paymentOptions":
             MessageLookupByLibrary.simpleMessage("Payment Options"),
+        "paymentStatus": MessageLookupByLibrary.simpleMessage("Payment Status"),
         "paymentStatusStatistic":
             MessageLookupByLibrary.simpleMessage("Payment Status Statistic"),
+        "paymentType": MessageLookupByLibrary.simpleMessage("Payment type"),
         "people": MessageLookupByLibrary.simpleMessage("People"),
         "person": MessageLookupByLibrary.simpleMessage("Person"),
         "personNumber": m9,

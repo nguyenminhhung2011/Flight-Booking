@@ -15,8 +15,9 @@ PaymentModel _$PaymentModelFromJson(Map<String, dynamic> json) => PaymentModel(
           ? null
           : FlightModel.fromJson(json['flight'] as Map<String, dynamic>),
       paymentType: json['paymentType'] as String,
-      customer:
-          CustomerModel.fromJson(json['customer'] as Map<String, dynamic>),
+      customer: json['customer'] == null
+          ? null
+          : CustomerModel.fromJson(json['customer'] as Map<String, dynamic>),
       tickets: (json['ticket'] as List<dynamic>)
           .map((e) => TicketModel.fromJson(e as Map<String, dynamic>))
           .toList(),

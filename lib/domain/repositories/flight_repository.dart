@@ -1,3 +1,5 @@
+import 'package:flight_booking/domain/entities/payment/payment_detail_item.dart';
+
 import '../entities/flight/flight.dart';
 import '../entities/page_response/page_response_entity.dart';
 
@@ -31,4 +33,5 @@ abstract class FlightRepository {
   Future<Flight?> editFlight(Flight newFlight, String id);
 
   Future<Flight?> getFlightById(String id);
+  Future<PaymentDetailItem?> getPaymentFlightTics(int id);
 }

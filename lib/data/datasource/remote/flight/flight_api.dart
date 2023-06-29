@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../../models/page_response.dart';
+import '../../../models/payment/payment_model.dart';
 part 'flight_api.g.dart';
 
 class FlightEndPoint {
@@ -33,6 +34,11 @@ abstract class FlightApi {
   Future<HttpResponse<PageResponse<FlightModel>?>> getFlightByPage(
     @Path("cursor") int cursor,
     @Path("pageSize") int pageSize,
+  );
+
+  @GET('${FlightEndPoint.branch}/payment={id}')
+  Future<HttpResponse<PaymentModel?>> getPaymentFlightTics(
+    @Path("id") int id,
   );
 
   @GET('${FlightEndPoint.filterFlightUrl}cursor={cursor}&pageSize={pageSize}')

@@ -304,6 +304,9 @@ _i1.GetIt init(
       _i68.CustomerDetailBloc(
         customerId,
         gh<_i42.CustomerUseCase>(),
+        gh<_i15.PaymentUseCase>(),
+        gh<_i12.FlightsUsecase>(),
+        gh<_i24.TicketInformationUsecase>(),
       ));
   gh.factory<_i69.GeneralSettingBloc>(
       () => _i69.GeneralSettingBloc(gh<_i56.UserUseCase>()));

@@ -1,4 +1,5 @@
 import 'package:flight_booking/core/components/widgets/card_custom.dart';
+import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/data/models/model_helper.dart';
@@ -112,56 +113,74 @@ class _CustomerTicketInformationCardState
               ),
             ),
             const SizedBox(height: 10),
-            Stack(
-              children: [
-                SwiperCustom(
-                  controller: controller,
-                  height: 300,
-                  itemBuilder: (index) {
-                    final tic = widget.listTics[index];
-                    final ticInformation = widget.ticInformation[tic.type];
-                    return PassengerInfoCard(
-                      ticket: widget.listTics[index],
-                      ticInformation: ticInformation,
-                    );
-                  },
-                  itemCount: widget.listTics.length,
-                  swiperLayout: SwiperLayout.DEFAULT,
-                ),
-                Positioned(
-                  left: 0,
-                  top: 5,
-                  bottom: 5,
-                  child: IconButton(
-                    splashRadius: 20,
-                    icon: Icon(
-                      size: 30,
-                      Icons.arrow_back_ios_new,
+            if (widget.listTics.isNotEmpty)
+              Stack(
+                children: [
+                  SwiperCustom(
+                    controller: controller,
+                    height: 300,
+                    itemBuilder: (index) {
+                      final tic = widget.listTics[index];
+                      final ticInformation = widget.ticInformation[tic.type];
+                      return PassengerInfoCard(
+                        ticket: widget.listTics[index],
+                        ticInformation: ticInformation,
+                      );
+                    },
+                    itemCount: widget.listTics.length,
+                    swiperLayout: SwiperLayout.DEFAULT,
+                  ),
+                  Positioned(
+                    left: 0,
+                    top: 5,
+                    bottom: 5,
+                    child: IconButton(
+                      splashRadius: 20,
+                      icon: Icon(
+                        size: 30,
+                        Icons.arrow_back_ios_new,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      onPressed: () {
+                        controller.previous();
+                      },
+                    ),
+                  ),
+                  Positioned(
+                    right: 0,
+                    top: 5,
+                    bottom: 5,
+                    child: IconButton(
+                      splashRadius: 20,
+                      icon: Icon(
+                        size: 30,
+                        Icons.arrow_forward_ios,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      onPressed: () {
+                        controller.next();
+                      },
+                    ),
+                  ),
+                ],
+              )
+            else
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.search_off_sharp,
+                      color: Theme.of(context).primaryColor),
+                  const SizedBox(height: 10.0),
+                  Text(
+                    'Empty',
+                    style: context.titleMedium.copyWith(
+                      fontWeight: FontWeight.bold,
                       color: Theme.of(context).primaryColor,
                     ),
-                    onPressed: () {
-                      controller.previous();
-                    },
-                  ),
-                ),
-                Positioned(
-                  right: 0,
-                  top: 5,
-                  bottom: 5,
-                  child: IconButton(
-                    splashRadius: 20,
-                    icon: Icon(
-                      size: 30,
-                      Icons.arrow_forward_ios,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                    onPressed: () {
-                      controller.next();
-                    },
-                  ),
-                ),
-              ],
-            ),
+                  )
+                ],
+              ),
           ],
         ),
       ),
