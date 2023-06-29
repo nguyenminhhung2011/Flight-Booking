@@ -325,6 +325,8 @@
     "arrivalPlace": "Arrival Place",
     "airportStop": "Airport Stop",
     "arrivalFlight": "Arrival Flight",
+    "paymentStatus": "Payment Status",
+    "paymentType": "Payment type",
     "from": "From",
     "empty": "Empty",
     "cancel": "Cancel",

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 enum PaymentStatus {
@@ -29,6 +30,13 @@ enum PaymentStatus {
         return PaymentStatus.pending;
     }
   }
+
+  Color get colorType => switch (this) {
+        PaymentStatus.succeeded => Colors.blue,
+        PaymentStatus.pending => Colors.yellow,
+        PaymentStatus.create => Colors.green,
+        _ => Colors.red,
+      };
 
   String get displayValue => switch (this) {
         PaymentStatus.succeeded => "succeed",

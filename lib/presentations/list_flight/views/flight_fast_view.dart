@@ -7,7 +7,7 @@ import 'package:flight_booking/data/models/model_helper.dart';
 import 'package:flight_booking/domain/entities/airport/stop_airport.dart';
 import 'package:flight_booking/presentations/list_flight/bloc/list_flight_bloc.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/dot_custom.dart';
-import 'package:flight_booking/presentations/list_flight/views/widgets/flight_details_widget.dart';
+import 'package:flight_booking/presentations/list_flight/views/widgets/flight_overview_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../domain/entities/airport/airport.dart';
@@ -58,71 +58,9 @@ class _FlightFastViewState extends State<FlightFastView> {
                 child: ListView(
                   children: [
                     if (_currentFlight != null) ...[
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(10.0),
-                        margin: const EdgeInsets.all(10.0),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).cardColor,
-                          borderRadius: BorderRadius.circular(15.0),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Theme.of(context)
-                                  .shadowColor
-                                  .withOpacity(0.1),
-                              blurRadius: 5.0,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            Text(
-                              S.of(context).overview,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge!
-                                  .copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                            FlightDetailsWidget(
-                              firstTitle: S.of(context).id,
-                              firstDesc:
-                                  '${S.of(context).flight} ${_currentFlight!.id}',
-                              secondTitle: S.of(context).airport,
-                              secondDesc: _currentFlight!.airline.airlineName,
-                            ),
-                            FlightDetailsWidget(
-                              firstTitle:
-                                  _currentFlight!.departureAirport.location,
-                              firstDesc:
-                                  getYmdHmFormat(_currentFlight!.timeStart),
-                              secondTitle:
-                                  _currentFlight!.arrivalAirport.location,
-                              secondDesc:
-                                  getYmdHmFormat(_currentFlight!.timeEnd),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.symmetric(
-                                horizontal: 10.0,
-                                vertical: 10.0,
-                              ),
-                              width: double.infinity,
-                              height: 1,
-                              decoration: DottedDecoration(
-                                shape: Shape.line,
-                                linePosition: LinePosition.bottom,
-                              ),
-                            ),
-                            if (_ticInformation.isNotEmpty) ...[
-                              ..._ticInformation.map((e) => TicItemColorView(
-                                    ticType:
-                                        TicTypeEnum.fromInt(e.id.ticketType),
-                                    price: e.price,
-                                  ))
-                            ],
-                          ],
-                        ),
+                      FlightOverviewWidget(
+                        currentFlight: _currentFlight,
+                        ticInformation: _ticInformation,
                       ),
                     ],
                     if (_currentFlight != null)
@@ -157,12 +95,11 @@ class _FlightFastViewState extends State<FlightFastView> {
                               ],
                             ),
                             const SizedBox(height: 15.0),
-                            _airportStartAndEndField(
-                              context,
-                              _currentFlight?.departureAirport ??
-                                  ModelHelper.defaultAirport,
-                              _currentFlight?.timeStart ?? DateTime.now(),
-                            ),
+                            AirportStartAndEndField(
+                                airport: _currentFlight?.departureAirport ??
+                                    ModelHelper.defaultAirport,
+                                time: _currentFlight?.timeStart ??
+                                    DateTime.now()),
                             const SizedBox(height: 7.0),
                             _dot(context),
                             ..._stopAirports
@@ -176,12 +113,11 @@ class _FlightFastViewState extends State<FlightFastView> {
                                   ],
                                 ),
                             const SizedBox(height: 7.0),
-                            _airportStartAndEndField(
-                              context,
-                              _currentFlight?.arrivalAirport ??
-                                  ModelHelper.defaultAirport,
-                              _currentFlight?.timeEnd ?? DateTime.now(),
-                            ),
+                            AirportStartAndEndField(
+                                airport: _currentFlight?.arrivalAirport ??
+                                    ModelHelper.defaultAirport,
+                                time:
+                                    _currentFlight?.timeEnd ?? DateTime.now()),
                           ],
                         ),
                       ),
@@ -191,43 +127,6 @@ class _FlightFastViewState extends State<FlightFastView> {
               ),
       );
     });
-  }
-
-  Row _airportStartAndEndField(
-      BuildContext context, Airport airport, DateTime time) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Icon(Icons.airplane_ticket, color: Theme.of(context).primaryColor),
-        const SizedBox(width: 10.0),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                getYmdFormat(time),
-                style: context.titleSmall.copyWith(
-                  color: Theme.of(context).primaryColor,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-              const SizedBox(height: 5.0),
-              Text(
-                airport.code,
-                style: context.titleMedium.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 2.0),
-              Text(
-                airport.name,
-                style: context.titleMedium.copyWith(),
-              ),
-            ],
-          ),
-        )
-      ],
-    );
   }
 
   Container _filedAirportInformation(StopAirport e, BuildContext context) {
@@ -322,6 +221,56 @@ class _FlightFastViewState extends State<FlightFastView> {
       color: Theme.of(context).primaryColor,
       full: true,
       radius: 15.0,
+    );
+  }
+}
+
+class AirportStartAndEndField extends StatelessWidget {
+  const AirportStartAndEndField({
+    super.key,
+    this.isEnd = false,
+    required this.airport,
+    required this.time,
+  });
+
+  final Airport airport;
+  final DateTime time;
+  final bool isEnd;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment:
+          isEnd ? CrossAxisAlignment.end : CrossAxisAlignment.center,
+      children: [
+        Icon(Icons.airplane_ticket, color: Theme.of(context).primaryColor),
+        const SizedBox(width: 10.0),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                getYmdFormat(time),
+                style: context.titleSmall.copyWith(
+                  color: Theme.of(context).primaryColor,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              const SizedBox(height: 5.0),
+              Text(
+                airport.code,
+                style: context.titleMedium.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 2.0),
+              Text(
+                airport.name,
+                style: context.titleMedium.copyWith(),
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }

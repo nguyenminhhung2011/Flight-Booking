@@ -3272,6 +3272,26 @@ class S {
     );
   }
 
+  /// `Payment Status`
+  String get paymentStatus {
+    return Intl.message(
+      'Payment Status',
+      name: 'paymentStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment type`
+  String get paymentType {
+    return Intl.message(
+      'Payment type',
+      name: 'paymentType',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `From`
   String get from {
     return Intl.message(

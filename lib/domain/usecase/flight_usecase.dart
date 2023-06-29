@@ -1,8 +1,10 @@
 import 'package:flight_booking/domain/entities/flight/flight.dart';
+import 'package:flight_booking/domain/entities/payment/payment_detail_item.dart';
 import 'package:flight_booking/domain/repositories/flight_repository.dart';
 import 'package:injectable/injectable.dart';
 
 import '../entities/page_response/page_response_entity.dart';
+import '../entities/payment/payment.dart';
 
 @injectable
 class FlightsUsecase {
@@ -81,4 +83,7 @@ class FlightsUsecase {
   Future<Flight?> editFlight(Flight newFlight, String id) async {
     return _flightRepository.editFlight(newFlight, id);
   }
+
+  Future<PaymentDetailItem?> getPaymentFlightTics(int id) async =>
+      _flightRepository.getPaymentFlightTics(id);
 }

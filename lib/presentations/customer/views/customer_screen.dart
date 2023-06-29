@@ -6,6 +6,7 @@ import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/presentations/add_edit_airport/views/add_edit_airport_form.dart';
 import 'package:flight_booking/presentations/customer/bloc/customer_bloc.dart';
 import 'package:flight_booking/core/components/widgets/label_textfield.dart';
+import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -59,7 +60,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
   }
 
   void _openCustomerDetailPage(String id) {
-    _customerBloc.add(CustomerEvent.openCustomerDetail(customerId: id));
+    context.openPageWithRouteAndParams(Routes.customerDetail, int.parse(id));
   }
 
   void _deleteCustomer(int id) async {

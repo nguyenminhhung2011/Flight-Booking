@@ -17,6 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CustomerDetailModelState {
   Customer? get customer => throw _privateConstructorUsedError;
+  PaymentDetailItem? get payment => throw _privateConstructorUsedError;
+  List<TicketInformation> get ticInformation =>
+      throw _privateConstructorUsedError;
+  List<PaymentItem> get payments => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CustomerDetailModelStateCopyWith<CustomerDetailModelState> get copyWith =>
@@ -29,9 +33,14 @@ abstract class $CustomerDetailModelStateCopyWith<$Res> {
           $Res Function(CustomerDetailModelState) then) =
       _$CustomerDetailModelStateCopyWithImpl<$Res, CustomerDetailModelState>;
   @useResult
-  $Res call({Customer? customer});
+  $Res call(
+      {Customer? customer,
+      PaymentDetailItem? payment,
+      List<TicketInformation> ticInformation,
+      List<PaymentItem> payments});
 
   $CustomerCopyWith<$Res>? get customer;
+  $PaymentDetailItemCopyWith<$Res>? get payment;
 }
 
 /// @nodoc
@@ -49,12 +58,27 @@ class _$CustomerDetailModelStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? customer = freezed,
+    Object? payment = freezed,
+    Object? ticInformation = null,
+    Object? payments = null,
   }) {
     return _then(_value.copyWith(
       customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
               as Customer?,
+      payment: freezed == payment
+          ? _value.payment
+          : payment // ignore: cast_nullable_to_non_nullable
+              as PaymentDetailItem?,
+      ticInformation: null == ticInformation
+          ? _value.ticInformation
+          : ticInformation // ignore: cast_nullable_to_non_nullable
+              as List<TicketInformation>,
+      payments: null == payments
+          ? _value.payments
+          : payments // ignore: cast_nullable_to_non_nullable
+              as List<PaymentItem>,
     ) as $Val);
   }
 
@@ -69,6 +93,18 @@ class _$CustomerDetailModelStateCopyWithImpl<$Res,
       return _then(_value.copyWith(customer: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PaymentDetailItemCopyWith<$Res>? get payment {
+    if (_value.payment == null) {
+      return null;
+    }
+
+    return $PaymentDetailItemCopyWith<$Res>(_value.payment!, (value) {
+      return _then(_value.copyWith(payment: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -80,10 +116,16 @@ abstract class _$$_CustomerDetailModelStateCopyWith<$Res>
       __$$_CustomerDetailModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Customer? customer});
+  $Res call(
+      {Customer? customer,
+      PaymentDetailItem? payment,
+      List<TicketInformation> ticInformation,
+      List<PaymentItem> payments});
 
   @override
   $CustomerCopyWith<$Res>? get customer;
+  @override
+  $PaymentDetailItemCopyWith<$Res>? get payment;
 }
 
 /// @nodoc
@@ -99,12 +141,27 @@ class __$$_CustomerDetailModelStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? customer = freezed,
+    Object? payment = freezed,
+    Object? ticInformation = null,
+    Object? payments = null,
   }) {
     return _then(_$_CustomerDetailModelState(
       customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
               as Customer?,
+      payment: freezed == payment
+          ? _value.payment
+          : payment // ignore: cast_nullable_to_non_nullable
+              as PaymentDetailItem?,
+      ticInformation: null == ticInformation
+          ? _value._ticInformation
+          : ticInformation // ignore: cast_nullable_to_non_nullable
+              as List<TicketInformation>,
+      payments: null == payments
+          ? _value._payments
+          : payments // ignore: cast_nullable_to_non_nullable
+              as List<PaymentItem>,
     ));
   }
 }
@@ -112,14 +169,37 @@ class __$$_CustomerDetailModelStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CustomerDetailModelState implements _CustomerDetailModelState {
-  const _$_CustomerDetailModelState({this.customer});
+  const _$_CustomerDetailModelState(
+      {this.customer,
+      this.payment,
+      required final List<TicketInformation> ticInformation,
+      required final List<PaymentItem> payments})
+      : _ticInformation = ticInformation,
+        _payments = payments;
 
   @override
   final Customer? customer;
+  @override
+  final PaymentDetailItem? payment;
+  final List<TicketInformation> _ticInformation;
+  @override
+  List<TicketInformation> get ticInformation {
+    if (_ticInformation is EqualUnmodifiableListView) return _ticInformation;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_ticInformation);
+  }
+
+  final List<PaymentItem> _payments;
+  @override
+  List<PaymentItem> get payments {
+    if (_payments is EqualUnmodifiableListView) return _payments;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_payments);
+  }
 
   @override
   String toString() {
-    return 'CustomerDetailModelState(customer: $customer)';
+    return 'CustomerDetailModelState(customer: $customer, payment: $payment, ticInformation: $ticInformation, payments: $payments)';
   }
 
   @override
@@ -128,11 +208,20 @@ class _$_CustomerDetailModelState implements _CustomerDetailModelState {
         (other.runtimeType == runtimeType &&
             other is _$_CustomerDetailModelState &&
             (identical(other.customer, customer) ||
-                other.customer == customer));
+                other.customer == customer) &&
+            (identical(other.payment, payment) || other.payment == payment) &&
+            const DeepCollectionEquality()
+                .equals(other._ticInformation, _ticInformation) &&
+            const DeepCollectionEquality().equals(other._payments, _payments));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, customer);
+  int get hashCode => Object.hash(
+      runtimeType,
+      customer,
+      payment,
+      const DeepCollectionEquality().hash(_ticInformation),
+      const DeepCollectionEquality().hash(_payments));
 
   @JsonKey(ignore: true)
   @override
@@ -143,11 +232,20 @@ class _$_CustomerDetailModelState implements _CustomerDetailModelState {
 }
 
 abstract class _CustomerDetailModelState implements CustomerDetailModelState {
-  const factory _CustomerDetailModelState({final Customer? customer}) =
-      _$_CustomerDetailModelState;
+  const factory _CustomerDetailModelState(
+      {final Customer? customer,
+      final PaymentDetailItem? payment,
+      required final List<TicketInformation> ticInformation,
+      required final List<PaymentItem> payments}) = _$_CustomerDetailModelState;
 
   @override
   Customer? get customer;
+  @override
+  PaymentDetailItem? get payment;
+  @override
+  List<TicketInformation> get ticInformation;
+  @override
+  List<PaymentItem> get payments;
   @override
   @JsonKey(ignore: true)
   _$$_CustomerDetailModelStateCopyWith<_$_CustomerDetailModelState>

@@ -6,12 +6,15 @@ class FlightDetailsWidget extends StatelessWidget {
   final String firstDesc;
   final String secondTitle;
   final String secondDesc;
+  final double? padding;
+
   const FlightDetailsWidget({
     super.key,
     required this.firstTitle,
     required this.firstDesc,
     required this.secondTitle,
     required this.secondDesc,
+    this.padding,
   });
 
   @override
@@ -23,7 +26,7 @@ class FlightDetailsWidget extends StatelessWidget {
         context.titleMedium.copyWith(overflow: TextOverflow.ellipsis);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      padding: EdgeInsets.symmetric(horizontal: padding ?? 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

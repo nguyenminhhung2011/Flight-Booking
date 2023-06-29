@@ -135,7 +135,7 @@ class _AddCustomerScreenState extends State<AddCustomerScreen> {
         var headerTextStyle = context.timeStyle
             .copyWith(fontWeight: FontWeight.w600, color: Colors.grey);
         return Container(
-          constraints: BoxConstraints(maxHeight: context.heightDevice),
+          constraints: BoxConstraints(maxHeight: context.heightDevice * 0.7),
           padding: const EdgeInsets.all(15.0),
           width: Breakpoints.small.isActive(context)
               ? double.infinity

@@ -1,6 +1,7 @@
 import 'package:flight_booking/core/components/network/app_exception.dart';
 import 'package:flight_booking/data/datasource/remote/flight/flight_api.dart';
 import 'package:flight_booking/data/models/model_helper.dart';
+import 'package:flight_booking/domain/entities/payment/payment_detail_item.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/flight/flight.dart';
@@ -199,5 +200,17 @@ class FlightRepositoryImpl extends FlightRepository {
     }
     final result = response.data?.map((e) => e.toEntity()).toList();
     return result ?? <Flight>[];
+  }
+
+  @override
+  Future<PaymentDetailItem?> getPaymentFlightTics(int id) async {
+    final response = await _flightApi.getPaymentFlightTics(id);
+    if (response.response.statusCode != HttpStatusCode.OK) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage!,
+      );
+    }
+    return response.data?.toDetailEntity;
   }
 }
