@@ -17,9 +17,7 @@ import '../payment/blocs/payment_tab_bloc.dart';
 
 class MainRoutes {
   static Map<String, WidgetBuilder> getRoutesWithSettings() {
-    final routes = {
-      Routes.dashboard: (context) => const DashboardScreen(),
-    };
+    final routes = {Routes.dashboard: (context) => const DashboardScreen()};
     return routes;
   }
 
