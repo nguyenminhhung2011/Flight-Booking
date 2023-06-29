@@ -15,12 +15,15 @@ part 'payment_detail_bloc.freezed.dart';
 @injectable
 class PaymentDetailBloc extends Bloc<PaymentDetailEvent, PaymentDetailState> {
   final PaymentUseCase paymentUseCase;
+  final String paymentId;
 
-  String paymentId;
+  final Map<String, dynamic> cachePaymentDetail = {};
+
   PaymentDetailBloc(@factoryParam payment, this.paymentUseCase)
       : paymentId = payment,
         super(_Initial(
             data: PaymentDetailModelState(
+          currentIndex: 1,
           paymentDetail: PaymentDetailItem(),
           payments: [],
         ))) {
@@ -44,18 +47,40 @@ class PaymentDetailBloc extends Bloc<PaymentDetailEvent, PaymentDetailState> {
       _FetchPaymentDetailData event, Emitter<PaymentDetailState> emit) async {
     emit(_Loading(data: state.data));
     try {
-      final response =
-          await paymentUseCase.getPaymentById(int.parse(paymentId));
-      if (response.customer != null) {
-        final payments =
-            await paymentUseCase.getPaymentByCustomerId(response.customer!.id);
-
-        emit(_FetchPaymentDetailDataSuccess(
+      int index =
+          state.data.payments.indexWhere((element) => element.id == event.id);
+      if (cachePaymentDetail.containsKey(event.id)) {
+        return emit(_FetchPaymentDetailDataSuccess(
           data: state.data.copyWith(
-            paymentDetail: response,
-            payments: payments,
+            paymentDetail: cachePaymentDetail[event.id],
+            currentIndex: index,
           ),
         ));
+      }
+
+      final response = await paymentUseCase.getPaymentById(int.parse(event.id));
+
+      cachePaymentDetail.addAll({response.id.toString(): response});
+
+      if (response.customer != null) {
+        if (state.data.payments.isEmpty) {
+          final payments = await paymentUseCase
+              .getPaymentByCustomerId(response.customer!.id);
+          emit(_FetchPaymentDetailDataSuccess(
+            data: state.data.copyWith(
+              paymentDetail: response,
+              payments: payments,
+              currentIndex: index,
+            ),
+          ));
+        } else {
+          emit(_FetchPaymentDetailDataSuccess(
+            data: state.data.copyWith(
+              currentIndex: index,
+              paymentDetail: response,
+            ),
+          ));
+        }
       }
       throw Exception("Error Customer was null");
     } catch (e) {

@@ -5,31 +5,30 @@ part 'user_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class UserModel {
-  @JsonKey(
-    name: "id",
-  )
-  final String id;
-  @JsonKey(name: "accountName")
+  final int id;
   final String username;
-  @JsonKey(name: "password")
   final String password;
-  @JsonKey(name: "name")
-  final String? name;
-  @JsonKey(name: "birthday")
-  final int? birthday;
-  @JsonKey(name: "email")
-  final String? email;
-  @JsonKey(name: "phone")
-  final String? phone;
+  final String name;
+  final String identityCard;
+  final String phone;
+  final String email;
+  final String address;
+  final String gender;
+  final String role;
+  final int birthday;
 
   UserModel({
     required this.id,
+    required this.birthday,
     required this.username,
     required this.password,
-    this.name,
-    this.birthday,
-    this.email,
-    this.phone,
+    required this.name,
+    required this.identityCard,
+    required this.phone,
+    required this.email,
+    required this.address,
+    required this.gender,
+    required this.role,
   });
 
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
@@ -38,15 +37,16 @@ class UserModel {
       _$UserModelFromJson(json);
 
   User toEntity() => User(
-        id: id,
+        id: id.toString(),
         username: username,
         password: password,
-        name: name ?? "",
-        email: email ?? "",
-        phone: phone ?? "",
-        birthday: DateTime.fromMillisecondsSinceEpoch(birthday ?? 0),
-        address: '',
-        gender: '',
-        identityCard: '',
+        name: name,
+        email: email,
+        phone: phone,
+        birthday: birthday,
+        role: role,
+        address: address,
+        gender: gender,
+        identityCard: identityCard,
       );
 }

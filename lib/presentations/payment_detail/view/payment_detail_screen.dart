@@ -1,8 +1,7 @@
-import 'dart:math';
-
 import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/flux_table/flux_ticket_table.dart';
+import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/core/components/widgets/payment_status_utils.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
@@ -31,7 +30,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
 
   @override
   void initState() {
-    bloc.add(const PaymentDetailEvent.fetchPaymentDetailData());
+    bloc.add(PaymentDetailEvent.fetchPaymentDetailData(id: bloc.paymentId));
     super.initState();
   }
 
@@ -69,7 +68,17 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
 
   Widget _buildPaymentTable(PaymentDetailState state) {
     return FluxTicketTable<PaymentItem>(
+      currentIndex: state.data.currentIndex,
       data: state.data.payments,
+      onTap: (index) {
+        print(index);
+        print(state.data.payments.elementAt(index).id);
+        bloc.add(
+          PaymentDetailEvent.fetchPaymentDetailData(
+              id: state.data.payments.elementAt(index).id),
+        );
+        ;
+      },
       rowBuilder: (data) {
         return FluxTableRow(
           rowDecoration: BoxDecoration(
@@ -83,7 +92,6 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
             if (columnIndex == 5) {
               return _buildPaymentStatusComponent(context, data);
             }
-
             return Text(
               data.toString(),
               style: context.bodyMedium,
@@ -131,17 +139,6 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
     );
   }
 
-  PaymentStatus getRandomStatus() {
-    final status = [
-      PaymentStatus.create,
-      PaymentStatus.declined,
-      PaymentStatus.pending,
-      PaymentStatus.succeeded
-    ];
-
-    return status.elementAt(Random().nextInt(4));
-  }
-
   final double cardSpace = 10;
 
   void _stateChangeListener(BuildContext context, PaymentDetailState state) {
@@ -154,63 +151,67 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
       bloc: bloc,
       listener: _stateChangeListener,
       builder: (context, state) {
-        return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            iconTheme: IconThemeData(color: context.titleSmall.color),
-            elevation: 1,
-            title: Text(
-              "Payment Detail",
-              style: context.headlineMedium.copyWith(
-                  fontWeight: FontWeight.bold, color: context.titleSmall.color),
-            ),
-          ),
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Column(
+        return state.isLoading
+            ? const LoadingIndicator()
+            : Scaffold(
+                appBar: AppBar(
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                  iconTheme: IconThemeData(color: context.titleSmall.color),
+                  elevation: 1,
+                  title: Text(
+                    "Payment Detail",
+                    style: context.headlineMedium.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: context.titleSmall.color),
+                  ),
+                ),
+                body: SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
                       children: [
                         Expanded(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
+                          flex: 3,
+                          child: Column(
                             children: [
                               Expanded(
-                                  flex: 2,
-                                  child: PaymentConfirmCard(
-                                    creditCard: state.data.paymentDetail
-                                            .customer?.creditCard ??
-                                        const CreditCard(),
-                                  )),
-                              SizedBox(width: cardSpace),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Expanded(
+                                        flex: 2,
+                                        child: PaymentConfirmCard(
+                                          creditCard: state.data.paymentDetail
+                                                  .customer?.creditCard ??
+                                              const CreditCard(),
+                                        )),
+                                    SizedBox(width: cardSpace),
+                                    Expanded(
+                                        flex: 3,
+                                        child: FlightInfoCard(
+                                          flight:
+                                              state.data.paymentDetail.flight,
+                                        )),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: cardSpace),
                               Expanded(
-                                  flex: 3,
-                                  child: FlightInfoCard(
-                                    flight: state.data.paymentDetail.flight,
-                                  )),
+                                child: _buildPaymentTable(state),
+                              ),
                             ],
                           ),
                         ),
-                        SizedBox(height: cardSpace),
+                        SizedBox(width: cardSpace),
                         Expanded(
-                          child: _buildPaymentTable(state),
-                        ),
+                            child: PaymentDetailCard(
+                          payment: state.data.paymentDetail,
+                        )),
                       ],
                     ),
                   ),
-                  SizedBox(width: cardSpace),
-                  Expanded(
-                      child: PaymentDetailCard(
-                    payment: state.data.paymentDetail,
-                  )),
-                ],
-              ),
-            ),
-          ),
-        );
+                ),
+              );
       },
     );
   }

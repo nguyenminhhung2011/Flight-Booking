@@ -27,6 +27,7 @@ import 'package:flight_booking/presentations/settings/views/widgets/custom_textf
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:screenshot/screenshot.dart';
 
 import '../../../core/components/enum/tic_type_enum.dart';
 
@@ -178,31 +179,38 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                                     PieData(
                                       tit: TicTypeEnum.businessClass,
                                       data:
-                                          (state.data.ticketTierData.business /
-                                                  state.data.ticketTierData
-                                                      .getSum) *
-                                              100,
+                                          ((state.data.ticketTierData.business /
+                                                      state.data.ticketTierData
+                                                          .getSum) *
+                                                  100)
+                                              .toPrecision(2),
                                     ),
                                     PieData(
                                         tit: TicTypeEnum.economyClass,
-                                        data:
-                                            (state.data.ticketTierData.economy /
+                                        data: ((state.data.ticketTierData
+                                                        .economy /
                                                     state.data.ticketTierData
                                                         .getSum) *
-                                                100),
+                                                100)
+                                            .toPrecision(2)),
                                     PieData(
                                         tit: TicTypeEnum.firstClass,
-                                        data: (state.data.ticketTierData.first /
-                                                state.data.ticketTierData
-                                                    .getSum) *
-                                            100),
+                                        data:
+                                            ((state.data.ticketTierData.first /
+                                                        state
+                                                            .data
+                                                            .ticketTierData
+                                                            .getSum) *
+                                                    100)
+                                                .toPrecision(2)),
                                     PieData(
                                       tit: TicTypeEnum.premiumEconomyClass,
-                                      data: (state.data.ticketTierData
-                                                  .premiumEconomy /
-                                              state
-                                                  .data.ticketTierData.getSum) *
-                                          100,
+                                      data: ((state.data.ticketTierData
+                                                      .premiumEconomy /
+                                                  state.data.ticketTierData
+                                                      .getSum) *
+                                              100)
+                                          .toPrecision(2),
                                     ),
                                   ],
                                 ),
@@ -210,53 +218,6 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                             ],
                           ),
                           const SizedBox(height: 30),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              ...<Map<String, dynamic>>[
-                                {
-                                  'icon': Icons.calendar_month,
-                                  'text': S.of(context).dateRange,
-                                  'case': PaymentFilterMethod.calendarMethod,
-                                },
-                                {
-                                  'icon': Icons.flag,
-                                  'text': S.of(context).status,
-                                  'case': PaymentFilterMethod.statusMethod,
-                                },
-                                {
-                                  'icon': Icons.credit_card,
-                                  'text': S.of(context).paymentMethod,
-                                  'case': PaymentFilterMethod.paymentMethod,
-                                }
-                              ]
-                                  .map(
-                                    (e) => _buildFilterButton(
-                                      filter: e['case'] as PaymentFilterMethod,
-                                      title: e['text'].toString(),
-                                      icon: e['icon'] as IconData,
-                                    ),
-                                  )
-                                  .expand(
-                                    (element) => [
-                                      element,
-                                      const SizedBox(width: 10.0),
-                                    ],
-                                  ),
-                              const Spacer(),
-                              Expanded(
-                                child: CustomerTextField(
-                                  prefixWidget: const Icon(Icons.search),
-                                  isDense: true,
-                                  hint: S.of(context).searchByAccount,
-                                  hintStyle: context.bodyMedium.copyWith(
-                                      color: Theme.of(context).disabledColor),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 20),
                           Container(
                             padding: const EdgeInsets.all(15),
                             decoration: BoxDecoration(

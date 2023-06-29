@@ -85,7 +85,7 @@ class MainRoutes {
           builder: (_) {
             Map? arguments = settings.arguments as Map;
             final ids = arguments['ids'];
-            if (ids != null && ids is Map<String, int>) {
+            if (ids != null) {
               return BlocProvider<PaymentTabBloc>(
                 create: (_) => injector(
                   param1: ids,

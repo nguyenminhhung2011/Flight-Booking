@@ -39,6 +39,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   @override
   void initState() {
+    print("initState");
     _bloc.add(const PaymentTabEvent.getPaymentById());
     _bloc.add(const PaymentTabEvent.getFlightById());
     _bloc.add(const PaymentTabEvent.getTicInformation());

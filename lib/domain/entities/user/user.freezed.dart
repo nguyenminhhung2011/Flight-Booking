@@ -14,19 +14,25 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+User _$UserFromJson(Map<String, dynamic> json) {
+  return _User.fromJson(json);
+}
+
 /// @nodoc
 mixin _$User {
   String get id => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  DateTime? get birthday => throw _privateConstructorUsedError;
+  int get birthday => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get identityCard => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
+  String get role => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
@@ -41,12 +47,13 @@ abstract class $UserCopyWith<$Res> {
       String username,
       String password,
       String name,
-      DateTime? birthday,
+      int birthday,
       String email,
       String identityCard,
       String address,
       String gender,
-      String phone});
+      String phone,
+      String role});
 }
 
 /// @nodoc
@@ -66,12 +73,13 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? username = null,
     Object? password = null,
     Object? name = null,
-    Object? birthday = freezed,
+    Object? birthday = null,
     Object? email = null,
     Object? identityCard = null,
     Object? address = null,
     Object? gender = null,
     Object? phone = null,
+    Object? role = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -90,10 +98,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      birthday: freezed == birthday
+      birthday: null == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as int,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -114,6 +122,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -129,12 +141,13 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String username,
       String password,
       String name,
-      DateTime? birthday,
+      int birthday,
       String email,
       String identityCard,
       String address,
       String gender,
-      String phone});
+      String phone,
+      String role});
 }
 
 /// @nodoc
@@ -150,12 +163,13 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? username = null,
     Object? password = null,
     Object? name = null,
-    Object? birthday = freezed,
+    Object? birthday = null,
     Object? email = null,
     Object? identityCard = null,
     Object? address = null,
     Object? gender = null,
     Object? phone = null,
+    Object? role = null,
   }) {
     return _then(_$_User(
       id: null == id
@@ -174,10 +188,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      birthday: freezed == birthday
+      birthday: null == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as int,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -198,24 +212,31 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_User implements _User {
   const _$_User(
       {required this.id,
       required this.username,
       required this.password,
       required this.name,
-      this.birthday,
+      required this.birthday,
       required this.email,
       required this.identityCard,
       required this.address,
       required this.gender,
-      required this.phone});
+      required this.phone,
+      required this.role});
+
+  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
   final String id;
@@ -226,7 +247,7 @@ class _$_User implements _User {
   @override
   final String name;
   @override
-  final DateTime? birthday;
+  final int birthday;
   @override
   final String email;
   @override
@@ -237,10 +258,12 @@ class _$_User implements _User {
   final String gender;
   @override
   final String phone;
+  @override
+  final String role;
 
   @override
   String toString() {
-    return 'User(id: $id, username: $username, password: $password, name: $name, birthday: $birthday, email: $email, identityCard: $identityCard, address: $address, gender: $gender, phone: $phone)';
+    return 'User(id: $id, username: $username, password: $password, name: $name, birthday: $birthday, email: $email, identityCard: $identityCard, address: $address, gender: $gender, phone: $phone, role: $role)';
   }
 
   @override
@@ -261,18 +284,27 @@ class _$_User implements _User {
                 other.identityCard == identityCard) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.phone, phone) || other.phone == phone));
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.role, role) || other.role == role));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, username, password, name,
-      birthday, email, identityCard, address, gender, phone);
+      birthday, email, identityCard, address, gender, phone, role);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_UserCopyWith<_$_User> get copyWith =>
       __$$_UserCopyWithImpl<_$_User>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_UserToJson(
+      this,
+    );
+  }
 }
 
 abstract class _User implements User {
@@ -281,12 +313,15 @@ abstract class _User implements User {
       required final String username,
       required final String password,
       required final String name,
-      final DateTime? birthday,
+      required final int birthday,
       required final String email,
       required final String identityCard,
       required final String address,
       required final String gender,
-      required final String phone}) = _$_User;
+      required final String phone,
+      required final String role}) = _$_User;
+
+  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
   String get id;
@@ -297,7 +332,7 @@ abstract class _User implements User {
   @override
   String get name;
   @override
-  DateTime? get birthday;
+  int get birthday;
   @override
   String get email;
   @override
@@ -308,6 +343,8 @@ abstract class _User implements User {
   String get gender;
   @override
   String get phone;
+  @override
+  String get role;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

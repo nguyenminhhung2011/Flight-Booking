@@ -1,14 +1,15 @@
 import 'dart:typed_data';
 
+import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
+import 'package:flight_booking/presentations/settings/bloc/accout/account_setting_bloc.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../generated/l10n.dart';
-import '../../bloc/general/general_setting_bloc.dart';
 
 class GeneralSettingsTab extends StatefulWidget {
   const GeneralSettingsTab({super.key});
@@ -18,25 +19,55 @@ class GeneralSettingsTab extends StatefulWidget {
 }
 
 class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
-  Uint8List? _image;
-  void selectedImage() async {
-    // Uint8List image = await pickImage(ImageSource.gallery);
-    setState(() {
-      // _image = image;
-      //convertoBytes();
-    });
+  void stateListenerHandle(BuildContext context, AccountSettingState state) {
+    state.whenOrNull(
+      updateUserDataSuccess: (data) {
+        context.showSuccessDialog(
+          width: 300,
+          header: "Update Success",
+          title: "Update user data success",
+        );
+      },
+      updateUserDataFailed: (data, message) {
+        context.showErrorDialog(
+          width: 300,
+          question: "Error",
+          title: 'Update user data Failed: $message',
+        );
+      },
+    );
   }
 
-  void stateListenerHandle(BuildContext context, GeneralSettingState state) {
-    state.whenOrNull();
-  }
+  bool isInitState = true;
+
+  final name = TextEditingController();
+  final identifyNumber = TextEditingController();
+  final address = TextEditingController();
+  final email = TextEditingController();
+  final phone = TextEditingController();
+  int birthday = 0;
+  String gender = "Male";
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<GeneralSettingBloc, GeneralSettingState>(
+    return BlocConsumer<AccountSettingBloc, AccountSettingState>(
       listener: stateListenerHandle,
       builder: (context, state) {
-        final user = state.data.user;
+        if ((state.isFetchDataSuccess || state.isUpdateDataSuccess) &&
+            isInitState) {
+          final user = state.data.user;
+
+          name.text = user.name;
+          identifyNumber.text = user.identityCard;
+          address.text = user.address;
+          email.text = user.email;
+          birthday = user.birthday;
+          phone.text = user.phone;
+          gender = user.gender;
+
+          isInitState = false;
+        }
+
         return Container(
           padding: const EdgeInsets.all(20),
           decoration: CommonAppUIConfig.primaryDecorationContainer,
@@ -95,8 +126,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                               ),
                               Expanded(
                                 child: CustomerTextField(
-                                  controller:
-                                      TextEditingController(text: user.name),
+                                  controller: name,
                                   isDense: true,
                                   title: '',
                                   prefixWidget: const Icon(Icons.person),
@@ -121,6 +151,73 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                               SizedBox(
                                 width: constraints.maxWidth * 0.45,
                                 child: Text(
+                                  S.of(context).identityNumber,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Expanded(
+                                child: CustomerTextField(
+                                  controller: identifyNumber,
+                                  isDense: true,
+                                  prefixWidget: const Icon(Icons.numbers),
+                                  hintStyle: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(fontWeight: FontWeight.w100),
+                                  hint: S.of(context).identityNum,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Divider(
+                            thickness: 0.5,
+                            height: 30,
+                            color: Theme.of(context).dividerColor,
+                          ),
+
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: constraints.maxWidth * 0.45,
+                                child: Text(
+                                  S.of(context).address,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Expanded(
+                                child: CustomerTextField(
+                                  controller: address,
+                                  isDense: true,
+                                  prefixWidget:
+                                      const Icon(Icons.location_on_sharp),
+                                  hintStyle: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(fontWeight: FontWeight.w100),
+                                  hint: S.of(context).address,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Divider(
+                            thickness: 0.5,
+                            height: 30,
+                            color: Theme.of(context).dividerColor,
+                          ),
+
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: constraints.maxWidth * 0.45,
+                                child: Text(
                                   S.of(context).emailAddress,
                                   style: Theme.of(context)
                                       .textTheme
@@ -130,8 +227,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                               ),
                               Expanded(
                                 child: CustomerTextField(
-                                  controller:
-                                      TextEditingController(text: user.email),
+                                  controller: email,
                                   isDense: true,
                                   prefixWidget:
                                       const Icon(Icons.email_outlined),
@@ -150,122 +246,6 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                             color: Theme.of(context).dividerColor,
                           ),
 
-                          //////////////////////////////////////////////////////////////////
-
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: constraints.maxWidth * 0.45,
-                                child: RichText(
-                                  text: TextSpan(
-                                    text: "${S.of(context).yourPhoto}\n",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium
-                                        ?.copyWith(fontWeight: FontWeight.bold),
-                                    children: [
-                                      TextSpan(
-                                        text:
-                                            '\n${S.of(context).thisWillDisplay}',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyMedium,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              _image == null
-                                  ? Container(
-                                      height: 100,
-                                      width: 100,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: CircleAvatar(
-                                        backgroundColor: Theme.of(context)
-                                            .dividerColor
-                                            .withOpacity(0.05),
-                                        child: Icon(Icons.person,
-                                            color:
-                                                Theme.of(context).primaryColor),
-                                      ),
-                                    )
-                                  : Container(
-                                      height: 100.0,
-                                      width: 100.0,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: MemoryImage(_image!)),
-                                      ),
-                                    ),
-                              const SizedBox(width: 15),
-                              Expanded(
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 10,
-                                    horizontal: 20,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    border: CommonAppUIConfig.primaryBorder,
-                                    borderRadius:
-                                        CommonAppUIConfig.primaryRadiusBorder,
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      InkWell(
-                                        onTap: selectedImage,
-                                        borderRadius: BorderRadius.circular(50),
-                                        child: CircleAvatar(
-                                          radius: 30,
-                                          backgroundColor: Theme.of(context)
-                                              .dividerColor
-                                              .withOpacity(0.05),
-                                          child: Center(
-                                            child: Icon(
-                                              Icons.cloud_upload_outlined,
-                                              color: Theme.of(context)
-                                                  .primaryColor,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 10),
-                                      RichText(
-                                        text: TextSpan(
-                                          text: S.of(context).clickToUpload,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium
-                                              ?.copyWith(
-                                                  fontWeight: FontWeight.bold),
-                                          children: [
-                                            TextSpan(
-                                              text: S.of(context).orDrag,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyMedium,
-                                            )
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Divider(
-                            thickness: 0.5,
-                            height: 30,
-                            color: Theme.of(context).dividerColor,
-                          ),
                           //////////////////////////////////////////////////////////////////
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -297,7 +277,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                               .dividerColor
                                               .withOpacity(0.4)),
                                       const SizedBox(width: 5),
-                                      DropdownButton<int>(
+                                      DropdownButton<String>(
                                         borderRadius: CommonAppUIConfig
                                             .primaryRadiusBorder,
                                         underline: const SizedBox(),
@@ -308,8 +288,9 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                             .asMap()
                                             .entries
                                             .map((gender) =>
-                                                DropdownMenuItem<int>(
-                                                  value: gender.key,
+                                                DropdownMenuItem<String>(
+                                                  value: gender.value
+                                                      .toLowerCase(),
                                                   child: Text(
                                                     gender.value,
                                                     style: Theme.of(context)
@@ -318,8 +299,14 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                                   ),
                                                 ))
                                             .toList(),
-                                        value: 0,
-                                        onChanged: (value) {},
+                                        value: gender.toLowerCase(),
+                                        onChanged: (value) {
+                                          if (value != null) {
+                                            setState(() {
+                                              gender = value.toLowerCase();
+                                            });
+                                          }
+                                        },
                                       ),
                                     ],
                                   ),
@@ -388,19 +375,22 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                           onTap: () async {
                                             final choice = await showDatePicker(
                                               context: context,
+                                              currentDate: DateTime
+                                                  .fromMillisecondsSinceEpoch(
+                                                      birthday),
                                               firstDate: DateTime(2010),
                                               lastDate: DateTime(2030),
-                                              initialDate: DateTime.now(),
-                                              builder: (context, child) {
-                                                return Center(
-                                                    child: SizedBox(
-                                                  width: 1000.0,
-                                                  height: 1100.0,
-                                                  child: child,
-                                                ));
-                                              },
+                                              initialDate: DateTime
+                                                  .fromMillisecondsSinceEpoch(
+                                                      birthday),
                                             );
-                                            if (choice != null) {}
+                                            if (choice != null) {
+                                              print(choice);
+                                              setState(() {
+                                                birthday = choice
+                                                    .millisecondsSinceEpoch;
+                                              });
+                                            }
                                           },
                                           child: Icon(
                                             Icons.calendar_month,
@@ -412,9 +402,10 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                         const SizedBox(width: 5),
                                         Expanded(
                                           child: Text(
-                                            DateFormat()
-                                                .add_yMMMEd()
-                                                .format(DateTime.now()),
+                                            DateFormat().add_yMMMEd().format(
+                                                DateTime
+                                                    .fromMillisecondsSinceEpoch(
+                                                        birthday)),
                                             style: const TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.w500,
@@ -449,8 +440,7 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                               ),
                               Expanded(
                                 child: CustomerTextField(
-                                  controller:
-                                      TextEditingController(text: user.email),
+                                  controller: phone,
                                   isDense: true,
                                   prefixWidget: Icon(
                                     Icons.phone,
@@ -475,7 +465,21 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                           ),
                           Center(
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                context.read<AccountSettingBloc>().add(
+                                      AccountSettingEvent.updateUserData(
+                                        user: state.data.user.copyWith(
+                                          address: address.text,
+                                          birthday: birthday,
+                                          email: email.text,
+                                          identityCard: identifyNumber.text,
+                                          name: name.text,
+                                          phone: phone.text,
+                                          gender: gender,
+                                        ),
+                                      ),
+                                    );
+                              },
                               style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                       borderRadius: CommonAppUIConfig

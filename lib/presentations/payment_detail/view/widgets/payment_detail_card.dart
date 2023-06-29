@@ -302,7 +302,12 @@ class _PaymentDetailCardState extends State<PaymentDetailCard> {
                 const SizedBox(height: 20),
                 TextButton.icon(
                   onPressed: () {
-                    context.openListPageWithRoute(Routes.payment);
+                    context.openPageWithRouteAndParams(Routes.payment, {
+                      'ids': {
+                        'flightId': widget.payment.flight?.id,
+                        'paymentId': widget.payment.id,
+                      }
+                    });
                   },
                   style: TextButton.styleFrom(
                     minimumSize: const Size(double.maxFinite, 50),

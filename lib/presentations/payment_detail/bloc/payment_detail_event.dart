@@ -6,8 +6,8 @@ class PaymentDetailEvent with _$PaymentDetailEvent {
 
   const factory PaymentDetailEvent.onStarted() = _OnStarted;
 
-  const factory PaymentDetailEvent.fetchPaymentDetailData() =
-      _FetchPaymentDetailData;
+  const factory PaymentDetailEvent.fetchPaymentDetailData(
+      {required final String id}) = _FetchPaymentDetailData;
 
   const factory PaymentDetailEvent.selectOldPayment() = _SelectOldPayment;
 

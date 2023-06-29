@@ -18,6 +18,8 @@ class PaymentConfirmCard extends StatefulWidget {
 class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
   int currentIndex = 0;
 
+  PaymentType paymentType = PaymentType.card;
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -46,8 +48,14 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Radio<PaymentType>(
-                      groupValue: PaymentType.card,
-                      onChanged: (value) {},
+                      groupValue: paymentType,
+                      onChanged: (value) {
+                        if (value != null) {
+                          setState(() {
+                            paymentType = value;
+                          });
+                        }
+                      },
                       value: PaymentType.card,
                     ),
                     const SizedBox(width: 15),
@@ -58,8 +66,14 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Radio<PaymentType>(
-                      groupValue: PaymentType.card,
-                      onChanged: (value) {},
+                      groupValue: paymentType,
+                      onChanged: (value) {
+                        if (value != null) {
+                          setState(() {
+                            paymentType = value;
+                          });
+                        }
+                      },
                       value: PaymentType.cash,
                     ),
                     const SizedBox(width: 20),
@@ -83,6 +97,7 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
             CustomerTextField(
+                enable: paymentType == PaymentType.card,
                 controller:
                     TextEditingController(text: widget.creditCard.creditNum)),
             const Spacer(),
@@ -112,6 +127,7 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                 Expanded(
                   flex: 2,
                   child: CustomerTextField(
+                    enable: paymentType == PaymentType.card,
                     controller: TextEditingController(
                         text: DateFormat("dd/MM/yyyy").format(
                       DateTime.fromMillisecondsSinceEpoch(
@@ -122,6 +138,7 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                 const SizedBox(width: 10),
                 Expanded(
                     child: CustomerTextField(
+                  enable: paymentType == PaymentType.card,
                   controller:
                       TextEditingController(text: widget.creditCard.cvc),
                 )),
@@ -136,6 +153,7 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
             CustomerTextField(
+              enable: paymentType == PaymentType.card,
               controller:
                   TextEditingController(text: widget.creditCard.nameCard),
               width: MediaQuery.of(context).size.width,
