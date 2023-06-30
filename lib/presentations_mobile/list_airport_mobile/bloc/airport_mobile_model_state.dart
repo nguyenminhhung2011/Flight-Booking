@@ -8,5 +8,7 @@ part 'airport_mobile_model_state.freezed.dart';
 class AirportMobileModelState with _$AirportMobileModelState {
   const factory AirportMobileModelState({
     required List<Airport> listAirport,
+    required int cursor,
+    // required bool isScroll,
   }) = _AirportMobileModelState;
 }

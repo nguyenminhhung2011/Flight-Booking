@@ -503,12 +503,17 @@ class TimeStartAndFinish extends StatelessWidget {
 class StartAndComePlace extends StatelessWidget {
   final String startPlace;
   final String comePlace;
+  final String? sCode;
+  final String? cCode;
   final Widget? between;
+
   const StartAndComePlace({
     super.key,
     this.between,
     required this.startPlace,
     required this.comePlace,
+    this.sCode,
+    this.cCode,
   });
 
   String get sPlace => startPlace.subPlaceAndUpcase;
@@ -523,15 +528,17 @@ class StartAndComePlace extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(startPlace, style: context.textStyle, maxLines: 1),
-            Text('($sPlace)', style: context.subTextStyle, maxLines: 1),
+            Text('(${sCode ?? sPlace})',
+                style: context.subTextStyle, maxLines: 1),
           ],
         ),
         if (between != null) between!,
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(cPlace, style: context.textStyle, maxLines: 1),
-            Text('($cPlace)', style: context.subTextStyle, maxLines: 1),
+            Text(comePlace, style: context.textStyle, maxLines: 1),
+            Text('(${cCode ?? cPlace})',
+                style: context.subTextStyle, maxLines: 1),
           ],
         )
       ],

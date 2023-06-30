@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flight_booking/core/components/widgets/mobile/rating_custom.dart';
 import 'package:flight_booking/core/components/widgets/mobile/save_icon_button.dart';
+import 'package:flight_booking/core/components/widgets/mobile/skeleton_custom.dart';
 import 'package:flutter/material.dart';
 
 import '../../const/image_const.dart';
@@ -257,19 +258,23 @@ class ImageViewFullWidth extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Container(
-                  height: heightImage,
-                  width: heightImage,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(imageView.radius ?? 15.0),
-                    ),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                        imageView.imageView ?? ImageConst.imageDe1,
-                      ),
-                    ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(imageView.radius ?? 15.0),
+                  child: Image.network(
+                    height: heightImage,
+                    width: heightImage,
+                    imageView.imageView ?? ImageConst.imageDe1,
+                    fit: BoxFit.cover,
+                    loadingBuilder: (BuildContext context, Widget child,
+                        ImageChunkEvent? loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return SkeletonContainer.rounded(
+                        height: heightImage,
+                        width: heightImage,
+                        borderRadius:
+                            BorderRadius.circular(imageView.radius ?? 15.0),
+                      );
+                    },
                   ),
                 ),
                 const SizedBox(width: 5.0),

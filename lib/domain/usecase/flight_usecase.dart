@@ -4,7 +4,6 @@ import 'package:flight_booking/domain/repositories/flight_repository.dart';
 import 'package:injectable/injectable.dart';
 
 import '../entities/page_response/page_response_entity.dart';
-import '../entities/payment/payment.dart';
 
 @injectable
 class FlightsUsecase {
@@ -52,6 +51,17 @@ class FlightsUsecase {
       pageSize,
     );
   }
+
+  Future<List<Flight>> getFlightByDate({
+    required int month,
+    required int year,
+    required int day,
+  }) async =>
+      await _flightRepository.getFlightByDate(
+        month: month,
+        year: year,
+        day: day,
+      );
 
   Future<Flight?> addNewFlight(Flight newFlight) async {
     var add = await _flightRepository.addNewFlight(newFlight);
