@@ -384,6 +384,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Reenter Password"),
         "reenterYourPassword":
             MessageLookupByLibrary.simpleMessage("Reenter Your Password"),
+        "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
         "registerNewAccount":
             MessageLookupByLibrary.simpleMessage("Register New Account"),
         "rememberInformation":
