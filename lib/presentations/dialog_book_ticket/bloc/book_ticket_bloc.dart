@@ -87,7 +87,7 @@ class BTBloc extends Bloc<BTEvent, BTState> {
           (element) =>
               element.emailAddress.isNotEmpty &&
               element.phoneNumber.isNotEmpty &&
-              element.phoneNumber.isNotEmpty,
+              element.name.isNotEmpty,
         )
         .toList();
     if (tics.isNotEmpty) {
@@ -228,7 +228,7 @@ class BTBloc extends Bloc<BTEvent, BTState> {
       final result =
           await _ticketInformationUsecase.getTicketByFlight(_flightId);
       result.sort((a, b) => a.seatPosition.compareTo(b.seatPosition));
-      emit(_GetCustomerBydIdSuccess(
+      emit(_GetTicInformationSuccess(
           data: data.copyWith(
         ticInformation: result,
         currentSeat: result.isNotEmpty && result.first.quantity > 0

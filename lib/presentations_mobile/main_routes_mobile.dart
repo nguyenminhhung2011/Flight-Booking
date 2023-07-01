@@ -177,7 +177,7 @@ class MainRoutesMobile {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => BlocProvider<SelectScottBloc>(
-            create: (context) => injector(),
+            create: (context) => injector(param1: settings.arguments),
             child: const SelectScottScreen(),
           ),
         );
