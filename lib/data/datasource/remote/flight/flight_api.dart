@@ -66,7 +66,7 @@ abstract class FlightApi {
 
   @POST(FlightEndPoint.addFlightUrl)
   Future<HttpResponse<FlightModel?>> addNewFlight({
-    @Body() required Map<String, dynamic> body,
+    @Body() required FlightModel body,
   });
 
   @DELETE('${FlightEndPoint.deleteFlightUrl}/{id}')
