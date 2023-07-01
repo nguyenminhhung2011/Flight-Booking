@@ -61,41 +61,44 @@ Flight Booking is a web application for managing airports and flights. Users can
 * Admins have the ability to book flight tickets.
 * They can select the payment method for ticket bookings.
 #### 🐸 Payment
-* Admin có thể xem danh sách doanh thu
-* Chỉnh sửa doanh thu, xóa doanh thu 
-#### Setting
-* Chỉnh sửa thông tin cá nhân
-* Chỉnh sửa mật khẩu
-* Thay đổi quy định
+* Admins can view a list of invoices.
+* They have the ability to edit invoices.
+* Admins can access detailed information about each invoice.
+* They can delete invoices from the system.
+* Admins can process payments for invoices that are still outstanding.
+* The system provides a chart to display revenue and sales data.
+#### 🐛Setting
+* Admins can edit their personal information.
+* They have the ability to change their password.
+* Admins can modify the system's rules and regulations.
 
-## Doctor 
-#### Tương tự như Admin
-#### Examination 
-* Hiển thị danh sách bệnh nhân chưa khám, đã khám
-* Tiến hành khám bệnh bằng cách nhập thông tin vào phiếu khám
-
-## Patient
-* Xem danh sách bác sĩ
-* Đăng kí ID 
-* Tìm kiếm Health Record thông qua ID
-* Tìm kiếm ID
-* Đặt lịch khám Online
+## Employee
+#### Same aAdmin
 
 
+## Customer 
+* Users can view a list of flights.
+* They can access a list of airports.
+* Users have the ability to book flight tickets online.
+* They can edit their credit card information.
+* Users can add items to a wishlist or favorites list.
 
-## 💻 Công nghệ 
-* Ngôn ngữ: Dart
+
+
+## 💻 Tech
+* Language: Dart, java
 * Framework: Flutter
 * Database: MySQl
 * Backend: SpringBoot
 
-## 👨‍💻 Người thực hiện
+## 👨‍💻 Members
 * Nguyễn Minh Hưng: 20120491
 * Trương Huỳnh Đức Hoàng: 20120483
 
-## 🔧 Cài đặt
 
-## 📱 GIao diện
+## 📱 UI
+### 💻Web
+
 
 
 
