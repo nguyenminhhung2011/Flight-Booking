@@ -21,6 +21,7 @@ mixin _$DashboardEvent {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
+    required TResult Function() fetchOverviewData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$DashboardEvent {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
+    TResult? Function()? fetchOverviewData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$DashboardEvent {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
+    TResult Function()? fetchOverviewData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$DashboardEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_ChangeTheme value) changeTheme,
     required TResult Function(_ChangeView value) changeView,
+    required TResult Function(_FetchOverviewData value) fetchOverviewData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$DashboardEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_ChangeTheme value)? changeTheme,
     TResult? Function(_ChangeView value)? changeView,
+    TResult? Function(_FetchOverviewData value)? fetchOverviewData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$DashboardEvent {
     TResult Function(_Started value)? started,
     TResult Function(_ChangeTheme value)? changeTheme,
     TResult Function(_ChangeView value)? changeView,
+    TResult Function(_FetchOverviewData value)? fetchOverviewData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +126,7 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
+    required TResult Function() fetchOverviewData,
   }) {
     return started();
   }
@@ -130,6 +137,7 @@ class _$_Started implements _Started {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
+    TResult? Function()? fetchOverviewData,
   }) {
     return started?.call();
   }
@@ -140,6 +148,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
+    TResult Function()? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -154,6 +163,7 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_ChangeTheme value) changeTheme,
     required TResult Function(_ChangeView value) changeView,
+    required TResult Function(_FetchOverviewData value) fetchOverviewData,
   }) {
     return started(this);
   }
@@ -164,6 +174,7 @@ class _$_Started implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_ChangeTheme value)? changeTheme,
     TResult? Function(_ChangeView value)? changeView,
+    TResult? Function(_FetchOverviewData value)? fetchOverviewData,
   }) {
     return started?.call(this);
   }
@@ -174,6 +185,7 @@ class _$_Started implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_ChangeTheme value)? changeTheme,
     TResult Function(_ChangeView value)? changeView,
+    TResult Function(_FetchOverviewData value)? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -254,6 +266,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
+    required TResult Function() fetchOverviewData,
   }) {
     return changeTheme(theme);
   }
@@ -264,6 +277,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
+    TResult? Function()? fetchOverviewData,
   }) {
     return changeTheme?.call(theme);
   }
@@ -274,6 +288,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
+    TResult Function()? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (changeTheme != null) {
@@ -288,6 +303,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     required TResult Function(_Started value) started,
     required TResult Function(_ChangeTheme value) changeTheme,
     required TResult Function(_ChangeView value) changeView,
+    required TResult Function(_FetchOverviewData value) fetchOverviewData,
   }) {
     return changeTheme(this);
   }
@@ -298,6 +314,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     TResult? Function(_Started value)? started,
     TResult? Function(_ChangeTheme value)? changeTheme,
     TResult? Function(_ChangeView value)? changeView,
+    TResult? Function(_FetchOverviewData value)? fetchOverviewData,
   }) {
     return changeTheme?.call(this);
   }
@@ -308,6 +325,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     TResult Function(_Started value)? started,
     TResult Function(_ChangeTheme value)? changeTheme,
     TResult Function(_ChangeView value)? changeView,
+    TResult Function(_FetchOverviewData value)? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (changeTheme != null) {
@@ -402,6 +420,7 @@ class _$_ChangeView implements _ChangeView {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
+    required TResult Function() fetchOverviewData,
   }) {
     return changeView(view, secondBodyDis);
   }
@@ -412,6 +431,7 @@ class _$_ChangeView implements _ChangeView {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
+    TResult? Function()? fetchOverviewData,
   }) {
     return changeView?.call(view, secondBodyDis);
   }
@@ -422,6 +442,7 @@ class _$_ChangeView implements _ChangeView {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
+    TResult Function()? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (changeView != null) {
@@ -436,6 +457,7 @@ class _$_ChangeView implements _ChangeView {
     required TResult Function(_Started value) started,
     required TResult Function(_ChangeTheme value) changeTheme,
     required TResult Function(_ChangeView value) changeView,
+    required TResult Function(_FetchOverviewData value) fetchOverviewData,
   }) {
     return changeView(this);
   }
@@ -446,6 +468,7 @@ class _$_ChangeView implements _ChangeView {
     TResult? Function(_Started value)? started,
     TResult? Function(_ChangeTheme value)? changeTheme,
     TResult? Function(_ChangeView value)? changeView,
+    TResult? Function(_FetchOverviewData value)? fetchOverviewData,
   }) {
     return changeView?.call(this);
   }
@@ -456,6 +479,7 @@ class _$_ChangeView implements _ChangeView {
     TResult Function(_Started value)? started,
     TResult Function(_ChangeTheme value)? changeTheme,
     TResult Function(_ChangeView value)? changeView,
+    TResult Function(_FetchOverviewData value)? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (changeView != null) {
@@ -477,23 +501,144 @@ abstract class _ChangeView implements DashboardEvent {
 }
 
 /// @nodoc
+abstract class _$$_FetchOverviewDataCopyWith<$Res> {
+  factory _$$_FetchOverviewDataCopyWith(_$_FetchOverviewData value,
+          $Res Function(_$_FetchOverviewData) then) =
+      __$$_FetchOverviewDataCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FetchOverviewDataCopyWithImpl<$Res>
+    extends _$DashboardEventCopyWithImpl<$Res, _$_FetchOverviewData>
+    implements _$$_FetchOverviewDataCopyWith<$Res> {
+  __$$_FetchOverviewDataCopyWithImpl(
+      _$_FetchOverviewData _value, $Res Function(_$_FetchOverviewData) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_FetchOverviewData implements _FetchOverviewData {
+  const _$_FetchOverviewData();
+
+  @override
+  String toString() {
+    return 'DashboardEvent.fetchOverviewData()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_FetchOverviewData);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(bool theme) changeTheme,
+    required TResult Function(int view, bool secondBodyDis) changeView,
+    required TResult Function() fetchOverviewData,
+  }) {
+    return fetchOverviewData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(bool theme)? changeTheme,
+    TResult? Function(int view, bool secondBodyDis)? changeView,
+    TResult? Function()? fetchOverviewData,
+  }) {
+    return fetchOverviewData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(bool theme)? changeTheme,
+    TResult Function(int view, bool secondBodyDis)? changeView,
+    TResult Function()? fetchOverviewData,
+    required TResult orElse(),
+  }) {
+    if (fetchOverviewData != null) {
+      return fetchOverviewData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangeTheme value) changeTheme,
+    required TResult Function(_ChangeView value) changeView,
+    required TResult Function(_FetchOverviewData value) fetchOverviewData,
+  }) {
+    return fetchOverviewData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeTheme value)? changeTheme,
+    TResult? Function(_ChangeView value)? changeView,
+    TResult? Function(_FetchOverviewData value)? fetchOverviewData,
+  }) {
+    return fetchOverviewData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangeTheme value)? changeTheme,
+    TResult Function(_ChangeView value)? changeView,
+    TResult Function(_FetchOverviewData value)? fetchOverviewData,
+    required TResult orElse(),
+  }) {
+    if (fetchOverviewData != null) {
+      return fetchOverviewData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchOverviewData implements DashboardEvent {
+  const factory _FetchOverviewData() = _$_FetchOverviewData;
+}
+
+/// @nodoc
 mixin _$DashboardState {
   DashboardModelState get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DashboardModelState data) initial,
+    required TResult Function(DashboardModelState data) loading,
+    required TResult Function(DashboardModelState data)
+        fetchOverviewDataSuccess,
     required TResult Function(DashboardModelState data, String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DashboardModelState data)? initial,
+    TResult? Function(DashboardModelState data)? loading,
+    TResult? Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult? Function(DashboardModelState data, String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DashboardModelState data)? initial,
+    TResult Function(DashboardModelState data)? loading,
+    TResult Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult Function(DashboardModelState data, String message)? error,
     required TResult orElse(),
   }) =>
@@ -501,18 +646,26 @@ mixin _$DashboardState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchOverviewDataSuccess value)
+        fetchOverviewDataSuccess,
     required TResult Function(_error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchOverviewDataSuccess value)?
+        fetchOverviewDataSuccess,
     TResult? Function(_error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchOverviewDataSuccess value)? fetchOverviewDataSuccess,
     TResult Function(_error value)? error,
     required TResult orElse(),
   }) =>
@@ -635,6 +788,9 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DashboardModelState data) initial,
+    required TResult Function(DashboardModelState data) loading,
+    required TResult Function(DashboardModelState data)
+        fetchOverviewDataSuccess,
     required TResult Function(DashboardModelState data, String message) error,
   }) {
     return initial(data);
@@ -644,6 +800,8 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DashboardModelState data)? initial,
+    TResult? Function(DashboardModelState data)? loading,
+    TResult? Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult? Function(DashboardModelState data, String message)? error,
   }) {
     return initial?.call(data);
@@ -653,6 +811,8 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DashboardModelState data)? initial,
+    TResult Function(DashboardModelState data)? loading,
+    TResult Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult Function(DashboardModelState data, String message)? error,
     required TResult orElse(),
   }) {
@@ -666,6 +826,9 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchOverviewDataSuccess value)
+        fetchOverviewDataSuccess,
     required TResult Function(_error value) error,
   }) {
     return initial(this);
@@ -675,6 +838,9 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchOverviewDataSuccess value)?
+        fetchOverviewDataSuccess,
     TResult? Function(_error value)? error,
   }) {
     return initial?.call(this);
@@ -684,6 +850,8 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchOverviewDataSuccess value)? fetchOverviewDataSuccess,
     TResult Function(_error value)? error,
     required TResult orElse(),
   }) {
@@ -705,6 +873,321 @@ abstract class _Initial extends DashboardState {
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadingCopyWith<$Res>
+    implements $DashboardStateCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({DashboardModelState data});
+
+  @override
+  $DashboardModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$DashboardStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Loading(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as DashboardModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Loading extends _Loading {
+  const _$_Loading({required this.data}) : super._();
+
+  @override
+  final DashboardModelState data;
+
+  @override
+  String toString() {
+    return 'DashboardState.loading(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Loading &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DashboardModelState data) initial,
+    required TResult Function(DashboardModelState data) loading,
+    required TResult Function(DashboardModelState data)
+        fetchOverviewDataSuccess,
+    required TResult Function(DashboardModelState data, String message) error,
+  }) {
+    return loading(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DashboardModelState data)? initial,
+    TResult? Function(DashboardModelState data)? loading,
+    TResult? Function(DashboardModelState data)? fetchOverviewDataSuccess,
+    TResult? Function(DashboardModelState data, String message)? error,
+  }) {
+    return loading?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DashboardModelState data)? initial,
+    TResult Function(DashboardModelState data)? loading,
+    TResult Function(DashboardModelState data)? fetchOverviewDataSuccess,
+    TResult Function(DashboardModelState data, String message)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchOverviewDataSuccess value)
+        fetchOverviewDataSuccess,
+    required TResult Function(_error value) error,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchOverviewDataSuccess value)?
+        fetchOverviewDataSuccess,
+    TResult? Function(_error value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchOverviewDataSuccess value)? fetchOverviewDataSuccess,
+    TResult Function(_error value)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading extends DashboardState {
+  const factory _Loading({required final DashboardModelState data}) =
+      _$_Loading;
+  const _Loading._() : super._();
+
+  @override
+  DashboardModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FetchOverviewDataSuccessCopyWith<$Res>
+    implements $DashboardStateCopyWith<$Res> {
+  factory _$$_FetchOverviewDataSuccessCopyWith(
+          _$_FetchOverviewDataSuccess value,
+          $Res Function(_$_FetchOverviewDataSuccess) then) =
+      __$$_FetchOverviewDataSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({DashboardModelState data});
+
+  @override
+  $DashboardModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_FetchOverviewDataSuccessCopyWithImpl<$Res>
+    extends _$DashboardStateCopyWithImpl<$Res, _$_FetchOverviewDataSuccess>
+    implements _$$_FetchOverviewDataSuccessCopyWith<$Res> {
+  __$$_FetchOverviewDataSuccessCopyWithImpl(_$_FetchOverviewDataSuccess _value,
+      $Res Function(_$_FetchOverviewDataSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_FetchOverviewDataSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as DashboardModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FetchOverviewDataSuccess extends _FetchOverviewDataSuccess {
+  const _$_FetchOverviewDataSuccess({required this.data}) : super._();
+
+  @override
+  final DashboardModelState data;
+
+  @override
+  String toString() {
+    return 'DashboardState.fetchOverviewDataSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchOverviewDataSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FetchOverviewDataSuccessCopyWith<_$_FetchOverviewDataSuccess>
+      get copyWith => __$$_FetchOverviewDataSuccessCopyWithImpl<
+          _$_FetchOverviewDataSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DashboardModelState data) initial,
+    required TResult Function(DashboardModelState data) loading,
+    required TResult Function(DashboardModelState data)
+        fetchOverviewDataSuccess,
+    required TResult Function(DashboardModelState data, String message) error,
+  }) {
+    return fetchOverviewDataSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DashboardModelState data)? initial,
+    TResult? Function(DashboardModelState data)? loading,
+    TResult? Function(DashboardModelState data)? fetchOverviewDataSuccess,
+    TResult? Function(DashboardModelState data, String message)? error,
+  }) {
+    return fetchOverviewDataSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DashboardModelState data)? initial,
+    TResult Function(DashboardModelState data)? loading,
+    TResult Function(DashboardModelState data)? fetchOverviewDataSuccess,
+    TResult Function(DashboardModelState data, String message)? error,
+    required TResult orElse(),
+  }) {
+    if (fetchOverviewDataSuccess != null) {
+      return fetchOverviewDataSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchOverviewDataSuccess value)
+        fetchOverviewDataSuccess,
+    required TResult Function(_error value) error,
+  }) {
+    return fetchOverviewDataSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchOverviewDataSuccess value)?
+        fetchOverviewDataSuccess,
+    TResult? Function(_error value)? error,
+  }) {
+    return fetchOverviewDataSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchOverviewDataSuccess value)? fetchOverviewDataSuccess,
+    TResult Function(_error value)? error,
+    required TResult orElse(),
+  }) {
+    if (fetchOverviewDataSuccess != null) {
+      return fetchOverviewDataSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchOverviewDataSuccess extends DashboardState {
+  const factory _FetchOverviewDataSuccess(
+      {required final DashboardModelState data}) = _$_FetchOverviewDataSuccess;
+  const _FetchOverviewDataSuccess._() : super._();
+
+  @override
+  DashboardModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_FetchOverviewDataSuccessCopyWith<_$_FetchOverviewDataSuccess>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -783,6 +1266,9 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DashboardModelState data) initial,
+    required TResult Function(DashboardModelState data) loading,
+    required TResult Function(DashboardModelState data)
+        fetchOverviewDataSuccess,
     required TResult Function(DashboardModelState data, String message) error,
   }) {
     return error(data, message);
@@ -792,6 +1278,8 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DashboardModelState data)? initial,
+    TResult? Function(DashboardModelState data)? loading,
+    TResult? Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult? Function(DashboardModelState data, String message)? error,
   }) {
     return error?.call(data, message);
@@ -801,6 +1289,8 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DashboardModelState data)? initial,
+    TResult Function(DashboardModelState data)? loading,
+    TResult Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult Function(DashboardModelState data, String message)? error,
     required TResult orElse(),
   }) {
@@ -814,6 +1304,9 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchOverviewDataSuccess value)
+        fetchOverviewDataSuccess,
     required TResult Function(_error value) error,
   }) {
     return error(this);
@@ -823,6 +1316,9 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchOverviewDataSuccess value)?
+        fetchOverviewDataSuccess,
     TResult? Function(_error value)? error,
   }) {
     return error?.call(this);
@@ -832,6 +1328,8 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchOverviewDataSuccess value)? fetchOverviewDataSuccess,
     TResult Function(_error value)? error,
     required TResult orElse(),
   }) {

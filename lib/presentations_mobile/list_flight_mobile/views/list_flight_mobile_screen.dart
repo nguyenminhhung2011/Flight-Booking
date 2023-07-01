@@ -51,15 +51,6 @@ class _ListFlightMobileScreenState extends State<ListFlightMobileScreen> {
           cursor: _bloc.state.data.cursor + 1,
         ));
       }
-      // bool isTop =
-      //     _controller.position.pixels == _controller.position.maxScrollExtent;
-      // if (isTop) {
-      //   // _bloc.add(const AirportMobileEvent.fetchAirport(pageSize: 10));
-      // } else {
-      //   if (!_bloc.state.isLoading) {
-
-      //   }
-      // }
     }
   }
 
@@ -121,7 +112,10 @@ class _ListFlightMobileScreenState extends State<ListFlightMobileScreen> {
               children: [
                 IconButton(
                   onPressed: () => context.pop(),
-                  icon: const Icon(Icons.arrow_back),
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                  ),
                 ),
                 Text(
                   S.of(context).flight,
