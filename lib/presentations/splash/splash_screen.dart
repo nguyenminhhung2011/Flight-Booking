@@ -20,7 +20,7 @@ class SplashScreen extends StatelessWidget {
       listener: (context, authenticateState) {
         if (authenticateState.status == AuthenticationStatus.authenticated) {
           context.openDashboardPage();
-        } else if (authenticateState.status != AuthenticationStatus.checking) {
+        } else if (authenticateState.status == AuthenticationStatus.unknown) {
           context.openLoginPage();
         }
       },

@@ -308,7 +308,7 @@ _i1.GetIt init(
         customerId,
         gh<_i42.CustomerUseCase>(),
         gh<_i15.PaymentUseCase>(),
-        gh<_i12.FlightsUsecase>(),
+        gh<_i11.FlightsUsecase>(),
         gh<_i24.TicketInformationUsecase>(),
       ));
   gh.factory<_i70.GeneralSettingBloc>(

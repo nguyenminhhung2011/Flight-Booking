@@ -239,6 +239,40 @@ extension AppCoordinator<T> on BuildContext {
         });
   }
 
+  Future<void> showFailedDialog({
+    required double width,
+    required String header,
+    required String title,
+  }) async {
+    await showDialog(
+        context: this,
+        builder: (_) {
+          return SizedBox(
+            height: width,
+            width: width,
+            child: AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
+              icon: const Icon(Icons.error),
+              actions: [
+                IconButton(
+                  onPressed: Navigator.of(this).pop,
+                  icon: const Icon(Icons.close),
+                ),
+              ],
+              title: Text(
+                header,
+                style: Theme.of(this).textTheme.titleLarge,
+              ),
+              content: Text(
+                title,
+                style: Theme.of(this).textTheme.titleSmall,
+              ),
+            ),
+          );
+        });
+  }
+
   Future<void> showErrorDialog({
     required double width,
     required String question,

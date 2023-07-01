@@ -139,7 +139,10 @@ class ListFlightBloc extends Bloc<ListFlightEvent, ListFlightState> {
   ) {
     if (data.flights.length < _pageSize) {
       emit(ListFlightState.updateFlightSuccess(
-        data: data.copyWith(flights: [event.flight, ...data.flights]),
+        data: data.copyWith(flights: [
+          ...data.flights,
+          event.flight,
+        ]),
       ));
     }
   }

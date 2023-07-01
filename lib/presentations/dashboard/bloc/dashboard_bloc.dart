@@ -35,13 +35,12 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   Future<void> _onFetchOverviewData(
       _FetchOverviewData event, Emitter<DashboardState> emit) async {
     try {
+      emit(_Loading(data: state.data));
       final response = await overviewApi.fetchOverviewData(
-          DateTime.now()
-              .subtract(
-                const Duration(days: 6),
-              )
-              .millisecondsSinceEpoch,
-          DateTime.now().millisecondsSinceEpoch);
+        event.from.millisecondsSinceEpoch,
+        event.to.millisecondsSinceEpoch,
+      );
+
       if (response.response.statusCode == 200) {
         emit(_FetchOverviewDataSuccess(
             data: state.data.copyWith(overviewData: response.data)));

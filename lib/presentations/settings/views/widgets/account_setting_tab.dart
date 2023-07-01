@@ -72,7 +72,10 @@ class _AccountSettingTabState extends State<AccountSettingTab> {
             child: LayoutBuilder(
               builder: (context, constraints) {
                 return state.isLoading
-                    ? const LoadingIndicator()
+                    ? Center(
+                        child: LoadingIndicator(
+                        color: Theme.of(context).primaryColor,
+                      ))
                     : SingleChildScrollView(
                         child: Form(
                           key: _formKey,

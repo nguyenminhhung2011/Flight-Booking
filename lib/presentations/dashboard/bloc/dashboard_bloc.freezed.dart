@@ -21,7 +21,7 @@ mixin _$DashboardEvent {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
-    required TResult Function() fetchOverviewData,
+    required TResult Function(DateTime from, DateTime to) fetchOverviewData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$DashboardEvent {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
-    TResult? Function()? fetchOverviewData,
+    TResult? Function(DateTime from, DateTime to)? fetchOverviewData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$DashboardEvent {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
-    TResult Function()? fetchOverviewData,
+    TResult Function(DateTime from, DateTime to)? fetchOverviewData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +126,7 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
-    required TResult Function() fetchOverviewData,
+    required TResult Function(DateTime from, DateTime to) fetchOverviewData,
   }) {
     return started();
   }
@@ -137,7 +137,7 @@ class _$_Started implements _Started {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
-    TResult? Function()? fetchOverviewData,
+    TResult? Function(DateTime from, DateTime to)? fetchOverviewData,
   }) {
     return started?.call();
   }
@@ -148,7 +148,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
-    TResult Function()? fetchOverviewData,
+    TResult Function(DateTime from, DateTime to)? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -266,7 +266,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
-    required TResult Function() fetchOverviewData,
+    required TResult Function(DateTime from, DateTime to) fetchOverviewData,
   }) {
     return changeTheme(theme);
   }
@@ -277,7 +277,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
-    TResult? Function()? fetchOverviewData,
+    TResult? Function(DateTime from, DateTime to)? fetchOverviewData,
   }) {
     return changeTheme?.call(theme);
   }
@@ -288,7 +288,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
-    TResult Function()? fetchOverviewData,
+    TResult Function(DateTime from, DateTime to)? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (changeTheme != null) {
@@ -420,7 +420,7 @@ class _$_ChangeView implements _ChangeView {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
-    required TResult Function() fetchOverviewData,
+    required TResult Function(DateTime from, DateTime to) fetchOverviewData,
   }) {
     return changeView(view, secondBodyDis);
   }
@@ -431,7 +431,7 @@ class _$_ChangeView implements _ChangeView {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
-    TResult? Function()? fetchOverviewData,
+    TResult? Function(DateTime from, DateTime to)? fetchOverviewData,
   }) {
     return changeView?.call(view, secondBodyDis);
   }
@@ -442,7 +442,7 @@ class _$_ChangeView implements _ChangeView {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
-    TResult Function()? fetchOverviewData,
+    TResult Function(DateTime from, DateTime to)? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (changeView != null) {
@@ -505,6 +505,8 @@ abstract class _$$_FetchOverviewDataCopyWith<$Res> {
   factory _$$_FetchOverviewDataCopyWith(_$_FetchOverviewData value,
           $Res Function(_$_FetchOverviewData) then) =
       __$$_FetchOverviewDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime from, DateTime to});
 }
 
 /// @nodoc
@@ -514,26 +516,59 @@ class __$$_FetchOverviewDataCopyWithImpl<$Res>
   __$$_FetchOverviewDataCopyWithImpl(
       _$_FetchOverviewData _value, $Res Function(_$_FetchOverviewData) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? from = null,
+    Object? to = null,
+  }) {
+    return _then(_$_FetchOverviewData(
+      from: null == from
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      to: null == to
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_FetchOverviewData implements _FetchOverviewData {
-  const _$_FetchOverviewData();
+  const _$_FetchOverviewData({required this.from, required this.to});
+
+  @override
+  final DateTime from;
+  @override
+  final DateTime to;
 
   @override
   String toString() {
-    return 'DashboardEvent.fetchOverviewData()';
+    return 'DashboardEvent.fetchOverviewData(from: $from, to: $to)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FetchOverviewData);
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchOverviewData &&
+            (identical(other.from, from) || other.from == from) &&
+            (identical(other.to, to) || other.to == to));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, from, to);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FetchOverviewDataCopyWith<_$_FetchOverviewData> get copyWith =>
+      __$$_FetchOverviewDataCopyWithImpl<_$_FetchOverviewData>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -541,9 +576,9 @@ class _$_FetchOverviewData implements _FetchOverviewData {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
-    required TResult Function() fetchOverviewData,
+    required TResult Function(DateTime from, DateTime to) fetchOverviewData,
   }) {
-    return fetchOverviewData();
+    return fetchOverviewData(from, to);
   }
 
   @override
@@ -552,9 +587,9 @@ class _$_FetchOverviewData implements _FetchOverviewData {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
-    TResult? Function()? fetchOverviewData,
+    TResult? Function(DateTime from, DateTime to)? fetchOverviewData,
   }) {
-    return fetchOverviewData?.call();
+    return fetchOverviewData?.call(from, to);
   }
 
   @override
@@ -563,11 +598,11 @@ class _$_FetchOverviewData implements _FetchOverviewData {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
-    TResult Function()? fetchOverviewData,
+    TResult Function(DateTime from, DateTime to)? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (fetchOverviewData != null) {
-      return fetchOverviewData();
+      return fetchOverviewData(from, to);
     }
     return orElse();
   }
@@ -611,7 +646,15 @@ class _$_FetchOverviewData implements _FetchOverviewData {
 }
 
 abstract class _FetchOverviewData implements DashboardEvent {
-  const factory _FetchOverviewData() = _$_FetchOverviewData;
+  const factory _FetchOverviewData(
+      {required final DateTime from,
+      required final DateTime to}) = _$_FetchOverviewData;
+
+  DateTime get from;
+  DateTime get to;
+  @JsonKey(ignore: true)
+  _$$_FetchOverviewDataCopyWith<_$_FetchOverviewData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -620,7 +663,7 @@ mixin _$DashboardState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DashboardModelState data) initial,
-    required TResult Function(DashboardModelState data) loadng,
+    required TResult Function(DashboardModelState data) loading,
     required TResult Function(DashboardModelState data)
         fetchOverviewDataSuccess,
     required TResult Function(DashboardModelState data, String message) error,
@@ -629,7 +672,7 @@ mixin _$DashboardState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DashboardModelState data)? initial,
-    TResult? Function(DashboardModelState data)? loadng,
+    TResult? Function(DashboardModelState data)? loading,
     TResult? Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult? Function(DashboardModelState data, String message)? error,
   }) =>
@@ -637,7 +680,7 @@ mixin _$DashboardState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DashboardModelState data)? initial,
-    TResult Function(DashboardModelState data)? loadng,
+    TResult Function(DashboardModelState data)? loading,
     TResult Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult Function(DashboardModelState data, String message)? error,
     required TResult orElse(),
@@ -646,7 +689,7 @@ mixin _$DashboardState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loadng,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_FetchOverviewDataSuccess value)
         fetchOverviewDataSuccess,
     required TResult Function(_error value) error,
@@ -655,7 +698,7 @@ mixin _$DashboardState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loadng,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_FetchOverviewDataSuccess value)?
         fetchOverviewDataSuccess,
     TResult? Function(_error value)? error,
@@ -664,7 +707,7 @@ mixin _$DashboardState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loadng,
+    TResult Function(_Loading value)? loading,
     TResult Function(_FetchOverviewDataSuccess value)? fetchOverviewDataSuccess,
     TResult Function(_error value)? error,
     required TResult orElse(),
@@ -788,7 +831,7 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DashboardModelState data) initial,
-    required TResult Function(DashboardModelState data) loadng,
+    required TResult Function(DashboardModelState data) loading,
     required TResult Function(DashboardModelState data)
         fetchOverviewDataSuccess,
     required TResult Function(DashboardModelState data, String message) error,
@@ -800,7 +843,7 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DashboardModelState data)? initial,
-    TResult? Function(DashboardModelState data)? loadng,
+    TResult? Function(DashboardModelState data)? loading,
     TResult? Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult? Function(DashboardModelState data, String message)? error,
   }) {
@@ -811,7 +854,7 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DashboardModelState data)? initial,
-    TResult Function(DashboardModelState data)? loadng,
+    TResult Function(DashboardModelState data)? loading,
     TResult Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult Function(DashboardModelState data, String message)? error,
     required TResult orElse(),
@@ -826,7 +869,7 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loadng,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_FetchOverviewDataSuccess value)
         fetchOverviewDataSuccess,
     required TResult Function(_error value) error,
@@ -838,7 +881,7 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loadng,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_FetchOverviewDataSuccess value)?
         fetchOverviewDataSuccess,
     TResult? Function(_error value)? error,
@@ -850,7 +893,7 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loadng,
+    TResult Function(_Loading value)? loading,
     TResult Function(_FetchOverviewDataSuccess value)? fetchOverviewDataSuccess,
     TResult Function(_error value)? error,
     required TResult orElse(),
@@ -920,7 +963,7 @@ class _$_Loading extends _Loading {
 
   @override
   String toString() {
-    return 'DashboardState.loadng(data: $data)';
+    return 'DashboardState.loading(data: $data)';
   }
 
   @override
@@ -944,36 +987,36 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DashboardModelState data) initial,
-    required TResult Function(DashboardModelState data) loadng,
+    required TResult Function(DashboardModelState data) loading,
     required TResult Function(DashboardModelState data)
         fetchOverviewDataSuccess,
     required TResult Function(DashboardModelState data, String message) error,
   }) {
-    return loadng(data);
+    return loading(data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DashboardModelState data)? initial,
-    TResult? Function(DashboardModelState data)? loadng,
+    TResult? Function(DashboardModelState data)? loading,
     TResult? Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult? Function(DashboardModelState data, String message)? error,
   }) {
-    return loadng?.call(data);
+    return loading?.call(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DashboardModelState data)? initial,
-    TResult Function(DashboardModelState data)? loadng,
+    TResult Function(DashboardModelState data)? loading,
     TResult Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult Function(DashboardModelState data, String message)? error,
     required TResult orElse(),
   }) {
-    if (loadng != null) {
-      return loadng(data);
+    if (loading != null) {
+      return loading(data);
     }
     return orElse();
   }
@@ -982,37 +1025,37 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loadng,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_FetchOverviewDataSuccess value)
         fetchOverviewDataSuccess,
     required TResult Function(_error value) error,
   }) {
-    return loadng(this);
+    return loading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loadng,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_FetchOverviewDataSuccess value)?
         fetchOverviewDataSuccess,
     TResult? Function(_error value)? error,
   }) {
-    return loadng?.call(this);
+    return loading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loadng,
+    TResult Function(_Loading value)? loading,
     TResult Function(_FetchOverviewDataSuccess value)? fetchOverviewDataSuccess,
     TResult Function(_error value)? error,
     required TResult orElse(),
   }) {
-    if (loadng != null) {
-      return loadng(this);
+    if (loading != null) {
+      return loading(this);
     }
     return orElse();
   }
@@ -1103,7 +1146,7 @@ class _$_FetchOverviewDataSuccess extends _FetchOverviewDataSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DashboardModelState data) initial,
-    required TResult Function(DashboardModelState data) loadng,
+    required TResult Function(DashboardModelState data) loading,
     required TResult Function(DashboardModelState data)
         fetchOverviewDataSuccess,
     required TResult Function(DashboardModelState data, String message) error,
@@ -1115,7 +1158,7 @@ class _$_FetchOverviewDataSuccess extends _FetchOverviewDataSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DashboardModelState data)? initial,
-    TResult? Function(DashboardModelState data)? loadng,
+    TResult? Function(DashboardModelState data)? loading,
     TResult? Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult? Function(DashboardModelState data, String message)? error,
   }) {
@@ -1126,7 +1169,7 @@ class _$_FetchOverviewDataSuccess extends _FetchOverviewDataSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DashboardModelState data)? initial,
-    TResult Function(DashboardModelState data)? loadng,
+    TResult Function(DashboardModelState data)? loading,
     TResult Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult Function(DashboardModelState data, String message)? error,
     required TResult orElse(),
@@ -1141,7 +1184,7 @@ class _$_FetchOverviewDataSuccess extends _FetchOverviewDataSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loadng,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_FetchOverviewDataSuccess value)
         fetchOverviewDataSuccess,
     required TResult Function(_error value) error,
@@ -1153,7 +1196,7 @@ class _$_FetchOverviewDataSuccess extends _FetchOverviewDataSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loadng,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_FetchOverviewDataSuccess value)?
         fetchOverviewDataSuccess,
     TResult? Function(_error value)? error,
@@ -1165,7 +1208,7 @@ class _$_FetchOverviewDataSuccess extends _FetchOverviewDataSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loadng,
+    TResult Function(_Loading value)? loading,
     TResult Function(_FetchOverviewDataSuccess value)? fetchOverviewDataSuccess,
     TResult Function(_error value)? error,
     required TResult orElse(),
@@ -1266,7 +1309,7 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DashboardModelState data) initial,
-    required TResult Function(DashboardModelState data) loadng,
+    required TResult Function(DashboardModelState data) loading,
     required TResult Function(DashboardModelState data)
         fetchOverviewDataSuccess,
     required TResult Function(DashboardModelState data, String message) error,
@@ -1278,7 +1321,7 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DashboardModelState data)? initial,
-    TResult? Function(DashboardModelState data)? loadng,
+    TResult? Function(DashboardModelState data)? loading,
     TResult? Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult? Function(DashboardModelState data, String message)? error,
   }) {
@@ -1289,7 +1332,7 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DashboardModelState data)? initial,
-    TResult Function(DashboardModelState data)? loadng,
+    TResult Function(DashboardModelState data)? loading,
     TResult Function(DashboardModelState data)? fetchOverviewDataSuccess,
     TResult Function(DashboardModelState data, String message)? error,
     required TResult orElse(),
@@ -1304,7 +1347,7 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loadng,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_FetchOverviewDataSuccess value)
         fetchOverviewDataSuccess,
     required TResult Function(_error value) error,
@@ -1316,7 +1359,7 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loadng,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_FetchOverviewDataSuccess value)?
         fetchOverviewDataSuccess,
     TResult? Function(_error value)? error,
@@ -1328,7 +1371,7 @@ class _$_error extends _error {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loadng,
+    TResult Function(_Loading value)? loading,
     TResult Function(_FetchOverviewDataSuccess value)? fetchOverviewDataSuccess,
     TResult Function(_error value)? error,
     required TResult orElse(),

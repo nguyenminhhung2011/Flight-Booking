@@ -87,7 +87,7 @@ class _CustomerTicketInformationCardState
   final SwiperController controller = SwiperController();
   @override
   void dispose() {
-    controller.dispose();
+    // controller.dispose();
     super.dispose();
   }
 

@@ -209,10 +209,11 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               IconButton(
-                  onPressed: () => _onChangePageAirport(_currentPage - 1),
-                  icon: const Icon(
-                    Icons.arrow_back,
-                  )),
+                onPressed: () => _onChangePageAirport(_currentPage - 1),
+                icon: const Icon(
+                  Icons.arrow_back,
+                ),
+              ),
               const SizedBox(width: 5.0),
               SortButton(
                   title: pageString,
@@ -228,6 +229,28 @@ class _AirportMainScreenState extends State<AirportMainScreen> {
               ),
               const SizedBox(width: 10.0),
               _searchField(context)
+            ],
+          ),
+          const SizedBox(height: 20.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("List Airports",
+                  style: Theme.of(context).textTheme.titleMedium),
+              TextButton.icon(
+                icon:
+                    Icon(Icons.refresh, color: Theme.of(context).primaryColor),
+                label: Text("Refresh",
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium
+                        ?.copyWith(color: Theme.of(context).primaryColor)),
+                onPressed: () {
+                  context.read<AirportBloc>().add(
+                      AirportEvent.changePageAirportView(
+                          widget.state.data.pageView));
+                },
+              ),
             ],
           ),
           const SizedBox(height: 10.0),

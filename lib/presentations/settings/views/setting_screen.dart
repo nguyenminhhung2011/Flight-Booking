@@ -1,3 +1,4 @@
+import 'package:flight_booking/core/components/utils/preferences.dart';
 import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/core/dependency_injection/di.dart';
@@ -7,6 +8,7 @@ import 'package:flight_booking/presentations/settings/bloc/accout/account_settin
 import 'package:flight_booking/presentations/settings/bloc/general/general_setting_bloc.dart';
 import 'package:flight_booking/presentations/settings/bloc/setting_bloc.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/account_setting_tab.dart';
+import 'package:flight_booking/presentations/settings/views/widgets/add_new_employee.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/general_setting_tab.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/principle_setting_tab.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +25,8 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   SettingBloc get _settingBloc => BlocProvider.of<SettingBloc>(context);
 
+  final String role = CommonAppSettingPref.getUserRole();
+
   late final List<Map<String, dynamic>> navigatorBarData = [
     {
       "label": S.of(context).generalSetting,
@@ -32,19 +36,20 @@ class _SettingScreenState extends State<SettingScreen> {
       "label": S.of(context).accountSetting,
       "icon": Icons.password,
     },
-    {
-      "label": S.of(context).ruleSettings,
-      "icon": Icons.rule,
-    },
+    if (role == "ADMIN")
+      {
+        "label": "Add New Employee",
+        "icon": Icons.add_box,
+      },
   ];
 
   final PageController pageController =
       PageController(initialPage: 0, keepPage: true);
 
-  final List<Widget> pages = [
+  late final List<Widget> pages = [
     const GeneralSettingsTab(),
     const AccountSettingTab(),
-    const PrincipleSettingTab(),
+    if (role == "ADMIN") const AddNewEmployee(),
   ];
 
   @override
@@ -97,20 +102,22 @@ class _SettingScreenState extends State<SettingScreen> {
                     },
                     icon: authenticationState.status ==
                             AuthenticationStatus.checking
-                        ? LoadingIndicator(
-                            color: Theme.of(context).primaryColor,
-                            radius: 10,
-                            strokeWidth: 1.5,
+                        ? Center(
+                            child: LoadingIndicator(
+                              color: Theme.of(context).colorScheme.error,
+                              radius: 10,
+                              strokeWidth: 1.5,
+                            ),
                           )
                         : Icon(
                             Icons.logout,
-                            color: Theme.of(context).primaryColor,
+                            color: Theme.of(context).colorScheme.error,
                             size: 25,
                           ),
                     label: Text(
                       "Logout",
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: Theme.of(context).primaryColor,
+                            color: Theme.of(context).colorScheme.error,
                           ),
                     ),
                   )

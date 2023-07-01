@@ -24,9 +24,15 @@ class FlightInfoCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
         child: Column(
           children: [
-            const Expanded(child: FlightScheduleComponent()),
+            Expanded(
+                child: FlightScheduleComponent(
+              flight: flight,
+            )),
             Divider(thickness: 1, color: Theme.of(context).dividerColor),
-            const Expanded(child: FlightScheduleInformation()),
+            Expanded(
+                child: FlightScheduleInformation(
+              flight: flight,
+            )),
             Divider(thickness: 1, color: Theme.of(context).dividerColor),
             Expanded(
                 child: FlightDestinationComponent(
@@ -101,9 +107,9 @@ class FlightDestinationComponent extends StatelessWidget {
                 child: _buildColumnDataDisplay(
                   context,
                   headline: 'From',
-                  title: flight?.arrivalAirport.location ?? "",
-                  airportCode: "SGN",
-                  subtitle: flight?.arrivalAirport.name,
+                  title: flight?.departureAirport.location ?? "",
+                  airportCode: flight?.departureAirport.code,
+                  subtitle: flight?.departureAirport.name,
                 ),
               ),
               Container(
@@ -122,7 +128,7 @@ class FlightDestinationComponent extends StatelessWidget {
                   context,
                   headline: 'To',
                   title: flight?.arrivalAirport.location ?? "",
-                  airportCode: "HAN",
+                  airportCode: flight?.arrivalAirport.code,
                   subtitle: flight?.arrivalAirport.name ?? "",
                 ),
               ),
@@ -176,7 +182,7 @@ class FlightScheduleComponent extends StatelessWidget {
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
             subtitle: Text(
-              "Boeing 737-80",
+              flight?.airline.airlineName ?? "Boeing 737-80",
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge
@@ -204,7 +210,7 @@ class FlightScheduleComponent extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      "BOM",
+                      flight?.departureAirport.code ?? "BOM",
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium
@@ -248,7 +254,7 @@ class FlightScheduleComponent extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        "1 Stop",
+                        "${flight?.stopAirports.length.toString() ?? '1'} Stop",
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ],
@@ -268,7 +274,7 @@ class FlightScheduleComponent extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      "BOM",
+                      flight?.arrivalAirport.code ?? "BOM",
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium
@@ -287,14 +293,14 @@ class FlightScheduleComponent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                "Ho Chi Minh City",
+                flight?.arrivalAirport.location ?? "Ho Chi Minh",
                 style: Theme.of(context)
                     .textTheme
                     .titleSmall
                     ?.copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
-                "(3h 0m)",
+                "(${duration.inHours}h : ${duration.inMinutes.remainder(60)}m )",
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge
@@ -313,12 +319,14 @@ class FlightScheduleInformation extends StatelessWidget {
   final Flight? flight;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 mainAxisSize: MainAxisSize.min,
@@ -359,37 +367,36 @@ class FlightScheduleInformation extends StatelessWidget {
               )
             ],
           ),
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                isThreeLine: true,
-                leading: Icon(
-                  Icons.airline_stops,
-                  color: Theme.of(context).textTheme.titleMedium?.color,
+          const SizedBox(width: 20),
+          ...flight?.stopAirports.map(
+                (e) => Expanded(
+                  child: ListTile(
+                    isThreeLine: true,
+                    leading: Icon(
+                      Icons.airline_stops,
+                      color: Theme.of(context).textTheme.titleMedium?.color,
+                    ),
+                    title: Text(
+                      "Layover at ${e.airport.name} Airport ${e.airport.code}",
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium
+                          ?.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: flight != null
+                        ? Text(
+                            DateFormat().add_jm().format(e.stopTime),
+                            style: context.titleSmall.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).hintColor),
+                          )
+                        : null,
+                  ),
                 ),
-                title: Text(
-                  "Layover at Daklak Airport CCU",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium
-                      ?.copyWith(fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(
-                  DateFormat().add_jm().format(DateTime.now()),
-                  style: context.titleSmall.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).hintColor),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          child: Align(
+              ) ??
+              [],
+          const SizedBox(width: 20),
+          Align(
             alignment: Alignment.centerRight,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -436,8 +443,8 @@ class FlightScheduleInformation extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

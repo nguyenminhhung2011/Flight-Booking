@@ -36,7 +36,6 @@ class AppDelegate {
       navigationKey: GlobalKey<NavigatorState>(),
       providers: [
         if (!isMobile) ...[
-          BlocProvider<DashboardBloc>(create: (_) => injector.get()),
           BlocProvider<CustomerBloc>(create: (_) => injector.get()),
           BlocProvider<PaymentBloc>(create: (_) => injector.get()),
           BlocProvider<AuthenticationBloc>(create: (_) => injector.get()),

@@ -19,6 +19,7 @@ mixin _$AccountSettingEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
+    required TResult Function(User user) addNewUser,
     required TResult Function() fetchUserData,
     required TResult Function(String oldPassword, String newPassword)
         changePassword,
@@ -28,6 +29,7 @@ mixin _$AccountSettingEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
+    TResult? Function(User user)? addNewUser,
     TResult? Function()? fetchUserData,
     TResult? Function(String oldPassword, String newPassword)? changePassword,
     TResult? Function(User user)? updateUserData,
@@ -36,6 +38,7 @@ mixin _$AccountSettingEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
+    TResult Function(User user)? addNewUser,
     TResult Function()? fetchUserData,
     TResult Function(String oldPassword, String newPassword)? changePassword,
     TResult Function(User user)? updateUserData,
@@ -45,6 +48,7 @@ mixin _$AccountSettingEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_AddNewUser value) addNewUser,
     required TResult Function(_FetchUserData value) fetchUserData,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdateUserData value) updateUserData,
@@ -53,6 +57,7 @@ mixin _$AccountSettingEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_AddNewUser value)? addNewUser,
     TResult? Function(_FetchUserData value)? fetchUserData,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdateUserData value)? updateUserData,
@@ -61,6 +66,7 @@ mixin _$AccountSettingEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_AddNewUser value)? addNewUser,
     TResult Function(_FetchUserData value)? fetchUserData,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdateUserData value)? updateUserData,
@@ -126,6 +132,7 @@ class _$_OnStarted extends _OnStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
+    required TResult Function(User user) addNewUser,
     required TResult Function() fetchUserData,
     required TResult Function(String oldPassword, String newPassword)
         changePassword,
@@ -138,6 +145,7 @@ class _$_OnStarted extends _OnStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
+    TResult? Function(User user)? addNewUser,
     TResult? Function()? fetchUserData,
     TResult? Function(String oldPassword, String newPassword)? changePassword,
     TResult? Function(User user)? updateUserData,
@@ -149,6 +157,7 @@ class _$_OnStarted extends _OnStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
+    TResult Function(User user)? addNewUser,
     TResult Function()? fetchUserData,
     TResult Function(String oldPassword, String newPassword)? changePassword,
     TResult Function(User user)? updateUserData,
@@ -164,6 +173,7 @@ class _$_OnStarted extends _OnStarted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_AddNewUser value) addNewUser,
     required TResult Function(_FetchUserData value) fetchUserData,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdateUserData value) updateUserData,
@@ -175,6 +185,7 @@ class _$_OnStarted extends _OnStarted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_AddNewUser value)? addNewUser,
     TResult? Function(_FetchUserData value)? fetchUserData,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdateUserData value)? updateUserData,
@@ -186,6 +197,7 @@ class _$_OnStarted extends _OnStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_AddNewUser value)? addNewUser,
     TResult Function(_FetchUserData value)? fetchUserData,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdateUserData value)? updateUserData,
@@ -201,6 +213,169 @@ class _$_OnStarted extends _OnStarted {
 abstract class _OnStarted extends AccountSettingEvent {
   const factory _OnStarted() = _$_OnStarted;
   const _OnStarted._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_AddNewUserCopyWith<$Res> {
+  factory _$$_AddNewUserCopyWith(
+          _$_AddNewUser value, $Res Function(_$_AddNewUser) then) =
+      __$$_AddNewUserCopyWithImpl<$Res>;
+  @useResult
+  $Res call({User user});
+
+  $UserCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$_AddNewUserCopyWithImpl<$Res>
+    extends _$AccountSettingEventCopyWithImpl<$Res, _$_AddNewUser>
+    implements _$$_AddNewUserCopyWith<$Res> {
+  __$$_AddNewUserCopyWithImpl(
+      _$_AddNewUser _value, $Res Function(_$_AddNewUser) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$_AddNewUser(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get user {
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_AddNewUser extends _AddNewUser {
+  const _$_AddNewUser({required this.user}) : super._();
+
+  @override
+  final User user;
+
+  @override
+  String toString() {
+    return 'AccountSettingEvent.addNewUser(user: $user)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddNewUser &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddNewUserCopyWith<_$_AddNewUser> get copyWith =>
+      __$$_AddNewUserCopyWithImpl<_$_AddNewUser>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onStarted,
+    required TResult Function(User user) addNewUser,
+    required TResult Function() fetchUserData,
+    required TResult Function(String oldPassword, String newPassword)
+        changePassword,
+    required TResult Function(User user) updateUserData,
+  }) {
+    return addNewUser(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onStarted,
+    TResult? Function(User user)? addNewUser,
+    TResult? Function()? fetchUserData,
+    TResult? Function(String oldPassword, String newPassword)? changePassword,
+    TResult? Function(User user)? updateUserData,
+  }) {
+    return addNewUser?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onStarted,
+    TResult Function(User user)? addNewUser,
+    TResult Function()? fetchUserData,
+    TResult Function(String oldPassword, String newPassword)? changePassword,
+    TResult Function(User user)? updateUserData,
+    required TResult orElse(),
+  }) {
+    if (addNewUser != null) {
+      return addNewUser(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_AddNewUser value) addNewUser,
+    required TResult Function(_FetchUserData value) fetchUserData,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_UpdateUserData value) updateUserData,
+  }) {
+    return addNewUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_AddNewUser value)? addNewUser,
+    TResult? Function(_FetchUserData value)? fetchUserData,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_UpdateUserData value)? updateUserData,
+  }) {
+    return addNewUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_AddNewUser value)? addNewUser,
+    TResult Function(_FetchUserData value)? fetchUserData,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_UpdateUserData value)? updateUserData,
+    required TResult orElse(),
+  }) {
+    if (addNewUser != null) {
+      return addNewUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddNewUser extends AccountSettingEvent {
+  const factory _AddNewUser({required final User user}) = _$_AddNewUser;
+  const _AddNewUser._() : super._();
+
+  User get user;
+  @JsonKey(ignore: true)
+  _$$_AddNewUserCopyWith<_$_AddNewUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -242,6 +417,7 @@ class _$_FetchUserData extends _FetchUserData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
+    required TResult Function(User user) addNewUser,
     required TResult Function() fetchUserData,
     required TResult Function(String oldPassword, String newPassword)
         changePassword,
@@ -254,6 +430,7 @@ class _$_FetchUserData extends _FetchUserData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
+    TResult? Function(User user)? addNewUser,
     TResult? Function()? fetchUserData,
     TResult? Function(String oldPassword, String newPassword)? changePassword,
     TResult? Function(User user)? updateUserData,
@@ -265,6 +442,7 @@ class _$_FetchUserData extends _FetchUserData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
+    TResult Function(User user)? addNewUser,
     TResult Function()? fetchUserData,
     TResult Function(String oldPassword, String newPassword)? changePassword,
     TResult Function(User user)? updateUserData,
@@ -280,6 +458,7 @@ class _$_FetchUserData extends _FetchUserData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_AddNewUser value) addNewUser,
     required TResult Function(_FetchUserData value) fetchUserData,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdateUserData value) updateUserData,
@@ -291,6 +470,7 @@ class _$_FetchUserData extends _FetchUserData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_AddNewUser value)? addNewUser,
     TResult? Function(_FetchUserData value)? fetchUserData,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdateUserData value)? updateUserData,
@@ -302,6 +482,7 @@ class _$_FetchUserData extends _FetchUserData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_AddNewUser value)? addNewUser,
     TResult Function(_FetchUserData value)? fetchUserData,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdateUserData value)? updateUserData,
@@ -396,6 +577,7 @@ class _$_ChangePassword extends _ChangePassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
+    required TResult Function(User user) addNewUser,
     required TResult Function() fetchUserData,
     required TResult Function(String oldPassword, String newPassword)
         changePassword,
@@ -408,6 +590,7 @@ class _$_ChangePassword extends _ChangePassword {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
+    TResult? Function(User user)? addNewUser,
     TResult? Function()? fetchUserData,
     TResult? Function(String oldPassword, String newPassword)? changePassword,
     TResult? Function(User user)? updateUserData,
@@ -419,6 +602,7 @@ class _$_ChangePassword extends _ChangePassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
+    TResult Function(User user)? addNewUser,
     TResult Function()? fetchUserData,
     TResult Function(String oldPassword, String newPassword)? changePassword,
     TResult Function(User user)? updateUserData,
@@ -434,6 +618,7 @@ class _$_ChangePassword extends _ChangePassword {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_AddNewUser value) addNewUser,
     required TResult Function(_FetchUserData value) fetchUserData,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdateUserData value) updateUserData,
@@ -445,6 +630,7 @@ class _$_ChangePassword extends _ChangePassword {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_AddNewUser value)? addNewUser,
     TResult? Function(_FetchUserData value)? fetchUserData,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdateUserData value)? updateUserData,
@@ -456,6 +642,7 @@ class _$_ChangePassword extends _ChangePassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_AddNewUser value)? addNewUser,
     TResult Function(_FetchUserData value)? fetchUserData,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdateUserData value)? updateUserData,
@@ -556,6 +743,7 @@ class _$_UpdateUserData extends _UpdateUserData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
+    required TResult Function(User user) addNewUser,
     required TResult Function() fetchUserData,
     required TResult Function(String oldPassword, String newPassword)
         changePassword,
@@ -568,6 +756,7 @@ class _$_UpdateUserData extends _UpdateUserData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
+    TResult? Function(User user)? addNewUser,
     TResult? Function()? fetchUserData,
     TResult? Function(String oldPassword, String newPassword)? changePassword,
     TResult? Function(User user)? updateUserData,
@@ -579,6 +768,7 @@ class _$_UpdateUserData extends _UpdateUserData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
+    TResult Function(User user)? addNewUser,
     TResult Function()? fetchUserData,
     TResult Function(String oldPassword, String newPassword)? changePassword,
     TResult Function(User user)? updateUserData,
@@ -594,6 +784,7 @@ class _$_UpdateUserData extends _UpdateUserData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_OnStarted value) onStarted,
+    required TResult Function(_AddNewUser value) addNewUser,
     required TResult Function(_FetchUserData value) fetchUserData,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdateUserData value) updateUserData,
@@ -605,6 +796,7 @@ class _$_UpdateUserData extends _UpdateUserData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnStarted value)? onStarted,
+    TResult? Function(_AddNewUser value)? addNewUser,
     TResult? Function(_FetchUserData value)? fetchUserData,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdateUserData value)? updateUserData,
@@ -616,6 +808,7 @@ class _$_UpdateUserData extends _UpdateUserData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnStarted value)? onStarted,
+    TResult Function(_AddNewUser value)? addNewUser,
     TResult Function(_FetchUserData value)? fetchUserData,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdateUserData value)? updateUserData,
@@ -645,10 +838,14 @@ mixin _$AccountSettingState {
   TResult when<TResult extends Object?>({
     required TResult Function(AccountSettingModelState data) initial,
     required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
@@ -663,9 +860,13 @@ mixin _$AccountSettingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -678,9 +879,13 @@ mixin _$AccountSettingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -694,8 +899,11 @@ mixin _$AccountSettingState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
     required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
     required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
@@ -708,8 +916,11 @@ mixin _$AccountSettingState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
     TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -720,8 +931,11 @@ mixin _$AccountSettingState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
     TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -848,10 +1062,14 @@ class _$_Initial extends _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function(AccountSettingModelState data) initial,
     required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
@@ -869,9 +1087,13 @@ class _$_Initial extends _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -887,9 +1109,13 @@ class _$_Initial extends _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -909,8 +1135,11 @@ class _$_Initial extends _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
     required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
     required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
@@ -926,8 +1155,11 @@ class _$_Initial extends _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
     TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -941,8 +1173,11 @@ class _$_Initial extends _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
     TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -1039,10 +1274,14 @@ class _$_Loading extends _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function(AccountSettingModelState data) initial,
     required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
@@ -1060,9 +1299,13 @@ class _$_Loading extends _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -1078,9 +1321,13 @@ class _$_Loading extends _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -1100,8 +1347,11 @@ class _$_Loading extends _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
     required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
     required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
@@ -1117,8 +1367,11 @@ class _$_Loading extends _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
     TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -1132,8 +1385,11 @@ class _$_Loading extends _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
     TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -1157,6 +1413,219 @@ abstract class _Loading extends AccountSettingState {
   @override
   @JsonKey(ignore: true)
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddingUserCopyWith<$Res>
+    implements $AccountSettingStateCopyWith<$Res> {
+  factory _$$_AddingUserCopyWith(
+          _$_AddingUser value, $Res Function(_$_AddingUser) then) =
+      __$$_AddingUserCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AccountSettingModelState data});
+
+  @override
+  $AccountSettingModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_AddingUserCopyWithImpl<$Res>
+    extends _$AccountSettingStateCopyWithImpl<$Res, _$_AddingUser>
+    implements _$$_AddingUserCopyWith<$Res> {
+  __$$_AddingUserCopyWithImpl(
+      _$_AddingUser _value, $Res Function(_$_AddingUser) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_AddingUser(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AccountSettingModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddingUser extends _AddingUser {
+  const _$_AddingUser({required this.data}) : super._();
+
+  @override
+  final AccountSettingModelState data;
+
+  @override
+  String toString() {
+    return 'AccountSettingState.addingUser(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddingUser &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddingUserCopyWith<_$_AddingUser> get copyWith =>
+      __$$_AddingUserCopyWithImpl<_$_AddingUser>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AccountSettingModelState data) initial,
+    required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
+    required TResult Function(AccountSettingModelState data)
+        fetchUserDataSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
+    required TResult Function(AccountSettingModelState data)
+        updateUserDataSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
+  }) {
+    return addingUser(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AccountSettingModelState data)? initial,
+    TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
+    TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
+    TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
+  }) {
+    return addingUser?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AccountSettingModelState data)? initial,
+    TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
+    TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
+    TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (addingUser != null) {
+      return addingUser(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
+    required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
+    required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
+    required TResult Function(_UpdateUserDataSuccess value)
+        updateUserDataSuccess,
+    required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return addingUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
+    TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
+    TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
+    TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
+    TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return addingUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
+    TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
+    TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
+    TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
+    TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (addingUser != null) {
+      return addingUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddingUser extends AccountSettingState {
+  const factory _AddingUser({required final AccountSettingModelState data}) =
+      _$_AddingUser;
+  const _AddingUser._() : super._();
+
+  @override
+  AccountSettingModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AddingUserCopyWith<_$_AddingUser> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1232,10 +1701,14 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(AccountSettingModelState data) initial,
     required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
@@ -1253,9 +1726,13 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -1271,9 +1748,13 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -1293,8 +1774,11 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
     required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
     required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
@@ -1310,8 +1794,11 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
     TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -1325,8 +1812,11 @@ class _$_FetchUserDataSuccess extends _FetchUserDataSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
     TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -1434,10 +1924,14 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
   TResult when<TResult extends Object?>({
     required TResult Function(AccountSettingModelState data) initial,
     required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
@@ -1455,9 +1949,13 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -1473,9 +1971,13 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -1495,8 +1997,11 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
     required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
     required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
@@ -1512,8 +2017,11 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
     TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -1527,8 +2035,11 @@ class _$_FetchUserDataFailed extends _FetchUserDataFailed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
     TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -1554,6 +2065,444 @@ abstract class _FetchUserDataFailed extends AccountSettingState {
   @override
   @JsonKey(ignore: true)
   _$$_FetchUserDataFailedCopyWith<_$_FetchUserDataFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddNewUserSuccessCopyWith<$Res>
+    implements $AccountSettingStateCopyWith<$Res> {
+  factory _$$_AddNewUserSuccessCopyWith(_$_AddNewUserSuccess value,
+          $Res Function(_$_AddNewUserSuccess) then) =
+      __$$_AddNewUserSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AccountSettingModelState data});
+
+  @override
+  $AccountSettingModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_AddNewUserSuccessCopyWithImpl<$Res>
+    extends _$AccountSettingStateCopyWithImpl<$Res, _$_AddNewUserSuccess>
+    implements _$$_AddNewUserSuccessCopyWith<$Res> {
+  __$$_AddNewUserSuccessCopyWithImpl(
+      _$_AddNewUserSuccess _value, $Res Function(_$_AddNewUserSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_AddNewUserSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AccountSettingModelState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddNewUserSuccess extends _AddNewUserSuccess {
+  const _$_AddNewUserSuccess({required this.data}) : super._();
+
+  @override
+  final AccountSettingModelState data;
+
+  @override
+  String toString() {
+    return 'AccountSettingState.addNewUserSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddNewUserSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddNewUserSuccessCopyWith<_$_AddNewUserSuccess> get copyWith =>
+      __$$_AddNewUserSuccessCopyWithImpl<_$_AddNewUserSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AccountSettingModelState data) initial,
+    required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
+    required TResult Function(AccountSettingModelState data)
+        fetchUserDataSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
+    required TResult Function(AccountSettingModelState data)
+        updateUserDataSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
+  }) {
+    return addNewUserSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AccountSettingModelState data)? initial,
+    TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
+    TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
+    TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
+  }) {
+    return addNewUserSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AccountSettingModelState data)? initial,
+    TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
+    TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
+    TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (addNewUserSuccess != null) {
+      return addNewUserSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
+    required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
+    required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
+    required TResult Function(_UpdateUserDataSuccess value)
+        updateUserDataSuccess,
+    required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return addNewUserSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
+    TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
+    TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
+    TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
+    TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return addNewUserSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
+    TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
+    TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
+    TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
+    TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (addNewUserSuccess != null) {
+      return addNewUserSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddNewUserSuccess extends AccountSettingState {
+  const factory _AddNewUserSuccess(
+      {required final AccountSettingModelState data}) = _$_AddNewUserSuccess;
+  const _AddNewUserSuccess._() : super._();
+
+  @override
+  AccountSettingModelState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AddNewUserSuccessCopyWith<_$_AddNewUserSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddNewUserFailedCopyWith<$Res>
+    implements $AccountSettingStateCopyWith<$Res> {
+  factory _$$_AddNewUserFailedCopyWith(
+          _$_AddNewUserFailed value, $Res Function(_$_AddNewUserFailed) then) =
+      __$$_AddNewUserFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AccountSettingModelState data, String message});
+
+  @override
+  $AccountSettingModelStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_AddNewUserFailedCopyWithImpl<$Res>
+    extends _$AccountSettingStateCopyWithImpl<$Res, _$_AddNewUserFailed>
+    implements _$$_AddNewUserFailedCopyWith<$Res> {
+  __$$_AddNewUserFailedCopyWithImpl(
+      _$_AddNewUserFailed _value, $Res Function(_$_AddNewUserFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_AddNewUserFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as AccountSettingModelState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddNewUserFailed extends _AddNewUserFailed {
+  const _$_AddNewUserFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final AccountSettingModelState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AccountSettingState.addNewUserFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddNewUserFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddNewUserFailedCopyWith<_$_AddNewUserFailed> get copyWith =>
+      __$$_AddNewUserFailedCopyWithImpl<_$_AddNewUserFailed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AccountSettingModelState data) initial,
+    required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
+    required TResult Function(AccountSettingModelState data)
+        fetchUserDataSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
+    required TResult Function(AccountSettingModelState data)
+        updateUserDataSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        updateUserDataFailed,
+    required TResult Function(AccountSettingModelState data)
+        changePasswordSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        changePasswordFailed,
+  }) {
+    return addNewUserFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AccountSettingModelState data)? initial,
+    TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
+    TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
+    TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
+  }) {
+    return addNewUserFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AccountSettingModelState data)? initial,
+    TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
+    TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
+    TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        updateUserDataFailed,
+    TResult Function(AccountSettingModelState data)? changePasswordSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (addNewUserFailed != null) {
+      return addNewUserFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
+    required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
+    required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
+    required TResult Function(_UpdateUserDataSuccess value)
+        updateUserDataSuccess,
+    required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return addNewUserFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
+    TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
+    TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
+    TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
+    TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return addNewUserFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
+    TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
+    TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
+    TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
+    TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (addNewUserFailed != null) {
+      return addNewUserFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddNewUserFailed extends AccountSettingState {
+  const factory _AddNewUserFailed(
+      {required final AccountSettingModelState data,
+      required final String message}) = _$_AddNewUserFailed;
+  const _AddNewUserFailed._() : super._();
+
+  @override
+  AccountSettingModelState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AddNewUserFailedCopyWith<_$_AddNewUserFailed> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1629,10 +2578,14 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(AccountSettingModelState data) initial,
     required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
@@ -1650,9 +2603,13 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -1668,9 +2625,13 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -1690,8 +2651,11 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
     required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
     required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
@@ -1707,8 +2671,11 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
     TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -1722,8 +2689,11 @@ class _$_UpdateUserDataSuccess extends _UpdateUserDataSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
     TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -1832,10 +2802,14 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
   TResult when<TResult extends Object?>({
     required TResult Function(AccountSettingModelState data) initial,
     required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
@@ -1853,9 +2827,13 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -1871,9 +2849,13 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -1893,8 +2875,11 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
     required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
     required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
@@ -1910,8 +2895,11 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
     TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -1925,8 +2913,11 @@ class _$_UpdateUserDataFailed extends _UpdateUserDataFailed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
     TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -2027,10 +3018,14 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(AccountSettingModelState data) initial,
     required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
@@ -2048,9 +3043,13 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -2066,9 +3065,13 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -2088,8 +3091,11 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
     required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
     required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
@@ -2105,8 +3111,11 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
     TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -2120,8 +3129,11 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
     TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -2230,10 +3242,14 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
   TResult when<TResult extends Object?>({
     required TResult Function(AccountSettingModelState data) initial,
     required TResult Function(AccountSettingModelState data) loading,
+    required TResult Function(AccountSettingModelState data) addingUser,
     required TResult Function(AccountSettingModelState data)
         fetchUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
         fetchUserDataFailed,
+    required TResult Function(AccountSettingModelState data) addNewUserSuccess,
+    required TResult Function(AccountSettingModelState data, String message)
+        addNewUserFailed,
     required TResult Function(AccountSettingModelState data)
         updateUserDataSuccess,
     required TResult Function(AccountSettingModelState data, String message)
@@ -2251,9 +3267,13 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AccountSettingModelState data)? initial,
     TResult? Function(AccountSettingModelState data)? loading,
+    TResult? Function(AccountSettingModelState data)? addingUser,
     TResult? Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult? Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult? Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult? Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult? Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -2269,9 +3289,13 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AccountSettingModelState data)? initial,
     TResult Function(AccountSettingModelState data)? loading,
+    TResult Function(AccountSettingModelState data)? addingUser,
     TResult Function(AccountSettingModelState data)? fetchUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         fetchUserDataFailed,
+    TResult Function(AccountSettingModelState data)? addNewUserSuccess,
+    TResult Function(AccountSettingModelState data, String message)?
+        addNewUserFailed,
     TResult Function(AccountSettingModelState data)? updateUserDataSuccess,
     TResult Function(AccountSettingModelState data, String message)?
         updateUserDataFailed,
@@ -2291,8 +3315,11 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_AddingUser value) addingUser,
     required TResult Function(_FetchUserDataSuccess value) fetchUserDataSuccess,
     required TResult Function(_FetchUserDataFailed value) fetchUserDataFailed,
+    required TResult Function(_AddNewUserSuccess value) addNewUserSuccess,
+    required TResult Function(_AddNewUserFailed value) addNewUserFailed,
     required TResult Function(_UpdateUserDataSuccess value)
         updateUserDataSuccess,
     required TResult Function(_UpdateUserDataFailed value) updateUserDataFailed,
@@ -2308,8 +3335,11 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_AddingUser value)? addingUser,
     TResult? Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult? Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult? Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult? Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult? Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult? Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
@@ -2323,8 +3353,11 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_AddingUser value)? addingUser,
     TResult Function(_FetchUserDataSuccess value)? fetchUserDataSuccess,
     TResult Function(_FetchUserDataFailed value)? fetchUserDataFailed,
+    TResult Function(_AddNewUserSuccess value)? addNewUserSuccess,
+    TResult Function(_AddNewUserFailed value)? addNewUserFailed,
     TResult Function(_UpdateUserDataSuccess value)? updateUserDataSuccess,
     TResult Function(_UpdateUserDataFailed value)? updateUserDataFailed,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,

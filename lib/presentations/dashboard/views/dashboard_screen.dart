@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/utils/preferences.dart';
 import 'package:flight_booking/core/dependency_injection/di.dart';
 import 'package:flight_booking/presentations/airport/views/airport_screen.dart';
 import 'package:flight_booking/presentations/customer/views/customer_screen.dart';
@@ -28,28 +29,31 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  final destinations = const [
-    NavigationRailDestination(
+  final String role = CommonAppSettingPref.getUserRole();
+
+  late final destinations = [
+    const NavigationRailDestination(
       icon: Icon(Icons.bar_chart_sharp),
       selectedIcon: Icon(Icons.bar_chart_sharp),
       label: Text('Dashboard'),
     ),
-    NavigationRailDestination(
+    const NavigationRailDestination(
       icon: Icon(Icons.airplanemode_active),
       selectedIcon: Icon(Icons.airplanemode_active),
       label: Text('Flights'),
     ),
-    NavigationRailDestination(
+    const NavigationRailDestination(
       icon: Icon(Icons.people),
       selectedIcon: Icon(Icons.people),
       label: Text('Customer'),
     ),
-    NavigationRailDestination(
-      icon: Icon(Icons.connecting_airports_rounded),
-      selectedIcon: Icon(Icons.connecting_airports_rounded),
-      label: Text('Airport'),
-    ),
-    // NavigationRailDestination(
+    if (role == "ADMIN")
+      const NavigationRailDestination(
+        icon: Icon(Icons.connecting_airports_rounded),
+        selectedIcon: Icon(Icons.connecting_airports_rounded),
+        label: Text('Airport'),
+      ),
+    //const NavigationRailDestination(
     //   icon: Icon(Icons.airplane_ticket),
     //   selectedIcon: Icon(Icons.airplane_ticket),
     //   label: Text('Ticket'),
@@ -59,18 +63,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
     //   selectedIcon: Icon(Icons.personal_injury_rounded),
     //   label: Text('Employee'),
     // ),
-    NavigationRailDestination(
+
+    const NavigationRailDestination(
       icon: Icon(Icons.payment),
       selectedIcon: Icon(Icons.payment),
       label: Text('Payment'),
     ),
-    NavigationRailDestination(
+    const NavigationRailDestination(
       icon: Icon(Icons.settings),
       selectedIcon: Icon(Icons.settings),
       label: Text('Settings'),
     ),
   ];
-  final List<Map<String, dynamic>> _pages = [
+  late final List<Map<String, dynamic>> _pages = [
     {
       'body': const OverviewNewScreen(),
       'secondBody': null,
@@ -86,14 +91,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
       'secondBody': const CustomerDetailCard(),
       'body_ratio': 0.7,
     },
-    {
-      'body': BlocProvider<AirportBloc>(
-        create: (context) => injector(),
-        child: const AirportScreen(),
-      ),
-      'secondBody': null,
-      'body_ratio': 0.5,
-    },
+    if (role == "ADMIN")
+      {
+        'body': BlocProvider<AirportBloc>(
+          create: (context) => injector(),
+          child: const AirportScreen(),
+        ),
+        'secondBody': null,
+        'body_ratio': 0.5,
+      },
     // {
     //   'body': BlocProvider<ListTicketBloc>(
     //     create: (context) => injector(),
@@ -220,30 +226,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             destinations: destinations,
 
                             // trailing: trailingNavRail,
-                            backgroundColor:
-                                Theme.of(context).scaffoldBackgroundColor,
-                            trailing: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 15.0),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    data.isDarkTheme
-                                        ? Icons.dark_mode
-                                        : Icons.light_mode,
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      ' ${data.isDarkTheme ? S.of(context).darkMode : S.of(context).lightMode}',
-                                    ),
-                                  ),
-                                  Switch(
-                                    value: data.isDarkTheme,
-                                    onChanged: _onChangeTheme,
-                                  )
-                                ],
-                              ),
-                            ),
                           ),
                         ),
                       },
@@ -290,40 +272,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           outAnimation: AdaptiveScaffold.topToBottom,
                           builder: (_) =>
                               AdaptiveScaffold.standardBottomNavigationBar(
-                            destinations: const [
-                              NavigationDestination(
+                            destinations: [
+                              const NavigationDestination(
                                 icon: Icon(Icons.bar_chart_outlined),
                                 selectedIcon: Icon(Icons.bar_chart_outlined),
                                 label: 'Dashboard',
                               ),
-                              NavigationDestination(
+                              const NavigationDestination(
                                 icon: Icon(Icons.airplanemode_active),
                                 selectedIcon: Icon(Icons.airplanemode_active),
                                 label: 'Flights',
                               ),
-                              NavigationDestination(
+                              const NavigationDestination(
                                 icon: Icon(Icons.people),
                                 selectedIcon: Icon(Icons.people),
                                 label: 'Customer',
                               ),
-                              NavigationDestination(
-                                icon: Icon(Icons.connecting_airports_outlined),
-                                selectedIcon:
-                                    Icon(Icons.connecting_airports_outlined),
-                                label: 'Airport',
-                              ),
-                              // NavigationDestination(
+                              if (role == "ADMIN")
+                                const NavigationDestination(
+                                  icon:
+                                      Icon(Icons.connecting_airports_outlined),
+                                  selectedIcon:
+                                      Icon(Icons.connecting_airports_outlined),
+                                  label: 'Airport',
+                                ),
+                              // const NavigationDestination(
                               //   icon: Icon(Icons.airplane_ticket),
                               //   selectedIcon: Icon(Icons.airplane_ticket),
                               //   label: 'Ticket',
                               // ),
-                              // NavigationDestination(
+                              // const NavigationDestination(
                               //   icon: Icon(Icons.personal_injury_rounded),
                               //   selectedIcon:
                               //       Icon(Icons.personal_injury_rounded),
                               //   label: 'Employee',
                               // ),
-                              NavigationDestination(
+                              const NavigationDestination(
                                 icon: Icon(Icons.settings),
                                 selectedIcon: Icon(Icons.settings),
                                 label: 'Settings',
