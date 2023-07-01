@@ -99,6 +99,16 @@ Flight Booking is a web application for managing airports and flights. Users can
 ## 📱 UI
 ### 💻Web
 
-
+|  Page1 | Page2 | Page3 | 
+|:--:|:--:|:--:|
+|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/6592abf3-fb97-45f3-abbc-371af925aa63)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/1f874db4-0faf-4fd0-9ce5-4d37d6630893)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/8bc6133b-ed4a-4111-916c-91507db94e1b)|
+|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/b1f92f11-0578-4317-b7f4-d46bc146d1c5)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/be525aa4-2659-4284-be07-f4d7ab3fe511)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/4707ea49-7a2f-4d60-ad8c-b4bb7a20c9b3)|
+|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/263ae9fa-5297-4439-b20f-2414955f522a)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/508e739f-8d66-4c61-9d1d-244e6d0d9da8)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/076f755c-c310-40ac-9ac4-aa5f22738f26)|
+|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/705e41de-fc33-4632-b7d8-1c12fafd519d)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/c3580f74-14a4-4167-89db-5ed0c8fd3e41)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/987dbcf0-043b-418e-8db6-c6d0a7c1b587)|
+|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/76c084c7-be07-468e-87fa-48d49d939385)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/f0422882-351d-464c-9e63-dca82a919f0f)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/bbc139f9-8e0c-421f-9df7-8baf76c9721f)|
+|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/1b89ef9c-b535-4642-bbaa-4e80f19d3375)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/a9744447-12ba-4edb-8c36-849e1153f2fc)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/1bbb71ae-f2eb-460c-8d37-48522735b3b1)|
+|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/427a3b8b-a3b9-4470-9537-93532252d5aa)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/67a75822-750b-44ec-82cc-b6ad01228802)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/0d6b050e-f07b-4a2c-b144-7ceb87c4d8e0)|
+|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/ffb83849-e5f3-456b-a288-24754f72573e)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/dbe188ae-9f42-488a-9561-925fb781e174)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/38465d5c-b69a-43a4-bd09-d9776d41a6c2)|
+|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/2bfdffe5-a56e-4311-a9bf-148ee5d7950e)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/4910d8ad-017c-4669-967d-3ae3b7cd37cd)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/f820474a-0ef8-49b6-9c63-3b8251b4afb0)|
 
 
