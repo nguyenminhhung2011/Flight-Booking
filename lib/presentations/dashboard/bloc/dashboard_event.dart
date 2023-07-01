@@ -6,4 +6,5 @@ class DashboardEvent with _$DashboardEvent {
   const factory DashboardEvent.changeTheme(bool theme) = _ChangeTheme;
   const factory DashboardEvent.changeView(int view, bool secondBodyDis) =
       _ChangeView;
+  const factory DashboardEvent.fetchOverviewData() = _FetchOverviewData;
 }

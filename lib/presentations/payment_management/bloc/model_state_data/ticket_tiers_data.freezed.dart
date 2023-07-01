@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+TicketTierData _$TicketTierDataFromJson(Map<String, dynamic> json) {
+  return _TicketTierData.fromJson(json);
+}
+
 /// @nodoc
 mixin _$TicketTierData {
   int get economy => throw _privateConstructorUsedError;
@@ -21,6 +25,7 @@ mixin _$TicketTierData {
   int get business => throw _privateConstructorUsedError;
   int get first => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TicketTierDataCopyWith<TicketTierData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -123,7 +128,7 @@ class __$$_TicketTierDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_TicketTierData extends _TicketTierData {
   const _$_TicketTierData(
       {this.economy = 0,
@@ -131,6 +136,9 @@ class _$_TicketTierData extends _TicketTierData {
       this.business = 0,
       this.first = 0})
       : super._();
+
+  factory _$_TicketTierData.fromJson(Map<String, dynamic> json) =>
+      _$$_TicketTierDataFromJson(json);
 
   @override
   @JsonKey()
@@ -163,6 +171,7 @@ class _$_TicketTierData extends _TicketTierData {
             (identical(other.first, first) || other.first == first));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, economy, premiumEconomy, business, first);
@@ -172,6 +181,13 @@ class _$_TicketTierData extends _TicketTierData {
   @pragma('vm:prefer-inline')
   _$$_TicketTierDataCopyWith<_$_TicketTierData> get copyWith =>
       __$$_TicketTierDataCopyWithImpl<_$_TicketTierData>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TicketTierDataToJson(
+      this,
+    );
+  }
 }
 
 abstract class _TicketTierData extends TicketTierData {
@@ -181,6 +197,9 @@ abstract class _TicketTierData extends TicketTierData {
       final int business,
       final int first}) = _$_TicketTierData;
   const _TicketTierData._() : super._();
+
+  factory _TicketTierData.fromJson(Map<String, dynamic> json) =
+      _$_TicketTierData.fromJson;
 
   @override
   int get economy;

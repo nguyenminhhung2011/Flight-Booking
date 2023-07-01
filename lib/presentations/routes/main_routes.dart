@@ -87,13 +87,11 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            Map? arguments = settings.arguments as Map;
-            final ids = arguments['ids'];
+            Map? arguments = settings.arguments as Map<String, dynamic>;
+            final ids = arguments['ids'] as Map<String, dynamic>?;
             if (ids != null) {
               return BlocProvider<PaymentTabBloc>(
-                create: (_) => injector(
-                  param1: ids,
-                ),
+                create: (_) => injector(param1: ids),
                 child: const PaymentScreen(),
               );
             }

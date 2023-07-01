@@ -36,7 +36,7 @@ class PaymentTabBloc extends Bloc<PaymentTabEvent, PaymentTabState> {
   int get flightId => _flightId;
 
   PaymentTabBloc(
-    @factoryParam Map<String, int> ids,
+    @factoryParam Map<String, dynamic> ids,
     this._customerUseCase,
     this._flightsUsecase,
     this._ticketInformationUsecase,

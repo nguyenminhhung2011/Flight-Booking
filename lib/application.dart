@@ -31,6 +31,7 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
   Widget _buildMaterialApp({
     required Locale locale,
     ThemeData? light,
+    required ThemeData dark,
     // ThemeData? dark,
   }) {
     return MaterialApp(
@@ -52,9 +53,9 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
         primaryColorDark: '#07AEAF'.toColor(),
         // fontFamily: 'Montserrat',
       ),
-      // darkTheme: ThemeData.dark().copyWith(
-      //   primaryColor: '#07AEAF'.toColor(),
-      // ),
+      darkTheme: ThemeData.dark().copyWith(
+        primaryColor: '#07AEAF'.toColor(),
+      ),
       locale: locale,
     );
   }
@@ -75,7 +76,7 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return AdaptiveTheme(
       light: ThemeData.light(),
-      // dark: ThemeData.dark(),
+      dark: ThemeData.dark(),
       initial: widget.savedThemeMode ?? AdaptiveThemeMode.light,
       builder: (
         ThemeData light,
@@ -86,7 +87,7 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
         child: _buildMaterialApp(
           locale: const Locale('en', ''),
           light: light,
-          // dark: dark,
+          dark: dark,
         ),
       ),
     );

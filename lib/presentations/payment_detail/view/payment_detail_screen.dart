@@ -152,7 +152,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
       listener: _stateChangeListener,
       builder: (context, state) {
         return state.isLoading
-            ? const LoadingIndicator()
+            ? LoadingIndicator(color: Theme.of(context).colorScheme.onPrimary)
             : Scaffold(
                 appBar: AppBar(
                   backgroundColor: Theme.of(context).scaffoldBackgroundColor,

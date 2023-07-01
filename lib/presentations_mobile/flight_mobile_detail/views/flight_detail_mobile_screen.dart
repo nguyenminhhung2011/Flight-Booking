@@ -94,6 +94,7 @@ class _FlightDetailMobileScreenState extends State<FlightDetailMobileScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          const SizedBox(height: 5.0),
                           CardInformation(
                               context: context,
                               child: Column(
@@ -184,6 +185,7 @@ class _FlightDetailMobileScreenState extends State<FlightDetailMobileScreen> {
                                   const SizedBox(height: 7.0),
                                 ],
                               )),
+                          const SizedBox(height: 5.0),
                         ],
                       ),
                     ),
