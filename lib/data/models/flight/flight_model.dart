@@ -17,9 +17,9 @@ class FlightModel {
   @JsonKey(name: 'departureAirport')
   final AirportModel? departureAirport;
   @JsonKey(name: 'departureTime')
-  final int timeStart;
+  final DateTime timeStart;
   @JsonKey(name: 'arrivalTime')
-  final int timeEnd;
+  final DateTime timeEnd;
   @JsonKey(name: 'airline')
   final AirlineModel airline;
   @JsonKey(name: 'stopAirports')
@@ -45,10 +45,8 @@ class FlightModel {
             arrivalAirport?.toEntity() ?? ModelHelper.defaultAirport,
         departureAirport:
             departureAirport?.toEntity() ?? ModelHelper.defaultAirport,
-        timeStart: DateTime.fromMillisecondsSinceEpoch(timeStart)
-            .add(const Duration(hours: 7)),
-        timeEnd: DateTime.fromMillisecondsSinceEpoch(timeEnd)
-            .add(const Duration(hours: 7)),
+        timeStart: timeStart.add(const Duration(hours: 7)),
+        timeEnd: timeEnd.add(const Duration(hours: 7)),
         airline: airline.toEntity(),
         stopAirports:
             stopAirports?.map((e) => e.toEntity).toList() ?? <StopAirport>[],
