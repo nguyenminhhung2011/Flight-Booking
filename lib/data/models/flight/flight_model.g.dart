@@ -16,8 +16,8 @@ FlightModel _$FlightModelFromJson(Map<String, dynamic> json) => FlightModel(
           ? null
           : AirportModel.fromJson(
               json['departureAirport'] as Map<String, dynamic>),
-      json['departureTime'] as int,
-      json['arrivalTime'] as int,
+      DateTime.parse(json['departureTime'] as String),
+      DateTime.parse(json['arrivalTime'] as String),
       AirlineModel.fromJson(json['airline'] as Map<String, dynamic>),
       (json['stopAirports'] as List<dynamic>?)
           ?.map((e) => StopAirportModel.fromJson(e as Map<String, dynamic>))
@@ -29,8 +29,8 @@ Map<String, dynamic> _$FlightModelToJson(FlightModel instance) =>
       'id': instance.id,
       'arrivalAirport': instance.arrivalAirport,
       'departureAirport': instance.departureAirport,
-      'departureTime': instance.timeStart,
-      'arrivalTime': instance.timeEnd,
+      'departureTime': instance.timeStart.toIso8601String(),
+      'arrivalTime': instance.timeEnd.toIso8601String(),
       'airline': instance.airline,
       'stopAirports': instance.stopAirports,
     };
