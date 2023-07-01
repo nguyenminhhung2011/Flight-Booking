@@ -57,8 +57,10 @@ class ModelHelper {
       flight.id,
       airportConvert(flight.arrivalAirport),
       airportConvert(flight.departureAirport),
-      flight.timeStart.subtract(const Duration(hours: 7)),
-      flight.timeEnd.subtract(const Duration(hours: 7)),
+      flight.timeStart
+          .subtract(const Duration(hours: 7))
+          .millisecondsSinceEpoch,
+      flight.timeEnd.subtract(const Duration(hours: 7)).millisecondsSinceEpoch,
       airlineConvert(flight.airline),
       flight.stopAirports
           .map<StopAirportModel>((e) => stopAirportConvert(e))

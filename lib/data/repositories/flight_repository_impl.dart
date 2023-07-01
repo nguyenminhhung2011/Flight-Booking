@@ -33,7 +33,7 @@ class FlightRepositoryImpl extends FlightRepository {
   @override
   Future<Flight?> addNewFlight(Flight flight) async {
     final flightModel = ModelHelper.flightConvert(flight);
-    final response = await _flightApi.addNewFlight(body: flightModel.toJson());
+    final response = await _flightApi.addNewFlight(body: flightModel);
     if (response.response.statusCode != HttpStatusCode.CREATED) {
       throw AppException(
         code: response.response.statusCode,
