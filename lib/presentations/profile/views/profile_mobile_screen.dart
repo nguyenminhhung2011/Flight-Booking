@@ -7,8 +7,10 @@ import 'package:flight_booking/presentations/profile/views/widgets/bottom_update
 import 'package:flight_booking/presentations/profile/views/widgets/profile_view_row_custom.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../generated/l10n.dart';
+import '../../login/bloc/authentication_bloc.dart';
 
 const _hMargin = 15.0;
 
@@ -20,8 +22,10 @@ class ProfileMobileScreen extends StatefulWidget {
 }
 
 class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
+  AuthenticationBloc get _bloc => context.read<AuthenticationBloc>();
   void _onChangeTheme() {}
   void _onChangeLanguage() {}
+
   void _onSave() {
     context.openListPageWithRoute(RoutesMobile.save);
   }
@@ -30,7 +34,13 @@ class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
     context.openListPageWithRoute(RoutesMobile.flightHistory);
   }
 
-  void _onSignOut() {}
+  void _onSignOut() async {
+    final show = await context.showYesNoDialog(
+        300, 'Sign out', 'Are you sure sign out?');
+    if (show) {
+      _bloc.add(LogoutEvent());
+    }
+  }
 
   void _onOpenWalletScreen() {
     context.openListPageWithRoute(RoutesMobile.walletScreen);
@@ -74,158 +84,169 @@ class _ProfileMobileScreenState extends State<ProfileMobileScreen> {
       color: Colors.grey,
       fontWeight: FontWeight.w500,
     );
-    return Scaffold(
-      body: Stack(
-        children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              width: double.infinity,
-              height: heightDevice * 0.4,
-              color: Theme.of(context).primaryColor,
-            ),
-          ),
-          ListView(
-            physics: const BouncingScrollPhysics(
-              parent: AlwaysScrollableScrollPhysics(),
-            ),
+    return BlocConsumer<AuthenticationBloc, AuthenticationState>(
+      listener: (_, state) {
+        if (state.status != AuthenticationStatus.authenticated &&
+            state.status != AuthenticationStatus.checking) {
+          context.pushAndRemoveAll(RoutesMobile.onboard);
+        }
+      },
+      builder: (context, state) {
+        return Scaffold(
+          body: Stack(
             children: [
-              SizedBox(height: heightDevice * 0.1),
-              _profileContainerField(
-                context,
-                Column(
-                  children: [
-                    Row(
+              Align(
+                alignment: Alignment.topCenter,
+                child: Container(
+                  width: double.infinity,
+                  height: heightDevice * 0.4,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+              ListView(
+                physics: const BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics(),
+                ),
+                children: [
+                  SizedBox(height: heightDevice * 0.1),
+                  _profileContainerField(
+                    context,
+                    Column(
                       children: [
-                        const AvatarWidget(
-                          height: 70.0,
-                          width: 70.0,
-                          imageUrl: ImageConst.avatarDefaults,
-                        ),
-                        const SizedBox(width: 10.0),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Nguyen Minh Hung',
-                                maxLines: 1,
-                                style: context.titleLarge.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        Row(
+                          children: [
+                            const AvatarWidget(
+                              height: 70.0,
+                              width: 70.0,
+                              imageUrl: ImageConst.avatarDefaults,
+                            ),
+                            const SizedBox(width: 10.0),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Nguyen Minh Hung',
+                                    maxLines: 1,
+                                    style: context.titleLarge.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    'hungnguyen.201102@gmail.com',
+                                    maxLines: 1,
+                                    style: context.titleMedium.copyWith(
+                                      fontWeight: FontWeight.w400,
+                                      overflow: TextOverflow.ellipsis,
+                                      color: Theme.of(context).hintColor,
+                                    ),
+                                  )
+                                ],
                               ),
-                              Text(
-                                'hungnguyen.201102@gmail.com',
-                                maxLines: 1,
-                                style: context.titleMedium.copyWith(
-                                  fontWeight: FontWeight.w400,
-                                  overflow: TextOverflow.ellipsis,
-                                  color: Theme.of(context).hintColor,
-                                ),
-                              )
-                            ],
+                            )
+                          ],
+                        ),
+                        ProfileViewRowCustom(
+                          header: S.of(context).changePassword,
+                          onPress: _onChangePassword,
+                        ),
+                        ProfileViewRowCustom(
+                          header: S.of(context).updateProfile,
+                          onPress: _onUpdateProfile,
+                        ),
+                      ]
+                          .expand((element) => [
+                                element,
+                                const SizedBox(height: 10, child: Divider())
+                              ])
+                          .toList()
+                        ..removeLast(),
+                    ),
+                  ),
+                  const SizedBox(height: 15.0),
+                  _profileContainerField(
+                    context,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(S.of(context).overview, style: headerStyle),
+                        const SizedBox(height: 10.0),
+                        ...[
+                          ProfileViewRowCustom(
+                            header: S.of(context).save,
+                            onPress: _onSave,
                           ),
-                        )
+                          ProfileViewRowCustom(
+                            header: S.of(context).wallet,
+                            onPress: _onOpenWalletScreen,
+                          ),
+                          ProfileViewRowCustom(
+                            header: S.of(context).flightHistory,
+                            onPress: _onOpenFlightHistoryScreen,
+                          )
+                        ]
+                            .expand(
+                              (element) => [
+                                element,
+                                const SizedBox(height: 10.0, child: Divider())
+                              ],
+                            )
+                            .toList()
+                          ..removeLast()
                       ],
                     ),
-                    ProfileViewRowCustom(
-                      header: S.of(context).changePassword,
-                      onPress: _onChangePassword,
+                  ),
+                  const SizedBox(height: 15.0),
+                  _profileContainerField(
+                    context,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(S.of(context).anotherSettings, style: headerStyle),
+                        const SizedBox(height: 10.0),
+                        ...[
+                          ProfileViewRowCustom(
+                            onPress: _onChangeTheme,
+                            header: S.of(context).theme,
+                            suffix: Text(
+                              S.of(context).lightTheme,
+                              style: suffixTextStyle,
+                            ),
+                          ),
+                          ProfileViewRowCustom(
+                            onPress: _onChangeLanguage,
+                            header: S.of(context).language,
+                            suffix: Text(
+                              S.of(context).english,
+                              style: suffixTextStyle,
+                            ),
+                          ),
+                          ProfileViewRowCustom(
+                            header: S.of(context).signOut,
+                            headerStyle:
+                                headerStyle.copyWith(color: Colors.red),
+                            suffix: const SizedBox(),
+                            onPress: _onSignOut,
+                          )
+                        ]
+                            .expand(
+                              (element) => [
+                                element,
+                                const SizedBox(height: 10.0, child: Divider())
+                              ],
+                            )
+                            .toList()
+                          ..removeLast()
+                      ],
                     ),
-                    ProfileViewRowCustom(
-                      header: S.of(context).updateProfile,
-                      onPress: _onUpdateProfile,
-                    ),
-                  ]
-                      .expand((element) => [
-                            element,
-                            const SizedBox(height: 10, child: Divider())
-                          ])
-                      .toList()
-                    ..removeLast(),
-                ),
+                  )
+                ],
               ),
-              const SizedBox(height: 15.0),
-              _profileContainerField(
-                context,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(S.of(context).overview, style: headerStyle),
-                    const SizedBox(height: 10.0),
-                    ...[
-                      ProfileViewRowCustom(
-                        header: S.of(context).save,
-                        onPress: _onSave,
-                      ),
-                      ProfileViewRowCustom(
-                        header: S.of(context).wallet,
-                        onPress: _onOpenWalletScreen,
-                      ),
-                      ProfileViewRowCustom(
-                        header: S.of(context).flightHistory,
-                        onPress: _onOpenFlightHistoryScreen,
-                      )
-                    ]
-                        .expand(
-                          (element) => [
-                            element,
-                            const SizedBox(height: 10.0, child: Divider())
-                          ],
-                        )
-                        .toList()
-                      ..removeLast()
-                  ],
-                ),
-              ),
-              const SizedBox(height: 15.0),
-              _profileContainerField(
-                context,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(S.of(context).anotherSettings, style: headerStyle),
-                    const SizedBox(height: 10.0),
-                    ...[
-                      ProfileViewRowCustom(
-                        onPress: _onChangeTheme,
-                        header: S.of(context).theme,
-                        suffix: Text(
-                          S.of(context).lightTheme,
-                          style: suffixTextStyle,
-                        ),
-                      ),
-                      ProfileViewRowCustom(
-                        onPress: _onChangeLanguage,
-                        header: S.of(context).language,
-                        suffix: Text(
-                          S.of(context).english,
-                          style: suffixTextStyle,
-                        ),
-                      ),
-                      ProfileViewRowCustom(
-                        header: S.of(context).signOut,
-                        headerStyle: headerStyle.copyWith(color: Colors.red),
-                        suffix: const SizedBox(),
-                        onPress: _onSignOut,
-                      )
-                    ]
-                        .expand(
-                          (element) => [
-                            element,
-                            const SizedBox(height: 10.0, child: Divider())
-                          ],
-                        )
-                        .toList()
-                      ..removeLast()
-                  ],
-                ),
-              )
             ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 

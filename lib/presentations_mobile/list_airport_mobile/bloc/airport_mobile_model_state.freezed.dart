@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AirportMobileModelState {
   List<Airport> get listAirport => throw _privateConstructorUsedError;
+  int get cursor => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AirportMobileModelStateCopyWith<AirportMobileModelState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $AirportMobileModelStateCopyWith<$Res> {
           $Res Function(AirportMobileModelState) then) =
       _$AirportMobileModelStateCopyWithImpl<$Res, AirportMobileModelState>;
   @useResult
-  $Res call({List<Airport> listAirport});
+  $Res call({List<Airport> listAirport, int cursor});
 }
 
 /// @nodoc
@@ -47,12 +48,17 @@ class _$AirportMobileModelStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? listAirport = null,
+    Object? cursor = null,
   }) {
     return _then(_value.copyWith(
       listAirport: null == listAirport
           ? _value.listAirport
           : listAirport // ignore: cast_nullable_to_non_nullable
               as List<Airport>,
+      cursor: null == cursor
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -65,7 +71,7 @@ abstract class _$$_AirportMobileModelStateCopyWith<$Res>
       __$$_AirportMobileModelStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Airport> listAirport});
+  $Res call({List<Airport> listAirport, int cursor});
 }
 
 /// @nodoc
@@ -81,12 +87,17 @@ class __$$_AirportMobileModelStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? listAirport = null,
+    Object? cursor = null,
   }) {
     return _then(_$_AirportMobileModelState(
       listAirport: null == listAirport
           ? _value._listAirport
           : listAirport // ignore: cast_nullable_to_non_nullable
               as List<Airport>,
+      cursor: null == cursor
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -94,7 +105,8 @@ class __$$_AirportMobileModelStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AirportMobileModelState implements _AirportMobileModelState {
-  const _$_AirportMobileModelState({required final List<Airport> listAirport})
+  const _$_AirportMobileModelState(
+      {required final List<Airport> listAirport, required this.cursor})
       : _listAirport = listAirport;
 
   final List<Airport> _listAirport;
@@ -106,8 +118,11 @@ class _$_AirportMobileModelState implements _AirportMobileModelState {
   }
 
   @override
+  final int cursor;
+
+  @override
   String toString() {
-    return 'AirportMobileModelState(listAirport: $listAirport)';
+    return 'AirportMobileModelState(listAirport: $listAirport, cursor: $cursor)';
   }
 
   @override
@@ -116,12 +131,13 @@ class _$_AirportMobileModelState implements _AirportMobileModelState {
         (other.runtimeType == runtimeType &&
             other is _$_AirportMobileModelState &&
             const DeepCollectionEquality()
-                .equals(other._listAirport, _listAirport));
+                .equals(other._listAirport, _listAirport) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_listAirport));
+      runtimeType, const DeepCollectionEquality().hash(_listAirport), cursor);
 
   @JsonKey(ignore: true)
   @override
@@ -134,10 +150,13 @@ class _$_AirportMobileModelState implements _AirportMobileModelState {
 
 abstract class _AirportMobileModelState implements AirportMobileModelState {
   const factory _AirportMobileModelState(
-      {required final List<Airport> listAirport}) = _$_AirportMobileModelState;
+      {required final List<Airport> listAirport,
+      required final int cursor}) = _$_AirportMobileModelState;
 
   @override
   List<Airport> get listAirport;
+  @override
+  int get cursor;
   @override
   @JsonKey(ignore: true)
   _$$_AirportMobileModelStateCopyWith<_$_AirportMobileModelState>

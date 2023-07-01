@@ -22,7 +22,11 @@ class AirportMobileBloc extends Bloc<AirportMobileEvent, AirportMobileState> {
 
   AirportMobileBloc(this._airportUsecase)
       : super(const AirportMobileState.initial(
-          data: AirportMobileModelState(listAirport: <Airport>[]),
+          data: AirportMobileModelState(
+            listAirport: <Airport>[],
+            cursor: -1,
+            // isScroll: true,
+          ),
         )) {
     on<_Started>(_onStarted);
     on<_FetchAirport>(_onFetchAirport);
@@ -37,11 +41,25 @@ class AirportMobileBloc extends Bloc<AirportMobileEvent, AirportMobileState> {
     _FetchAirport event,
     Emitter<AirportMobileState> emit,
   ) async {
-    emit(AirportMobileState.loading(data: data, typeLoading: 1));
+    if (data.listAirport.length % 10 != 0) {
+      return emit(AirportMobileState.fetchAirportsFailed(
+        data: data,
+        message: 'Max',
+      ));
+    }
+    emit(AirportMobileState.loading(
+        data: data.copyWith(cursor: data.cursor + 1), typeLoading: 1));
     try {
-      final airports = await _airportUsecase.fetchAllAirports();
+      final response =
+          await _airportUsecase.fetchAirportByPage(data.cursor, event.pageSize);
       emit(AirportMobileState.fetchAirportsSuccess(
-        data: state.data.copyWith(listAirport: airports),
+        data: state.data.copyWith(
+          listAirport: [
+            ...data.listAirport,
+            ...(response.data as List<Airport>)
+          ],
+          cursor: response.currentPage,
+        ),
       ));
     } on AppException catch (e) {
       emit(AirportMobileState.fetchAirportsFailed(
