@@ -1,5 +1,6 @@
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
+import 'package:flight_booking/core/components/utils/preferences.dart';
 import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/presentations/login/bloc/authentication_bloc.dart';
 import 'package:flight_booking/presentations/login/views/widgets/forget_password_form.dart';
@@ -13,15 +14,19 @@ class LoginScreen extends StatelessWidget {
 
   final pageController = PageController();
 
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   void _stateChangeListener(
       BuildContext context, AuthenticationState state) async {
     if (state.status == AuthenticationStatus.authenticated) {
       await context.openDashboardPage();
-    } else if (state.status == AuthenticationStatus.unauthenticated) {
-      await context.showSuccessDialog(
-        width: 300,
-        header: "Can not authenticate user",
-        title: "User username or password is incorrect",
+    } else if (state.status == AuthenticationStatus.unauthenticated &&
+        state.message.isNotEmpty) {
+      await context.showFailedDialog(
+        width: 400,
+        header: "Authentication Failed",
+        title: state.message,
       );
     }
   }
@@ -65,6 +70,8 @@ class LoginScreen extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
                     LoginForm(
+                      passwordController: passwordController,
+                      usernameController: usernameController,
                       authenticationState: state,
                       navigateToForgetPassword: () async {
                         await pageController.nextPage(
@@ -95,6 +102,8 @@ class LoginForm extends StatelessWidget {
     super.key,
     required this.navigateToForgetPassword,
     required this.authenticationState,
+    required this.usernameController,
+    required this.passwordController,
   });
 
   // final double loginFormWidth;
@@ -102,13 +111,16 @@ class LoginForm extends StatelessWidget {
   final ValueNotifier<bool> isObscureText = ValueNotifier(true);
   final ValueNotifier<bool> isRememberInfo = ValueNotifier(false);
   final Function() navigateToForgetPassword;
-  final TextEditingController usernameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
   final AuthenticationState authenticationState;
+  final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController usernameController;
+  final TextEditingController passwordController;
 
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,6 +135,12 @@ class LoginForm extends StatelessWidget {
             style: Theme.of(context).textTheme.titleLarge,
           ),
           TextFormField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Please enter your username";
+              }
+              return null;
+            },
             controller: usernameController,
             maxLines: 1,
             decoration: InputDecoration(
@@ -152,6 +170,12 @@ class LoginForm extends StatelessWidget {
           ValueListenableBuilder<bool>(
             valueListenable: isObscureText,
             builder: (context, isObscure, child) => TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "Please enter your password";
+                }
+                return null;
+              },
               controller: passwordController,
               obscureText: isObscure,
               maxLines: 1,
@@ -227,11 +251,16 @@ class LoginForm extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: TextButton.icon(
-              onPressed: () {
-                context.read<AuthenticationBloc>().add(LoginEvent(
-                    username: usernameController.text,
-                    password: passwordController.text));
-              },
+              onPressed:
+                  authenticationState.status == AuthenticationStatus.checking
+                      ? () {}
+                      : () {
+                          if (_formKey.currentState?.validate() ?? false) {
+                            context.read<AuthenticationBloc>().add(LoginEvent(
+                                username: usernameController.text,
+                                password: passwordController.text));
+                          }
+                        },
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(50),
                 backgroundColor: Theme.of(context).primaryColor,

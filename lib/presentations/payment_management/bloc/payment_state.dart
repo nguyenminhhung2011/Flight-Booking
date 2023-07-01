@@ -50,6 +50,8 @@ class PaymentState with _$PaymentState {
 
   bool get isLoading => this is _Loading;
 
+  bool get isLoadingTable => this is _LoadingTable;
+
   bool isLoadingItem(String id) =>
       this is _LoadingDeletePaymentItem &&
       (this as _LoadingDeletePaymentItem).id == id;

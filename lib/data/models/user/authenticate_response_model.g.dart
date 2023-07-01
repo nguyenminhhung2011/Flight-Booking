@@ -13,6 +13,7 @@ _$_AuthenticateResponse _$$_AuthenticateResponseFromJson(
       isSuccess: json['isSuccess'] as bool? ?? false,
       accessToken: json['accessToken'] as String? ?? "",
       refreshToken: json['refreshToken'] as String? ?? "",
+      role: json['role'] as String? ?? "",
       expiredTime: json['expiredTime'] as int? ?? 0,
     );
 
@@ -23,5 +24,6 @@ Map<String, dynamic> _$$_AuthenticateResponseToJson(
       'isSuccess': instance.isSuccess,
       'accessToken': instance.accessToken,
       'refreshToken': instance.refreshToken,
+      'role': instance.role,
       'expiredTime': instance.expiredTime,
     };

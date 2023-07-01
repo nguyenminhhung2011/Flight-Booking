@@ -55,8 +55,8 @@ class _SwiperCustomState extends State<SwiperCustom> {
   @override
   void dispose() {
     index.dispose();
-    swiperController.dispose();
     swiperController.removeListener(_listenSwiperChange);
+    swiperController.dispose();
     super.dispose();
   }
 

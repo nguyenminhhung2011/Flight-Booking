@@ -20,4 +20,6 @@ class DashboardState with _$DashboardState {
     required DashboardModelState data,
     required String message,
   }) = _error;
+
+  bool get isLoading => this is _Loading;
 }

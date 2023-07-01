@@ -4,6 +4,7 @@ import 'package:countries_world_map/data/maps/world_map.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
+import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
@@ -40,7 +41,9 @@ class _OverviewNewScreenState extends State<OverviewNewScreen> {
   DashboardBloc get _bloc => BlocProvider.of<DashboardBloc>(context);
   @override
   void initState() {
-    _bloc.add(const DashboardEvent.fetchOverviewData());
+    _bloc.add(DashboardEvent.fetchOverviewData(
+        from: DateTime.now().subtract(const Duration(days: 6)),
+        to: DateTime.now()));
     _textController = TextEditingController();
     super.initState();
   }
@@ -214,7 +217,15 @@ class _OverviewNewScreenState extends State<OverviewNewScreen> {
                           .titleLarge!
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
-                    const RangeDatePicButton()
+                    RangeDatePicButton(
+                      isLoading: state.isLoading,
+                      callback: (dateTimes) {
+                        _bloc.add(DashboardEvent.fetchOverviewData(
+                          from: dateTimes.first,
+                          to: dateTimes.last,
+                        ));
+                      },
+                    )
                   ],
                 ),
               ),
@@ -466,7 +477,12 @@ class _OverviewNewScreenState extends State<OverviewNewScreen> {
 class RangeDatePicButton extends StatefulWidget {
   const RangeDatePicButton({
     super.key,
+    this.isLoading = false,
+    required this.callback,
   });
+
+  final Function(List<DateTime> dateTimes) callback;
+  final bool isLoading;
 
   @override
   State<RangeDatePicButton> createState() => _RangeDatePicButtonState();
@@ -483,20 +499,27 @@ class _RangeDatePicButtonState extends State<RangeDatePicButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () async {
-        final dates = await context.pickWeekRange(_rangeDateController);
-        if (dates != null) {
-          // print(dates);
-        }
-      },
+      onPressed: widget.isLoading
+          ? null
+          : () async {
+              final dates = await context.pickWeekRange(_rangeDateController);
+              if (dates != null) {
+                widget.callback(dates);
+              }
+            },
       child: ChangeNotifierProvider(
         create: (_) => _rangeDateController,
-        child: Text(
-          getRangeDateFormat(
-            _rangeDateController.startDate,
-            _rangeDateController.endDate,
-          ),
-        ),
+        child: widget.isLoading
+            ? LoadingIndicator(
+                color: Theme.of(context).colorScheme.onPrimary,
+                radius: 15,
+              )
+            : Text(
+                getRangeDateFormat(
+                  _rangeDateController.startDate,
+                  _rangeDateController.endDate,
+                ),
+              ),
       ),
     );
   }

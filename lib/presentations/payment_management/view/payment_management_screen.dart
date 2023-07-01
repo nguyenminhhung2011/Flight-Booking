@@ -218,6 +218,37 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                             ],
                           ),
                           const SizedBox(height: 30),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("All Payment",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium),
+                              TextButton.icon(
+                                onPressed: () {
+                                  _paymentBLoc
+                                      .add(PaymentEvent.fetchListPaymentData(
+                                    page: state.data.page,
+                                    perPage: state.data.perPage,
+                                  ));
+                                },
+                                icon: Icon(Icons.refresh,
+                                    color: Theme.of(context).primaryColor),
+                                label: Text(
+                                  "Refresh",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.copyWith(
+                                          color:
+                                              Theme.of(context).primaryColor),
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(height: 20),
                           Container(
                             padding: const EdgeInsets.all(15),
                             decoration: BoxDecoration(
@@ -228,8 +259,12 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             height: MediaQuery.of(context).size.height * 0.6,
-                            child:
-                                _buildPaymentTable(state, state.data.payments),
+                            child: state.isLoadingTable
+                                ? LoadingIndicator(
+                                    color: Theme.of(context).primaryColor,
+                                  )
+                                : _buildPaymentTable(
+                                    state, state.data.payments),
                           ),
                           const SizedBox(height: 15),
                           Align(
@@ -240,7 +275,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                               children: [
                                 Text(
                                   "Page: ",
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                                  style: Theme.of(context).textTheme.titleLarge,
                                 ),
                                 const SizedBox(width: 10),
                                 PageIndexView(
@@ -359,7 +394,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
 
   Widget _buildPaymentTable(PaymentState state, List<PaymentItem> payments) {
     return FluxTicketTable<PaymentItem>(
-      data: payments,
+      data: payments.reversed.toList(),
       rowBuilder: (data) {
         return FluxTableRow(
           rowDecoration: BoxDecoration(

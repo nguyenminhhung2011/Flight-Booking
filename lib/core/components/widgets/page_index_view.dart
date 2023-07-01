@@ -64,7 +64,7 @@ class _PageIndexViewState extends State<PageIndexView> {
       onTap: () => widget.selected.call(i - 1),
       child: Text(
         i.toString(),
-        style: context.titleSmall.copyWith(
+        style: context.titleLarge.copyWith(
           fontWeight: FontWeight.w600,
           color: ((i - 1) == widget.currentPage)
               ? Theme.of(context).primaryColor

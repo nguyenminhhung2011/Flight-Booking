@@ -1,4 +1,5 @@
 import 'package:flight_booking/presentations/customer/bloc/detail/customer_detail_bloc.dart';
+import 'package:flight_booking/presentations/dashboard/bloc/dashboard_bloc.dart';
 import 'package:flight_booking/presentations/dashboard/views/dashboard_screen.dart';
 import 'package:flight_booking/presentations/login/views/login_screen.dart';
 import 'package:flight_booking/presentations/payment/view/payment_screen.dart';
@@ -34,7 +35,10 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const DashboardScreen();
+            return BlocProvider<DashboardBloc>(
+              create: (context) => injector.get(),
+              child: const DashboardScreen(),
+            );
           },
         );
       case Routes.login:

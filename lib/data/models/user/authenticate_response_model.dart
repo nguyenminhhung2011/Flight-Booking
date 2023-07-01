@@ -9,6 +9,7 @@ class AuthenticateResponse with _$AuthenticateResponse {
       @Default(false) bool isSuccess,
       @Default("") String accessToken,
       @Default("") String refreshToken,
+      @Default("") String role,
       @Default(0) int expiredTime}) = _AuthenticateResponse;
 
   factory AuthenticateResponse.fromJson(Map<String, dynamic> json) =>
