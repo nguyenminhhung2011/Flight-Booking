@@ -39,7 +39,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   @override
   void initState() {
-    print("initState");
     _bloc.add(const PaymentTabEvent.getPaymentById());
     _bloc.add(const PaymentTabEvent.getFlightById());
     _bloc.add(const PaymentTabEvent.getTicInformation());
@@ -90,188 +89,196 @@ class _PaymentScreenState extends State<PaymentScreen> {
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
     final hintColor = Theme.of(context).hintColor;
-    return BlocConsumer<PaymentTabBloc, PaymentTabState>(
-      listener: _listenStateChange,
-      builder: (context, state) {
-        if (state.loadingGetData) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-        if (_customer == null || _flight == null || _ticInformation == null) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-        return Scaffold(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          appBar: AppBar(
-            toolbarHeight: 80.0,
-            automaticallyImplyLeading: false,
-            backgroundColor: Colors.transparent,
-            iconTheme: Theme.of(context).iconTheme,
-            elevation: 0,
-            centerTitle: true,
-            title: ValueListenableBuilder(
-                valueListenable: _pageIndex,
-                builder: (context, pageIndex, child) {
-                  return Container(
-                    width: context.widthDevice > _maxWidthDevice
-                        ? context.widthDevice / 2
-                        : double.infinity,
-                    margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+    return WillPopScope(
+      onWillPop: () async {
+        return await context.showYesNoDialog(
+          400,
+          "Warning",
+          "Are you sure to cancel payment process ? ",
+        );
+      },
+      child: BlocConsumer<PaymentTabBloc, PaymentTabState>(
+        listener: _listenStateChange,
+        builder: (context, state) {
+          if (state.loadingGetData) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (_customer == null || _flight == null || _ticInformation == null) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return Scaffold(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            appBar: AppBar(
+              toolbarHeight: 80.0,
+              backgroundColor: Colors.transparent,
+              iconTheme: Theme.of(context).iconTheme,
+              elevation: 0,
+              centerTitle: true,
+              title: ValueListenableBuilder(
+                  valueListenable: _pageIndex,
+                  builder: (context, pageIndex, child) {
+                    return Container(
+                      width: context.widthDevice > _maxWidthDevice
+                          ? context.widthDevice / 2
+                          : double.infinity,
+                      margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.document_scanner,
+                            color: primaryColor,
+                            size: 30.0,
+                          ),
+                          const SizedBox(width: 10.0),
+                          Stack(
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    alignment: Alignment.center,
+                                    width: 300,
+                                    height: 6.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      color: hintColor.withOpacity(0.2),
+                                    ),
+                                  ),
+                                  Icon(Icons.airplane_ticket,
+                                      color: hintColor, size: 20)
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  AnimatedContainer(
+                                    constraints:
+                                        const BoxConstraints(maxWidth: 300),
+                                    duration: const Duration(milliseconds: 300),
+                                    width: 300.0 * pageIndex * 1.0,
+                                    height: 6.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      color: primaryColor,
+                                    ),
+                                  ),
+                                  Icon(Icons.airplane_ticket,
+                                      color: primaryColor, size: 20)
+                                ],
+                              )
+                            ],
+                          ),
+                          const SizedBox(width: 10.0),
+                          Icon(
+                            Icons.payments,
+                            color: pageIndex > 0 ? primaryColor : hintColor,
+                            size: 30.0,
+                          ),
+                          const SizedBox(width: 10.0),
+                          Stack(
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    alignment: Alignment.center,
+                                    width: 300,
+                                    height: 6.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      color: hintColor.withOpacity(0.2),
+                                    ),
+                                  ),
+                                  Icon(Icons.airplane_ticket,
+                                      color: hintColor, size: 20)
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  AnimatedContainer(
+                                    duration: const Duration(milliseconds: 300),
+                                    constraints:
+                                        const BoxConstraints(maxWidth: 300),
+                                    width: pageIndex > 1
+                                        ? 300.0 * (pageIndex - 1) * 1.0
+                                        : 0,
+                                    height: 6.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      color: primaryColor,
+                                    ),
+                                  ),
+                                  Icon(Icons.airplane_ticket,
+                                      color: pageIndex > 0
+                                          ? primaryColor
+                                          : hintColor,
+                                      size: 20)
+                                ],
+                              )
+                            ],
+                          ),
+                          const SizedBox(width: 10.0),
+                          Icon(
+                            Icons.check_circle_outline_sharp,
+                            color: pageIndex == 2 ? primaryColor : hintColor,
+                            size: 30.0,
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
+            ),
+            body: Row(
+              children: [
+                if (context.widthDevice > _maxWidthDevice) ...[
+                  Container(
+                    width: 450,
+                    margin: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    height: context.heightDevice,
+                    child: ListView(
+                      scrollDirection: Axis.vertical,
                       children: [
-                        Icon(
-                          Icons.document_scanner,
-                          color: primaryColor,
-                          size: 30.0,
+                        const TicInformation(),
+                        // if (_customer != null && _ticInformation != null)
+                        CustomerTicketInformationCard(
+                          customer: _customer ?? ModelHelper.defaultCustomer,
+                          listTics: _tics,
+                          ticInformation: _ticInformation ?? {},
                         ),
-                        const SizedBox(width: 10.0),
-                        Stack(
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  alignment: Alignment.center,
-                                  width: 300,
-                                  height: 6.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5.0),
-                                    color: hintColor.withOpacity(0.2),
-                                  ),
-                                ),
-                                Icon(Icons.airplane_ticket,
-                                    color: hintColor, size: 20)
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AnimatedContainer(
-                                  constraints:
-                                      const BoxConstraints(maxWidth: 300),
-                                  duration: const Duration(milliseconds: 300),
-                                  width: 300.0 * pageIndex * 1.0,
-                                  height: 6.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5.0),
-                                    color: primaryColor,
-                                  ),
-                                ),
-                                Icon(Icons.airplane_ticket,
-                                    color: primaryColor, size: 20)
-                              ],
-                            )
-                          ],
-                        ),
-                        const SizedBox(width: 10.0),
-                        Icon(
-                          Icons.payments,
-                          color: pageIndex > 0 ? primaryColor : hintColor,
-                          size: 30.0,
-                        ),
-                        const SizedBox(width: 10.0),
-                        Stack(
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  alignment: Alignment.center,
-                                  width: 300,
-                                  height: 6.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5.0),
-                                    color: hintColor.withOpacity(0.2),
-                                  ),
-                                ),
-                                Icon(Icons.airplane_ticket,
-                                    color: hintColor, size: 20)
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AnimatedContainer(
-                                  duration: const Duration(milliseconds: 300),
-                                  constraints:
-                                      const BoxConstraints(maxWidth: 300),
-                                  width: pageIndex > 1
-                                      ? 300.0 * (pageIndex - 1) * 1.0
-                                      : 0,
-                                  height: 6.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5.0),
-                                    color: primaryColor,
-                                  ),
-                                ),
-                                Icon(Icons.airplane_ticket,
-                                    color: pageIndex > 0
-                                        ? primaryColor
-                                        : hintColor,
-                                    size: 20)
-                              ],
-                            )
-                          ],
-                        ),
-                        const SizedBox(width: 10.0),
-                        Icon(
-                          Icons.check_circle_outline_sharp,
-                          color: pageIndex == 2 ? primaryColor : hintColor,
-                          size: 30.0,
+                        PriceSummaryCard(
+                          tics: _tics,
+                          priceSummary: _priceSummary,
                         ),
                       ],
                     ),
-                  );
-                }),
-          ),
-          body: Row(
-            children: [
-              if (context.widthDevice > _maxWidthDevice) ...[
-                Container(
-                  width: 450,
-                  margin: const EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
-                    borderRadius: BorderRadius.circular(10.0),
                   ),
-                  height: context.heightDevice,
-                  child: ListView(
-                    scrollDirection: Axis.vertical,
+                ],
+                Expanded(
+                  child: PageView(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: _pageController,
                     children: [
-                      const TicInformation(),
-                      // if (_customer != null && _ticInformation != null)
-                      CustomerTicketInformationCard(
-                        customer: _customer ?? ModelHelper.defaultCustomer,
-                        listTics: _tics,
-                        ticInformation: _ticInformation ?? {},
+                      BookPaymentTab(
+                        onNextPage: () => _onNextPage(1),
                       ),
-                      PriceSummaryCard(
-                        tics: _tics,
-                        priceSummary: _priceSummary,
-                      ),
+                      const PaymentTab(),
+                      if (_payment != null) const ConfirmInformationTab(),
                     ],
                   ),
                 ),
               ],
-              Expanded(
-                child: PageView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: _pageController,
-                  children: [
-                    BookPaymentTab(
-                      onNextPage: () => _onNextPage(1),
-                    ),
-                    const PaymentTab(),
-                    if (_payment != null) const ConfirmInformationTab(),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        );
-      },
+            ),
+          );
+        },
+      ),
     );
   }
 }

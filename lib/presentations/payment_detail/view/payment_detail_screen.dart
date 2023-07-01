@@ -152,7 +152,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
       listener: _stateChangeListener,
       builder: (context, state) {
         return state.isLoading
-            ? LoadingIndicator(color: Theme.of(context).colorScheme.onPrimary)
+            ? Center(
+                child: LoadingIndicator(
+                    color: Theme.of(context).colorScheme.primary))
             : Scaffold(
                 appBar: AppBar(
                   backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -187,11 +189,11 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                         )),
                                     SizedBox(width: cardSpace),
                                     Expanded(
-                                        flex: 3,
-                                        child: FlightInfoCard(
-                                          flight:
-                                              state.data.paymentDetail.flight,
-                                        )),
+                                      flex: 3,
+                                      child: FlightInfoCard(
+                                        flight: state.data.paymentDetail.flight,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),

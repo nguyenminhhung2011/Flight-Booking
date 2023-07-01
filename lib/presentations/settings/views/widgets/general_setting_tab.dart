@@ -337,27 +337,22 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                               Expanded(
                                 child: InkWell(
                                   onTap: () {
-                                    // WidgetsBinding.instance
-                                    //     .addPostFrameCallback((timeStamp)  {
-
-                                    // });
-                                    Future.delayed(
-                                      const Duration(milliseconds: 200),
-                                      () => showDatePicker(
-                                        context: context,
-                                        firstDate: DateTime(2010),
-                                        lastDate: DateTime(2030),
-                                        initialDate: DateTime.now(),
-                                        builder: (context, child) {
-                                          return Center(
-                                              child: SizedBox(
-                                            width: 1000.0,
-                                            height: 1100.0,
-                                            child: child,
-                                          ));
-                                        },
-                                      ),
-                                    );
+                                    showDatePicker(
+                                      context: context,
+                                      firstDate: DateTime(1990),
+                                      lastDate: DateTime(2030),
+                                      initialDate:
+                                          DateTime.fromMillisecondsSinceEpoch(
+                                              birthday),
+                                    ).then((choice) {
+                                      print("here");
+                                      if (choice != null) {
+                                        setState(() {
+                                          birthday =
+                                              choice.millisecondsSinceEpoch;
+                                        });
+                                      }
+                                    });
                                   },
                                   child: Container(
                                     padding: const EdgeInsets.symmetric(
@@ -371,33 +366,11 @@ class _GeneralSettingsTabState extends State<GeneralSettingsTab> {
                                     ),
                                     child: Row(
                                       children: [
-                                        InkWell(
-                                          onTap: () async {
-                                            final choice = await showDatePicker(
-                                              context: context,
-                                              currentDate: DateTime
-                                                  .fromMillisecondsSinceEpoch(
-                                                      birthday),
-                                              firstDate: DateTime(2010),
-                                              lastDate: DateTime(2030),
-                                              initialDate: DateTime
-                                                  .fromMillisecondsSinceEpoch(
-                                                      birthday),
-                                            );
-                                            if (choice != null) {
-                                              print(choice);
-                                              setState(() {
-                                                birthday = choice
-                                                    .millisecondsSinceEpoch;
-                                              });
-                                            }
-                                          },
-                                          child: Icon(
-                                            Icons.calendar_month,
-                                            color: Theme.of(context)
-                                                .dividerColor
-                                                .withOpacity(0.4),
-                                          ),
+                                        Icon(
+                                          Icons.calendar_month,
+                                          color: Theme.of(context)
+                                              .dividerColor
+                                              .withOpacity(0.4),
                                         ),
                                         const SizedBox(width: 5),
                                         Expanded(

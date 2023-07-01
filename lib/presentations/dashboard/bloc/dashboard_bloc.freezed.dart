@@ -21,7 +21,7 @@ mixin _$DashboardEvent {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
-    required TResult Function() fetchOverviewData,
+    required TResult Function(DateTime from, DateTime to) fetchOverviewData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$DashboardEvent {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
-    TResult? Function()? fetchOverviewData,
+    TResult? Function(DateTime from, DateTime to)? fetchOverviewData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$DashboardEvent {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
-    TResult Function()? fetchOverviewData,
+    TResult Function(DateTime from, DateTime to)? fetchOverviewData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +126,7 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
-    required TResult Function() fetchOverviewData,
+    required TResult Function(DateTime from, DateTime to) fetchOverviewData,
   }) {
     return started();
   }
@@ -137,7 +137,7 @@ class _$_Started implements _Started {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
-    TResult? Function()? fetchOverviewData,
+    TResult? Function(DateTime from, DateTime to)? fetchOverviewData,
   }) {
     return started?.call();
   }
@@ -148,7 +148,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
-    TResult Function()? fetchOverviewData,
+    TResult Function(DateTime from, DateTime to)? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -266,7 +266,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
-    required TResult Function() fetchOverviewData,
+    required TResult Function(DateTime from, DateTime to) fetchOverviewData,
   }) {
     return changeTheme(theme);
   }
@@ -277,7 +277,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
-    TResult? Function()? fetchOverviewData,
+    TResult? Function(DateTime from, DateTime to)? fetchOverviewData,
   }) {
     return changeTheme?.call(theme);
   }
@@ -288,7 +288,7 @@ class _$_ChangeTheme implements _ChangeTheme {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
-    TResult Function()? fetchOverviewData,
+    TResult Function(DateTime from, DateTime to)? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (changeTheme != null) {
@@ -420,7 +420,7 @@ class _$_ChangeView implements _ChangeView {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
-    required TResult Function() fetchOverviewData,
+    required TResult Function(DateTime from, DateTime to) fetchOverviewData,
   }) {
     return changeView(view, secondBodyDis);
   }
@@ -431,7 +431,7 @@ class _$_ChangeView implements _ChangeView {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
-    TResult? Function()? fetchOverviewData,
+    TResult? Function(DateTime from, DateTime to)? fetchOverviewData,
   }) {
     return changeView?.call(view, secondBodyDis);
   }
@@ -442,7 +442,7 @@ class _$_ChangeView implements _ChangeView {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
-    TResult Function()? fetchOverviewData,
+    TResult Function(DateTime from, DateTime to)? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (changeView != null) {
@@ -505,6 +505,8 @@ abstract class _$$_FetchOverviewDataCopyWith<$Res> {
   factory _$$_FetchOverviewDataCopyWith(_$_FetchOverviewData value,
           $Res Function(_$_FetchOverviewData) then) =
       __$$_FetchOverviewDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime from, DateTime to});
 }
 
 /// @nodoc
@@ -514,26 +516,59 @@ class __$$_FetchOverviewDataCopyWithImpl<$Res>
   __$$_FetchOverviewDataCopyWithImpl(
       _$_FetchOverviewData _value, $Res Function(_$_FetchOverviewData) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? from = null,
+    Object? to = null,
+  }) {
+    return _then(_$_FetchOverviewData(
+      from: null == from
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      to: null == to
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_FetchOverviewData implements _FetchOverviewData {
-  const _$_FetchOverviewData();
+  const _$_FetchOverviewData({required this.from, required this.to});
+
+  @override
+  final DateTime from;
+  @override
+  final DateTime to;
 
   @override
   String toString() {
-    return 'DashboardEvent.fetchOverviewData()';
+    return 'DashboardEvent.fetchOverviewData(from: $from, to: $to)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FetchOverviewData);
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchOverviewData &&
+            (identical(other.from, from) || other.from == from) &&
+            (identical(other.to, to) || other.to == to));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, from, to);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FetchOverviewDataCopyWith<_$_FetchOverviewData> get copyWith =>
+      __$$_FetchOverviewDataCopyWithImpl<_$_FetchOverviewData>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -541,9 +576,9 @@ class _$_FetchOverviewData implements _FetchOverviewData {
     required TResult Function() started,
     required TResult Function(bool theme) changeTheme,
     required TResult Function(int view, bool secondBodyDis) changeView,
-    required TResult Function() fetchOverviewData,
+    required TResult Function(DateTime from, DateTime to) fetchOverviewData,
   }) {
-    return fetchOverviewData();
+    return fetchOverviewData(from, to);
   }
 
   @override
@@ -552,9 +587,9 @@ class _$_FetchOverviewData implements _FetchOverviewData {
     TResult? Function()? started,
     TResult? Function(bool theme)? changeTheme,
     TResult? Function(int view, bool secondBodyDis)? changeView,
-    TResult? Function()? fetchOverviewData,
+    TResult? Function(DateTime from, DateTime to)? fetchOverviewData,
   }) {
-    return fetchOverviewData?.call();
+    return fetchOverviewData?.call(from, to);
   }
 
   @override
@@ -563,11 +598,11 @@ class _$_FetchOverviewData implements _FetchOverviewData {
     TResult Function()? started,
     TResult Function(bool theme)? changeTheme,
     TResult Function(int view, bool secondBodyDis)? changeView,
-    TResult Function()? fetchOverviewData,
+    TResult Function(DateTime from, DateTime to)? fetchOverviewData,
     required TResult orElse(),
   }) {
     if (fetchOverviewData != null) {
-      return fetchOverviewData();
+      return fetchOverviewData(from, to);
     }
     return orElse();
   }
@@ -611,7 +646,15 @@ class _$_FetchOverviewData implements _FetchOverviewData {
 }
 
 abstract class _FetchOverviewData implements DashboardEvent {
-  const factory _FetchOverviewData() = _$_FetchOverviewData;
+  const factory _FetchOverviewData(
+      {required final DateTime from,
+      required final DateTime to}) = _$_FetchOverviewData;
+
+  DateTime get from;
+  DateTime get to;
+  @JsonKey(ignore: true)
+  _$$_FetchOverviewDataCopyWith<_$_FetchOverviewData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

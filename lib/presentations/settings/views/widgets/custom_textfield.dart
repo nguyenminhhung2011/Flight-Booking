@@ -21,6 +21,7 @@ class CustomerTextField extends StatefulWidget {
     this.checkFormat = true,
     this.isDense = false,
     this.enable = false,
+    this.formatters = const [],
   });
   final bool enable;
   final String? title;
@@ -38,6 +39,7 @@ class CustomerTextField extends StatefulWidget {
   final bool? readOnly;
   final bool checkFormat;
   final bool isDense;
+  final List<TextInputFormatter> formatters;
   @override
   State<CustomerTextField> createState() => _CustomerTextFieldState();
 }
@@ -58,12 +60,14 @@ class _CustomerTextFieldState extends State<CustomerTextField> {
         maxLines: widget.maxLine,
         inputFormatters: !widget.checkFormat
             ? [
-                FilteringTextInputFormatter.allow(
-                    RegExp(r'[0-9]+[,.]{0,1}[0-9]*'))
+                if (widget.formatters.isEmpty)
+                  FilteringTextInputFormatter.allow(
+                      RegExp(r'[0-9]+[,.]{0,1}[0-9]*')),
+                ...widget.formatters,
               ]
             : [],
         decoration: InputDecoration(
-          fillColor: widget.enable ? null : Theme.of(context).disabledColor,
+          fillColor: widget.enable ? null : Colors.black,
           suffixIconConstraints:
               const BoxConstraints(minHeight: 48, minWidth: 20),
           isDense: widget.isDense,

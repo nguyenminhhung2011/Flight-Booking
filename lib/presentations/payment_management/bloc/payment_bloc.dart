@@ -45,7 +45,13 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
 
       print("response.payments.length: ${response.payments.length}");
 
-      emit(_FetchListPaymentDataSuccess(data: response));
+      emit(
+        _FetchListPaymentDataSuccess(
+          data: response.copyWith(
+            payments: response.payments.reversed.toList(),
+          ),
+        ),
+      );
     } catch (e) {
       emit(_PaymentDataFailedState(data: state.data, message: e.toString()));
     }
@@ -81,7 +87,7 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
 
   FutureOr<void> _onFetchListPaymentData(
       _FetchListPaymentData event, Emitter<PaymentState> emit) async {
-    emit(_Loading(data: state.data));
+    emit(_LoadingTable(data: state.data));
     try {
       final response = await _paymentUseCase.getPaymentByPage(
         event.page,
@@ -90,7 +96,7 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
 
       emit(_FetchListPaymentDataSuccess(
           data: state.data.copyWith(
-        payments: response,
+        payments: response.reversed.toList(),
         page: event.page,
         perPage: event.perPage,
       )));

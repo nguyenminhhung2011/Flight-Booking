@@ -10,6 +10,7 @@ class UserEndPoint {
   static const getUser = "$branch/get";
   static const updateUser = "$branch/update";
   static const changePassword = '$branch/changePassword';
+  static const addNewUser = '/api/v1/auth/register';
 }
 
 @RestApi()
@@ -27,6 +28,9 @@ abstract class UserApi {
     @Query("token") required String token,
     @Body() required User user,
   });
+
+  @POST(UserEndPoint.addNewUser)
+  Future<HttpResponse> addNewEmployee({@Body() required User user});
 
   @PUT(UserEndPoint.changePassword)
   Future<HttpResponse<UserModel?>> changePassword({

@@ -56,6 +56,21 @@ class UserUseCase {
     }
   }
 
+  Future<bool> addNewEmployee(User user) async {
+    try {
+      final response = await userApi.addNewEmployee(user: user);
+
+      print(response.data);
+
+      if (response.response.statusCode == 200) {
+        return true;
+      }
+      throw Exception(response.response.statusMessage);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
   Future<String?> login(String username, String password) async {
     try {
       final result = await _userRepository.login(username, password);
@@ -65,6 +80,8 @@ class UserUseCase {
         await CommonAppSettingPref.setExpiredTime(result.data!.expiredTime);
         await CommonAppSettingPref.setAccessToken(result.data!.accessToken);
         await CommonAppSettingPref.setRefreshToken(result.data!.refreshToken);
+        await CommonAppSettingPref.setUserRole(result.data!.role);
+
         return result.data?.accessToken;
       }
 
