@@ -158,14 +158,21 @@ class _ListFlightScreenState extends State<ListFlightScreen> {
           floatingActionButton: ButtonCustom(
             enableWidth: false,
             onPress: () => openAddEditFlightDialog(''),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.add_circle_rounded, size: 14.0),
-                Text(
-                  ' ${S.of(context).addNewFlight}',
-                ),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.add_circle_rounded, size: 14.0),
+                  Text(
+                    ' ${S.of(context).addNewFlight}',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge
+                        ?.copyWith(color: Colors.white),
+                  ),
+                ],
+              ),
             ),
           ),
           body: Column(

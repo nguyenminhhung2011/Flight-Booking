@@ -147,6 +147,29 @@ class _CustomerScreenState extends State<CustomerScreen> {
                 ],
               ),
               const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("List Customer",
+                      style: Theme.of(context).textTheme.titleLarge),
+                  TextButton.icon(
+                    onPressed: () {
+                      _customerBloc
+                          .add(const CustomerEvent.fetchCustomerData());
+                    },
+                    label: Text("Refresh",
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  color: Theme.of(context).primaryColor,
+                                )),
+                    icon: Icon(
+                      Icons.refresh,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 15),
               Expanded(
                 flex: 1,
                 child: FluxTicketTable<Customer>(

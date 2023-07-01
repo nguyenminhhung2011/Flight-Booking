@@ -84,6 +84,14 @@ class CommonAppSettingPref {
     return Preferences.setString(_userId, value);
   }
 
+  static Future<bool> setUserRole(String value) {
+    return Preferences.setString("userRole", value);
+  }
+
+  static String getUserRole() {
+    return Preferences.getString("userRole") ?? "ADMIN";
+  }
+
   static String getUserId() {
     return Preferences.getString(_userId) ?? '';
   }

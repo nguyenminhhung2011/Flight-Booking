@@ -30,6 +30,25 @@ class AccountSettingBloc
     on<_FetchUserData>(_onFetchUserData);
     on<_UpdateUserData>(_onUpdateUserData);
     on<_ChangePassword>(_onChangePassword);
+    on<_AddNewUser>(_onAddUser);
+  }
+
+  FutureOr<void> _onAddUser(
+    _AddNewUser event,
+    Emitter<AccountSettingState> emit,
+  ) async {
+    emit(_AddingUser(data: state.data));
+
+    try {
+      final response = await _userUseCase.addNewEmployee(event.user);
+      if (response) {
+        return emit(_AddNewUserSuccess(data: state.data));
+      }
+      throw Exception();
+    } catch (e) {
+      emit(_AddNewUserFailed(
+          data: state.data, message: "Can not add employee: $e"));
+    }
   }
 
   FutureOr<void> _onStarted(

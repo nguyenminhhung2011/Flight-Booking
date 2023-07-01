@@ -5,6 +5,8 @@ class AccountSettingEvent with _$AccountSettingEvent {
   const AccountSettingEvent._();
 
   const factory AccountSettingEvent.onStarted() = _OnStarted;
+  const factory AccountSettingEvent.addNewUser({required User user}) =
+      _AddNewUser;
   const factory AccountSettingEvent.fetchUserData() = _FetchUserData;
   const factory AccountSettingEvent.changePassword({
     required String oldPassword,

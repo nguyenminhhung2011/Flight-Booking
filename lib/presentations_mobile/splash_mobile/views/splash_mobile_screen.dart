@@ -18,7 +18,8 @@ class SplashMobileScreen extends StatefulWidget {
 
 class _SplashMobileScreenState extends State<SplashMobileScreen> {
   Future<void> checkingAuthentication(BuildContext context) async {
-    context.read<AuthenticationBloc>().add(OnStarted());
+    Future.delayed(const Duration(seconds: 1)).whenComplete(
+        () => context.read<AuthenticationBloc>().add(OnStarted()));
   }
 
   @override

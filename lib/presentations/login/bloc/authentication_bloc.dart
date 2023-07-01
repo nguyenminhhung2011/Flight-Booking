@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:dio/dio.dart';
 import 'package:flight_booking/core/components/utils/preferences.dart';
 import 'package:flight_booking/domain/usecase/user_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,7 +39,7 @@ class AuthenticationBloc
       }
     }
 
-    return emit(AuthenticationState.unauthenticated());
+    return emit(AuthenticationState.unknown());
   }
 
   FutureOr<void> _onLoginEvent(
@@ -51,8 +52,11 @@ class AuthenticationBloc
       if (token != null && token.isNotEmpty) {
         return emit(AuthenticationState.authenticated(token: token));
       }
+    } on DioError {
+      return emit(AuthenticationState.unauthenticated(
+          message: "Error: Can not connect to server"));
     } catch (e) {
-      return emit(AuthenticationState.unauthenticated(message: ""));
+      return emit(AuthenticationState.unauthenticated(message: e.toString()));
     }
   }
 

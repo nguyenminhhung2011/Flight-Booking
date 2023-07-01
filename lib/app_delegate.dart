@@ -36,7 +36,6 @@ class AppDelegate {
       providers: [
         BlocProvider<AuthenticationBloc>(create: (_) => injector.get()),
         if (!isMobile) ...[
-          BlocProvider<DashboardBloc>(create: (_) => injector.get()),
           BlocProvider<CustomerBloc>(create: (_) => injector.get()),
           BlocProvider<PaymentBloc>(create: (_) => injector.get()),
           BlocProvider<ListFlightBloc>(create: (_) => injector.get()),
