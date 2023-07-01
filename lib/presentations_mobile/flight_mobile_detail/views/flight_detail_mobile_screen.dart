@@ -9,6 +9,7 @@ import 'package:flight_booking/core/constant/handle_time.dart';
 import 'package:flight_booking/presentations/list_flight/views/widgets/dot_custom.dart';
 import 'package:flight_booking/presentations_mobile/flight_mobile_detail/notifier/fmd_notifier.dart';
 import 'package:flight_booking/presentations_mobile/flight_mobile_detail/views/widgets/skelton_flight_detail.dart';
+import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +18,6 @@ import '../../../core/components/widgets/mobile/button_custom.dart';
 import '../../../domain/entities/airport/stop_airport.dart';
 import '../../../domain/entities/flight/flight.dart';
 import '../../../generated/l10n.dart';
-import '../../routes_mobile.dart';
 
 class FlightDetailMobileScreen extends StatefulWidget {
   const FlightDetailMobileScreen({super.key});
@@ -31,6 +31,17 @@ class _FlightDetailMobileScreenState extends State<FlightDetailMobileScreen> {
   @override
   void initState() {
     super.initState();
+  }
+
+  void _openSelectCustomer(int flightId) async {
+    final result = await context.openSelectCustomer();
+    if (result is int) {
+      // ignore: use_build_context_synchronously
+      context.openPageWithRouteAndParams(RoutesMobile.selectScott, {
+        "customerId": result,
+        "flightId": flightId,
+      });
+    }
   }
 
   @override
@@ -48,9 +59,8 @@ class _FlightDetailMobileScreenState extends State<FlightDetailMobileScreen> {
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
             child: ButtonCustom(
               height: 50,
+              onPress: () => _openSelectCustomer(flight.id),
               child: Text(S.of(context).bookingTime),
-              onPress: () =>
-                  context.openListPageWithRoute(RoutesMobile.selectScott),
             ),
           ),
           color: Theme.of(context).primaryColor,

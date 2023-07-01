@@ -8,6 +8,7 @@ import 'package:flight_booking/core/components/widgets/mobile/button_custom.dart
 import 'package:flight_booking/core/components/widgets/mobile/custom_template_screen_stack_scroll.dart';
 import 'package:flight_booking/core/components/widgets/mobile/header_custom.dart';
 import 'package:flight_booking/core/constant/constant.dart';
+import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/components/widgets/mobile/category_custom.dart';
@@ -25,7 +26,7 @@ class CheckoutScreen extends StatefulWidget {
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
   final ValueNotifier<int> _selectPayment = ValueNotifier<int>(0);
-
+  bool _loading = false;
   void _onSelectPayment(int index) {
     _selectPayment.value = index;
   }
@@ -44,9 +45,16 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           width: double.infinity,
           height: 50.0,
           child: ButtonCustom(
+            loading: _loading,
             color: const Color.fromARGB(255, 249, 173, 58),
             child: Text(S.of(context).payment),
-            onPress: () {},
+            onPress: () {
+              setState(() {
+                _loading = true;
+              });
+              Future.delayed(const Duration(seconds: 3)).whenComplete(
+                  () => context.popUntil(RoutesMobile.listFlightMobile));
+            },
           ),
         ),
       ),

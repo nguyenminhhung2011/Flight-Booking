@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/enum/item_view_enum.dart';
-import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/interger_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/string_extension.dart';

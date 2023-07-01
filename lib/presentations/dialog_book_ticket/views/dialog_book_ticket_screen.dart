@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:collection/collection.dart';
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flight_booking/app_coordinator.dart';

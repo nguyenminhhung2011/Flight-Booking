@@ -16,6 +16,8 @@ import 'package:flight_booking/presentations/list_ticket/views/widgets/position_
 import 'package:flight_booking/presentations/routes/routes.dart';
 import 'package:flight_booking/presentations/selected_customer/notifier/selected_customer_notidier.dart';
 import 'package:flight_booking/presentations/selected_customer/views/selected_customer_form.dart';
+import 'package:flight_booking/presentations_mobile/dialog_select_customer/notifier/select_customer_notifier.dart';
+import 'package:flight_booking/presentations_mobile/dialog_select_customer/views/dialog_select_customer.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -99,6 +101,21 @@ extension AppCoordinator<T> on BuildContext {
         child: SelectLuggage(flight: flight, customerName: customerName),
       ),
     );
+  }
+
+  Future<T?> openSelectCustomer() {
+    return showDialog(
+        context: this,
+        builder: (context) =>
+            ChangeNotifierProvider<SelectCustomerNotifier>.value(
+              value: injector(),
+              child: const Dialog(
+                insetAnimationDuration: Duration(milliseconds: 300),
+                insetPadding: EdgeInsets.all(5.0),
+                backgroundColor: Colors.transparent,
+                child: DialogSelectCustomer(),
+              ),
+            ));
   }
 
   Future<DateTime?> pickDateTime() async {
