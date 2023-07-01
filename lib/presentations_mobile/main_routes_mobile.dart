@@ -2,7 +2,6 @@ import 'package:flight_booking/core/components/enum/search_enum.dart';
 import 'package:flight_booking/presentations/profile/views/profile_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/airport_detail_mobile/bloc/airport_detail_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/airport_detail_mobile/views/airport_detail_mobile_screen.dart';
-import 'package:flight_booking/presentations_mobile/auth/bloc/auth_bloc.dart';
 import 'package:flight_booking/presentations_mobile/auth/views/login_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/auth/views/register_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/checkout/views/checkout_screen.dart';
@@ -10,11 +9,13 @@ import 'package:flight_booking/presentations_mobile/dashboard_mobile/views/dashb
 import 'package:flight_booking/presentations_mobile/flight_history_detail/bloc/flight_history_detail_bloc.dart';
 import 'package:flight_booking/presentations_mobile/flight_history_detail/views/flight_history_detail_screen.dart';
 import 'package:flight_booking/presentations_mobile/flight_history_mobile/views/flight_history_screen.dart';
+import 'package:flight_booking/presentations_mobile/flight_mobile_detail/notifier/fmd_notifier.dart';
 import 'package:flight_booking/presentations_mobile/flight_mobile_detail/views/flight_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/home_mobile/views/home_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/hotel_detail_mobile/views/hotel_detail_screen.dart';
 import 'package:flight_booking/presentations_mobile/list_airport_mobile/bloc/airport_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/list_airport_mobile/views/list_airport_mobile_screen.dart';
+import 'package:flight_booking/presentations_mobile/list_flight_mobile/bloc/flight_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/list_flight_mobile/views/list_flight_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/list_hotel/views/list_hotel_screen.dart';
 import 'package:flight_booking/presentations_mobile/onboard_slash/notifier/onboard_notifier.dart';
@@ -27,7 +28,6 @@ import 'package:flight_booking/presentations_mobile/search_mobile/bloc/search_mo
 import 'package:flight_booking/presentations_mobile/search_mobile/views/search_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/select_scott_mobile/bloc/select_scott_bloc.dart';
 import 'package:flight_booking/presentations_mobile/select_scott_mobile/views/select_scott_screen.dart';
-import 'package:flight_booking/presentations_mobile/splash_mobile/notifier/splash_notifier.dart';
 import 'package:flight_booking/presentations_mobile/splash_mobile/views/splash_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/tic_detail_mobile/views/tic_detail_mobile_screen.dart';
 import 'package:flight_booking/presentations_mobile/ticket_mobile/bloc/tic_mobile_bloc.dart';
@@ -38,6 +38,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 import '../core/dependency_injection/di.dart';
+import '../presentations/login/bloc/authentication_bloc.dart';
 
 class MainRoutesMobile {
   static Route<dynamic> getRoute(RouteSettings settings) {
@@ -50,13 +51,9 @@ class MainRoutesMobile {
           },
         );
       case RoutesMobile.splash:
-        final controller = SplashNotifier();
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => ChangeNotifierProvider<SplashNotifier>.value(
-            value: controller,
-            child: const SplashMobileScreen(),
-          ),
+          builder: (_) => const SplashMobileScreen(),
         );
       case RoutesMobile.onboard:
         final controller = OnboardNotifier();
@@ -75,12 +72,18 @@ class MainRoutesMobile {
       case RoutesMobile.listFlightMobile:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ListFlightMobileScreen(),
+          builder: (_) => BlocProvider<FlightMobileBloc>(
+            create: (_) => injector(),
+            child: const ListFlightMobileScreen(),
+          ),
         );
       case RoutesMobile.flightDetailMobile:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const FlightDetailMobileScreen(),
+          builder: (_) => ChangeNotifierProvider<FmdNotifier>.value(
+            value: injector(param1: settings.arguments as int),
+            child: const FlightDetailMobileScreen(),
+          ),
         );
       case RoutesMobile.listAirportMobile:
         return MaterialPageRoute(
@@ -119,7 +122,7 @@ class MainRoutesMobile {
       case RoutesMobile.login:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => BlocProvider<AuthBloc>(
+          builder: (_) => BlocProvider<AuthenticationBloc>(
             create: (context) => injector(),
             child: const LoginMobileScreen(),
           ),
@@ -174,7 +177,7 @@ class MainRoutesMobile {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => BlocProvider<SelectScottBloc>(
-            create: (context) => injector(),
+            create: (context) => injector(param1: settings.arguments),
             child: const SelectScottScreen(),
           ),
         );

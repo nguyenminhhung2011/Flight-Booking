@@ -40,7 +40,7 @@ class SkeletonContainer extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
-            color: Theme.of(context).hintColor.withOpacity(0.1),
+            color: Theme.of(context).hintColor.withOpacity(0.05),
             borderRadius: borderRadius,
           ),
         ),

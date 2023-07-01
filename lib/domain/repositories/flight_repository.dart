@@ -22,6 +22,12 @@ abstract class FlightRepository {
     int? pageSize,
   });
 
+  Future<List<Flight>> getFlightByDate({
+    required int month,
+    required int year,
+    required int day,
+  });
+
   Future<List<Flight>> getFlightByArrivalId(int id);
   Future<List<Flight>> getFlightByDepartureId(int id);
   Future<List<Flight>> getFlightByAirportId(int id);

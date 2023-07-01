@@ -1,13 +1,15 @@
 import 'package:collection/collection.dart';
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/enum/payment_type.dart';
 import 'package:flight_booking/core/components/widgets/extension/color_extension.dart';
 import 'package:flight_booking/core/components/widgets/extension/context_extension.dart';
+import 'package:flight_booking/core/components/widgets/extension/interger_extension.dart';
 import 'package:flight_booking/core/components/widgets/mobile/custom_template_screen_stack_scroll.dart';
 import 'package:flight_booking/core/components/widgets/mobile/header_custom.dart';
 import 'package:flight_booking/core/constant/constant.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
-import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
-import 'package:flight_booking/domain/entities/customer/customer.dart';
+import 'package:flight_booking/domain/entities/seat_selected/seat_selected.dart';
+import 'package:flight_booking/domain/entities/ticket/ticket.dart';
 import 'package:flight_booking/presentations_mobile/select_scott_mobile/bloc/select_scott_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,9 @@ import '../../../core/components/widgets/mobile/appbar.dart';
 import '../../../core/components/widgets/mobile/button_custom.dart';
 import '../../../core/components/widgets/mobile/dropdown_button_custom.dart';
 import '../../../core/components/widgets/mobile/text_field_custom.dart';
+import '../../../domain/entities/ticket/ticket_information.dart';
 import '../../../generated/l10n.dart';
+import '../../flight_history_detail/views/flight_history_detail_screen.dart';
 import '../../flight_history_detail/views/widgets/customer_information_field.dart';
 import '../../routes_mobile.dart';
 
@@ -32,12 +36,15 @@ class SelectScottScreen extends StatefulWidget {
 
 class _SelectScottScreenState extends State<SelectScottScreen> {
   SelectScottBloc get _bloc => BlocProvider.of<SelectScottBloc>(context);
-  List<Customer> get listCustomerSelected => _bloc.data.listCustomer;
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _identityController = TextEditingController();
+  List<TicketInformation> get _ticInformation => _bloc.data.ticInformation;
+  List<Ticket> get _tics => _bloc.data.tics;
+  List<Ticket> get _redTics => _bloc.data.redTics;
+  SeatSelected? get _currentSeat => _bloc.data.currentSeat;
 
   // final TextEditingController _dateBornController = TextEditingController();
   final ValueNotifier<String> _gender = ValueNotifier<String>('Male');
@@ -46,8 +53,11 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
 
   @override
   void initState() {
-    super.initState();
     _bloc.add(const SelectScottEvent.started());
+    _bloc.add(const SelectScottEvent.getAllTicOfFlight());
+    _bloc.add(const SelectScottEvent.getFlightById());
+    _bloc.add(const SelectScottEvent.getTicInformation());
+    super.initState();
   }
 
   @override
@@ -67,24 +77,55 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
   }
 
   void _listenStateChange(BuildContext context, SelectScottState state) {
-    state.maybeWhen(orElse: () {});
+    state.maybeWhen(
+        addTicToDBSuccess: (data, paymentId) async {
+          final show = await context.showYesNoDialog(
+              300, 'Payment', 'Do you want payment now?');
+          if (show) {
+            // ignore: use_build_context_synchronously
+            context.openPageWithRouteAndParams(RoutesMobile.checkout, {
+              'ids': {
+                'flightId': '',
+                'paymentId': paymentId,
+              },
+            });
+          } else {
+            // ignore: use_build_context_synchronously
+            context.popUntil(RoutesMobile.listFlightMobile);
+          }
+          // context.openListPageWithRoute(RoutesMobile.checkout);
+        },
+        selectedSeatSuccess: (data, error) {
+          _bloc.add(const SelectScottEvent.changeTab(tab: 1));
+        },
+        selectedSeatFailed: (data) {
+          context.showSuccessDialog(
+              width: 300, header: 'Select Seat', title: 'Seat was selected');
+        },
+        orElse: () {});
   }
 
-  void _onChangeTab(int index) {
-    _bloc.add(SelectScottEvent.changeTab(tab: index));
+  void _onChangeTab() async {
+    final show = await _onShowSelectedSheet();
+    if (show != null) {
+      _bloc.add(SelectScottEvent.selectedSeat(newSeat: show));
+    }
   }
 
   void _onAddNewCustomer() {
     _bloc.add(SelectScottEvent.addNewCustomer(
-        customer: Customer(
-      creditCard: const CreditCard(),
+        tic: Ticket(
       id: randDomNumber(100),
       name: _nameController.text,
-      identifyNum: _identityController.text,
-      phone: _phoneNumberController.text,
-      email: _emailController.text,
-      gender: _gender.value,
+      gender: _gender.value.toUpperCase(),
+      phoneNumber: _phoneNumberController.text,
+      emailAddress: _emailController.text,
+      seat: _currentSeat?.seatIndex ?? 0,
+      type: _currentSeat?.ticInformation.id.ticketType ?? 0,
+      luggage: 10.0,
+      price: 0,
       birthday: _dateBorn.value.millisecondsSinceEpoch,
+      timeBought: DateTime.now().millisecondsSinceEpoch,
     )));
     _clearText();
   }
@@ -93,16 +134,39 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
     _bloc.add(SelectScottEvent.removeCustomer(index: index));
   }
 
+  Future<SeatSelected?> _onShowSelectedSheet() async {
+    if (_ticInformation.isEmpty) {
+      return null;
+    }
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      // isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(50.0)),
+      ),
+      builder: (context) {
+        return BottomSelectedSeat(
+          ticOfFlight: _redTics,
+          tics: _tics,
+          ticInformation: _ticInformation,
+        );
+      },
+    );
+  }
+
   void _bottomClicked(int index) {
     if (index == 1) {
       _onAddNewCustomer();
       return;
     }
-    if (listCustomerSelected.isEmpty) {
+    if (_tics.isEmpty) {
       //⭐Handle after
       return;
     }
-    context.openListPageWithRoute(RoutesMobile.checkout);
+    _bloc.add(SelectScottEvent.addTicToDB(
+        paymentType: PaymentType.unknown.displayValue.toUpperCase()));
   }
 
   void _onSelectDateBorn() async {
@@ -134,6 +198,7 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
             padding:
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
             child: ButtonCustom(
+              loading: state.loadingAdd,
               height: 50,
               child: state.data.tab == 1
                   ? Text(S.of(context).add)
@@ -162,7 +227,7 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
               ),
             ],
           ),
-          afterMainScreen: _after(heightDevice, context),
+          // afterMainScreen: _after(heightDevice, context),
           children: [
             SliverList(
               delegate: SliverChildListDelegate(<Widget>[
@@ -178,14 +243,13 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
 
   Container _book(double heightDevice, BuildContext context,
       Color fontColorByCard, TextStyle headerStyle, SelectScottState state) {
-    final customers = state.data.listCustomer;
     final tab = state.data.tab;
     final selectCustomer = state.data.selectCustomer;
     return Container(
-      margin: EdgeInsets.only(
+      constraints: BoxConstraints(minHeight: context.heightDevice),
+      margin: const EdgeInsets.only(
         left: _hMarginCard,
         right: _hMarginCard,
-        top: heightDevice * 0.45,
         bottom: 70.0,
       ),
       decoration: BoxDecoration(
@@ -193,37 +257,40 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
         borderRadius: const BorderRadius.all(
           Radius.circular(30.0),
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Theme.of(context).primaryColor.withOpacity(0.3),
-            blurRadius: 20.0,
-            offset: const Offset(0, -10.0),
-          ),
-        ],
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const SizedBox(height: 15.0),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: _hMarginCard),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('British Airways',
-                  style: context.primaryMediumText) // change this text
-            ],
-          ),
-        ),
-        _paddingDivider(),
-        tab == 0
-            ? _listCustomerSelectedView(context, customers, selectCustomer)
-            : _addNewCustomerField(context, headerStyle, fontColorByCard),
-      ]),
+      child: (_bloc.state.loading)
+          ? Center(
+              child: CircularProgressIndicator(
+                color: Theme.of(context).primaryColor,
+              ),
+            )
+          : Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              const SizedBox(height: 15.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: _hMarginCard),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text('British Airways',
+                        style: context.primaryMediumText) // change this text
+                  ],
+                ),
+              ),
+              _paddingDivider(),
+              tab == 0
+                  ? _listCustomerSelectedView(context, _tics, selectCustomer)
+                  : _addNewCustomerField(context, headerStyle, fontColorByCard),
+            ]),
     );
   }
 
   Column _listCustomerSelectedView(
-      BuildContext context, List<Customer> customers, int selectedIndex) {
+      BuildContext context, List<Ticket> customers, int selectedIndex) {
+    final ticInformation = customers.isNotEmpty
+        ? _ticInformation.firstWhere(
+            (element) => element.id.ticketType == customers[selectedIndex].type)
+        : null;
     return Column(
       children: [
         HeaderTextCustom(
@@ -234,8 +301,8 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
           padding: const EdgeInsets.symmetric(horizontal: _hMarginCard),
           widget: ButtonCustom(
             width: 90,
+            onPress: _onChangeTab,
             child: Text(S.of(context).add),
-            onPress: () => _onChangeTab(1),
           ),
         ),
         Container(
@@ -315,8 +382,8 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
                             isStart: true),
                         InformationColumnItem(
                             context: context,
-                            header: S.of(context).identityNumber,
-                            title: customers[selectedIndex].identifyNum,
+                            header: S.of(context).luggage,
+                            title: customers[selectedIndex].luggage.toString(),
                             isStart: false),
                       ]
                           .expand((element) => [Expanded(child: element)])
@@ -328,13 +395,34 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
                         InformationColumnItem(
                             context: context,
                             header: S.of(context).phoneNumber,
-                            title: customers[selectedIndex].phone,
+                            title: customers[selectedIndex].phoneNumber,
                             isStart: true),
                         InformationColumnItem(
                             context: context,
                             header: S.of(context).email,
-                            title: customers[selectedIndex].email,
+                            title: customers[selectedIndex].emailAddress,
                             isStart: false),
+                      ]
+                          .expand((element) => [Expanded(child: element)])
+                          .toList(),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InformationColumnItem(
+                            context: context,
+                            header: S.of(context).seat,
+                            title:
+                                '${ticInformation?.seatHeader ?? 'A'}${customers[selectedIndex].seat}',
+                            isStart: true),
+                        InformationColumnItem(
+                          context: context,
+                          header: S.of(context).ticketType,
+                          title: ticInformation
+                                  ?.id.ticketType.ticClass.displayValue ??
+                              '',
+                          isStart: false,
+                        ),
                       ]
                           .expand((element) => [Expanded(child: element)])
                           .toList(),
@@ -381,13 +469,15 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      S.of(context).firstClass,
+                      _currentSeat?.ticInformation.id.ticketType.ticClass
+                              .displayValue ??
+                          '',
                       maxLines: 1,
                       style: headerStyle,
                     ),
                     const SizedBox(height: 10.0),
                     Text(
-                      'Seat 5D',
+                      'Seat ${_currentSeat?.ticInformation.seatHeader ?? 'A'}${_currentSeat?.seatIndex ?? 0}',
                       maxLines: 1,
                       style: context.headlineMedium.copyWith(
                         fontWeight: FontWeight.w600,
@@ -605,11 +695,52 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
       child: Divider(),
     );
   }
+}
+
+class BottomSelectedSeat extends StatefulWidget {
+  final List<Ticket> ticOfFlight;
+  final List<Ticket> tics;
+  final List<TicketInformation> ticInformation;
+  const BottomSelectedSeat({
+    super.key,
+    required this.ticOfFlight,
+    required this.tics,
+    required this.ticInformation,
+  });
+
+  @override
+  State<BottomSelectedSeat> createState() => _BottomSelectedSeatState();
+}
+
+class _BottomSelectedSeatState extends State<BottomSelectedSeat> {
+  List<Ticket> get _listTicOfFlight => widget.ticOfFlight;
+  List<Ticket> get _tics => widget.tics;
+  List<TicketInformation> get _ticInformation => widget.ticInformation;
+  SeatSelected? _seatSelected;
+
+  void _onSelectedSeat(int index, TicketInformation ticInformation) {
+    _seatSelected = SeatSelected(
+      seatIndex: index,
+      ticInformation: ticInformation,
+    );
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      physics: const BouncingScrollPhysics(
+        parent: AlwaysScrollableScrollPhysics(),
+      ),
+      children: [
+        _after(context.heightDevice, context),
+      ],
+    );
+  }
 
   Container _after(double heightDevice, BuildContext context) {
     var level1Color = Theme.of(context).dividerColor;
-    var level2Color = Theme.of(context).hintColor;
-    var level3Color = Theme.of(context).primaryColor;
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(10.0),
@@ -618,7 +749,6 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
         left: _hMarginCard + 40.0,
         right: _hMarginCard + 40.0,
       ),
-      height: heightDevice * 0.85,
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: const BorderRadius.only(
@@ -626,8 +756,7 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
           topRight: Radius.circular(300.0),
         ),
       ),
-      child: ListView(
-        // crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
         children: [
           const SizedBox(height: 20.0),
           Text(
@@ -649,54 +778,72 @@ class _SelectScottScreenState extends State<SelectScottScreen> {
               ),
             ),
           ),
-          const SizedBox(height: 40.0),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: _gridChair(level1Color, level2Color, level3Color),
+          const SizedBox(height: 10.0),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ..._ticInformation
+                  .map<Widget>(
+                    (e) => Wrap(
+                      direction: Axis.horizontal,
+                      children: [
+                        for (int i = 0; i < e.quantity; i++)
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                onPressed: () => _onSelectedSeat(i, e),
+                                icon: Icon(
+                                  Icons.chair,
+                                  color: _listTicOfFlight
+                                          .map((item) =>
+                                              '${item.type} - ${item.seat}')
+                                          .contains('${e.id.ticketType} - $i')
+                                      ? Colors.red
+                                      : _tics
+                                                  .map((item) =>
+                                                      '${item.type} - ${item.seat}')
+                                                  .contains(
+                                                    '${e.id.ticketType} - $i',
+                                                  ) ||
+                                              (_seatSelected?.seatIndex == i &&
+                                                  _seatSelected?.ticInformation
+                                                          .id.ticketType ==
+                                                      e.id.ticketType)
+                                          ? Theme.of(context).primaryColor
+                                          : Theme.of(context).hintColor,
+                                ),
+                              ),
+                              Text(
+                                '${e.seatHeader}$i',
+                                style: context.titleSmall.copyWith(
+                                  fontSize: 12,
+                                ),
+                              )
+                            ],
+                          )
+                      ],
+                    ),
+                  )
+                  .expandIndexed(
+                    (index, element) => [
+                      element,
+                      const SizedBox(height: 5.0),
+                      const DividerCustomWithAirplane(),
+                      const SizedBox(height: 5.0),
+                    ],
+                  )
+            ],
+          ),
+          const SizedBox(height: 10.0),
+          ButtonCustom(
+            onPress: () => context.popArgs(_seatSelected),
+            height: 45.0,
+            child: Text(S.of(context).seat),
           )
         ],
       ),
-    );
-  }
-
-  Column _gridChair(Color level1Color, Color leve2Color, Color level3Color) {
-    return Column(
-      children: [
-        for (int indexColumn = 1;
-            indexColumn < fakeNumberChairiInFlight / 4;
-            indexColumn++)
-          Row(
-            children: [
-              for (int indexRow = 0; indexRow < 4; indexRow++)
-                _chairIcon(() => null, level1Color, leve2Color, level3Color,
-                    fakeDataChair[indexColumn * 4 + indexRow]['chec']),
-            ]
-                .expandIndexed((index, element) => [
-                      element,
-                      if (index == 0 || index == 2) const Spacer(),
-                      if (index == 1) const SizedBox(width: 5.0)
-                    ])
-                .toList(),
-          ),
-      ].expand((element) => [element, const SizedBox(height: 10.0)]).toList(),
-    );
-  }
-
-  Widget _chairIcon(
-    Function() onPress,
-    Color color1,
-    Color color2,
-    Color color3,
-    int check,
-  ) {
-    var color = check == 1
-        ? color1
-        : check == 2
-            ? color2
-            : color3;
-    return GestureDetector(
-      onTap: onPress,
-      child: Icon(Icons.chair_sharp, color: color),
     );
   }
 }

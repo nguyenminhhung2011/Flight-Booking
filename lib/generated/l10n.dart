@@ -3202,6 +3202,16 @@ class S {
     );
   }
 
+  /// `Refresh`
+  String get refresh {
+    return Intl.message(
+      'Refresh',
+      name: 'refresh',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Information before edit`
   String get informationBeforeEdit {
     return Intl.message(

@@ -10,7 +10,6 @@ import 'package:flight_booking/presentations/list_flight/bloc/list_flight_bloc.d
 import 'package:flight_booking/presentations/login/bloc/authentication_bloc.dart';
 import 'package:flight_booking/presentations/payment_management/bloc/payment_bloc.dart';
 import 'package:flight_booking/presentations/routes/routes.dart';
-import 'package:flight_booking/presentations_mobile/auth/bloc/auth_bloc.dart';
 import 'package:flight_booking/presentations_mobile/dashboard_mobile/bloc/dashboard_mobile_bloc.dart';
 import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flight_booking/presentations_mobile/save/bloc/save_bloc.dart';
@@ -35,16 +34,15 @@ class AppDelegate {
     return Application(
       navigationKey: GlobalKey<NavigatorState>(),
       providers: [
+        BlocProvider<AuthenticationBloc>(create: (_) => injector.get()),
         if (!isMobile) ...[
           BlocProvider<CustomerBloc>(create: (_) => injector.get()),
           BlocProvider<PaymentBloc>(create: (_) => injector.get()),
-          BlocProvider<AuthenticationBloc>(create: (_) => injector.get()),
           BlocProvider<ListFlightBloc>(create: (_) => injector.get()),
         ],
         if (isMobile) ...[
           BlocProvider<DashboardMobileBloc>(create: (_) => injector.get()),
           BlocProvider<SearchMobileBloc>(create: (_) => injector.get()),
-          BlocProvider<AuthBloc>(create: (_) => injector.get()),
           BlocProvider<SaveBloc>(create: (_) => injector.get()),
         ],
       ],

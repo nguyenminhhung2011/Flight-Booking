@@ -36,6 +36,13 @@ abstract class FlightApi {
     @Path("pageSize") int pageSize,
   );
 
+  @GET('${FlightEndPoint.fetchFlightUrl}month={month}&year={year}&day={day}')
+  Future<HttpResponse<List<FlightModel>?>> getFlightByDate(
+    @Path("month") int month,
+    @Path("year") int year,
+    @Path("day") int day,
+  );
+
   @GET('${FlightEndPoint.branch}/payment={id}')
   Future<HttpResponse<PaymentModel?>> getPaymentFlightTics(
     @Path("id") int id,

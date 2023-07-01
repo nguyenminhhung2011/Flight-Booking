@@ -102,6 +102,36 @@ class _FlightApi implements FlightApi {
   }
 
   @override
+  Future<HttpResponse<List<FlightModel>?>> getFlightByDate(
+    month,
+    year,
+    day,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<HttpResponse<List<FlightModel>>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/v1/flight/month=${month}&year=${year}&day=${day}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data
+        ?.map((dynamic i) => FlightModel.fromJson(i as Map<String, dynamic>))
+        .toList();
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
+  }
+
+  @override
   Future<HttpResponse<PaymentModel?>> getPaymentFlightTics(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

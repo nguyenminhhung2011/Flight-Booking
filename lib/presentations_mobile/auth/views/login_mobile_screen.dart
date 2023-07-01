@@ -1,9 +1,9 @@
 import 'package:flight_booking/app_coordinator.dart';
-import 'package:flight_booking/presentations_mobile/auth/bloc/auth_bloc.dart';
 import 'package:flight_booking/presentations_mobile/auth/views/widgets/template_auth_screen.dart';
-import 'package:flight_booking/presentations_mobile/routes_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../presentations/login/bloc/authentication_bloc.dart';
 
 class LoginMobileScreen extends StatefulWidget {
   const LoginMobileScreen({super.key});
@@ -13,13 +13,14 @@ class LoginMobileScreen extends StatefulWidget {
 }
 
 class _LoginMobileScreenState extends State<LoginMobileScreen> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  AuthBloc get _bloc => BlocProvider.of<AuthBloc>(context);
+  final TextEditingController _emailController =
+      TextEditingController(text: 'hoang2');
+  final TextEditingController _passwordController =
+      TextEditingController(text: '1234');
+  final ValueNotifier<bool> _loading = ValueNotifier<bool>(false);
 
   @override
   void initState() {
-    _bloc.add(const AuthEvent.onStarted());
     super.initState();
   }
 
@@ -31,33 +32,35 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
   }
 
   void _login() {
-    _bloc.add(AuthEvent.login(
-      email: _emailController.text,
-      password: _passwordController.text,
-    ));
+    _loading.value = true;
+    context.read<AuthenticationBloc>().add(LoginEvent(
+        username: _emailController.text, password: _passwordController.text));
   }
 
-  void _listenStateChange(BuildContext context, AuthState state) {
-    state.maybeWhen(
-      loginSuccess: (data) {
-        context.pushAndRemoveAll(RoutesMobile.dashboardMobile);
-      },
-      loginFailed: (data, message) {
-        // show error
-      },
-      orElse: () {},
-    );
+  void _register() {
+    _loading.value = true;
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthBloc, AuthState>(
-      builder: (context, state) => TemplateAuthScreen(
-        signInCall: _login,
-        emailController: _emailController,
-        passwordController: _passwordController,
+    return BlocConsumer<AuthenticationBloc, AuthenticationState>(
+      builder: (context, state) => ValueListenableBuilder<bool>(
+        valueListenable: _loading,
+        builder: (context, loading, child) {
+          return TemplateAuthScreen(
+            signInCall: _login,
+            registerCall: _register,
+            emailController: _emailController,
+            passwordController: _passwordController,
+            loading: loading,
+          );
+        },
       ),
-      listener: _listenStateChange,
+      listener: (_, state) async {
+        if (state.status == AuthenticationStatus.authenticated) {
+          await context.openDashboardMobilePage();
+        }
+      },
     );
   }
 }

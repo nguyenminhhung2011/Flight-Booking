@@ -213,4 +213,18 @@ class FlightRepositoryImpl extends FlightRepository {
     }
     return response.data?.toDetailEntity;
   }
+
+  @override
+  Future<List<Flight>> getFlightByDate(
+      {required int month, required int year, required int day}) async {
+    final response = await _flightApi.getFlightByDate(month, year, day);
+    if (response.response.statusCode != HttpStatusCode.OK) {
+      throw AppException(
+        code: response.response.statusCode,
+        message: response.response.statusMessage!,
+      );
+    }
+    final result = response.data?.map((e) => e.toEntity()).toList();
+    return result ?? <Flight>[];
+  }
 }

@@ -21,14 +21,17 @@ class TemplateAuthScreen extends StatefulWidget {
   final Function()? signInCall;
   final Function()? registerCall;
   final bool isSignUpForm;
-  const TemplateAuthScreen(
-      {super.key,
-      this.isSignUpForm = false,
-      this.emailController,
-      this.passwordController,
-      this.rePasswordController,
-      this.signInCall,
-      this.registerCall});
+  final bool loading;
+  const TemplateAuthScreen({
+    super.key,
+    this.loading = false,
+    this.isSignUpForm = false,
+    this.emailController,
+    this.passwordController,
+    this.rePasswordController,
+    this.signInCall,
+    this.registerCall,
+  });
 
   @override
   State<TemplateAuthScreen> createState() => _TemplateAuthScreenState();
@@ -64,10 +67,9 @@ class _TemplateAuthScreenState extends State<TemplateAuthScreen> {
       color: Colors.grey,
     );
     var textStyle = context.titleMedium.copyWith(
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w400,
     );
     return CustomTemplateScreenStackScroll(
-      // isScroll: false,
       appbar: AppbarCustom(
         backgroundColor: Theme.of(context).primaryColor,
         expandedHeight: heightDevice * 0.2,
@@ -199,17 +201,20 @@ class _TemplateAuthScreenState extends State<TemplateAuthScreen> {
                 child: SizedBox(
                   height: 50.0,
                   child: ButtonCustom(
-                    child: Text(
-                      buttonText,
-                      style: context.titleMedium.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      loading: widget.loading,
+                      child: Text(
+                        buttonText,
+                        style: context.titleMedium.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    onPress: () => context.openListPageWithRoute(
-                      RoutesMobile.dashboardMobile,
-                    ),
-                  ),
+                      onPress: () {
+                        if (widget.isSignUpForm) {
+                        } else {
+                          widget.signInCall?.call();
+                        }
+                      }),
                 ),
               ),
               Row(
