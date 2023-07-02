@@ -95,6 +95,39 @@ Flight Booking is a web application for managing airports and flights. Users can
 * Nguyễn Minh Hưng: 20120491
 * Trương Huỳnh Đức Hoàng: 20120483
 
+## 💻Backend
+https://github.com/nguyenminhhung2011/dream-ticket
+
+## 🐼 Layer
+* The project applies the clean architecture principles to implement the code.
+
+```
+lib/
+
+|- data/
+|  |- repositories/  => providing data access
+|  |- models/ => representing data structures
+|  |- datasources/ => used to communicate with data sources such as a database or API
+|     |- local/ 
+|     |- remote/ 
+|
+|- domain/
+|  |- repositories/ => communicating with the data.repositories layer
+|  |- entities/ => representing objects within the application
+|  |- usecases/ => contains the implementation of the application's use cases
+|
+|- presentation/
+|  |- screens/ 
+|  |- widgets/
+|  |- bloc/
+|     |- model_state.dart
+|     |- state.dart
+|     |- event.dart
+|     |- bloc.dart
+|- app.dart
+|- main.dart
+
+```
 
 ## 📱 UI
 ### 💻Web
@@ -130,9 +163,6 @@ Flight Booking is a web application for managing airports and flights. Users can
 |![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/fcf535c4-32d6-47b7-923c-1c83ee1fccdc)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/747c3fc0-2531-4d59-be01-7ca145d9cd82)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/1c33f013-6fd8-48ad-b969-5fecb0beadd7)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/3a143e7a-9514-41fb-9fed-7bf5bdbdb2af)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/56cf618f-c49c-418f-afd1-cd184bace726)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/cb4648fd-22a3-4a14-b2f3-c9f2ab9e614b)|
 |![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/504d0497-e74f-4358-a852-4e89c5f64a9f)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/c06f8d95-be74-4870-aaee-2cb37b959be3)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/39f19324-bab4-4371-8c66-ecb3b8169cab)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/4d6d3758-7a84-4dd2-a11c-fbd163ed76d5)|||
 
-
-## 💻Backend
-https://github.com/nguyenminhhung2011/dream-ticket
 
 
 
