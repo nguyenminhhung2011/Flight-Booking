@@ -1,6 +1,5 @@
 import 'package:flight_booking/app_coordinator.dart';
 import 'package:flight_booking/core/components/const/image_const.dart';
-import 'package:flight_booking/core/components/utils/preferences.dart';
 import 'package:flight_booking/core/components/widgets/loading_indicator.dart';
 import 'package:flight_booking/presentations/login/bloc/authentication_bloc.dart';
 import 'package:flight_booking/presentations/login/views/widgets/forget_password_form.dart';
@@ -59,8 +58,6 @@ class LoginScreen extends StatelessWidget {
                   horizontal: MediaQuery.of(context).size.width * 0.05,
                   vertical: MediaQuery.of(context).size.height * 0.05,
                 ),
-                // width: loginFormWidth,
-                // height: loginFormHeight,
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
                   borderRadius: BorderRadius.circular(15),
