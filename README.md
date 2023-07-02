@@ -75,11 +75,11 @@ Flight Booking is a web application for managing airports and flights. Users can
 * They have the ability to change their password.
 * Admins can modify the system's rules and regulations.
 
-## Employee
-#### Same aAdmin
+### 👨‍💼Employee
+#### Same Admin
 
 
-## Customer 
+### 🤦‍♂️Customer 
 * Users can view a list of flights.
 * They can access a list of airports.
 * Users have the ability to book flight tickets online.
