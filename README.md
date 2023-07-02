@@ -16,6 +16,9 @@
 
 ## 📄 Introduction
 Flight Booking is a web application for managing airports and flights. Users can book flights using the mobile app.
+
+<br>
+
 ## 📲All Features
 
 ### 🖱️Account
@@ -83,7 +86,7 @@ Flight Booking is a web application for managing airports and flights. Users can
 * They can edit their credit card information.
 * Users can add items to a wishlist or favorites list.
 
-
+<br>
 
 ## 💻 Tech
 * Language: Dart, java
@@ -91,14 +94,20 @@ Flight Booking is a web application for managing airports and flights. Users can
 * Database: MySQl
 * Backend: SpringBoot
 
+<br>
+
 ## 👨‍💻 Members
 * Nguyễn Minh Hưng: 20120491
 * Trương Huỳnh Đức Hoàng: 20120483
 * Data: Lê Xuân Huy - 20120495
 * Data and support backend: Trần Nhât Nguyên - 20120340
 
+<br>
+
 ## 💻Backend
 https://github.com/nguyenminhhung2011/dream-ticket
+
+<br>
 
 ## 🐼 Layer
 * The project applies the clean architecture principles to implement the code.
@@ -131,6 +140,9 @@ lib/
 |- main.dart
 
 ```
+
+<br>
+
 ## 🐸Configuration file.
 
 ``` dart
@@ -147,6 +159,8 @@ lib/
 |  |- defautl_config.dart
 ```
 
+<br>
+
 ## 📱 UI
 ### 💻Web
 
@@ -161,6 +175,8 @@ lib/
 |![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/427a3b8b-a3b9-4470-9537-93532252d5aa)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/67a75822-750b-44ec-82cc-b6ad01228802)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/0d6b050e-f07b-4a2c-b144-7ceb87c4d8e0)|
 |![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/ffb83849-e5f3-456b-a288-24754f72573e)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/dbe188ae-9f42-488a-9561-925fb781e174)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/38465d5c-b69a-43a4-bd09-d9776d41a6c2)|
 |![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/2bfdffe5-a56e-4311-a9bf-148ee5d7950e)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/4910d8ad-017c-4669-967d-3ae3b7cd37cd)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/f820474a-0ef8-49b6-9c63-3b8251b4afb0)|
+
+<br>
 
 ### 🐳Mobile
 |  Light1 | Dark1 | Light2 | Dark2 | Light3 | Dark3 | 
@@ -181,6 +197,7 @@ lib/
 |![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/fcf535c4-32d6-47b7-923c-1c83ee1fccdc)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/747c3fc0-2531-4d59-be01-7ca145d9cd82)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/1c33f013-6fd8-48ad-b969-5fecb0beadd7)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/3a143e7a-9514-41fb-9fed-7bf5bdbdb2af)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/56cf618f-c49c-418f-afd1-cd184bace726)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/cb4648fd-22a3-4a14-b2f3-c9f2ab9e614b)|
 |![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/504d0497-e74f-4358-a852-4e89c5f64a9f)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/c06f8d95-be74-4870-aaee-2cb37b959be3)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/39f19324-bab4-4371-8c66-ecb3b8169cab)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/4d6d3758-7a84-4dd2-a11c-fbd163ed76d5)|||
 
+<br>
 
 ## 📺 Video demo
 https://www.youtube.com/watch?v=Jsqp5dMqoac
