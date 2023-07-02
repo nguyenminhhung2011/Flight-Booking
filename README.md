@@ -116,6 +116,7 @@ lib/
 |  |- entities/ => representing objects within the application
 |  |- usecases/ => contains the implementation of the application's use cases
 |
+|- presentation_mobile/
 |- presentation/
 |  |- screens/ 
 |  |- widgets/
@@ -127,6 +128,21 @@ lib/
 |- app.dart
 |- main.dart
 
+```
+## 🐸Configuration file.
+
+``` dart
+|- configurations/
+|  |- env/
+|     |- env_prod.dart
+          final Map<String, dynamic> environmentProd = {
+            'name': 'Flight Booking',
+            'environment': 'prod',
+            'baseUrl': 'http://192.168.1.104:8080/',
+            'mode': 'mobile', // => change web for web version and change to mobile for mobile version 
+          };
+|  |- configurations.dart 
+|  |- defautl_config.dart
 ```
 
 ## 📱 UI
@@ -164,7 +180,8 @@ lib/
 |![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/504d0497-e74f-4358-a852-4e89c5f64a9f)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/c06f8d95-be74-4870-aaee-2cb37b959be3)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/39f19324-bab4-4371-8c66-ecb3b8169cab)|![image](https://github.com/nguyenminhhung2011/Flight-Booking/assets/90996598/4d6d3758-7a84-4dd2-a11c-fbd163ed76d5)|||
 
 
-
+## 📺 Video demo
+https://www.youtube.com/watch?v=Jsqp5dMqoac
 
 
 
