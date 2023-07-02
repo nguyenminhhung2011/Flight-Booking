@@ -94,6 +94,8 @@ Flight Booking is a web application for managing airports and flights. Users can
 ## 👨‍💻 Members
 * Nguyễn Minh Hưng: 20120491
 * Trương Huỳnh Đức Hoàng: 20120483
+* Data: Lê Xuân Huy - 20120495
+* Data and support backend: Trần Nhât Nguyên - 20120340
 
 ## 💻Backend
 https://github.com/nguyenminhhung2011/dream-ticket
