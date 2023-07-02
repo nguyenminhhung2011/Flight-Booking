@@ -23,9 +23,8 @@ class ImageConst {
   static const String splashIcon = "assets/images/splash_gif.gif";
 
   //login background
-  static const String loginBackground = "assets/images/vecteezy_airplane.jpg";
-  static const String loginBackgroundDark =
-      "assets/images/login_background_dark.jpg";
+  static const String loginBackground = "images/vecteezy_airplane.jpg";
+  static const String loginBackgroundDark = "images/login_background_dark.jpg";
 
   //icons
   static const String homeIcon = 'assets/icons/Home.svg';
@@ -37,11 +36,11 @@ class ImageConst {
   static const String visaIcon = 'assets/images/visa.png';
   static const String masterIcon = 'assets/images/master.png';
   static const String planeTicket = 'assets/images/plane-ticket.png';
-  static const String totalPayment = 'assets/icons/total_payment.png';
-  static const String totalCustomer = 'assets/icons/total_customer.png';
-  static const String totalFlight = 'assets/icons/total_flight.png';
-  static const String totalPassenger = 'assets/icons/total_passenger.png';
-  static const String planeIcons = "assets/icons/plane.png";
+  static const String totalPayment = 'icons/total_payment.png';
+  static const String totalCustomer = 'icons/total_customer.png';
+  static const String totalFlight = 'icons/total_flight.png';
+  static const String totalPassenger = 'icons/total_passenger.png';
+  static const String planeIcons = "icons/plane.png";
 
   static const String googleIconLogin = 'assets/icons/google.jpg';
   //onboard

@@ -53,9 +53,9 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
         primaryColorDark: '#07AEAF'.toColor(),
         // fontFamily: 'Montserrat',
       ),
-      // darkTheme: ThemeData.dark().copyWith(
-      //   primaryColor: '#07AEAF'.toColor(),
-      // ),
+      darkTheme: ThemeData.dark().copyWith(
+        primaryColor: '#07AEAF'.toColor(),
+      ),
       locale: locale,
     );
   }

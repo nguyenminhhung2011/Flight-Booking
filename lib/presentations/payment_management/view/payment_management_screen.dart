@@ -132,9 +132,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
         return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: state.isLoading
-              ? LoadingIndicator(
-                  color: Theme.of(context).primaryColor,
-                )
+              ? const LoadingIndicator()
               : SafeArea(
                   child: SingleChildScrollView(
                     child: Padding(
@@ -459,7 +457,7 @@ class _PaymentManagementScreenState extends State<PaymentManagementScreen> {
                 },
                 icon: state.isLoadingItem(data)
                     ? LoadingIndicator(
-                        color: Theme.of(context).colorScheme.primary,
+                        color: Theme.of(context).colorScheme.onPrimary,
                         radius: 10,
                         strokeWidth: 1,
                       )
