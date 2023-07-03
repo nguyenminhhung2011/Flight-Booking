@@ -1,8 +1,10 @@
 import 'package:flight_booking/core/components/enum/payment_type.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
+import 'package:flight_booking/presentations/payment_detail/bloc/payment_detail_bloc.dart';
 import 'package:flight_booking/presentations/settings/views/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class PaymentConfirmCard extends StatefulWidget {
@@ -18,7 +20,8 @@ class PaymentConfirmCard extends StatefulWidget {
 class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
   int currentIndex = 0;
 
-  PaymentType paymentType = PaymentType.card;
+  late PaymentType paymentType =
+      widget.creditCard.creditNum.isEmpty ? PaymentType.cash : PaymentType.card;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +53,8 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                     Radio<PaymentType>(
                       groupValue: paymentType,
                       onChanged: (value) {
-                        if (value != null) {
+                        if (value != null &&
+                            widget.creditCard.creditNum.isNotEmpty) {
                           setState(() {
                             paymentType = value;
                           });
@@ -68,7 +72,8 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                     Radio<PaymentType>(
                       groupValue: paymentType,
                       onChanged: (value) {
-                        if (value != null) {
+                        if (value != null &&
+                            widget.creditCard.creditNum.isNotEmpty) {
                           setState(() {
                             paymentType = value;
                           });
@@ -89,76 +94,108 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
               ],
             ),
             const Spacer(),
-            Text(
-              "Card Number",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(fontWeight: FontWeight.bold),
-            ),
-            CustomerTextField(
-                enable: paymentType == PaymentType.card,
-                controller:
-                    TextEditingController(text: widget.creditCard.creditNum)),
-            const Spacer(),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Text("Expiration Date",
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(fontWeight: FontWeight.bold)),
-                ),
-                Expanded(
-                  child: Text("CVC",
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(fontWeight: FontWeight.bold)),
-                ),
-              ],
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: CustomerTextField(
-                    enable: paymentType == PaymentType.card,
-                    controller: TextEditingController(
-                        text: DateFormat("dd/MM/yyyy").format(
-                      DateTime.fromMillisecondsSinceEpoch(
-                          widget.creditCard.expiredDate),
-                    )),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                    child: CustomerTextField(
+            if (paymentType == PaymentType.card) ...[
+              Text(
+                "Card Number",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.bold),
+              ),
+              CustomerTextField(
                   enable: paymentType == PaymentType.card,
                   controller:
-                      TextEditingController(text: widget.creditCard.cvc),
-                )),
-              ],
-            ),
-            const Spacer(),
-            Text(
-              "Name on card",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(fontWeight: FontWeight.bold),
-            ),
-            CustomerTextField(
-              enable: paymentType == PaymentType.card,
-              controller:
-                  TextEditingController(text: widget.creditCard.nameCard),
-              width: MediaQuery.of(context).size.width,
-              hint: "Enter your Card holder name",
-            ),
+                      TextEditingController(text: widget.creditCard.creditNum)),
+              const Spacer(),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Text("Expiration Date",
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(fontWeight: FontWeight.bold)),
+                  ),
+                  Expanded(
+                    child: Text("CVC",
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(fontWeight: FontWeight.bold)),
+                  ),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: CustomerTextField(
+                      enable: paymentType == PaymentType.card,
+                      controller: TextEditingController(
+                          text: DateFormat("dd/MM/yyyy").format(
+                        DateTime.fromMillisecondsSinceEpoch(
+                            widget.creditCard.expiredDate),
+                      )),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                      child: CustomerTextField(
+                    enable: paymentType == PaymentType.card,
+                    controller:
+                        TextEditingController(text: widget.creditCard.cvc),
+                  )),
+                ],
+              ),
+              const Spacer(),
+              Text(
+                "Name on card",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.bold),
+              ),
+              CustomerTextField(
+                enable: paymentType == PaymentType.card,
+                controller:
+                    TextEditingController(text: widget.creditCard.nameCard),
+                width: MediaQuery.of(context).size.width,
+                hint: "Enter your Card holder name",
+              ),
+            ],
+            if (paymentType == PaymentType.cash) ...[
+              Text(
+                "Please pay your bill at the accountant's table",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 25),
+              Text(
+                "Total Money",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.bold),
+              ),
+              CustomerTextField(
+                enable: false,
+                controller: TextEditingController(
+                  text: context
+                      .read<PaymentDetailBloc>()
+                      .state
+                      .data
+                      .paymentDetail
+                      .total
+                      .toString(),
+                ),
+              ),
+              const Spacer(),
+            ]
           ],
         ),
       ),

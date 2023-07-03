@@ -1,4 +1,5 @@
 import 'package:flight_booking/app_coordinator.dart';
+import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flight_booking/core/components/enum/tic_type_enum.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/core/constant/handle_time.dart';
@@ -281,13 +282,13 @@ class _PaymentDetailCardState extends State<PaymentDetailCard> {
                 _buildPaymentListTileComponent(
                   imageUrl: "icons/fare.png",
                   title: "Fare",
-                  value: 1234.toString(),
+                  value: 0.toString(),
                 ),
                 const SizedBox(height: 20),
                 _buildPaymentListTileComponent(
                   imageUrl: "icons/tax.png",
                   title: "Tax",
-                  value: "\$12342143",
+                  value: "\$0",
                 ),
                 Divider(
                   thickness: 1,
@@ -299,31 +300,34 @@ class _PaymentDetailCardState extends State<PaymentDetailCard> {
                   title: "Total",
                   value: widget.payment.total.toString(),
                 ),
-                const SizedBox(height: 20),
-                TextButton.icon(
-                  onPressed: () {
-                    context.openPageWithRouteAndParams(Routes.payment, {
-                      'ids': {
-                        'flightId': widget.payment.flight?.id,
-                        'paymentId': widget.payment.id,
-                      }
-                    });
-                  },
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size(double.maxFinite, 50),
-                    backgroundColor: Theme.of(context).primaryColor,
-                    foregroundColor: Theme.of(context).disabledColor,
-                  ),
-                  icon: Icon(
-                    Icons.payment,
-                    color: Theme.of(context).colorScheme.onPrimary,
-                  ),
-                  label: Text(
-                    "Payment Now",
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.onPrimary),
-                  ),
-                )
+                if (widget.payment.paymentStatus !=
+                    PaymentStatus.succeeded) ...[
+                  const SizedBox(height: 20),
+                  TextButton.icon(
+                    onPressed: () {
+                      context.openPageWithRouteAndParams(Routes.payment, {
+                        'ids': {
+                          'flightId': widget.payment.flight?.id,
+                          'paymentId': widget.payment.id,
+                        }
+                      });
+                    },
+                    style: TextButton.styleFrom(
+                      minimumSize: const Size(double.maxFinite, 50),
+                      backgroundColor: Theme.of(context).primaryColor,
+                      foregroundColor: Theme.of(context).disabledColor,
+                    ),
+                    icon: Icon(
+                      Icons.payment,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                    label: Text(
+                      "Payment Now",
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.onPrimary),
+                    ),
+                  )
+                ]
               ],
             ),
           ),
