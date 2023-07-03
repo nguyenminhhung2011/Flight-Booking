@@ -1,3 +1,4 @@
+import 'package:flight_booking/core/components/enum/payment_status_enum.dart';
 import 'package:flight_booking/core/components/enum/payment_type.dart';
 import 'package:flight_booking/core/config/common_ui_config.dart';
 import 'package:flight_booking/domain/entities/credit_card/credit_card.dart';
@@ -54,7 +55,14 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                       groupValue: paymentType,
                       onChanged: (value) {
                         if (value != null &&
-                            widget.creditCard.creditNum.isNotEmpty) {
+                            widget.creditCard.creditNum.isNotEmpty &&
+                            context
+                                    .read<PaymentDetailBloc>()
+                                    .state
+                                    .data
+                                    .paymentDetail
+                                    .paymentStatus !=
+                                PaymentStatus.succeeded) {
                           setState(() {
                             paymentType = value;
                           });
@@ -73,7 +81,14 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                       groupValue: paymentType,
                       onChanged: (value) {
                         if (value != null &&
-                            widget.creditCard.creditNum.isNotEmpty) {
+                            widget.creditCard.creditNum.isNotEmpty &&
+                            context
+                                    .read<PaymentDetailBloc>()
+                                    .state
+                                    .data
+                                    .paymentDetail
+                                    .paymentStatus !=
+                                PaymentStatus.succeeded) {
                           setState(() {
                             paymentType = value;
                           });
@@ -83,7 +98,7 @@ class _PaymentConfirmCardState extends State<PaymentConfirmCard> {
                     ),
                     const SizedBox(width: 20),
                     Image.asset(
-                      "icons/money.png",
+                      "assets/icons/money.png",
                       height: 50,
                       width: 50,
                       fit: BoxFit.contain,
@@ -214,9 +229,9 @@ class _PaymentMethodSelectionState extends State<PaymentMethodSelection> {
   int _currentIndex = 0;
 
   Map<int, String> selectionData = {
-    0: "icons/paypal.png",
-    1: "icons/atm-card.png",
-    2: "icons/visa.png",
+    0: "assets/icons/paypal.png",
+    1: "assets/icons/atm-card.png",
+    2: "assets/icons/visa.png",
   };
   Widget _buildImageSelectable(String imageUrl, int index) {
     return InkWell(

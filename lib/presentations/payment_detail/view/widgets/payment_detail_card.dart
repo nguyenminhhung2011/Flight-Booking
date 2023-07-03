@@ -280,13 +280,13 @@ class _PaymentDetailCardState extends State<PaymentDetailCard> {
                 ),
                 const SizedBox(height: 20),
                 _buildPaymentListTileComponent(
-                  imageUrl: "icons/fare.png",
+                  imageUrl: "assets/icons/fare.png",
                   title: "Fare",
                   value: 0.toString(),
                 ),
                 const SizedBox(height: 20),
                 _buildPaymentListTileComponent(
-                  imageUrl: "icons/tax.png",
+                  imageUrl: "assets/icons/tax.png",
                   title: "Tax",
                   value: "\$0",
                 ),
@@ -296,7 +296,7 @@ class _PaymentDetailCardState extends State<PaymentDetailCard> {
                   color: Theme.of(context).dividerColor,
                 ),
                 _buildPaymentListTileComponent(
-                  imageUrl: "icons/receive-amount.png",
+                  imageUrl: "assets/icons/receive-amount.png",
                   title: "Total",
                   value: widget.payment.total.toString(),
                 ),
