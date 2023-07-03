@@ -168,7 +168,7 @@ class FlightScheduleComponent extends StatelessWidget {
             minLeadingWidth: 0,
             contentPadding: const EdgeInsets.all(0),
             leading: Image.asset(
-              "icons/airplane.png",
+              "assets/icons/airplane.png",
               height: 50,
               width: 50,
               fit: BoxFit.contain,

@@ -30,6 +30,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
 
   @override
   void initState() {
+    bloc.add(const PaymentDetailEvent.onStarted());
     bloc.add(PaymentDetailEvent.fetchPaymentDetailData(id: bloc.paymentId));
     super.initState();
   }

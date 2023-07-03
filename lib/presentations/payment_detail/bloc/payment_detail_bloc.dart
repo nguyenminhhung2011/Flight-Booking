@@ -45,7 +45,6 @@ class PaymentDetailBloc extends Bloc<PaymentDetailEvent, PaymentDetailState> {
 
   FutureOr<void> _onFetchPaymentDetailData(
       _FetchPaymentDetailData event, Emitter<PaymentDetailState> emit) async {
-    emit(_Loading(data: state.data));
     try {
       int index =
           state.data.payments.indexWhere((element) => element.id == event.id);
